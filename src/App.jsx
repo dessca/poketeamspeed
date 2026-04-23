@@ -1,8 +1,9 @@
-﻿import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import "./App.css";
 import { useRef } from "react";
 import { championsRoster, MEGA_OPTIONS } from "./data/championsRoster";
 import megaFroslassArt from "../image/Mega_Froslass.webp";
+import { Analytics } from "@vercel/analytics/react";
 
 const ROSTER_BY_ID = new Map(championsRoster.map((entry) => [entry.id, entry]));
 const ROSTER_BY_NAME = new Map(championsRoster.map((entry) => [entry.displayName, entry]));
@@ -1888,6 +1889,7 @@ function App() {
 
         <footer className="app-footer">{t.footer}</footer>
       </div>
+      <Analytics />
     </div>
   );
 }
