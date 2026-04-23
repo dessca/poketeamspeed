@@ -55,9 +55,9 @@
 
 .app-header {
   display: grid;
-  grid-template-columns: auto 1fr;
+  grid-template-columns: minmax(0, 1fr) auto;
   align-items: center;
-  gap: 18px;
+  gap: 16px;
   margin-bottom: 16px;
 }
 
@@ -65,12 +65,38 @@
   display: inline-flex;
   align-items: center;
   gap: 10px;
+  min-width: 0;
+}
+
+.brand-mark {
+  width: clamp(42px, 3.2vw, 54px);
+  height: clamp(42px, 3.2vw, 54px);
+  flex: 0 0 auto;
+  display: block;
+  object-fit: contain;
 }
 
 .brand h1 {
   margin: 0;
-  font-size: clamp(1.9rem, 2.4vw, 2.35rem);
+  font-size: clamp(1.72rem, 2.1vw, 2.1rem);
   letter-spacing: -0.06em;
+  line-height: 1.04;
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: baseline;
+  gap: 10px;
+}
+
+.brand-main {
+  font-size: 1em;
+  font-weight: 900;
+}
+
+.brand-sub {
+  font-size: 0.62em;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  color: var(--muted);
 }
 
 .heading-with-help {
@@ -83,7 +109,7 @@
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
   min-width: 0;
 }
 
@@ -96,6 +122,15 @@
 
 .header-view-switch {
   flex: 0 0 auto;
+}
+
+.header-view-switch.segmented {
+  padding-inline: 5px;
+}
+
+.header-view-switch button {
+  min-width: 68px;
+  padding-inline: 12px;
 }
 
 .segmented,
@@ -166,6 +201,12 @@
   background: transparent;
   color: inherit;
   cursor: pointer;
+  transition:
+    background-color 170ms ease,
+    color 170ms ease,
+    border-color 170ms ease,
+    box-shadow 170ms ease,
+    opacity 170ms ease;
 }
 
 .segmented button {
@@ -183,6 +224,32 @@
 .rank-controls button:hover,
 .search-result:hover {
   background: rgba(37, 99, 235, 0.15);
+}
+
+.segmented button:hover:not(.active):not(:disabled),
+.ghost-button:hover:not(:disabled),
+.ghost-icon:hover:not(:disabled),
+.icon-toggle:hover:not(:disabled),
+.lang-select:hover:not(:disabled),
+.preset-inline button:hover:not(:disabled),
+.battle-side-head select:hover:not(:disabled),
+.field select:hover:not(:disabled),
+.field input:hover:not(:disabled),
+.inline-input input:hover:not(:disabled) {
+  border-color: rgba(37, 99, 235, 0.26);
+  background: rgba(37, 99, 235, 0.08);
+}
+
+.primary-button:hover:not(:disabled) {
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.08) inset,
+    0 18px 32px rgba(37, 99, 235, 0.2);
+  filter: saturate(1.06);
+}
+
+.danger-pill:hover:not(:disabled) {
+  border-color: rgba(239, 68, 68, 0.26);
+  background: rgba(239, 68, 68, 0.22);
 }
 
 .lang-select,
@@ -416,6 +483,11 @@
   margin: 0;
   padding: 8px;
   border-radius: 18px;
+  align-content: start;
+}
+
+.battle-side.battle-side-searching .battle-search-popover {
+  min-height: 0;
 }
 
 .search-result {
@@ -621,11 +693,13 @@
   border: 1px solid var(--panel-border);
   background: var(--panel);
   cursor: pointer;
-  transition: transform 160ms ease, border-color 160ms ease, box-shadow 160ms ease;
+  transition: background-color 170ms ease, border-color 170ms ease, box-shadow 170ms ease;
 }
 
 .saved-team-card:hover {
-  transform: translateY(-1px);
+  border-color: rgba(37, 99, 235, 0.24);
+  background: rgba(37, 99, 235, 0.06);
+  box-shadow: inset 0 0 0 1px rgba(37, 99, 235, 0.08);
 }
 
 .saved-team-card.selected {
@@ -740,14 +814,16 @@
 
 .lang-select option,
 .preset-inline select option,
-.battle-side-head select option {
+.battle-side-head select option,
+.mega-select option {
   color: #0f172a;
   background: #ffffff;
 }
 
 .app-shell.dark .lang-select option,
 .app-shell.dark .preset-inline select option,
-.app-shell.dark .battle-side-head select option {
+.app-shell.dark .battle-side-head select option,
+.app-shell.dark .mega-select option {
   color: #e8f1ff;
   background: #111b2d;
 }
@@ -805,6 +881,7 @@
   display: grid;
   align-content: space-between;
   gap: 10px;
+  transition: background-color 170ms ease, border-color 170ms ease, box-shadow 170ms ease, opacity 170ms ease;
 }
 
 .slot-card.compact {
@@ -823,7 +900,9 @@
 }
 
 .slot-card:hover {
-  transform: translateY(-1px);
+  border-color: rgba(37, 99, 235, 0.24);
+  background: rgba(37, 99, 235, 0.05);
+  box-shadow: inset 0 0 0 1px rgba(37, 99, 235, 0.08);
 }
 
 .slot-card.selected {
@@ -1001,12 +1080,29 @@
   background: rgba(96, 165, 250, 0.1);
 }
 
+.compare-copy {
+  min-width: 0;
+}
+
+.compare-active-chip {
+  position: absolute;
+  top: 50%;
+  right: -10px;
+  min-width: 44px;
+  transform: translateY(-50%);
+  z-index: 1;
+}
+
 .detail-card {
   display: grid;
   gap: 14px;
   margin: 0;
   position: sticky;
   top: 16px;
+}
+
+.detail-card.detail-empty {
+  grid-template-rows: auto minmax(240px, 1fr);
 }
 
 .detail-head {
@@ -1085,7 +1181,7 @@
   font-weight: 800;
   white-space: nowrap;
   cursor: pointer;
-  transition: background 160ms ease, border-color 160ms ease, color 160ms ease, transform 160ms ease;
+  transition: background-color 170ms ease, border-color 170ms ease, color 170ms ease, box-shadow 170ms ease;
 }
 
 .active-toggle.compact {
@@ -1105,7 +1201,9 @@
 }
 
 .active-toggle:hover:not(:disabled) {
-  transform: translateY(-1px);
+  border-color: rgba(37, 99, 235, 0.26);
+  background: rgba(37, 99, 235, 0.12);
+  color: color-mix(in srgb, var(--text) 82%, var(--accent));
 }
 
 .active-toggle:disabled {
@@ -1136,8 +1234,9 @@
 }
 
 .detail-speed-result {
-  display: grid;
-  gap: 6px;
+  display: inline-flex;
+  align-items: baseline;
+  gap: 10px;
   padding: 14px 16px;
   border-radius: 18px;
   border: 1px solid var(--panel-border);
@@ -1148,12 +1247,14 @@
   color: var(--muted);
   font-size: var(--panel-label-size);
   font-weight: 700;
+  white-space: nowrap;
 }
 
 .detail-speed-result strong {
-  font-size: 1.3rem;
+  font-size: 1.12rem;
   line-height: 1;
   letter-spacing: -0.03em;
+  white-space: nowrap;
 }
 
 .field {
@@ -1232,11 +1333,16 @@
   padding: 0 12px;
   font-size: var(--panel-body-size);
   box-shadow: var(--shadow);
+  color-scheme: light;
 }
 
 .mega-select:disabled {
   opacity: 0.52;
   cursor: not-allowed;
+}
+
+.app-shell.dark .mega-select {
+  color-scheme: dark;
 }
 
 .battle-grid {
@@ -1251,6 +1357,15 @@
   gap: 12px;
   align-content: start;
   grid-auto-rows: max-content;
+}
+
+.battle-side.battle-side-empty {
+  align-content: stretch;
+  grid-template-rows: auto auto 1fr;
+}
+
+.battle-side.battle-side-empty.battle-side-searching {
+  grid-template-rows: auto auto auto 1fr;
 }
 
 .battle-side-head {
@@ -1349,6 +1464,23 @@
   line-height: 1.1;
   white-space: nowrap;
   justify-content: center;
+  transition: background-color 170ms ease, border-color 170ms ease, color 170ms ease, box-shadow 170ms ease, opacity 170ms ease;
+}
+
+.toggle-chip:hover:not(:disabled) {
+  border-color: rgba(37, 99, 235, 0.26);
+  background: rgba(37, 99, 235, 0.08);
+  color: color-mix(in srgb, var(--text) 82%, var(--accent));
+}
+
+.toggle-chip.on {
+  border-color: rgba(37, 99, 235, 0.26);
+  box-shadow: inset 0 0 0 1px rgba(37, 99, 235, 0.08);
+}
+
+.toggle-chip.on:hover:not(:disabled) {
+  background: rgba(37, 99, 235, 0.2);
+  border-color: rgba(37, 99, 235, 0.34);
 }
 
 .toggle-chip:disabled,
@@ -1412,6 +1544,11 @@
   margin: 0 22px;
 }
 
+.battle-result.battle-result-empty {
+  min-height: 220px;
+  align-content: stretch;
+}
+
 .battle-result-copy {
   display: grid;
   justify-items: center;
@@ -1429,6 +1566,7 @@
   border: 1px solid rgba(148, 163, 184, 0.18);
   background: rgba(148, 163, 184, 0.08);
   text-align: center;
+  transition: background-color 190ms ease, border-color 190ms ease, box-shadow 190ms ease;
 }
 
 .battle-result-badge span {
@@ -1554,6 +1692,11 @@
   font-size: var(--panel-title-size);
 }
 
+.battle-result,
+.compare-range {
+  transition: background-color 190ms ease, border-color 190ms ease, box-shadow 190ms ease, color 190ms ease;
+}
+
 .compare-list {
   display: grid;
   gap: 6px;
@@ -1617,6 +1760,8 @@
 
 .compare-panel .compare-name-line {
   gap: 6px;
+  position: relative;
+  overflow: visible;
 }
 
 .compare-panel .compare-range {
@@ -1686,6 +1831,7 @@
   top: 50%;
   height: 18px;
   transform: translateY(-50%);
+  transition: left 220ms ease, width 220ms ease;
 }
 
 .speed-graph-line {
@@ -1694,6 +1840,7 @@
   transform: translateY(-50%);
   width: 100%;
   left: 0;
+  transition: background-color 180ms ease;
 }
 
 .speed-graph-cap {
@@ -1701,6 +1848,7 @@
   height: 14px;
   border-radius: 999px;
   transform: translateY(-50%);
+  transition: background-color 180ms ease;
 }
 
 .speed-graph-segment .speed-graph-cap.start {
@@ -1716,6 +1864,7 @@
   height: 12px;
   border-radius: 999px;
   transform: translate(-50%, -50%);
+  transition: left 220ms ease, background-color 180ms ease;
 }
 
 .speed-graph-value {
@@ -1730,6 +1879,7 @@
   pointer-events: auto;
   transform-origin: center;
   z-index: 2;
+  transition: left 220ms ease, color 180ms ease, opacity 180ms ease;
 }
 
 .speed-graph-value.top {
@@ -1821,6 +1971,7 @@
   border-radius: 999px;
   transform: translateY(-50%);
   min-width: 10px;
+  transition: left 220ms ease, width 220ms ease, background 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
 }
 
 .speed-graph-point {
@@ -1828,12 +1979,14 @@
   height: 14px;
   border-radius: 999px;
   transform: translate(-50%, -50%);
+  transition: left 220ms ease, background 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
 }
 
 .speed-graph-point-range {
   height: 10px;
   border-radius: 999px;
   transform: translateY(-50%);
+  transition: left 220ms ease, width 220ms ease, background 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
 }
 
 .speed-graph.ally .speed-graph-line,
@@ -1915,6 +2068,36 @@
 
 .empty-box.in-panel {
   min-height: 96px;
+}
+
+.detail-card.detail-empty .empty-box.in-panel {
+  min-height: 100%;
+  padding: 28px;
+  align-self: stretch;
+  align-content: center;
+  justify-items: center;
+  font-size: 1.02rem;
+  line-height: 1.7;
+}
+
+.battle-side.battle-side-empty .empty-box.in-panel {
+  min-height: 124px;
+  padding: 24px;
+  align-self: stretch;
+  align-content: center;
+  justify-items: center;
+  font-size: 0.98rem;
+  line-height: 1.65;
+}
+
+.battle-result-empty-box {
+  min-height: 100%;
+  padding: 24px 28px;
+  align-self: stretch;
+  align-content: center;
+  justify-items: center;
+  font-size: 1rem;
+  line-height: 1.7;
 }
 
 .app-footer {
@@ -2020,8 +2203,18 @@
     align-self: start;
   }
 
+  .brand-mark {
+    width: 40px;
+    height: 40px;
+  }
+
   .brand h1 {
     font-size: clamp(1.6rem, 8vw, 2rem);
+    gap: 8px;
+  }
+
+  .brand-sub {
+    font-size: 0.54em;
   }
 
   .slot-grid,

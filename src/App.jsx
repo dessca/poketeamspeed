@@ -2,6 +2,7 @@
 import "./App.css";
 import { useRef } from "react";
 import { championsRoster, MEGA_OPTIONS } from "./data/championsRoster";
+import megaFroslassArt from "../image/Mega_Froslass.webp";
 
 const ROSTER_BY_ID = new Map(championsRoster.map((entry) => [entry.id, entry]));
 const ROSTER_BY_NAME = new Map(championsRoster.map((entry) => [entry.displayName, entry]));
@@ -18,7 +19,8 @@ const STORAGE = {
 
 const TEXT = {
   ko: {
-    title: "SCARF | Pokémon Speed Matchups",
+    titleMain: "SCARF",
+    titleSub: "Pokémon Speed Matchups",
     titleHelp: "포켓몬 챔피언스 기준으로 양 팀 포켓몬들의 스피드와 현재 대면 선공을 빠르게 파악하는 도구입니다.",
     graphHelpLabel: "그래프 보는 법 ?",
     graphHelp:
@@ -32,8 +34,12 @@ const TEXT = {
     searchTarget: "현재 추가 대상",
     teamSettings: "팀 설정",
     detailSettings: "상세 설정",
+    detailEmptyHint: "엔트리에서 포켓몬을 선택해 상세 설정을 확인하세요.",
     liveBattle: "실시간 대면",
+    liveBattleEmptyHint: "실시간 대면에서 포켓몬을 선택해 전투 상황을 설정하세요.",
+    battleResultEmptyHint: "내 팀과 상대 팀 포켓몬을 설정하고 누가 먼저 행동할지 확인해보세요.",
     speedCompare: "팀 스피드 비교",
+    speedCompareHelp: "내 팀과 상대 팀 전체 엔트리 포켓몬들의 스피드를 비교해보세요. 출전 포켓몬이 모두 확정되면 나머지 포켓몬은 제외됩니다.",
     allPokemon: "전체 포켓몬",
     battleMode: "배틀 모드",
     single: "싱글",
@@ -68,6 +74,7 @@ const TEXT = {
     active: "출전",
     standby: "대기",
     resetSlot: "선택 슬롯 초기화",
+    clearDetailPanel: "상세 설정 닫기",
     currentPokemon: "현재 포켓몬",
     tailwind: "순풍 ×2.0",
     paralysis: "마비 ×0.5",
@@ -95,7 +102,8 @@ const TEXT = {
     footer: "문의: teamscarf@proton.me",
   },
   en: {
-    title: "PokeTeamSpeed",
+    titleMain: "SCARF",
+    titleSub: "Pokémon Speed Matchups",
     titleHelp: "A quick speed comparison tool for Pokemon Champions.",
     graphHelpLabel: "How to read graphs ?",
     graphHelp:
@@ -109,8 +117,12 @@ const TEXT = {
     searchTarget: "Current target",
     teamSettings: "Team Setup",
     detailSettings: "Detail",
+    detailEmptyHint: "Select a Pokemon from the entries to open its detail settings.",
     liveBattle: "Live Matchup",
+    liveBattleEmptyHint: "Choose a Pokemon in live matchup to configure the battle state.",
+    battleResultEmptyHint: "Set your Pokemon and the opponent's Pokemon to see who moves first.",
     speedCompare: "Team Speed Compare",
+    speedCompareHelp: "Compare the Speed ranges of all entry Pokemon on both teams. Once all active Pokemon are locked in, the remaining Pokemon are excluded.",
     allPokemon: "All Pokemon",
     battleMode: "Mode",
     single: "Single",
@@ -145,6 +157,7 @@ const TEXT = {
     active: "Active",
     standby: "Bench",
     resetSlot: "Reset Slot",
+    clearDetailPanel: "Close Detail",
     currentPokemon: "Current Pokemon",
     tailwind: "Tailwind ×2.0",
     paralysis: "Paralysis ×0.5",
@@ -269,6 +282,7 @@ const CANONICAL_MEGA_ART = {
   메가루카리오: "https://img.pokemondb.net/sprites/home/normal/lucario-mega.png",
   메가눈설왕: "https://img.pokemondb.net/sprites/home/normal/abomasnow-mega.png",
   메가엘레이드: "https://img.pokemondb.net/sprites/home/normal/gallade-mega.png",
+  메가눈여아: megaFroslassArt,
 };
 
 const LEGACY_MEGA_CHOICE_ALIASES = {
@@ -503,6 +517,13 @@ function formatThickRangeSummary(slot, baseSpeed, battleState) {
 
 function getMegaChoices(slot) {
   return slot.name ? MEGA_OPTIONS[slot.name] || [] : [];
+}
+
+function getCompareMegaChoices(slot) {
+  const choices = getMegaChoices(slot);
+  if (slot.megaChoice === "") return [];
+  if (slot.megaChoice === "unknown") return choices;
+  return choices.filter((option) => option.key === slot.megaChoice);
 }
 
 function getSelectedMega(slot) {
@@ -852,6 +873,7 @@ function App() {
   const [battleSearch, setBattleSearch] = useState({ ally: "", enemy: "" });
   const [selectedSide, setSelectedSide] = useState("ally");
   const [selectedIndex, setSelectedIndex] = useState(0);
+  const [isDetailPanelCleared, setIsDetailPanelCleared] = useState(false);
   const [searchTargetSide, setSearchTargetSide] = useState("ally");
   const [draggingSlot, setDraggingSlot] = useState(null);
   const [battleState, setBattleState] = useState({
@@ -884,6 +906,12 @@ function App() {
       setSelectedPreset("");
     }
   }, [presets, selectedPreset]);
+
+  const selectSlot = (side, index) => {
+    setSelectedSide(side);
+    setSelectedIndex(index);
+    setIsDetailPanelCleared(false);
+  };
 
   const updateTeam = (side, updater) => {
     const setter = side === "ally" ? setAllySlots : setEnemySlots;
@@ -962,8 +990,7 @@ function App() {
       itemSetting: "unknown",
       abilitySetting: abilityOptions.length > 1 ? "unknown" : "none",
     });
-    setSelectedSide(side);
-    setSelectedIndex(targetIndex);
+    selectSlot(side, targetIndex);
     if (syncBattleIndex) {
       setBattleState((current) => ({
         ...current,
@@ -1013,8 +1040,7 @@ function App() {
     setSelectedPreset(name);
     setPresetName(name);
     setAllySlots(normalizeTeam(preset.slots));
-    setSelectedSide("ally");
-    setSelectedIndex(0);
+    selectSlot("ally", 0);
     setIsPresetManagerOpen(false);
   };
 
@@ -1092,7 +1118,7 @@ function App() {
           priority: deemphasized ? 1 : 0,
         });
 
-        getMegaChoices(slot).forEach((mega) => {
+        getCompareMegaChoices(slot).forEach((mega) => {
           rows.push({
             id: `${side}-${index}-${mega.key}`,
             side,
@@ -1156,7 +1182,8 @@ function App() {
   const battleMax = Math.max(200, allyBattleGraph?.max || 0, enemyBattleGraph?.max || 0);
   const verdict = allyBattleGraph && enemyBattleGraph ? getVerdict(allyBattleGraph, enemyBattleGraph, t) : null;
 
-  const selectedGraph = slotHasPokemon(selectedSlot) ? buildGraph(selectedSlot, selectedSlot.baseSpeed) : null;
+  const isDetailSlotVisible = slotHasPokemon(selectedSlot) && !isDetailPanelCleared;
+  const selectedGraph = isDetailSlotVisible ? buildGraph(selectedSlot, selectedSlot.baseSpeed) : null;
 
   const renderSlotRow = (side, slots, title) => (
     <section className={`team-card ${side}`}>
@@ -1203,20 +1230,17 @@ function App() {
                   next.splice(index, 0, moved);
                   return next.map((item, slotIndex) => normalizeSlot(item, slotIndex));
                 });
-                setSelectedSide(side);
-                setSelectedIndex(index);
+                selectSlot(side, index);
                 setDraggingSlot(null);
               }}
               onDragEnd={() => setDraggingSlot(null)}
                 onClick={() => {
-                  setSelectedSide(side);
-                  setSelectedIndex(index);
+                  selectSlot(side, index);
                 }}
                 onKeyDown={(event) => {
                   if (event.key === "Enter" || event.key === " ") {
                     event.preventDefault();
-                    setSelectedSide(side);
-                    setSelectedIndex(index);
+                    selectSlot(side, index);
                   }
                 }}
               >
@@ -1310,13 +1334,26 @@ function App() {
       <div className="app-chrome">
         <header className="app-header">
           <div className="brand">
-            <h1>{t.title}</h1>
+            <img src="/logo.png" alt="" className="brand-mark" />
+            <h1>
+              <span className="brand-main">{t.titleMain}</span>
+              <span className="brand-sub">{t.titleSub}</span>
+            </h1>
             <Tooltip label="?" text={t.titleHelp} className="inline-help" />
           </div>
 
           <div className="header-controls">
             <div className="header-help">
               <Tooltip label={t.graphHelpLabel} text={t.graphHelp} className="graph-help" />
+            </div>
+
+            <div className="segmented compact header-view-switch">
+              <button type="button" className={view === "team" ? "active" : ""} onClick={() => setView("team")}>
+                {t.teamView}
+              </button>
+              <button type="button" className={view === "roster" ? "active" : ""} onClick={() => setView("roster")}>
+                {t.rosterView}
+              </button>
             </div>
 
             <div className="header-meta-tools">
@@ -1328,15 +1365,6 @@ function App() {
                 <option value="ko">한국어</option>
                 <option value="en">English</option>
               </select>
-            </div>
-
-            <div className="segmented compact header-view-switch">
-              <button type="button" className={view === "team" ? "active" : ""} onClick={() => setView("team")}>
-                {t.teamView}
-              </button>
-              <button type="button" className={view === "roster" ? "active" : ""} onClick={() => setView("roster")}>
-                {t.rosterView}
-              </button>
             </div>
           </div>
         </header>
@@ -1400,17 +1428,17 @@ function App() {
                     {renderSlotRow("enemy", enemySlots, t.opponentTeam)}
                   </div>
 
-                  <div className="detail-card">
+                  <div className={`detail-card ${isDetailSlotVisible ? "" : "detail-empty"}`}>
                     <div className="detail-head">
                       <div>
                         <h3>{t.detailSettings}</h3>
                       </div>
-                      <button type="button" className="ghost-button" onClick={() => updateSlot(selectedSide, selectedIndex, createSlot(selectedIndex))}>
-                        {t.resetSlot}
+                      <button type="button" className="ghost-button" onClick={() => setIsDetailPanelCleared(true)}>
+                        {t.clearDetailPanel}
                       </button>
                     </div>
 
-                    {slotHasPokemon(selectedSlot) ? (
+                    {isDetailSlotVisible ? (
                       <>
                         <div className="detail-summary">
                           <div className={`detail-side-badge ${selectedSide}`}>{selectedSide === "ally" ? t.myTeam : t.opponentTeam}</div>
@@ -1487,7 +1515,7 @@ function App() {
                         )}
                       </>
                     ) : (
-                      <div className="empty-box in-panel">{t.addHint}</div>
+                      <div className="empty-box in-panel">{t.detailEmptyHint}</div>
                     )}
                   </div>
                 </div>
@@ -1506,7 +1534,7 @@ function App() {
                     { side: "ally", title: t.myTeam, slot: allyBattleSlot, state: battleState.ally, speed: allyBattleSpeed, graph: allyBattleGraph },
                     { side: "enemy", title: t.opponentTeam, slot: enemyBattleSlot, state: battleState.enemy, speed: enemyBattleSpeed, graph: enemyBattleGraph },
                   ].map(({ side, title, slot, state, speed, graph }) => (
-                    <div key={side} className={`battle-side ${side}`}>
+                    <div key={side} className={`battle-side ${side} ${slotHasPokemon(slot) ? "" : "battle-side-empty"} ${battleSearchResults[side].length > 0 ? "battle-side-searching" : ""}`}>
                       <div className="battle-side-head">
                         <h3>{title}</h3>
                         <select value={state.index} onChange={(event) => setBattleState((current) => ({ ...current, [side]: { ...current[side], index: Number(event.target.value) } }))}>
@@ -1628,13 +1656,13 @@ function App() {
                             </div>
                           </>
                         ) : (
-                        <div className="empty-box in-panel">{t.addHint}</div>
+                        <div className="empty-box in-panel">{t.liveBattleEmptyHint}</div>
                       )}
                     </div>
                   ))}
                 </div>
 
-                <div className={`battle-result ${verdict?.tone || "neutral"}`}>
+                <div className={`battle-result ${verdict?.tone || "neutral"} ${allyBattleGraph && enemyBattleGraph ? "" : "battle-result-empty"}`}>
                   {allyBattleGraph && enemyBattleGraph ? (
                     <>
                       <div className="battle-result-copy">
@@ -1661,7 +1689,7 @@ function App() {
                       </div>
                     </>
                   ) : (
-                    <span>{t.addHint}</span>
+                    <div className="empty-box in-panel battle-result-empty-box">{t.battleResultEmptyHint}</div>
                   )}
                 </div>
               </section>
@@ -1671,7 +1699,7 @@ function App() {
               <div className="panel-head">
                 <div className="heading-with-help">
                   <h2>{t.speedCompare}</h2>
-                  <Tooltip label="?" text={t.graphHelp} className="inline-help" />
+                  <Tooltip label="?" text={t.speedCompareHelp} className="inline-help" />
                 </div>
               </div>
               <div className="compare-list">
@@ -1682,7 +1710,7 @@ function App() {
                         <div className={`icon-shell ${row.side}`}>
                           <img src={row.icon} alt="" className="slot-icon" />
                         </div>
-                        <div>
+                        <div className="compare-copy">
                           <div className="compare-name-line">
                             <strong>{row.label}</strong>
                             {row.active && <span className="mini-chip compare-active-chip on">{t.active}</span>}
