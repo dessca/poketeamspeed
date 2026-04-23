@@ -3,6 +3,9 @@ import "./App.css";
 import { useRef } from "react";
 import { championsRoster, MEGA_OPTIONS } from "./data/championsRoster";
 
+const ROSTER_BY_ID = new Map(championsRoster.map((entry) => [entry.id, entry]));
+const ROSTER_BY_NAME = new Map(championsRoster.map((entry) => [entry.displayName, entry]));
+
 const STORAGE = {
   theme: "poke-team-speed:theme",
   language: "poke-team-speed:language",
@@ -268,6 +271,11 @@ const CANONICAL_MEGA_ART = {
   메가엘레이드: "https://img.pokemondb.net/sprites/home/normal/gallade-mega.png",
 };
 
+const LEGACY_MEGA_CHOICE_ALIASES = {
+  "냐오닉스:mega-m": "mega",
+  "냐오닉스:mega-f": "mega",
+};
+
 function createSlot(index) {
   return {
     slotId: `slot-${index}`,
@@ -306,13 +314,32 @@ function clampInt(value, min, max) {
   return Math.max(min, Math.min(max, Math.round(num)));
 }
 
+function getCanonicalRosterEntry(raw) {
+  if (raw?.rosterId && ROSTER_BY_ID.has(raw.rosterId)) return ROSTER_BY_ID.get(raw.rosterId);
+  if (raw?.name && ROSTER_BY_NAME.has(raw.name)) return ROSTER_BY_NAME.get(raw.name);
+  return null;
+}
+
+function normalizeMegaChoice(name, megaChoice) {
+  if (typeof megaChoice !== "string" || !megaChoice) return "";
+  return LEGACY_MEGA_CHOICE_ALIASES[`${name}:${megaChoice}`] || megaChoice;
+}
+
 function normalizeSlot(raw, index) {
+  const canonical = getCanonicalRosterEntry(raw);
+  const name = canonical?.displayName ?? raw?.name ?? "";
   return {
     ...createSlot(index),
     ...raw,
     slotId: `slot-${index}`,
+    rosterId: canonical?.id ?? raw?.rosterId ?? "",
+    dexNo: canonical?.dexNo ?? raw?.dexNo ?? null,
+    formKey: canonical?.formKey ?? raw?.formKey ?? "base",
+    name,
+    baseSpeed: clampInt(canonical?.speed ?? raw?.baseSpeed ?? 0, 0, 255),
+    icon: canonical?.icon ?? raw?.icon ?? "",
+    megaChoice: normalizeMegaChoice(name, raw?.megaChoice ?? ""),
     evValue: clampInt(raw?.evValue ?? 32, 0, 32),
-    baseSpeed: clampInt(raw?.baseSpeed ?? 0, 0, 255),
   };
 }
 
@@ -391,6 +418,35 @@ function getAbilityLabelFromFactor(factor, slot) {
   return matched ? `특성 ${matched.labelKo || matched.labelEn}` : "특성 발동";
 }
 
+function getNatureLabelFromFactor(factor) {
+  if (factor === 0.9) return "성격 x0.9";
+  if (factor === 1.1) return "성격 x1.1";
+  return "성격 x1.0";
+}
+
+function summarizeTooltipLines(lines, maxLines = 4) {
+  const unique = [...new Set(lines.filter(Boolean))];
+  if (unique.length <= maxLines) return unique;
+  return [...unique.slice(0, maxLines), `외 ${unique.length - maxLines}가지 경우`];
+}
+
+function formatExactValueSummary(slot, baseSpeed, ev, natureFactor, itemFactor, abilityFactor, battleState = null) {
+  const baseStat = level50Speed(baseSpeed, ev, natureFactor);
+  const labels = [`포인트 ${ev} · ${getNatureLabelFromFactor(natureFactor)}`, `기본 실수치 ${baseStat}`];
+
+  if (itemFactor !== 1) labels.push(getItemLabelFromFactor(itemFactor));
+  if (abilityFactor > 1) labels.push(getAbilityLabelFromFactor(abilityFactor, slot));
+
+  if (battleState) {
+    if (battleState.mega) labels.push("메가진화");
+    if (battleState.tailwind) labels.push("순풍");
+    if (battleState.paralysis) labels.push("마비");
+    if (battleState.rank !== 0) labels.push(`랭크 ${battleState.rank}`);
+  }
+
+  return labels.join(" · ");
+}
+
 function summarizeMarkerMap(markerMap) {
   const entries = [...markerMap.entries()]
     .map(([value, labels]) => ({
@@ -434,6 +490,15 @@ function formatPointSummary(slot, baseSpeed, battleState) {
     `무보정 ${level50Speed(baseSpeed, 0, 1)} · 준속 ${level50Speed(baseSpeed, 32, 1)} · 최속 ${level50Speed(baseSpeed, 32, 1.1)}`,
     battleLabels.length ? battleLabels.join(", ") : "현재 확정 구간",
   ];
+}
+
+function formatPointRangeSummary(slot, baseSpeed, battleState) {
+  const pointSummary = formatPointSummary(slot, baseSpeed, battleState);
+  return summarizeTooltipLines(pointSummary);
+}
+
+function formatThickRangeSummary(slot, baseSpeed, battleState) {
+  return summarizeTooltipLines(["성격 반영 범위", ...formatPointRangeSummary(slot, baseSpeed, battleState)]);
 }
 
 function getMegaChoices(slot) {
@@ -565,12 +630,9 @@ function buildGraph(slot, baseSpeed, battleState = null) {
       itemValues.forEach((itemFactor) => {
         markerAbilityValues.forEach((abilityFactor) => {
           const markerValue = applySpeed(stat, [itemFactor, abilityFactor, ...battleFactors]);
-          const labels = [];
-          if (slot.itemSetting === "unknown") labels.push(getItemLabelFromFactor(itemFactor));
-          if (slot.abilitySetting === "unknown" || battleState) labels.push(getAbilityLabelFromFactor(abilityFactor, slot));
+          const labels = [formatExactValueSummary(slot, baseSpeed, ev, natureFactor, itemFactor, abilityFactor, battleState)];
           const existing = markerMap.get(markerValue) || new Set();
-          const finalLabels = labels.length ? labels : ["현재 경우의 수"];
-          finalLabels.forEach((label) => existing.add(label));
+          labels.forEach((label) => existing.add(label));
           markerMap.set(markerValue, existing);
         });
       });
@@ -590,7 +652,8 @@ function buildGraph(slot, baseSpeed, battleState = null) {
     pointMin: pointSorted[0],
     pointMax: pointSorted[pointSorted.length - 1],
     point: pointSorted[Math.floor(pointSorted.length / 2)] ?? 0,
-    pointTooltip: formatPointSummary(slot, baseSpeed, battleState),
+    pointTooltip: formatPointRangeSummary(slot, baseSpeed, battleState),
+    thickTooltip: formatThickRangeSummary(slot, baseSpeed, battleState),
     thickMin: thickSorted[0] ?? pointSorted[0] ?? 0,
     thickMax: thickSorted[thickSorted.length - 1] ?? pointSorted[pointSorted.length - 1] ?? 0,
     min: lineSorted[0] ?? pointSorted[0] ?? 0,
@@ -620,7 +683,8 @@ function buildRosterGraph(baseSpeed) {
     point: level50Speed(baseSpeed, 0, 1),
     pointMin: level50Speed(baseSpeed, 0, 1),
     pointMax: level50Speed(baseSpeed, 0, 1),
-    pointTooltip: [`무보정 ${level50Speed(baseSpeed, 0, 1)}`, `준속 ${level50Speed(baseSpeed, 32, 1)} · 최속 ${level50Speed(baseSpeed, 32, 1.1)}`],
+    pointTooltip: summarizeTooltipLines([`무보정 ${level50Speed(baseSpeed, 0, 1)}`, `준속 ${level50Speed(baseSpeed, 32, 1)} · 최속 ${level50Speed(baseSpeed, 32, 1.1)}`]),
+    thickTooltip: summarizeTooltipLines(["성격 반영 범위", `무보정 ${level50Speed(baseSpeed, 0, 1)}`, `준속 ${level50Speed(baseSpeed, 32, 1)} · 최속 ${level50Speed(baseSpeed, 32, 1.1)}`]),
     thickMin: thickSorted[0],
     thickMax: thickSorted[thickSorted.length - 1],
     min: lineSorted[0],
@@ -665,6 +729,7 @@ function SpeedGraph({ graph, maxValue, tone = "ally", compact = false, markerVal
   const pointRangeWidth = ((graph.pointMax - graph.pointMin) / maxValue) * 100;
   const pointIsRange = graph.pointMax > graph.pointMin;
   const pointTooltip = graph.pointTooltip?.join("\n") || "";
+  const thickTooltip = graph.thickTooltip?.join("\n") || pointTooltip;
   const markerLabels = markerValuePlacement === "none"
     ? []
     : (() => {
@@ -675,7 +740,12 @@ function SpeedGraph({ graph, maxValue, tone = "ally", compact = false, markerVal
             const estimatedWidth = Math.max(18, String(marker.value).length * 8 + 6);
             const rotatedFootprint = estimatedWidth * 0.56 + 2;
             const widthPercent = graphWidth > 0 ? (rotatedFootprint / graphWidth) * 100 : compact ? 3.8 : 3;
-            return { ...marker, preferredPercent, widthPercent };
+            return {
+              ...marker,
+              preferredPercent,
+              widthPercent,
+              tooltipText: summarizeTooltipLines(marker.labels).join("\n"),
+            };
           });
 
         const minGapPercent = graphWidth > 0 ? ((compact ? 2 : 1.5) / graphWidth) * 100 : 0.25;
@@ -738,25 +808,24 @@ function SpeedGraph({ graph, maxValue, tone = "ally", compact = false, markerVal
           </div>
         );
       })}
-      <div className="speed-graph-thick" style={{ left: `${thickLeft}%`, width: `${Math.max(1, thickWidth)}%` }} />
+      <div className="speed-graph-thick marker-tooltip" style={{ left: `${thickLeft}%`, width: `${Math.max(1, thickWidth)}%` }} data-tooltip={thickTooltip} tabIndex={0} />
         {graph.markers.map((marker) => (
           <div
             key={`${marker.value}-${marker.labels.join("-")}`}
-            className="speed-graph-marker marker-tooltip"
+            className="speed-graph-marker"
             style={{ left: `${(marker.value / maxValue) * 100}%` }}
-            data-tooltip={marker.labels.join(", ")}
-            tabIndex={0}
-          >
-            <span className="marker-hitbox" />
-          </div>
+          />
         ))}
       {markerLabels.map((marker) => (
         <span
           key={`label-${marker.value}`}
-          className={`speed-graph-value ${markerValuePlacement}`}
+          className={`speed-graph-value marker-tooltip ${markerValuePlacement}`}
           style={{ left: `${marker.labelPercent}%` }}
+          data-tooltip={marker.tooltipText}
+          tabIndex={0}
         >
-          {marker.value}
+          <span className="marker-hitbox" />
+          <span className="speed-graph-value-text">{marker.value}</span>
         </span>
       ))}
       {pointIsRange ? (
@@ -1246,9 +1315,22 @@ function App() {
           </div>
 
           <div className="header-controls">
-            <Tooltip label={t.graphHelpLabel} text={t.graphHelp} className="graph-help" />
+            <div className="header-help">
+              <Tooltip label={t.graphHelpLabel} text={t.graphHelp} className="graph-help" />
+            </div>
 
-            <div className="segmented">
+            <div className="header-meta-tools">
+              <button type="button" className="icon-toggle" onClick={() => setTheme((current) => (current === "dark" ? "light" : "dark"))}>
+                {theme === "dark" ? "☀" : "●"}
+              </button>
+
+              <select className="lang-select" value={language} onChange={(event) => setLanguage(event.target.value)}>
+                <option value="ko">한국어</option>
+                <option value="en">English</option>
+              </select>
+            </div>
+
+            <div className="segmented compact header-view-switch">
               <button type="button" className={view === "team" ? "active" : ""} onClick={() => setView("team")}>
                 {t.teamView}
               </button>
@@ -1256,15 +1338,6 @@ function App() {
                 {t.rosterView}
               </button>
             </div>
-
-            <button type="button" className="icon-toggle" onClick={() => setTheme((current) => (current === "dark" ? "light" : "dark"))}>
-              {theme === "dark" ? "☀" : "●"}
-            </button>
-
-            <select className="lang-select" value={language} onChange={(event) => setLanguage(event.target.value)}>
-              <option value="ko">한국어</option>
-              <option value="en">English</option>
-            </select>
           </div>
         </header>
 
@@ -1273,14 +1346,14 @@ function App() {
             <div className="left-stack">
               <section className="panel team-panel">
                 <div className="panel-head">
-                  <div>
+                  <div className="heading-with-help">
                     <h2>{t.teamSettings}</h2>
-                    <p>{t.addHint}</p>
+                    <Tooltip label="?" text={t.addHint} className="inline-help" />
                   </div>
                 </div>
 
                 <div className="team-toolbar">
-                  <div className="toolbar-group">
+                  <div className="toolbar-group mode-group">
                     <span className="toolbar-label">{t.battleMode}</span>
                     <div className="segmented compact">
                       <button type="button" className={battleMode === "single" ? "active" : ""} onClick={() => setBattleMode("single")}>
@@ -1290,6 +1363,9 @@ function App() {
                         {t.double}
                       </button>
                     </div>
+                  </div>
+
+                  <div className="toolbar-group side-group">
                     <div className="segmented compact target-toggle">
                       <button type="button" className={searchTargetSide === "ally" ? "active" : ""} onClick={() => setSearchTargetSide("ally")}>
                         {t.myTeam}
@@ -1402,6 +1478,13 @@ function App() {
                             </div>
                           </div>
                         </div>
+
+                        {selectedGraph && (
+                          <div className="detail-speed-result">
+                            <span>{t.statRange}</span>
+                            <strong>{formatRange(selectedGraph.min, selectedGraph.max)}</strong>
+                          </div>
+                        )}
                       </>
                     ) : (
                       <div className="empty-box in-panel">{t.addHint}</div>
@@ -1412,9 +1495,9 @@ function App() {
 
               <section className="panel battle-panel">
                 <div className="panel-head">
-                  <div>
+                  <div className="heading-with-help">
                     <h2>{t.liveBattle}</h2>
-                    <p>{t.battleHelp}</p>
+                    <Tooltip label="?" text={t.battleHelp} className="inline-help" />
                   </div>
                 </div>
 
@@ -1475,12 +1558,12 @@ function App() {
                             </div>
 
                             <div className="detail-grid battle-detail-grid tidy">
-                              <div className="field">
+                              <div className="field battle-field battle-field-mega">
                                 <span>{t.mega}</span>
                                 {renderMegaField(slot, (value) => updateBattleSlot(side, { megaChoice: value }))}
                               </div>
 
-                              <div className="field">
+                              <div className="field battle-field battle-field-points">
                                 <span>{t.statPoints}</span>
                                 <div className="inline-input">
                                   <input type="number" min="0" max="32" disabled={slot.evUnknown} value={slot.evValue} onChange={(event) => updateBattleSlot(side, { evValue: clampInt(event.target.value, 0, 32) })} />
@@ -1490,7 +1573,7 @@ function App() {
                                 </div>
                               </div>
 
-                              <div className="field span-2">
+                              <div className="field span-2 battle-field battle-field-nature">
                                 <span>{t.nature}</span>
                                 <div className="segmented compact">
                                   {NATURE_OPTIONS.map((option) => (
@@ -1501,7 +1584,7 @@ function App() {
                                 </div>
                               </div>
 
-                              <div className="field span-2">
+                              <div className="field span-2 battle-field battle-field-item">
                                 <span>{t.item}</span>
                                 <div className="segmented wrap">
                                   {Object.entries(ITEMS).map(([key, item]) => (
@@ -1512,7 +1595,7 @@ function App() {
                                 </div>
                               </div>
 
-                              <div className="field span-2">
+                              <div className="field span-2 battle-field battle-field-ability">
                                 <span>{t.ability} <Tooltip label="?" text={getAbilityHelpText(slot, language, t.abilityHelp)} className="inline-help" /></span>
                                 <div className="segmented wrap">
                                   {renderAbilityButtons(slot, (value) => updateBattleSlot(side, { abilitySetting: value }))}
@@ -1560,14 +1643,20 @@ function App() {
                           <span>{verdict?.sub}</span>
                         </div>
                       </div>
-                      <div className="battle-result-graphs">
-                        <div className="battle-result-graph ally">
+                      <div className="battle-result-stage">
+                        <div className="battle-result-icon-spot ally">
                           <img src={getDisplayIcon(allyBattleSlot, battleState.ally.mega)} alt={allyBattleSlot.name || t.myTeam} className="battle-result-icon" />
-                          <SpeedGraph graph={allyBattleGraph} maxValue={battleMax} tone="ally" compact markerValuePlacement="top" />
                         </div>
-                        <div className="battle-result-graph enemy">
+                        <div className="battle-result-graphs">
+                          <div className="battle-result-graph ally">
+                            <SpeedGraph graph={allyBattleGraph} maxValue={battleMax} tone="ally" compact markerValuePlacement="top" />
+                          </div>
+                          <div className="battle-result-graph enemy">
+                            <SpeedGraph graph={enemyBattleGraph} maxValue={battleMax} tone="enemy" compact markerValuePlacement="bottom" />
+                          </div>
+                        </div>
+                        <div className="battle-result-icon-spot enemy">
                           <img src={getDisplayIcon(enemyBattleSlot, battleState.enemy.mega)} alt={enemyBattleSlot.name || t.opponentTeam} className="battle-result-icon" />
-                          <SpeedGraph graph={enemyBattleGraph} maxValue={battleMax} tone="enemy" compact markerValuePlacement="bottom" />
                         </div>
                       </div>
                     </>
@@ -1580,8 +1669,9 @@ function App() {
 
             <section className="panel compare-panel">
               <div className="panel-head">
-                <div>
+                <div className="heading-with-help">
                   <h2>{t.speedCompare}</h2>
+                  <Tooltip label="?" text={t.graphHelp} className="inline-help" />
                 </div>
               </div>
               <div className="compare-list">
@@ -1595,9 +1685,7 @@ function App() {
                         <div>
                           <div className="compare-name-line">
                             <strong>{row.label}</strong>
-                            <span className={`mini-chip compare-active-chip ${row.active ? "on" : "placeholder"}`} aria-hidden={!row.active}>
-                              {t.active}
-                            </span>
+                            {row.active && <span className="mini-chip compare-active-chip on">{t.active}</span>}
                           </div>
                           <span>{t.baseSpeed} {row.baseSpeed}</span>
                         </div>
@@ -1618,10 +1706,10 @@ function App() {
           <main className="workspace roster-workspace">
             <section className="panel roster-panel">
               <div className="panel-head">
-                <div>
+                <div className="heading-with-help">
                   <h2>{t.allPokemon}</h2>
+                  <Tooltip label="?" text={t.rosterHelp} className="inline-help" />
                 </div>
-                <Tooltip label="?" text={t.rosterHelp} className="inline-help" />
               </div>
               <div className="compare-list roster">
                 {rosterRows.map((row) => (
@@ -1659,9 +1747,9 @@ function App() {
           >
             <section className="saved-manager-dialog" role="dialog" aria-modal="true" aria-label={t.savedTeamsTitle}>
               <div className="saved-manager-head">
-                <div>
+                <div className="heading-with-help">
                   <h3>{t.savedTeamsTitle}</h3>
-                  <p>{t.saveHelp}</p>
+                  <Tooltip label="?" text={t.saveHelp} className="inline-help" />
                 </div>
                 <button type="button" className="ghost-button" onClick={() => setIsPresetManagerOpen(false)}>
                   {t.close}

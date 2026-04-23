@@ -1,10 +1,7 @@
-import { useEffect, useMemo, useState } from "react";
+﻿import { useEffect, useMemo, useState } from "react";
 import "./App.css";
 import { useRef } from "react";
 import { championsRoster, MEGA_OPTIONS } from "./data/championsRoster";
-
-const ROSTER_BY_ID = new Map(championsRoster.map((entry) => [entry.id, entry]));
-const ROSTER_BY_NAME = new Map(championsRoster.map((entry) => [entry.displayName, entry]));
 
 const STORAGE = {
   theme: "poke-team-speed:theme",
@@ -271,11 +268,6 @@ const CANONICAL_MEGA_ART = {
   메가엘레이드: "https://img.pokemondb.net/sprites/home/normal/gallade-mega.png",
 };
 
-const LEGACY_MEGA_CHOICE_ALIASES = {
-  "냐오닉스:mega-m": "mega",
-  "냐오닉스:mega-f": "mega",
-};
-
 function createSlot(index) {
   return {
     slotId: `slot-${index}`,
@@ -314,32 +306,13 @@ function clampInt(value, min, max) {
   return Math.max(min, Math.min(max, Math.round(num)));
 }
 
-function getCanonicalRosterEntry(raw) {
-  if (raw?.rosterId && ROSTER_BY_ID.has(raw.rosterId)) return ROSTER_BY_ID.get(raw.rosterId);
-  if (raw?.name && ROSTER_BY_NAME.has(raw.name)) return ROSTER_BY_NAME.get(raw.name);
-  return null;
-}
-
-function normalizeMegaChoice(name, megaChoice) {
-  if (typeof megaChoice !== "string" || !megaChoice) return "";
-  return LEGACY_MEGA_CHOICE_ALIASES[`${name}:${megaChoice}`] || megaChoice;
-}
-
 function normalizeSlot(raw, index) {
-  const canonical = getCanonicalRosterEntry(raw);
-  const name = canonical?.displayName ?? raw?.name ?? "";
   return {
     ...createSlot(index),
     ...raw,
     slotId: `slot-${index}`,
-    rosterId: canonical?.id ?? raw?.rosterId ?? "",
-    dexNo: canonical?.dexNo ?? raw?.dexNo ?? null,
-    formKey: canonical?.formKey ?? raw?.formKey ?? "base",
-    name,
-    baseSpeed: clampInt(canonical?.speed ?? raw?.baseSpeed ?? 0, 0, 255),
-    icon: canonical?.icon ?? raw?.icon ?? "",
-    megaChoice: normalizeMegaChoice(name, raw?.megaChoice ?? ""),
     evValue: clampInt(raw?.evValue ?? 32, 0, 32),
+    baseSpeed: clampInt(raw?.baseSpeed ?? 0, 0, 255),
   };
 }
 
