@@ -30,6 +30,12 @@ function normalizeLookupKey(value) {
     .replace(/[^a-z0-9]+/g, "");
 }
 
+function normalizeSearchKey(value) {
+  return String(value || "")
+    .toLowerCase()
+    .replace(/[^a-z0-9가-힣]+/g, "");
+}
+
 function getShowdownAliasesForEntry(entry) {
   const aliases = new Set();
   const baseName = BASE_ROSTER_BY_DEX.get(entry.dexNo)?.displayNameEn || entry.displayNameEn || "";
@@ -125,6 +131,10 @@ const TEXT = {
     speedCompare: "팀 스피드 비교",
     speedCompareHelp: "내 팀과 상대 팀 전체 엔트리 포켓몬들의 스피드를 비교해보세요.\n출전 포켓몬이 모두 확정되면 나머지 포켓몬은 제외됩니다.",
     allPokemon: "전체 포켓몬",
+    rosterSearchPlaceholder: "포켓몬 이름으로 바로 이동",
+    rosterSearchAction: "바로 이동",
+    rosterSearchMiss: "일치하는 포켓몬을 찾지 못했습니다.",
+    scrollTop: "맨 위로",
     battleMode: "배틀 모드",
     single: "싱글",
     double: "더블",
@@ -194,6 +204,8 @@ const TEXT = {
     sureSubMy: "현재 범위상 상대 팀이 내 팀을 추월할 수 없습니다.",
     sureSubOpp: "현재 범위상 내 팀이 상대 팀을 추월할 수 없습니다.",
     mixedSub: "남아 있는 변수 때문에 결과 범위가 넓게 겹칩니다.",
+    doubleOrderTitle: "4마리 행동 순서 예상",
+    doubleOrderSub: "현재 설정 기준으로 더블 대면 4마리의 스피드 순위를 비교합니다.",
     footer: "문의: teamscarf@proton.me",
   },
   en: {
@@ -219,6 +231,10 @@ const TEXT = {
     speedCompare: "Team Speed Compare",
     speedCompareHelp: "Compare the Speed ranges of all entry Pokémon on both teams.\nOnce all active Pokémon are locked in, the remaining ones are excluded.",
     allPokemon: "All Pokémon",
+    rosterSearchPlaceholder: "Jump to a Pokémon by name",
+    rosterSearchAction: "Go",
+    rosterSearchMiss: "No matching Pokemon was found.",
+    scrollTop: "Back to top",
     battleMode: "Battle Mode",
     single: "Single",
     double: "Double",
@@ -288,6 +304,8 @@ const TEXT = {
     sureSubMy: "The opponent cannot outspeed within the current range.",
     sureSubOpp: "My team cannot outspeed within the current range.",
     mixedSub: "There are still too many overlapping variables to call it cleanly.",
+    doubleOrderTitle: "Predicted Turn Order",
+    doubleOrderSub: "Compare the current Speed ranking of all four Pokemon in the live double matchup.",
     footer: "Contact: teamscarf@proton.me",
   },
 };
@@ -1170,6 +1188,49 @@ function getVerdict(allyGraph, enemyGraph, t) {
   return { title: t.mixed, sub: t.mixedSub, tone: "neutral" };
 }
 
+function createBattleSlotState(index = 0) {
+  return { index, mega: false, ability: false, tailwind: false, paralysis: false, rank: 0 };
+}
+
+function resetBattleTransientState(entry, index = entry.index) {
+  return {
+    ...createBattleSlotState(index),
+    tailwind: entry.tailwind,
+  };
+}
+
+function normalizeBattleSideState(raw) {
+  if (Array.isArray(raw)) {
+    return [0, 1].map((index) => ({ ...createBattleSlotState(index), ...(raw[index] || {}) }));
+  }
+
+  if (raw && typeof raw === "object") {
+    return [{ ...createBattleSlotState(0), ...raw }, createBattleSlotState(1)];
+  }
+
+  return [createBattleSlotState(0), createBattleSlotState(1)];
+}
+
+function normalizeBattleState(raw) {
+  return {
+    ally: normalizeBattleSideState(raw?.ally),
+    enemy: normalizeBattleSideState(raw?.enemy),
+  };
+}
+
+function normalizeBattleSearchState(raw) {
+  const normalizeSide = (value) => {
+    if (Array.isArray(value)) return [String(value[0] || ""), String(value[1] || "")];
+    if (typeof value === "string") return [value, ""];
+    return ["", ""];
+  };
+
+  return {
+    ally: normalizeSide(raw?.ally),
+    enemy: normalizeSide(raw?.enemy),
+  };
+}
+
 function Tooltip({ label, text, className = "" }) {
   const lines = String(text)
     .split("\n")
@@ -1589,18 +1650,21 @@ function App() {
   const [showdownImportText, setShowdownImportText] = useState("");
   const [showdownImportStatus, setShowdownImportStatus] = useState(null);
   const [search, setSearch] = useState("");
-  const [battleSearch, setBattleSearch] = useState({ ally: "", enemy: "" });
+  const [rosterSearch, setRosterSearch] = useState("");
+  const [rosterSearchStatus, setRosterSearchStatus] = useState("");
+  const [highlightedRosterRowId, setHighlightedRosterRowId] = useState("");
+  const [showScrollTop, setShowScrollTop] = useState(false);
+  const [battleSearch, setBattleSearch] = useState(() => normalizeBattleSearchState());
   const [selectedSide, setSelectedSide] = useState("ally");
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [isDetailPanelCleared, setIsDetailPanelCleared] = useState(false);
   const [searchTargetSide, setSearchTargetSide] = useState("ally");
   const [draggingSlot, setDraggingSlot] = useState(null);
   const compareRowRefs = useRef(new Map());
+  const rosterRowRefs = useRef(new Map());
+  const rosterSearchTimerRef = useRef(null);
   const previousComparePositions = useRef(new Map());
-  const [battleState, setBattleState] = useState({
-    ally: { index: 0, mega: false, ability: false, tailwind: false, paralysis: false, rank: 0 },
-    enemy: { index: 0, mega: false, ability: false, tailwind: false, paralysis: false, rank: 0 },
-  });
+  const [battleState, setBattleState] = useState(() => normalizeBattleState());
 
   const t = TEXT[language];
   const selectedSlot = (selectedSide === "ally" ? allySlots : enemySlots)[selectedIndex] || createSlot(selectedIndex);
@@ -1622,6 +1686,20 @@ function App() {
   useEffect(() => writeStorage(STORAGE.ally, allySlots), [allySlots]);
   useEffect(() => writeStorage(STORAGE.enemy, enemySlots), [enemySlots]);
   useEffect(() => writeStorage(STORAGE.presets, presets), [presets]);
+  useEffect(() => {
+    const handleScroll = () => setShowScrollTop(window.scrollY > 280);
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+  useEffect(
+    () => () => {
+      if (rosterSearchTimerRef.current) {
+        window.clearTimeout(rosterSearchTimerRef.current);
+      }
+    },
+    []
+  );
   useEffect(() => {
     if (selectedPreset && !presets.some((preset) => preset.name === selectedPreset)) {
       setSelectedPreset("");
@@ -1649,9 +1727,56 @@ function App() {
     );
   };
 
-  const updateBattleSlot = (side, patch) => {
-    const index = battleState[side].index;
+  const setBattleUnitState = (side, battleSlotIndex, updater) => {
+    setBattleState((current) => {
+      const nextSide = current[side].map((entry, index) => {
+        if (index !== battleSlotIndex) return entry;
+        return typeof updater === "function" ? updater(entry) : { ...entry, ...updater };
+      });
+      return { ...current, [side]: nextSide };
+    });
+  };
+
+  const setBattleUnitIndex = (side, battleSlotIndex, targetIndex) => {
+    setBattleState((current) => {
+      const nextSide = current[side].map((entry) => ({ ...entry }));
+      const otherIndex = nextSide.findIndex((entry, index) => index !== battleSlotIndex && entry.index === targetIndex);
+
+      if (otherIndex !== -1) {
+        nextSide[otherIndex] = resetBattleTransientState(nextSide[otherIndex], nextSide[battleSlotIndex].index);
+      }
+
+      nextSide[battleSlotIndex] = resetBattleTransientState(nextSide[battleSlotIndex], targetIndex);
+      return { ...current, [side]: nextSide };
+    });
+  };
+
+  const updateBattleSlot = (side, battleSlotIndex, patch) => {
+    const index = battleState[side][battleSlotIndex].index;
     updateSlot(side, index, patch);
+  };
+
+  const jumpToRosterRow = (row) => {
+    if (!row) {
+      setHighlightedRosterRowId("");
+      setRosterSearchStatus(t.rosterSearchMiss);
+      return;
+    }
+
+    setRosterSearchStatus("");
+    setHighlightedRosterRowId(row.id);
+
+    const node = rosterRowRefs.current.get(row.id);
+    if (node) {
+      node.scrollIntoView({ behavior: "smooth", block: "center" });
+    }
+
+    if (rosterSearchTimerRef.current) {
+      window.clearTimeout(rosterSearchTimerRef.current);
+    }
+    rosterSearchTimerRef.current = window.setTimeout(() => {
+      setHighlightedRosterRowId((current) => (current === row.id ? "" : current));
+    }, 1800);
   };
 
   const importShowdownTeam = () => {
@@ -1712,10 +1837,10 @@ function App() {
     selectSlot(searchTargetSide, 0);
     setIsDetailPanelCleared(false);
     setSearch("");
-    setBattleSearch((current) => ({ ...current, [searchTargetSide]: "" }));
+    setBattleSearch((current) => ({ ...current, [searchTargetSide]: ["", ""] }));
     setBattleState((current) => ({
       ...current,
-      [searchTargetSide]: { ...current[searchTargetSide], index: 0 },
+      [searchTargetSide]: current[searchTargetSide].map((entry, index) => resetBattleTransientState(entry, index)),
     }));
 
     setShowdownImportStatus({
@@ -1735,11 +1860,13 @@ function App() {
     () =>
       ["ally", "enemy"].reduce(
         (acc, side) => {
-          const keyword = battleSearch[side].trim().toLowerCase();
-          acc[side] = keyword ? championsRoster.filter((entry) => `${entry.displayName} ${entry.displayNameEn || ""}`.toLowerCase().includes(keyword)).slice(0, 8) : [];
+          acc[side] = [0, 1].map((battleSlotIndex) => {
+            const keyword = battleSearch[side][battleSlotIndex].trim().toLowerCase();
+            return keyword ? championsRoster.filter((entry) => `${entry.displayName} ${entry.displayNameEn || ""}`.toLowerCase().includes(keyword)).slice(0, 8) : [];
+          });
           return acc;
         },
-        { ally: [], enemy: [] }
+        { ally: [[], []], enemy: [[], []] }
       ),
     [battleSearch]
   );
@@ -1762,7 +1889,7 @@ function App() {
   };
 
   const applyRosterEntryToSide = (entry, side, options = {}) => {
-    const { preferredIndex = null, syncBattleIndex = false } = options;
+    const { preferredIndex = null, syncBattleIndex = false, battleSlotIndex = 0 } = options;
     if (hasDuplicatePokemonInSide(side, entry, preferredIndex)) {
       window.alert(t.duplicatePokemon);
       return;
@@ -1785,11 +1912,11 @@ function App() {
     });
     selectSlot(side, targetIndex);
     if (syncBattleIndex) {
-      setBattleState((current) => ({
+      setBattleUnitIndex(side, battleSlotIndex, targetIndex);
+      setBattleSearch((current) => ({
         ...current,
-        [side]: { ...current[side], index: targetIndex },
+        [side]: current[side].map((value, index) => (index === battleSlotIndex ? "" : value)),
       }));
-      setBattleSearch((current) => ({ ...current, [side]: "" }));
     }
   };
 
@@ -1802,7 +1929,7 @@ function App() {
     setEnemySlots(normalizeTeam());
     setBattleState((current) => ({
       ...current,
-      enemy: { index: 0, mega: false, ability: false, tailwind: false, paralysis: false, rank: 0 },
+      enemy: normalizeBattleSideState(),
     }));
     if (selectedSide === "enemy") setSelectedIndex(0);
   };
@@ -1888,6 +2015,9 @@ function App() {
     );
   };
 
+  const isBattleSelection = (side, teamIndex, megaKey = null) =>
+    battleState[side].some((entry) => entry.index === teamIndex && (megaKey ? entry.mega && megaKey === (side === "ally" ? allySlots : enemySlots)[teamIndex]?.megaChoice : !entry.mega));
+
   const compareRows = useMemo(() => {
     const rows = [];
     const pushRows = (slots, side) => {
@@ -1905,7 +2035,7 @@ function App() {
           graph: baseGraph,
           baseSpeed: slot.baseSpeed,
           active: slot.active,
-          selected: battleState[side].index === index && !battleState[side].mega,
+          selected: isBattleSelection(side, index),
           isMega: false,
           deemphasized,
           priority: deemphasized ? 1 : 0,
@@ -1921,7 +2051,7 @@ function App() {
             graph: buildGraph(slot, mega.speed, null, language),
             baseSpeed: mega.speed,
             active: slot.active,
-            selected: battleState[side].index === index && battleState[side].mega && slot.megaChoice === mega.key,
+            selected: isBattleSelection(side, index, mega.key),
             isMega: true,
             deemphasized,
             priority: deemphasized ? 1 : 0,
@@ -1985,6 +2115,7 @@ function App() {
         graph: buildRosterGraph(entry, entry.speed, language),
         baseSpeed: entry.speed,
         isMega: false,
+        searchTerms: [getLocalizedName(entry, language), entry.displayName, entry.displayNameEn].filter(Boolean),
       });
       (MEGA_OPTIONS[entry.displayName] || []).forEach((mega) => {
         rows.push({
@@ -1994,6 +2125,13 @@ function App() {
           graph: buildRosterGraph(entry, mega.speed, language),
           baseSpeed: mega.speed,
           isMega: true,
+          searchTerms: [
+            getLocalizedMegaLabel(mega, language),
+            mega.label,
+            mega.labelEn,
+            entry.displayName,
+            entry.displayNameEn,
+          ].filter(Boolean),
         });
       });
     });
@@ -2006,35 +2144,80 @@ function App() {
     });
   }, [language]);
 
+  const rosterSearchResults = useMemo(() => {
+    const query = normalizeSearchKey(rosterSearch);
+    if (!query) return [];
+    return rosterRows
+      .filter((row) => row.searchTerms.some((term) => normalizeSearchKey(term).includes(query)))
+      .slice(0, 10);
+  }, [rosterRows, rosterSearch]);
+
   const rosterMax = Math.max(200, ...rosterRows.map((row) => row.graph.max), 200);
 
-  const allyBattleSlot = allySlots[battleState.ally.index] || createSlot(0);
-  const enemyBattleSlot = enemySlots[battleState.enemy.index] || createSlot(0);
-  const allyBattleSpeed = battleState.ally.mega ? getSelectedMega(allyBattleSlot)?.speed || allyBattleSlot.baseSpeed : allyBattleSlot.baseSpeed;
-  const enemyBattleSpeed = battleState.enemy.mega ? getSelectedMega(enemyBattleSlot)?.speed || enemyBattleSlot.baseSpeed : enemyBattleSlot.baseSpeed;
-  const allyBattleGraph = slotHasPokemon(allyBattleSlot) ? buildGraph(allyBattleSlot, allyBattleSpeed, battleState.ally, language) : null;
-  const enemyBattleGraph = slotHasPokemon(enemyBattleSlot) ? buildGraph(enemyBattleSlot, enemyBattleSpeed, battleState.enemy, language) : null;
+  const battleUnits = useMemo(
+    () =>
+      ["ally", "enemy"].reduce((acc, side) => {
+        acc[side] = battleState[side].map((state, battleSlotIndex) => {
+          const teamSlots = side === "ally" ? allySlots : enemySlots;
+          const slot = teamSlots[state.index] || createSlot(state.index);
+          const speed = state.mega ? getSelectedMega(slot)?.speed || slot.baseSpeed : slot.baseSpeed;
+          const graph = slotHasPokemon(slot) ? buildGraph(slot, speed, state, language) : null;
+          return { side, battleSlotIndex, state, slot, speed, graph };
+        });
+        return acc;
+      }, { ally: [], enemy: [] }),
+    [allySlots, enemySlots, battleState, language]
+  );
+
+  const allyBattleSlot = battleUnits.ally[0]?.slot || createSlot(0);
+  const enemyBattleSlot = battleUnits.enemy[0]?.slot || createSlot(0);
+  const allyBattleGraph = battleUnits.ally[0]?.graph || null;
+  const enemyBattleGraph = battleUnits.enemy[0]?.graph || null;
 
   useEffect(() => {
     setBattleState((current) => {
       let changed = false;
-      const next = { ...current };
+      const next = { ally: [...current.ally], enemy: [...current.enemy] };
 
-      [
-        ["ally", allyBattleSlot],
-        ["enemy", enemyBattleSlot],
-      ].forEach(([side, slot]) => {
-        if (!current[side].ability) return;
-        if (canActivateBattleAbility(slot, current[side])) return;
-        next[side] = { ...current[side], ability: false };
-        changed = true;
+      ["ally", "enemy"].forEach((side) => {
+        battleUnits[side].forEach(({ slot }, battleSlotIndex) => {
+          if (!current[side][battleSlotIndex].ability) return;
+          if (canActivateBattleAbility(slot, current[side][battleSlotIndex])) return;
+          next[side][battleSlotIndex] = { ...current[side][battleSlotIndex], ability: false };
+          changed = true;
+        });
       });
 
       return changed ? next : current;
     });
-  }, [allyBattleSlot, enemyBattleSlot, battleState.ally, battleState.enemy]);
+  }, [battleUnits, battleState]);
   const battleMax = Math.max(200, allyBattleGraph?.max || 0, enemyBattleGraph?.max || 0);
   const verdict = allyBattleGraph && enemyBattleGraph ? getVerdict(allyBattleGraph, enemyBattleGraph, t) : null;
+  const allyGuaranteedFirst = Boolean(allyBattleGraph && enemyBattleGraph && allyBattleGraph.min > enemyBattleGraph.max);
+  const enemyGuaranteedFirst = Boolean(enemyBattleGraph && allyBattleGraph && enemyBattleGraph.min > allyBattleGraph.max);
+
+  const isDoubleBattleReady = battleUnits.ally.every(({ slot }) => slotHasPokemon(slot)) && battleUnits.enemy.every(({ slot }) => slotHasPokemon(slot));
+  const doubleBattleEntries = useMemo(
+    () =>
+      [...battleUnits.ally, ...battleUnits.enemy]
+        .filter(({ graph }) => Boolean(graph))
+        .map((entry) => ({
+          ...entry,
+          title: entry.side === "ally" ? t.myTeam : t.opponentTeam,
+          label:
+            entry.state.mega && getSelectedMega(entry.slot)
+              ? getLocalizedMegaLabel(getSelectedMega(entry.slot), language)
+              : getLocalizedName(entry.slot, language),
+          icon: getDisplayIcon(entry.slot, entry.state.mega),
+        }))
+        .sort((a, b) => {
+          if (b.graph.point !== a.graph.point) return b.graph.point - a.graph.point;
+          if (b.graph.max !== a.graph.max) return b.graph.max - a.graph.max;
+          return b.graph.min - a.graph.min;
+        }),
+    [battleUnits, language, t.myTeam, t.opponentTeam]
+  );
+  const doubleBattleMax = Math.max(200, ...doubleBattleEntries.map((entry) => entry.graph.max), 200);
 
   const isDetailSlotVisible = slotHasPokemon(selectedSlot) && !isDetailPanelCleared;
   const selectedGraph = isDetailSlotVisible ? buildGraph(selectedSlot, selectedSlot.baseSpeed, null, language) : null;
@@ -2164,7 +2347,7 @@ function App() {
     return (
       <div className="mega-picker-row single">
         <select
-          className="mega-select"
+          className="mega-select styled-select"
           value={megaChoices.length === 0 ? "" : megaChoices.some((mega) => mega.key === slot.megaChoice) ? slot.megaChoice : slot.megaChoice === "unknown" ? "unknown" : ""}
           onChange={(event) => onChange(event.target.value)}
           disabled={megaChoices.length === 0}
@@ -2177,6 +2360,170 @@ function App() {
             </option>
           ))}
         </select>
+      </div>
+    );
+  };
+
+  const renderBattleCard = (side, battleSlotIndex, title, unit) => {
+    const { slot, state, speed, graph } = unit;
+    const searchResultsForUnit = battleSearchResults[side][battleSlotIndex];
+
+    return (
+      <div key={`${side}-${battleSlotIndex}`} className={`battle-side ${side} ${slotHasPokemon(slot) ? "" : "battle-side-empty"} ${searchResultsForUnit.length > 0 ? "battle-side-searching" : ""}`}>
+        <div className="battle-side-head">
+          <h3>{title}</h3>
+          <select className="styled-select" value={state.index} onChange={(event) => setBattleUnitIndex(side, battleSlotIndex, Number(event.target.value))}>
+            {(side === "ally" ? allySlots : enemySlots).map((teamSlot, index) => (
+              <option key={`${side}-${battleSlotIndex}-${index}`} value={index}>
+                {slotHasPokemon(teamSlot) ? getLocalizedName(teamSlot, language) : `${t.slotEmpty} ${index + 1}`}
+              </option>
+            ))}
+          </select>
+        </div>
+
+        <div className="search-shell battle-search-shell">
+          <label className="search-box battle-search-box">
+            <span>{t.search}</span>
+            <input
+              value={battleSearch[side][battleSlotIndex]}
+              onChange={(event) =>
+                setBattleSearch((current) => ({
+                  ...current,
+                  [side]: current[side].map((value, index) => (index === battleSlotIndex ? event.target.value : value)),
+                }))
+              }
+              placeholder={t.search}
+            />
+          </label>
+          {searchResultsForUnit.length > 0 && (
+            <div className="search-popover search-overlay battle-search-popover">
+              {searchResultsForUnit.map((entry) => (
+                <button
+                  key={`battle-${side}-${battleSlotIndex}-${entry.id}`}
+                  type="button"
+                  className="search-result"
+                  onClick={() =>
+                    applyRosterEntryToSide(entry, side, {
+                      preferredIndex: state.index,
+                      syncBattleIndex: true,
+                      battleSlotIndex,
+                    })
+                  }
+                >
+                  <img src={entry.icon} alt="" className="result-icon" />
+                  <span>{getLocalizedName(entry, language)}</span>
+                  <em>{t.baseSpeed} {entry.speed}</em>
+                </button>
+              ))}
+            </div>
+          )}
+        </div>
+
+        {slotHasPokemon(slot) ? (
+          <>
+            <div className="detail-summary battle-poke-summary">
+              <div className="battle-summary-side">
+                <div className={`detail-side-badge ${side}`}>{side === "ally" ? t.myTeam : t.opponentTeam}</div>
+                {renderActiveToggle(side, state.index, slot)}
+              </div>
+              <div className={`icon-shell summary-icon-shell ${state.mega ? "mega-on" : ""}`}>
+                <img src={getDisplayIcon(slot, state.mega)} alt="" className="slot-icon large" />
+              </div>
+              <div className="detail-copy">
+                <strong>{state.mega && getSelectedMega(slot) ? getLocalizedMegaLabel(getSelectedMega(slot), language) : getLocalizedName(slot, language)}</strong>
+                <span>{t.baseSpeed} {speed}</span>
+              </div>
+              {graph && (
+                <div className="detail-range battle-summary-range">
+                  <small>{language === "ko" ? "현재 스피드" : "Current Speed"}</small>
+                  <strong>{formatRange(graph.min, graph.max)}</strong>
+                </div>
+              )}
+            </div>
+
+            <div className="detail-grid battle-detail-grid tidy">
+              <div className="field battle-field battle-field-mega">
+                <span>{t.mega}</span>
+                {renderMegaField(slot, (value) => updateBattleSlot(side, battleSlotIndex, { megaChoice: value }))}
+              </div>
+
+              <div className="field battle-field battle-field-points">
+                <span>{t.statPoints}</span>
+                <div className="inline-input">
+                  <input type="number" min="0" max="32" disabled={slot.evUnknown} value={slot.evValue} onChange={(event) => updateBattleSlot(side, battleSlotIndex, { evValue: clampInt(event.target.value, 0, 32) })} />
+                  <button type="button" className={`ghost-button ${slot.evUnknown ? "active" : ""}`} onClick={() => updateBattleSlot(side, battleSlotIndex, { evUnknown: !slot.evUnknown })}>
+                    {t.unknown}
+                  </button>
+                </div>
+              </div>
+
+              <div className="field span-2 battle-field battle-field-nature">
+                <span>{t.nature}</span>
+                <div className="segmented compact">
+                  {NATURE_OPTIONS.map((option) => (
+                    <button key={option.key} type="button" className={slot.nature === option.key ? "active" : ""} onClick={() => updateBattleSlot(side, battleSlotIndex, { nature: option.key })}>
+                      {language === "ko" ? option.labelKo : option.labelEn}
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              <div className="field span-2 battle-field battle-field-item">
+                <span>{t.item}</span>
+                <div className="segmented wrap">
+                  {Object.entries(ITEMS).map(([key, item]) => (
+                    <button key={key} type="button" className={slot.itemSetting === key ? "active" : ""} onClick={() => updateBattleSlot(side, battleSlotIndex, { itemSetting: key })}>
+                      {language === "ko" ? item.labelKo : item.labelEn}
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              <div className="field span-2 battle-field battle-field-ability">
+                <span>{t.ability} <Tooltip label="?" text={getAbilityHelpText(slot, language, t.abilityHelp)} className="inline-help" /></span>
+                <div className="segmented wrap">
+                  {renderAbilityButtons(slot, (value) => updateBattleSlot(side, battleSlotIndex, { abilitySetting: value }))}
+                </div>
+              </div>
+            </div>
+
+            <div className="battle-action-row">
+              <button
+                type="button"
+                className={`toggle-chip ${state.tailwind ? "on" : ""}`}
+                onClick={() =>
+                  setBattleState((current) => ({
+                    ...current,
+                    [side]: current[side].map((entry) => ({ ...entry, tailwind: !current[side][battleSlotIndex].tailwind })),
+                  }))
+                }
+              >
+                {t.tailwind}
+              </button>
+              <button type="button" className={`toggle-chip ${state.paralysis ? "on" : ""}`} onClick={() => setBattleUnitState(side, battleSlotIndex, { paralysis: !state.paralysis })}>
+                {t.paralysis}
+              </button>
+              <button type="button" className={`toggle-chip ${state.mega ? "on" : ""}`} disabled={!getSelectedMega(slot)} onClick={() => setBattleUnitState(side, battleSlotIndex, { mega: !state.mega })}>
+                {t.mega}
+              </button>
+              <button type="button" className={`toggle-chip ${state.ability ? "on" : ""}`} disabled={!canActivateBattleAbility(slot, state)} onClick={() => setBattleUnitState(side, battleSlotIndex, { ability: !state.ability })}>
+                {t.ability}
+              </button>
+            </div>
+
+            <div className="battle-rank-row">
+              <span>{t.rank}</span>
+              <div className="rank-controls">
+                <button type="button" onClick={() => setBattleUnitState(side, battleSlotIndex, { rank: Math.max(-6, state.rank - 1) })}>-</button>
+                <strong>{state.rank > 0 ? `+${state.rank}` : state.rank}</strong>
+                <button type="button" onClick={() => setBattleUnitState(side, battleSlotIndex, { rank: Math.min(6, state.rank + 1) })}>+</button>
+              </div>
+            </div>
+
+          </>
+        ) : (
+          <div className="empty-box in-panel">{t.liveBattleEmptyHint}</div>
+        )}
       </div>
     );
   };
@@ -2215,7 +2562,7 @@ function App() {
                 {theme === "dark" ? "☀" : "●"}
               </button>
 
-              <select className="lang-select" value={language} onChange={(event) => setLanguage(event.target.value)}>
+              <select className="lang-select styled-select" value={language} onChange={(event) => setLanguage(event.target.value)}>
                 <option value="ko">한국어</option>
                 <option value="en">English</option>
               </select>
@@ -2271,23 +2618,24 @@ function App() {
                     </button>
                   </div>
 
-                  <label className="search-box">
-                    <span>{t.search}</span>
-                    <input value={search} onChange={(event) => setSearch(event.target.value)} placeholder={t.search} />
-                  </label>
-                </div>
-
-                {searchResults.length > 0 && (
-                  <div className="search-popover">
-                    {searchResults.map((entry) => (
-                      <button key={entry.id} type="button" className="search-result" onClick={() => applyRosterEntry(entry)}>
-                        <img src={entry.icon} alt="" className="result-icon" />
-                        <span>{getLocalizedName(entry, language)}</span>
-                        <em>{t.baseSpeed} {entry.speed}</em>
-                      </button>
-                    ))}
+                  <div className="search-shell toolbar-search-shell">
+                    <label className="search-box">
+                      <span>{t.search}</span>
+                      <input value={search} onChange={(event) => setSearch(event.target.value)} placeholder={t.search} />
+                    </label>
+                    {searchResults.length > 0 && (
+                      <div className="search-popover search-overlay">
+                        {searchResults.map((entry) => (
+                          <button key={entry.id} type="button" className="search-result" onClick={() => applyRosterEntry(entry)}>
+                            <img src={entry.icon} alt="" className="result-icon" />
+                            <span>{getLocalizedName(entry, language)}</span>
+                            <em>{t.baseSpeed} {entry.speed}</em>
+                          </button>
+                        ))}
+                      </div>
+                    )}
                   </div>
-                )}
+                </div>
 
                 <div className="setup-row">
                   <div className="team-columns">
@@ -2308,17 +2656,23 @@ function App() {
                     {isDetailSlotVisible ? (
                       <>
                         <div className="detail-summary">
-                          <div className={`detail-side-badge ${selectedSide}`}>{selectedSide === "ally" ? t.myTeam : t.opponentTeam}</div>
-                          <div className={`icon-shell ${getSelectedMega(selectedSlot) ? "can-mega" : ""}`}>
+                          <div className="battle-summary-side">
+                            <div className={`detail-side-badge ${selectedSide}`}>{selectedSide === "ally" ? t.myTeam : t.opponentTeam}</div>
+                            {renderActiveToggle(selectedSide, selectedIndex, selectedSlot)}
+                          </div>
+                          <div className={`icon-shell summary-icon-shell ${getSelectedMega(selectedSlot) ? "can-mega" : ""}`}>
                             <img src={getDisplayIcon(selectedSlot, false)} alt="" className="detail-icon" />
                           </div>
                           <div className="detail-copy">
                             <strong>{getLocalizedName(selectedSlot, language)}</strong>
                             <span>{t.baseSpeed} {selectedSlot.baseSpeed}</span>
                           </div>
-                          <div className="detail-range action-slot">
-                            {renderActiveToggle(selectedSide, selectedIndex, selectedSlot)}
-                          </div>
+                          {selectedGraph && (
+                            <div className="detail-range battle-summary-range">
+                              <small>{language === "ko" ? "현재 스피드" : "Current Speed"}</small>
+                              <strong>{formatRange(selectedGraph.min, selectedGraph.max)}</strong>
+                            </div>
+                          )}
                         </div>
 
                         <div className="detail-grid tidy">
@@ -2374,12 +2728,6 @@ function App() {
                           </div>
                         </div>
 
-                        {selectedGraph && (
-                          <div className="detail-speed-result">
-                            <span>{t.statRange}</span>
-                            <strong>{formatRange(selectedGraph.min, selectedGraph.max)}</strong>
-                          </div>
-                        )}
                       </>
                     ) : (
                       <div className="empty-box in-panel">{t.detailEmptyHint}</div>
@@ -2396,169 +2744,91 @@ function App() {
                   </div>
                 </div>
 
-                <div className="battle-grid">
-                  {[
-                    { side: "ally", title: t.myTeam, slot: allyBattleSlot, state: battleState.ally, speed: allyBattleSpeed, graph: allyBattleGraph },
-                    { side: "enemy", title: t.opponentTeam, slot: enemyBattleSlot, state: battleState.enemy, speed: enemyBattleSpeed, graph: enemyBattleGraph },
-                  ].map(({ side, title, slot, state, speed, graph }) => (
-                    <div key={side} className={`battle-side ${side} ${slotHasPokemon(slot) ? "" : "battle-side-empty"} ${battleSearchResults[side].length > 0 ? "battle-side-searching" : ""}`}>
-                      <div className="battle-side-head">
-                        <h3>{title}</h3>
-                        <select value={state.index} onChange={(event) => setBattleState((current) => ({ ...current, [side]: { ...current[side], index: Number(event.target.value) } }))}>
-                          {(side === "ally" ? allySlots : enemySlots).map((teamSlot, index) => (
-                            <option key={`${side}-${index}`} value={index}>
-                              {slotHasPokemon(teamSlot) ? getLocalizedName(teamSlot, language) : `${t.slotEmpty} ${index + 1}`}
-                            </option>
-                          ))}
-                        </select>
-                      </div>
+                <div className={`battle-grid ${battleMode === "double" ? "double" : ""}`}>
+                  {battleMode === "double"
+                    ? ["ally", "enemy"].map((side) => (
+                        <div key={side} className={`battle-team-stack ${side}`}>
+                          {battleUnits[side].map((unit, battleSlotIndex) =>
+                            renderBattleCard(side, battleSlotIndex, `${side === "ally" ? t.myTeam : t.opponentTeam} ${battleSlotIndex + 1}`, unit)
+                          )}
+                        </div>
+                      ))
+                    : [renderBattleCard("ally", 0, t.myTeam, battleUnits.ally[0]), renderBattleCard("enemy", 0, t.opponentTeam, battleUnits.enemy[0])]}
+                </div>
 
+                {battleMode === "double" ? (
+                  <div className={`battle-result ${doubleBattleEntries[0]?.side || "neutral"} ${isDoubleBattleReady ? "" : "battle-result-empty"}`}>
+                    {isDoubleBattleReady ? (
                       <>
-                        <label className="search-box battle-search-box">
-                          <span>{t.search}</span>
-                          <input
-                            value={battleSearch[side]}
-                            onChange={(event) => setBattleSearch((current) => ({ ...current, [side]: event.target.value }))}
-                            placeholder={t.search}
-                          />
-                        </label>
-                        {battleSearchResults[side].length > 0 && (
-                          <div className="search-popover battle-search-popover">
-                            {battleSearchResults[side].map((entry) => (
-                              <button
-                                key={`battle-${side}-${entry.id}`}
-                                type="button"
-                                className="search-result"
-                                onClick={() => applyRosterEntryToSide(entry, side, { preferredIndex: battleState[side].index, syncBattleIndex: true })}
-                              >
-                                <img src={entry.icon} alt="" className="result-icon" />
-                                <span>{getLocalizedName(entry, language)}</span>
-                                <em>{t.baseSpeed} {entry.speed}</em>
-                              </button>
-                            ))}
+                        <div className="battle-result-copy">
+                          <div className="battle-result-badge">
+                            <strong>{t.doubleOrderTitle}</strong>
+                            <span>{t.doubleOrderSub}</span>
                           </div>
-                        )}
+                        </div>
+                        <div className="battle-order-list">
+                          {doubleBattleEntries.map((entry, orderIndex) => (
+                            <article key={`${entry.side}-${entry.battleSlotIndex}-${entry.label}`} className={`battle-order-row ${entry.side}`}>
+                              <div className="battle-order-rank">#{orderIndex + 1}</div>
+                              <img src={entry.icon} alt="" className="battle-order-icon" />
+                              <div className="battle-order-copy">
+                                <div className="battle-order-head">
+                                  <div className={`detail-side-badge ${entry.side}`}>{entry.title}</div>
+                                  <strong>{entry.label}</strong>
+                                </div>
+                              </div>
+                              <div className="battle-order-graph">
+                                <SpeedGraph graph={entry.graph} maxValue={doubleBattleMax} tone={entry.side} compact />
+                              </div>
+                              <div className="battle-order-range">{formatRange(entry.graph.min, entry.graph.max)}</div>
+                            </article>
+                          ))}
+                        </div>
                       </>
-
-                        {slotHasPokemon(slot) ? (
-                          <>
-                            <div className="battle-poke">
-                              <div className={`icon-shell ${state.mega ? "mega-on" : ""}`}>
-                                <img src={getDisplayIcon(slot, state.mega)} alt="" className="slot-icon large" />
-                            </div>
-                            <div>
-                              <strong>{state.mega && getSelectedMega(slot) ? getLocalizedMegaLabel(getSelectedMega(slot), language) : getLocalizedName(slot, language)}</strong>
-                                <span>{t.baseSpeed} {speed}</span>
-                              </div>
-                            </div>
-
-                            <div className="detail-grid battle-detail-grid tidy">
-                              <div className="field battle-field battle-field-mega">
-                                <span>{t.mega}</span>
-                                {renderMegaField(slot, (value) => updateBattleSlot(side, { megaChoice: value }))}
-                              </div>
-
-                              <div className="field battle-field battle-field-points">
-                                <span>{t.statPoints}</span>
-                                <div className="inline-input">
-                                  <input type="number" min="0" max="32" disabled={slot.evUnknown} value={slot.evValue} onChange={(event) => updateBattleSlot(side, { evValue: clampInt(event.target.value, 0, 32) })} />
-                                  <button type="button" className={`ghost-button ${slot.evUnknown ? "active" : ""}`} onClick={() => updateBattleSlot(side, { evUnknown: !slot.evUnknown })}>
-                                    {t.unknown}
-                                  </button>
-                                </div>
-                              </div>
-
-                              <div className="field span-2 battle-field battle-field-nature">
-                                <span>{t.nature}</span>
-                                <div className="segmented compact">
-                                  {NATURE_OPTIONS.map((option) => (
-                                    <button key={option.key} type="button" className={slot.nature === option.key ? "active" : ""} onClick={() => updateBattleSlot(side, { nature: option.key })}>
-                                      {language === "ko" ? option.labelKo : option.labelEn}
-                                    </button>
-                                  ))}
-                                </div>
-                              </div>
-
-                              <div className="field span-2 battle-field battle-field-item">
-                                <span>{t.item}</span>
-                                <div className="segmented wrap">
-                                  {Object.entries(ITEMS).map(([key, item]) => (
-                                    <button key={key} type="button" className={slot.itemSetting === key ? "active" : ""} onClick={() => updateBattleSlot(side, { itemSetting: key })}>
-                                      {language === "ko" ? item.labelKo : item.labelEn}
-                                    </button>
-                                  ))}
-                                </div>
-                              </div>
-
-                              <div className="field span-2 battle-field battle-field-ability">
-                                <span>{t.ability} <Tooltip label="?" text={getAbilityHelpText(slot, language, t.abilityHelp)} className="inline-help" /></span>
-                                <div className="segmented wrap">
-                                  {renderAbilityButtons(slot, (value) => updateBattleSlot(side, { abilitySetting: value }))}
-                                </div>
-                              </div>
-                            </div>
-
-                            <div className="battle-action-row">
-                              <button type="button" className={`toggle-chip ${state.tailwind ? "on" : ""}`} onClick={() => setBattleState((current) => ({ ...current, [side]: { ...current[side], tailwind: !current[side].tailwind } }))}>
-                                {t.tailwind}
-                              </button>
-                              <button type="button" className={`toggle-chip ${state.paralysis ? "on" : ""}`} onClick={() => setBattleState((current) => ({ ...current, [side]: { ...current[side], paralysis: !current[side].paralysis } }))}>
-                                {t.paralysis}
-                              </button>
-                              <button type="button" className={`toggle-chip ${state.mega ? "on" : ""}`} disabled={!getSelectedMega(slot)} onClick={() => setBattleState((current) => ({ ...current, [side]: { ...current[side], mega: !current[side].mega } }))}>
-                                {t.mega}
-                              </button>
-                              <button type="button" className={`toggle-chip ${state.ability ? "on" : ""}`} disabled={!canActivateBattleAbility(slot, state)} onClick={() => setBattleState((current) => ({ ...current, [side]: { ...current[side], ability: !current[side].ability } }))}>
-                                {t.ability}
-                              </button>
-                            </div>
-
-                            <div className="battle-rank-row">
-                              <span>{t.rank}</span>
-                              <div className="rank-controls">
-                                <button type="button" onClick={() => setBattleState((current) => ({ ...current, [side]: { ...current[side], rank: Math.max(-6, current[side].rank - 1) } }))}>-</button>
-                                <strong>{state.rank}</strong>
-                                <button type="button" onClick={() => setBattleState((current) => ({ ...current, [side]: { ...current[side], rank: Math.min(6, current[side].rank + 1) } }))}>+</button>
-                              </div>
-                            </div>
-                          </>
-                        ) : (
-                        <div className="empty-box in-panel">{t.liveBattleEmptyHint}</div>
-                      )}
-                    </div>
-                  ))}
-                </div>
-
-                <div className={`battle-result ${verdict?.tone || "neutral"} ${allyBattleGraph && enemyBattleGraph ? "" : "battle-result-empty"}`}>
-                  {allyBattleGraph && enemyBattleGraph ? (
-                    <>
-                      <div className="battle-result-copy">
-                        <div className="battle-result-badge">
-                          <strong>{verdict?.title}</strong>
-                          <span>{verdict?.sub}</span>
-                        </div>
-                      </div>
-                      <div className="battle-result-stage">
-                        <div className="battle-result-icon-spot ally">
-                          <img src={getDisplayIcon(allyBattleSlot, battleState.ally.mega)} alt={getLocalizedName(allyBattleSlot, language) || t.myTeam} className="battle-result-icon" />
-                        </div>
-                        <div className="battle-result-graphs">
-                          <div className="battle-result-graph ally">
-                            <SpeedGraph graph={allyBattleGraph} maxValue={battleMax} tone="ally" compact markerValuePlacement="top" />
-                          </div>
-                          <div className="battle-result-graph enemy">
-                            <SpeedGraph graph={enemyBattleGraph} maxValue={battleMax} tone="enemy" compact markerValuePlacement="bottom" />
+                    ) : (
+                      <div className="empty-box in-panel battle-result-empty-box">{t.battleResultEmptyHint}</div>
+                    )}
+                  </div>
+                ) : (
+                  <div className={`battle-result ${verdict?.tone || "neutral"} ${allyBattleGraph && enemyBattleGraph ? "" : "battle-result-empty"}`}>
+                    {allyBattleGraph && enemyBattleGraph ? (
+                      <>
+                        <div className="battle-result-copy">
+                          <div className="battle-result-badge">
+                            <strong>{verdict?.title}</strong>
+                            <span>{verdict?.sub}</span>
                           </div>
                         </div>
-                        <div className="battle-result-icon-spot enemy">
-                          <img src={getDisplayIcon(enemyBattleSlot, battleState.enemy.mega)} alt={getLocalizedName(enemyBattleSlot, language) || t.opponentTeam} className="battle-result-icon" />
+                        <div className="battle-result-stage">
+                          <div className="battle-result-icon-spot enemy">
+                            <img
+                              src={getDisplayIcon(enemyBattleSlot, battleState.enemy[0].mega)}
+                              alt={getLocalizedName(enemyBattleSlot, language) || t.opponentTeam}
+                              className={`battle-result-icon ${enemyGuaranteedFirst ? "is-guaranteed-first" : ""}`}
+                            />
+                          </div>
+                          <div className="battle-result-graphs">
+                            <div className="battle-result-graph enemy">
+                              <SpeedGraph graph={enemyBattleGraph} maxValue={battleMax} tone="enemy" compact markerValuePlacement="top" />
+                            </div>
+                            <div className="battle-result-graph ally">
+                              <SpeedGraph graph={allyBattleGraph} maxValue={battleMax} tone="ally" compact markerValuePlacement="bottom" />
+                            </div>
+                          </div>
+                          <div className="battle-result-icon-spot ally">
+                            <img
+                              src={getDisplayIcon(allyBattleSlot, battleState.ally[0].mega)}
+                              alt={getLocalizedName(allyBattleSlot, language) || t.myTeam}
+                              className={`battle-result-icon ${allyGuaranteedFirst ? "is-guaranteed-first" : ""}`}
+                            />
+                          </div>
                         </div>
-                      </div>
-                    </>
-                  ) : (
-                    <div className="empty-box in-panel battle-result-empty-box">{t.battleResultEmptyHint}</div>
-                  )}
-                </div>
+                      </>
+                    ) : (
+                      <div className="empty-box in-panel battle-result-empty-box">{t.battleResultEmptyHint}</div>
+                    )}
+                  </div>
+                )}
               </section>
             </div>
 
@@ -2615,10 +2885,60 @@ function App() {
                   <h2>{t.allPokemon}</h2>
                   <Tooltip label="?" text={t.rosterHelp} className="inline-help" />
                 </div>
+                <div className="search-shell roster-search-shell">
+                  <form
+                    className="inline-input roster-search"
+                    onSubmit={(event) => {
+                      event.preventDefault();
+                      jumpToRosterRow(rosterSearchResults[0] || null);
+                    }}
+                  >
+                    <input
+                      type="search"
+                      value={rosterSearch}
+                      onChange={(event) => {
+                        setRosterSearch(event.target.value);
+                        if (rosterSearchStatus) setRosterSearchStatus("");
+                      }}
+                      placeholder={t.rosterSearchPlaceholder}
+                      aria-label={t.rosterSearchPlaceholder}
+                    />
+                    <button type="submit" className="ghost-button" disabled={!rosterSearch.trim()}>
+                      {t.rosterSearchAction}
+                    </button>
+                  </form>
+                  {rosterSearchResults.length > 0 && (
+                    <div className="search-popover search-overlay roster-search-popover">
+                      {rosterSearchResults.map((row) => (
+                        <button
+                          key={`roster-search-${row.id}`}
+                          type="button"
+                          className="search-result"
+                          onClick={() => jumpToRosterRow(row)}
+                        >
+                          <img src={row.icon} alt="" className="result-icon" />
+                          <span>{row.label}</span>
+                          <em>{t.baseSpeed} {row.baseSpeed}</em>
+                        </button>
+                      ))}
+                    </div>
+                  )}
+                </div>
               </div>
+              {rosterSearchStatus && <p className="roster-search-status">{rosterSearchStatus}</p>}
               <div className="compare-list roster">
                 {rosterRows.map((row) => (
-                  <article key={row.id} className={`compare-row roster-row ${row.isMega ? "mega" : ""}`}>
+                  <article
+                    key={row.id}
+                    ref={(node) => {
+                      if (node) {
+                        rosterRowRefs.current.set(row.id, node);
+                      } else {
+                        rosterRowRefs.current.delete(row.id);
+                      }
+                    }}
+                    className={`compare-row roster-row ${row.isMega ? "mega" : ""} ${highlightedRosterRowId === row.id ? "jump-highlight" : ""}`}
+                  >
                     <div className="compare-meta">
                       <div className="icon-shell">
                         <img src={row.icon} alt="" className="slot-icon" />
@@ -2640,6 +2960,18 @@ function App() {
               </div>
             </section>
           </main>
+        )}
+
+        {showScrollTop && (
+          <button
+            type="button"
+            className="scroll-top-button"
+            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+            aria-label={t.scrollTop}
+          >
+            <span aria-hidden="true">↑</span>
+            <span>{t.scrollTop}</span>
+          </button>
         )}
 
         {isPresetManagerOpen && (
