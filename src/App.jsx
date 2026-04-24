@@ -1,9 +1,48 @@
 ﻿import { useEffect, useMemo, useState } from "react";
 import "./App.css";
 import { useRef } from "react";
+import { useReducer } from "react";
 import { championsRoster, MEGA_OPTIONS } from "./data/championsRoster";
-import megaFroslassArt from "../image/Mega_Froslass.webp";
 import { Analytics } from '@vercel/analytics/react';
+import {
+  ABILITY_OPTIONS_BY_NAME,
+  buildGraph,
+  canActivateBattleAbility,
+  DEFAULT_ABILITY_OPTIONS,
+  getAbilityHelpText,
+  getAbilityOptions,
+  getDisplayIcon,
+  getMegaChoices,
+  getGraphBarHeight,
+  getGraphSegmentRenderPriority,
+  getSelectedMega,
+  getVerdict,
+  hasSpeedAbilityOptions,
+  ITEMS,
+  NATURE_OPTIONS,
+  normalizeBattleState,
+  slotHasPokemon,
+  summarizeTooltipLines,
+  formatRange,
+} from "./domain/battle";
+import {
+  getLocalizedCurrentSpeedLabel,
+  getLocalizedMegaLabel,
+  getLocalizedName,
+  getLocalizedOptionLabel,
+  pickLocalizedText,
+} from "./domain/localization";
+import {
+  buildBattleUnits,
+  buildCompareRows,
+  buildDoubleBattleEntries,
+  buildRosterRows,
+} from "./selectors/battleSelectors";
+import { battleStateReducer } from "./state/battleStateReducer";
+import { createInitialUiState, uiStateReducer } from "./state/uiStateReducer";
+import PresetManagerModal from "./components/modals/PresetManagerModal";
+import ShowdownImportModal from "./components/modals/ShowdownImportModal";
+import TeamCard from "./components/team/TeamCard";
 
 const ROSTER_BY_ID = new Map(championsRoster.map((entry) => [entry.id, entry]));
 const ROSTER_BY_NAME = new Map(championsRoster.map((entry) => [entry.displayName, entry]));
@@ -410,109 +449,6 @@ const TEXT = {
   },
 };
 
-const NATURES = {
-  slow: 0.9,
-  neutral: 1,
-  fast: 1.1,
-  unknown: 1,
-};
-
-const NATURE_OPTIONS = [
-  { key: "slow", labelKo: "×0.9", labelEn: "×0.9", labelJa: "×0.9", values: [0.9] },
-  { key: "neutral", labelKo: "×1.0", labelEn: "×1.0", labelJa: "×1.0", values: [1] },
-  { key: "fast", labelKo: "×1.1", labelEn: "×1.1", labelJa: "×1.1", values: [1.1] },
-  { key: "unknown", labelKo: "모름", labelEn: "Unknown", labelJa: "不明", values: [0.9, 1, 1.1] },
-];
-
-const ITEMS = {
-  none: { labelKo: "없음", labelEn: "None", labelJa: "なし", values: [1], point: 1 },
-  scarf: { labelKo: "구애스카프 ×1.5", labelEn: "Scarf ×1.5", labelJa: "こだわりスカーフ ×1.5", values: [1.5], point: 1.5 },
-  unknown: { labelKo: "모름", labelEn: "Unknown", labelJa: "不明", values: [1, 1.5], point: 1 },
-};
-
-const ABILITY_OPTIONS_BY_NAME = {
-  이상해꽃: [
-    { key: "none", labelKo: "심록", labelEn: "Overgrow", labelJa: "しんりょく", multiplier: 1 },
-    { key: "chlorophyll", labelKo: "엽록소", labelEn: "Chlorophyll", labelJa: "ようりょくそ", multiplier: 2, helpKo: "날씨가 쾌청일 때 스피드 x2", helpEn: "Speed doubles in harsh sunlight.", helpJa: "にほんばれのとき、素早さが2倍になります。" },
-    { key: "unknown", labelKo: "모름", labelEn: "Unknown", labelJa: "不明", multiplier: 1, values: [1, 2] },
-  ],
-  샤크니아: [
-    { key: "none", labelKo: "거친피부", labelEn: "Rough Skin", labelJa: "さめはだ", multiplier: 1 },
-    {
-      key: "speed-boost",
-      labelKo: "가속",
-      labelEn: "Speed Boost",
-      labelJa: "かそく",
-      multiplier: 1.5,
-      helpKo: "턴 종료마다 스피드가 1랭크 오르며, 이 도구에서는 1랭크 기준 x1.5로 계산합니다.",
-      helpEn: "Raises Speed by one stage at the end of each turn. This tool models it as x1.5.",
-      helpJa: "ターン終了ごとに素早さが1段階上がり、このツールでは1段階を x1.5 として計算します。",
-    },
-    { key: "unknown", labelKo: "모름", labelEn: "Unknown", labelJa: "不明", multiplier: 1, values: [1, 1.5] },
-  ],
-  몰드류: [
-    { key: "none", labelKo: "틀깨기", labelEn: "Mold Breaker", labelJa: "かたやぶり", multiplier: 1 },
-    { key: "sand-rush", labelKo: "모래헤치기", labelEn: "Sand Rush", labelJa: "すなかき", multiplier: 2, helpKo: "날씨가 모래바람일 때 스피드 x2", helpEn: "Speed doubles during a sandstorm.", helpJa: "すなあらしのとき、素早さが2倍になります。" },
-    { key: "unknown", labelKo: "모름", labelEn: "Unknown", labelJa: "不明", multiplier: 1, values: [1, 2] },
-  ],
-  엘풍: [
-    { key: "none", labelKo: "짓궂은마음", labelEn: "Prankster", labelJa: "いたずらごころ", multiplier: 1 },
-    { key: "chlorophyll", labelKo: "엽록소", labelEn: "Chlorophyll", labelJa: "ようりょくそ", multiplier: 2, helpKo: "날씨가 쾌청일 때 스피드 x2", helpEn: "Speed doubles in harsh sunlight.", helpJa: "にほんばれのとき、素早さが2倍になります。" },
-    { key: "unknown", labelKo: "모름", labelEn: "Unknown", labelJa: "不明", multiplier: 1, values: [1, 2] },
-  ],
-  스코빌런: [
-    { key: "none", labelKo: "불면", labelEn: "Insomnia", labelJa: "ふみん", multiplier: 1 },
-    { key: "chlorophyll", labelKo: "엽록소", labelEn: "Chlorophyll", labelJa: "ようりょくそ", multiplier: 2, helpKo: "날씨가 쾌청일 때 스피드 x2", helpEn: "Speed doubles in harsh sunlight.", helpJa: "にほんばれのとき、素早さが2倍になります。" },
-    { key: "unknown", labelKo: "모름", labelEn: "Unknown", labelJa: "不明", multiplier: 1, values: [1, 2] },
-  ],
-};
-
-const MEGA_SPEED_ABILITY_BLOCKED_LABELS = new Set(["메가이상해꽃", "메가샤크니아"]);
-
-const DEFAULT_ABILITY_OPTIONS = [
-  { key: "none", labelKo: "보정 없음", labelEn: "No boost", labelJa: "補正なし", multiplier: 1 },
-  { key: "unknown", labelKo: "모름", labelEn: "Unknown", labelJa: "不明", multiplier: 1, values: [1] },
-];
-
-const CANONICAL_MEGA_ART = {
-  메가이상해꽃: "https://img.pokemondb.net/sprites/home/normal/venusaur-mega.png",
-  메가리자몽X: "https://img.pokemondb.net/sprites/home/normal/charizard-mega-x.png",
-  메가리자몽Y: "https://img.pokemondb.net/sprites/home/normal/charizard-mega-y.png",
-  메가거북왕: "https://img.pokemondb.net/sprites/home/normal/blastoise-mega.png",
-  메가독침붕: "https://img.pokemondb.net/sprites/home/normal/beedrill-mega.png",
-  메가피죤투: "https://img.pokemondb.net/sprites/home/normal/pidgeot-mega.png",
-  메가후딘: "https://img.pokemondb.net/sprites/home/normal/alakazam-mega.png",
-  메가야도란: "https://img.pokemondb.net/sprites/home/normal/slowbro-mega.png",
-  메가팬텀: "https://img.pokemondb.net/sprites/home/normal/gengar-mega.png",
-  메가캥카: "https://img.pokemondb.net/sprites/home/normal/kangaskhan-mega.png",
-  메가쁘사이저: "https://img.pokemondb.net/sprites/home/normal/pinsir-mega.png",
-  메가갸라도스: "https://img.pokemondb.net/sprites/home/normal/gyarados-mega.png",
-  메가프테라: "https://img.pokemondb.net/sprites/home/normal/aerodactyl-mega.png",
-  메가전룡: "https://img.pokemondb.net/sprites/home/normal/ampharos-mega.png",
-  메가강철톤: "https://img.pokemondb.net/sprites/home/normal/steelix-mega.png",
-  메가핫삼: "https://img.pokemondb.net/sprites/home/normal/scizor-mega.png",
-  메가헤라크로스: "https://img.pokemondb.net/sprites/home/normal/heracross-mega.png",
-  메가헬가: "https://img.pokemondb.net/sprites/home/normal/houndoom-mega.png",
-  메가마기라스: "https://img.pokemondb.net/sprites/home/normal/tyranitar-mega.png",
-  메가가디안: "https://img.pokemondb.net/sprites/home/normal/gardevoir-mega.png",
-  메가깜까미: "https://img.pokemondb.net/sprites/home/normal/sableye-mega.png",
-  메가보스로라: "https://img.pokemondb.net/sprites/home/normal/aggron-mega.png",
-  메가요가램: "https://img.pokemondb.net/sprites/home/normal/medicham-mega.png",
-  메가썬더볼트: "https://img.pokemondb.net/sprites/home/normal/manectric-mega.png",
-  메가샤크니아: "https://img.pokemondb.net/sprites/home/normal/sharpedo-mega.png",
-  메가폭타: "https://img.pokemondb.net/sprites/home/normal/camerupt-mega.png",
-  메가파비코리: "https://img.pokemondb.net/sprites/home/normal/altaria-mega.png",
-  메가다크펫: "https://img.pokemondb.net/sprites/home/normal/banette-mega.png",
-  메가앱솔: "https://img.pokemondb.net/sprites/home/normal/absol-mega.png",
-  메가얼음귀신: "https://img.pokemondb.net/sprites/home/normal/glalie-mega.png",
-  메가이어롭: "https://img.pokemondb.net/sprites/home/normal/lopunny-mega.png",
-  메가한카리아스: "https://img.pokemondb.net/sprites/home/normal/garchomp-mega.png",
-  메가루카리오: "https://img.pokemondb.net/sprites/home/normal/lucario-mega.png",
-  메가눈설왕: "https://img.pokemondb.net/sprites/home/normal/abomasnow-mega.png",
-  메가엘레이드: "https://img.pokemondb.net/sprites/home/normal/gallade-mega.png",
-  메가눈여아: megaFroslassArt,
-};
-
 const LEGACY_MEGA_CHOICE_ALIASES = {
   "냐오닉스:mega-m": "mega",
   "냐오닉스:mega-f": "mega",
@@ -661,36 +597,6 @@ function parseShowdownSpeedEv(evLine) {
   return match ? clampInt(Math.round(Number(match[1]) / 8), 0, 32) : 0;
 }
 
-function pickLocalizedText(language, values) {
-  return values[language] ?? values.en ?? values.ko ?? "";
-}
-
-function getLocalizedOptionLabel(option, language) {
-  if (!option) return "";
-  return pickLocalizedText(language, {
-    ko: option.labelKo,
-    en: option.labelEn,
-    ja: option.labelJa,
-  });
-}
-
-function getLocalizedOptionHelp(option, language, fallbackText = "") {
-  if (!option) return fallbackText;
-  return pickLocalizedText(language, {
-    ko: option.helpKo,
-    en: option.helpEn,
-    ja: option.helpJa,
-  }) || fallbackText;
-}
-
-function getLocalizedCurrentSpeedLabel(language) {
-  return pickLocalizedText(language, {
-    ko: "현재 스피드",
-    en: "Current Speed",
-    ja: "現在の素早さ",
-  });
-}
-
 function resolveImportedAbilitySetting(entry, abilityName) {
   const options = ABILITY_OPTIONS_BY_NAME[entry.displayName] || DEFAULT_ABILITY_OPTIONS;
   if (!abilityName) return options.length > 1 ? "unknown" : "none";
@@ -738,23 +644,6 @@ function parseShowdownTeamText(text) {
     });
 }
 
-function getLocalizedName(entity, language) {
-  if (!entity) return "";
-  const koName = entity.displayName ?? entity.name ?? "";
-  const enName = entity.displayNameEn ?? entity.nameEn ?? koName;
-  const jaName = entity.displayNameJa ?? entity.nameJa ?? enName ?? koName;
-  if (language === "ja") return jaName || enName || koName;
-  if (language === "en") return enName || koName;
-  return koName;
-}
-
-function getLocalizedMegaLabel(mega, language) {
-  if (!mega) return "";
-  if (language === "ja") return mega.labelJa || mega.labelEn || mega.label;
-  if (language === "en") return mega.labelEn || mega.label;
-  return mega.label;
-}
-
 function normalizePreset(raw, index) {
   const name = typeof raw?.name === "string" ? raw.name.trim() : "";
   if (!name) return null;
@@ -792,654 +681,6 @@ function getNextPresetName(baseLabel, presets) {
   }
 
   return `${baseLabel} ${Date.now()}`;
-}
-
-function slotHasPokemon(slot) {
-  return Boolean(slot.name && slot.baseSpeed);
-}
-
-function level50Speed(baseSpeed, evPoints, natureFactor) {
-  const raw = Math.floor(((baseSpeed * 2 + 31 + evPoints) * 50) / 100 + 5);
-  return Math.floor(raw * natureFactor);
-}
-
-function stageFactor(stage) {
-  return stage >= 0 ? (2 + stage) / 2 : 2 / (2 - stage);
-}
-
-function applySpeed(value, factors) {
-  return factors.reduce((acc, factor) => Math.floor(acc * factor), value);
-}
-
-function dedupe(values) {
-  return [...new Set(values.filter((value) => Number.isFinite(value)).map((value) => Math.round(value)))].sort((a, b) => a - b);
-}
-
-function getItemLabelFromFactor(factor, language = "ko") {
-  if (factor === 1.5) {
-    return pickLocalizedText(language, {
-      ko: "구애스카프",
-      en: "Choice Scarf",
-      ja: "こだわりスカーフ",
-    });
-  }
-  return pickLocalizedText(language, {
-    ko: "구애스카프 미착용",
-    en: "No Choice Scarf applied",
-    ja: "こだわりスカーフ未適用",
-  });
-}
-
-function getAbilityLabelFromFactor(factor, slot, language = "ko") {
-  if (factor <= 1) {
-    return pickLocalizedText(language, {
-      ko: "특성 미적용",
-      en: "No Speed ability applied",
-      ja: "素早さ特性未適用",
-    });
-  }
-  const matched = getAbilityOptions(slot).find((option) => option.multiplier === factor && option.key !== "unknown");
-  if (matched) {
-    const label = getLocalizedOptionLabel(matched, language);
-    return pickLocalizedText(language, {
-      ko: `특성 ${label}`,
-      en: `Ability ${label}`,
-      ja: `特性 ${label}`,
-    });
-  }
-  return pickLocalizedText(language, {
-    ko: "특성 발동",
-    en: "Ability activated",
-    ja: "特性発動",
-  });
-}
-
-function getNatureLabelFromFactor(factor, language = "ko") {
-  if (factor === 0.9) return pickLocalizedText(language, { ko: "성격 x0.9", en: "Nature x0.9", ja: "せいかく x0.9" });
-  if (factor === 1.1) return pickLocalizedText(language, { ko: "성격 x1.1", en: "Nature x1.1", ja: "せいかく x1.1" });
-  return pickLocalizedText(language, { ko: "성격 x1.0", en: "Nature x1.0", ja: "せいかく x1.0" });
-}
-
-function summarizeTooltipLines(lines, language = "ko", maxLines = 4) {
-  const unique = [...new Set(lines.filter(Boolean))];
-  if (unique.length <= maxLines) return unique;
-  return [
-    ...unique.slice(0, maxLines),
-    pickLocalizedText(language, {
-      ko: `외 ${unique.length - maxLines}가지 경우`,
-      en: `+${unique.length - maxLines} more cases`,
-      ja: `ほか ${unique.length - maxLines} 件`,
-    }),
-  ];
-}
-
-function summarizeMarkerMap(markerMap) {
-  const entries = [...markerMap.entries()]
-    .map(([value, labels]) => ({
-      value: Number(value),
-      labels: [...labels],
-    }))
-    .sort((a, b) => a.value - b.value);
-
-  if (entries.length <= 12) return entries;
-
-  const picks = [0, Math.floor(entries.length * 0.25), Math.floor(entries.length * 0.5), Math.floor(entries.length * 0.75), entries.length - 1];
-  return [...new Map(picks.map((index) => [entries[index].value, entries[index]])).values()];
-}
-
-function formatExactValueSummary(slot, baseSpeed, ev, natureFactor, itemFactor, abilityFactor, battleState = null, language = "ko") {
-  const baseStat = level50Speed(baseSpeed, ev, natureFactor);
-  const labels = [
-    pickLocalizedText(language, {
-      ko: `포인트 ${ev} · ${getNatureLabelFromFactor(natureFactor, language)}`,
-      en: `Points ${ev} · ${getNatureLabelFromFactor(natureFactor, language)}`,
-      ja: `ポイント ${ev} · ${getNatureLabelFromFactor(natureFactor, language)}`,
-    }),
-    pickLocalizedText(language, {
-      ko: `기본 실수치 ${baseStat}`,
-      en: `Base Speed stat ${baseStat}`,
-      ja: `基本実数値 ${baseStat}`,
-    }),
-  ];
-
-  if (itemFactor !== 1) labels.push(getItemLabelFromFactor(itemFactor, language));
-  if (abilityFactor > 1) labels.push(getAbilityLabelFromFactor(abilityFactor, slot, language));
-
-  if (battleState) {
-    if (battleState.mega) labels.push(pickLocalizedText(language, { ko: "메가진화", en: "Mega Evolution", ja: "メガシンカ" }));
-    if (battleState.tailwind) labels.push(pickLocalizedText(language, { ko: "순풍", en: "Tailwind", ja: "おいかぜ" }));
-    if (battleState.paralysis) labels.push(pickLocalizedText(language, { ko: "마비", en: "Paralysis", ja: "まひ" }));
-    if (battleState.rank !== 0) labels.push(pickLocalizedText(language, { ko: `랭크 ${battleState.rank}`, en: `Stage ${battleState.rank}`, ja: `ランク ${battleState.rank}` }));
-  }
-
-  return labels.join(" · ");
-}
-
-function formatPointSummary(slot, baseSpeed, battleState, language = "ko") {
-  const item = ITEMS[slot.itemSetting] || ITEMS.none;
-  const pointItemFactor = slot.itemSetting === "unknown" ? 1 : item.point;
-  const pointAbilityFactor = getPointAbilityFactor(slot, battleState);
-  const itemLabel = getItemLabelFromFactor(pointItemFactor, language);
-  const abilityLabel = getAbilityLabelFromFactor(pointAbilityFactor, slot, language);
-  const battleLabels = [];
-  if (battleState) {
-    if (battleState.mega) battleLabels.push(pickLocalizedText(language, { ko: "메가진화", en: "Mega Evolution", ja: "メガシンカ" }));
-    if (battleState.ability && canActivateBattleAbility(slot, battleState)) battleLabels.push(pickLocalizedText(language, { ko: "특성 발동", en: "Ability active", ja: "特性発動" }));
-    if (battleState.tailwind) battleLabels.push(pickLocalizedText(language, { ko: "순풍", en: "Tailwind", ja: "おいかぜ" }));
-    if (battleState.paralysis) battleLabels.push(pickLocalizedText(language, { ko: "마비", en: "Paralysis", ja: "まひ" }));
-    if (battleState.rank !== 0) battleLabels.push(pickLocalizedText(language, { ko: `랭크 ${battleState.rank}`, en: `Stage ${battleState.rank}`, ja: `ランク ${battleState.rank}` }));
-  }
-
-  return [
-    `${itemLabel} / ${abilityLabel}`,
-    pickLocalizedText(language, {
-      ko: `무보정 ${level50Speed(baseSpeed, 0, 1)} · 준속 ${level50Speed(baseSpeed, 32, 1)} · 최속 ${level50Speed(baseSpeed, 32, 1.1)}`,
-      en: `Unboosted ${level50Speed(baseSpeed, 0, 1)} · Neutral ${level50Speed(baseSpeed, 32, 1)} · Max ${level50Speed(baseSpeed, 32, 1.1)}`,
-      ja: `無補正 ${level50Speed(baseSpeed, 0, 1)} · 準速 ${level50Speed(baseSpeed, 32, 1)} · 最速 ${level50Speed(baseSpeed, 32, 1.1)}`,
-    }),
-    battleLabels.length ? battleLabels.join(", ") : pickLocalizedText(language, { ko: "현재 확정 구간", en: "Currently confirmed range", ja: "現在確定している範囲" }),
-  ];
-}
-
-function formatPointRangeSummary(slot, baseSpeed, battleState, language = "ko") {
-  const pointSummary = formatPointSummary(slot, baseSpeed, battleState, language);
-  return summarizeTooltipLines(pointSummary, language);
-}
-
-function getBattleSummaryLabels(slot, battleState, abilityFactor, language = "ko") {
-  if (!battleState) return [];
-
-  const labels = [];
-  if (battleState.mega) labels.push(pickLocalizedText(language, { ko: "메가진화", en: "Mega Evolution", ja: "メガシンカ" }));
-  if (battleState.ability && abilityFactor > 1) {
-    labels.push(pickLocalizedText(language, { ko: "특성 발동", en: "Ability active", ja: "特性発動" }));
-  }
-  if (battleState.tailwind) labels.push(pickLocalizedText(language, { ko: "순풍", en: "Tailwind", ja: "おいかぜ" }));
-  if (battleState.paralysis) labels.push(pickLocalizedText(language, { ko: "마비", en: "Paralysis", ja: "まひ" }));
-  if (battleState.rank !== 0) labels.push(pickLocalizedText(language, { ko: `랭크 ${battleState.rank}`, en: `Stage ${battleState.rank}`, ja: `ランク ${battleState.rank}` }));
-  return labels;
-}
-
-function getNatureBranchTone(natureFactor) {
-  if (natureFactor === 0.9) return "slow";
-  if (natureFactor === 1.1) return "fast";
-  return "neutral";
-}
-
-function getNatureBranchRenderPriority(tone) {
-  if (tone === "neutral") return 2;
-  if (tone === "fast") return 1;
-  return 0;
-}
-
-function getGraphSegmentRenderPriority(segment) {
-  if (segment.segmentKind === "point" || segment.segmentKind === "point-range") return 100;
-  if (segment.segmentKind === "nature") return 40 + getNatureBranchRenderPriority(segment.tone || "neutral");
-  if (segment.segmentKind === "item" || segment.segmentKind === "ability" || segment.segmentKind === "both") {
-    return 20 + getNatureBranchRenderPriority(segment.tone || "neutral");
-  }
-  return 0;
-}
-
-function countKnownUnknowns(flags) {
-  return Object.values(flags).filter(Boolean).length;
-}
-
-function getPointUncertaintyCount(slot) {
-  return countKnownUnknowns({
-    points: slot.evUnknown,
-  });
-}
-
-function getLayerUncertaintyCount(slot, kind) {
-  return countKnownUnknowns({
-    points: slot.evUnknown,
-    nature: kind === "nature" || ((kind === "item" || kind === "ability" || kind === "both") && slot.nature === "unknown"),
-    item: (kind === "item" || kind === "both") && slot.itemSetting === "unknown",
-    ability: (kind === "ability" || kind === "both") && slot.abilitySetting === "unknown",
-  });
-}
-
-function getGraphPossibilityPenalty(segmentKind, tone = "neutral") {
-  if (segmentKind === "point" || segmentKind === "point-range") return 0;
-  if (segmentKind === "nature") return tone === "neutral" ? 1 : 2;
-  if (segmentKind === "item") return tone === "neutral" ? 2 : 3;
-  if (segmentKind === "ability") return tone === "neutral" ? 3 : 4;
-  if (segmentKind === "both") return tone === "neutral" ? 5 : 6;
-  return 0;
-}
-
-function getGraphBarHeight(uncertaintyCount, segmentKind, tone = "neutral") {
-  const certaintyHeight = [20, 17, 14, 11, 9][Math.min(uncertaintyCount, 4)];
-  const possibilityPenalty = getGraphPossibilityPenalty(segmentKind, tone);
-  return Math.max(6, certaintyHeight - possibilityPenalty);
-}
-
-function buildRangeBranches(baseSpeed, evValues, natureValues, itemFactor, abilityFactor, battleFactors) {
-  const branches = natureValues
-    .map((natureFactor) => {
-      const values = dedupe(
-        evValues.map((ev) => applySpeed(level50Speed(baseSpeed, ev, natureFactor), [itemFactor, abilityFactor, ...battleFactors]))
-      );
-
-      if (!values.length) return null;
-
-      return {
-        key: String(natureFactor),
-        natureFactor,
-        tone: getNatureBranchTone(natureFactor),
-        min: values[0],
-        max: values[values.length - 1],
-      };
-    })
-    .filter(Boolean)
-    .sort((a, b) => getNatureBranchRenderPriority(a.tone) - getNatureBranchRenderPriority(b.tone));
-
-  if (!branches.length) return null;
-
-  return {
-    branches,
-    min: Math.min(...branches.map((branch) => branch.min)),
-    max: Math.max(...branches.map((branch) => branch.max)),
-  };
-}
-
-function formatLayerSummary(title, slot, itemFactor, abilityFactor, branches, battleState, language = "ko") {
-  const natureLine = branches
-    .map((branch) => `${getNatureLabelFromFactor(branch.natureFactor, language)} ${formatRange(branch.min, branch.max)}`)
-    .join(
-      pickLocalizedText(language, {
-        ko: " · ",
-        en: " | ",
-        ja: " ・ ",
-      })
-    );
-
-  const lines = [
-    title,
-    `${getItemLabelFromFactor(itemFactor, language)} / ${getAbilityLabelFromFactor(abilityFactor, slot, language)}`,
-    natureLine,
-  ];
-
-  const battleLabels = getBattleSummaryLabels(slot, battleState, abilityFactor, language);
-  if (battleLabels.length) lines.push(battleLabels.join(", "));
-
-  return summarizeTooltipLines(lines, language);
-}
-
-function createGraphLayer({
-  key,
-  titleKo,
-  titleEn,
-  slot,
-  baseSpeed,
-  evValues,
-  natureValues,
-  itemFactor,
-  abilityFactor,
-  battleFactors,
-  battleState,
-  kind,
-  language,
-}) {
-  const range = buildRangeBranches(baseSpeed, evValues, natureValues, itemFactor, abilityFactor, battleFactors);
-  if (!range) return null;
-
-  return {
-    key,
-    kind,
-    uncertaintyCount: getLayerUncertaintyCount(slot, kind),
-    min: range.min,
-    max: range.max,
-    branches: range.branches,
-    tooltip: formatLayerSummary(
-      pickLocalizedText(language, {
-        ko: titleKo,
-        en: titleEn,
-        ja: titleEn,
-      }),
-      slot,
-      itemFactor,
-      abilityFactor,
-      range.branches,
-      battleState,
-      language
-    ),
-  };
-}
-
-function getPotentialAbilityFactors(slot, battleState = null) {
-  const selectedAbility = getSelectedAbility(slot);
-  const boostedFactors = [...new Set(getAbilityValues(slot).filter((value) => value > 1))];
-
-  if (!boostedFactors.length) return [];
-  if (slot.abilitySetting !== "unknown") {
-    if (selectedAbility.multiplier <= 1) return [];
-    return [selectedAbility.multiplier];
-  }
-
-  return boostedFactors;
-}
-
-function getMegaChoices(slot) {
-  return slot.name ? MEGA_OPTIONS[slot.name] || [] : [];
-}
-
-function getCompareMegaChoices(slot) {
-  const choices = getMegaChoices(slot);
-  if (slot.megaChoice === "") return [];
-  if (slot.megaChoice === "unknown") return choices;
-  return choices.filter((option) => option.key === slot.megaChoice);
-}
-
-function getSelectedMega(slot) {
-  const options = getMegaChoices(slot);
-  if (slot.megaChoice === "unknown") return null;
-  return options.find((option) => option.key === slot.megaChoice) || null;
-}
-
-function getAbilityOptions(slot) {
-  return ABILITY_OPTIONS_BY_NAME[slot.name] || DEFAULT_ABILITY_OPTIONS;
-}
-
-function hasSpeedAbilityOptions(slot) {
-  return Boolean(ABILITY_OPTIONS_BY_NAME[slot.name]);
-}
-
-function getSelectedAbility(slot) {
-  const options = getAbilityOptions(slot);
-  return options.find((option) => option.key === slot.abilitySetting) || options[0];
-}
-
-function getAbilityValues(slot) {
-  const selected = getSelectedAbility(slot);
-  return selected.values || [selected.multiplier];
-}
-
-function megaBlocksSpeedAbility(slot, battleState = null) {
-  if (!battleState?.mega) return false;
-  const mega = getSelectedMega(slot);
-  return Boolean(mega && MEGA_SPEED_ABILITY_BLOCKED_LABELS.has(mega.label));
-}
-
-function canActivateBattleAbility(slot, battleState = null) {
-  const selected = getSelectedAbility(slot);
-  return selected.multiplier > 1 && !megaBlocksSpeedAbility(slot, battleState);
-}
-
-function getPointAbilityFactor(slot, battleState = null) {
-  const selected = getSelectedAbility(slot);
-
-  if (!battleState) {
-    return slot.abilitySetting === "unknown" ? 1 : selected.multiplier;
-  }
-
-  if (slot.abilitySetting === "unknown") return 1;
-  if (!canActivateBattleAbility(slot, battleState)) return 1;
-  return battleState.ability ? selected.multiplier : 1;
-}
-
-function getMarkerAbilityValues(slot, battleState = null) {
-  const selected = getSelectedAbility(slot);
-
-  if (!battleState) {
-    return slot.abilitySetting === "unknown" ? getAbilityValues(slot) : [selected.multiplier];
-  }
-
-  if (!canActivateBattleAbility(slot, battleState)) return [1];
-
-  if (slot.abilitySetting === "unknown") {
-    const boostedValues = getAbilityValues(slot).filter((value) => value > 1);
-    return battleState.ability ? boostedValues : [1, ...boostedValues];
-  }
-
-  return [battleState.ability ? selected.multiplier : 1];
-}
-
-function getAbilityHelpText(slot, language, fallbackText) {
-  const selected = getSelectedAbility(slot);
-  return getLocalizedOptionHelp(selected, language, fallbackText);
-}
-
-function getDisplayIcon(slot, megaActive = false) {
-  if (!megaActive) return slot.icon;
-  const mega = getSelectedMega(slot);
-  if (!mega) return slot.icon;
-  return CANONICAL_MEGA_ART[mega.label] || slot.icon;
-}
-
-function buildGraph(slot, baseSpeed, battleState = null, language = "ko") {
-  const selectedNature = NATURE_OPTIONS.find((option) => option.key === slot.nature) || NATURE_OPTIONS[1];
-  const pointNatureValues = slot.nature === "unknown" ? [1] : selectedNature.values;
-  const rangeNatureValues = slot.nature === "unknown" ? [0.9, 1, 1.1] : selectedNature.values;
-  const item = ITEMS[slot.itemSetting] || ITEMS.none;
-  const evValues = slot.evUnknown ? [0, 32] : [slot.evValue];
-  const pointEvValues = slot.evUnknown ? [0, 32] : [slot.evValue];
-
-  const battleFactors = [];
-  if (battleState) {
-    if (battleState.tailwind) battleFactors.push(2);
-    if (battleState.paralysis) battleFactors.push(0.5);
-    battleFactors.push(stageFactor(battleState.rank));
-  }
-
-  const pointItemFactor = slot.itemSetting === "unknown" ? 1 : item.point;
-  const pointAbilityFactor = getPointAbilityFactor(slot, battleState);
-
-  const pointValues = [];
-
-  pointEvValues.forEach((ev) => {
-    pointNatureValues.forEach((natureFactor) => {
-      pointValues.push(applySpeed(level50Speed(baseSpeed, ev, natureFactor), [pointItemFactor, pointAbilityFactor, ...battleFactors]));
-    });
-  });
-
-  const pointSorted = dedupe(pointValues);
-  const pointMin = pointSorted[0] ?? 0;
-  const pointMax = pointSorted[pointSorted.length - 1] ?? pointMin;
-  const point = pointSorted[Math.floor(pointSorted.length / 2)] ?? 0;
-  const markerMap = new Map();
-  const layers = [];
-
-  const markerNatureValues = slot.nature === "unknown" ? [0.9, 1, 1.1] : selectedNature.values;
-  const markerItemValues = slot.itemSetting === "unknown" ? item.values : [item.point];
-  const markerAbilityValues = getMarkerAbilityValues(slot, battleState);
-
-  pointEvValues.forEach((ev) => {
-    markerNatureValues.forEach((natureFactor) => {
-      const stat = level50Speed(baseSpeed, ev, natureFactor);
-      markerItemValues.forEach((itemFactor) => {
-        markerAbilityValues.forEach((abilityFactor) => {
-          const markerValue = applySpeed(stat, [itemFactor, abilityFactor, ...battleFactors]);
-          const existing = markerMap.get(markerValue) || new Set();
-          existing.add(formatExactValueSummary(slot, baseSpeed, ev, natureFactor, itemFactor, abilityFactor, battleState, language));
-          markerMap.set(markerValue, existing);
-        });
-      });
-    });
-  });
-
-  if (slot.nature === "unknown") {
-    const natureLayer = createGraphLayer({
-      key: "nature",
-      titleKo: "성격 범위",
-      titleEn: "Nature range",
-      slot,
-      baseSpeed,
-      evValues,
-      natureValues: [0.9, 1.1],
-      itemFactor: pointItemFactor,
-      abilityFactor: pointAbilityFactor,
-      battleFactors,
-      battleState,
-      kind: "nature",
-      language,
-    });
-    if (natureLayer) layers.push(natureLayer);
-  }
-
-  if (slot.itemSetting === "unknown") {
-    const scarfLayer = createGraphLayer({
-      key: "scarf",
-      titleKo: "구애스카프 가능 범위",
-      titleEn: "Possible Choice Scarf range",
-      slot,
-      baseSpeed,
-      evValues,
-      natureValues: rangeNatureValues,
-      itemFactor: 1.5,
-      abilityFactor: pointAbilityFactor,
-      battleFactors,
-      battleState,
-      kind: "item",
-      language,
-    });
-    if (scarfLayer) layers.push(scarfLayer);
-  }
-
-  const potentialAbilityFactors = getPotentialAbilityFactors(slot, battleState);
-  potentialAbilityFactors.forEach((abilityFactor) => {
-    const abilityLayer = createGraphLayer({
-      key: `ability-${abilityFactor}`,
-      titleKo: "특성 발동 범위",
-      titleEn: "Ability-active range",
-      slot,
-      baseSpeed,
-      evValues,
-      natureValues: rangeNatureValues,
-      itemFactor: pointItemFactor,
-      abilityFactor,
-      battleFactors,
-      battleState,
-      kind: "ability",
-      language,
-    });
-    if (abilityLayer && (abilityLayer.min !== pointMin || abilityLayer.max !== pointMax || slot.nature === "unknown")) {
-      layers.push(abilityLayer);
-    }
-
-    if (slot.itemSetting === "unknown") {
-      const bothLayer = createGraphLayer({
-        key: `both-${abilityFactor}`,
-        titleKo: "스카프+특성 범위",
-        titleEn: "Scarf + ability range",
-        slot,
-        baseSpeed,
-        evValues,
-        natureValues: rangeNatureValues,
-        itemFactor: 1.5,
-        abilityFactor,
-        battleFactors,
-        battleState,
-        kind: "both",
-        language,
-      });
-      if (bothLayer) layers.push(bothLayer);
-    }
-  });
-
-  const priorityLayer = layers.find((layer) => layer.kind === "nature");
-  const graphMin = Math.min(pointMin, ...layers.map((layer) => layer.min));
-  const graphMax = Math.max(pointMax, ...layers.map((layer) => layer.max));
-
-  return {
-    pointMin,
-    pointMax,
-    point,
-    pointUncertaintyCount: getPointUncertaintyCount(slot),
-    pointTooltip: formatPointRangeSummary(slot, baseSpeed, battleState, language),
-    min: graphMin,
-    max: graphMax,
-    priorityMin: priorityLayer?.min ?? pointMin,
-    priorityMax: priorityLayer?.max ?? pointMax,
-    layers,
-    markers: summarizeMarkerMap(markerMap).filter((marker) => marker.value >= graphMin && marker.value <= graphMax),
-  };
-}
-
-function getGraphPriorityRange(graph) {
-  return {
-    max: graph.priorityMax ?? graph.pointMax ?? graph.point ?? 0,
-    min: graph.priorityMin ?? graph.pointMin ?? graph.point ?? 0,
-  };
-}
-
-function buildRosterGraph(entry, speed = entry.speed, language = "ko") {
-  return buildGraph(
-    {
-      name: entry.displayName,
-      nameEn: entry.displayNameEn,
-      nameJa: entry.displayNameJa,
-      nature: "unknown",
-      itemSetting: "unknown",
-      abilitySetting: "unknown",
-      evUnknown: true,
-      evValue: 32,
-      megaChoice: "",
-    },
-    speed,
-    null,
-    language
-  );
-}
-
-function formatRange(min, max) {
-  return min === max ? `${min}` : `${min}~${max}`;
-}
-
-function getVerdict(allyGraph, enemyGraph, t) {
-  const allyExact = allyGraph.min === allyGraph.max;
-  const enemyExact = enemyGraph.min === enemyGraph.max;
-  if (allyExact && enemyExact && allyGraph.min === enemyGraph.min) return { title: t.tieExact, sub: t.tieExactSub, tone: "tie" };
-  if (allyGraph.min > enemyGraph.max) return { title: t.sureFirstMy, sub: t.sureSubMy, tone: "ally" };
-  if (enemyGraph.min > allyGraph.max) return { title: t.sureFirstOpp, sub: t.sureSubOpp, tone: "enemy" };
-  if (allyGraph.point === enemyGraph.point) return { title: t.tiePossible, sub: t.tiePossibleSub, tone: "tie" };
-  if (allyGraph.point > enemyGraph.point) return { title: t.likelyFirstMy, sub: t.likelySubMy, tone: "ally" };
-  if (enemyGraph.point > allyGraph.point) return { title: t.likelyFirstOpp, sub: t.likelySubOpp, tone: "enemy" };
-  return { title: t.mixed, sub: t.mixedSub, tone: "neutral" };
-}
-
-function createBattleSlotState(index = 0) {
-  return { index, mega: false, ability: false, tailwind: false, paralysis: false, rank: 0 };
-}
-
-function resetBattleTransientState(entry, index = entry.index) {
-  return {
-    ...createBattleSlotState(index),
-    tailwind: entry.tailwind,
-  };
-}
-
-function normalizeBattleSideState(raw) {
-  if (Array.isArray(raw)) {
-    return [0, 1].map((index) => ({ ...createBattleSlotState(index), ...(raw[index] || {}) }));
-  }
-
-  if (raw && typeof raw === "object") {
-    return [{ ...createBattleSlotState(0), ...raw }, createBattleSlotState(1)];
-  }
-
-  return [createBattleSlotState(0), createBattleSlotState(1)];
-}
-
-function normalizeBattleState(raw) {
-  return {
-    ally: normalizeBattleSideState(raw?.ally),
-    enemy: normalizeBattleSideState(raw?.enemy),
-  };
-}
-
-function normalizeBattleSearchState(raw) {
-  const normalizeSide = (value) => {
-    if (Array.isArray(value)) return [String(value[0] || ""), String(value[1] || "")];
-    if (typeof value === "string") return [value, ""];
-    return ["", ""];
-  };
-
-  return {
-    ally: normalizeSide(raw?.ally),
-    enemy: normalizeSide(raw?.enemy),
-  };
 }
 
 function Tooltip({ label, text, className = "" }) {
@@ -1523,33 +764,6 @@ function rangesOverlap(minA, maxA, minB, maxB) {
   return Math.max(minA, minB) <= Math.min(maxA, maxB);
 }
 
-function getSegmentSpan(segment) {
-  return Math.max(1, segment.max - segment.min);
-}
-
-function getSegmentCenter(segment) {
-  return (segment.min + segment.max) / 2;
-}
-
-function getMorphScore(previousSegment, nextSegment) {
-  const overlap = Math.max(0, Math.min(previousSegment.max, nextSegment.max) - Math.max(previousSegment.min, nextSegment.min));
-  const overlapRatio = overlap / Math.max(1, Math.min(getSegmentSpan(previousSegment), getSegmentSpan(nextSegment)));
-  const centerDelta = Math.abs(getSegmentCenter(previousSegment) - getSegmentCenter(nextSegment));
-  const maxSpan = Math.max(getSegmentSpan(previousSegment), getSegmentSpan(nextSegment));
-  const involvesPoint =
-    previousSegment.segmentKind === "point" ||
-    previousSegment.segmentKind === "point-range" ||
-    nextSegment.segmentKind === "point" ||
-    nextSegment.segmentKind === "point-range";
-
-  if (centerDelta > Math.max(10, maxSpan * 0.28)) return Number.NEGATIVE_INFINITY;
-  if (overlapRatio < (involvesPoint ? 0.45 : 0.6)) return Number.NEGATIVE_INFINITY;
-
-  const kindBonus = previousSegment.segmentKind === nextSegment.segmentKind ? 18 : 8;
-  const semanticBonus = previousSegment.semanticId === nextSegment.semanticId ? 42 : 0;
-  return overlapRatio * 100 - centerDelta + kindBonus + semanticBonus;
-}
-
 function buildRollingDigitSequence(fromChar, toChar) {
   const fromIsDigit = /\d/.test(fromChar);
   const toIsDigit = /\d/.test(toChar);
@@ -1585,18 +799,6 @@ function buildRollingDigitSequence(fromChar, toChar) {
 
 function RollingDigit({ fromChar, toChar, animationKey }) {
   const sequence = useMemo(() => buildRollingDigitSequence(fromChar, toChar), [fromChar, toChar]);
-  const [isAnimating, setIsAnimating] = useState(false);
-
-  useEffect(() => {
-    if (sequence.length <= 1) {
-      setIsAnimating(false);
-      return undefined;
-    }
-
-    setIsAnimating(false);
-    const frameId = window.requestAnimationFrame(() => setIsAnimating(true));
-    return () => window.cancelAnimationFrame(frameId);
-  }, [animationKey, sequence]);
 
   if (sequence.length <= 1) {
     return <span className="rolling-digit-static">{toChar}</span>;
@@ -1605,7 +807,8 @@ function RollingDigit({ fromChar, toChar, animationKey }) {
   return (
     <span className="rolling-digit-window" aria-hidden="true">
       <span
-        className={`rolling-digit-track ${isAnimating ? "is-animating" : ""}`}
+        key={animationKey}
+        className="rolling-digit-track is-animating"
         style={{ "--digit-offset": sequence.length - 1 }}
       >
         {sequence.map((digit, index) => (
@@ -1622,51 +825,20 @@ function RollingNumber({ value, animationIdentity, phase = "stable" }) {
   const nextText = String(value);
   const blankText = " ".repeat(nextText.length);
   const targetText = phase === "exit" ? blankText : nextText;
-  const [displayState, setDisplayState] = useState(() => ({
-    from: nextText,
-    to: nextText,
-    version: 0,
-  }));
+  const fromText = phase === "exit" ? nextText : blankText;
 
-  useEffect(() => {
-    setDisplayState((current) => {
-      if (phase === "enter") {
-        return {
-          from: blankText,
-          to: nextText,
-          version: current.version + 1,
-        };
-      }
-
-      if (phase === "exit") {
-        return {
-          from: current.to === blankText ? nextText : current.to,
-          to: blankText,
-          version: current.version + 1,
-        };
-      }
-
-      if (current.to === targetText) return current;
-      return {
-        from: current.to,
-        to: targetText,
-        version: current.version + 1,
-      };
-    });
-  }, [nextText, blankText, targetText, phase]);
-
-  const width = Math.max(displayState.from.length, displayState.to.length);
-  const fromChars = displayState.from.padStart(width, " ").split("");
-  const toChars = displayState.to.padStart(width, " ").split("");
+  const width = Math.max(fromText.length, targetText.length);
+  const fromChars = fromText.padStart(width, " ").split("");
+  const toChars = targetText.padStart(width, " ").split("");
 
   return (
     <span className="rolling-number" aria-label={nextText}>
       {toChars.map((toChar, index) => (
         <RollingDigit
-          key={`${animationIdentity}-${index}-${displayState.version}`}
+          key={`${animationIdentity}-${phase}-${targetText}-${index}`}
           fromChar={fromChars[index] ?? " "}
           toChar={toChar}
-          animationKey={`${animationIdentity}-${displayState.version}-${index}`}
+          animationKey={`${animationIdentity}-${phase}-${targetText}-${index}`}
         />
       ))}
     </span>
@@ -1676,11 +848,7 @@ function RollingNumber({ value, animationIdentity, phase = "stable" }) {
 function SpeedGraph({ graph, maxValue, tone = "ally", compact = false, markerValuePlacement = "none" }) {
   const graphRef = useRef(null);
   const [graphWidth, setGraphWidth] = useState(0);
-  const pointLeft = (graph.point / maxValue) * 100;
-  const pointRangeLeft = (graph.pointMin / maxValue) * 100;
-  const pointRangeWidth = ((graph.pointMax - graph.pointMin) / maxValue) * 100;
   const pointIsRange = graph.pointMax > graph.pointMin;
-  const isSingleResolvedPoint = graph.layers.length === 0 && graph.min === graph.max && !pointIsRange;
   const pointTooltip = graph.pointTooltip?.join("\n") || "";
   const pointTop = compact ? 30 : 27;
   const natureBranches = graph.layers
@@ -1807,10 +975,9 @@ function SpeedGraph({ graph, maxValue, tone = "ally", compact = false, markerVal
     <div ref={graphRef} className={`speed-graph ${tone} ${compact ? "compact" : ""}`}>
       {[...renderedSegments]
         .sort((a, b) => getGraphSegmentRenderPriority(a) - getGraphSegmentRenderPriority(b))
-        .map(({ renderId, min, max, className, tooltip, phase, uncertaintyCount, segmentKind, tone }) => {
+        .map(({ renderId, min, max, className, tooltip, uncertaintyCount, segmentKind, tone }) => {
           const left = (min / maxValue) * 100;
           const width = ((max - min) / maxValue) * 100;
-          const isCollapsed = min === max;
           const barHeight = getGraphBarHeight(uncertaintyCount ?? 0, segmentKind, tone);
 
           return (
@@ -1854,28 +1021,32 @@ function App() {
   const [allySlots, setAllySlots] = useState(() => normalizeTeam(readStorage(STORAGE.ally, null)));
   const [enemySlots, setEnemySlots] = useState(() => normalizeTeam(readStorage(STORAGE.enemy, null)));
   const [presets, setPresets] = useState(() => normalizePresets(readStorage(STORAGE.presets, [])));
-  const [selectedPreset, setSelectedPreset] = useState("");
-  const [presetName, setPresetName] = useState("");
-  const [isPresetManagerOpen, setIsPresetManagerOpen] = useState(false);
-  const [isShowdownImportOpen, setIsShowdownImportOpen] = useState(false);
-  const [showdownImportText, setShowdownImportText] = useState("");
-  const [showdownImportStatus, setShowdownImportStatus] = useState(null);
-  const [search, setSearch] = useState("");
-  const [rosterSearch, setRosterSearch] = useState("");
-  const [rosterSearchStatus, setRosterSearchStatus] = useState("");
-  const [highlightedRosterRowId, setHighlightedRosterRowId] = useState("");
-  const [showScrollTop, setShowScrollTop] = useState(false);
-  const [battleSearch, setBattleSearch] = useState(() => normalizeBattleSearchState());
-  const [selectedSide, setSelectedSide] = useState("ally");
-  const [selectedIndex, setSelectedIndex] = useState(0);
-  const [isDetailPanelCleared, setIsDetailPanelCleared] = useState(false);
-  const [searchTargetSide, setSearchTargetSide] = useState("ally");
-  const [draggingSlot, setDraggingSlot] = useState(null);
+  const [uiState, dispatchUiState] = useReducer(uiStateReducer, undefined, createInitialUiState);
   const compareRowRefs = useRef(new Map());
   const rosterRowRefs = useRef(new Map());
   const rosterSearchTimerRef = useRef(null);
   const previousComparePositions = useRef(new Map());
-  const [battleState, setBattleState] = useState(() => normalizeBattleState());
+  const [battleState, dispatchBattleState] = useReducer(battleStateReducer, undefined, () => normalizeBattleState());
+
+  const {
+    selectedPreset,
+    presetName,
+    isPresetManagerOpen,
+    isShowdownImportOpen,
+    showdownImportText,
+    showdownImportStatus,
+    search,
+    rosterSearch,
+    rosterSearchStatus,
+    highlightedRosterRowId,
+    showScrollTop,
+    battleSearch,
+    selectedSide,
+    selectedIndex,
+    isDetailPanelCleared,
+    searchTargetSide,
+    draggingSlot,
+  } = uiState;
 
   const t = TEXT[language];
   const selectedSlot = (selectedSide === "ally" ? allySlots : enemySlots)[selectedIndex] || createSlot(selectedIndex);
@@ -1905,7 +1076,7 @@ function App() {
   useEffect(() => writeStorage(STORAGE.enemy, enemySlots), [enemySlots]);
   useEffect(() => writeStorage(STORAGE.presets, presets), [presets]);
   useEffect(() => {
-    const handleScroll = () => setShowScrollTop(window.scrollY > 280);
+    const handleScroll = () => dispatchUiState({ type: "set_show_scroll_top", value: window.scrollY > 280 });
     handleScroll();
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
@@ -1918,21 +1089,37 @@ function App() {
     },
     []
   );
-  useEffect(() => {
-    if (selectedPreset && !presets.some((preset) => preset.name === selectedPreset)) {
-      setSelectedPreset("");
-    }
-  }, [presets, selectedPreset]);
+
+  const getSlotsBySide = (overrides = {}) => ({
+    ally: overrides.ally ?? allySlots,
+    enemy: overrides.enemy ?? enemySlots,
+  });
+
+  const dispatchBattle = (action, slotOverrides = {}) => {
+    dispatchBattleState({
+      ...action,
+      slotsBySide: getSlotsBySide(slotOverrides),
+    });
+  };
+
+  const dispatchUi = (action) => {
+    dispatchUiState(action);
+  };
 
   const selectSlot = (side, index) => {
-    setSelectedSide(side);
-    setSelectedIndex(index);
-    setIsDetailPanelCleared(false);
+    dispatchUi({ type: "select_slot", side, index });
   };
 
   const updateTeam = (side, updater) => {
     const setter = side === "ally" ? setAllySlots : setEnemySlots;
-    setter((current) => updater(current));
+    setter((current) => {
+      const next = updater(current);
+      dispatchBattleState({
+        type: "sanitize",
+        slotsBySide: getSlotsBySide({ [side]: next }),
+      });
+      return next;
+    });
   };
 
   const updateSlot = (side, index, patch) => {
@@ -1946,27 +1133,11 @@ function App() {
   };
 
   const setBattleUnitState = (side, battleSlotIndex, updater) => {
-    setBattleState((current) => {
-      const nextSide = current[side].map((entry, index) => {
-        if (index !== battleSlotIndex) return entry;
-        return typeof updater === "function" ? updater(entry) : { ...entry, ...updater };
-      });
-      return { ...current, [side]: nextSide };
-    });
+    dispatchBattle({ type: "set_unit_state", side, battleSlotIndex, updater });
   };
 
   const setBattleUnitIndex = (side, battleSlotIndex, targetIndex) => {
-    setBattleState((current) => {
-      const nextSide = current[side].map((entry) => ({ ...entry }));
-      const otherIndex = nextSide.findIndex((entry, index) => index !== battleSlotIndex && entry.index === targetIndex);
-
-      if (otherIndex !== -1) {
-        nextSide[otherIndex] = resetBattleTransientState(nextSide[otherIndex], nextSide[battleSlotIndex].index);
-      }
-
-      nextSide[battleSlotIndex] = resetBattleTransientState(nextSide[battleSlotIndex], targetIndex);
-      return { ...current, [side]: nextSide };
-    });
+    dispatchBattle({ type: "set_unit_index", side, battleSlotIndex, targetIndex });
   };
 
   const updateBattleSlot = (side, battleSlotIndex, patch) => {
@@ -1976,13 +1147,11 @@ function App() {
 
   const jumpToRosterRow = (row) => {
     if (!row) {
-      setHighlightedRosterRowId("");
-      setRosterSearchStatus(t.rosterSearchMiss);
+      dispatchUi({ type: "patch", patch: { highlightedRosterRowId: "", rosterSearchStatus: t.rosterSearchMiss } });
       return;
     }
 
-    setRosterSearchStatus("");
-    setHighlightedRosterRowId(row.id);
+    dispatchUi({ type: "patch", patch: { rosterSearchStatus: "", highlightedRosterRowId: row.id } });
 
     const node = rosterRowRefs.current.get(row.id);
     if (node) {
@@ -1993,14 +1162,14 @@ function App() {
       window.clearTimeout(rosterSearchTimerRef.current);
     }
     rosterSearchTimerRef.current = window.setTimeout(() => {
-      setHighlightedRosterRowId((current) => (current === row.id ? "" : current));
+      dispatchUi({ type: "set_highlighted_roster_row", value: "" });
     }, 1800);
   };
 
   const importShowdownTeam = () => {
     const input = showdownImportText.trim();
     if (!input) {
-      setShowdownImportStatus({ type: "error", message: t.showdownImportEmpty, warnings: [] });
+      dispatchUi({ type: "set_showdown_import_status", value: { type: "error", message: t.showdownImportEmpty, warnings: [] } });
       return;
     }
 
@@ -2041,7 +1210,7 @@ function App() {
     });
 
     if (!importedSlots.length) {
-      setShowdownImportStatus({ type: "error", message: t.showdownImportFailed, warnings });
+      dispatchUi({ type: "set_showdown_import_status", value: { type: "error", message: t.showdownImportFailed, warnings } });
       return;
     }
 
@@ -2060,18 +1229,23 @@ function App() {
     );
 
     selectSlot(searchTargetSide, 0);
-    setIsDetailPanelCleared(false);
-    setSearch("");
-    setBattleSearch((current) => ({ ...current, [searchTargetSide]: ["", ""] }));
-    setBattleState((current) => ({
-      ...current,
-      [searchTargetSide]: current[searchTargetSide].map((entry, index) => resetBattleTransientState(entry, index)),
-    }));
+    dispatchUi({
+      type: "patch",
+      patch: {
+        isDetailPanelCleared: false,
+        search: "",
+        battleSearch: { ...battleSearch, [searchTargetSide]: ["", ""] },
+      },
+    });
+    dispatchBattleState({ type: "reset_side_transient", side: searchTargetSide });
 
-    setShowdownImportStatus({
-      type: "success",
-      message: `${importedSlots.length} ${t.showdownImportSuccess}`,
-      warnings,
+    dispatchUi({
+      type: "set_showdown_import_status",
+      value: {
+        type: "success",
+        message: `${importedSlots.length} ${t.showdownImportSuccess}`,
+        warnings,
+      },
     });
   };
 
@@ -2149,31 +1323,31 @@ function App() {
     selectSlot(side, targetIndex);
     if (syncBattleIndex) {
       setBattleUnitIndex(side, battleSlotIndex, targetIndex);
-      setBattleSearch((current) => ({
-        ...current,
-        [side]: current[side].map((value, index) => (index === battleSlotIndex ? "" : value)),
-      }));
+      dispatchUi({
+        type: "set_battle_search",
+        updater: (current) => ({
+          ...current,
+          [side]: current[side].map((value, index) => (index === battleSlotIndex ? "" : value)),
+        }),
+      });
     }
   };
 
   const applyRosterEntry = (entry) => {
     applyRosterEntryToSide(entry, searchTargetSide);
-    setSearch("");
+    dispatchUi({ type: "set_search", value: "" });
   };
 
   const clearOpponent = () => {
     setEnemySlots(normalizeTeam());
-    setBattleState((current) => ({
-      ...current,
-      enemy: normalizeBattleSideState(),
-    }));
-    if (selectedSide === "enemy") setSelectedIndex(0);
+    dispatchBattleState({ type: "reset_side", side: "enemy" });
+    if (selectedSide === "enemy") dispatchUi({ type: "patch", patch: { selectedIndex: 0 } });
   };
 
   const clearSingleSlot = (side, index) => {
     updateSlot(side, index, createSlot(index));
     if (selectedSide === side && selectedIndex === index) {
-      setSelectedIndex(0);
+      dispatchUi({ type: "patch", patch: { selectedIndex: 0 } });
     }
   };
 
@@ -2186,18 +1360,16 @@ function App() {
     setPresets((current) =>
       normalizePresets([{ name: trimmed, slots: allySlots, savedAt: Date.now() }, ...current.filter((item) => item.name !== trimmed)])
     );
-    setSelectedPreset(trimmed);
-    setPresetName(trimmed);
+    dispatchUi({ type: "patch", patch: { selectedPreset: trimmed, presetName: trimmed } });
   };
 
   const loadPreset = (name) => {
     const preset = presets.find((entry) => entry.name === name);
     if (!preset) return;
-    setSelectedPreset(name);
-    setPresetName(name);
+    dispatchUi({ type: "patch", patch: { selectedPreset: name, presetName: name } });
     setAllySlots(normalizeTeam(preset.slots));
     selectSlot("ally", 0);
-    setIsPresetManagerOpen(false);
+    dispatchUi({ type: "patch", patch: { isPresetManagerOpen: false } });
   };
 
   const deletePreset = (name) => {
@@ -2215,8 +1387,15 @@ function App() {
     if (!confirmed) return;
 
     setPresets((current) => current.filter((preset) => preset.name !== name));
-    if (selectedPreset === name) setSelectedPreset("");
-    if (presetName.trim() === name) setPresetName("");
+    if (selectedPreset === name || presetName.trim() === name) {
+      dispatchUi({
+        type: "patch",
+        patch: {
+          selectedPreset: selectedPreset === name ? "" : selectedPreset,
+          presetName: presetName.trim() === name ? "" : presetName,
+        },
+      });
+    }
   };
 
   const activeLimit = battleMode === "single" ? 3 : 4;
@@ -2255,61 +1434,18 @@ function App() {
     );
   };
 
-  const isBattleSelection = (side, teamIndex, megaKey = null) =>
-    battleState[side].some((entry) => entry.index === teamIndex && (megaKey ? entry.mega && megaKey === (side === "ally" ? allySlots : enemySlots)[teamIndex]?.megaChoice : !entry.mega));
-
-  const compareRows = useMemo(() => {
-    const rows = [];
-    const pushRows = (slots, side) => {
-      slots.forEach((slot, index) => {
-        if (!slotHasPokemon(slot)) return;
-        const baseGraph = buildGraph(slot, slot.baseSpeed, null, language);
-        const locked = side === "ally" ? allyActiveLocked : enemyActiveLocked;
-        const deemphasized = locked && !slot.active;
-        rows.push({
-          id: `${side}-${index}-base`,
-          side,
-          index,
-          label: getLocalizedName(slot, language),
-          icon: slot.icon,
-          graph: baseGraph,
-          baseSpeed: slot.baseSpeed,
-          active: slot.active,
-          selected: isBattleSelection(side, index),
-          isMega: false,
-          deemphasized,
-          priority: deemphasized ? 1 : 0,
-        });
-
-        getCompareMegaChoices(slot).forEach((mega) => {
-          rows.push({
-            id: `${side}-${index}-${mega.key}`,
-            side,
-            index,
-            label: getLocalizedMegaLabel(mega, language),
-            icon: getDisplayIcon({ ...slot, megaChoice: mega.key }, true),
-            graph: buildGraph(slot, mega.speed, null, language),
-            baseSpeed: mega.speed,
-            active: slot.active,
-            selected: isBattleSelection(side, index, mega.key),
-            isMega: true,
-            deemphasized,
-            priority: deemphasized ? 1 : 0,
-          });
-        });
-      });
-    };
-    pushRows(allySlots, "ally");
-    pushRows(enemySlots, "enemy");
-    return rows.sort((a, b) => {
-      const aPriorityRange = getGraphPriorityRange(a.graph);
-      const bPriorityRange = getGraphPriorityRange(b.graph);
-      if (a.priority !== b.priority) return a.priority - b.priority;
-      if (bPriorityRange.max !== aPriorityRange.max) return bPriorityRange.max - aPriorityRange.max;
-      if (bPriorityRange.min !== aPriorityRange.min) return bPriorityRange.min - aPriorityRange.min;
-      return b.graph.max - a.graph.max;
-    });
-  }, [allySlots, enemySlots, battleState, allyActiveLocked, enemyActiveLocked, language]);
+  const compareRows = useMemo(
+    () =>
+      buildCompareRows({
+        allySlots,
+        enemySlots,
+        battleState,
+        language,
+        allyActiveLocked,
+        enemyActiveLocked,
+      }),
+    [allySlots, enemySlots, battleState, allyActiveLocked, enemyActiveLocked, language]
+  );
 
   const compareMax = Math.max(200, ...compareRows.map((row) => row.graph.max), 200);
 
@@ -2345,46 +1481,15 @@ function App() {
     previousComparePositions.current = nextPositions;
   }, [compareRows]);
 
-  const rosterRows = useMemo(() => {
-    const rows = [];
-    championsRoster.forEach((entry) => {
-      rows.push({
-        id: entry.id,
-        label: getLocalizedName(entry, language),
-        icon: entry.icon,
-        graph: buildRosterGraph(entry, entry.speed, language),
-        baseSpeed: entry.speed,
-        isMega: false,
-        searchTerms: [getLocalizedName(entry, language), entry.displayName, entry.displayNameEn, entry.displayNameJa].filter(Boolean),
-      });
-      (MEGA_OPTIONS[entry.displayName] || []).forEach((mega) => {
-        rows.push({
-          id: `${entry.id}-${mega.key}`,
-          label: getLocalizedMegaLabel(mega, language),
-          icon: CANONICAL_MEGA_ART[mega.label] || entry.icon,
-          graph: buildRosterGraph(entry, mega.speed, language),
-          baseSpeed: mega.speed,
-          isMega: true,
-          searchTerms: [
-            getLocalizedMegaLabel(mega, language),
-            mega.label,
-            mega.labelEn,
-            mega.labelJa,
-            entry.displayName,
-            entry.displayNameEn,
-            entry.displayNameJa,
-          ].filter(Boolean),
-        });
-      });
-    });
-    return rows.sort((a, b) => {
-      const aPriorityRange = getGraphPriorityRange(a.graph);
-      const bPriorityRange = getGraphPriorityRange(b.graph);
-      if (bPriorityRange.max !== aPriorityRange.max) return bPriorityRange.max - aPriorityRange.max;
-      if (bPriorityRange.min !== aPriorityRange.min) return bPriorityRange.min - aPriorityRange.min;
-      return b.graph.max - a.graph.max;
-    });
-  }, [language]);
+  const rosterRows = useMemo(
+    () =>
+      buildRosterRows({
+        championsRoster,
+        megaOptions: MEGA_OPTIONS,
+        language,
+      }),
+    [language]
+  );
 
   const rosterSearchResults = useMemo(() => {
     const query = normalizeSearchKey(rosterSearch);
@@ -2398,16 +1503,13 @@ function App() {
 
   const battleUnits = useMemo(
     () =>
-      ["ally", "enemy"].reduce((acc, side) => {
-        acc[side] = battleState[side].map((state, battleSlotIndex) => {
-          const teamSlots = side === "ally" ? allySlots : enemySlots;
-          const slot = teamSlots[state.index] || createSlot(state.index);
-          const speed = state.mega ? getSelectedMega(slot)?.speed || slot.baseSpeed : slot.baseSpeed;
-          const graph = slotHasPokemon(slot) ? buildGraph(slot, speed, state, language) : null;
-          return { side, battleSlotIndex, state, slot, speed, graph };
-        });
-        return acc;
-      }, { ally: [], enemy: [] }),
+      buildBattleUnits({
+        allySlots,
+        enemySlots,
+        battleState,
+        language,
+        createSlot,
+      }),
     [allySlots, enemySlots, battleState, language]
   );
 
@@ -2416,23 +1518,6 @@ function App() {
   const allyBattleGraph = battleUnits.ally[0]?.graph || null;
   const enemyBattleGraph = battleUnits.enemy[0]?.graph || null;
 
-  useEffect(() => {
-    setBattleState((current) => {
-      let changed = false;
-      const next = { ally: [...current.ally], enemy: [...current.enemy] };
-
-      ["ally", "enemy"].forEach((side) => {
-        battleUnits[side].forEach(({ slot }, battleSlotIndex) => {
-          if (!current[side][battleSlotIndex].ability) return;
-          if (canActivateBattleAbility(slot, current[side][battleSlotIndex])) return;
-          next[side][battleSlotIndex] = { ...current[side][battleSlotIndex], ability: false };
-          changed = true;
-        });
-      });
-
-      return changed ? next : current;
-    });
-  }, [battleUnits, battleState]);
   const battleMax = Math.max(200, allyBattleGraph?.max || 0, enemyBattleGraph?.max || 0);
   const verdict = allyBattleGraph && enemyBattleGraph ? getVerdict(allyBattleGraph, enemyBattleGraph, t) : null;
   const allyGuaranteedFirst = Boolean(allyBattleGraph && enemyBattleGraph && allyBattleGraph.min > enemyBattleGraph.max);
@@ -2441,22 +1526,12 @@ function App() {
   const isDoubleBattleReady = battleUnits.ally.every(({ slot }) => slotHasPokemon(slot)) && battleUnits.enemy.every(({ slot }) => slotHasPokemon(slot));
   const doubleBattleEntries = useMemo(
     () =>
-      [...battleUnits.ally, ...battleUnits.enemy]
-        .filter(({ graph }) => Boolean(graph))
-        .map((entry) => ({
-          ...entry,
-          title: entry.side === "ally" ? t.myTeam : t.opponentTeam,
-          label:
-            entry.state.mega && getSelectedMega(entry.slot)
-              ? getLocalizedMegaLabel(getSelectedMega(entry.slot), language)
-              : getLocalizedName(entry.slot, language),
-          icon: getDisplayIcon(entry.slot, entry.state.mega),
-        }))
-        .sort((a, b) => {
-          if (b.graph.point !== a.graph.point) return b.graph.point - a.graph.point;
-          if (b.graph.max !== a.graph.max) return b.graph.max - a.graph.max;
-          return b.graph.min - a.graph.min;
-        }),
+      buildDoubleBattleEntries({
+        battleUnits,
+        language,
+        myTeamLabel: t.myTeam,
+        opponentTeamLabel: t.opponentTeam,
+      }),
     [battleUnits, language, t.myTeam, t.opponentTeam]
   );
   const doubleBattleMax = Math.max(200, ...doubleBattleEntries.map((entry) => entry.graph.max), 200);
@@ -2464,104 +1539,6 @@ function App() {
   const isDetailSlotVisible = slotHasPokemon(selectedSlot) && !isDetailPanelCleared;
   const selectedGraph = isDetailSlotVisible ? buildGraph(selectedSlot, selectedSlot.baseSpeed, null, language) : null;
 
-  const renderSlotRow = (side, slots, title) => (
-    <section className={`team-card ${side}`}>
-      <div className="team-card-head">
-        <div>
-          <h3>{title}</h3>
-          <p>{slots.filter(slotHasPokemon).length}/6 · {slots.filter((slot) => slot.active).length}/{activeLimit} {t.active}</p>
-        </div>
-        {side === "ally" ? (
-          <div className="team-card-actions">
-            <button type="button" className="ghost-button" onClick={() => setIsPresetManagerOpen(true)}>
-              {t.manage}
-            </button>
-          </div>
-        ) : (
-          <button type="button" className="danger-pill" onClick={clearOpponent}>
-            {t.clearOpponent}
-          </button>
-        )}
-      </div>
-
-      <div className="slot-grid horizontal-six">
-        {slots.map((slot, index) => {
-          const selected = selectedSide === side && selectedIndex === index;
-          const hasPokemon = slotHasPokemon(slot);
-            return (
-              <div
-                key={`${side}-${slot.slotId}`}
-                role="button"
-                tabIndex={0}
-                className={`slot-card compact ${selected ? "selected" : ""} ${slot.active ? "active" : ""} ${hasPokemon ? "filled" : "empty"}`}
-                draggable={hasPokemon}
-                onDragStart={() => setDraggingSlot({ side, index })}
-              onDragOver={(event) => {
-                if (!draggingSlot || draggingSlot.side !== side) return;
-                event.preventDefault();
-              }}
-              onDrop={(event) => {
-                event.preventDefault();
-                if (!draggingSlot || draggingSlot.side !== side || draggingSlot.index === index) return;
-                updateTeam(side, (current) => {
-                  const next = [...current];
-                  const [moved] = next.splice(draggingSlot.index, 1);
-                  next.splice(index, 0, moved);
-                  return next.map((item, slotIndex) => normalizeSlot(item, slotIndex));
-                });
-                selectSlot(side, index);
-                setDraggingSlot(null);
-              }}
-              onDragEnd={() => setDraggingSlot(null)}
-                onClick={() => {
-                  selectSlot(side, index);
-                }}
-                onKeyDown={(event) => {
-                  if (event.key === "Enter" || event.key === " ") {
-                    event.preventDefault();
-                    selectSlot(side, index);
-                  }
-                }}
-              >
-              {hasPokemon ? (
-                <>
-                  <div className="slot-card-top compact">
-                    <img src={slot.icon} alt="" className="slot-icon" />
-                    <div className="slot-copy">
-                      <strong>{getLocalizedName(slot, language)}</strong>
-                    </div>
-                    <div className="slot-actions">
-                      <button
-                        type="button"
-                        className="slot-remove"
-                        onClick={(event) => {
-                          event.stopPropagation();
-                          clearSingleSlot(side, index);
-                        }}
-                        aria-label="remove slot"
-                      >
-                        <svg viewBox="0 0 24 24" aria-hidden="true" className="slot-remove-icon">
-                          <path d="M9 3h6l1 2h4v2H4V5h4l1-2Z" />
-                          <path d="M7 8h10l-1 11H8L7 8Z" />
-                          <path d="M10 11v5" />
-                          <path d="M14 11v5" />
-                        </svg>
-                      </button>
-                      {renderActiveToggle(side, index, slot, "compact")}
-                    </div>
-                  </div>
-                </>
-              ) : (
-                <div className="slot-empty compact">
-                  <strong>{t.slotEmpty}</strong>
-                </div>
-              )}
-              </div>
-            );
-        })}
-      </div>
-    </section>
-  );
   const renderAbilityButtons = (slot, onChange) => {
     if (!hasSpeedAbilityOptions(slot)) {
       const label = getLocalizedOptionLabel(DEFAULT_ABILITY_OPTIONS[0], language);
@@ -2626,13 +1603,16 @@ function App() {
         <div className="search-shell battle-search-shell">
           <label className="search-box battle-search-box">
             <span>{t.search}</span>
-            <input
+              <input
               value={battleSearch[side][battleSlotIndex]}
               onChange={(event) =>
-                setBattleSearch((current) => ({
-                  ...current,
-                  [side]: current[side].map((value, index) => (index === battleSlotIndex ? event.target.value : value)),
-                }))
+                dispatchUi({
+                  type: "set_battle_search",
+                  updater: (current) => ({
+                    ...current,
+                    [side]: current[side].map((value, index) => (index === battleSlotIndex ? event.target.value : value)),
+                  }),
+                })
               }
               placeholder={t.search}
             />
@@ -2733,12 +1713,7 @@ function App() {
               <button
                 type="button"
                 className={`toggle-chip ${state.tailwind ? "on" : ""}`}
-                onClick={() =>
-                  setBattleState((current) => ({
-                    ...current,
-                    [side]: current[side].map((entry) => ({ ...entry, tailwind: !current[side][battleSlotIndex].tailwind })),
-                  }))
-                }
+                onClick={() => dispatchBattle({ type: "set_side_tailwind", side, value: !state.tailwind })}
               >
                 {t.tailwind}
               </button>
@@ -2835,10 +1810,10 @@ function App() {
                 <div className="team-toolbar">
                   <div className="toolbar-group side-group">
                     <div className="segmented compact target-toggle">
-                      <button type="button" className={searchTargetSide === "ally" ? "active" : ""} onClick={() => setSearchTargetSide("ally")}>
+                      <button type="button" className={searchTargetSide === "ally" ? "active" : ""} onClick={() => dispatchUi({ type: "patch", patch: { searchTargetSide: "ally" } })}>
                         {t.myTeam}
                       </button>
-                      <button type="button" className={searchTargetSide === "enemy" ? "active" : ""} onClick={() => setSearchTargetSide("enemy")}>
+                      <button type="button" className={searchTargetSide === "enemy" ? "active" : ""} onClick={() => dispatchUi({ type: "patch", patch: { searchTargetSide: "enemy" } })}>
                         {t.opponentTeam}
                       </button>
                     </div>
@@ -2849,8 +1824,10 @@ function App() {
                       type="button"
                       className="ghost-button"
                       onClick={() => {
-                        setIsShowdownImportOpen(true);
-                        setShowdownImportStatus(null);
+                        dispatchUi({
+                          type: "patch",
+                          patch: { isShowdownImportOpen: true, showdownImportStatus: null },
+                        });
                       }}
                     >
                       {t.showdownImport}
@@ -2860,7 +1837,7 @@ function App() {
                   <div className="search-shell toolbar-search-shell">
                     <label className="search-box">
                       <span>{t.search}</span>
-                      <input value={search} onChange={(event) => setSearch(event.target.value)} placeholder={t.search} />
+                      <input value={search} onChange={(event) => dispatchUi({ type: "set_search", value: event.target.value })} placeholder={t.search} />
                     </label>
                     {searchResults.length > 0 && (
                       <div className="search-popover search-overlay">
@@ -2878,8 +1855,78 @@ function App() {
 
                 <div className="setup-row">
                   <div className="team-columns">
-                    {renderSlotRow("ally", allySlots, t.myTeam)}
-                    {renderSlotRow("enemy", enemySlots, t.opponentTeam)}
+                    <TeamCard
+                      side="ally"
+                      slots={allySlots}
+                      title={t.myTeam}
+                      activeLabel={t.active}
+                      activeLimit={activeLimit}
+                      selectedSide={selectedSide}
+                      selectedIndex={selectedIndex}
+                      getLocalizedName={(slot) => getLocalizedName(slot, language)}
+                      renderActiveToggle={(index, slot, className) => renderActiveToggle("ally", index, slot, className)}
+                      onManage={() => dispatchUi({ type: "patch", patch: { isPresetManagerOpen: true } })}
+                      onClearOpponent={clearOpponent}
+                      onSelectSlot={(index) => selectSlot("ally", index)}
+                      onSlotDragStart={(index) => dispatchUi({ type: "set_dragging_slot", value: { side: "ally", index } })}
+                      onSlotDragOver={(event) => {
+                        if (!draggingSlot || draggingSlot.side !== "ally") return;
+                        event.preventDefault();
+                      }}
+                      onSlotDrop={(event, index) => {
+                        event.preventDefault();
+                        if (!draggingSlot || draggingSlot.side !== "ally" || draggingSlot.index === index) return;
+                        updateTeam("ally", (current) => {
+                          const next = [...current];
+                          const [moved] = next.splice(draggingSlot.index, 1);
+                          next.splice(index, 0, moved);
+                          return next.map((item, slotIndex) => normalizeSlot(item, slotIndex));
+                        });
+                        selectSlot("ally", index);
+                        dispatchUi({ type: "set_dragging_slot", value: null });
+                      }}
+                      onSlotDragEnd={() => dispatchUi({ type: "set_dragging_slot", value: null })}
+                      onClearSlot={(index) => clearSingleSlot("ally", index)}
+                      slotEmptyLabel={t.slotEmpty}
+                      manageLabel={t.manage}
+                      clearOpponentLabel={t.clearOpponent}
+                    />
+                    <TeamCard
+                      side="enemy"
+                      slots={enemySlots}
+                      title={t.opponentTeam}
+                      activeLabel={t.active}
+                      activeLimit={activeLimit}
+                      selectedSide={selectedSide}
+                      selectedIndex={selectedIndex}
+                      getLocalizedName={(slot) => getLocalizedName(slot, language)}
+                      renderActiveToggle={(index, slot, className) => renderActiveToggle("enemy", index, slot, className)}
+                      onManage={() => dispatchUi({ type: "patch", patch: { isPresetManagerOpen: true } })}
+                      onClearOpponent={clearOpponent}
+                      onSelectSlot={(index) => selectSlot("enemy", index)}
+                      onSlotDragStart={(index) => dispatchUi({ type: "set_dragging_slot", value: { side: "enemy", index } })}
+                      onSlotDragOver={(event) => {
+                        if (!draggingSlot || draggingSlot.side !== "enemy") return;
+                        event.preventDefault();
+                      }}
+                      onSlotDrop={(event, index) => {
+                        event.preventDefault();
+                        if (!draggingSlot || draggingSlot.side !== "enemy" || draggingSlot.index === index) return;
+                        updateTeam("enemy", (current) => {
+                          const next = [...current];
+                          const [moved] = next.splice(draggingSlot.index, 1);
+                          next.splice(index, 0, moved);
+                          return next.map((item, slotIndex) => normalizeSlot(item, slotIndex));
+                        });
+                        selectSlot("enemy", index);
+                        dispatchUi({ type: "set_dragging_slot", value: null });
+                      }}
+                      onSlotDragEnd={() => dispatchUi({ type: "set_dragging_slot", value: null })}
+                      onClearSlot={(index) => clearSingleSlot("enemy", index)}
+                      slotEmptyLabel={t.slotEmpty}
+                      manageLabel={t.manage}
+                      clearOpponentLabel={t.clearOpponent}
+                    />
                   </div>
 
                   <div className={`detail-card ${isDetailSlotVisible ? "" : "detail-empty"}`}>
@@ -2887,7 +1934,7 @@ function App() {
                       <div>
                         <h3>{t.detailSettings}</h3>
                       </div>
-                      <button type="button" className="ghost-button" onClick={() => setIsDetailPanelCleared(true)}>
+                      <button type="button" className="ghost-button" onClick={() => dispatchUi({ type: "patch", patch: { isDetailPanelCleared: true } })}>
                         {t.clearDetailPanel}
                       </button>
                     </div>
@@ -3136,8 +2183,11 @@ function App() {
                       type="search"
                       value={rosterSearch}
                       onChange={(event) => {
-                        setRosterSearch(event.target.value);
-                        if (rosterSearchStatus) setRosterSearchStatus("");
+                        dispatchUi({
+                          type: "set_roster_search",
+                          value: event.target.value,
+                          clearStatus: Boolean(rosterSearchStatus),
+                        });
                       }}
                       placeholder={t.rosterSearchPlaceholder}
                       aria-label={t.rosterSearchPlaceholder}
@@ -3213,190 +2263,39 @@ function App() {
           </button>
         )}
 
-        {isPresetManagerOpen && (
-          <div
-            className="saved-manager-overlay"
-            role="presentation"
-            onClick={(event) => {
-              if (event.target === event.currentTarget) setIsPresetManagerOpen(false);
-            }}
-          >
-            <section className="saved-manager-dialog" role="dialog" aria-modal="true" aria-label={t.savedTeamsTitle}>
-              <div className="saved-manager-head">
-                <div className="heading-with-help">
-                  <h3>{t.savedTeamsTitle}</h3>
-                  <Tooltip label="?" text={t.saveHelp} className="inline-help" />
-                </div>
-                <button type="button" className="ghost-button" onClick={() => setIsPresetManagerOpen(false)}>
-                  {t.close}
-                </button>
-              </div>
+        <PresetManagerModal
+          isOpen={isPresetManagerOpen}
+          t={t}
+          renderHelpTooltip={() => <Tooltip label="?" text={t.saveHelp} className="inline-help" />}
+          onClose={() => dispatchUi({ type: "patch", patch: { isPresetManagerOpen: false } })}
+          presetName={presetName}
+          onPresetNameChange={(value) => dispatchUi({ type: "set_preset_name", value })}
+          selectedPreset={selectedPreset}
+          placeholderName={selectedPreset || getNextPresetName(t.myTeam, presets)}
+          onSave={savePreset}
+          allyHasPokemon={allyHasPokemon}
+          saveTargetExists={saveTargetExists}
+          presets={presets}
+          savedAtFormatter={savedAtFormatter}
+          onSelectPreset={(name) => {
+            dispatchUi({ type: "patch", patch: { selectedPreset: name, presetName: name } });
+          }}
+          onLoadPreset={loadPreset}
+          onDeletePreset={deletePreset}
+        />
 
-              <div className="saved-team-panel modal">
-                <div className="saved-team-toolbar">
-                  <label className="saved-team-input">
-                    <span>{t.saveName}</span>
-                    <input
-                      value={presetName}
-                      onChange={(event) => setPresetName(event.target.value)}
-                      placeholder={selectedPreset || getNextPresetName(t.myTeam, presets)}
-                    />
-                  </label>
-                  <button type="button" className="primary-button" onClick={savePreset} disabled={!allyHasPokemon}>
-                    {saveTargetExists ? t.overwrite : t.save}
-                  </button>
-                </div>
-
-                <div className="saved-team-meta">
-                  <span>{t.savePlaceholder}</span>
-                  {selectedPreset && (
-                    <strong>
-                      {t.selectedSaved}: {selectedPreset}
-                    </strong>
-                  )}
-                </div>
-
-                {presets.length > 0 ? (
-                  <div className="saved-team-list">
-                    {presets.map((preset) => {
-                      const members = preset.slots.filter(slotHasPokemon);
-                      const isSelected = selectedPreset === preset.name;
-
-                      return (
-                        <article
-                          key={preset.name}
-                          className={`saved-team-card ${isSelected ? "selected" : ""}`}
-                          role="button"
-                          tabIndex={0}
-                          onClick={() => {
-                            setSelectedPreset(preset.name);
-                            setPresetName(preset.name);
-                          }}
-                          onKeyDown={(event) => {
-                            if (event.key === "Enter" || event.key === " ") {
-                              event.preventDefault();
-                              setSelectedPreset(preset.name);
-                              setPresetName(preset.name);
-                            }
-                          }}
-                        >
-                          <div className="saved-team-card-row">
-                            <div className="saved-team-summary">
-                              <strong>{preset.name}</strong>
-                              <span>
-                                {members.length}/6 {t.savedMembers}
-                              </span>
-                            </div>
-
-                            <div className="saved-team-preview">
-                              {members.map((slot) => (
-                                <span key={`${preset.name}-${slot.slotId}`} className="saved-team-icon-shell">
-                                  <img src={slot.icon} alt="" className="saved-team-icon" />
-                                </span>
-                              ))}
-                            </div>
-
-                            <div className="saved-team-card-side">
-                              <time dateTime={new Date(preset.savedAt).toISOString()}>{savedAtFormatter.format(preset.savedAt)}</time>
-                              <div className="saved-team-actions">
-                                <button
-                                  type="button"
-                                  className="ghost-button"
-                                  onClick={(event) => {
-                                    event.stopPropagation();
-                                    loadPreset(preset.name);
-                                  }}
-                                >
-                                  {t.load}
-                                </button>
-                                <button
-                                  type="button"
-                                  className="danger-pill compact"
-                                  onClick={(event) => {
-                                    event.stopPropagation();
-                                    deletePreset(preset.name);
-                                  }}
-                                >
-                                  {t.delete}
-                                </button>
-                              </div>
-                            </div>
-                          </div>
-                        </article>
-                      );
-                    })}
-                  </div>
-                ) : (
-                  <div className="saved-team-empty">{t.noSavedTeams}</div>
-                )}
-              </div>
-            </section>
-          </div>
-        )}
-
-        {isShowdownImportOpen && (
-          <div
-            className="saved-manager-overlay"
-            role="presentation"
-            onClick={(event) => {
-              if (event.target === event.currentTarget) setIsShowdownImportOpen(false);
-            }}
-          >
-            <section className="saved-manager-dialog showdown-import-dialog" role="dialog" aria-modal="true" aria-label={t.showdownImportTitle}>
-              <div className="saved-manager-head">
-                <div className="heading-with-help">
-                  <h3>{t.showdownImportTitle}</h3>
-                  <Tooltip label="?" text={t.showdownImportHelp} className="inline-help" />
-                </div>
-                <button type="button" className="ghost-button" onClick={() => setIsShowdownImportOpen(false)}>
-                  {t.close}
-                </button>
-              </div>
-
-              <div className="saved-team-panel modal showdown-import-panel">
-                <div className="saved-team-meta showdown-import-meta">
-                  <strong>
-                    {t.showdownImportTarget}: {searchTargetSide === "ally" ? t.myTeam : t.opponentTeam}
-                  </strong>
-                  <span>{t.showdownImportPlaceholder}</span>
-                </div>
-
-                <label className="showdown-import-input">
-                  <textarea
-                    value={showdownImportText}
-                    onChange={(event) => setShowdownImportText(event.target.value)}
-                    placeholder={`Garchomp @ Choice Scarf\nAbility: Rough Skin\nEVs: 252 Atk / 4 SpD / 252 Spe\nJolly Nature\n- Earthquake`}
-                  />
-                </label>
-
-                {showdownImportStatus && (
-                  <div className={`showdown-import-status ${showdownImportStatus.type}`}>
-                    <strong>{showdownImportStatus.message}</strong>
-                    {showdownImportStatus.warnings?.length > 0 && (
-                      <>
-                        <span>{t.showdownImportWarnings}</span>
-                        <div className="showdown-import-warning-list">
-                          {showdownImportStatus.warnings.map((warning) => (
-                            <span key={warning}>{warning}</span>
-                          ))}
-                        </div>
-                      </>
-                    )}
-                  </div>
-                )}
-
-                <div className="showdown-import-actions">
-                  <button type="button" className="ghost-button" onClick={() => setShowdownImportText("")}>
-                    {t.showdownImportClear}
-                  </button>
-                  <button type="button" className="primary-button" onClick={importShowdownTeam}>
-                    {t.showdownImportAction}
-                  </button>
-                </div>
-              </div>
-            </section>
-          </div>
-        )}
+        <ShowdownImportModal
+          isOpen={isShowdownImportOpen}
+          t={t}
+          renderHelpTooltip={() => <Tooltip label="?" text={t.showdownImportHelp} className="inline-help" />}
+          onClose={() => dispatchUi({ type: "patch", patch: { isShowdownImportOpen: false } })}
+          searchTargetSide={searchTargetSide}
+          showdownImportText={showdownImportText}
+          onShowdownImportTextChange={(value) => dispatchUi({ type: "set_showdown_import_text", value })}
+          showdownImportStatus={showdownImportStatus}
+          onClearText={() => dispatchUi({ type: "set_showdown_import_text", value: "" })}
+          onImport={importShowdownTeam}
+        />
 
         <footer className="app-footer">{t.footer}</footer>
       </div>

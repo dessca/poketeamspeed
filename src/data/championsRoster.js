@@ -226,7 +226,7 @@ const CHAMPIONS_ROSTER_RAW = [
   rosterEntry(970, "킬라플로르", 86),
   rosterEntry(981, "키키링", 60),
   rosterEntry(983, "대도각참", 50),
-  rosterEntry(1012, "그우린차", 50),
+  rosterEntry(1013, "그우린차", 70),
   rosterEntry(1018, "브리두라스", 85),
   rosterEntry(706, "과미드라", 44, "alt", LOCAL_ICON("sliggoo-hisuian.png")),
 ];

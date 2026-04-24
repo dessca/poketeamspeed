@@ -181,7 +181,7 @@ export const BASE_ENGLISH_NAME_BY_DEX = {
   "979": "Annihilape",
   "981": "Farigiraf",
   "983": "Kingambit",
-  "1012": "Poltchageist",
+  "1013": "Sinistcha",
   "1018": "Archaludon"
 };
 
@@ -368,7 +368,7 @@ export const BASE_JAPANESE_NAME_BY_DEX = {
   "979": "コノヨザル",
   "981": "リキキリン",
   "983": "ドドゲザン",
-  "1012": "チャデス",
+  "1013": "ヤバソチャ",
   "1018": "ブリジュラス"
 };
 

@@ -3498,3 +3498,217 @@
     height: 48px;
   }
 }
+
+@media (max-width: 960px) {
+  .header-controls {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    justify-content: stretch;
+    gap: 10px;
+  }
+
+  .header-help,
+  .header-view-switch,
+  .header-meta-tools {
+    width: 100%;
+    justify-self: stretch;
+  }
+
+  .header-meta-tools {
+    display: grid;
+    grid-template-columns: 48px minmax(0, 1fr);
+    align-items: center;
+    gap: 8px;
+  }
+
+  .header-view-switch.segmented,
+  .panel-mode-switch.segmented,
+  .toolbar-group.side-group .segmented {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    width: 100%;
+  }
+
+  .header-view-switch button,
+  .panel-mode-switch button,
+  .toolbar-group.side-group .segmented button {
+    min-width: 0;
+    padding-inline: 10px;
+  }
+
+  .icon-toggle {
+    width: 48px;
+    min-width: 48px;
+    padding-inline: 0;
+    justify-content: center;
+  }
+
+  .lang-select {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .team-heading-row {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 8px 10px;
+    align-items: center;
+  }
+
+  .team-heading-row h2 {
+    min-width: 0;
+  }
+
+  .panel-mode-switch {
+    grid-column: 1 / -1;
+    margin-left: 0;
+  }
+
+  .team-toolbar {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 10px;
+  }
+
+  .toolbar-group {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 8px;
+    width: 100%;
+    align-items: stretch;
+  }
+
+  .toolbar-group.side-group,
+  .toolbar-group.import-group,
+  .toolbar-search-shell {
+    width: 100%;
+  }
+
+  .toolbar-group.import-group .ghost-button {
+    width: 100%;
+  }
+
+  .team-toolbar .search-shell,
+  .team-toolbar .search-box,
+  .battle-search-shell,
+  .battle-search-box {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .team-toolbar .search-box,
+  .battle-search-box {
+    grid-template-columns: minmax(72px, auto) minmax(0, 1fr);
+    gap: 10px;
+    min-height: 46px;
+    padding: 0 14px;
+  }
+
+  .team-toolbar .search-box span,
+  .battle-search-box span {
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 0.78rem;
+  }
+
+  .detail-summary,
+  .battle-poke-summary {
+    grid-template-columns: auto minmax(0, 1fr);
+    gap: 10px 12px;
+    align-items: center;
+  }
+
+  .detail-summary > .battle-summary-side,
+  .battle-poke-summary > .battle-summary-side {
+    grid-column: 1 / -1;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .detail-copy strong,
+  .compare-panel .compare-name-line strong {
+    font-size: clamp(0.94rem, 4vw, 1rem);
+  }
+
+  .detail-copy span,
+  .battle-summary-range small,
+  .compare-panel .compare-meta span {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .detail-range,
+  .battle-summary-range {
+    grid-column: 1 / -1;
+    justify-self: end;
+    min-width: fit-content;
+  }
+
+  .detail-card .segmented.wrap,
+  .battle-detail-grid .segmented.wrap,
+  .battle-action-row {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    gap: 8px;
+    padding-bottom: 2px;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .detail-card .segmented.wrap::-webkit-scrollbar,
+  .battle-detail-grid .segmented.wrap::-webkit-scrollbar,
+  .battle-action-row::-webkit-scrollbar {
+    display: none;
+  }
+
+  .detail-card .segmented.wrap button,
+  .battle-detail-grid .segmented.wrap button,
+  .battle-action-row .toggle-chip {
+    flex: 0 0 auto;
+    min-width: max-content;
+  }
+
+  .battle-action-row .toggle-chip {
+    min-height: 38px;
+    padding-inline: 10px;
+    font-size: 0.84rem;
+  }
+
+  .compare-panel .compare-row {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 8px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+  }
+
+  .compare-panel .compare-copy {
+    display: grid;
+    gap: 4px;
+    min-width: 0;
+  }
+
+  .compare-panel .compare-name-line {
+    min-width: 0;
+    flex-wrap: nowrap;
+  }
+
+  .compare-panel .compare-meta span {
+    display: block;
+  }
+
+  .compare-panel .compare-graph-block {
+    grid-template-columns: minmax(0, 1fr) 72px;
+    gap: 8px;
+  }
+
+  .compare-panel .compare-range {
+    min-width: 72px;
+    font-size: 0.82rem;
+    white-space: nowrap;
+  }
+}
