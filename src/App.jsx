@@ -586,6 +586,40 @@ function getGraphSegmentRenderPriority(segment) {
   return 0;
 }
 
+function countKnownUnknowns(flags) {
+  return Object.values(flags).filter(Boolean).length;
+}
+
+function getPointUncertaintyCount(slot) {
+  return countKnownUnknowns({
+    points: slot.evUnknown,
+  });
+}
+
+function getLayerUncertaintyCount(slot, kind) {
+  return countKnownUnknowns({
+    points: slot.evUnknown,
+    nature: kind === "nature" || ((kind === "item" || kind === "ability" || kind === "both") && slot.nature === "unknown"),
+    item: (kind === "item" || kind === "both") && slot.itemSetting === "unknown",
+    ability: (kind === "ability" || kind === "both") && slot.abilitySetting === "unknown",
+  });
+}
+
+function getGraphPossibilityPenalty(segmentKind, tone = "neutral") {
+  if (segmentKind === "point" || segmentKind === "point-range") return 0;
+  if (segmentKind === "nature") return tone === "neutral" ? 1 : 2;
+  if (segmentKind === "item") return tone === "neutral" ? 2 : 3;
+  if (segmentKind === "ability") return tone === "neutral" ? 3 : 4;
+  if (segmentKind === "both") return tone === "neutral" ? 5 : 6;
+  return 0;
+}
+
+function getGraphBarHeight(uncertaintyCount, segmentKind, tone = "neutral") {
+  const certaintyHeight = [20, 17, 14, 11, 9][Math.min(uncertaintyCount, 4)];
+  const possibilityPenalty = getGraphPossibilityPenalty(segmentKind, tone);
+  return Math.max(6, certaintyHeight - possibilityPenalty);
+}
+
 function buildRangeBranches(baseSpeed, evValues, natureValues, itemFactor, abilityFactor, battleFactors) {
   const branches = natureValues
     .map((natureFactor) => {
@@ -653,6 +687,7 @@ function createGraphLayer({
   return {
     key,
     kind,
+    uncertaintyCount: getLayerUncertaintyCount(slot, kind),
     min: range.min,
     max: range.max,
     branches: range.branches,
@@ -899,6 +934,7 @@ function buildGraph(slot, baseSpeed, battleState = null, language = "ko") {
     pointMin,
     pointMax,
     point,
+    pointUncertaintyCount: getPointUncertaintyCount(slot),
     pointTooltip: formatPointRangeSummary(slot, baseSpeed, battleState, language),
     min: graphMin,
     max: graphMax,
@@ -1184,9 +1220,6 @@ function RollingNumber({ value, animationIdentity, phase = "stable" }) {
 function SpeedGraph({ graph, maxValue, tone = "ally", compact = false, markerValuePlacement = "none" }) {
   const graphRef = useRef(null);
   const [graphWidth, setGraphWidth] = useState(0);
-  const segmentRenderIdRef = useRef(0);
-  const layerSettleTimersRef = useRef(new Map());
-  const layerRemovalTimersRef = useRef(new Map());
   const pointLeft = (graph.point / maxValue) * 100;
   const pointRangeLeft = (graph.pointMin / maxValue) * 100;
   const pointRangeWidth = ((graph.pointMax - graph.pointMin) / maxValue) * 100;
@@ -1219,6 +1252,7 @@ function SpeedGraph({ graph, maxValue, tone = "ally", compact = false, markerVal
       matchKey: "point",
       segmentKind: pointIsRange ? "point-range" : "point",
       tone: "neutral",
+      uncertaintyCount: graph.pointUncertaintyCount ?? 0,
       min: pointIsRange ? graph.pointMin : graph.point,
       max: pointIsRange ? graph.pointMax : graph.point,
       className: pointIsRange ? "speed-graph-point-range" : "speed-graph-point single-value",
@@ -1230,6 +1264,7 @@ function SpeedGraph({ graph, maxValue, tone = "ally", compact = false, markerVal
       matchKey: `${layer.key}-${branch.key}`,
       segmentKind: layer.kind,
       tone: branch.tone,
+      uncertaintyCount: layer.uncertaintyCount ?? 0,
       min: branch.min,
       max: branch.max,
       className: `speed-graph-layer-segment speed-graph-layer-${layer.kind} speed-graph-tone-${branch.tone}${branch.min === branch.max ? " single-value" : ""}`,
@@ -1237,29 +1272,11 @@ function SpeedGraph({ graph, maxValue, tone = "ally", compact = false, markerVal
       tooltip: layer.tooltip.join("\n"),
     })),
   ];
-  const visualSegmentsSignature = JSON.stringify(
-    visualSegments.map((segment) => ({
-      semanticId: segment.semanticId,
-      segmentKind: segment.segmentKind,
-      min: segment.min,
-      max: segment.max,
-      className: segment.className,
-    }))
-  );
-  const [animatedSegments, setAnimatedSegments] = useState(() =>
-    visualSegments.map((segment) => ({
-      ...segment,
-      renderId: `segment-${segmentRenderIdRef.current++}`,
-      phase: "stable",
-    }))
-  );
-  const renderedSegments = compact
-    ? animatedSegments
-    : visualSegments.map((segment) => ({
-        ...segment,
-        renderId: segment.semanticId,
-        phase: "stable",
-      }));
+  const renderedSegments = visualSegments.map((segment) => ({
+    ...segment,
+    renderId: segment.semanticId,
+    phase: "stable",
+  }));
   const markerLabels = markerValuePlacement === "none"
     ? []
     : (() => {
@@ -1312,137 +1329,6 @@ function SpeedGraph({ graph, maxValue, tone = "ally", compact = false, markerVal
           .reverse();
       })();
   useEffect(() => {
-    if (!compact) return undefined;
-
-    const animationDuration = 420;
-    const nextSegments = visualSegments;
-
-    setAnimatedSegments((current) => {
-      const merged = [];
-      const activeCurrent = current.filter((segment) => segment.phase !== "exit");
-      const usedCurrentRenderIds = new Set();
-      const matchedPrevious = new Set();
-      const matchedNext = new Set();
-      const matchCandidates = [];
-
-      nextSegments.forEach((nextSegment, nextIndex) => {
-        const exactMatchIndex = activeCurrent.findIndex(
-          (previousSegment, previousIndex) =>
-            !matchedPrevious.has(previousIndex) &&
-            previousSegment.matchKey === nextSegment.matchKey
-        );
-
-        if (exactMatchIndex < 0) return;
-
-        matchedPrevious.add(exactMatchIndex);
-        matchedNext.add(nextIndex);
-
-        const previousSegment = activeCurrent[exactMatchIndex];
-        usedCurrentRenderIds.add(previousSegment.renderId);
-        const removalTimer = layerRemovalTimersRef.current.get(previousSegment.renderId);
-        if (removalTimer) {
-          window.clearTimeout(removalTimer);
-          layerRemovalTimersRef.current.delete(previousSegment.renderId);
-        }
-
-        merged.push({
-          ...previousSegment,
-          ...nextSegment,
-          renderId: previousSegment.renderId,
-          phase: "stable",
-        });
-      });
-
-      activeCurrent.forEach((previousSegment, previousIndex) => {
-        if (matchedPrevious.has(previousIndex)) return;
-        nextSegments.forEach((nextSegment, nextIndex) => {
-          if (matchedNext.has(nextIndex)) return;
-          const score = getMorphScore(previousSegment, nextSegment);
-          if (score > Number.NEGATIVE_INFINITY) {
-            matchCandidates.push({
-              previousIndex,
-              nextIndex,
-              score,
-            });
-          }
-        });
-      });
-
-      matchCandidates
-        .sort((a, b) => b.score - a.score)
-        .forEach(({ previousIndex, nextIndex }) => {
-          if (matchedPrevious.has(previousIndex) || matchedNext.has(nextIndex)) return;
-          matchedPrevious.add(previousIndex);
-          matchedNext.add(nextIndex);
-
-          const previousSegment = activeCurrent[previousIndex];
-          const nextSegment = nextSegments[nextIndex];
-          usedCurrentRenderIds.add(previousSegment.renderId);
-          const removalTimer = layerRemovalTimersRef.current.get(previousSegment.renderId);
-          if (removalTimer) {
-            window.clearTimeout(removalTimer);
-            layerRemovalTimersRef.current.delete(previousSegment.renderId);
-          }
-
-          merged.push({
-            ...previousSegment,
-            ...nextSegment,
-            renderId: previousSegment.renderId,
-            phase: "stable",
-          });
-        });
-
-      nextSegments.forEach((nextSegment, nextIndex) => {
-        if (matchedNext.has(nextIndex)) return;
-
-        const renderId = `segment-${segmentRenderIdRef.current++}`;
-        merged.push({
-          ...nextSegment,
-          renderId,
-          phase: "enter",
-        });
-
-        if (!layerSettleTimersRef.current.has(renderId)) {
-          const timerId = window.setTimeout(() => {
-            setAnimatedSegments((segments) =>
-              segments.map((entry) => (entry.renderId === renderId ? { ...entry, phase: "stable" } : entry))
-            );
-            layerSettleTimersRef.current.delete(renderId);
-          }, animationDuration);
-
-          layerSettleTimersRef.current.set(renderId, timerId);
-        }
-      });
-
-      current.forEach((segment) => {
-        if (usedCurrentRenderIds.has(segment.renderId)) return;
-        if (segment.phase === "exit") {
-          merged.push(segment);
-          return;
-        }
-
-        const exiting = { ...segment, phase: "exit" };
-        merged.push(exiting);
-
-        if (!layerRemovalTimersRef.current.has(segment.renderId)) {
-            const timerId = window.setTimeout(() => {
-              setAnimatedSegments((segments) =>
-                segments.filter((entry) => entry.renderId !== segment.renderId)
-              );
-              layerRemovalTimersRef.current.delete(segment.renderId);
-            }, animationDuration);
-
-            layerRemovalTimersRef.current.set(segment.renderId, timerId);
-        }
-      });
-
-      return merged;
-    });
-
-    return undefined;
-  }, [compact, visualSegmentsSignature]);
-
-  useEffect(() => {
     if (markerValuePlacement === "none") return undefined;
 
     const node = graphRef.current;
@@ -1461,47 +1347,42 @@ function SpeedGraph({ graph, maxValue, tone = "ally", compact = false, markerVal
     return () => observer.disconnect();
   }, [markerValuePlacement]);
 
-  useEffect(() => () => {
-    layerSettleTimersRef.current.forEach((id) => window.clearTimeout(id));
-    layerRemovalTimersRef.current.forEach((id) => window.clearTimeout(id));
-    layerSettleTimersRef.current.clear();
-    layerRemovalTimersRef.current.clear();
-  }, []);
-
     return (
     <div ref={graphRef} className={`speed-graph ${tone} ${compact ? "compact" : ""}`}>
       {[...renderedSegments]
         .sort((a, b) => getGraphSegmentRenderPriority(a) - getGraphSegmentRenderPriority(b))
-        .map(({ renderId, min, max, className, tooltip, phase }) => {
+        .map(({ renderId, min, max, className, tooltip, phase, uncertaintyCount, segmentKind, tone }) => {
           const left = (min / maxValue) * 100;
           const width = ((max - min) / maxValue) * 100;
           const isCollapsed = min === max;
+          const barHeight = getGraphBarHeight(uncertaintyCount ?? 0, segmentKind, tone);
 
           return (
             <div
               key={renderId}
-              className={`${className} marker-tooltip ${phase === "enter" ? "is-entering" : ""} ${phase === "exit" ? "is-exiting" : ""}`}
+              className={`${className} marker-tooltip`}
               style={{
+                "--graph-bar-height": `${barHeight}px`,
                 left: `${left}%`,
                 top: `${pointTop}px`,
                 width: `${Math.max(0.8, width)}%`,
               }}
               data-tooltip={tooltip}
-              tabIndex={phase === "exit" ? -1 : 0}
+              tabIndex={0}
             />
           );
         })}
       {markerLabels.map((marker) => (
         <span
           key={`label-${marker.id}`}
-          className={`speed-graph-value marker-tooltip ${markerValuePlacement} ${marker.phase === "enter" ? "is-entering" : ""} ${marker.phase === "exit" ? "is-exiting" : ""}`}
+          className={`speed-graph-value marker-tooltip ${markerValuePlacement}`}
           style={{ left: `${marker.labelPercent}%` }}
           data-tooltip={marker.tooltipText}
-          tabIndex={marker.phase === "exit" ? -1 : 0}
+          tabIndex={0}
         >
           <span className="marker-hitbox" />
           <span className="speed-graph-value-text">
-            <RollingNumber value={marker.value} animationIdentity={marker.id} phase={marker.phase} />
+            <RollingNumber value={marker.value} animationIdentity={marker.id} />
           </span>
         </span>
       ))}
