@@ -7,6 +7,12 @@ import { Analytics } from '@vercel/analytics/react';
 
 const ROSTER_BY_ID = new Map(championsRoster.map((entry) => [entry.id, entry]));
 const ROSTER_BY_NAME = new Map(championsRoster.map((entry) => [entry.displayName, entry]));
+const BASE_ROSTER_BY_DEX = new Map(
+  championsRoster
+    .filter((entry) => entry.formKey === "base")
+    .map((entry) => [entry.dexNo, entry])
+);
+const ROSTER_BY_SHOWDOWN_NAME = new Map();
 
 const STORAGE = {
   theme: "poke-team-speed:theme",
@@ -17,6 +23,83 @@ const STORAGE = {
   enemy: "poke-team-speed:enemy",
   presets: "poke-team-speed:presets",
 };
+
+function normalizeLookupKey(value) {
+  return String(value || "")
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "");
+}
+
+function getShowdownAliasesForEntry(entry) {
+  const aliases = new Set();
+  const baseName = BASE_ROSTER_BY_DEX.get(entry.dexNo)?.displayNameEn || entry.displayNameEn || "";
+
+  if (entry.displayNameEn) aliases.add(entry.displayNameEn);
+
+  switch (entry.formKey) {
+    case "alola":
+      aliases.add(`${baseName}-Alola`);
+      aliases.add(`Alola-${baseName}`);
+      break;
+    case "galar":
+      aliases.add(`${baseName}-Galar`);
+      aliases.add(`Galar-${baseName}`);
+      break;
+    case "hisui":
+      aliases.add(`${baseName}-Hisui`);
+      aliases.add(`Hisui-${baseName}`);
+      break;
+    case "heat":
+    case "wash":
+    case "frost":
+    case "fan":
+    case "mow":
+      aliases.add(`Rotom-${entry.formKey[0].toUpperCase()}${entry.formKey.slice(1)}`);
+      break;
+    case "paldea-combat":
+      aliases.add("Tauros-Paldea-Combat");
+      break;
+    case "paldea-blaze":
+      aliases.add("Tauros-Paldea-Blaze");
+      break;
+    case "paldea-water":
+      aliases.add("Tauros-Paldea-Aqua");
+      aliases.add("Tauros-Paldea-Water");
+      break;
+    case "midday":
+      aliases.add("Lycanroc-Midday");
+      break;
+    case "midnight":
+      aliases.add("Lycanroc-Midnight");
+      break;
+    case "dusk":
+      aliases.add("Lycanroc-Dusk");
+      break;
+    case "alt":
+      if (entry.displayNameEn === "Runerigus") aliases.add("Runerigus");
+      if (entry.displayNameEn === "Hisuian Sliggoo") aliases.add("Sliggoo-Hisui");
+      break;
+    default:
+      break;
+  }
+
+  if (baseName === "Meowstic") {
+    aliases.add("Meowstic");
+    aliases.add("Meowstic-F");
+    aliases.add("Meowstic-M");
+  }
+
+  return [...aliases];
+}
+
+championsRoster.forEach((entry) => {
+  getShowdownAliasesForEntry(entry).forEach((alias) => {
+    const key = normalizeLookupKey(alias);
+    if (key && !ROSTER_BY_SHOWDOWN_NAME.has(key)) {
+      ROSTER_BY_SHOWDOWN_NAME.set(key, entry);
+    }
+  });
+});
 
 const TEXT = {
   ko: {
@@ -50,6 +133,17 @@ const TEXT = {
     load: "불러오기",
     delete: "삭제",
     manage: "팀 관리",
+    showdownImport: "Showdown 불러오기",
+    showdownImportTitle: "Showdown 팀 불러오기",
+    showdownImportTarget: "가져올 대상 팀",
+    showdownImportPlaceholder: "Pokémon Showdown 팀 텍스트를 그대로 붙여넣어 주세요.",
+    showdownImportHelp: "Pokémon Showdown 팀 텍스트를 붙여넣으면 포켓몬, 성격, 스피드 EV, 구애스카프, 지원되는 스피드 특성을 자동으로 반영합니다.\n지원되지 않는 항목은 무시되고, 메가 가능 포켓몬은 메가 선택만 열어 둡니다.",
+    showdownImportAction: "팀 가져오기",
+    showdownImportClear: "입력 지우기",
+    showdownImportEmpty: "붙여넣은 팀 텍스트가 없습니다.",
+    showdownImportFailed: "가져올 수 있는 포켓몬을 찾지 못했습니다.",
+    showdownImportSuccess: "마리의 포켓몬을 가져왔습니다.",
+    showdownImportWarnings: "확인할 항목",
     close: "닫기",
     recentSaved: "최근 저장",
     savedTeams: "저장된 팀",
@@ -133,6 +227,17 @@ const TEXT = {
     load: "Load",
     delete: "Delete",
     manage: "Manage",
+    showdownImport: "Import Showdown",
+    showdownImportTitle: "Import Showdown Team",
+    showdownImportTarget: "Import target",
+    showdownImportPlaceholder: "Paste a Pokémon Showdown team export here.",
+    showdownImportHelp: "Paste a Pokémon Showdown team export to fill Pokémon, nature, Speed EVs, Choice Scarf, and supported Speed abilities automatically.\nUnsupported fields are ignored, and Mega-capable Pokémon keep their Mega selector available.",
+    showdownImportAction: "Import Team",
+    showdownImportClear: "Clear Text",
+    showdownImportEmpty: "There is no Showdown team text to import.",
+    showdownImportFailed: "No importable Pokémon were found in the pasted text.",
+    showdownImportSuccess: "Pokémon imported.",
+    showdownImportWarnings: "Things to check",
     close: "Close",
     recentSaved: "Saved",
     savedTeams: "Saved Teams",
@@ -390,6 +495,85 @@ function normalizeSlot(raw, index) {
 
 function normalizeTeam(raw) {
   return Array.from({ length: 6 }, (_, index) => normalizeSlot(raw?.[index], index));
+}
+
+const FAST_SHOWDOWN_NATURES = new Set(["timid", "jolly", "hasty", "naive"]);
+const SLOW_SHOWDOWN_NATURES = new Set(["brave", "relaxed", "quiet", "sassy"]);
+
+function resolveRosterEntryFromShowdownName(name) {
+  const direct = ROSTER_BY_SHOWDOWN_NAME.get(normalizeLookupKey(name));
+  if (direct) return direct;
+
+  const strippedGender = String(name || "").replace(/-(?:m|f)$/i, "");
+  return ROSTER_BY_SHOWDOWN_NAME.get(normalizeLookupKey(strippedGender)) || null;
+}
+
+function parseShowdownHeader(headerLine) {
+  const [rawIdentity, rawItem = ""] = String(headerLine || "").split(/\s+@\s+/);
+  const identity = rawIdentity.replace(/\s+\((?:M|F)\)\s*$/i, "").trim();
+  const speciesMatch = identity.match(/\(([^()]+)\)\s*$/);
+
+  return {
+    speciesName: speciesMatch ? speciesMatch[1].trim() : identity,
+    itemName: rawItem.trim(),
+  };
+}
+
+function parseShowdownNatureKey(natureName) {
+  const key = normalizeLookupKey(natureName);
+  if (FAST_SHOWDOWN_NATURES.has(key)) return "fast";
+  if (SLOW_SHOWDOWN_NATURES.has(key)) return "slow";
+  return natureName ? "neutral" : "unknown";
+}
+
+function parseShowdownSpeedEv(evLine) {
+  const match = String(evLine || "").match(/(\d+)\s+Spe\b/i);
+  return match ? clampInt(Math.round(Number(match[1]) / 8), 0, 32) : 0;
+}
+
+function resolveImportedAbilitySetting(entry, abilityName) {
+  const options = ABILITY_OPTIONS_BY_NAME[entry.displayName] || DEFAULT_ABILITY_OPTIONS;
+  if (!abilityName) return options.length > 1 ? "unknown" : "none";
+
+  const normalizedAbility = normalizeLookupKey(abilityName);
+  const matched = options.find((option) =>
+    normalizeLookupKey(option.labelEn) === normalizedAbility ||
+    normalizeLookupKey(option.labelKo) === normalizedAbility ||
+    normalizeLookupKey(option.key) === normalizedAbility
+  );
+
+  return matched ? matched.key : "none";
+}
+
+function resolveImportedItemSetting(itemName) {
+  return normalizeLookupKey(itemName) === "choicescarf" ? "scarf" : "none";
+}
+
+function parseShowdownTeamText(text) {
+  return String(text || "")
+    .replace(/\r/g, "")
+    .split(/\n\s*\n+/)
+    .map((block) => block.trim())
+    .filter(Boolean)
+    .map((block) => {
+      const lines = block
+        .split("\n")
+        .map((line) => line.trim())
+        .filter(Boolean);
+
+      const { speciesName, itemName } = parseShowdownHeader(lines[0] || "");
+      const abilityLine = lines.find((line) => /^Ability:/i.test(line));
+      const natureLine = lines.find((line) => / Nature$/i.test(line));
+      const evLine = lines.find((line) => /^EVs:/i.test(line));
+
+      return {
+        speciesName,
+        itemName,
+        abilityName: abilityLine ? abilityLine.replace(/^Ability:\s*/i, "").trim() : "",
+        natureName: natureLine ? natureLine.replace(/\s+Nature$/i, "").trim() : "",
+        speedEv: parseShowdownSpeedEv(evLine),
+      };
+    });
 }
 
 function getLocalizedName(entity, language) {
@@ -1401,6 +1585,9 @@ function App() {
   const [selectedPreset, setSelectedPreset] = useState("");
   const [presetName, setPresetName] = useState("");
   const [isPresetManagerOpen, setIsPresetManagerOpen] = useState(false);
+  const [isShowdownImportOpen, setIsShowdownImportOpen] = useState(false);
+  const [showdownImportText, setShowdownImportText] = useState("");
+  const [showdownImportStatus, setShowdownImportStatus] = useState(null);
   const [search, setSearch] = useState("");
   const [battleSearch, setBattleSearch] = useState({ ally: "", enemy: "" });
   const [selectedSide, setSelectedSide] = useState("ally");
@@ -1465,6 +1652,77 @@ function App() {
   const updateBattleSlot = (side, patch) => {
     const index = battleState[side].index;
     updateSlot(side, index, patch);
+  };
+
+  const importShowdownTeam = () => {
+    const input = showdownImportText.trim();
+    if (!input) {
+      setShowdownImportStatus({ type: "error", message: t.showdownImportEmpty, warnings: [] });
+      return;
+    }
+
+    const parsedSets = parseShowdownTeamText(input);
+    const warnings = [];
+    const importedSlots = [];
+
+    parsedSets.slice(0, 6).forEach((set) => {
+      const entry = resolveRosterEntryFromShowdownName(set.speciesName);
+      if (!entry) {
+        warnings.push(set.speciesName);
+        return;
+      }
+
+      const hasMega = (MEGA_OPTIONS[entry.displayName] || []).length > 0;
+      importedSlots.push(
+        normalizeSlot(
+          {
+            rosterId: entry.id,
+            dexNo: entry.dexNo,
+            formKey: entry.formKey,
+            name: entry.displayName,
+            nameEn: entry.displayNameEn,
+            baseSpeed: entry.speed,
+            icon: entry.icon,
+            active: false,
+            megaChoice: hasMega ? "unknown" : "",
+            evUnknown: false,
+            evValue: set.speedEv,
+            nature: parseShowdownNatureKey(set.natureName),
+            itemSetting: resolveImportedItemSetting(set.itemName),
+            abilitySetting: resolveImportedAbilitySetting(entry, set.abilityName),
+          },
+          importedSlots.length
+        )
+      );
+    });
+
+    if (!importedSlots.length) {
+      setShowdownImportStatus({ type: "error", message: t.showdownImportFailed, warnings });
+      return;
+    }
+
+    if (parsedSets.length > 6) {
+      warnings.push(language === "en" ? `Only the first 6 Pokémon were imported.` : "처음 6마리만 가져왔습니다.");
+    }
+
+    updateTeam(searchTargetSide, () =>
+      Array.from({ length: 6 }, (_, index) => importedSlots[index] || createSlot(index))
+    );
+
+    selectSlot(searchTargetSide, 0);
+    setIsDetailPanelCleared(false);
+    setSearch("");
+    setBattleSearch((current) => ({ ...current, [searchTargetSide]: "" }));
+    setBattleState((current) => ({
+      ...current,
+      [searchTargetSide]: { ...current[searchTargetSide], index: 0 },
+    }));
+
+    setShowdownImportStatus({
+      type: "success",
+      message: `${importedSlots.length} ${t.showdownImportSuccess}`,
+      warnings,
+    });
   };
 
   const searchResults = useMemo(() => {
@@ -2000,6 +2258,19 @@ function App() {
                     </div>
                   </div>
 
+                  <div className="toolbar-group import-group">
+                    <button
+                      type="button"
+                      className="ghost-button"
+                      onClick={() => {
+                        setIsShowdownImportOpen(true);
+                        setShowdownImportStatus(null);
+                      }}
+                    >
+                      {t.showdownImport}
+                    </button>
+                  </div>
+
                   <label className="search-box">
                     <span>{t.search}</span>
                     <input value={search} onChange={(event) => setSearch(event.target.value)} placeholder={t.search} />
@@ -2487,6 +2758,70 @@ function App() {
                 ) : (
                   <div className="saved-team-empty">{t.noSavedTeams}</div>
                 )}
+              </div>
+            </section>
+          </div>
+        )}
+
+        {isShowdownImportOpen && (
+          <div
+            className="saved-manager-overlay"
+            role="presentation"
+            onClick={(event) => {
+              if (event.target === event.currentTarget) setIsShowdownImportOpen(false);
+            }}
+          >
+            <section className="saved-manager-dialog showdown-import-dialog" role="dialog" aria-modal="true" aria-label={t.showdownImportTitle}>
+              <div className="saved-manager-head">
+                <div className="heading-with-help">
+                  <h3>{t.showdownImportTitle}</h3>
+                  <Tooltip label="?" text={t.showdownImportHelp} className="inline-help" />
+                </div>
+                <button type="button" className="ghost-button" onClick={() => setIsShowdownImportOpen(false)}>
+                  {t.close}
+                </button>
+              </div>
+
+              <div className="saved-team-panel modal showdown-import-panel">
+                <div className="saved-team-meta showdown-import-meta">
+                  <strong>
+                    {t.showdownImportTarget}: {searchTargetSide === "ally" ? t.myTeam : t.opponentTeam}
+                  </strong>
+                  <span>{t.showdownImportPlaceholder}</span>
+                </div>
+
+                <label className="showdown-import-input">
+                  <textarea
+                    value={showdownImportText}
+                    onChange={(event) => setShowdownImportText(event.target.value)}
+                    placeholder={`Garchomp @ Choice Scarf\nAbility: Rough Skin\nEVs: 252 Atk / 4 SpD / 252 Spe\nJolly Nature\n- Earthquake`}
+                  />
+                </label>
+
+                {showdownImportStatus && (
+                  <div className={`showdown-import-status ${showdownImportStatus.type}`}>
+                    <strong>{showdownImportStatus.message}</strong>
+                    {showdownImportStatus.warnings?.length > 0 && (
+                      <>
+                        <span>{t.showdownImportWarnings}</span>
+                        <div className="showdown-import-warning-list">
+                          {showdownImportStatus.warnings.map((warning) => (
+                            <span key={warning}>{warning}</span>
+                          ))}
+                        </div>
+                      </>
+                    )}
+                  </div>
+                )}
+
+                <div className="showdown-import-actions">
+                  <button type="button" className="ghost-button" onClick={() => setShowdownImportText("")}>
+                    {t.showdownImportClear}
+                  </button>
+                  <button type="button" className="primary-button" onClick={importShowdownTeam}>
+                    {t.showdownImportAction}
+                  </button>
+                </div>
               </div>
             </section>
           </div>
