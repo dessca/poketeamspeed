@@ -27,13 +27,13 @@ const STORAGE = {
 function normalizeLookupKey(value) {
   return String(value || "")
     .toLowerCase()
-    .replace(/[^a-z0-9가-힣ぁ-ゔァ-ヴー々〆〤一-龠]+/g, "");
+    .replace(/[^a-z0-9]+/g, "");
 }
 
 function normalizeSearchKey(value) {
   return String(value || "")
     .toLowerCase()
-    .replace(/[^a-z0-9가-힣ぁ-ゔァ-ヴー々〆〤一-龠]+/g, "");
+    .replace(/[^a-z0-9가-힣]+/g, "");
 }
 
 function getShowdownAliasesForEntry(entry) {
@@ -308,106 +308,6 @@ const TEXT = {
     doubleOrderSub: "Compare the current Speed ranking of all four Pokemon in the live double matchup.",
     footer: "Contact: teamscarf@proton.me",
   },
-  ja: {
-    titleMain: "SCARF",
-    titleSub: "ポケモン素早さマッチアップ",
-    titleHelp: "ポケモンチャンピオンズ基準で、両チームの素早さ範囲と現在の対面での行動順をすばやく確認できるツールです。",
-    graphHelpLabel: "グラフの見方",
-    graphHelp:
-      "最も太いバーが、現在の情報で最も確度の高い素早さ範囲です。\n能力ポイントが不明な場合は基本範囲が広く表示されます。\nこだわりスカーフや素早さ特性などの追加条件は、より細いバーで表示されます。\n確度が高い範囲ほど太く、仮定が多い可能性ほど細く表示されます。",
-    rosterHelp: "能力ポイント・性格・持ち物・特性による素早さ候補範囲を段階バーで表示します。",
-    teamView: "チーム比較",
-    rosterView: "全ポケモン",
-    myTeam: "自分のチーム",
-    opponentTeam: "相手チーム",
-    search: "ポケモン検索",
-    searchTarget: "追加先",
-    teamSettings: "チーム設定",
-    detailSettings: "詳細設定",
-    detailEmptyHint: "エントリーからポケモンを選んで\n詳細設定を開いてください。",
-    liveBattle: "対面確認",
-    liveBattleEmptyHint: "対面確認でポケモンを選んで\n対戦状況を設定してください。",
-    battleResultEmptyHint: "自分と相手のポケモンを設定して\nどちらが先に動くか確認しましょう。",
-    speedCompare: "チーム素早さ比較",
-    speedCompareHelp: "両チームのエントリーポケモン全体の素早さ範囲を比較します。\n出場ポケモンがすべて確定すると残りは除外されます。",
-    allPokemon: "全ポケモン",
-    rosterSearchPlaceholder: "名前でポケモンへ移動",
-    rosterSearchAction: "移動",
-    rosterSearchMiss: "一致するポケモンが見つかりませんでした。",
-    scrollTop: "上へ戻る",
-    battleMode: "バトルモード",
-    single: "シングルバトル",
-    double: "ダブルバトル",
-    save: "保存",
-    overwrite: "上書き",
-    load: "読み込み",
-    delete: "削除",
-    manage: "管理",
-    showdownImport: "Showdown 読み込み",
-    showdownImportTitle: "Showdown チーム読み込み",
-    showdownImportTarget: "読み込み先",
-    showdownImportPlaceholder: "Pokémon Showdown のチームテキストをそのまま貼り付けてください。",
-    showdownImportHelp: "Pokémon Showdown のチームテキストを貼り付けると、ポケモン・性格・素早さEV・こだわりスカーフ・対応している素早さ特性を自動反映します。\n未対応の項目は無視され、メガ可能ポケモンはメガ選択のみ開いた状態になります。",
-    showdownImportAction: "チームを読み込む",
-    showdownImportClear: "入力を消去",
-    showdownImportEmpty: "貼り付けられたチームテキストがありません。",
-    showdownImportFailed: "読み込めるポケモンが見つかりませんでした。",
-    showdownImportSuccess: "匹のポケモンを読み込みました。",
-    showdownImportWarnings: "要確認",
-    close: "閉じる",
-    recentSaved: "最近保存",
-    savedTeams: "保存済みチーム",
-    savedTeamsTitle: "自分のチーム保存管理",
-    saveName: "保存名",
-    savePlaceholder: "チーム名を入力すると新しい保存を作成します。",
-    saveHelp: "現在の自分のチーム設定のみここに保存されます。\n保存したチームはすぐに読み込みや削除ができます。",
-    noSavedTeams: "保存済みチームはまだありません。",
-    selectedSaved: "選択中の保存",
-    savedMembers: "匹保存",
-    clearOpponent: "一括削除",
-    slotEmpty: "空きスロット",
-    statRange: "現在設定での素早さ範囲",
-    baseSpeed: "種族値",
-    mega: "メガシンカ",
-    noMega: "なし",
-    statPoints: "能力ポイント",
-    unknown: "不明",
-    nature: "性格補正",
-    item: "持ち物",
-    ability: "特性",
-    abilityHelp: "このポケモンに素早さ関連の特性候補がある場合は、ここで設定できます。\n素早さ特性を選ぶと、このツールチップで発動条件と倍率を確認できます。",
-    active: "出場",
-    standby: "控え",
-    resetSlot: "スロット初期化",
-    clearDetailPanel: "詳細設定を閉じる",
-    currentPokemon: "現在のポケモン",
-    tailwind: "おいかぜ ×2.0",
-    paralysis: "まひ ×0.5",
-    rank: "ランク",
-    battleHelp: "現在の対面情報をここで設定します。\n詳細設定と連動しているので、\nどちらが先に動くかをすばやく確認できます。",
-    addHint: "チームを選び、ポケモンを検索してスロットに追加してください。\n詳細設定で素早さ関連の設定を調整できます。\n出場ポケモンの指定やスロットのドラッグ並び替えもできます。",
-    duplicatePokemon: "同じチームに同じポケモンは追加できません。",
-    savePrompt: "チーム名を入力してください。",
-    saveEmpty: "保存できる自分のチームがありません。",
-    noData: "まだ追加されたポケモンはありません。",
-    sureFirstMy: "自分のチームが確定先手",
-    sureFirstOpp: "相手チームが確定先手",
-    likelyFirstMy: "自分のチーム有利",
-    likelyFirstOpp: "相手チーム有利",
-    tieExact: "同速",
-    tiePossible: "同速の可能性",
-    mixed: "接戦",
-    tieExactSub: "実数値が完全に同じ場合、毎ターンの行動順はランダムです。",
-    tiePossibleSub: "残っている変数によって同速になる可能性があります。",
-    likelySubMy: "現在わかっている情報では、自分のチームが先に動く可能性が高いです。",
-    likelySubOpp: "現在わかっている情報では、相手チームが先に動く可能性が高いです。",
-    sureSubMy: "現在の範囲では、相手チームが上を取ることはできません。",
-    sureSubOpp: "現在の範囲では、自分のチームが上を取ることはできません。",
-    mixedSub: "残っている変数が重なっており、まだはっきり断定できません。",
-    doubleOrderTitle: "4体の行動順予想",
-    doubleOrderSub: "現在の設定を基準に、ダブル対面の4体の素早さ順位を比較します。",
-    footer: "お問い合わせ: teamscarf@proton.me",
-  },
 };
 
 const NATURES = {
@@ -418,60 +318,58 @@ const NATURES = {
 };
 
 const NATURE_OPTIONS = [
-  { key: "slow", labelKo: "×0.9", labelEn: "×0.9", labelJa: "×0.9", values: [0.9] },
-  { key: "neutral", labelKo: "×1.0", labelEn: "×1.0", labelJa: "×1.0", values: [1] },
-  { key: "fast", labelKo: "×1.1", labelEn: "×1.1", labelJa: "×1.1", values: [1.1] },
-  { key: "unknown", labelKo: "모름", labelEn: "Unknown", labelJa: "不明", values: [0.9, 1, 1.1] },
+  { key: "slow", labelKo: "×0.9", labelEn: "×0.9", values: [0.9] },
+  { key: "neutral", labelKo: "×1.0", labelEn: "×1.0", values: [1] },
+  { key: "fast", labelKo: "×1.1", labelEn: "×1.1", values: [1.1] },
+  { key: "unknown", labelKo: "모름", labelEn: "Unknown", values: [0.9, 1, 1.1] },
 ];
 
 const ITEMS = {
-  none: { labelKo: "없음", labelEn: "None", labelJa: "なし", values: [1], point: 1 },
-  scarf: { labelKo: "구애스카프 ×1.5", labelEn: "Scarf ×1.5", labelJa: "こだわりスカーフ ×1.5", values: [1.5], point: 1.5 },
-  unknown: { labelKo: "모름", labelEn: "Unknown", labelJa: "不明", values: [1, 1.5], point: 1 },
+  none: { labelKo: "없음", labelEn: "None", values: [1], point: 1 },
+  scarf: { labelKo: "구애스카프 ×1.5", labelEn: "Scarf ×1.5", values: [1.5], point: 1.5 },
+  unknown: { labelKo: "모름", labelEn: "Unknown", values: [1, 1.5], point: 1 },
 };
 
 const ABILITY_OPTIONS_BY_NAME = {
   이상해꽃: [
-    { key: "none", labelKo: "심록", labelEn: "Overgrow", labelJa: "しんりょく", multiplier: 1 },
-    { key: "chlorophyll", labelKo: "엽록소", labelEn: "Chlorophyll", labelJa: "ようりょくそ", multiplier: 2, helpKo: "날씨가 쾌청일 때 스피드 x2", helpEn: "Speed doubles in harsh sunlight.", helpJa: "にほんばれのとき、素早さが2倍になります。" },
-    { key: "unknown", labelKo: "모름", labelEn: "Unknown", labelJa: "不明", multiplier: 1, values: [1, 2] },
+    { key: "none", labelKo: "심록", labelEn: "Overgrow", multiplier: 1 },
+    { key: "chlorophyll", labelKo: "엽록소", labelEn: "Chlorophyll", multiplier: 2, helpKo: "날씨가 쾌청일 때 스피드 x2", helpEn: "Speed doubles in harsh sunlight." },
+    { key: "unknown", labelKo: "모름", labelEn: "Unknown", multiplier: 1, values: [1, 2] },
   ],
   샤크니아: [
-    { key: "none", labelKo: "거친피부", labelEn: "Rough Skin", labelJa: "さめはだ", multiplier: 1 },
+    { key: "none", labelKo: "거친피부", labelEn: "Rough Skin", multiplier: 1 },
     {
       key: "speed-boost",
       labelKo: "가속",
       labelEn: "Speed Boost",
-      labelJa: "かそく",
       multiplier: 1.5,
       helpKo: "턴 종료마다 스피드가 1랭크 오르며, 이 도구에서는 1랭크 기준 x1.5로 계산합니다.",
       helpEn: "Raises Speed by one stage at the end of each turn. This tool models it as x1.5.",
-      helpJa: "ターン終了ごとに素早さが1段階上がり、このツールでは1段階を x1.5 として計算します。",
     },
-    { key: "unknown", labelKo: "모름", labelEn: "Unknown", labelJa: "不明", multiplier: 1, values: [1, 1.5] },
+    { key: "unknown", labelKo: "모름", labelEn: "Unknown", multiplier: 1, values: [1, 1.5] },
   ],
   몰드류: [
-    { key: "none", labelKo: "틀깨기", labelEn: "Mold Breaker", labelJa: "かたやぶり", multiplier: 1 },
-    { key: "sand-rush", labelKo: "모래헤치기", labelEn: "Sand Rush", labelJa: "すなかき", multiplier: 2, helpKo: "날씨가 모래바람일 때 스피드 x2", helpEn: "Speed doubles during a sandstorm.", helpJa: "すなあらしのとき、素早さが2倍になります。" },
-    { key: "unknown", labelKo: "모름", labelEn: "Unknown", labelJa: "不明", multiplier: 1, values: [1, 2] },
+    { key: "none", labelKo: "틀깨기", labelEn: "Mold Breaker", multiplier: 1 },
+    { key: "sand-rush", labelKo: "모래헤치기", labelEn: "Sand Rush", multiplier: 2, helpKo: "날씨가 모래바람일 때 스피드 x2", helpEn: "Speed doubles during a sandstorm." },
+    { key: "unknown", labelKo: "모름", labelEn: "Unknown", multiplier: 1, values: [1, 2] },
   ],
   엘풍: [
-    { key: "none", labelKo: "짓궂은마음", labelEn: "Prankster", labelJa: "いたずらごころ", multiplier: 1 },
-    { key: "chlorophyll", labelKo: "엽록소", labelEn: "Chlorophyll", labelJa: "ようりょくそ", multiplier: 2, helpKo: "날씨가 쾌청일 때 스피드 x2", helpEn: "Speed doubles in harsh sunlight.", helpJa: "にほんばれのとき、素早さが2倍になります。" },
-    { key: "unknown", labelKo: "모름", labelEn: "Unknown", labelJa: "不明", multiplier: 1, values: [1, 2] },
+    { key: "none", labelKo: "짓궂은마음", labelEn: "Prankster", multiplier: 1 },
+    { key: "chlorophyll", labelKo: "엽록소", labelEn: "Chlorophyll", multiplier: 2, helpKo: "날씨가 쾌청일 때 스피드 x2", helpEn: "Speed doubles in harsh sunlight." },
+    { key: "unknown", labelKo: "모름", labelEn: "Unknown", multiplier: 1, values: [1, 2] },
   ],
   스코빌런: [
-    { key: "none", labelKo: "불면", labelEn: "Insomnia", labelJa: "ふみん", multiplier: 1 },
-    { key: "chlorophyll", labelKo: "엽록소", labelEn: "Chlorophyll", labelJa: "ようりょくそ", multiplier: 2, helpKo: "날씨가 쾌청일 때 스피드 x2", helpEn: "Speed doubles in harsh sunlight.", helpJa: "にほんばれのとき、素早さが2倍になります。" },
-    { key: "unknown", labelKo: "모름", labelEn: "Unknown", labelJa: "不明", multiplier: 1, values: [1, 2] },
+    { key: "none", labelKo: "불면", labelEn: "Insomnia", multiplier: 1 },
+    { key: "chlorophyll", labelKo: "엽록소", labelEn: "Chlorophyll", multiplier: 2, helpKo: "날씨가 쾌청일 때 스피드 x2", helpEn: "Speed doubles in harsh sunlight." },
+    { key: "unknown", labelKo: "모름", labelEn: "Unknown", multiplier: 1, values: [1, 2] },
   ],
 };
 
 const MEGA_SPEED_ABILITY_BLOCKED_LABELS = new Set(["메가이상해꽃", "메가샤크니아"]);
 
 const DEFAULT_ABILITY_OPTIONS = [
-  { key: "none", labelKo: "보정 없음", labelEn: "No boost", labelJa: "補正なし", multiplier: 1 },
-  { key: "unknown", labelKo: "모름", labelEn: "Unknown", labelJa: "不明", multiplier: 1, values: [1] },
+  { key: "none", labelKo: "보정 없음", labelEn: "No boost", multiplier: 1 },
+  { key: "unknown", labelKo: "모름", labelEn: "Unknown", multiplier: 1, values: [1] },
 ];
 
 const CANONICAL_MEGA_ART = {
@@ -526,7 +424,6 @@ function createSlot(index) {
     formKey: "base",
     name: "",
     nameEn: "",
-    nameJa: "",
     baseSpeed: 0,
     icon: "",
     active: false,
@@ -550,7 +447,7 @@ function readStorage(key, fallback) {
 
 function detectInitialLanguage() {
   const savedLanguage = readStorage(STORAGE.language, null);
-  if (savedLanguage === "ko" || savedLanguage === "en" || savedLanguage === "ja") return savedLanguage;
+  if (savedLanguage === "ko" || savedLanguage === "en") return savedLanguage;
 
   try {
     const browserLanguages = Array.isArray(navigator.languages) && navigator.languages.length > 0
@@ -566,15 +463,8 @@ function detectInitialLanguage() {
       locale.startsWith("ko") ||
       locale.includes("-kr") ||
       timeZone === "Asia/Seoul";
-    const isJapaneseContext =
-      normalizedLanguages.some((value) => value.startsWith("ja") || value.includes("-jp")) ||
-      locale.startsWith("ja") ||
-      locale.includes("-jp") ||
-      timeZone === "Asia/Tokyo";
 
-    if (isKoreanContext) return "ko";
-    if (isJapaneseContext) return "ja";
-    return "en";
+    return isKoreanContext ? "ko" : "en";
   } catch {
     return "en";
   }
@@ -605,7 +495,6 @@ function normalizeSlot(raw, index) {
   const canonical = getCanonicalRosterEntry(raw);
   const name = canonical?.displayName ?? raw?.name ?? "";
   const nameEn = canonical?.displayNameEn ?? raw?.nameEn ?? "";
-  const nameJa = canonical?.displayNameJa ?? raw?.nameJa ?? "";
   return {
     ...createSlot(index),
     ...raw,
@@ -615,7 +504,6 @@ function normalizeSlot(raw, index) {
     formKey: canonical?.formKey ?? raw?.formKey ?? "base",
     name,
     nameEn,
-    nameJa,
     baseSpeed: clampInt(canonical?.speed ?? raw?.baseSpeed ?? 0, 0, 255),
     icon: canonical?.icon ?? raw?.icon ?? "",
     megaChoice: normalizeMegaChoice(name, raw?.megaChoice ?? ""),
@@ -661,36 +549,6 @@ function parseShowdownSpeedEv(evLine) {
   return match ? clampInt(Math.round(Number(match[1]) / 8), 0, 32) : 0;
 }
 
-function pickLocalizedText(language, values) {
-  return values[language] ?? values.en ?? values.ko ?? "";
-}
-
-function getLocalizedOptionLabel(option, language) {
-  if (!option) return "";
-  return pickLocalizedText(language, {
-    ko: option.labelKo,
-    en: option.labelEn,
-    ja: option.labelJa,
-  });
-}
-
-function getLocalizedOptionHelp(option, language, fallbackText = "") {
-  if (!option) return fallbackText;
-  return pickLocalizedText(language, {
-    ko: option.helpKo,
-    en: option.helpEn,
-    ja: option.helpJa,
-  }) || fallbackText;
-}
-
-function getLocalizedCurrentSpeedLabel(language) {
-  return pickLocalizedText(language, {
-    ko: "현재 스피드",
-    en: "Current Speed",
-    ja: "現在の素早さ",
-  });
-}
-
 function resolveImportedAbilitySetting(entry, abilityName) {
   const options = ABILITY_OPTIONS_BY_NAME[entry.displayName] || DEFAULT_ABILITY_OPTIONS;
   if (!abilityName) return options.length > 1 ? "unknown" : "none";
@@ -699,7 +557,6 @@ function resolveImportedAbilitySetting(entry, abilityName) {
   const matched = options.find((option) =>
     normalizeLookupKey(option.labelEn) === normalizedAbility ||
     normalizeLookupKey(option.labelKo) === normalizedAbility ||
-    normalizeLookupKey(option.labelJa) === normalizedAbility ||
     normalizeLookupKey(option.key) === normalizedAbility
   );
 
@@ -707,8 +564,7 @@ function resolveImportedAbilitySetting(entry, abilityName) {
 }
 
 function resolveImportedItemSetting(itemName) {
-  const normalizedItem = normalizeLookupKey(itemName);
-  return normalizedItem === "choicescarf" || normalizedItem === normalizeLookupKey("こだわりスカーフ") ? "scarf" : "none";
+  return normalizeLookupKey(itemName) === "choicescarf" ? "scarf" : "none";
 }
 
 function parseShowdownTeamText(text) {
@@ -742,17 +598,12 @@ function getLocalizedName(entity, language) {
   if (!entity) return "";
   const koName = entity.displayName ?? entity.name ?? "";
   const enName = entity.displayNameEn ?? entity.nameEn ?? koName;
-  const jaName = entity.displayNameJa ?? entity.nameJa ?? enName ?? koName;
-  if (language === "ja") return jaName || enName || koName;
-  if (language === "en") return enName || koName;
-  return koName;
+  return language === "en" ? enName || koName : koName;
 }
 
 function getLocalizedMegaLabel(mega, language) {
   if (!mega) return "";
-  if (language === "ja") return mega.labelJa || mega.labelEn || mega.label;
-  if (language === "en") return mega.labelEn || mega.label;
-  return mega.label;
+  return language === "en" ? mega.labelEn || mega.label : mega.label;
 }
 
 function normalizePreset(raw, index) {
@@ -816,61 +667,27 @@ function dedupe(values) {
 }
 
 function getItemLabelFromFactor(factor, language = "ko") {
-  if (factor === 1.5) {
-    return pickLocalizedText(language, {
-      ko: "구애스카프",
-      en: "Choice Scarf",
-      ja: "こだわりスカーフ",
-    });
-  }
-  return pickLocalizedText(language, {
-    ko: "구애스카프 미착용",
-    en: "No Choice Scarf applied",
-    ja: "こだわりスカーフ未適用",
-  });
+  if (factor === 1.5) return language === "en" ? "Choice Scarf" : "구애스카프";
+  return language === "en" ? "No Choice Scarf applied" : "구애스카프 미착용";
 }
 
 function getAbilityLabelFromFactor(factor, slot, language = "ko") {
-  if (factor <= 1) {
-    return pickLocalizedText(language, {
-      ko: "특성 미적용",
-      en: "No Speed ability applied",
-      ja: "素早さ特性未適用",
-    });
-  }
+  if (factor <= 1) return language === "en" ? "No Speed ability applied" : "특성 미적용";
   const matched = getAbilityOptions(slot).find((option) => option.multiplier === factor && option.key !== "unknown");
-  if (matched) {
-    const label = getLocalizedOptionLabel(matched, language);
-    return pickLocalizedText(language, {
-      ko: `특성 ${label}`,
-      en: `Ability ${label}`,
-      ja: `特性 ${label}`,
-    });
-  }
-  return pickLocalizedText(language, {
-    ko: "특성 발동",
-    en: "Ability activated",
-    ja: "特性発動",
-  });
+  if (matched) return language === "en" ? `Ability ${matched.labelEn || matched.labelKo}` : `특성 ${matched.labelKo || matched.labelEn}`;
+  return language === "en" ? "Ability activated" : "특성 발동";
 }
 
 function getNatureLabelFromFactor(factor, language = "ko") {
-  if (factor === 0.9) return pickLocalizedText(language, { ko: "성격 x0.9", en: "Nature x0.9", ja: "せいかく x0.9" });
-  if (factor === 1.1) return pickLocalizedText(language, { ko: "성격 x1.1", en: "Nature x1.1", ja: "せいかく x1.1" });
-  return pickLocalizedText(language, { ko: "성격 x1.0", en: "Nature x1.0", ja: "せいかく x1.0" });
+  if (factor === 0.9) return language === "en" ? "Nature x0.9" : "성격 x0.9";
+  if (factor === 1.1) return language === "en" ? "Nature x1.1" : "성격 x1.1";
+  return language === "en" ? "Nature x1.0" : "성격 x1.0";
 }
 
 function summarizeTooltipLines(lines, language = "ko", maxLines = 4) {
   const unique = [...new Set(lines.filter(Boolean))];
   if (unique.length <= maxLines) return unique;
-  return [
-    ...unique.slice(0, maxLines),
-    pickLocalizedText(language, {
-      ko: `외 ${unique.length - maxLines}가지 경우`,
-      en: `+${unique.length - maxLines} more cases`,
-      ja: `ほか ${unique.length - maxLines} 件`,
-    }),
-  ];
+  return [...unique.slice(0, maxLines), language === "en" ? `+${unique.length - maxLines} more cases` : `외 ${unique.length - maxLines}가지 경우`];
 }
 
 function summarizeMarkerMap(markerMap) {
@@ -890,26 +707,18 @@ function summarizeMarkerMap(markerMap) {
 function formatExactValueSummary(slot, baseSpeed, ev, natureFactor, itemFactor, abilityFactor, battleState = null, language = "ko") {
   const baseStat = level50Speed(baseSpeed, ev, natureFactor);
   const labels = [
-    pickLocalizedText(language, {
-      ko: `포인트 ${ev} · ${getNatureLabelFromFactor(natureFactor, language)}`,
-      en: `Points ${ev} · ${getNatureLabelFromFactor(natureFactor, language)}`,
-      ja: `ポイント ${ev} · ${getNatureLabelFromFactor(natureFactor, language)}`,
-    }),
-    pickLocalizedText(language, {
-      ko: `기본 실수치 ${baseStat}`,
-      en: `Base Speed stat ${baseStat}`,
-      ja: `基本実数値 ${baseStat}`,
-    }),
+    language === "en" ? `Points ${ev} · ${getNatureLabelFromFactor(natureFactor, language)}` : `포인트 ${ev} · ${getNatureLabelFromFactor(natureFactor, language)}`,
+    language === "en" ? `Base Speed stat ${baseStat}` : `기본 실수치 ${baseStat}`,
   ];
 
   if (itemFactor !== 1) labels.push(getItemLabelFromFactor(itemFactor, language));
   if (abilityFactor > 1) labels.push(getAbilityLabelFromFactor(abilityFactor, slot, language));
 
   if (battleState) {
-    if (battleState.mega) labels.push(pickLocalizedText(language, { ko: "메가진화", en: "Mega Evolution", ja: "メガシンカ" }));
-    if (battleState.tailwind) labels.push(pickLocalizedText(language, { ko: "순풍", en: "Tailwind", ja: "おいかぜ" }));
-    if (battleState.paralysis) labels.push(pickLocalizedText(language, { ko: "마비", en: "Paralysis", ja: "まひ" }));
-    if (battleState.rank !== 0) labels.push(pickLocalizedText(language, { ko: `랭크 ${battleState.rank}`, en: `Stage ${battleState.rank}`, ja: `ランク ${battleState.rank}` }));
+    if (battleState.mega) labels.push(language === "en" ? "Mega Evolution" : "메가진화");
+    if (battleState.tailwind) labels.push(language === "en" ? "Tailwind" : "순풍");
+    if (battleState.paralysis) labels.push(language === "en" ? "Paralysis" : "마비");
+    if (battleState.rank !== 0) labels.push(language === "en" ? `Stage ${battleState.rank}` : `랭크 ${battleState.rank}`);
   }
 
   return labels.join(" · ");
@@ -923,21 +732,19 @@ function formatPointSummary(slot, baseSpeed, battleState, language = "ko") {
   const abilityLabel = getAbilityLabelFromFactor(pointAbilityFactor, slot, language);
   const battleLabels = [];
   if (battleState) {
-    if (battleState.mega) battleLabels.push(pickLocalizedText(language, { ko: "메가진화", en: "Mega Evolution", ja: "メガシンカ" }));
-    if (battleState.ability && canActivateBattleAbility(slot, battleState)) battleLabels.push(pickLocalizedText(language, { ko: "특성 발동", en: "Ability active", ja: "特性発動" }));
-    if (battleState.tailwind) battleLabels.push(pickLocalizedText(language, { ko: "순풍", en: "Tailwind", ja: "おいかぜ" }));
-    if (battleState.paralysis) battleLabels.push(pickLocalizedText(language, { ko: "마비", en: "Paralysis", ja: "まひ" }));
-    if (battleState.rank !== 0) battleLabels.push(pickLocalizedText(language, { ko: `랭크 ${battleState.rank}`, en: `Stage ${battleState.rank}`, ja: `ランク ${battleState.rank}` }));
+    if (battleState.mega) battleLabels.push(language === "en" ? "Mega Evolution" : "메가진화");
+    if (battleState.ability && canActivateBattleAbility(slot, battleState)) battleLabels.push(language === "en" ? "Ability active" : "특성 발동");
+    if (battleState.tailwind) battleLabels.push(language === "en" ? "Tailwind" : "순풍");
+    if (battleState.paralysis) battleLabels.push(language === "en" ? "Paralysis" : "마비");
+    if (battleState.rank !== 0) battleLabels.push(language === "en" ? `Stage ${battleState.rank}` : `랭크 ${battleState.rank}`);
   }
 
   return [
     `${itemLabel} / ${abilityLabel}`,
-    pickLocalizedText(language, {
-      ko: `무보정 ${level50Speed(baseSpeed, 0, 1)} · 준속 ${level50Speed(baseSpeed, 32, 1)} · 최속 ${level50Speed(baseSpeed, 32, 1.1)}`,
-      en: `Unboosted ${level50Speed(baseSpeed, 0, 1)} · Neutral ${level50Speed(baseSpeed, 32, 1)} · Max ${level50Speed(baseSpeed, 32, 1.1)}`,
-      ja: `無補正 ${level50Speed(baseSpeed, 0, 1)} · 準速 ${level50Speed(baseSpeed, 32, 1)} · 最速 ${level50Speed(baseSpeed, 32, 1.1)}`,
-    }),
-    battleLabels.length ? battleLabels.join(", ") : pickLocalizedText(language, { ko: "현재 확정 구간", en: "Currently confirmed range", ja: "現在確定している範囲" }),
+    language === "en"
+      ? `Unboosted ${level50Speed(baseSpeed, 0, 1)} · Neutral ${level50Speed(baseSpeed, 32, 1)} · Max ${level50Speed(baseSpeed, 32, 1.1)}`
+      : `무보정 ${level50Speed(baseSpeed, 0, 1)} · 준속 ${level50Speed(baseSpeed, 32, 1)} · 최속 ${level50Speed(baseSpeed, 32, 1.1)}`,
+    battleLabels.length ? battleLabels.join(", ") : language === "en" ? "Currently confirmed range" : "현재 확정 구간",
   ];
 }
 
@@ -950,13 +757,13 @@ function getBattleSummaryLabels(slot, battleState, abilityFactor, language = "ko
   if (!battleState) return [];
 
   const labels = [];
-  if (battleState.mega) labels.push(pickLocalizedText(language, { ko: "메가진화", en: "Mega Evolution", ja: "メガシンカ" }));
+  if (battleState.mega) labels.push(language === "en" ? "Mega Evolution" : "메가진화");
   if (battleState.ability && abilityFactor > 1) {
-    labels.push(pickLocalizedText(language, { ko: "특성 발동", en: "Ability active", ja: "特性発動" }));
+    labels.push(language === "en" ? "Ability active" : "특성 발동");
   }
-  if (battleState.tailwind) labels.push(pickLocalizedText(language, { ko: "순풍", en: "Tailwind", ja: "おいかぜ" }));
-  if (battleState.paralysis) labels.push(pickLocalizedText(language, { ko: "마비", en: "Paralysis", ja: "まひ" }));
-  if (battleState.rank !== 0) labels.push(pickLocalizedText(language, { ko: `랭크 ${battleState.rank}`, en: `Stage ${battleState.rank}`, ja: `ランク ${battleState.rank}` }));
+  if (battleState.tailwind) labels.push(language === "en" ? "Tailwind" : "순풍");
+  if (battleState.paralysis) labels.push(language === "en" ? "Paralysis" : "마비");
+  if (battleState.rank !== 0) labels.push(language === "en" ? `Stage ${battleState.rank}` : `랭크 ${battleState.rank}`);
   return labels;
 }
 
@@ -1047,13 +854,7 @@ function buildRangeBranches(baseSpeed, evValues, natureValues, itemFactor, abili
 function formatLayerSummary(title, slot, itemFactor, abilityFactor, branches, battleState, language = "ko") {
   const natureLine = branches
     .map((branch) => `${getNatureLabelFromFactor(branch.natureFactor, language)} ${formatRange(branch.min, branch.max)}`)
-    .join(
-      pickLocalizedText(language, {
-        ko: " · ",
-        en: " | ",
-        ja: " ・ ",
-      })
-    );
+    .join(language === "en" ? " | " : " · ");
 
   const lines = [
     title,
@@ -1092,19 +893,7 @@ function createGraphLayer({
     min: range.min,
     max: range.max,
     branches: range.branches,
-    tooltip: formatLayerSummary(
-      pickLocalizedText(language, {
-        ko: titleKo,
-        en: titleEn,
-        ja: titleEn,
-      }),
-      slot,
-      itemFactor,
-      abilityFactor,
-      range.branches,
-      battleState,
-      language
-    ),
+    tooltip: formatLayerSummary(language === "en" ? titleEn : titleKo, slot, itemFactor, abilityFactor, range.branches, battleState, language),
   };
 }
 
@@ -1198,7 +987,8 @@ function getMarkerAbilityValues(slot, battleState = null) {
 
 function getAbilityHelpText(slot, language, fallbackText) {
   const selected = getSelectedAbility(slot);
-  return getLocalizedOptionHelp(selected, language, fallbackText);
+  const helpText = language === "ko" ? selected.helpKo : selected.helpEn;
+  return helpText || fallbackText;
 }
 
 function getDisplayIcon(slot, megaActive = false) {
@@ -1369,7 +1159,6 @@ function buildRosterGraph(entry, speed = entry.speed, language = "ko") {
     {
       name: entry.displayName,
       nameEn: entry.displayNameEn,
-      nameJa: entry.displayNameJa,
       nature: "unknown",
       itemSetting: "unknown",
       abilitySetting: "unknown",
@@ -1881,19 +1670,12 @@ function App() {
   const selectedSlot = (selectedSide === "ally" ? allySlots : enemySlots)[selectedIndex] || createSlot(selectedIndex);
   const savedAtFormatter = useMemo(
     () =>
-      new Intl.DateTimeFormat(
-        pickLocalizedText(language, {
-          ko: "ko-KR",
-          en: "en-US",
-          ja: "ja-JP",
-        }),
-        {
+      new Intl.DateTimeFormat(language === "ko" ? "ko-KR" : "en-US", {
         month: "short",
         day: "numeric",
         hour: "2-digit",
         minute: "2-digit",
-        }
-      ),
+      }),
     [language]
   );
 
@@ -2024,7 +1806,6 @@ function App() {
             formKey: entry.formKey,
             name: entry.displayName,
             nameEn: entry.displayNameEn,
-            nameJa: entry.displayNameJa,
             baseSpeed: entry.speed,
             icon: entry.icon,
             active: false,
@@ -2046,13 +1827,7 @@ function App() {
     }
 
     if (parsedSets.length > 6) {
-      warnings.push(
-        pickLocalizedText(language, {
-          ko: "처음 6마리만 가져왔습니다.",
-          en: "Only the first 6 Pokémon were imported.",
-          ja: "最初の6匹のみ読み込みました。",
-        })
-      );
+      warnings.push(language === "en" ? `Only the first 6 Pokémon were imported.` : "처음 6마리만 가져왔습니다.");
     }
 
     updateTeam(searchTargetSide, () =>
@@ -2076,13 +1851,9 @@ function App() {
   };
 
   const searchResults = useMemo(() => {
-    const keyword = normalizeSearchKey(search);
+    const keyword = search.trim().toLowerCase();
     if (!keyword) return [];
-    return championsRoster
-      .filter((entry) =>
-        normalizeSearchKey(`${entry.displayName} ${entry.displayNameEn || ""} ${entry.displayNameJa || ""}`).includes(keyword)
-      )
-      .slice(0, 10);
+    return championsRoster.filter((entry) => `${entry.displayName} ${entry.displayNameEn || ""}`.toLowerCase().includes(keyword)).slice(0, 10);
   }, [search]);
 
   const battleSearchResults = useMemo(
@@ -2090,14 +1861,8 @@ function App() {
       ["ally", "enemy"].reduce(
         (acc, side) => {
           acc[side] = [0, 1].map((battleSlotIndex) => {
-            const keyword = normalizeSearchKey(battleSearch[side][battleSlotIndex]);
-            return keyword
-              ? championsRoster
-                  .filter((entry) =>
-                    normalizeSearchKey(`${entry.displayName} ${entry.displayNameEn || ""} ${entry.displayNameJa || ""}`).includes(keyword)
-                  )
-                  .slice(0, 8)
-              : [];
+            const keyword = battleSearch[side][battleSlotIndex].trim().toLowerCase();
+            return keyword ? championsRoster.filter((entry) => `${entry.displayName} ${entry.displayNameEn || ""}`.toLowerCase().includes(keyword)).slice(0, 8) : [];
           });
           return acc;
         },
@@ -2138,7 +1903,6 @@ function App() {
       formKey: entry.formKey,
       name: entry.displayName,
       nameEn: entry.displayNameEn,
-      nameJa: entry.displayNameJa,
       baseSpeed: entry.speed,
       icon: entry.icon,
       megaChoice: hasMega ? "unknown" : "",
@@ -2205,11 +1969,7 @@ function App() {
     if (!target) return;
 
     const confirmed = window.confirm(
-      pickLocalizedText(language, {
-        ko: `"${target.name}" 저장본을 삭제할까요?`,
-        en: `Delete the saved team "${target.name}"?`,
-        ja: `保存済みチーム「${target.name}」を削除しますか？`,
-      })
+      language === "ko" ? `"${target.name}" 저장본을 삭제할까요?` : `Delete the saved team "${target.name}"?`
     );
 
     if (!confirmed) return;
@@ -2355,7 +2115,7 @@ function App() {
         graph: buildRosterGraph(entry, entry.speed, language),
         baseSpeed: entry.speed,
         isMega: false,
-        searchTerms: [getLocalizedName(entry, language), entry.displayName, entry.displayNameEn, entry.displayNameJa].filter(Boolean),
+        searchTerms: [getLocalizedName(entry, language), entry.displayName, entry.displayNameEn].filter(Boolean),
       });
       (MEGA_OPTIONS[entry.displayName] || []).forEach((mega) => {
         rows.push({
@@ -2369,10 +2129,8 @@ function App() {
             getLocalizedMegaLabel(mega, language),
             mega.label,
             mega.labelEn,
-            mega.labelJa,
             entry.displayName,
             entry.displayNameEn,
-            entry.displayNameJa,
           ].filter(Boolean),
         });
       });
@@ -2564,7 +2322,7 @@ function App() {
   );
   const renderAbilityButtons = (slot, onChange) => {
     if (!hasSpeedAbilityOptions(slot)) {
-      const label = getLocalizedOptionLabel(DEFAULT_ABILITY_OPTIONS[0], language);
+      const label = language === "ko" ? DEFAULT_ABILITY_OPTIONS[0].labelKo : DEFAULT_ABILITY_OPTIONS[0].labelEn;
       return (
         <button type="button" className="active" disabled>
           {label}
@@ -2579,7 +2337,7 @@ function App() {
         className={slot.abilitySetting === option.key ? "active" : ""}
         onClick={() => onChange(option.key)}
       >
-        {getLocalizedOptionLabel(option, language)}
+        {language === "ko" ? option.labelKo : option.labelEn}
       </button>
     ));
   };
@@ -2677,7 +2435,7 @@ function App() {
               </div>
               {graph && (
                 <div className="detail-range battle-summary-range">
-                  <small>{getLocalizedCurrentSpeedLabel(language)}</small>
+                  <small>{language === "ko" ? "현재 스피드" : "Current Speed"}</small>
                   <strong>{formatRange(graph.min, graph.max)}</strong>
                 </div>
               )}
@@ -2704,7 +2462,7 @@ function App() {
                 <div className="segmented compact">
                   {NATURE_OPTIONS.map((option) => (
                     <button key={option.key} type="button" className={slot.nature === option.key ? "active" : ""} onClick={() => updateBattleSlot(side, battleSlotIndex, { nature: option.key })}>
-                      {getLocalizedOptionLabel(option, language)}
+                      {language === "ko" ? option.labelKo : option.labelEn}
                     </button>
                   ))}
                 </div>
@@ -2715,7 +2473,7 @@ function App() {
                 <div className="segmented wrap">
                   {Object.entries(ITEMS).map(([key, item]) => (
                     <button key={key} type="button" className={slot.itemSetting === key ? "active" : ""} onClick={() => updateBattleSlot(side, battleSlotIndex, { itemSetting: key })}>
-                      {getLocalizedOptionLabel(item, language)}
+                      {language === "ko" ? item.labelKo : item.labelEn}
                     </button>
                   ))}
                 </div>
@@ -2807,7 +2565,6 @@ function App() {
               <select className="lang-select styled-select" value={language} onChange={(event) => setLanguage(event.target.value)}>
                 <option value="ko">한국어</option>
                 <option value="en">English</option>
-                <option value="ja">日本語</option>
               </select>
             </div>
           </div>
@@ -2908,7 +2665,7 @@ function App() {
                           </div>
                           {selectedGraph && (
                             <div className="detail-range battle-summary-range">
-                              <small>{getLocalizedCurrentSpeedLabel(language)}</small>
+                              <small>{language === "ko" ? "현재 스피드" : "Current Speed"}</small>
                               <strong>{formatRange(selectedGraph.min, selectedGraph.max)}</strong>
                             </div>
                           )}
@@ -2942,7 +2699,7 @@ function App() {
                             <div className="segmented">
                               {NATURE_OPTIONS.map((option) => (
                                 <button key={option.key} type="button" className={selectedSlot.nature === option.key ? "active" : ""} onClick={() => updateSlot(selectedSide, selectedIndex, { nature: option.key })}>
-                                  {getLocalizedOptionLabel(option, language)}
+                                  {language === "ko" ? option.labelKo : option.labelEn}
                                 </button>
                               ))}
                             </div>
@@ -2953,7 +2710,7 @@ function App() {
                             <div className="segmented wrap">
                               {Object.entries(ITEMS).map(([key, item]) => (
                                 <button key={key} type="button" className={selectedSlot.itemSetting === key ? "active" : ""} onClick={() => updateSlot(selectedSide, selectedIndex, { itemSetting: key })}>
-                                  {getLocalizedOptionLabel(item, language)}
+                                  {language === "ko" ? item.labelKo : item.labelEn}
                                 </button>
                               ))}
                             </div>

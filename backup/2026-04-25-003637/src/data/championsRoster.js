@@ -1,4 +1,4 @@
-import { getEnglishMegaLabel, getEnglishPokemonName, getJapaneseMegaLabel, getJapanesePokemonName } from "./pokemonDisplayNames.js";
+import { getEnglishMegaLabel, getEnglishPokemonName } from "./pokemonDisplayNames.js";
 
 const OA = (dex) =>
   `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${dex}.png`;
@@ -16,7 +16,6 @@ const rosterEntry = (dexNo, displayName, speed, formKey = "base", iconSource = d
   formKey,
   displayName,
   displayNameEn: getEnglishPokemonName(dexNo, formKey),
-  displayNameJa: getJapanesePokemonName(dexNo, formKey),
   speed,
   icon: typeof iconSource === "number" ? OA(iconSource) : iconSource,
 });
@@ -304,14 +303,12 @@ export const MEGA_OPTIONS = Object.fromEntries(
   Object.entries(MEGA_OPTIONS_RAW).map(([displayName, options]) => {
     const matchedEntry = championsRoster.find((entry) => entry.displayName === displayName);
     const baseEnglishName = matchedEntry?.displayNameEn || displayName;
-    const baseJapaneseName = matchedEntry?.displayNameJa || baseEnglishName;
 
     return [
       displayName,
       options.map((option) => ({
         ...option,
         labelEn: getEnglishMegaLabel(baseEnglishName, option.key),
-        labelJa: getJapaneseMegaLabel(baseJapaneseName, option.key),
       })),
     ];
   })

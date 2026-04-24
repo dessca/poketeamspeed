@@ -7,6 +7,12 @@ import { Analytics } from '@vercel/analytics/react';
 
 const ROSTER_BY_ID = new Map(championsRoster.map((entry) => [entry.id, entry]));
 const ROSTER_BY_NAME = new Map(championsRoster.map((entry) => [entry.displayName, entry]));
+const BASE_ROSTER_BY_DEX = new Map(
+  championsRoster
+    .filter((entry) => entry.formKey === "base")
+    .map((entry) => [entry.dexNo, entry])
+);
+const ROSTER_BY_SHOWDOWN_NAME = new Map();
 
 const STORAGE = {
   theme: "poke-team-speed:theme",
@@ -18,6 +24,89 @@ const STORAGE = {
   presets: "poke-team-speed:presets",
 };
 
+function normalizeLookupKey(value) {
+  return String(value || "")
+    .toLowerCase()
+    .replace(/[^a-z0-9가-힣ぁ-ゔァ-ヴー々〆〤一-龠]+/g, "");
+}
+
+function normalizeSearchKey(value) {
+  return String(value || "")
+    .toLowerCase()
+    .replace(/[^a-z0-9가-힣ぁ-ゔァ-ヴー々〆〤一-龠]+/g, "");
+}
+
+function getShowdownAliasesForEntry(entry) {
+  const aliases = new Set();
+  const baseName = BASE_ROSTER_BY_DEX.get(entry.dexNo)?.displayNameEn || entry.displayNameEn || "";
+
+  if (entry.displayNameEn) aliases.add(entry.displayNameEn);
+
+  switch (entry.formKey) {
+    case "alola":
+      aliases.add(`${baseName}-Alola`);
+      aliases.add(`Alola-${baseName}`);
+      break;
+    case "galar":
+      aliases.add(`${baseName}-Galar`);
+      aliases.add(`Galar-${baseName}`);
+      break;
+    case "hisui":
+      aliases.add(`${baseName}-Hisui`);
+      aliases.add(`Hisui-${baseName}`);
+      break;
+    case "heat":
+    case "wash":
+    case "frost":
+    case "fan":
+    case "mow":
+      aliases.add(`Rotom-${entry.formKey[0].toUpperCase()}${entry.formKey.slice(1)}`);
+      break;
+    case "paldea-combat":
+      aliases.add("Tauros-Paldea-Combat");
+      break;
+    case "paldea-blaze":
+      aliases.add("Tauros-Paldea-Blaze");
+      break;
+    case "paldea-water":
+      aliases.add("Tauros-Paldea-Aqua");
+      aliases.add("Tauros-Paldea-Water");
+      break;
+    case "midday":
+      aliases.add("Lycanroc-Midday");
+      break;
+    case "midnight":
+      aliases.add("Lycanroc-Midnight");
+      break;
+    case "dusk":
+      aliases.add("Lycanroc-Dusk");
+      break;
+    case "alt":
+      if (entry.displayNameEn === "Runerigus") aliases.add("Runerigus");
+      if (entry.displayNameEn === "Hisuian Sliggoo") aliases.add("Sliggoo-Hisui");
+      break;
+    default:
+      break;
+  }
+
+  if (baseName === "Meowstic") {
+    aliases.add("Meowstic");
+    aliases.add("Meowstic-F");
+    aliases.add("Meowstic-M");
+  }
+
+  return [...aliases];
+}
+
+championsRoster.forEach((entry) => {
+  getShowdownAliasesForEntry(entry).forEach((alias) => {
+    const key = normalizeLookupKey(alias);
+    if (key && !ROSTER_BY_SHOWDOWN_NAME.has(key)) {
+      ROSTER_BY_SHOWDOWN_NAME.set(key, entry);
+    }
+  });
+});
+
 const TEXT = {
   ko: {
     titleMain: "SCARF",
@@ -25,8 +114,8 @@ const TEXT = {
     titleHelp: "포켓몬 챔피언스 기준으로 양 팀 포켓몬들의 스피드와 현재 대면 선공을 빠르게 파악하는 도구입니다.",
     graphHelpLabel: "그래프 보는 법 ?",
     graphHelp:
-      "점은 무보정 실수치에 능력 포인트를 반영한 값입니다. 능력 포인트를 모르면 점 대신 0~32 범위가 짧은 막대로 표시됩니다.\n굵은 선은 성격을 모를 경우 반영한 범위, 얇은 선은 도구/특성 포함 전체 범위,\n눈금은 그에 따른 가능한 수치들입니다.",
-    rosterHelp: "능력 포인트/성격/도구/특성에 따른 가능한 범위를 함께 보여줍니다.",
+      "가장 두껍게 보이는 막대가 현재 기준으로 가장 확실한 스피드 범위입니다.\n능력 포인트를 모르면 기본 범위가 더 넓게 표시됩니다.\n구애스카프, 스피드 특성처럼 추가 조건이 붙는 가능성은 더 얇은 막대로 함께 표시됩니다.\n더 확실한 범위일수록 두껍고, 가정이 많이 필요한 가능성일수록 더 얇게 보입니다.",
+    rosterHelp: "능력 포인트/성격/도구/특성에 따른 스피드 가능 범위를 단계형 막대로 보여줍니다.",
     teamView: "팀 비교",
     rosterView: "전체 포켓몬",
     myTeam: "내 팀",
@@ -42,14 +131,29 @@ const TEXT = {
     speedCompare: "팀 스피드 비교",
     speedCompareHelp: "내 팀과 상대 팀 전체 엔트리 포켓몬들의 스피드를 비교해보세요.\n출전 포켓몬이 모두 확정되면 나머지 포켓몬은 제외됩니다.",
     allPokemon: "전체 포켓몬",
+    rosterSearchPlaceholder: "포켓몬 이름으로 바로 이동",
+    rosterSearchAction: "바로 이동",
+    rosterSearchMiss: "일치하는 포켓몬을 찾지 못했습니다.",
+    scrollTop: "맨 위로",
     battleMode: "배틀 모드",
-    single: "싱글",
-    double: "더블",
+    single: "싱글 배틀",
+    double: "더블 배틀",
     save: "저장",
     overwrite: "덮어쓰기",
     load: "불러오기",
     delete: "삭제",
     manage: "팀 관리",
+    showdownImport: "Showdown 불러오기",
+    showdownImportTitle: "Showdown 팀 불러오기",
+    showdownImportTarget: "가져올 대상 팀",
+    showdownImportPlaceholder: "Pokémon Showdown 팀 텍스트를 그대로 붙여넣어 주세요.",
+    showdownImportHelp: "Pokémon Showdown 팀 텍스트를 붙여넣으면 포켓몬, 성격, 스피드 EV, 구애스카프, 지원되는 스피드 특성을 자동으로 반영합니다.\n지원되지 않는 항목은 무시되고, 메가 가능 포켓몬은 메가 선택만 열어 둡니다.",
+    showdownImportAction: "팀 가져오기",
+    showdownImportClear: "입력 지우기",
+    showdownImportEmpty: "붙여넣은 팀 텍스트가 없습니다.",
+    showdownImportFailed: "가져올 수 있는 포켓몬을 찾지 못했습니다.",
+    showdownImportSuccess: "마리의 포켓몬을 가져왔습니다.",
+    showdownImportWarnings: "확인할 항목",
     close: "닫기",
     recentSaved: "최근 저장",
     savedTeams: "저장된 팀",
@@ -100,6 +204,8 @@ const TEXT = {
     sureSubMy: "현재 범위상 상대 팀이 내 팀을 추월할 수 없습니다.",
     sureSubOpp: "현재 범위상 내 팀이 상대 팀을 추월할 수 없습니다.",
     mixedSub: "남아 있는 변수 때문에 결과 범위가 넓게 겹칩니다.",
+    doubleOrderTitle: "4마리 행동 순서 예상",
+    doubleOrderSub: "현재 설정 기준으로 더블 대면 4마리의 스피드 순위를 비교합니다.",
     footer: "문의: teamscarf@proton.me",
   },
   en: {
@@ -108,8 +214,8 @@ const TEXT = {
     titleHelp: "A quick tool for Pokémon Champions that lets you compare team-wide Speed ranges and live turn order at a glance.",
     graphHelpLabel: "How to read the graph?",
     graphHelp:
-      "The point shows the Speed after stat points are applied with no extra boosts. If stat points are unknown, the point becomes a short 0-32 range.\nThe thick bar appears only when nature is unknown, the thin line shows the full range including item and ability,\nand the ticks mark the possible exact values.",
-    rosterHelp: "Shows each Pokémon's possible Speed range based on stat points, nature, item, and ability.",
+      "The thickest bar shows the most certain Speed range based on the current information.\nIf stat points are unknown, the base range becomes wider.\nExtra possibilities such as Choice Scarf or Speed abilities appear as thinner bars alongside it.\nMore certain ranges are drawn thicker, while more conditional possibilities are drawn thinner.",
+    rosterHelp: "Shows each Pokémon's possible Speed range as layered bars for points, nature, item, and ability.",
     teamView: "Team Compare",
     rosterView: "All Pokémon",
     myTeam: "My Team",
@@ -125,14 +231,29 @@ const TEXT = {
     speedCompare: "Team Speed Compare",
     speedCompareHelp: "Compare the Speed ranges of all entry Pokémon on both teams.\nOnce all active Pokémon are locked in, the remaining ones are excluded.",
     allPokemon: "All Pokémon",
-    battleMode: "Battle Mode",
-    single: "Single",
-    double: "Double",
+    rosterSearchPlaceholder: "Jump to a Pokémon by name",
+    rosterSearchAction: "Go",
+    rosterSearchMiss: "No matching Pokemon was found.",
+    scrollTop: "Back to top",
+    battleMode: "Battle\nMode",
+    single: "Single Battle",
+    double: "Double Battle",
     save: "Save",
     overwrite: "Overwrite",
     load: "Load",
     delete: "Delete",
     manage: "Manage",
+    showdownImport: "Import Showdown",
+    showdownImportTitle: "Import Showdown Team",
+    showdownImportTarget: "Import target",
+    showdownImportPlaceholder: "Paste a Pokémon Showdown team export here.",
+    showdownImportHelp: "Paste a Pokémon Showdown team export to fill Pokémon, nature, Speed EVs, Choice Scarf, and supported Speed abilities automatically.\nUnsupported fields are ignored, and Mega-capable Pokémon keep their Mega selector available.",
+    showdownImportAction: "Import Team",
+    showdownImportClear: "Clear Text",
+    showdownImportEmpty: "There is no Showdown team text to import.",
+    showdownImportFailed: "No importable Pokémon were found in the pasted text.",
+    showdownImportSuccess: "Pokémon imported.",
+    showdownImportWarnings: "Things to check",
     close: "Close",
     recentSaved: "Saved",
     savedTeams: "Saved Teams",
@@ -183,7 +304,109 @@ const TEXT = {
     sureSubMy: "The opposing team cannot outspeed within the current range.",
     sureSubOpp: "My team cannot outspeed within the current range.",
     mixedSub: "There are still too many overlapping variables to call it cleanly.",
+    doubleOrderTitle: "Predicted Turn Order",
+    doubleOrderSub: "Compare the current Speed ranking of all four Pokemon in the live double matchup.",
     footer: "Contact: teamscarf@proton.me",
+  },
+  ja: {
+    titleMain: "SCARF",
+    titleSub: "ポケモン素早さマッチアップ",
+    titleHelp: "ポケモンチャンピオンズ基準で、両チームの素早さ範囲と現在の対面での行動順をすばやく確認できるツールです。",
+    graphHelpLabel: "グラフの見方",
+    graphHelp:
+      "最も太いバーが、現在の情報で最も確度の高い素早さ範囲です。\n能力ポイントが不明な場合は基本範囲が広く表示されます。\nこだわりスカーフや素早さ特性などの追加条件は、より細いバーで表示されます。\n確度が高い範囲ほど太く、仮定が多い可能性ほど細く表示されます。",
+    rosterHelp: "能力ポイント・性格・持ち物・特性による素早さ候補範囲を段階バーで表示します。",
+    teamView: "チーム比較",
+    rosterView: "全ポケモン",
+    myTeam: "自分のチーム",
+    opponentTeam: "相手チーム",
+    search: "ポケモン検索",
+    searchTarget: "追加先",
+    teamSettings: "チーム設定",
+    detailSettings: "詳細設定",
+    detailEmptyHint: "エントリーからポケモンを選んで\n詳細設定を開いてください。",
+    liveBattle: "対面確認",
+    liveBattleEmptyHint: "対面確認でポケモンを選んで\n対戦状況を設定してください。",
+    battleResultEmptyHint: "自分と相手のポケモンを設定して\nどちらが先に動くか確認しましょう。",
+    speedCompare: "チーム素早さ比較",
+    speedCompareHelp: "両チームのエントリーポケモン全体の素早さ範囲を比較します。\n出場ポケモンがすべて確定すると残りは除外されます。",
+    allPokemon: "全ポケモン",
+    rosterSearchPlaceholder: "名前でポケモンへ移動",
+    rosterSearchAction: "移動",
+    rosterSearchMiss: "一致するポケモンが見つかりませんでした。",
+    scrollTop: "上へ戻る",
+    battleMode: "バトルモード",
+    single: "シングルバトル",
+    double: "ダブルバトル",
+    save: "保存",
+    overwrite: "上書き",
+    load: "読み込み",
+    delete: "削除",
+    manage: "管理",
+    showdownImport: "Showdown 読み込み",
+    showdownImportTitle: "Showdown チーム読み込み",
+    showdownImportTarget: "読み込み先",
+    showdownImportPlaceholder: "Pokémon Showdown のチームテキストをそのまま貼り付けてください。",
+    showdownImportHelp: "Pokémon Showdown のチームテキストを貼り付けると、ポケモン・性格・素早さEV・こだわりスカーフ・対応している素早さ特性を自動反映します。\n未対応の項目は無視され、メガ可能ポケモンはメガ選択のみ開いた状態になります。",
+    showdownImportAction: "チームを読み込む",
+    showdownImportClear: "入力を消去",
+    showdownImportEmpty: "貼り付けられたチームテキストがありません。",
+    showdownImportFailed: "読み込めるポケモンが見つかりませんでした。",
+    showdownImportSuccess: "匹のポケモンを読み込みました。",
+    showdownImportWarnings: "要確認",
+    close: "閉じる",
+    recentSaved: "最近保存",
+    savedTeams: "保存済みチーム",
+    savedTeamsTitle: "自分のチーム保存管理",
+    saveName: "保存名",
+    savePlaceholder: "チーム名を入力すると新しい保存を作成します。",
+    saveHelp: "現在の自分のチーム設定のみここに保存されます。\n保存したチームはすぐに読み込みや削除ができます。",
+    noSavedTeams: "保存済みチームはまだありません。",
+    selectedSaved: "選択中の保存",
+    savedMembers: "匹保存",
+    clearOpponent: "一括削除",
+    slotEmpty: "空きスロット",
+    statRange: "現在設定での素早さ範囲",
+    baseSpeed: "種族値",
+    mega: "メガシンカ",
+    noMega: "なし",
+    statPoints: "能力ポイント",
+    unknown: "不明",
+    nature: "性格補正",
+    item: "持ち物",
+    ability: "特性",
+    abilityHelp: "このポケモンに素早さ関連の特性候補がある場合は、ここで設定できます。\n素早さ特性を選ぶと、このツールチップで発動条件と倍率を確認できます。",
+    active: "出場",
+    standby: "控え",
+    resetSlot: "スロット初期化",
+    clearDetailPanel: "詳細設定を閉じる",
+    currentPokemon: "現在のポケモン",
+    tailwind: "おいかぜ ×2.0",
+    paralysis: "まひ ×0.5",
+    rank: "ランク",
+    battleHelp: "現在の対面情報をここで設定します。\n詳細設定と連動しているので、\nどちらが先に動くかをすばやく確認できます。",
+    addHint: "チームを選び、ポケモンを検索してスロットに追加してください。\n詳細設定で素早さ関連の設定を調整できます。\n出場ポケモンの指定やスロットのドラッグ並び替えもできます。",
+    duplicatePokemon: "同じチームに同じポケモンは追加できません。",
+    savePrompt: "チーム名を入力してください。",
+    saveEmpty: "保存できる自分のチームがありません。",
+    noData: "まだ追加されたポケモンはありません。",
+    sureFirstMy: "自分のチームが確定先手",
+    sureFirstOpp: "相手チームが確定先手",
+    likelyFirstMy: "自分のチーム有利",
+    likelyFirstOpp: "相手チーム有利",
+    tieExact: "同速",
+    tiePossible: "同速の可能性",
+    mixed: "接戦",
+    tieExactSub: "実数値が完全に同じ場合、毎ターンの行動順はランダムです。",
+    tiePossibleSub: "残っている変数によって同速になる可能性があります。",
+    likelySubMy: "現在わかっている情報では、自分のチームが先に動く可能性が高いです。",
+    likelySubOpp: "現在わかっている情報では、相手チームが先に動く可能性が高いです。",
+    sureSubMy: "現在の範囲では、相手チームが上を取ることはできません。",
+    sureSubOpp: "現在の範囲では、自分のチームが上を取ることはできません。",
+    mixedSub: "残っている変数が重なっており、まだはっきり断定できません。",
+    doubleOrderTitle: "4体の行動順予想",
+    doubleOrderSub: "現在の設定を基準に、ダブル対面の4体の素早さ順位を比較します。",
+    footer: "お問い合わせ: teamscarf@proton.me",
   },
 };
 
@@ -195,56 +418,60 @@ const NATURES = {
 };
 
 const NATURE_OPTIONS = [
-  { key: "slow", labelKo: "×0.9", labelEn: "×0.9", values: [0.9] },
-  { key: "neutral", labelKo: "×1.0", labelEn: "×1.0", values: [1] },
-  { key: "fast", labelKo: "×1.1", labelEn: "×1.1", values: [1.1] },
-  { key: "unknown", labelKo: "모름", labelEn: "Unknown", values: [0.9, 1, 1.1] },
+  { key: "slow", labelKo: "×0.9", labelEn: "×0.9", labelJa: "×0.9", values: [0.9] },
+  { key: "neutral", labelKo: "×1.0", labelEn: "×1.0", labelJa: "×1.0", values: [1] },
+  { key: "fast", labelKo: "×1.1", labelEn: "×1.1", labelJa: "×1.1", values: [1.1] },
+  { key: "unknown", labelKo: "모름", labelEn: "Unknown", labelJa: "不明", values: [0.9, 1, 1.1] },
 ];
 
 const ITEMS = {
-  none: { labelKo: "없음", labelEn: "None", values: [1], point: 1 },
-  scarf: { labelKo: "구애스카프 ×1.5", labelEn: "Scarf ×1.5", values: [1.5], point: 1.5 },
-  unknown: { labelKo: "모름", labelEn: "Unknown", values: [1, 1.5], point: 1 },
+  none: { labelKo: "없음", labelEn: "None", labelJa: "なし", values: [1], point: 1 },
+  scarf: { labelKo: "구애스카프 ×1.5", labelEn: "Scarf ×1.5", labelJa: "こだわりスカーフ ×1.5", values: [1.5], point: 1.5 },
+  unknown: { labelKo: "모름", labelEn: "Unknown", labelJa: "不明", values: [1, 1.5], point: 1 },
 };
 
 const ABILITY_OPTIONS_BY_NAME = {
   이상해꽃: [
-    { key: "none", labelKo: "심록", labelEn: "Overgrow", multiplier: 1 },
-    { key: "chlorophyll", labelKo: "엽록소", labelEn: "Chlorophyll", multiplier: 2, helpKo: "날씨가 쾌청일 때 스피드 x2", helpEn: "Speed doubles in harsh sunlight." },
-    { key: "unknown", labelKo: "모름", labelEn: "Unknown", multiplier: 1, values: [1, 2] },
+    { key: "none", labelKo: "심록", labelEn: "Overgrow", labelJa: "しんりょく", multiplier: 1 },
+    { key: "chlorophyll", labelKo: "엽록소", labelEn: "Chlorophyll", labelJa: "ようりょくそ", multiplier: 2, helpKo: "날씨가 쾌청일 때 스피드 x2", helpEn: "Speed doubles in harsh sunlight.", helpJa: "にほんばれのとき、素早さが2倍になります。" },
+    { key: "unknown", labelKo: "모름", labelEn: "Unknown", labelJa: "不明", multiplier: 1, values: [1, 2] },
   ],
   샤크니아: [
-    { key: "none", labelKo: "거친피부", labelEn: "Rough Skin", multiplier: 1 },
+    { key: "none", labelKo: "거친피부", labelEn: "Rough Skin", labelJa: "さめはだ", multiplier: 1 },
     {
       key: "speed-boost",
       labelKo: "가속",
       labelEn: "Speed Boost",
+      labelJa: "かそく",
       multiplier: 1.5,
       helpKo: "턴 종료마다 스피드가 1랭크 오르며, 이 도구에서는 1랭크 기준 x1.5로 계산합니다.",
       helpEn: "Raises Speed by one stage at the end of each turn. This tool models it as x1.5.",
+      helpJa: "ターン終了ごとに素早さが1段階上がり、このツールでは1段階を x1.5 として計算します。",
     },
-    { key: "unknown", labelKo: "모름", labelEn: "Unknown", multiplier: 1, values: [1, 1.5] },
+    { key: "unknown", labelKo: "모름", labelEn: "Unknown", labelJa: "不明", multiplier: 1, values: [1, 1.5] },
   ],
   몰드류: [
-    { key: "none", labelKo: "틀깨기", labelEn: "Mold Breaker", multiplier: 1 },
-    { key: "sand-rush", labelKo: "모래헤치기", labelEn: "Sand Rush", multiplier: 2, helpKo: "날씨가 모래바람일 때 스피드 x2", helpEn: "Speed doubles during a sandstorm." },
-    { key: "unknown", labelKo: "모름", labelEn: "Unknown", multiplier: 1, values: [1, 2] },
+    { key: "none", labelKo: "틀깨기", labelEn: "Mold Breaker", labelJa: "かたやぶり", multiplier: 1 },
+    { key: "sand-rush", labelKo: "모래헤치기", labelEn: "Sand Rush", labelJa: "すなかき", multiplier: 2, helpKo: "날씨가 모래바람일 때 스피드 x2", helpEn: "Speed doubles during a sandstorm.", helpJa: "すなあらしのとき、素早さが2倍になります。" },
+    { key: "unknown", labelKo: "모름", labelEn: "Unknown", labelJa: "不明", multiplier: 1, values: [1, 2] },
   ],
   엘풍: [
-    { key: "none", labelKo: "짓궂은마음", labelEn: "Prankster", multiplier: 1 },
-    { key: "chlorophyll", labelKo: "엽록소", labelEn: "Chlorophyll", multiplier: 2, helpKo: "날씨가 쾌청일 때 스피드 x2", helpEn: "Speed doubles in harsh sunlight." },
-    { key: "unknown", labelKo: "모름", labelEn: "Unknown", multiplier: 1, values: [1, 2] },
+    { key: "none", labelKo: "짓궂은마음", labelEn: "Prankster", labelJa: "いたずらごころ", multiplier: 1 },
+    { key: "chlorophyll", labelKo: "엽록소", labelEn: "Chlorophyll", labelJa: "ようりょくそ", multiplier: 2, helpKo: "날씨가 쾌청일 때 스피드 x2", helpEn: "Speed doubles in harsh sunlight.", helpJa: "にほんばれのとき、素早さが2倍になります。" },
+    { key: "unknown", labelKo: "모름", labelEn: "Unknown", labelJa: "不明", multiplier: 1, values: [1, 2] },
   ],
   스코빌런: [
-    { key: "none", labelKo: "불면", labelEn: "Insomnia", multiplier: 1 },
-    { key: "chlorophyll", labelKo: "엽록소", labelEn: "Chlorophyll", multiplier: 2, helpKo: "날씨가 쾌청일 때 스피드 x2", helpEn: "Speed doubles in harsh sunlight." },
-    { key: "unknown", labelKo: "모름", labelEn: "Unknown", multiplier: 1, values: [1, 2] },
+    { key: "none", labelKo: "불면", labelEn: "Insomnia", labelJa: "ふみん", multiplier: 1 },
+    { key: "chlorophyll", labelKo: "엽록소", labelEn: "Chlorophyll", labelJa: "ようりょくそ", multiplier: 2, helpKo: "날씨가 쾌청일 때 스피드 x2", helpEn: "Speed doubles in harsh sunlight.", helpJa: "にほんばれのとき、素早さが2倍になります。" },
+    { key: "unknown", labelKo: "모름", labelEn: "Unknown", labelJa: "不明", multiplier: 1, values: [1, 2] },
   ],
 };
 
+const MEGA_SPEED_ABILITY_BLOCKED_LABELS = new Set(["메가이상해꽃", "메가샤크니아"]);
+
 const DEFAULT_ABILITY_OPTIONS = [
-  { key: "none", labelKo: "보정 없음", labelEn: "No boost", multiplier: 1 },
-  { key: "unknown", labelKo: "모름", labelEn: "Unknown", multiplier: 1, values: [1] },
+  { key: "none", labelKo: "보정 없음", labelEn: "No boost", labelJa: "補正なし", multiplier: 1 },
+  { key: "unknown", labelKo: "모름", labelEn: "Unknown", labelJa: "不明", multiplier: 1, values: [1] },
 ];
 
 const CANONICAL_MEGA_ART = {
@@ -299,6 +526,7 @@ function createSlot(index) {
     formKey: "base",
     name: "",
     nameEn: "",
+    nameJa: "",
     baseSpeed: 0,
     icon: "",
     active: false,
@@ -317,6 +545,38 @@ function readStorage(key, fallback) {
     return raw ? JSON.parse(raw) : fallback;
   } catch {
     return fallback;
+  }
+}
+
+function detectInitialLanguage() {
+  const savedLanguage = readStorage(STORAGE.language, null);
+  if (savedLanguage === "ko" || savedLanguage === "en" || savedLanguage === "ja") return savedLanguage;
+
+  try {
+    const browserLanguages = Array.isArray(navigator.languages) && navigator.languages.length > 0
+      ? navigator.languages
+      : [navigator.language].filter(Boolean);
+    const normalizedLanguages = browserLanguages.map((value) => String(value).toLowerCase());
+    const resolved = Intl.DateTimeFormat().resolvedOptions();
+    const locale = String(resolved.locale || "").toLowerCase();
+    const timeZone = String(resolved.timeZone || "");
+
+    const isKoreanContext =
+      normalizedLanguages.some((value) => value.startsWith("ko") || value.includes("-kr")) ||
+      locale.startsWith("ko") ||
+      locale.includes("-kr") ||
+      timeZone === "Asia/Seoul";
+    const isJapaneseContext =
+      normalizedLanguages.some((value) => value.startsWith("ja") || value.includes("-jp")) ||
+      locale.startsWith("ja") ||
+      locale.includes("-jp") ||
+      timeZone === "Asia/Tokyo";
+
+    if (isKoreanContext) return "ko";
+    if (isJapaneseContext) return "ja";
+    return "en";
+  } catch {
+    return "en";
   }
 }
 
@@ -345,6 +605,7 @@ function normalizeSlot(raw, index) {
   const canonical = getCanonicalRosterEntry(raw);
   const name = canonical?.displayName ?? raw?.name ?? "";
   const nameEn = canonical?.displayNameEn ?? raw?.nameEn ?? "";
+  const nameJa = canonical?.displayNameJa ?? raw?.nameJa ?? "";
   return {
     ...createSlot(index),
     ...raw,
@@ -354,6 +615,7 @@ function normalizeSlot(raw, index) {
     formKey: canonical?.formKey ?? raw?.formKey ?? "base",
     name,
     nameEn,
+    nameJa,
     baseSpeed: clampInt(canonical?.speed ?? raw?.baseSpeed ?? 0, 0, 255),
     icon: canonical?.icon ?? raw?.icon ?? "",
     megaChoice: normalizeMegaChoice(name, raw?.megaChoice ?? ""),
@@ -365,16 +627,132 @@ function normalizeTeam(raw) {
   return Array.from({ length: 6 }, (_, index) => normalizeSlot(raw?.[index], index));
 }
 
+const FAST_SHOWDOWN_NATURES = new Set(["timid", "jolly", "hasty", "naive"]);
+const SLOW_SHOWDOWN_NATURES = new Set(["brave", "relaxed", "quiet", "sassy"]);
+
+function resolveRosterEntryFromShowdownName(name) {
+  const direct = ROSTER_BY_SHOWDOWN_NAME.get(normalizeLookupKey(name));
+  if (direct) return direct;
+
+  const strippedGender = String(name || "").replace(/-(?:m|f)$/i, "");
+  return ROSTER_BY_SHOWDOWN_NAME.get(normalizeLookupKey(strippedGender)) || null;
+}
+
+function parseShowdownHeader(headerLine) {
+  const [rawIdentity, rawItem = ""] = String(headerLine || "").split(/\s+@\s+/);
+  const identity = rawIdentity.replace(/\s+\((?:M|F)\)\s*$/i, "").trim();
+  const speciesMatch = identity.match(/\(([^()]+)\)\s*$/);
+
+  return {
+    speciesName: speciesMatch ? speciesMatch[1].trim() : identity,
+    itemName: rawItem.trim(),
+  };
+}
+
+function parseShowdownNatureKey(natureName) {
+  const key = normalizeLookupKey(natureName);
+  if (FAST_SHOWDOWN_NATURES.has(key)) return "fast";
+  if (SLOW_SHOWDOWN_NATURES.has(key)) return "slow";
+  return natureName ? "neutral" : "unknown";
+}
+
+function parseShowdownSpeedEv(evLine) {
+  const match = String(evLine || "").match(/(\d+)\s+Spe\b/i);
+  return match ? clampInt(Math.round(Number(match[1]) / 8), 0, 32) : 0;
+}
+
+function pickLocalizedText(language, values) {
+  return values[language] ?? values.en ?? values.ko ?? "";
+}
+
+function getLocalizedOptionLabel(option, language) {
+  if (!option) return "";
+  return pickLocalizedText(language, {
+    ko: option.labelKo,
+    en: option.labelEn,
+    ja: option.labelJa,
+  });
+}
+
+function getLocalizedOptionHelp(option, language, fallbackText = "") {
+  if (!option) return fallbackText;
+  return pickLocalizedText(language, {
+    ko: option.helpKo,
+    en: option.helpEn,
+    ja: option.helpJa,
+  }) || fallbackText;
+}
+
+function getLocalizedCurrentSpeedLabel(language) {
+  return pickLocalizedText(language, {
+    ko: "현재 스피드",
+    en: "Current Speed",
+    ja: "現在の素早さ",
+  });
+}
+
+function resolveImportedAbilitySetting(entry, abilityName) {
+  const options = ABILITY_OPTIONS_BY_NAME[entry.displayName] || DEFAULT_ABILITY_OPTIONS;
+  if (!abilityName) return options.length > 1 ? "unknown" : "none";
+
+  const normalizedAbility = normalizeLookupKey(abilityName);
+  const matched = options.find((option) =>
+    normalizeLookupKey(option.labelEn) === normalizedAbility ||
+    normalizeLookupKey(option.labelKo) === normalizedAbility ||
+    normalizeLookupKey(option.labelJa) === normalizedAbility ||
+    normalizeLookupKey(option.key) === normalizedAbility
+  );
+
+  return matched ? matched.key : "none";
+}
+
+function resolveImportedItemSetting(itemName) {
+  const normalizedItem = normalizeLookupKey(itemName);
+  return normalizedItem === "choicescarf" || normalizedItem === normalizeLookupKey("こだわりスカーフ") ? "scarf" : "none";
+}
+
+function parseShowdownTeamText(text) {
+  return String(text || "")
+    .replace(/\r/g, "")
+    .split(/\n\s*\n+/)
+    .map((block) => block.trim())
+    .filter(Boolean)
+    .map((block) => {
+      const lines = block
+        .split("\n")
+        .map((line) => line.trim())
+        .filter(Boolean);
+
+      const { speciesName, itemName } = parseShowdownHeader(lines[0] || "");
+      const abilityLine = lines.find((line) => /^Ability:/i.test(line));
+      const natureLine = lines.find((line) => / Nature$/i.test(line));
+      const evLine = lines.find((line) => /^EVs:/i.test(line));
+
+      return {
+        speciesName,
+        itemName,
+        abilityName: abilityLine ? abilityLine.replace(/^Ability:\s*/i, "").trim() : "",
+        natureName: natureLine ? natureLine.replace(/\s+Nature$/i, "").trim() : "",
+        speedEv: parseShowdownSpeedEv(evLine),
+      };
+    });
+}
+
 function getLocalizedName(entity, language) {
   if (!entity) return "";
   const koName = entity.displayName ?? entity.name ?? "";
   const enName = entity.displayNameEn ?? entity.nameEn ?? koName;
-  return language === "en" ? enName || koName : koName;
+  const jaName = entity.displayNameJa ?? entity.nameJa ?? enName ?? koName;
+  if (language === "ja") return jaName || enName || koName;
+  if (language === "en") return enName || koName;
+  return koName;
 }
 
 function getLocalizedMegaLabel(mega, language) {
   if (!mega) return "";
-  return language === "en" ? mega.labelEn || mega.label : mega.label;
+  if (language === "ja") return mega.labelJa || mega.labelEn || mega.label;
+  if (language === "en") return mega.labelEn || mega.label;
+  return mega.label;
 }
 
 function normalizePreset(raw, index) {
@@ -438,47 +816,61 @@ function dedupe(values) {
 }
 
 function getItemLabelFromFactor(factor, language = "ko") {
-  if (factor === 1.5) return language === "en" ? "Choice Scarf" : "구애스카프";
-  return language === "en" ? "No item" : "도구 없음";
+  if (factor === 1.5) {
+    return pickLocalizedText(language, {
+      ko: "구애스카프",
+      en: "Choice Scarf",
+      ja: "こだわりスカーフ",
+    });
+  }
+  return pickLocalizedText(language, {
+    ko: "구애스카프 미착용",
+    en: "No Choice Scarf applied",
+    ja: "こだわりスカーフ未適用",
+  });
 }
 
 function getAbilityLabelFromFactor(factor, slot, language = "ko") {
-  if (factor <= 1) return language === "en" ? "No ability boost" : "특성 없음";
+  if (factor <= 1) {
+    return pickLocalizedText(language, {
+      ko: "특성 미적용",
+      en: "No Speed ability applied",
+      ja: "素早さ特性未適用",
+    });
+  }
   const matched = getAbilityOptions(slot).find((option) => option.multiplier === factor && option.key !== "unknown");
-  if (matched) return language === "en" ? `Ability ${matched.labelEn || matched.labelKo}` : `특성 ${matched.labelKo || matched.labelEn}`;
-  return language === "en" ? "Ability activated" : "특성 발동";
+  if (matched) {
+    const label = getLocalizedOptionLabel(matched, language);
+    return pickLocalizedText(language, {
+      ko: `특성 ${label}`,
+      en: `Ability ${label}`,
+      ja: `特性 ${label}`,
+    });
+  }
+  return pickLocalizedText(language, {
+    ko: "특성 발동",
+    en: "Ability activated",
+    ja: "特性発動",
+  });
 }
 
 function getNatureLabelFromFactor(factor, language = "ko") {
-  if (factor === 0.9) return language === "en" ? "Nature x0.9" : "성격 x0.9";
-  if (factor === 1.1) return language === "en" ? "Nature x1.1" : "성격 x1.1";
-  return language === "en" ? "Nature x1.0" : "성격 x1.0";
+  if (factor === 0.9) return pickLocalizedText(language, { ko: "성격 x0.9", en: "Nature x0.9", ja: "せいかく x0.9" });
+  if (factor === 1.1) return pickLocalizedText(language, { ko: "성격 x1.1", en: "Nature x1.1", ja: "せいかく x1.1" });
+  return pickLocalizedText(language, { ko: "성격 x1.0", en: "Nature x1.0", ja: "せいかく x1.0" });
 }
 
 function summarizeTooltipLines(lines, language = "ko", maxLines = 4) {
   const unique = [...new Set(lines.filter(Boolean))];
   if (unique.length <= maxLines) return unique;
-  return [...unique.slice(0, maxLines), language === "en" ? `+${unique.length - maxLines} more cases` : `외 ${unique.length - maxLines}가지 경우`];
-}
-
-function formatExactValueSummary(slot, baseSpeed, ev, natureFactor, itemFactor, abilityFactor, battleState = null, language = "ko") {
-  const baseStat = level50Speed(baseSpeed, ev, natureFactor);
-  const labels = [
-    language === "en" ? `Points ${ev} · ${getNatureLabelFromFactor(natureFactor, language)}` : `포인트 ${ev} · ${getNatureLabelFromFactor(natureFactor, language)}`,
-    language === "en" ? `Base Speed stat ${baseStat}` : `기본 실수치 ${baseStat}`,
+  return [
+    ...unique.slice(0, maxLines),
+    pickLocalizedText(language, {
+      ko: `외 ${unique.length - maxLines}가지 경우`,
+      en: `+${unique.length - maxLines} more cases`,
+      ja: `ほか ${unique.length - maxLines} 件`,
+    }),
   ];
-
-  if (itemFactor !== 1) labels.push(getItemLabelFromFactor(itemFactor, language));
-  if (abilityFactor > 1) labels.push(getAbilityLabelFromFactor(abilityFactor, slot, language));
-
-  if (battleState) {
-    if (battleState.mega) labels.push(language === "en" ? "Mega Evolution" : "메가진화");
-    if (battleState.tailwind) labels.push(language === "en" ? "Tailwind" : "순풍");
-    if (battleState.paralysis) labels.push(language === "en" ? "Paralysis" : "마비");
-    if (battleState.rank !== 0) labels.push(language === "en" ? `Stage ${battleState.rank}` : `랭크 ${battleState.rank}`);
-  }
-
-  return labels.join(" · ");
 }
 
 function summarizeMarkerMap(markerMap) {
@@ -495,46 +887,57 @@ function summarizeMarkerMap(markerMap) {
   return [...new Map(picks.map((index) => [entries[index].value, entries[index]])).values()];
 }
 
-function formatSegmentSummary(slot, baseSpeed, itemFactor, abilityFactor, battleFactors, language = "ko") {
-  const unboosted = applySpeed(level50Speed(baseSpeed, 0, 1), [itemFactor, abilityFactor, ...battleFactors]);
-  const neutralMax = applySpeed(level50Speed(baseSpeed, 32, 1), [itemFactor, abilityFactor, ...battleFactors]);
-  const fastMax = applySpeed(level50Speed(baseSpeed, 32, 1.1), [itemFactor, abilityFactor, ...battleFactors]);
-  return [
-    `${getItemLabelFromFactor(itemFactor, language)} / ${getAbilityLabelFromFactor(abilityFactor, slot, language)}`,
-    language === "en"
-      ? `Unboosted ${unboosted} · Neutral ${neutralMax} · Max ${fastMax}`
-      : `무보정 ${unboosted} · 준속 ${neutralMax} · 최속 ${fastMax}`,
+function formatExactValueSummary(slot, baseSpeed, ev, natureFactor, itemFactor, abilityFactor, battleState = null, language = "ko") {
+  const baseStat = level50Speed(baseSpeed, ev, natureFactor);
+  const labels = [
+    pickLocalizedText(language, {
+      ko: `포인트 ${ev} · ${getNatureLabelFromFactor(natureFactor, language)}`,
+      en: `Points ${ev} · ${getNatureLabelFromFactor(natureFactor, language)}`,
+      ja: `ポイント ${ev} · ${getNatureLabelFromFactor(natureFactor, language)}`,
+    }),
+    pickLocalizedText(language, {
+      ko: `기본 실수치 ${baseStat}`,
+      en: `Base Speed stat ${baseStat}`,
+      ja: `基本実数値 ${baseStat}`,
+    }),
   ];
+
+  if (itemFactor !== 1) labels.push(getItemLabelFromFactor(itemFactor, language));
+  if (abilityFactor > 1) labels.push(getAbilityLabelFromFactor(abilityFactor, slot, language));
+
+  if (battleState) {
+    if (battleState.mega) labels.push(pickLocalizedText(language, { ko: "메가진화", en: "Mega Evolution", ja: "メガシンカ" }));
+    if (battleState.tailwind) labels.push(pickLocalizedText(language, { ko: "순풍", en: "Tailwind", ja: "おいかぜ" }));
+    if (battleState.paralysis) labels.push(pickLocalizedText(language, { ko: "마비", en: "Paralysis", ja: "まひ" }));
+    if (battleState.rank !== 0) labels.push(pickLocalizedText(language, { ko: `랭크 ${battleState.rank}`, en: `Stage ${battleState.rank}`, ja: `ランク ${battleState.rank}` }));
+  }
+
+  return labels.join(" · ");
 }
 
 function formatPointSummary(slot, baseSpeed, battleState, language = "ko") {
   const item = ITEMS[slot.itemSetting] || ITEMS.none;
-  const ability = getSelectedAbility(slot);
-  const itemLabel = slot.itemSetting === "unknown"
-    ? language === "en" ? "Unknown item" : "도구 모름"
-    : item.point === 1.5
-      ? language === "en" ? "Choice Scarf" : "구애스카프"
-      : language === "en" ? "No item" : "도구 없음";
-  const abilityLabel = slot.abilitySetting === "unknown"
-    ? language === "en" ? "Unknown ability" : "특성 모름"
-    : ability.multiplier > 1
-      ? language === "en" ? `Ability ${ability.labelEn || ability.labelKo}` : `특성 ${ability.labelKo || ability.labelEn}`
-      : language === "en" ? "No ability boost" : "특성 없음";
+  const pointItemFactor = slot.itemSetting === "unknown" ? 1 : item.point;
+  const pointAbilityFactor = getPointAbilityFactor(slot, battleState);
+  const itemLabel = getItemLabelFromFactor(pointItemFactor, language);
+  const abilityLabel = getAbilityLabelFromFactor(pointAbilityFactor, slot, language);
   const battleLabels = [];
   if (battleState) {
-    if (battleState.mega) battleLabels.push(language === "en" ? "Mega Evolution" : "메가진화");
-    if (battleState.ability && ability.multiplier > 1) battleLabels.push(language === "en" ? "Ability active" : "특성 발동");
-    if (battleState.tailwind) battleLabels.push(language === "en" ? "Tailwind" : "순풍");
-    if (battleState.paralysis) battleLabels.push(language === "en" ? "Paralysis" : "마비");
-    if (battleState.rank !== 0) battleLabels.push(language === "en" ? `Stage ${battleState.rank}` : `랭크 ${battleState.rank}`);
+    if (battleState.mega) battleLabels.push(pickLocalizedText(language, { ko: "메가진화", en: "Mega Evolution", ja: "メガシンカ" }));
+    if (battleState.ability && canActivateBattleAbility(slot, battleState)) battleLabels.push(pickLocalizedText(language, { ko: "특성 발동", en: "Ability active", ja: "特性発動" }));
+    if (battleState.tailwind) battleLabels.push(pickLocalizedText(language, { ko: "순풍", en: "Tailwind", ja: "おいかぜ" }));
+    if (battleState.paralysis) battleLabels.push(pickLocalizedText(language, { ko: "마비", en: "Paralysis", ja: "まひ" }));
+    if (battleState.rank !== 0) battleLabels.push(pickLocalizedText(language, { ko: `랭크 ${battleState.rank}`, en: `Stage ${battleState.rank}`, ja: `ランク ${battleState.rank}` }));
   }
 
   return [
     `${itemLabel} / ${abilityLabel}`,
-    language === "en"
-      ? `Unboosted ${level50Speed(baseSpeed, 0, 1)} · Neutral ${level50Speed(baseSpeed, 32, 1)} · Max ${level50Speed(baseSpeed, 32, 1.1)}`
-      : `무보정 ${level50Speed(baseSpeed, 0, 1)} · 준속 ${level50Speed(baseSpeed, 32, 1)} · 최속 ${level50Speed(baseSpeed, 32, 1.1)}`,
-    battleLabels.length ? battleLabels.join(", ") : language === "en" ? "Currently confirmed range" : "현재 확정 구간",
+    pickLocalizedText(language, {
+      ko: `무보정 ${level50Speed(baseSpeed, 0, 1)} · 준속 ${level50Speed(baseSpeed, 32, 1)} · 최속 ${level50Speed(baseSpeed, 32, 1.1)}`,
+      en: `Unboosted ${level50Speed(baseSpeed, 0, 1)} · Neutral ${level50Speed(baseSpeed, 32, 1)} · Max ${level50Speed(baseSpeed, 32, 1.1)}`,
+      ja: `無補正 ${level50Speed(baseSpeed, 0, 1)} · 準速 ${level50Speed(baseSpeed, 32, 1)} · 最速 ${level50Speed(baseSpeed, 32, 1.1)}`,
+    }),
+    battleLabels.length ? battleLabels.join(", ") : pickLocalizedText(language, { ko: "현재 확정 구간", en: "Currently confirmed range", ja: "現在確定している範囲" }),
   ];
 }
 
@@ -543,11 +946,179 @@ function formatPointRangeSummary(slot, baseSpeed, battleState, language = "ko") 
   return summarizeTooltipLines(pointSummary, language);
 }
 
-function formatThickRangeSummary(slot, baseSpeed, battleState, language = "ko") {
-  return summarizeTooltipLines(
-    [language === "en" ? "Nature-adjusted range" : "성격 반영 범위", ...formatPointRangeSummary(slot, baseSpeed, battleState, language)],
-    language
-  );
+function getBattleSummaryLabels(slot, battleState, abilityFactor, language = "ko") {
+  if (!battleState) return [];
+
+  const labels = [];
+  if (battleState.mega) labels.push(pickLocalizedText(language, { ko: "메가진화", en: "Mega Evolution", ja: "メガシンカ" }));
+  if (battleState.ability && abilityFactor > 1) {
+    labels.push(pickLocalizedText(language, { ko: "특성 발동", en: "Ability active", ja: "特性発動" }));
+  }
+  if (battleState.tailwind) labels.push(pickLocalizedText(language, { ko: "순풍", en: "Tailwind", ja: "おいかぜ" }));
+  if (battleState.paralysis) labels.push(pickLocalizedText(language, { ko: "마비", en: "Paralysis", ja: "まひ" }));
+  if (battleState.rank !== 0) labels.push(pickLocalizedText(language, { ko: `랭크 ${battleState.rank}`, en: `Stage ${battleState.rank}`, ja: `ランク ${battleState.rank}` }));
+  return labels;
+}
+
+function getNatureBranchTone(natureFactor) {
+  if (natureFactor === 0.9) return "slow";
+  if (natureFactor === 1.1) return "fast";
+  return "neutral";
+}
+
+function getNatureBranchRenderPriority(tone) {
+  if (tone === "neutral") return 2;
+  if (tone === "fast") return 1;
+  return 0;
+}
+
+function getGraphSegmentRenderPriority(segment) {
+  if (segment.segmentKind === "point" || segment.segmentKind === "point-range") return 100;
+  if (segment.segmentKind === "nature") return 40 + getNatureBranchRenderPriority(segment.tone || "neutral");
+  if (segment.segmentKind === "item" || segment.segmentKind === "ability" || segment.segmentKind === "both") {
+    return 20 + getNatureBranchRenderPriority(segment.tone || "neutral");
+  }
+  return 0;
+}
+
+function countKnownUnknowns(flags) {
+  return Object.values(flags).filter(Boolean).length;
+}
+
+function getPointUncertaintyCount(slot) {
+  return countKnownUnknowns({
+    points: slot.evUnknown,
+  });
+}
+
+function getLayerUncertaintyCount(slot, kind) {
+  return countKnownUnknowns({
+    points: slot.evUnknown,
+    nature: kind === "nature" || ((kind === "item" || kind === "ability" || kind === "both") && slot.nature === "unknown"),
+    item: (kind === "item" || kind === "both") && slot.itemSetting === "unknown",
+    ability: (kind === "ability" || kind === "both") && slot.abilitySetting === "unknown",
+  });
+}
+
+function getGraphPossibilityPenalty(segmentKind, tone = "neutral") {
+  if (segmentKind === "point" || segmentKind === "point-range") return 0;
+  if (segmentKind === "nature") return tone === "neutral" ? 1 : 2;
+  if (segmentKind === "item") return tone === "neutral" ? 2 : 3;
+  if (segmentKind === "ability") return tone === "neutral" ? 3 : 4;
+  if (segmentKind === "both") return tone === "neutral" ? 5 : 6;
+  return 0;
+}
+
+function getGraphBarHeight(uncertaintyCount, segmentKind, tone = "neutral") {
+  const certaintyHeight = [20, 17, 14, 11, 9][Math.min(uncertaintyCount, 4)];
+  const possibilityPenalty = getGraphPossibilityPenalty(segmentKind, tone);
+  return Math.max(6, certaintyHeight - possibilityPenalty);
+}
+
+function buildRangeBranches(baseSpeed, evValues, natureValues, itemFactor, abilityFactor, battleFactors) {
+  const branches = natureValues
+    .map((natureFactor) => {
+      const values = dedupe(
+        evValues.map((ev) => applySpeed(level50Speed(baseSpeed, ev, natureFactor), [itemFactor, abilityFactor, ...battleFactors]))
+      );
+
+      if (!values.length) return null;
+
+      return {
+        key: String(natureFactor),
+        natureFactor,
+        tone: getNatureBranchTone(natureFactor),
+        min: values[0],
+        max: values[values.length - 1],
+      };
+    })
+    .filter(Boolean)
+    .sort((a, b) => getNatureBranchRenderPriority(a.tone) - getNatureBranchRenderPriority(b.tone));
+
+  if (!branches.length) return null;
+
+  return {
+    branches,
+    min: Math.min(...branches.map((branch) => branch.min)),
+    max: Math.max(...branches.map((branch) => branch.max)),
+  };
+}
+
+function formatLayerSummary(title, slot, itemFactor, abilityFactor, branches, battleState, language = "ko") {
+  const natureLine = branches
+    .map((branch) => `${getNatureLabelFromFactor(branch.natureFactor, language)} ${formatRange(branch.min, branch.max)}`)
+    .join(
+      pickLocalizedText(language, {
+        ko: " · ",
+        en: " | ",
+        ja: " ・ ",
+      })
+    );
+
+  const lines = [
+    title,
+    `${getItemLabelFromFactor(itemFactor, language)} / ${getAbilityLabelFromFactor(abilityFactor, slot, language)}`,
+    natureLine,
+  ];
+
+  const battleLabels = getBattleSummaryLabels(slot, battleState, abilityFactor, language);
+  if (battleLabels.length) lines.push(battleLabels.join(", "));
+
+  return summarizeTooltipLines(lines, language);
+}
+
+function createGraphLayer({
+  key,
+  titleKo,
+  titleEn,
+  slot,
+  baseSpeed,
+  evValues,
+  natureValues,
+  itemFactor,
+  abilityFactor,
+  battleFactors,
+  battleState,
+  kind,
+  language,
+}) {
+  const range = buildRangeBranches(baseSpeed, evValues, natureValues, itemFactor, abilityFactor, battleFactors);
+  if (!range) return null;
+
+  return {
+    key,
+    kind,
+    uncertaintyCount: getLayerUncertaintyCount(slot, kind),
+    min: range.min,
+    max: range.max,
+    branches: range.branches,
+    tooltip: formatLayerSummary(
+      pickLocalizedText(language, {
+        ko: titleKo,
+        en: titleEn,
+        ja: titleEn,
+      }),
+      slot,
+      itemFactor,
+      abilityFactor,
+      range.branches,
+      battleState,
+      language
+    ),
+  };
+}
+
+function getPotentialAbilityFactors(slot, battleState = null) {
+  const selectedAbility = getSelectedAbility(slot);
+  const boostedFactors = [...new Set(getAbilityValues(slot).filter((value) => value > 1))];
+
+  if (!boostedFactors.length) return [];
+  if (slot.abilitySetting !== "unknown") {
+    if (selectedAbility.multiplier <= 1) return [];
+    return [selectedAbility.multiplier];
+  }
+
+  return boostedFactors;
 }
 
 function getMegaChoices(slot) {
@@ -585,10 +1156,49 @@ function getAbilityValues(slot) {
   return selected.values || [selected.multiplier];
 }
 
+function megaBlocksSpeedAbility(slot, battleState = null) {
+  if (!battleState?.mega) return false;
+  const mega = getSelectedMega(slot);
+  return Boolean(mega && MEGA_SPEED_ABILITY_BLOCKED_LABELS.has(mega.label));
+}
+
+function canActivateBattleAbility(slot, battleState = null) {
+  const selected = getSelectedAbility(slot);
+  return selected.multiplier > 1 && !megaBlocksSpeedAbility(slot, battleState);
+}
+
+function getPointAbilityFactor(slot, battleState = null) {
+  const selected = getSelectedAbility(slot);
+
+  if (!battleState) {
+    return slot.abilitySetting === "unknown" ? 1 : selected.multiplier;
+  }
+
+  if (slot.abilitySetting === "unknown") return 1;
+  if (!canActivateBattleAbility(slot, battleState)) return 1;
+  return battleState.ability ? selected.multiplier : 1;
+}
+
+function getMarkerAbilityValues(slot, battleState = null) {
+  const selected = getSelectedAbility(slot);
+
+  if (!battleState) {
+    return slot.abilitySetting === "unknown" ? getAbilityValues(slot) : [selected.multiplier];
+  }
+
+  if (!canActivateBattleAbility(slot, battleState)) return [1];
+
+  if (slot.abilitySetting === "unknown") {
+    const boostedValues = getAbilityValues(slot).filter((value) => value > 1);
+    return battleState.ability ? boostedValues : [1, ...boostedValues];
+  }
+
+  return [battleState.ability ? selected.multiplier : 1];
+}
+
 function getAbilityHelpText(slot, language, fallbackText) {
   const selected = getSelectedAbility(slot);
-  const helpText = language === "ko" ? selected.helpKo : selected.helpEn;
-  return helpText || fallbackText;
+  return getLocalizedOptionHelp(selected, language, fallbackText);
 }
 
 function getDisplayIcon(slot, megaActive = false) {
@@ -600,12 +1210,9 @@ function getDisplayIcon(slot, megaActive = false) {
 
 function buildGraph(slot, baseSpeed, battleState = null, language = "ko") {
   const selectedNature = NATURE_OPTIONS.find((option) => option.key === slot.nature) || NATURE_OPTIONS[1];
-  const showThickRange = slot.nature === "unknown";
   const pointNatureValues = slot.nature === "unknown" ? [1] : selectedNature.values;
-  const thickNatureValues = slot.nature === "unknown" ? [0.9, 1, 1.1] : selectedNature.values;
+  const rangeNatureValues = slot.nature === "unknown" ? [0.9, 1, 1.1] : selectedNature.values;
   const item = ITEMS[slot.itemSetting] || ITEMS.none;
-  const ability = getSelectedAbility(slot);
-  const abilityValues = getAbilityValues(slot);
   const evValues = slot.evUnknown ? [0, 32] : [slot.evValue];
   const pointEvValues = slot.evUnknown ? [0, 32] : [slot.evValue];
 
@@ -617,21 +1224,9 @@ function buildGraph(slot, baseSpeed, battleState = null, language = "ko") {
   }
 
   const pointItemFactor = slot.itemSetting === "unknown" ? 1 : item.point;
-  const pointAbilityFactor = battleState
-    ? slot.abilitySetting === "unknown"
-      ? 1
-      : battleState.ability
-        ? ability.multiplier
-        : 1
-    : slot.abilitySetting === "unknown"
-      ? 1
-      : ability.multiplier;
+  const pointAbilityFactor = getPointAbilityFactor(slot, battleState);
 
   const pointValues = [];
-  const thickValues = [];
-  const lineValues = [];
-  const markerMap = new Map();
-  const lineSegmentMap = new Map();
 
   pointEvValues.forEach((ev) => {
     pointNatureValues.forEach((natureFactor) => {
@@ -639,103 +1234,133 @@ function buildGraph(slot, baseSpeed, battleState = null, language = "ko") {
     });
   });
 
-  evValues.forEach((ev) => {
-    thickNatureValues.forEach((natureFactor) => {
-      const stat = level50Speed(baseSpeed, ev, natureFactor);
-      const baseline = applySpeed(stat, [pointItemFactor, pointAbilityFactor, ...battleFactors]);
-      thickValues.push(baseline);
+  const pointSorted = dedupe(pointValues);
+  const pointMin = pointSorted[0] ?? 0;
+  const pointMax = pointSorted[pointSorted.length - 1] ?? pointMin;
+  const point = pointSorted[Math.floor(pointSorted.length / 2)] ?? 0;
+  const markerMap = new Map();
+  const layers = [];
 
-      const itemValues = slot.itemSetting === "unknown" ? item.values : [item.point];
-      let branchAbilityValues = abilityValues;
+  const markerNatureValues = slot.nature === "unknown" ? [0.9, 1, 1.1] : selectedNature.values;
+  const markerItemValues = slot.itemSetting === "unknown" ? item.values : [item.point];
+  const markerAbilityValues = getMarkerAbilityValues(slot, battleState);
 
-      if (battleState) {
-        if (slot.abilitySetting === "unknown") {
-          branchAbilityValues = battleState.ability ? abilityValues.filter((value) => value > 1) : [1, ...abilityValues.filter((value) => value > 1)];
-        } else {
-          branchAbilityValues = [battleState.ability ? ability.multiplier : 1];
-        }
-      }
-
-      itemValues.forEach((itemFactor) => {
-        branchAbilityValues.forEach((abilityFactor) => {
-          const full = applySpeed(stat, [itemFactor, abilityFactor, ...battleFactors]);
-          lineValues.push(full);
-          const segmentKey = `${itemFactor}-${abilityFactor}`;
-          const current = lineSegmentMap.get(segmentKey) || {
-            min: Number.POSITIVE_INFINITY,
-            max: Number.NEGATIVE_INFINITY,
-            labels: formatSegmentSummary(slot, baseSpeed, itemFactor, abilityFactor, battleFactors, language),
-          };
-          current.min = Math.min(current.min, full);
-          current.max = Math.max(current.max, full);
-          lineSegmentMap.set(segmentKey, current);
-        });
-      });
-    });
-  });
-
-  const markerNatureValues = slot.nature === "unknown" ? [0.9, 1, 1.1] : [NATURES[slot.nature] ?? 1];
   pointEvValues.forEach((ev) => {
     markerNatureValues.forEach((natureFactor) => {
       const stat = level50Speed(baseSpeed, ev, natureFactor);
-      const itemValues = slot.itemSetting === "unknown" ? item.values : [item.point];
-      const markerAbilityValues = battleState
-        ? slot.abilitySetting === "unknown"
-          ? [1, ...abilityValues.filter((value) => value > 1)]
-          : [battleState.ability ? ability.multiplier : 1]
-        : abilityValues;
-      itemValues.forEach((itemFactor) => {
+      markerItemValues.forEach((itemFactor) => {
         markerAbilityValues.forEach((abilityFactor) => {
           const markerValue = applySpeed(stat, [itemFactor, abilityFactor, ...battleFactors]);
-          const labels = [formatExactValueSummary(slot, baseSpeed, ev, natureFactor, itemFactor, abilityFactor, battleState, language)];
           const existing = markerMap.get(markerValue) || new Set();
-          labels.forEach((label) => existing.add(label));
+          existing.add(formatExactValueSummary(slot, baseSpeed, ev, natureFactor, itemFactor, abilityFactor, battleState, language));
           markerMap.set(markerValue, existing);
         });
       });
     });
   });
 
-  const pointSorted = dedupe(pointValues);
-  const thickSorted = dedupe(thickValues);
-  const lineSorted = dedupe(lineValues);
-  const pointMin = pointSorted[0] ?? 0;
-  const pointMax = pointSorted[pointSorted.length - 1] ?? pointMin;
-  const point = pointSorted[Math.floor(pointSorted.length / 2)] ?? 0;
-  const pointIsRange = pointMax > pointMin;
+  if (slot.nature === "unknown") {
+    const natureLayer = createGraphLayer({
+      key: "nature",
+      titleKo: "성격 범위",
+      titleEn: "Nature range",
+      slot,
+      baseSpeed,
+      evValues,
+      natureValues: [0.9, 1.1],
+      itemFactor: pointItemFactor,
+      abilityFactor: pointAbilityFactor,
+      battleFactors,
+      battleState,
+      kind: "nature",
+      language,
+    });
+    if (natureLayer) layers.push(natureLayer);
+  }
 
-  const compactMarkers = summarizeMarkerMap(markerMap);
-  const lineSegments = [...lineSegmentMap.values()]
-    .filter((segment) => Number.isFinite(segment.min) && Number.isFinite(segment.max) && segment.max > segment.min)
-    .sort((a, b) => a.min - b.min);
+  if (slot.itemSetting === "unknown") {
+    const scarfLayer = createGraphLayer({
+      key: "scarf",
+      titleKo: "구애스카프 가능 범위",
+      titleEn: "Possible Choice Scarf range",
+      slot,
+      baseSpeed,
+      evValues,
+      natureValues: rangeNatureValues,
+      itemFactor: 1.5,
+      abilityFactor: pointAbilityFactor,
+      battleFactors,
+      battleState,
+      kind: "item",
+      language,
+    });
+    if (scarfLayer) layers.push(scarfLayer);
+  }
+
+  const potentialAbilityFactors = getPotentialAbilityFactors(slot, battleState);
+  potentialAbilityFactors.forEach((abilityFactor) => {
+    const abilityLayer = createGraphLayer({
+      key: `ability-${abilityFactor}`,
+      titleKo: "특성 발동 범위",
+      titleEn: "Ability-active range",
+      slot,
+      baseSpeed,
+      evValues,
+      natureValues: rangeNatureValues,
+      itemFactor: pointItemFactor,
+      abilityFactor,
+      battleFactors,
+      battleState,
+      kind: "ability",
+      language,
+    });
+    if (abilityLayer && (abilityLayer.min !== pointMin || abilityLayer.max !== pointMax || slot.nature === "unknown")) {
+      layers.push(abilityLayer);
+    }
+
+    if (slot.itemSetting === "unknown") {
+      const bothLayer = createGraphLayer({
+        key: `both-${abilityFactor}`,
+        titleKo: "스카프+특성 범위",
+        titleEn: "Scarf + ability range",
+        slot,
+        baseSpeed,
+        evValues,
+        natureValues: rangeNatureValues,
+        itemFactor: 1.5,
+        abilityFactor,
+        battleFactors,
+        battleState,
+        kind: "both",
+        language,
+      });
+      if (bothLayer) layers.push(bothLayer);
+    }
+  });
+
+  const priorityLayer = layers.find((layer) => layer.kind === "nature");
+  const graphMin = Math.min(pointMin, ...layers.map((layer) => layer.min));
+  const graphMax = Math.max(pointMax, ...layers.map((layer) => layer.max));
 
   return {
-    showThickRange,
     pointMin,
     pointMax,
     point,
+    pointUncertaintyCount: getPointUncertaintyCount(slot),
     pointTooltip: formatPointRangeSummary(slot, baseSpeed, battleState, language),
-    thickTooltip: formatThickRangeSummary(slot, baseSpeed, battleState, language),
-    thickMin: thickSorted[0] ?? pointSorted[0] ?? 0,
-    thickMax: thickSorted[thickSorted.length - 1] ?? pointSorted[pointSorted.length - 1] ?? 0,
-    min: lineSorted[0] ?? pointSorted[0] ?? 0,
-    max: lineSorted[lineSorted.length - 1] ?? pointSorted[pointSorted.length - 1] ?? 0,
-    markers: compactMarkers,
-    lineSegments,
+    min: graphMin,
+    max: graphMax,
+    priorityMin: priorityLayer?.min ?? pointMin,
+    priorityMax: priorityLayer?.max ?? pointMax,
+    layers,
+    markers: summarizeMarkerMap(markerMap).filter((marker) => marker.value >= graphMin && marker.value <= graphMax),
   };
 }
 
 function getGraphPriorityRange(graph) {
-  if (graph.showThickRange) {
-    return {
-      max: graph.thickMax,
-      min: graph.thickMin,
-    };
-  }
-
   return {
-    max: graph.pointMax ?? graph.point ?? 0,
-    min: graph.pointMin ?? graph.point ?? 0,
+    max: graph.priorityMax ?? graph.pointMax ?? graph.point ?? 0,
+    min: graph.priorityMin ?? graph.pointMin ?? graph.point ?? 0,
   };
 }
 
@@ -744,6 +1369,7 @@ function buildRosterGraph(entry, speed = entry.speed, language = "ko") {
     {
       name: entry.displayName,
       nameEn: entry.displayNameEn,
+      nameJa: entry.displayNameJa,
       nature: "unknown",
       itemSetting: "unknown",
       abilitySetting: "unknown",
@@ -773,6 +1399,49 @@ function getVerdict(allyGraph, enemyGraph, t) {
   return { title: t.mixed, sub: t.mixedSub, tone: "neutral" };
 }
 
+function createBattleSlotState(index = 0) {
+  return { index, mega: false, ability: false, tailwind: false, paralysis: false, rank: 0 };
+}
+
+function resetBattleTransientState(entry, index = entry.index) {
+  return {
+    ...createBattleSlotState(index),
+    tailwind: entry.tailwind,
+  };
+}
+
+function normalizeBattleSideState(raw) {
+  if (Array.isArray(raw)) {
+    return [0, 1].map((index) => ({ ...createBattleSlotState(index), ...(raw[index] || {}) }));
+  }
+
+  if (raw && typeof raw === "object") {
+    return [{ ...createBattleSlotState(0), ...raw }, createBattleSlotState(1)];
+  }
+
+  return [createBattleSlotState(0), createBattleSlotState(1)];
+}
+
+function normalizeBattleState(raw) {
+  return {
+    ally: normalizeBattleSideState(raw?.ally),
+    enemy: normalizeBattleSideState(raw?.enemy),
+  };
+}
+
+function normalizeBattleSearchState(raw) {
+  const normalizeSide = (value) => {
+    if (Array.isArray(value)) return [String(value[0] || ""), String(value[1] || "")];
+    if (typeof value === "string") return [value, ""];
+    return ["", ""];
+  };
+
+  return {
+    ally: normalizeSide(raw?.ally),
+    enemy: normalizeSide(raw?.enemy),
+  };
+}
+
 function Tooltip({ label, text, className = "" }) {
   const lines = String(text)
     .split("\n")
@@ -799,27 +1468,284 @@ function Tooltip({ label, text, className = "" }) {
   );
 }
 
+function buildEndpointMarkers(segments) {
+  const visibleMarkers = [];
+
+  segments.forEach((segment, index) => {
+    const endpoints = segment.min === segment.max
+      ? [{ id: `${segment.id}:value`, value: segment.min }]
+      : [
+          { id: `${segment.id}:min`, value: segment.min },
+          { id: `${segment.id}:max`, value: segment.max },
+        ];
+
+    endpoints.forEach(({ id, value }) => {
+      const isInsideOverlap = segments.some((other, otherIndex) => otherIndex !== index && other.min < value && value < other.max);
+      if (isInsideOverlap) return;
+
+      visibleMarkers.push({
+        id,
+        value,
+        labels: segment.labels,
+      });
+    });
+  });
+
+  const grouped = new Map();
+  visibleMarkers.forEach((marker) => {
+    const current = grouped.get(marker.value) || {
+      value: marker.value,
+      primaryId: marker.id,
+      ids: [],
+      labelSet: new Set(),
+    };
+
+    current.ids.push(marker.id);
+    marker.labels.forEach((label) => current.labelSet.add(label));
+    grouped.set(marker.value, current);
+  });
+
+  const entries = [...grouped.values()]
+    .map((entry) => ({
+      id: entry.primaryId,
+      value: entry.value,
+      labels: [...entry.labelSet],
+    }))
+    .sort((a, b) => a.value - b.value);
+
+  if (entries.length <= 12) return entries;
+
+  const picks = [0, Math.floor(entries.length * 0.25), Math.floor(entries.length * 0.5), Math.floor(entries.length * 0.75), entries.length - 1];
+  return [...new Map(picks.map((index) => [entries[index].id, entries[index]])).values()];
+}
+
+function rangesOverlap(minA, maxA, minB, maxB) {
+  return Math.max(minA, minB) <= Math.min(maxA, maxB);
+}
+
+function getSegmentSpan(segment) {
+  return Math.max(1, segment.max - segment.min);
+}
+
+function getSegmentCenter(segment) {
+  return (segment.min + segment.max) / 2;
+}
+
+function getMorphScore(previousSegment, nextSegment) {
+  const overlap = Math.max(0, Math.min(previousSegment.max, nextSegment.max) - Math.max(previousSegment.min, nextSegment.min));
+  const overlapRatio = overlap / Math.max(1, Math.min(getSegmentSpan(previousSegment), getSegmentSpan(nextSegment)));
+  const centerDelta = Math.abs(getSegmentCenter(previousSegment) - getSegmentCenter(nextSegment));
+  const maxSpan = Math.max(getSegmentSpan(previousSegment), getSegmentSpan(nextSegment));
+  const involvesPoint =
+    previousSegment.segmentKind === "point" ||
+    previousSegment.segmentKind === "point-range" ||
+    nextSegment.segmentKind === "point" ||
+    nextSegment.segmentKind === "point-range";
+
+  if (centerDelta > Math.max(10, maxSpan * 0.28)) return Number.NEGATIVE_INFINITY;
+  if (overlapRatio < (involvesPoint ? 0.45 : 0.6)) return Number.NEGATIVE_INFINITY;
+
+  const kindBonus = previousSegment.segmentKind === nextSegment.segmentKind ? 18 : 8;
+  const semanticBonus = previousSegment.semanticId === nextSegment.semanticId ? 42 : 0;
+  return overlapRatio * 100 - centerDelta + kindBonus + semanticBonus;
+}
+
+function buildRollingDigitSequence(fromChar, toChar) {
+  const fromIsDigit = /\d/.test(fromChar);
+  const toIsDigit = /\d/.test(toChar);
+
+  if (!fromIsDigit && toIsDigit) {
+    const to = Number(toChar);
+    return [String((to + 8) % 10), String((to + 9) % 10), toChar];
+  }
+
+  if (fromIsDigit && !toIsDigit) {
+    const from = Number(fromChar);
+    return [fromChar, String((from + 1) % 10), toChar];
+  }
+
+  if (!fromIsDigit || !toIsDigit) return [toChar];
+
+  const from = Number(fromChar);
+  const to = Number(toChar);
+  if (from === to) return [toChar];
+
+  const direction = to >= from ? 1 : -1;
+  const sequence = [String(from)];
+  let current = from;
+
+  while (current !== to) {
+    current = (current + direction + 10) % 10;
+    sequence.push(String(current));
+    if (sequence.length > 11) break;
+  }
+
+  return sequence;
+}
+
+function RollingDigit({ fromChar, toChar, animationKey }) {
+  const sequence = useMemo(() => buildRollingDigitSequence(fromChar, toChar), [fromChar, toChar]);
+  const [isAnimating, setIsAnimating] = useState(false);
+
+  useEffect(() => {
+    if (sequence.length <= 1) {
+      setIsAnimating(false);
+      return undefined;
+    }
+
+    setIsAnimating(false);
+    const frameId = window.requestAnimationFrame(() => setIsAnimating(true));
+    return () => window.cancelAnimationFrame(frameId);
+  }, [animationKey, sequence]);
+
+  if (sequence.length <= 1) {
+    return <span className="rolling-digit-static">{toChar}</span>;
+  }
+
+  return (
+    <span className="rolling-digit-window" aria-hidden="true">
+      <span
+        className={`rolling-digit-track ${isAnimating ? "is-animating" : ""}`}
+        style={{ "--digit-offset": sequence.length - 1 }}
+      >
+        {sequence.map((digit, index) => (
+          <span key={`${animationKey}-${digit}-${index}`} className="rolling-digit-cell">
+            {digit}
+          </span>
+        ))}
+      </span>
+    </span>
+  );
+}
+
+function RollingNumber({ value, animationIdentity, phase = "stable" }) {
+  const nextText = String(value);
+  const blankText = " ".repeat(nextText.length);
+  const targetText = phase === "exit" ? blankText : nextText;
+  const [displayState, setDisplayState] = useState(() => ({
+    from: nextText,
+    to: nextText,
+    version: 0,
+  }));
+
+  useEffect(() => {
+    setDisplayState((current) => {
+      if (phase === "enter") {
+        return {
+          from: blankText,
+          to: nextText,
+          version: current.version + 1,
+        };
+      }
+
+      if (phase === "exit") {
+        return {
+          from: current.to === blankText ? nextText : current.to,
+          to: blankText,
+          version: current.version + 1,
+        };
+      }
+
+      if (current.to === targetText) return current;
+      return {
+        from: current.to,
+        to: targetText,
+        version: current.version + 1,
+      };
+    });
+  }, [nextText, blankText, targetText, phase]);
+
+  const width = Math.max(displayState.from.length, displayState.to.length);
+  const fromChars = displayState.from.padStart(width, " ").split("");
+  const toChars = displayState.to.padStart(width, " ").split("");
+
+  return (
+    <span className="rolling-number" aria-label={nextText}>
+      {toChars.map((toChar, index) => (
+        <RollingDigit
+          key={`${animationIdentity}-${index}-${displayState.version}`}
+          fromChar={fromChars[index] ?? " "}
+          toChar={toChar}
+          animationKey={`${animationIdentity}-${displayState.version}-${index}`}
+        />
+      ))}
+    </span>
+  );
+}
+
 function SpeedGraph({ graph, maxValue, tone = "ally", compact = false, markerValuePlacement = "none" }) {
   const graphRef = useRef(null);
   const [graphWidth, setGraphWidth] = useState(0);
-  const thickLeft = (graph.thickMin / maxValue) * 100;
-  const thickWidth = ((graph.thickMax - graph.thickMin) / maxValue) * 100;
   const pointLeft = (graph.point / maxValue) * 100;
   const pointRangeLeft = (graph.pointMin / maxValue) * 100;
   const pointRangeWidth = ((graph.pointMax - graph.pointMin) / maxValue) * 100;
   const pointIsRange = graph.pointMax > graph.pointMin;
-  const showThickRange = graph.showThickRange !== false;
-  const isSingleResolvedPoint =
-    graph.min === graph.max &&
-    graph.thickMin === graph.thickMax &&
-    !pointIsRange;
+  const isSingleResolvedPoint = graph.layers.length === 0 && graph.min === graph.max && !pointIsRange;
   const pointTooltip = graph.pointTooltip?.join("\n") || "";
-  const thickTooltip = graph.thickTooltip?.join("\n") || pointTooltip;
-  const visualMarkers = pointIsRange ? graph.markers : graph.markers.filter((marker) => marker.value !== graph.point);
+  const pointTop = compact ? 30 : 27;
+  const natureBranches = graph.layers
+    .filter((layer) => layer.kind === "nature")
+    .flatMap((layer) => layer.branches);
+  const renderedLayerSegments = graph.layers.flatMap((layer) =>
+    layer.branches.map((branch) => {
+      const isThinLayer = layer.kind === "item" || layer.kind === "ability" || layer.kind === "both";
+      const overlapsPoint = rangesOverlap(branch.min, branch.max, graph.pointMin, graph.pointMax);
+      const overlapsNature = natureBranches.some((natureBranch) =>
+        rangesOverlap(branch.min, branch.max, natureBranch.min, natureBranch.max)
+      );
+
+      return {
+        layer,
+        branch,
+        hidden: isThinLayer && (overlapsPoint || overlapsNature),
+      };
+    })
+  );
+  const visibleLayerSegments = renderedLayerSegments.filter((segment) => !segment.hidden);
+  const visualSegments = [
+    {
+      semanticId: pointIsRange ? "point-range" : "point-fixed",
+      matchKey: "point",
+      segmentKind: pointIsRange ? "point-range" : "point",
+      tone: "neutral",
+      uncertaintyCount: graph.pointUncertaintyCount ?? 0,
+      min: pointIsRange ? graph.pointMin : graph.point,
+      max: pointIsRange ? graph.pointMax : graph.point,
+      className: pointIsRange ? "speed-graph-point-range" : "speed-graph-point single-value",
+      labelLines: graph.pointTooltip || [],
+      tooltip: pointTooltip,
+    },
+    ...visibleLayerSegments.map(({ layer, branch }) => ({
+      semanticId: `${layer.key}-${branch.key}`,
+      matchKey: `${layer.key}-${branch.key}`,
+      segmentKind: layer.kind,
+      tone: branch.tone,
+      uncertaintyCount: layer.uncertaintyCount ?? 0,
+      min: branch.min,
+      max: branch.max,
+      className: `speed-graph-layer-segment speed-graph-layer-${layer.kind} speed-graph-tone-${branch.tone}${branch.min === branch.max ? " single-value" : ""}`,
+      labelLines: layer.tooltip || [],
+      tooltip: layer.tooltip.join("\n"),
+    })),
+  ];
+  const renderedSegments = visualSegments.map((segment) => ({
+    ...segment,
+    renderId: segment.semanticId,
+    phase: "stable",
+  }));
   const markerLabels = markerValuePlacement === "none"
     ? []
     : (() => {
-        const sorted = [...graph.markers]
+        const markerSegments = renderedSegments.map((segment) => ({
+          id: segment.renderId,
+          min: segment.min,
+          max: segment.max,
+          labels: segment.labelLines || [],
+          phase: segment.phase,
+        }));
+
+        const phaseById = new Map(markerSegments.map((segment) => [segment.id, segment.phase]));
+        const sorted = buildEndpointMarkers(markerSegments)
           .sort((a, b) => a.value - b.value)
           .map((marker) => {
             const preferredPercent = (marker.value / maxValue) * 100;
@@ -828,6 +1754,7 @@ function SpeedGraph({ graph, maxValue, tone = "ally", compact = false, markerVal
             const widthPercent = graphWidth > 0 ? (rotatedFootprint / graphWidth) * 100 : compact ? 3.8 : 3;
             return {
               ...marker,
+              phase: phaseById.get(marker.id) || "stable",
               preferredPercent,
               widthPercent,
               tooltipText: summarizeTooltipLines(marker.labels).join("\n"),
@@ -857,8 +1784,9 @@ function SpeedGraph({ graph, maxValue, tone = "ally", compact = false, markerVal
           })
           .reverse();
       })();
-
   useEffect(() => {
+    if (markerValuePlacement === "none") return undefined;
+
     const node = graphRef.current;
     if (!node) return undefined;
 
@@ -873,63 +1801,53 @@ function SpeedGraph({ graph, maxValue, tone = "ally", compact = false, markerVal
     const observer = new ResizeObserver(updateWidth);
     observer.observe(node);
     return () => observer.disconnect();
-  }, []);
+  }, [markerValuePlacement]);
 
-  return (
+    return (
     <div ref={graphRef} className={`speed-graph ${tone} ${compact ? "compact" : ""}`}>
-      {graph.lineSegments.map((segment, index) => {
-        const left = (segment.min / maxValue) * 100;
-        const width = ((segment.max - segment.min) / maxValue) * 100;
-        return (
-          <div
-            key={`${segment.min}-${segment.max}-${index}`}
-            className={`speed-graph-segment marker-tooltip ${isSingleResolvedPoint ? "is-hidden" : ""}`}
-            data-tooltip={segment.labels.join("\n")}
-            style={{ left: `${left}%`, width: `${Math.max(0.8, width)}%` }}
-            tabIndex={isSingleResolvedPoint ? -1 : 0}
-          >
-            <div className="speed-graph-line" />
-            <div className="speed-graph-cap start" />
-            <div className="speed-graph-cap end" />
-          </div>
-        );
-      })}
-      <div
-        className={`speed-graph-thick marker-tooltip ${isSingleResolvedPoint || !showThickRange ? "is-hidden" : ""}`}
-        style={{ left: `${thickLeft}%`, width: `${Math.max(1, thickWidth)}%` }}
-        data-tooltip={thickTooltip}
-        tabIndex={isSingleResolvedPoint || !showThickRange ? -1 : 0}
-      />
-        {visualMarkers.map((marker) => (
-          <div
-            key={`${marker.value}-${marker.labels.join("-")}`}
-            className={`speed-graph-marker ${isSingleResolvedPoint ? "is-hidden" : ""}`}
-            style={{ left: `${(marker.value / maxValue) * 100}%` }}
-          />
-        ))}
+      {[...renderedSegments]
+        .sort((a, b) => getGraphSegmentRenderPriority(a) - getGraphSegmentRenderPriority(b))
+        .map(({ renderId, min, max, className, tooltip, phase, uncertaintyCount, segmentKind, tone }) => {
+          const left = (min / maxValue) * 100;
+          const width = ((max - min) / maxValue) * 100;
+          const isCollapsed = min === max;
+          const barHeight = getGraphBarHeight(uncertaintyCount ?? 0, segmentKind, tone);
+
+          return (
+            <div
+              key={renderId}
+              className={`${className} marker-tooltip`}
+              style={{
+                "--graph-bar-height": `${barHeight}px`,
+                left: `${left}%`,
+                top: `${pointTop}px`,
+                width: `${Math.max(0.8, width)}%`,
+              }}
+              data-tooltip={tooltip}
+              tabIndex={0}
+            />
+          );
+        })}
       {markerLabels.map((marker) => (
         <span
-          key={`label-${marker.value}`}
+          key={`label-${marker.id}`}
           className={`speed-graph-value marker-tooltip ${markerValuePlacement}`}
           style={{ left: `${marker.labelPercent}%` }}
           data-tooltip={marker.tooltipText}
           tabIndex={0}
         >
           <span className="marker-hitbox" />
-          <span className="speed-graph-value-text">{marker.value}</span>
+          <span className="speed-graph-value-text">
+            <RollingNumber value={marker.value} animationIdentity={marker.id} />
+          </span>
         </span>
       ))}
-      {pointIsRange ? (
-        <div className="speed-graph-point-range marker-tooltip" style={{ left: `${pointRangeLeft}%`, width: `${Math.max(1.2, pointRangeWidth)}%` }} data-tooltip={pointTooltip} tabIndex={0} />
-      ) : (
-        <div className="speed-graph-point marker-tooltip" style={{ left: `${pointLeft}%` }} data-tooltip={pointTooltip} tabIndex={0} />
-      )}
     </div>
   );
 }
 
 function App() {
-  const [language, setLanguage] = useState(() => readStorage(STORAGE.language, "ko"));
+  const [language, setLanguage] = useState(() => detectInitialLanguage());
   const [theme, setTheme] = useState(() => readStorage(STORAGE.theme, "dark"));
   const [view, setView] = useState(() => readStorage(STORAGE.view, "team"));
   const [battleMode, setBattleMode] = useState(() => readStorage(STORAGE.battleMode, "single"));
@@ -939,30 +1857,43 @@ function App() {
   const [selectedPreset, setSelectedPreset] = useState("");
   const [presetName, setPresetName] = useState("");
   const [isPresetManagerOpen, setIsPresetManagerOpen] = useState(false);
+  const [isShowdownImportOpen, setIsShowdownImportOpen] = useState(false);
+  const [showdownImportText, setShowdownImportText] = useState("");
+  const [showdownImportStatus, setShowdownImportStatus] = useState(null);
   const [search, setSearch] = useState("");
-  const [battleSearch, setBattleSearch] = useState({ ally: "", enemy: "" });
+  const [rosterSearch, setRosterSearch] = useState("");
+  const [rosterSearchStatus, setRosterSearchStatus] = useState("");
+  const [highlightedRosterRowId, setHighlightedRosterRowId] = useState("");
+  const [showScrollTop, setShowScrollTop] = useState(false);
+  const [battleSearch, setBattleSearch] = useState(() => normalizeBattleSearchState());
   const [selectedSide, setSelectedSide] = useState("ally");
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [isDetailPanelCleared, setIsDetailPanelCleared] = useState(false);
   const [searchTargetSide, setSearchTargetSide] = useState("ally");
   const [draggingSlot, setDraggingSlot] = useState(null);
   const compareRowRefs = useRef(new Map());
+  const rosterRowRefs = useRef(new Map());
+  const rosterSearchTimerRef = useRef(null);
   const previousComparePositions = useRef(new Map());
-  const [battleState, setBattleState] = useState({
-    ally: { index: 0, mega: false, ability: false, tailwind: false, paralysis: false, rank: 0 },
-    enemy: { index: 0, mega: false, ability: false, tailwind: false, paralysis: false, rank: 0 },
-  });
+  const [battleState, setBattleState] = useState(() => normalizeBattleState());
 
   const t = TEXT[language];
   const selectedSlot = (selectedSide === "ally" ? allySlots : enemySlots)[selectedIndex] || createSlot(selectedIndex);
   const savedAtFormatter = useMemo(
     () =>
-      new Intl.DateTimeFormat(language === "ko" ? "ko-KR" : "en-US", {
+      new Intl.DateTimeFormat(
+        pickLocalizedText(language, {
+          ko: "ko-KR",
+          en: "en-US",
+          ja: "ja-JP",
+        }),
+        {
         month: "short",
         day: "numeric",
         hour: "2-digit",
         minute: "2-digit",
-      }),
+        }
+      ),
     [language]
   );
 
@@ -973,6 +1904,20 @@ function App() {
   useEffect(() => writeStorage(STORAGE.ally, allySlots), [allySlots]);
   useEffect(() => writeStorage(STORAGE.enemy, enemySlots), [enemySlots]);
   useEffect(() => writeStorage(STORAGE.presets, presets), [presets]);
+  useEffect(() => {
+    const handleScroll = () => setShowScrollTop(window.scrollY > 280);
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+  useEffect(
+    () => () => {
+      if (rosterSearchTimerRef.current) {
+        window.clearTimeout(rosterSearchTimerRef.current);
+      }
+    },
+    []
+  );
   useEffect(() => {
     if (selectedPreset && !presets.some((preset) => preset.name === selectedPreset)) {
       setSelectedPreset("");
@@ -1000,26 +1945,163 @@ function App() {
     );
   };
 
-  const updateBattleSlot = (side, patch) => {
-    const index = battleState[side].index;
+  const setBattleUnitState = (side, battleSlotIndex, updater) => {
+    setBattleState((current) => {
+      const nextSide = current[side].map((entry, index) => {
+        if (index !== battleSlotIndex) return entry;
+        return typeof updater === "function" ? updater(entry) : { ...entry, ...updater };
+      });
+      return { ...current, [side]: nextSide };
+    });
+  };
+
+  const setBattleUnitIndex = (side, battleSlotIndex, targetIndex) => {
+    setBattleState((current) => {
+      const nextSide = current[side].map((entry) => ({ ...entry }));
+      const otherIndex = nextSide.findIndex((entry, index) => index !== battleSlotIndex && entry.index === targetIndex);
+
+      if (otherIndex !== -1) {
+        nextSide[otherIndex] = resetBattleTransientState(nextSide[otherIndex], nextSide[battleSlotIndex].index);
+      }
+
+      nextSide[battleSlotIndex] = resetBattleTransientState(nextSide[battleSlotIndex], targetIndex);
+      return { ...current, [side]: nextSide };
+    });
+  };
+
+  const updateBattleSlot = (side, battleSlotIndex, patch) => {
+    const index = battleState[side][battleSlotIndex].index;
     updateSlot(side, index, patch);
   };
 
+  const jumpToRosterRow = (row) => {
+    if (!row) {
+      setHighlightedRosterRowId("");
+      setRosterSearchStatus(t.rosterSearchMiss);
+      return;
+    }
+
+    setRosterSearchStatus("");
+    setHighlightedRosterRowId(row.id);
+
+    const node = rosterRowRefs.current.get(row.id);
+    if (node) {
+      node.scrollIntoView({ behavior: "smooth", block: "center" });
+    }
+
+    if (rosterSearchTimerRef.current) {
+      window.clearTimeout(rosterSearchTimerRef.current);
+    }
+    rosterSearchTimerRef.current = window.setTimeout(() => {
+      setHighlightedRosterRowId((current) => (current === row.id ? "" : current));
+    }, 1800);
+  };
+
+  const importShowdownTeam = () => {
+    const input = showdownImportText.trim();
+    if (!input) {
+      setShowdownImportStatus({ type: "error", message: t.showdownImportEmpty, warnings: [] });
+      return;
+    }
+
+    const parsedSets = parseShowdownTeamText(input);
+    const warnings = [];
+    const importedSlots = [];
+
+    parsedSets.slice(0, 6).forEach((set) => {
+      const entry = resolveRosterEntryFromShowdownName(set.speciesName);
+      if (!entry) {
+        warnings.push(set.speciesName);
+        return;
+      }
+
+      const hasMega = (MEGA_OPTIONS[entry.displayName] || []).length > 0;
+      importedSlots.push(
+        normalizeSlot(
+          {
+            rosterId: entry.id,
+            dexNo: entry.dexNo,
+            formKey: entry.formKey,
+            name: entry.displayName,
+            nameEn: entry.displayNameEn,
+            nameJa: entry.displayNameJa,
+            baseSpeed: entry.speed,
+            icon: entry.icon,
+            active: false,
+            megaChoice: hasMega ? "unknown" : "",
+            evUnknown: false,
+            evValue: set.speedEv,
+            nature: parseShowdownNatureKey(set.natureName),
+            itemSetting: resolveImportedItemSetting(set.itemName),
+            abilitySetting: resolveImportedAbilitySetting(entry, set.abilityName),
+          },
+          importedSlots.length
+        )
+      );
+    });
+
+    if (!importedSlots.length) {
+      setShowdownImportStatus({ type: "error", message: t.showdownImportFailed, warnings });
+      return;
+    }
+
+    if (parsedSets.length > 6) {
+      warnings.push(
+        pickLocalizedText(language, {
+          ko: "처음 6마리만 가져왔습니다.",
+          en: "Only the first 6 Pokémon were imported.",
+          ja: "最初の6匹のみ読み込みました。",
+        })
+      );
+    }
+
+    updateTeam(searchTargetSide, () =>
+      Array.from({ length: 6 }, (_, index) => importedSlots[index] || createSlot(index))
+    );
+
+    selectSlot(searchTargetSide, 0);
+    setIsDetailPanelCleared(false);
+    setSearch("");
+    setBattleSearch((current) => ({ ...current, [searchTargetSide]: ["", ""] }));
+    setBattleState((current) => ({
+      ...current,
+      [searchTargetSide]: current[searchTargetSide].map((entry, index) => resetBattleTransientState(entry, index)),
+    }));
+
+    setShowdownImportStatus({
+      type: "success",
+      message: `${importedSlots.length} ${t.showdownImportSuccess}`,
+      warnings,
+    });
+  };
+
   const searchResults = useMemo(() => {
-    const keyword = search.trim().toLowerCase();
+    const keyword = normalizeSearchKey(search);
     if (!keyword) return [];
-    return championsRoster.filter((entry) => `${entry.displayName} ${entry.displayNameEn || ""}`.toLowerCase().includes(keyword)).slice(0, 10);
+    return championsRoster
+      .filter((entry) =>
+        normalizeSearchKey(`${entry.displayName} ${entry.displayNameEn || ""} ${entry.displayNameJa || ""}`).includes(keyword)
+      )
+      .slice(0, 10);
   }, [search]);
 
   const battleSearchResults = useMemo(
     () =>
       ["ally", "enemy"].reduce(
         (acc, side) => {
-          const keyword = battleSearch[side].trim().toLowerCase();
-          acc[side] = keyword ? championsRoster.filter((entry) => `${entry.displayName} ${entry.displayNameEn || ""}`.toLowerCase().includes(keyword)).slice(0, 8) : [];
+          acc[side] = [0, 1].map((battleSlotIndex) => {
+            const keyword = normalizeSearchKey(battleSearch[side][battleSlotIndex]);
+            return keyword
+              ? championsRoster
+                  .filter((entry) =>
+                    normalizeSearchKey(`${entry.displayName} ${entry.displayNameEn || ""} ${entry.displayNameJa || ""}`).includes(keyword)
+                  )
+                  .slice(0, 8)
+              : [];
+          });
           return acc;
         },
-        { ally: [], enemy: [] }
+        { ally: [[], []], enemy: [[], []] }
       ),
     [battleSearch]
   );
@@ -1042,7 +2124,7 @@ function App() {
   };
 
   const applyRosterEntryToSide = (entry, side, options = {}) => {
-    const { preferredIndex = null, syncBattleIndex = false } = options;
+    const { preferredIndex = null, syncBattleIndex = false, battleSlotIndex = 0 } = options;
     if (hasDuplicatePokemonInSide(side, entry, preferredIndex)) {
       window.alert(t.duplicatePokemon);
       return;
@@ -1056,6 +2138,7 @@ function App() {
       formKey: entry.formKey,
       name: entry.displayName,
       nameEn: entry.displayNameEn,
+      nameJa: entry.displayNameJa,
       baseSpeed: entry.speed,
       icon: entry.icon,
       megaChoice: hasMega ? "unknown" : "",
@@ -1065,11 +2148,11 @@ function App() {
     });
     selectSlot(side, targetIndex);
     if (syncBattleIndex) {
-      setBattleState((current) => ({
+      setBattleUnitIndex(side, battleSlotIndex, targetIndex);
+      setBattleSearch((current) => ({
         ...current,
-        [side]: { ...current[side], index: targetIndex },
+        [side]: current[side].map((value, index) => (index === battleSlotIndex ? "" : value)),
       }));
-      setBattleSearch((current) => ({ ...current, [side]: "" }));
     }
   };
 
@@ -1082,7 +2165,7 @@ function App() {
     setEnemySlots(normalizeTeam());
     setBattleState((current) => ({
       ...current,
-      enemy: { index: 0, mega: false, ability: false, tailwind: false, paralysis: false, rank: 0 },
+      enemy: normalizeBattleSideState(),
     }));
     if (selectedSide === "enemy") setSelectedIndex(0);
   };
@@ -1122,7 +2205,11 @@ function App() {
     if (!target) return;
 
     const confirmed = window.confirm(
-      language === "ko" ? `"${target.name}" 저장본을 삭제할까요?` : `Delete the saved team "${target.name}"?`
+      pickLocalizedText(language, {
+        ko: `"${target.name}" 저장본을 삭제할까요?`,
+        en: `Delete the saved team "${target.name}"?`,
+        ja: `保存済みチーム「${target.name}」を削除しますか？`,
+      })
     );
 
     if (!confirmed) return;
@@ -1168,6 +2255,9 @@ function App() {
     );
   };
 
+  const isBattleSelection = (side, teamIndex, megaKey = null) =>
+    battleState[side].some((entry) => entry.index === teamIndex && (megaKey ? entry.mega && megaKey === (side === "ally" ? allySlots : enemySlots)[teamIndex]?.megaChoice : !entry.mega));
+
   const compareRows = useMemo(() => {
     const rows = [];
     const pushRows = (slots, side) => {
@@ -1185,7 +2275,7 @@ function App() {
           graph: baseGraph,
           baseSpeed: slot.baseSpeed,
           active: slot.active,
-          selected: battleState[side].index === index && !battleState[side].mega,
+          selected: isBattleSelection(side, index),
           isMega: false,
           deemphasized,
           priority: deemphasized ? 1 : 0,
@@ -1201,7 +2291,7 @@ function App() {
             graph: buildGraph(slot, mega.speed, null, language),
             baseSpeed: mega.speed,
             active: slot.active,
-            selected: battleState[side].index === index && battleState[side].mega && slot.megaChoice === mega.key,
+            selected: isBattleSelection(side, index, mega.key),
             isMega: true,
             deemphasized,
             priority: deemphasized ? 1 : 0,
@@ -1265,6 +2355,7 @@ function App() {
         graph: buildRosterGraph(entry, entry.speed, language),
         baseSpeed: entry.speed,
         isMega: false,
+        searchTerms: [getLocalizedName(entry, language), entry.displayName, entry.displayNameEn, entry.displayNameJa].filter(Boolean),
       });
       (MEGA_OPTIONS[entry.displayName] || []).forEach((mega) => {
         rows.push({
@@ -1274,6 +2365,15 @@ function App() {
           graph: buildRosterGraph(entry, mega.speed, language),
           baseSpeed: mega.speed,
           isMega: true,
+          searchTerms: [
+            getLocalizedMegaLabel(mega, language),
+            mega.label,
+            mega.labelEn,
+            mega.labelJa,
+            entry.displayName,
+            entry.displayNameEn,
+            entry.displayNameJa,
+          ].filter(Boolean),
         });
       });
     });
@@ -1286,16 +2386,80 @@ function App() {
     });
   }, [language]);
 
+  const rosterSearchResults = useMemo(() => {
+    const query = normalizeSearchKey(rosterSearch);
+    if (!query) return [];
+    return rosterRows
+      .filter((row) => row.searchTerms.some((term) => normalizeSearchKey(term).includes(query)))
+      .slice(0, 10);
+  }, [rosterRows, rosterSearch]);
+
   const rosterMax = Math.max(200, ...rosterRows.map((row) => row.graph.max), 200);
 
-  const allyBattleSlot = allySlots[battleState.ally.index] || createSlot(0);
-  const enemyBattleSlot = enemySlots[battleState.enemy.index] || createSlot(0);
-  const allyBattleSpeed = battleState.ally.mega ? getSelectedMega(allyBattleSlot)?.speed || allyBattleSlot.baseSpeed : allyBattleSlot.baseSpeed;
-  const enemyBattleSpeed = battleState.enemy.mega ? getSelectedMega(enemyBattleSlot)?.speed || enemyBattleSlot.baseSpeed : enemyBattleSlot.baseSpeed;
-  const allyBattleGraph = slotHasPokemon(allyBattleSlot) ? buildGraph(allyBattleSlot, allyBattleSpeed, battleState.ally, language) : null;
-  const enemyBattleGraph = slotHasPokemon(enemyBattleSlot) ? buildGraph(enemyBattleSlot, enemyBattleSpeed, battleState.enemy, language) : null;
+  const battleUnits = useMemo(
+    () =>
+      ["ally", "enemy"].reduce((acc, side) => {
+        acc[side] = battleState[side].map((state, battleSlotIndex) => {
+          const teamSlots = side === "ally" ? allySlots : enemySlots;
+          const slot = teamSlots[state.index] || createSlot(state.index);
+          const speed = state.mega ? getSelectedMega(slot)?.speed || slot.baseSpeed : slot.baseSpeed;
+          const graph = slotHasPokemon(slot) ? buildGraph(slot, speed, state, language) : null;
+          return { side, battleSlotIndex, state, slot, speed, graph };
+        });
+        return acc;
+      }, { ally: [], enemy: [] }),
+    [allySlots, enemySlots, battleState, language]
+  );
+
+  const allyBattleSlot = battleUnits.ally[0]?.slot || createSlot(0);
+  const enemyBattleSlot = battleUnits.enemy[0]?.slot || createSlot(0);
+  const allyBattleGraph = battleUnits.ally[0]?.graph || null;
+  const enemyBattleGraph = battleUnits.enemy[0]?.graph || null;
+
+  useEffect(() => {
+    setBattleState((current) => {
+      let changed = false;
+      const next = { ally: [...current.ally], enemy: [...current.enemy] };
+
+      ["ally", "enemy"].forEach((side) => {
+        battleUnits[side].forEach(({ slot }, battleSlotIndex) => {
+          if (!current[side][battleSlotIndex].ability) return;
+          if (canActivateBattleAbility(slot, current[side][battleSlotIndex])) return;
+          next[side][battleSlotIndex] = { ...current[side][battleSlotIndex], ability: false };
+          changed = true;
+        });
+      });
+
+      return changed ? next : current;
+    });
+  }, [battleUnits, battleState]);
   const battleMax = Math.max(200, allyBattleGraph?.max || 0, enemyBattleGraph?.max || 0);
   const verdict = allyBattleGraph && enemyBattleGraph ? getVerdict(allyBattleGraph, enemyBattleGraph, t) : null;
+  const allyGuaranteedFirst = Boolean(allyBattleGraph && enemyBattleGraph && allyBattleGraph.min > enemyBattleGraph.max);
+  const enemyGuaranteedFirst = Boolean(enemyBattleGraph && allyBattleGraph && enemyBattleGraph.min > allyBattleGraph.max);
+
+  const isDoubleBattleReady = battleUnits.ally.every(({ slot }) => slotHasPokemon(slot)) && battleUnits.enemy.every(({ slot }) => slotHasPokemon(slot));
+  const doubleBattleEntries = useMemo(
+    () =>
+      [...battleUnits.ally, ...battleUnits.enemy]
+        .filter(({ graph }) => Boolean(graph))
+        .map((entry) => ({
+          ...entry,
+          title: entry.side === "ally" ? t.myTeam : t.opponentTeam,
+          label:
+            entry.state.mega && getSelectedMega(entry.slot)
+              ? getLocalizedMegaLabel(getSelectedMega(entry.slot), language)
+              : getLocalizedName(entry.slot, language),
+          icon: getDisplayIcon(entry.slot, entry.state.mega),
+        }))
+        .sort((a, b) => {
+          if (b.graph.point !== a.graph.point) return b.graph.point - a.graph.point;
+          if (b.graph.max !== a.graph.max) return b.graph.max - a.graph.max;
+          return b.graph.min - a.graph.min;
+        }),
+    [battleUnits, language, t.myTeam, t.opponentTeam]
+  );
+  const doubleBattleMax = Math.max(200, ...doubleBattleEntries.map((entry) => entry.graph.max), 200);
 
   const isDetailSlotVisible = slotHasPokemon(selectedSlot) && !isDetailPanelCleared;
   const selectedGraph = isDetailSlotVisible ? buildGraph(selectedSlot, selectedSlot.baseSpeed, null, language) : null;
@@ -1400,7 +2564,7 @@ function App() {
   );
   const renderAbilityButtons = (slot, onChange) => {
     if (!hasSpeedAbilityOptions(slot)) {
-      const label = language === "ko" ? DEFAULT_ABILITY_OPTIONS[0].labelKo : DEFAULT_ABILITY_OPTIONS[0].labelEn;
+      const label = getLocalizedOptionLabel(DEFAULT_ABILITY_OPTIONS[0], language);
       return (
         <button type="button" className="active" disabled>
           {label}
@@ -1415,7 +2579,7 @@ function App() {
         className={slot.abilitySetting === option.key ? "active" : ""}
         onClick={() => onChange(option.key)}
       >
-        {language === "ko" ? option.labelKo : option.labelEn}
+        {getLocalizedOptionLabel(option, language)}
       </button>
     ));
   };
@@ -1425,7 +2589,7 @@ function App() {
     return (
       <div className="mega-picker-row single">
         <select
-          className="mega-select"
+          className="mega-select styled-select"
           value={megaChoices.length === 0 ? "" : megaChoices.some((mega) => mega.key === slot.megaChoice) ? slot.megaChoice : slot.megaChoice === "unknown" ? "unknown" : ""}
           onChange={(event) => onChange(event.target.value)}
           disabled={megaChoices.length === 0}
@@ -1442,10 +2606,174 @@ function App() {
     );
   };
 
+  const renderBattleCard = (side, battleSlotIndex, title, unit) => {
+    const { slot, state, speed, graph } = unit;
+    const searchResultsForUnit = battleSearchResults[side][battleSlotIndex];
+
+    return (
+      <div key={`${side}-${battleSlotIndex}`} className={`battle-side ${side} ${slotHasPokemon(slot) ? "" : "battle-side-empty"} ${searchResultsForUnit.length > 0 ? "battle-side-searching" : ""}`}>
+        <div className="battle-side-head">
+          <h3>{title}</h3>
+          <select className="styled-select" value={state.index} onChange={(event) => setBattleUnitIndex(side, battleSlotIndex, Number(event.target.value))}>
+            {(side === "ally" ? allySlots : enemySlots).map((teamSlot, index) => (
+              <option key={`${side}-${battleSlotIndex}-${index}`} value={index}>
+                {slotHasPokemon(teamSlot) ? getLocalizedName(teamSlot, language) : `${t.slotEmpty} ${index + 1}`}
+              </option>
+            ))}
+          </select>
+        </div>
+
+        <div className="search-shell battle-search-shell">
+          <label className="search-box battle-search-box">
+            <span>{t.search}</span>
+            <input
+              value={battleSearch[side][battleSlotIndex]}
+              onChange={(event) =>
+                setBattleSearch((current) => ({
+                  ...current,
+                  [side]: current[side].map((value, index) => (index === battleSlotIndex ? event.target.value : value)),
+                }))
+              }
+              placeholder={t.search}
+            />
+          </label>
+          {searchResultsForUnit.length > 0 && (
+            <div className="search-popover search-overlay battle-search-popover">
+              {searchResultsForUnit.map((entry) => (
+                <button
+                  key={`battle-${side}-${battleSlotIndex}-${entry.id}`}
+                  type="button"
+                  className="search-result"
+                  onClick={() =>
+                    applyRosterEntryToSide(entry, side, {
+                      preferredIndex: state.index,
+                      syncBattleIndex: true,
+                      battleSlotIndex,
+                    })
+                  }
+                >
+                  <img src={entry.icon} alt="" className="result-icon" />
+                  <span>{getLocalizedName(entry, language)}</span>
+                  <em>{t.baseSpeed} {entry.speed}</em>
+                </button>
+              ))}
+            </div>
+          )}
+        </div>
+
+        {slotHasPokemon(slot) ? (
+          <>
+            <div className="detail-summary battle-poke-summary">
+              <div className="battle-summary-side">
+                <div className={`detail-side-badge ${side}`}>{side === "ally" ? t.myTeam : t.opponentTeam}</div>
+                {renderActiveToggle(side, state.index, slot)}
+              </div>
+              <div className={`icon-shell summary-icon-shell ${state.mega ? "mega-on" : ""}`}>
+                <img src={getDisplayIcon(slot, state.mega)} alt="" className="slot-icon large" />
+              </div>
+              <div className="detail-copy">
+                <strong>{state.mega && getSelectedMega(slot) ? getLocalizedMegaLabel(getSelectedMega(slot), language) : getLocalizedName(slot, language)}</strong>
+                <span>{t.baseSpeed} {speed}</span>
+              </div>
+              {graph && (
+                <div className="detail-range battle-summary-range">
+                  <small>{getLocalizedCurrentSpeedLabel(language)}</small>
+                  <strong>{formatRange(graph.min, graph.max)}</strong>
+                </div>
+              )}
+            </div>
+
+            <div className="detail-grid battle-detail-grid tidy">
+              <div className="field battle-field battle-field-mega">
+                <span>{t.mega}</span>
+                {renderMegaField(slot, (value) => updateBattleSlot(side, battleSlotIndex, { megaChoice: value }))}
+              </div>
+
+              <div className="field battle-field battle-field-points">
+                <span>{t.statPoints}</span>
+                <div className="inline-input">
+                  <input type="number" min="0" max="32" disabled={slot.evUnknown} value={slot.evValue} onChange={(event) => updateBattleSlot(side, battleSlotIndex, { evValue: clampInt(event.target.value, 0, 32) })} />
+                  <button type="button" className={`ghost-button ${slot.evUnknown ? "active" : ""}`} onClick={() => updateBattleSlot(side, battleSlotIndex, { evUnknown: !slot.evUnknown })}>
+                    {t.unknown}
+                  </button>
+                </div>
+              </div>
+
+              <div className="field span-2 battle-field battle-field-nature">
+                <span>{t.nature}</span>
+                <div className="segmented compact">
+                  {NATURE_OPTIONS.map((option) => (
+                    <button key={option.key} type="button" className={slot.nature === option.key ? "active" : ""} onClick={() => updateBattleSlot(side, battleSlotIndex, { nature: option.key })}>
+                      {getLocalizedOptionLabel(option, language)}
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              <div className="field span-2 battle-field battle-field-item">
+                <span>{t.item}</span>
+                <div className="segmented wrap">
+                  {Object.entries(ITEMS).map(([key, item]) => (
+                    <button key={key} type="button" className={slot.itemSetting === key ? "active" : ""} onClick={() => updateBattleSlot(side, battleSlotIndex, { itemSetting: key })}>
+                      {getLocalizedOptionLabel(item, language)}
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              <div className="field span-2 battle-field battle-field-ability">
+                <span>{t.ability} <Tooltip label="?" text={getAbilityHelpText(slot, language, t.abilityHelp)} className="inline-help" /></span>
+                <div className="segmented wrap">
+                  {renderAbilityButtons(slot, (value) => updateBattleSlot(side, battleSlotIndex, { abilitySetting: value }))}
+                </div>
+              </div>
+            </div>
+
+            <div className="battle-action-row">
+              <button
+                type="button"
+                className={`toggle-chip ${state.tailwind ? "on" : ""}`}
+                onClick={() =>
+                  setBattleState((current) => ({
+                    ...current,
+                    [side]: current[side].map((entry) => ({ ...entry, tailwind: !current[side][battleSlotIndex].tailwind })),
+                  }))
+                }
+              >
+                {t.tailwind}
+              </button>
+              <button type="button" className={`toggle-chip ${state.paralysis ? "on" : ""}`} onClick={() => setBattleUnitState(side, battleSlotIndex, { paralysis: !state.paralysis })}>
+                {t.paralysis}
+              </button>
+              <button type="button" className={`toggle-chip ${state.mega ? "on" : ""}`} disabled={!getSelectedMega(slot)} onClick={() => setBattleUnitState(side, battleSlotIndex, { mega: !state.mega })}>
+                {t.mega}
+              </button>
+              <button type="button" className={`toggle-chip ${state.ability ? "on" : ""}`} disabled={!canActivateBattleAbility(slot, state)} onClick={() => setBattleUnitState(side, battleSlotIndex, { ability: !state.ability })}>
+                {t.ability}
+              </button>
+            </div>
+
+            <div className="battle-rank-row">
+              <span>{t.rank}</span>
+              <div className="rank-controls">
+                <button type="button" onClick={() => setBattleUnitState(side, battleSlotIndex, { rank: Math.max(-6, state.rank - 1) })}>-</button>
+                <strong>{state.rank > 0 ? `+${state.rank}` : state.rank}</strong>
+                <button type="button" onClick={() => setBattleUnitState(side, battleSlotIndex, { rank: Math.min(6, state.rank + 1) })}>+</button>
+              </div>
+            </div>
+
+          </>
+        ) : (
+          <div className="empty-box in-panel">{t.liveBattleEmptyHint}</div>
+        )}
+      </div>
+    );
+  };
+
   const toneClass = theme === "dark" ? "dark" : "light";
 
   return (
-    <div className={`app-shell ${toneClass}`}>
+    <div className={`app-shell ${toneClass} lang-${language}`}>
       <div className="app-chrome">
         <header className="app-header">
           <div className="brand">
@@ -1476,9 +2804,10 @@ function App() {
                 {theme === "dark" ? "☀" : "●"}
               </button>
 
-              <select className="lang-select" value={language} onChange={(event) => setLanguage(event.target.value)}>
+              <select className="lang-select styled-select" value={language} onChange={(event) => setLanguage(event.target.value)}>
                 <option value="ko">한국어</option>
                 <option value="en">English</option>
+                <option value="ja">日本語</option>
               </select>
             </div>
           </div>
@@ -1489,16 +2818,10 @@ function App() {
             <div className="left-stack">
               <section className="panel team-panel">
                 <div className="panel-head">
-                  <div className="heading-with-help">
+                  <div className="heading-with-help team-heading-row">
                     <h2>{t.teamSettings}</h2>
                     <Tooltip label="?" text={t.addHint} className="inline-help" />
-                  </div>
-                </div>
-
-                <div className="team-toolbar">
-                  <div className="toolbar-group mode-group">
-                    <span className="toolbar-label">{t.battleMode}</span>
-                    <div className="segmented compact">
+                    <div className="segmented compact panel-mode-switch">
                       <button type="button" className={battleMode === "single" ? "active" : ""} onClick={() => setBattleMode("single")}>
                         {t.single}
                       </button>
@@ -1507,7 +2830,9 @@ function App() {
                       </button>
                     </div>
                   </div>
+                </div>
 
+                <div className="team-toolbar">
                   <div className="toolbar-group side-group">
                     <div className="segmented compact target-toggle">
                       <button type="button" className={searchTargetSide === "ally" ? "active" : ""} onClick={() => setSearchTargetSide("ally")}>
@@ -1519,23 +2844,37 @@ function App() {
                     </div>
                   </div>
 
-                  <label className="search-box">
-                    <span>{t.search}</span>
-                    <input value={search} onChange={(event) => setSearch(event.target.value)} placeholder={t.search} />
-                  </label>
-                </div>
-
-                {searchResults.length > 0 && (
-                  <div className="search-popover">
-                    {searchResults.map((entry) => (
-                      <button key={entry.id} type="button" className="search-result" onClick={() => applyRosterEntry(entry)}>
-                        <img src={entry.icon} alt="" className="result-icon" />
-                        <span>{getLocalizedName(entry, language)}</span>
-                        <em>{t.baseSpeed} {entry.speed}</em>
-                      </button>
-                    ))}
+                  <div className="toolbar-group import-group">
+                    <button
+                      type="button"
+                      className="ghost-button"
+                      onClick={() => {
+                        setIsShowdownImportOpen(true);
+                        setShowdownImportStatus(null);
+                      }}
+                    >
+                      {t.showdownImport}
+                    </button>
                   </div>
-                )}
+
+                  <div className="search-shell toolbar-search-shell">
+                    <label className="search-box">
+                      <span>{t.search}</span>
+                      <input value={search} onChange={(event) => setSearch(event.target.value)} placeholder={t.search} />
+                    </label>
+                    {searchResults.length > 0 && (
+                      <div className="search-popover search-overlay">
+                        {searchResults.map((entry) => (
+                          <button key={entry.id} type="button" className="search-result" onClick={() => applyRosterEntry(entry)}>
+                            <img src={entry.icon} alt="" className="result-icon" />
+                            <span>{getLocalizedName(entry, language)}</span>
+                            <em>{t.baseSpeed} {entry.speed}</em>
+                          </button>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                </div>
 
                 <div className="setup-row">
                   <div className="team-columns">
@@ -1556,17 +2895,23 @@ function App() {
                     {isDetailSlotVisible ? (
                       <>
                         <div className="detail-summary">
-                          <div className={`detail-side-badge ${selectedSide}`}>{selectedSide === "ally" ? t.myTeam : t.opponentTeam}</div>
-                          <div className={`icon-shell ${getSelectedMega(selectedSlot) ? "can-mega" : ""}`}>
+                          <div className="battle-summary-side">
+                            <div className={`detail-side-badge ${selectedSide}`}>{selectedSide === "ally" ? t.myTeam : t.opponentTeam}</div>
+                            {renderActiveToggle(selectedSide, selectedIndex, selectedSlot)}
+                          </div>
+                          <div className={`icon-shell summary-icon-shell ${getSelectedMega(selectedSlot) ? "can-mega" : ""}`}>
                             <img src={getDisplayIcon(selectedSlot, false)} alt="" className="detail-icon" />
                           </div>
                           <div className="detail-copy">
                             <strong>{getLocalizedName(selectedSlot, language)}</strong>
                             <span>{t.baseSpeed} {selectedSlot.baseSpeed}</span>
                           </div>
-                          <div className="detail-range action-slot">
-                            {renderActiveToggle(selectedSide, selectedIndex, selectedSlot)}
-                          </div>
+                          {selectedGraph && (
+                            <div className="detail-range battle-summary-range">
+                              <small>{getLocalizedCurrentSpeedLabel(language)}</small>
+                              <strong>{formatRange(selectedGraph.min, selectedGraph.max)}</strong>
+                            </div>
+                          )}
                         </div>
 
                         <div className="detail-grid tidy">
@@ -1597,7 +2942,7 @@ function App() {
                             <div className="segmented">
                               {NATURE_OPTIONS.map((option) => (
                                 <button key={option.key} type="button" className={selectedSlot.nature === option.key ? "active" : ""} onClick={() => updateSlot(selectedSide, selectedIndex, { nature: option.key })}>
-                                  {language === "ko" ? option.labelKo : option.labelEn}
+                                  {getLocalizedOptionLabel(option, language)}
                                 </button>
                               ))}
                             </div>
@@ -1608,7 +2953,7 @@ function App() {
                             <div className="segmented wrap">
                               {Object.entries(ITEMS).map(([key, item]) => (
                                 <button key={key} type="button" className={selectedSlot.itemSetting === key ? "active" : ""} onClick={() => updateSlot(selectedSide, selectedIndex, { itemSetting: key })}>
-                                  {language === "ko" ? item.labelKo : item.labelEn}
+                                  {getLocalizedOptionLabel(item, language)}
                                 </button>
                               ))}
                             </div>
@@ -1622,12 +2967,6 @@ function App() {
                           </div>
                         </div>
 
-                        {selectedGraph && (
-                          <div className="detail-speed-result">
-                            <span>{t.statRange}</span>
-                            <strong>{formatRange(selectedGraph.min, selectedGraph.max)}</strong>
-                          </div>
-                        )}
                       </>
                     ) : (
                       <div className="empty-box in-panel">{t.detailEmptyHint}</div>
@@ -1644,169 +2983,91 @@ function App() {
                   </div>
                 </div>
 
-                <div className="battle-grid">
-                  {[
-                    { side: "ally", title: t.myTeam, slot: allyBattleSlot, state: battleState.ally, speed: allyBattleSpeed, graph: allyBattleGraph },
-                    { side: "enemy", title: t.opponentTeam, slot: enemyBattleSlot, state: battleState.enemy, speed: enemyBattleSpeed, graph: enemyBattleGraph },
-                  ].map(({ side, title, slot, state, speed, graph }) => (
-                    <div key={side} className={`battle-side ${side} ${slotHasPokemon(slot) ? "" : "battle-side-empty"} ${battleSearchResults[side].length > 0 ? "battle-side-searching" : ""}`}>
-                      <div className="battle-side-head">
-                        <h3>{title}</h3>
-                        <select value={state.index} onChange={(event) => setBattleState((current) => ({ ...current, [side]: { ...current[side], index: Number(event.target.value) } }))}>
-                          {(side === "ally" ? allySlots : enemySlots).map((teamSlot, index) => (
-                            <option key={`${side}-${index}`} value={index}>
-                              {slotHasPokemon(teamSlot) ? getLocalizedName(teamSlot, language) : `${t.slotEmpty} ${index + 1}`}
-                            </option>
-                          ))}
-                        </select>
-                      </div>
+                <div className={`battle-grid ${battleMode === "double" ? "double" : ""}`}>
+                  {battleMode === "double"
+                    ? ["ally", "enemy"].map((side) => (
+                        <div key={side} className={`battle-team-stack ${side}`}>
+                          {battleUnits[side].map((unit, battleSlotIndex) =>
+                            renderBattleCard(side, battleSlotIndex, `${side === "ally" ? t.myTeam : t.opponentTeam} ${battleSlotIndex + 1}`, unit)
+                          )}
+                        </div>
+                      ))
+                    : [renderBattleCard("ally", 0, t.myTeam, battleUnits.ally[0]), renderBattleCard("enemy", 0, t.opponentTeam, battleUnits.enemy[0])]}
+                </div>
 
+                {battleMode === "double" ? (
+                  <div className={`battle-result ${doubleBattleEntries[0]?.side || "neutral"} ${isDoubleBattleReady ? "" : "battle-result-empty"}`}>
+                    {isDoubleBattleReady ? (
                       <>
-                        <label className="search-box battle-search-box">
-                          <span>{t.search}</span>
-                          <input
-                            value={battleSearch[side]}
-                            onChange={(event) => setBattleSearch((current) => ({ ...current, [side]: event.target.value }))}
-                            placeholder={t.search}
-                          />
-                        </label>
-                        {battleSearchResults[side].length > 0 && (
-                          <div className="search-popover battle-search-popover">
-                            {battleSearchResults[side].map((entry) => (
-                              <button
-                                key={`battle-${side}-${entry.id}`}
-                                type="button"
-                                className="search-result"
-                                onClick={() => applyRosterEntryToSide(entry, side, { preferredIndex: battleState[side].index, syncBattleIndex: true })}
-                              >
-                                <img src={entry.icon} alt="" className="result-icon" />
-                                <span>{getLocalizedName(entry, language)}</span>
-                                <em>{t.baseSpeed} {entry.speed}</em>
-                              </button>
-                            ))}
+                        <div className="battle-result-copy">
+                          <div className="battle-result-badge">
+                            <strong>{t.doubleOrderTitle}</strong>
+                            <span>{t.doubleOrderSub}</span>
                           </div>
-                        )}
+                        </div>
+                        <div className="battle-order-list">
+                          {doubleBattleEntries.map((entry, orderIndex) => (
+                            <article key={`${entry.side}-${entry.battleSlotIndex}-${entry.label}`} className={`battle-order-row ${entry.side}`}>
+                              <div className="battle-order-rank">#{orderIndex + 1}</div>
+                              <img src={entry.icon} alt="" className="battle-order-icon" />
+                              <div className="battle-order-copy">
+                                <div className="battle-order-head">
+                                  <div className={`detail-side-badge ${entry.side}`}>{entry.title}</div>
+                                  <strong>{entry.label}</strong>
+                                </div>
+                              </div>
+                              <div className="battle-order-graph">
+                                <SpeedGraph graph={entry.graph} maxValue={doubleBattleMax} tone={entry.side} compact />
+                              </div>
+                              <div className="battle-order-range">{formatRange(entry.graph.min, entry.graph.max)}</div>
+                            </article>
+                          ))}
+                        </div>
                       </>
-
-                        {slotHasPokemon(slot) ? (
-                          <>
-                            <div className="battle-poke">
-                              <div className={`icon-shell ${state.mega ? "mega-on" : ""}`}>
-                                <img src={getDisplayIcon(slot, state.mega)} alt="" className="slot-icon large" />
-                            </div>
-                            <div>
-                              <strong>{state.mega && getSelectedMega(slot) ? getLocalizedMegaLabel(getSelectedMega(slot), language) : getLocalizedName(slot, language)}</strong>
-                                <span>{t.baseSpeed} {speed}</span>
-                              </div>
-                            </div>
-
-                            <div className="detail-grid battle-detail-grid tidy">
-                              <div className="field battle-field battle-field-mega">
-                                <span>{t.mega}</span>
-                                {renderMegaField(slot, (value) => updateBattleSlot(side, { megaChoice: value }))}
-                              </div>
-
-                              <div className="field battle-field battle-field-points">
-                                <span>{t.statPoints}</span>
-                                <div className="inline-input">
-                                  <input type="number" min="0" max="32" disabled={slot.evUnknown} value={slot.evValue} onChange={(event) => updateBattleSlot(side, { evValue: clampInt(event.target.value, 0, 32) })} />
-                                  <button type="button" className={`ghost-button ${slot.evUnknown ? "active" : ""}`} onClick={() => updateBattleSlot(side, { evUnknown: !slot.evUnknown })}>
-                                    {t.unknown}
-                                  </button>
-                                </div>
-                              </div>
-
-                              <div className="field span-2 battle-field battle-field-nature">
-                                <span>{t.nature}</span>
-                                <div className="segmented compact">
-                                  {NATURE_OPTIONS.map((option) => (
-                                    <button key={option.key} type="button" className={slot.nature === option.key ? "active" : ""} onClick={() => updateBattleSlot(side, { nature: option.key })}>
-                                      {language === "ko" ? option.labelKo : option.labelEn}
-                                    </button>
-                                  ))}
-                                </div>
-                              </div>
-
-                              <div className="field span-2 battle-field battle-field-item">
-                                <span>{t.item}</span>
-                                <div className="segmented wrap">
-                                  {Object.entries(ITEMS).map(([key, item]) => (
-                                    <button key={key} type="button" className={slot.itemSetting === key ? "active" : ""} onClick={() => updateBattleSlot(side, { itemSetting: key })}>
-                                      {language === "ko" ? item.labelKo : item.labelEn}
-                                    </button>
-                                  ))}
-                                </div>
-                              </div>
-
-                              <div className="field span-2 battle-field battle-field-ability">
-                                <span>{t.ability} <Tooltip label="?" text={getAbilityHelpText(slot, language, t.abilityHelp)} className="inline-help" /></span>
-                                <div className="segmented wrap">
-                                  {renderAbilityButtons(slot, (value) => updateBattleSlot(side, { abilitySetting: value }))}
-                                </div>
-                              </div>
-                            </div>
-
-                            <div className="battle-action-row">
-                              <button type="button" className={`toggle-chip ${state.tailwind ? "on" : ""}`} onClick={() => setBattleState((current) => ({ ...current, [side]: { ...current[side], tailwind: !current[side].tailwind } }))}>
-                                {t.tailwind}
-                              </button>
-                              <button type="button" className={`toggle-chip ${state.paralysis ? "on" : ""}`} onClick={() => setBattleState((current) => ({ ...current, [side]: { ...current[side], paralysis: !current[side].paralysis } }))}>
-                                {t.paralysis}
-                              </button>
-                              <button type="button" className={`toggle-chip ${state.mega ? "on" : ""}`} disabled={!getSelectedMega(slot)} onClick={() => setBattleState((current) => ({ ...current, [side]: { ...current[side], mega: !current[side].mega } }))}>
-                                {t.mega}
-                              </button>
-                              <button type="button" className={`toggle-chip ${state.ability ? "on" : ""}`} disabled={getSelectedAbility(slot).multiplier <= 1} onClick={() => setBattleState((current) => ({ ...current, [side]: { ...current[side], ability: !current[side].ability } }))}>
-                                {t.ability}
-                              </button>
-                            </div>
-
-                            <div className="battle-rank-row">
-                              <span>{t.rank}</span>
-                              <div className="rank-controls">
-                                <button type="button" onClick={() => setBattleState((current) => ({ ...current, [side]: { ...current[side], rank: Math.max(-6, current[side].rank - 1) } }))}>-</button>
-                                <strong>{state.rank}</strong>
-                                <button type="button" onClick={() => setBattleState((current) => ({ ...current, [side]: { ...current[side], rank: Math.min(6, current[side].rank + 1) } }))}>+</button>
-                              </div>
-                            </div>
-                          </>
-                        ) : (
-                        <div className="empty-box in-panel">{t.liveBattleEmptyHint}</div>
-                      )}
-                    </div>
-                  ))}
-                </div>
-
-                <div className={`battle-result ${verdict?.tone || "neutral"} ${allyBattleGraph && enemyBattleGraph ? "" : "battle-result-empty"}`}>
-                  {allyBattleGraph && enemyBattleGraph ? (
-                    <>
-                      <div className="battle-result-copy">
-                        <div className="battle-result-badge">
-                          <strong>{verdict?.title}</strong>
-                          <span>{verdict?.sub}</span>
-                        </div>
-                      </div>
-                      <div className="battle-result-stage">
-                        <div className="battle-result-icon-spot ally">
-                          <img src={getDisplayIcon(allyBattleSlot, battleState.ally.mega)} alt={getLocalizedName(allyBattleSlot, language) || t.myTeam} className="battle-result-icon" />
-                        </div>
-                        <div className="battle-result-graphs">
-                          <div className="battle-result-graph ally">
-                            <SpeedGraph graph={allyBattleGraph} maxValue={battleMax} tone="ally" compact markerValuePlacement="top" />
-                          </div>
-                          <div className="battle-result-graph enemy">
-                            <SpeedGraph graph={enemyBattleGraph} maxValue={battleMax} tone="enemy" compact markerValuePlacement="bottom" />
+                    ) : (
+                      <div className="empty-box in-panel battle-result-empty-box">{t.battleResultEmptyHint}</div>
+                    )}
+                  </div>
+                ) : (
+                  <div className={`battle-result ${verdict?.tone || "neutral"} ${allyBattleGraph && enemyBattleGraph ? "" : "battle-result-empty"}`}>
+                    {allyBattleGraph && enemyBattleGraph ? (
+                      <>
+                        <div className="battle-result-copy">
+                          <div className="battle-result-badge">
+                            <strong>{verdict?.title}</strong>
+                            <span>{verdict?.sub}</span>
                           </div>
                         </div>
-                        <div className="battle-result-icon-spot enemy">
-                          <img src={getDisplayIcon(enemyBattleSlot, battleState.enemy.mega)} alt={getLocalizedName(enemyBattleSlot, language) || t.opponentTeam} className="battle-result-icon" />
+                        <div className="battle-result-stage">
+                          <div className="battle-result-icon-spot enemy">
+                            <img
+                              src={getDisplayIcon(enemyBattleSlot, battleState.enemy[0].mega)}
+                              alt={getLocalizedName(enemyBattleSlot, language) || t.opponentTeam}
+                              className={`battle-result-icon ${enemyGuaranteedFirst ? "is-guaranteed-first" : ""}`}
+                            />
+                          </div>
+                          <div className="battle-result-graphs">
+                            <div className="battle-result-graph enemy">
+                              <SpeedGraph graph={enemyBattleGraph} maxValue={battleMax} tone="enemy" compact markerValuePlacement="top" />
+                            </div>
+                            <div className="battle-result-graph ally">
+                              <SpeedGraph graph={allyBattleGraph} maxValue={battleMax} tone="ally" compact markerValuePlacement="bottom" />
+                            </div>
+                          </div>
+                          <div className="battle-result-icon-spot ally">
+                            <img
+                              src={getDisplayIcon(allyBattleSlot, battleState.ally[0].mega)}
+                              alt={getLocalizedName(allyBattleSlot, language) || t.myTeam}
+                              className={`battle-result-icon ${allyGuaranteedFirst ? "is-guaranteed-first" : ""}`}
+                            />
+                          </div>
                         </div>
-                      </div>
-                    </>
-                  ) : (
-                    <div className="empty-box in-panel battle-result-empty-box">{t.battleResultEmptyHint}</div>
-                  )}
-                </div>
+                      </>
+                    ) : (
+                      <div className="empty-box in-panel battle-result-empty-box">{t.battleResultEmptyHint}</div>
+                    )}
+                  </div>
+                )}
               </section>
             </div>
 
@@ -1863,10 +3124,60 @@ function App() {
                   <h2>{t.allPokemon}</h2>
                   <Tooltip label="?" text={t.rosterHelp} className="inline-help" />
                 </div>
+                <div className="search-shell roster-search-shell">
+                  <form
+                    className="inline-input roster-search"
+                    onSubmit={(event) => {
+                      event.preventDefault();
+                      jumpToRosterRow(rosterSearchResults[0] || null);
+                    }}
+                  >
+                    <input
+                      type="search"
+                      value={rosterSearch}
+                      onChange={(event) => {
+                        setRosterSearch(event.target.value);
+                        if (rosterSearchStatus) setRosterSearchStatus("");
+                      }}
+                      placeholder={t.rosterSearchPlaceholder}
+                      aria-label={t.rosterSearchPlaceholder}
+                    />
+                    <button type="submit" className="ghost-button" disabled={!rosterSearch.trim()}>
+                      {t.rosterSearchAction}
+                    </button>
+                  </form>
+                  {rosterSearchResults.length > 0 && (
+                    <div className="search-popover search-overlay roster-search-popover">
+                      {rosterSearchResults.map((row) => (
+                        <button
+                          key={`roster-search-${row.id}`}
+                          type="button"
+                          className="search-result"
+                          onClick={() => jumpToRosterRow(row)}
+                        >
+                          <img src={row.icon} alt="" className="result-icon" />
+                          <span>{row.label}</span>
+                          <em>{t.baseSpeed} {row.baseSpeed}</em>
+                        </button>
+                      ))}
+                    </div>
+                  )}
+                </div>
               </div>
+              {rosterSearchStatus && <p className="roster-search-status">{rosterSearchStatus}</p>}
               <div className="compare-list roster">
                 {rosterRows.map((row) => (
-                  <article key={row.id} className={`compare-row roster-row ${row.isMega ? "mega" : ""}`}>
+                  <article
+                    key={row.id}
+                    ref={(node) => {
+                      if (node) {
+                        rosterRowRefs.current.set(row.id, node);
+                      } else {
+                        rosterRowRefs.current.delete(row.id);
+                      }
+                    }}
+                    className={`compare-row roster-row ${row.isMega ? "mega" : ""} ${highlightedRosterRowId === row.id ? "jump-highlight" : ""}`}
+                  >
                     <div className="compare-meta">
                       <div className="icon-shell">
                         <img src={row.icon} alt="" className="slot-icon" />
@@ -1888,6 +3199,18 @@ function App() {
               </div>
             </section>
           </main>
+        )}
+
+        {showScrollTop && (
+          <button
+            type="button"
+            className="scroll-top-button"
+            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+            aria-label={t.scrollTop}
+          >
+            <span aria-hidden="true">↑</span>
+            <span>{t.scrollTop}</span>
+          </button>
         )}
 
         {isPresetManagerOpen && (
@@ -2006,6 +3329,70 @@ function App() {
                 ) : (
                   <div className="saved-team-empty">{t.noSavedTeams}</div>
                 )}
+              </div>
+            </section>
+          </div>
+        )}
+
+        {isShowdownImportOpen && (
+          <div
+            className="saved-manager-overlay"
+            role="presentation"
+            onClick={(event) => {
+              if (event.target === event.currentTarget) setIsShowdownImportOpen(false);
+            }}
+          >
+            <section className="saved-manager-dialog showdown-import-dialog" role="dialog" aria-modal="true" aria-label={t.showdownImportTitle}>
+              <div className="saved-manager-head">
+                <div className="heading-with-help">
+                  <h3>{t.showdownImportTitle}</h3>
+                  <Tooltip label="?" text={t.showdownImportHelp} className="inline-help" />
+                </div>
+                <button type="button" className="ghost-button" onClick={() => setIsShowdownImportOpen(false)}>
+                  {t.close}
+                </button>
+              </div>
+
+              <div className="saved-team-panel modal showdown-import-panel">
+                <div className="saved-team-meta showdown-import-meta">
+                  <strong>
+                    {t.showdownImportTarget}: {searchTargetSide === "ally" ? t.myTeam : t.opponentTeam}
+                  </strong>
+                  <span>{t.showdownImportPlaceholder}</span>
+                </div>
+
+                <label className="showdown-import-input">
+                  <textarea
+                    value={showdownImportText}
+                    onChange={(event) => setShowdownImportText(event.target.value)}
+                    placeholder={`Garchomp @ Choice Scarf\nAbility: Rough Skin\nEVs: 252 Atk / 4 SpD / 252 Spe\nJolly Nature\n- Earthquake`}
+                  />
+                </label>
+
+                {showdownImportStatus && (
+                  <div className={`showdown-import-status ${showdownImportStatus.type}`}>
+                    <strong>{showdownImportStatus.message}</strong>
+                    {showdownImportStatus.warnings?.length > 0 && (
+                      <>
+                        <span>{t.showdownImportWarnings}</span>
+                        <div className="showdown-import-warning-list">
+                          {showdownImportStatus.warnings.map((warning) => (
+                            <span key={warning}>{warning}</span>
+                          ))}
+                        </div>
+                      </>
+                    )}
+                  </div>
+                )}
+
+                <div className="showdown-import-actions">
+                  <button type="button" className="ghost-button" onClick={() => setShowdownImportText("")}>
+                    {t.showdownImportClear}
+                  </button>
+                  <button type="button" className="primary-button" onClick={importShowdownTeam}>
+                    {t.showdownImportAction}
+                  </button>
+                </div>
               </div>
             </section>
           </div>

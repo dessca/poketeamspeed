@@ -1127,10 +1127,6 @@
   border-color: rgba(148, 163, 184, 0.12);
 }
 
-.slot-card.compact.empty {
-  padding-right: 10px;
-}
-
 .slot-card:hover {
   border-color: rgba(37, 99, 235, 0.24);
   background: rgba(37, 99, 235, 0.05);
@@ -1234,11 +1230,9 @@
 
 .slot-empty.compact {
   gap: 4px;
-  width: 100%;
   height: 100%;
   min-height: 100%;
   align-content: center;
-  justify-items: center;
   color: var(--muted);
   padding-right: 0;
 }
@@ -1788,14 +1782,6 @@
   line-height: 0.96;
   text-align: center;
   word-break: keep-all;
-}
-
-.app-shell.lang-ja .toggle-chip {
-  white-space: normal;
-  line-height: 0.9;
-  text-align: center;
-  word-break: keep-all;
-  font-size: 0.88rem;
 }
 
 .toggle-chip:hover:not(:disabled) {
