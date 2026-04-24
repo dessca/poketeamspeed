@@ -1671,9 +1671,30 @@ function App() {
 
               <div className="field battle-field battle-field-points">
                 <span>{t.statPoints}</span>
-                <div className="inline-input">
-                  <input type="number" min="0" max="32" disabled={slot.evUnknown} value={slot.evValue} onChange={(event) => updateBattleSlot(side, battleSlotIndex, { evValue: clampInt(event.target.value, 0, 32) })} />
-                  <button type="button" className={`ghost-button ${slot.evUnknown ? "active" : ""}`} onClick={() => updateBattleSlot(side, battleSlotIndex, { evUnknown: !slot.evUnknown })}>
+                <div className={`inline-input stat-points-inline ${slot.evUnknown ? "is-unknown" : ""}`}>
+                  <input
+                    type="number"
+                    min="0"
+                    max="32"
+                    inputMode="numeric"
+                    readOnly={slot.evUnknown}
+                    aria-disabled={slot.evUnknown}
+                    className="stat-points-input"
+                    value={slot.evUnknown ? "" : slot.evValue}
+                    placeholder={t.unknown}
+                    onPointerDown={() => {
+                      if (slot.evUnknown) {
+                        updateBattleSlot(side, battleSlotIndex, { evUnknown: false });
+                      }
+                    }}
+                    onFocus={() => {
+                      if (slot.evUnknown) {
+                        updateBattleSlot(side, battleSlotIndex, { evUnknown: false });
+                      }
+                    }}
+                    onChange={(event) => updateBattleSlot(side, battleSlotIndex, { evUnknown: false, evValue: clampInt(event.target.value, 0, 32) })}
+                  />
+                  <button type="button" className={`ghost-button unknown-toggle ${slot.evUnknown ? "active" : ""}`} aria-pressed={slot.evUnknown} onClick={() => updateBattleSlot(side, battleSlotIndex, { evUnknown: !slot.evUnknown })}>
                     {t.unknown}
                   </button>
                 </div>
@@ -1969,16 +1990,30 @@ function App() {
 
                           <div className="field">
                             <span>{t.statPoints}</span>
-                            <div className="inline-input">
+                            <div className={`inline-input stat-points-inline ${selectedSlot.evUnknown ? "is-unknown" : ""}`}>
                               <input
                                 type="number"
                                 min="0"
                                 max="32"
-                                disabled={selectedSlot.evUnknown}
-                                value={selectedSlot.evValue}
-                                onChange={(event) => updateSlot(selectedSide, selectedIndex, { evValue: clampInt(event.target.value, 0, 32) })}
+                                inputMode="numeric"
+                                readOnly={selectedSlot.evUnknown}
+                                aria-disabled={selectedSlot.evUnknown}
+                                className="stat-points-input"
+                                value={selectedSlot.evUnknown ? "" : selectedSlot.evValue}
+                                placeholder={t.unknown}
+                                onPointerDown={() => {
+                                  if (selectedSlot.evUnknown) {
+                                    updateSlot(selectedSide, selectedIndex, { evUnknown: false });
+                                  }
+                                }}
+                                onFocus={() => {
+                                  if (selectedSlot.evUnknown) {
+                                    updateSlot(selectedSide, selectedIndex, { evUnknown: false });
+                                  }
+                                }}
+                                onChange={(event) => updateSlot(selectedSide, selectedIndex, { evUnknown: false, evValue: clampInt(event.target.value, 0, 32) })}
                               />
-                              <button type="button" className={`ghost-button ${selectedSlot.evUnknown ? "active" : ""}`} onClick={() => updateSlot(selectedSide, selectedIndex, { evUnknown: !selectedSlot.evUnknown })}>
+                              <button type="button" className={`ghost-button unknown-toggle ${selectedSlot.evUnknown ? "active" : ""}`} aria-pressed={selectedSlot.evUnknown} onClick={() => updateSlot(selectedSide, selectedIndex, { evUnknown: !selectedSlot.evUnknown })}>
                                 {t.unknown}
                               </button>
                             </div>
@@ -2146,7 +2181,7 @@ function App() {
                         <div className="compare-copy">
                           <div className="compare-name-line">
                             <strong>{row.label}</strong>
-                            {row.active && <span className="mini-chip compare-active-chip on">{t.active}</span>}
+                            <span className={`mini-chip compare-active-chip ${row.active ? "on" : "is-hidden"}`}>{t.active}</span>
                           </div>
                           <span>{t.baseSpeed} {row.baseSpeed}</span>
                         </div>

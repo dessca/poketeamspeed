@@ -716,6 +716,7 @@
 }
 
 .team-card-head > div:first-child {
+  flex: 1 1 auto;
   min-width: 0;
 }
 
@@ -734,6 +735,7 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
+  margin-left: auto;
 }
 
 .saved-team-panel {
@@ -1333,6 +1335,10 @@
   flex: 0 0 auto;
 }
 
+.compare-active-chip.is-hidden {
+  visibility: hidden;
+}
+
 .detail-card {
   display: grid;
   gap: 14px;
@@ -1564,6 +1570,40 @@
   grid-template-columns: minmax(0, 1fr) auto;
   gap: 8px;
   align-items: stretch;
+}
+
+.stat-points-inline.is-unknown .stat-points-input {
+  color: var(--muted);
+  background: color-mix(in srgb, var(--panel) 88%, rgba(148, 163, 184, 0.16));
+  border-color: color-mix(in srgb, var(--panel-border) 80%, rgba(148, 163, 184, 0.28));
+  box-shadow: none;
+  cursor: pointer;
+}
+
+.stat-points-inline.is-unknown .stat-points-input::placeholder {
+  color: var(--muted);
+  opacity: 1;
+}
+
+.unknown-toggle {
+  min-width: 92px;
+  border-color: rgba(148, 163, 184, 0.22);
+  background: rgba(148, 163, 184, 0.08);
+  color: var(--muted);
+  font-weight: 800;
+}
+
+.unknown-toggle.active {
+  border-color: rgba(245, 158, 11, 0.34);
+  background: rgba(245, 158, 11, 0.18);
+  color: #fbbf24;
+  box-shadow: inset 0 0 0 1px rgba(245, 158, 11, 0.14);
+}
+
+.unknown-toggle:hover:not(:disabled) {
+  border-color: rgba(245, 158, 11, 0.3);
+  background: rgba(245, 158, 11, 0.14);
+  color: color-mix(in srgb, var(--text) 80%, #fbbf24);
 }
 
 .mega-picker-row {
@@ -2251,6 +2291,7 @@
   overflow: visible;
   flex-wrap: nowrap;
   align-items: center;
+  min-height: 22px;
 }
 
 .compare-panel .compare-name-line strong {
@@ -3516,7 +3557,7 @@
 
   .header-meta-tools {
     display: grid;
-    grid-template-columns: 48px minmax(0, 1fr);
+    grid-template-columns: 48px minmax(148px, 1fr);
     align-items: center;
     gap: 8px;
   }
@@ -3545,7 +3586,7 @@
 
   .lang-select {
     width: 100%;
-    min-width: 0;
+    min-width: 148px;
   }
 
   .team-heading-row {
@@ -3583,6 +3624,12 @@
     width: 100%;
   }
 
+  .toolbar-group.side-group .segmented,
+  .toolbar-group.side-group.target-toggle {
+    width: 100%;
+    min-width: 0;
+  }
+
   .toolbar-group.import-group .ghost-button {
     width: 100%;
   }
@@ -3601,6 +3648,10 @@
     gap: 10px;
     min-height: 46px;
     padding: 0 14px;
+  }
+
+  .toolbar-search-shell {
+    grid-column: 1 / -1;
   }
 
   .team-toolbar .search-box span,
@@ -3709,6 +3760,32 @@
   .compare-panel .compare-range {
     min-width: 72px;
     font-size: 0.82rem;
+    white-space: nowrap;
+  }
+
+  .detail-card .stat-points-inline,
+  .battle-detail-grid .stat-points-inline {
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: stretch;
+  }
+
+  .detail-card .stat-points-inline .stat-points-input,
+  .battle-detail-grid .stat-points-inline .stat-points-input {
+    min-width: 0;
+  }
+
+  .detail-card .stat-points-inline .unknown-toggle,
+  .battle-detail-grid .stat-points-inline .unknown-toggle {
+    min-width: 84px;
+  }
+
+  .team-card-head {
+    align-items: start;
+  }
+
+  .team-card-head .ghost-button,
+  .team-card-head .danger-pill {
+    margin-left: auto;
     white-space: nowrap;
   }
 }
