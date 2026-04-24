@@ -25,8 +25,8 @@ const TEXT = {
     titleHelp: "포켓몬 챔피언스 기준으로 양 팀 포켓몬들의 스피드와 현재 대면 선공을 빠르게 파악하는 도구입니다.",
     graphHelpLabel: "그래프 보는 법 ?",
     graphHelp:
-      "점은 무보정 실수치에 능력 포인트를 반영한 값입니다. 능력 포인트를 모르면 점 대신 0~32 범위가 짧은 막대로 표시됩니다.\n굵은 선은 성격을 모를 경우 반영한 범위, 얇은 선은 도구/특성 포함 전체 범위,\n눈금은 그에 따른 가능한 수치들입니다.",
-    rosterHelp: "능력 포인트/성격/도구/특성에 따른 가능한 범위를 함께 보여줍니다.",
+      "점 또는 짧은 막대는 현재 확인된 스피드입니다. 능력 포인트를 모르면 0~32 범위가 짧은 막대로 표시됩니다.\n그 위 막대들은 성격, 구애스카프, 스피드 특성, 스카프+특성 가능 범위를 단계별로 보여줍니다.\n같은 막대 안의 서로 다른 질감은 성격 x0.9 / x1.0 / x1.1 경우를 구분합니다.",
+    rosterHelp: "능력 포인트/성격/도구/특성에 따른 스피드 가능 범위를 단계형 막대로 보여줍니다.",
     teamView: "팀 비교",
     rosterView: "전체 포켓몬",
     myTeam: "내 팀",
@@ -108,8 +108,8 @@ const TEXT = {
     titleHelp: "A quick tool for Pokémon Champions that lets you compare team-wide Speed ranges and live turn order at a glance.",
     graphHelpLabel: "How to read the graph?",
     graphHelp:
-      "The point shows the Speed after stat points are applied with no extra boosts. If stat points are unknown, the point becomes a short 0-32 range.\nThe thick bar appears only when nature is unknown, the thin line shows the full range including item and ability,\nand the ticks mark the possible exact values.",
-    rosterHelp: "Shows each Pokémon's possible Speed range based on stat points, nature, item, and ability.",
+      "The dot or short bar shows the currently confirmed Speed. If stat points are unknown, it becomes a short 0-32 range.\nBars above it add possible ranges step by step for nature, Choice Scarf, Speed abilities, and Scarf + ability.\nDifferent textures inside the same layer separate nature x0.9 / x1.0 / x1.1 cases.",
+    rosterHelp: "Shows each Pokémon's possible Speed range as layered bars for points, nature, item, and ability.",
     teamView: "Team Compare",
     rosterView: "All Pokémon",
     myTeam: "My Team",
@@ -242,6 +242,8 @@ const ABILITY_OPTIONS_BY_NAME = {
   ],
 };
 
+const MEGA_SPEED_ABILITY_BLOCKED_LABELS = new Set(["메가이상해꽃", "메가샤크니아"]);
+
 const DEFAULT_ABILITY_OPTIONS = [
   { key: "none", labelKo: "보정 없음", labelEn: "No boost", multiplier: 1 },
   { key: "unknown", labelKo: "모름", labelEn: "Unknown", multiplier: 1, values: [1] },
@@ -317,6 +319,31 @@ function readStorage(key, fallback) {
     return raw ? JSON.parse(raw) : fallback;
   } catch {
     return fallback;
+  }
+}
+
+function detectInitialLanguage() {
+  const savedLanguage = readStorage(STORAGE.language, null);
+  if (savedLanguage === "ko" || savedLanguage === "en") return savedLanguage;
+
+  try {
+    const browserLanguages = Array.isArray(navigator.languages) && navigator.languages.length > 0
+      ? navigator.languages
+      : [navigator.language].filter(Boolean);
+    const normalizedLanguages = browserLanguages.map((value) => String(value).toLowerCase());
+    const resolved = Intl.DateTimeFormat().resolvedOptions();
+    const locale = String(resolved.locale || "").toLowerCase();
+    const timeZone = String(resolved.timeZone || "");
+
+    const isKoreanContext =
+      normalizedLanguages.some((value) => value.startsWith("ko") || value.includes("-kr")) ||
+      locale.startsWith("ko") ||
+      locale.includes("-kr") ||
+      timeZone === "Asia/Seoul";
+
+    return isKoreanContext ? "ko" : "en";
+  } catch {
+    return "en";
   }
 }
 
@@ -439,11 +466,11 @@ function dedupe(values) {
 
 function getItemLabelFromFactor(factor, language = "ko") {
   if (factor === 1.5) return language === "en" ? "Choice Scarf" : "구애스카프";
-  return language === "en" ? "No item" : "도구 없음";
+  return language === "en" ? "No Choice Scarf applied" : "구애스카프 미착용";
 }
 
 function getAbilityLabelFromFactor(factor, slot, language = "ko") {
-  if (factor <= 1) return language === "en" ? "No ability boost" : "특성 없음";
+  if (factor <= 1) return language === "en" ? "No Speed ability applied" : "특성 미적용";
   const matched = getAbilityOptions(slot).find((option) => option.multiplier === factor && option.key !== "unknown");
   if (matched) return language === "en" ? `Ability ${matched.labelEn || matched.labelKo}` : `특성 ${matched.labelKo || matched.labelEn}`;
   return language === "en" ? "Ability activated" : "특성 발동";
@@ -459,6 +486,20 @@ function summarizeTooltipLines(lines, language = "ko", maxLines = 4) {
   const unique = [...new Set(lines.filter(Boolean))];
   if (unique.length <= maxLines) return unique;
   return [...unique.slice(0, maxLines), language === "en" ? `+${unique.length - maxLines} more cases` : `외 ${unique.length - maxLines}가지 경우`];
+}
+
+function summarizeMarkerMap(markerMap) {
+  const entries = [...markerMap.entries()]
+    .map(([value, labels]) => ({
+      value: Number(value),
+      labels: [...labels],
+    }))
+    .sort((a, b) => a.value - b.value);
+
+  if (entries.length <= 12) return entries;
+
+  const picks = [0, Math.floor(entries.length * 0.25), Math.floor(entries.length * 0.5), Math.floor(entries.length * 0.75), entries.length - 1];
+  return [...new Map(picks.map((index) => [entries[index].value, entries[index]])).values()];
 }
 
 function formatExactValueSummary(slot, baseSpeed, ev, natureFactor, itemFactor, abilityFactor, battleState = null, language = "ko") {
@@ -481,49 +522,16 @@ function formatExactValueSummary(slot, baseSpeed, ev, natureFactor, itemFactor, 
   return labels.join(" · ");
 }
 
-function summarizeMarkerMap(markerMap) {
-  const entries = [...markerMap.entries()]
-    .map(([value, labels]) => ({
-      value: Number(value),
-      labels: [...labels],
-    }))
-    .sort((a, b) => a.value - b.value);
-
-  if (entries.length <= 12) return entries;
-
-  const picks = [0, Math.floor(entries.length * 0.25), Math.floor(entries.length * 0.5), Math.floor(entries.length * 0.75), entries.length - 1];
-  return [...new Map(picks.map((index) => [entries[index].value, entries[index]])).values()];
-}
-
-function formatSegmentSummary(slot, baseSpeed, itemFactor, abilityFactor, battleFactors, language = "ko") {
-  const unboosted = applySpeed(level50Speed(baseSpeed, 0, 1), [itemFactor, abilityFactor, ...battleFactors]);
-  const neutralMax = applySpeed(level50Speed(baseSpeed, 32, 1), [itemFactor, abilityFactor, ...battleFactors]);
-  const fastMax = applySpeed(level50Speed(baseSpeed, 32, 1.1), [itemFactor, abilityFactor, ...battleFactors]);
-  return [
-    `${getItemLabelFromFactor(itemFactor, language)} / ${getAbilityLabelFromFactor(abilityFactor, slot, language)}`,
-    language === "en"
-      ? `Unboosted ${unboosted} · Neutral ${neutralMax} · Max ${fastMax}`
-      : `무보정 ${unboosted} · 준속 ${neutralMax} · 최속 ${fastMax}`,
-  ];
-}
-
 function formatPointSummary(slot, baseSpeed, battleState, language = "ko") {
   const item = ITEMS[slot.itemSetting] || ITEMS.none;
-  const ability = getSelectedAbility(slot);
-  const itemLabel = slot.itemSetting === "unknown"
-    ? language === "en" ? "Unknown item" : "도구 모름"
-    : item.point === 1.5
-      ? language === "en" ? "Choice Scarf" : "구애스카프"
-      : language === "en" ? "No item" : "도구 없음";
-  const abilityLabel = slot.abilitySetting === "unknown"
-    ? language === "en" ? "Unknown ability" : "특성 모름"
-    : ability.multiplier > 1
-      ? language === "en" ? `Ability ${ability.labelEn || ability.labelKo}` : `특성 ${ability.labelKo || ability.labelEn}`
-      : language === "en" ? "No ability boost" : "특성 없음";
+  const pointItemFactor = slot.itemSetting === "unknown" ? 1 : item.point;
+  const pointAbilityFactor = getPointAbilityFactor(slot, battleState);
+  const itemLabel = getItemLabelFromFactor(pointItemFactor, language);
+  const abilityLabel = getAbilityLabelFromFactor(pointAbilityFactor, slot, language);
   const battleLabels = [];
   if (battleState) {
     if (battleState.mega) battleLabels.push(language === "en" ? "Mega Evolution" : "메가진화");
-    if (battleState.ability && ability.multiplier > 1) battleLabels.push(language === "en" ? "Ability active" : "특성 발동");
+    if (battleState.ability && canActivateBattleAbility(slot, battleState)) battleLabels.push(language === "en" ? "Ability active" : "특성 발동");
     if (battleState.tailwind) battleLabels.push(language === "en" ? "Tailwind" : "순풍");
     if (battleState.paralysis) battleLabels.push(language === "en" ? "Paralysis" : "마비");
     if (battleState.rank !== 0) battleLabels.push(language === "en" ? `Stage ${battleState.rank}` : `랭크 ${battleState.rank}`);
@@ -543,11 +551,126 @@ function formatPointRangeSummary(slot, baseSpeed, battleState, language = "ko") 
   return summarizeTooltipLines(pointSummary, language);
 }
 
-function formatThickRangeSummary(slot, baseSpeed, battleState, language = "ko") {
-  return summarizeTooltipLines(
-    [language === "en" ? "Nature-adjusted range" : "성격 반영 범위", ...formatPointRangeSummary(slot, baseSpeed, battleState, language)],
-    language
-  );
+function getBattleSummaryLabels(slot, battleState, abilityFactor, language = "ko") {
+  if (!battleState) return [];
+
+  const labels = [];
+  if (battleState.mega) labels.push(language === "en" ? "Mega Evolution" : "메가진화");
+  if (battleState.ability && abilityFactor > 1) {
+    labels.push(language === "en" ? "Ability active" : "특성 발동");
+  }
+  if (battleState.tailwind) labels.push(language === "en" ? "Tailwind" : "순풍");
+  if (battleState.paralysis) labels.push(language === "en" ? "Paralysis" : "마비");
+  if (battleState.rank !== 0) labels.push(language === "en" ? `Stage ${battleState.rank}` : `랭크 ${battleState.rank}`);
+  return labels;
+}
+
+function getNatureBranchTone(natureFactor) {
+  if (natureFactor === 0.9) return "slow";
+  if (natureFactor === 1.1) return "fast";
+  return "neutral";
+}
+
+function getNatureBranchRenderPriority(tone) {
+  if (tone === "neutral") return 2;
+  if (tone === "fast") return 1;
+  return 0;
+}
+
+function getGraphSegmentRenderPriority(segment) {
+  if (segment.segmentKind === "point" || segment.segmentKind === "point-range") return 100;
+  if (segment.segmentKind === "nature") return 40 + getNatureBranchRenderPriority(segment.tone || "neutral");
+  if (segment.segmentKind === "item" || segment.segmentKind === "ability" || segment.segmentKind === "both") {
+    return 20 + getNatureBranchRenderPriority(segment.tone || "neutral");
+  }
+  return 0;
+}
+
+function buildRangeBranches(baseSpeed, evValues, natureValues, itemFactor, abilityFactor, battleFactors) {
+  const branches = natureValues
+    .map((natureFactor) => {
+      const values = dedupe(
+        evValues.map((ev) => applySpeed(level50Speed(baseSpeed, ev, natureFactor), [itemFactor, abilityFactor, ...battleFactors]))
+      );
+
+      if (!values.length) return null;
+
+      return {
+        key: String(natureFactor),
+        natureFactor,
+        tone: getNatureBranchTone(natureFactor),
+        min: values[0],
+        max: values[values.length - 1],
+      };
+    })
+    .filter(Boolean)
+    .sort((a, b) => getNatureBranchRenderPriority(a.tone) - getNatureBranchRenderPriority(b.tone));
+
+  if (!branches.length) return null;
+
+  return {
+    branches,
+    min: Math.min(...branches.map((branch) => branch.min)),
+    max: Math.max(...branches.map((branch) => branch.max)),
+  };
+}
+
+function formatLayerSummary(title, slot, itemFactor, abilityFactor, branches, battleState, language = "ko") {
+  const natureLine = branches
+    .map((branch) => `${getNatureLabelFromFactor(branch.natureFactor, language)} ${formatRange(branch.min, branch.max)}`)
+    .join(language === "en" ? " | " : " · ");
+
+  const lines = [
+    title,
+    `${getItemLabelFromFactor(itemFactor, language)} / ${getAbilityLabelFromFactor(abilityFactor, slot, language)}`,
+    natureLine,
+  ];
+
+  const battleLabels = getBattleSummaryLabels(slot, battleState, abilityFactor, language);
+  if (battleLabels.length) lines.push(battleLabels.join(", "));
+
+  return summarizeTooltipLines(lines, language);
+}
+
+function createGraphLayer({
+  key,
+  titleKo,
+  titleEn,
+  slot,
+  baseSpeed,
+  evValues,
+  natureValues,
+  itemFactor,
+  abilityFactor,
+  battleFactors,
+  battleState,
+  kind,
+  language,
+}) {
+  const range = buildRangeBranches(baseSpeed, evValues, natureValues, itemFactor, abilityFactor, battleFactors);
+  if (!range) return null;
+
+  return {
+    key,
+    kind,
+    min: range.min,
+    max: range.max,
+    branches: range.branches,
+    tooltip: formatLayerSummary(language === "en" ? titleEn : titleKo, slot, itemFactor, abilityFactor, range.branches, battleState, language),
+  };
+}
+
+function getPotentialAbilityFactors(slot, battleState = null) {
+  const selectedAbility = getSelectedAbility(slot);
+  const boostedFactors = [...new Set(getAbilityValues(slot).filter((value) => value > 1))];
+
+  if (!boostedFactors.length) return [];
+  if (slot.abilitySetting !== "unknown") {
+    if (selectedAbility.multiplier <= 1) return [];
+    return [selectedAbility.multiplier];
+  }
+
+  return boostedFactors;
 }
 
 function getMegaChoices(slot) {
@@ -585,6 +708,46 @@ function getAbilityValues(slot) {
   return selected.values || [selected.multiplier];
 }
 
+function megaBlocksSpeedAbility(slot, battleState = null) {
+  if (!battleState?.mega) return false;
+  const mega = getSelectedMega(slot);
+  return Boolean(mega && MEGA_SPEED_ABILITY_BLOCKED_LABELS.has(mega.label));
+}
+
+function canActivateBattleAbility(slot, battleState = null) {
+  const selected = getSelectedAbility(slot);
+  return selected.multiplier > 1 && !megaBlocksSpeedAbility(slot, battleState);
+}
+
+function getPointAbilityFactor(slot, battleState = null) {
+  const selected = getSelectedAbility(slot);
+
+  if (!battleState) {
+    return slot.abilitySetting === "unknown" ? 1 : selected.multiplier;
+  }
+
+  if (slot.abilitySetting === "unknown") return 1;
+  if (!canActivateBattleAbility(slot, battleState)) return 1;
+  return battleState.ability ? selected.multiplier : 1;
+}
+
+function getMarkerAbilityValues(slot, battleState = null) {
+  const selected = getSelectedAbility(slot);
+
+  if (!battleState) {
+    return slot.abilitySetting === "unknown" ? getAbilityValues(slot) : [selected.multiplier];
+  }
+
+  if (!canActivateBattleAbility(slot, battleState)) return [1];
+
+  if (slot.abilitySetting === "unknown") {
+    const boostedValues = getAbilityValues(slot).filter((value) => value > 1);
+    return battleState.ability ? boostedValues : [1, ...boostedValues];
+  }
+
+  return [battleState.ability ? selected.multiplier : 1];
+}
+
 function getAbilityHelpText(slot, language, fallbackText) {
   const selected = getSelectedAbility(slot);
   const helpText = language === "ko" ? selected.helpKo : selected.helpEn;
@@ -600,12 +763,9 @@ function getDisplayIcon(slot, megaActive = false) {
 
 function buildGraph(slot, baseSpeed, battleState = null, language = "ko") {
   const selectedNature = NATURE_OPTIONS.find((option) => option.key === slot.nature) || NATURE_OPTIONS[1];
-  const showThickRange = slot.nature === "unknown";
   const pointNatureValues = slot.nature === "unknown" ? [1] : selectedNature.values;
-  const thickNatureValues = slot.nature === "unknown" ? [0.9, 1, 1.1] : selectedNature.values;
+  const rangeNatureValues = slot.nature === "unknown" ? [0.9, 1, 1.1] : selectedNature.values;
   const item = ITEMS[slot.itemSetting] || ITEMS.none;
-  const ability = getSelectedAbility(slot);
-  const abilityValues = getAbilityValues(slot);
   const evValues = slot.evUnknown ? [0, 32] : [slot.evValue];
   const pointEvValues = slot.evUnknown ? [0, 32] : [slot.evValue];
 
@@ -617,21 +777,9 @@ function buildGraph(slot, baseSpeed, battleState = null, language = "ko") {
   }
 
   const pointItemFactor = slot.itemSetting === "unknown" ? 1 : item.point;
-  const pointAbilityFactor = battleState
-    ? slot.abilitySetting === "unknown"
-      ? 1
-      : battleState.ability
-        ? ability.multiplier
-        : 1
-    : slot.abilitySetting === "unknown"
-      ? 1
-      : ability.multiplier;
+  const pointAbilityFactor = getPointAbilityFactor(slot, battleState);
 
   const pointValues = [];
-  const thickValues = [];
-  const lineValues = [];
-  const markerMap = new Map();
-  const lineSegmentMap = new Map();
 
   pointEvValues.forEach((ev) => {
     pointNatureValues.forEach((natureFactor) => {
@@ -639,103 +787,132 @@ function buildGraph(slot, baseSpeed, battleState = null, language = "ko") {
     });
   });
 
-  evValues.forEach((ev) => {
-    thickNatureValues.forEach((natureFactor) => {
-      const stat = level50Speed(baseSpeed, ev, natureFactor);
-      const baseline = applySpeed(stat, [pointItemFactor, pointAbilityFactor, ...battleFactors]);
-      thickValues.push(baseline);
+  const pointSorted = dedupe(pointValues);
+  const pointMin = pointSorted[0] ?? 0;
+  const pointMax = pointSorted[pointSorted.length - 1] ?? pointMin;
+  const point = pointSorted[Math.floor(pointSorted.length / 2)] ?? 0;
+  const markerMap = new Map();
+  const layers = [];
 
-      const itemValues = slot.itemSetting === "unknown" ? item.values : [item.point];
-      let branchAbilityValues = abilityValues;
+  const markerNatureValues = slot.nature === "unknown" ? [0.9, 1, 1.1] : selectedNature.values;
+  const markerItemValues = slot.itemSetting === "unknown" ? item.values : [item.point];
+  const markerAbilityValues = getMarkerAbilityValues(slot, battleState);
 
-      if (battleState) {
-        if (slot.abilitySetting === "unknown") {
-          branchAbilityValues = battleState.ability ? abilityValues.filter((value) => value > 1) : [1, ...abilityValues.filter((value) => value > 1)];
-        } else {
-          branchAbilityValues = [battleState.ability ? ability.multiplier : 1];
-        }
-      }
-
-      itemValues.forEach((itemFactor) => {
-        branchAbilityValues.forEach((abilityFactor) => {
-          const full = applySpeed(stat, [itemFactor, abilityFactor, ...battleFactors]);
-          lineValues.push(full);
-          const segmentKey = `${itemFactor}-${abilityFactor}`;
-          const current = lineSegmentMap.get(segmentKey) || {
-            min: Number.POSITIVE_INFINITY,
-            max: Number.NEGATIVE_INFINITY,
-            labels: formatSegmentSummary(slot, baseSpeed, itemFactor, abilityFactor, battleFactors, language),
-          };
-          current.min = Math.min(current.min, full);
-          current.max = Math.max(current.max, full);
-          lineSegmentMap.set(segmentKey, current);
-        });
-      });
-    });
-  });
-
-  const markerNatureValues = slot.nature === "unknown" ? [0.9, 1, 1.1] : [NATURES[slot.nature] ?? 1];
   pointEvValues.forEach((ev) => {
     markerNatureValues.forEach((natureFactor) => {
       const stat = level50Speed(baseSpeed, ev, natureFactor);
-      const itemValues = slot.itemSetting === "unknown" ? item.values : [item.point];
-      const markerAbilityValues = battleState
-        ? slot.abilitySetting === "unknown"
-          ? [1, ...abilityValues.filter((value) => value > 1)]
-          : [battleState.ability ? ability.multiplier : 1]
-        : abilityValues;
-      itemValues.forEach((itemFactor) => {
+      markerItemValues.forEach((itemFactor) => {
         markerAbilityValues.forEach((abilityFactor) => {
           const markerValue = applySpeed(stat, [itemFactor, abilityFactor, ...battleFactors]);
-          const labels = [formatExactValueSummary(slot, baseSpeed, ev, natureFactor, itemFactor, abilityFactor, battleState, language)];
           const existing = markerMap.get(markerValue) || new Set();
-          labels.forEach((label) => existing.add(label));
+          existing.add(formatExactValueSummary(slot, baseSpeed, ev, natureFactor, itemFactor, abilityFactor, battleState, language));
           markerMap.set(markerValue, existing);
         });
       });
     });
   });
 
-  const pointSorted = dedupe(pointValues);
-  const thickSorted = dedupe(thickValues);
-  const lineSorted = dedupe(lineValues);
-  const pointMin = pointSorted[0] ?? 0;
-  const pointMax = pointSorted[pointSorted.length - 1] ?? pointMin;
-  const point = pointSorted[Math.floor(pointSorted.length / 2)] ?? 0;
-  const pointIsRange = pointMax > pointMin;
+  if (slot.nature === "unknown") {
+    const natureLayer = createGraphLayer({
+      key: "nature",
+      titleKo: "성격 범위",
+      titleEn: "Nature range",
+      slot,
+      baseSpeed,
+      evValues,
+      natureValues: [0.9, 1.1],
+      itemFactor: pointItemFactor,
+      abilityFactor: pointAbilityFactor,
+      battleFactors,
+      battleState,
+      kind: "nature",
+      language,
+    });
+    if (natureLayer) layers.push(natureLayer);
+  }
 
-  const compactMarkers = summarizeMarkerMap(markerMap);
-  const lineSegments = [...lineSegmentMap.values()]
-    .filter((segment) => Number.isFinite(segment.min) && Number.isFinite(segment.max) && segment.max > segment.min)
-    .sort((a, b) => a.min - b.min);
+  if (slot.itemSetting === "unknown") {
+    const scarfLayer = createGraphLayer({
+      key: "scarf",
+      titleKo: "구애스카프 가능 범위",
+      titleEn: "Possible Choice Scarf range",
+      slot,
+      baseSpeed,
+      evValues,
+      natureValues: rangeNatureValues,
+      itemFactor: 1.5,
+      abilityFactor: pointAbilityFactor,
+      battleFactors,
+      battleState,
+      kind: "item",
+      language,
+    });
+    if (scarfLayer) layers.push(scarfLayer);
+  }
+
+  const potentialAbilityFactors = getPotentialAbilityFactors(slot, battleState);
+  potentialAbilityFactors.forEach((abilityFactor) => {
+    const abilityLayer = createGraphLayer({
+      key: `ability-${abilityFactor}`,
+      titleKo: "특성 발동 범위",
+      titleEn: "Ability-active range",
+      slot,
+      baseSpeed,
+      evValues,
+      natureValues: rangeNatureValues,
+      itemFactor: pointItemFactor,
+      abilityFactor,
+      battleFactors,
+      battleState,
+      kind: "ability",
+      language,
+    });
+    if (abilityLayer && (abilityLayer.min !== pointMin || abilityLayer.max !== pointMax || slot.nature === "unknown")) {
+      layers.push(abilityLayer);
+    }
+
+    if (slot.itemSetting === "unknown") {
+      const bothLayer = createGraphLayer({
+        key: `both-${abilityFactor}`,
+        titleKo: "스카프+특성 범위",
+        titleEn: "Scarf + ability range",
+        slot,
+        baseSpeed,
+        evValues,
+        natureValues: rangeNatureValues,
+        itemFactor: 1.5,
+        abilityFactor,
+        battleFactors,
+        battleState,
+        kind: "both",
+        language,
+      });
+      if (bothLayer) layers.push(bothLayer);
+    }
+  });
+
+  const priorityLayer = layers.find((layer) => layer.kind === "nature");
+  const graphMin = Math.min(pointMin, ...layers.map((layer) => layer.min));
+  const graphMax = Math.max(pointMax, ...layers.map((layer) => layer.max));
 
   return {
-    showThickRange,
     pointMin,
     pointMax,
     point,
     pointTooltip: formatPointRangeSummary(slot, baseSpeed, battleState, language),
-    thickTooltip: formatThickRangeSummary(slot, baseSpeed, battleState, language),
-    thickMin: thickSorted[0] ?? pointSorted[0] ?? 0,
-    thickMax: thickSorted[thickSorted.length - 1] ?? pointSorted[pointSorted.length - 1] ?? 0,
-    min: lineSorted[0] ?? pointSorted[0] ?? 0,
-    max: lineSorted[lineSorted.length - 1] ?? pointSorted[pointSorted.length - 1] ?? 0,
-    markers: compactMarkers,
-    lineSegments,
+    min: graphMin,
+    max: graphMax,
+    priorityMin: priorityLayer?.min ?? pointMin,
+    priorityMax: priorityLayer?.max ?? pointMax,
+    layers,
+    markers: summarizeMarkerMap(markerMap).filter((marker) => marker.value >= graphMin && marker.value <= graphMax),
   };
 }
 
 function getGraphPriorityRange(graph) {
-  if (graph.showThickRange) {
-    return {
-      max: graph.thickMax,
-      min: graph.thickMin,
-    };
-  }
-
   return {
-    max: graph.pointMax ?? graph.point ?? 0,
-    min: graph.pointMin ?? graph.point ?? 0,
+    max: graph.priorityMax ?? graph.pointMax ?? graph.point ?? 0,
+    min: graph.priorityMin ?? graph.pointMin ?? graph.point ?? 0,
   };
 }
 
@@ -799,27 +976,303 @@ function Tooltip({ label, text, className = "" }) {
   );
 }
 
+function buildEndpointMarkers(segments) {
+  const visibleMarkers = [];
+
+  segments.forEach((segment, index) => {
+    const endpoints = segment.min === segment.max
+      ? [{ id: `${segment.id}:value`, value: segment.min }]
+      : [
+          { id: `${segment.id}:min`, value: segment.min },
+          { id: `${segment.id}:max`, value: segment.max },
+        ];
+
+    endpoints.forEach(({ id, value }) => {
+      const isInsideOverlap = segments.some((other, otherIndex) => otherIndex !== index && other.min < value && value < other.max);
+      if (isInsideOverlap) return;
+
+      visibleMarkers.push({
+        id,
+        value,
+        labels: segment.labels,
+      });
+    });
+  });
+
+  const grouped = new Map();
+  visibleMarkers.forEach((marker) => {
+    const current = grouped.get(marker.value) || {
+      value: marker.value,
+      primaryId: marker.id,
+      ids: [],
+      labelSet: new Set(),
+    };
+
+    current.ids.push(marker.id);
+    marker.labels.forEach((label) => current.labelSet.add(label));
+    grouped.set(marker.value, current);
+  });
+
+  const entries = [...grouped.values()]
+    .map((entry) => ({
+      id: entry.primaryId,
+      value: entry.value,
+      labels: [...entry.labelSet],
+    }))
+    .sort((a, b) => a.value - b.value);
+
+  if (entries.length <= 12) return entries;
+
+  const picks = [0, Math.floor(entries.length * 0.25), Math.floor(entries.length * 0.5), Math.floor(entries.length * 0.75), entries.length - 1];
+  return [...new Map(picks.map((index) => [entries[index].id, entries[index]])).values()];
+}
+
+function rangesOverlap(minA, maxA, minB, maxB) {
+  return Math.max(minA, minB) <= Math.min(maxA, maxB);
+}
+
+function getSegmentSpan(segment) {
+  return Math.max(1, segment.max - segment.min);
+}
+
+function getSegmentCenter(segment) {
+  return (segment.min + segment.max) / 2;
+}
+
+function getMorphScore(previousSegment, nextSegment) {
+  const overlap = Math.max(0, Math.min(previousSegment.max, nextSegment.max) - Math.max(previousSegment.min, nextSegment.min));
+  const overlapRatio = overlap / Math.max(1, Math.min(getSegmentSpan(previousSegment), getSegmentSpan(nextSegment)));
+  const centerDelta = Math.abs(getSegmentCenter(previousSegment) - getSegmentCenter(nextSegment));
+  const maxSpan = Math.max(getSegmentSpan(previousSegment), getSegmentSpan(nextSegment));
+  const involvesPoint =
+    previousSegment.segmentKind === "point" ||
+    previousSegment.segmentKind === "point-range" ||
+    nextSegment.segmentKind === "point" ||
+    nextSegment.segmentKind === "point-range";
+
+  if (centerDelta > Math.max(10, maxSpan * 0.28)) return Number.NEGATIVE_INFINITY;
+  if (overlapRatio < (involvesPoint ? 0.45 : 0.6)) return Number.NEGATIVE_INFINITY;
+
+  const kindBonus = previousSegment.segmentKind === nextSegment.segmentKind ? 18 : 8;
+  const semanticBonus = previousSegment.semanticId === nextSegment.semanticId ? 42 : 0;
+  return overlapRatio * 100 - centerDelta + kindBonus + semanticBonus;
+}
+
+function buildRollingDigitSequence(fromChar, toChar) {
+  const fromIsDigit = /\d/.test(fromChar);
+  const toIsDigit = /\d/.test(toChar);
+
+  if (!fromIsDigit && toIsDigit) {
+    const to = Number(toChar);
+    return [String((to + 8) % 10), String((to + 9) % 10), toChar];
+  }
+
+  if (fromIsDigit && !toIsDigit) {
+    const from = Number(fromChar);
+    return [fromChar, String((from + 1) % 10), toChar];
+  }
+
+  if (!fromIsDigit || !toIsDigit) return [toChar];
+
+  const from = Number(fromChar);
+  const to = Number(toChar);
+  if (from === to) return [toChar];
+
+  const direction = to >= from ? 1 : -1;
+  const sequence = [String(from)];
+  let current = from;
+
+  while (current !== to) {
+    current = (current + direction + 10) % 10;
+    sequence.push(String(current));
+    if (sequence.length > 11) break;
+  }
+
+  return sequence;
+}
+
+function RollingDigit({ fromChar, toChar, animationKey }) {
+  const sequence = useMemo(() => buildRollingDigitSequence(fromChar, toChar), [fromChar, toChar]);
+  const [isAnimating, setIsAnimating] = useState(false);
+
+  useEffect(() => {
+    if (sequence.length <= 1) {
+      setIsAnimating(false);
+      return undefined;
+    }
+
+    setIsAnimating(false);
+    const frameId = window.requestAnimationFrame(() => setIsAnimating(true));
+    return () => window.cancelAnimationFrame(frameId);
+  }, [animationKey, sequence]);
+
+  if (sequence.length <= 1) {
+    return <span className="rolling-digit-static">{toChar}</span>;
+  }
+
+  return (
+    <span className="rolling-digit-window" aria-hidden="true">
+      <span
+        className={`rolling-digit-track ${isAnimating ? "is-animating" : ""}`}
+        style={{ "--digit-offset": sequence.length - 1 }}
+      >
+        {sequence.map((digit, index) => (
+          <span key={`${animationKey}-${digit}-${index}`} className="rolling-digit-cell">
+            {digit}
+          </span>
+        ))}
+      </span>
+    </span>
+  );
+}
+
+function RollingNumber({ value, animationIdentity, phase = "stable" }) {
+  const nextText = String(value);
+  const blankText = " ".repeat(nextText.length);
+  const targetText = phase === "exit" ? blankText : nextText;
+  const [displayState, setDisplayState] = useState(() => ({
+    from: nextText,
+    to: nextText,
+    version: 0,
+  }));
+
+  useEffect(() => {
+    setDisplayState((current) => {
+      if (phase === "enter") {
+        return {
+          from: blankText,
+          to: nextText,
+          version: current.version + 1,
+        };
+      }
+
+      if (phase === "exit") {
+        return {
+          from: current.to === blankText ? nextText : current.to,
+          to: blankText,
+          version: current.version + 1,
+        };
+      }
+
+      if (current.to === targetText) return current;
+      return {
+        from: current.to,
+        to: targetText,
+        version: current.version + 1,
+      };
+    });
+  }, [nextText, blankText, targetText, phase]);
+
+  const width = Math.max(displayState.from.length, displayState.to.length);
+  const fromChars = displayState.from.padStart(width, " ").split("");
+  const toChars = displayState.to.padStart(width, " ").split("");
+
+  return (
+    <span className="rolling-number" aria-label={nextText}>
+      {toChars.map((toChar, index) => (
+        <RollingDigit
+          key={`${animationIdentity}-${index}-${displayState.version}`}
+          fromChar={fromChars[index] ?? " "}
+          toChar={toChar}
+          animationKey={`${animationIdentity}-${displayState.version}-${index}`}
+        />
+      ))}
+    </span>
+  );
+}
+
 function SpeedGraph({ graph, maxValue, tone = "ally", compact = false, markerValuePlacement = "none" }) {
   const graphRef = useRef(null);
   const [graphWidth, setGraphWidth] = useState(0);
-  const thickLeft = (graph.thickMin / maxValue) * 100;
-  const thickWidth = ((graph.thickMax - graph.thickMin) / maxValue) * 100;
+  const segmentRenderIdRef = useRef(0);
+  const layerSettleTimersRef = useRef(new Map());
+  const layerRemovalTimersRef = useRef(new Map());
   const pointLeft = (graph.point / maxValue) * 100;
   const pointRangeLeft = (graph.pointMin / maxValue) * 100;
   const pointRangeWidth = ((graph.pointMax - graph.pointMin) / maxValue) * 100;
   const pointIsRange = graph.pointMax > graph.pointMin;
-  const showThickRange = graph.showThickRange !== false;
-  const isSingleResolvedPoint =
-    graph.min === graph.max &&
-    graph.thickMin === graph.thickMax &&
-    !pointIsRange;
+  const isSingleResolvedPoint = graph.layers.length === 0 && graph.min === graph.max && !pointIsRange;
   const pointTooltip = graph.pointTooltip?.join("\n") || "";
-  const thickTooltip = graph.thickTooltip?.join("\n") || pointTooltip;
-  const visualMarkers = pointIsRange ? graph.markers : graph.markers.filter((marker) => marker.value !== graph.point);
+  const pointTop = compact ? 30 : 27;
+  const natureBranches = graph.layers
+    .filter((layer) => layer.kind === "nature")
+    .flatMap((layer) => layer.branches);
+  const renderedLayerSegments = graph.layers.flatMap((layer) =>
+    layer.branches.map((branch) => {
+      const isThinLayer = layer.kind === "item" || layer.kind === "ability" || layer.kind === "both";
+      const overlapsPoint = rangesOverlap(branch.min, branch.max, graph.pointMin, graph.pointMax);
+      const overlapsNature = natureBranches.some((natureBranch) =>
+        rangesOverlap(branch.min, branch.max, natureBranch.min, natureBranch.max)
+      );
+
+      return {
+        layer,
+        branch,
+        hidden: isThinLayer && (overlapsPoint || overlapsNature),
+      };
+    })
+  );
+  const visibleLayerSegments = renderedLayerSegments.filter((segment) => !segment.hidden);
+  const visualSegments = [
+    {
+      semanticId: pointIsRange ? "point-range" : "point-fixed",
+      matchKey: "point",
+      segmentKind: pointIsRange ? "point-range" : "point",
+      tone: "neutral",
+      min: pointIsRange ? graph.pointMin : graph.point,
+      max: pointIsRange ? graph.pointMax : graph.point,
+      className: pointIsRange ? "speed-graph-point-range" : "speed-graph-point single-value",
+      labelLines: graph.pointTooltip || [],
+      tooltip: pointTooltip,
+    },
+    ...visibleLayerSegments.map(({ layer, branch }) => ({
+      semanticId: `${layer.key}-${branch.key}`,
+      matchKey: `${layer.key}-${branch.key}`,
+      segmentKind: layer.kind,
+      tone: branch.tone,
+      min: branch.min,
+      max: branch.max,
+      className: `speed-graph-layer-segment speed-graph-layer-${layer.kind} speed-graph-tone-${branch.tone}${branch.min === branch.max ? " single-value" : ""}`,
+      labelLines: layer.tooltip || [],
+      tooltip: layer.tooltip.join("\n"),
+    })),
+  ];
+  const visualSegmentsSignature = JSON.stringify(
+    visualSegments.map((segment) => ({
+      semanticId: segment.semanticId,
+      segmentKind: segment.segmentKind,
+      min: segment.min,
+      max: segment.max,
+      className: segment.className,
+    }))
+  );
+  const [animatedSegments, setAnimatedSegments] = useState(() =>
+    visualSegments.map((segment) => ({
+      ...segment,
+      renderId: `segment-${segmentRenderIdRef.current++}`,
+      phase: "stable",
+    }))
+  );
+  const renderedSegments = compact
+    ? animatedSegments
+    : visualSegments.map((segment) => ({
+        ...segment,
+        renderId: segment.semanticId,
+        phase: "stable",
+      }));
   const markerLabels = markerValuePlacement === "none"
     ? []
     : (() => {
-        const sorted = [...graph.markers]
+        const markerSegments = renderedSegments.map((segment) => ({
+          id: segment.renderId,
+          min: segment.min,
+          max: segment.max,
+          labels: segment.labelLines || [],
+          phase: segment.phase,
+        }));
+
+        const phaseById = new Map(markerSegments.map((segment) => [segment.id, segment.phase]));
+        const sorted = buildEndpointMarkers(markerSegments)
           .sort((a, b) => a.value - b.value)
           .map((marker) => {
             const preferredPercent = (marker.value / maxValue) * 100;
@@ -828,6 +1281,7 @@ function SpeedGraph({ graph, maxValue, tone = "ally", compact = false, markerVal
             const widthPercent = graphWidth > 0 ? (rotatedFootprint / graphWidth) * 100 : compact ? 3.8 : 3;
             return {
               ...marker,
+              phase: phaseById.get(marker.id) || "stable",
               preferredPercent,
               widthPercent,
               tooltipText: summarizeTooltipLines(marker.labels).join("\n"),
@@ -857,8 +1311,140 @@ function SpeedGraph({ graph, maxValue, tone = "ally", compact = false, markerVal
           })
           .reverse();
       })();
+  useEffect(() => {
+    if (!compact) return undefined;
+
+    const animationDuration = 420;
+    const nextSegments = visualSegments;
+
+    setAnimatedSegments((current) => {
+      const merged = [];
+      const activeCurrent = current.filter((segment) => segment.phase !== "exit");
+      const usedCurrentRenderIds = new Set();
+      const matchedPrevious = new Set();
+      const matchedNext = new Set();
+      const matchCandidates = [];
+
+      nextSegments.forEach((nextSegment, nextIndex) => {
+        const exactMatchIndex = activeCurrent.findIndex(
+          (previousSegment, previousIndex) =>
+            !matchedPrevious.has(previousIndex) &&
+            previousSegment.matchKey === nextSegment.matchKey
+        );
+
+        if (exactMatchIndex < 0) return;
+
+        matchedPrevious.add(exactMatchIndex);
+        matchedNext.add(nextIndex);
+
+        const previousSegment = activeCurrent[exactMatchIndex];
+        usedCurrentRenderIds.add(previousSegment.renderId);
+        const removalTimer = layerRemovalTimersRef.current.get(previousSegment.renderId);
+        if (removalTimer) {
+          window.clearTimeout(removalTimer);
+          layerRemovalTimersRef.current.delete(previousSegment.renderId);
+        }
+
+        merged.push({
+          ...previousSegment,
+          ...nextSegment,
+          renderId: previousSegment.renderId,
+          phase: "stable",
+        });
+      });
+
+      activeCurrent.forEach((previousSegment, previousIndex) => {
+        if (matchedPrevious.has(previousIndex)) return;
+        nextSegments.forEach((nextSegment, nextIndex) => {
+          if (matchedNext.has(nextIndex)) return;
+          const score = getMorphScore(previousSegment, nextSegment);
+          if (score > Number.NEGATIVE_INFINITY) {
+            matchCandidates.push({
+              previousIndex,
+              nextIndex,
+              score,
+            });
+          }
+        });
+      });
+
+      matchCandidates
+        .sort((a, b) => b.score - a.score)
+        .forEach(({ previousIndex, nextIndex }) => {
+          if (matchedPrevious.has(previousIndex) || matchedNext.has(nextIndex)) return;
+          matchedPrevious.add(previousIndex);
+          matchedNext.add(nextIndex);
+
+          const previousSegment = activeCurrent[previousIndex];
+          const nextSegment = nextSegments[nextIndex];
+          usedCurrentRenderIds.add(previousSegment.renderId);
+          const removalTimer = layerRemovalTimersRef.current.get(previousSegment.renderId);
+          if (removalTimer) {
+            window.clearTimeout(removalTimer);
+            layerRemovalTimersRef.current.delete(previousSegment.renderId);
+          }
+
+          merged.push({
+            ...previousSegment,
+            ...nextSegment,
+            renderId: previousSegment.renderId,
+            phase: "stable",
+          });
+        });
+
+      nextSegments.forEach((nextSegment, nextIndex) => {
+        if (matchedNext.has(nextIndex)) return;
+
+        const renderId = `segment-${segmentRenderIdRef.current++}`;
+        merged.push({
+          ...nextSegment,
+          renderId,
+          phase: "enter",
+        });
+
+        if (!layerSettleTimersRef.current.has(renderId)) {
+          const timerId = window.setTimeout(() => {
+            setAnimatedSegments((segments) =>
+              segments.map((entry) => (entry.renderId === renderId ? { ...entry, phase: "stable" } : entry))
+            );
+            layerSettleTimersRef.current.delete(renderId);
+          }, animationDuration);
+
+          layerSettleTimersRef.current.set(renderId, timerId);
+        }
+      });
+
+      current.forEach((segment) => {
+        if (usedCurrentRenderIds.has(segment.renderId)) return;
+        if (segment.phase === "exit") {
+          merged.push(segment);
+          return;
+        }
+
+        const exiting = { ...segment, phase: "exit" };
+        merged.push(exiting);
+
+        if (!layerRemovalTimersRef.current.has(segment.renderId)) {
+            const timerId = window.setTimeout(() => {
+              setAnimatedSegments((segments) =>
+                segments.filter((entry) => entry.renderId !== segment.renderId)
+              );
+              layerRemovalTimersRef.current.delete(segment.renderId);
+            }, animationDuration);
+
+            layerRemovalTimersRef.current.set(segment.renderId, timerId);
+        }
+      });
+
+      return merged;
+    });
+
+    return undefined;
+  }, [compact, visualSegmentsSignature]);
 
   useEffect(() => {
+    if (markerValuePlacement === "none") return undefined;
+
     const node = graphRef.current;
     if (!node) return undefined;
 
@@ -873,63 +1459,58 @@ function SpeedGraph({ graph, maxValue, tone = "ally", compact = false, markerVal
     const observer = new ResizeObserver(updateWidth);
     observer.observe(node);
     return () => observer.disconnect();
+  }, [markerValuePlacement]);
+
+  useEffect(() => () => {
+    layerSettleTimersRef.current.forEach((id) => window.clearTimeout(id));
+    layerRemovalTimersRef.current.forEach((id) => window.clearTimeout(id));
+    layerSettleTimersRef.current.clear();
+    layerRemovalTimersRef.current.clear();
   }, []);
 
-  return (
+    return (
     <div ref={graphRef} className={`speed-graph ${tone} ${compact ? "compact" : ""}`}>
-      {graph.lineSegments.map((segment, index) => {
-        const left = (segment.min / maxValue) * 100;
-        const width = ((segment.max - segment.min) / maxValue) * 100;
-        return (
-          <div
-            key={`${segment.min}-${segment.max}-${index}`}
-            className={`speed-graph-segment marker-tooltip ${isSingleResolvedPoint ? "is-hidden" : ""}`}
-            data-tooltip={segment.labels.join("\n")}
-            style={{ left: `${left}%`, width: `${Math.max(0.8, width)}%` }}
-            tabIndex={isSingleResolvedPoint ? -1 : 0}
-          >
-            <div className="speed-graph-line" />
-            <div className="speed-graph-cap start" />
-            <div className="speed-graph-cap end" />
-          </div>
-        );
-      })}
-      <div
-        className={`speed-graph-thick marker-tooltip ${isSingleResolvedPoint || !showThickRange ? "is-hidden" : ""}`}
-        style={{ left: `${thickLeft}%`, width: `${Math.max(1, thickWidth)}%` }}
-        data-tooltip={thickTooltip}
-        tabIndex={isSingleResolvedPoint || !showThickRange ? -1 : 0}
-      />
-        {visualMarkers.map((marker) => (
-          <div
-            key={`${marker.value}-${marker.labels.join("-")}`}
-            className={`speed-graph-marker ${isSingleResolvedPoint ? "is-hidden" : ""}`}
-            style={{ left: `${(marker.value / maxValue) * 100}%` }}
-          />
-        ))}
+      {[...renderedSegments]
+        .sort((a, b) => getGraphSegmentRenderPriority(a) - getGraphSegmentRenderPriority(b))
+        .map(({ renderId, min, max, className, tooltip, phase }) => {
+          const left = (min / maxValue) * 100;
+          const width = ((max - min) / maxValue) * 100;
+          const isCollapsed = min === max;
+
+          return (
+            <div
+              key={renderId}
+              className={`${className} marker-tooltip ${phase === "enter" ? "is-entering" : ""} ${phase === "exit" ? "is-exiting" : ""}`}
+              style={{
+                left: `${left}%`,
+                top: `${pointTop}px`,
+                width: `${Math.max(0.8, width)}%`,
+              }}
+              data-tooltip={tooltip}
+              tabIndex={phase === "exit" ? -1 : 0}
+            />
+          );
+        })}
       {markerLabels.map((marker) => (
         <span
-          key={`label-${marker.value}`}
-          className={`speed-graph-value marker-tooltip ${markerValuePlacement}`}
+          key={`label-${marker.id}`}
+          className={`speed-graph-value marker-tooltip ${markerValuePlacement} ${marker.phase === "enter" ? "is-entering" : ""} ${marker.phase === "exit" ? "is-exiting" : ""}`}
           style={{ left: `${marker.labelPercent}%` }}
           data-tooltip={marker.tooltipText}
-          tabIndex={0}
+          tabIndex={marker.phase === "exit" ? -1 : 0}
         >
           <span className="marker-hitbox" />
-          <span className="speed-graph-value-text">{marker.value}</span>
+          <span className="speed-graph-value-text">
+            <RollingNumber value={marker.value} animationIdentity={marker.id} phase={marker.phase} />
+          </span>
         </span>
       ))}
-      {pointIsRange ? (
-        <div className="speed-graph-point-range marker-tooltip" style={{ left: `${pointRangeLeft}%`, width: `${Math.max(1.2, pointRangeWidth)}%` }} data-tooltip={pointTooltip} tabIndex={0} />
-      ) : (
-        <div className="speed-graph-point marker-tooltip" style={{ left: `${pointLeft}%` }} data-tooltip={pointTooltip} tabIndex={0} />
-      )}
     </div>
   );
 }
 
 function App() {
-  const [language, setLanguage] = useState(() => readStorage(STORAGE.language, "ko"));
+  const [language, setLanguage] = useState(() => detectInitialLanguage());
   const [theme, setTheme] = useState(() => readStorage(STORAGE.theme, "dark"));
   const [view, setView] = useState(() => readStorage(STORAGE.view, "team"));
   const [battleMode, setBattleMode] = useState(() => readStorage(STORAGE.battleMode, "single"));
@@ -1294,6 +1875,25 @@ function App() {
   const enemyBattleSpeed = battleState.enemy.mega ? getSelectedMega(enemyBattleSlot)?.speed || enemyBattleSlot.baseSpeed : enemyBattleSlot.baseSpeed;
   const allyBattleGraph = slotHasPokemon(allyBattleSlot) ? buildGraph(allyBattleSlot, allyBattleSpeed, battleState.ally, language) : null;
   const enemyBattleGraph = slotHasPokemon(enemyBattleSlot) ? buildGraph(enemyBattleSlot, enemyBattleSpeed, battleState.enemy, language) : null;
+
+  useEffect(() => {
+    setBattleState((current) => {
+      let changed = false;
+      const next = { ...current };
+
+      [
+        ["ally", allyBattleSlot],
+        ["enemy", enemyBattleSlot],
+      ].forEach(([side, slot]) => {
+        if (!current[side].ability) return;
+        if (canActivateBattleAbility(slot, current[side])) return;
+        next[side] = { ...current[side], ability: false };
+        changed = true;
+      });
+
+      return changed ? next : current;
+    });
+  }, [allyBattleSlot, enemyBattleSlot, battleState.ally, battleState.enemy]);
   const battleMax = Math.max(200, allyBattleGraph?.max || 0, enemyBattleGraph?.max || 0);
   const verdict = allyBattleGraph && enemyBattleGraph ? getVerdict(allyBattleGraph, enemyBattleGraph, t) : null;
 
@@ -1756,7 +2356,7 @@ function App() {
                               <button type="button" className={`toggle-chip ${state.mega ? "on" : ""}`} disabled={!getSelectedMega(slot)} onClick={() => setBattleState((current) => ({ ...current, [side]: { ...current[side], mega: !current[side].mega } }))}>
                                 {t.mega}
                               </button>
-                              <button type="button" className={`toggle-chip ${state.ability ? "on" : ""}`} disabled={getSelectedAbility(slot).multiplier <= 1} onClick={() => setBattleState((current) => ({ ...current, [side]: { ...current[side], ability: !current[side].ability } }))}>
+                              <button type="button" className={`toggle-chip ${state.ability ? "on" : ""}`} disabled={!canActivateBattleAbility(slot, state)} onClick={() => setBattleState((current) => ({ ...current, [side]: { ...current[side], ability: !current[side].ability } }))}>
                                 {t.ability}
                               </button>
                             </div>

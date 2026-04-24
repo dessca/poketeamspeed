@@ -45,7 +45,8 @@
   min-height: 100vh;
   color: var(--text);
   background: var(--bg);
-  overflow-x: hidden;
+  overflow-x: clip;
+  overflow-y: visible;
 }
 
 .app-chrome {
@@ -1554,7 +1555,14 @@
 .battle-range,
 .compare-range {
   text-align: right;
+}
+
+.battle-range {
   font-weight: 800;
+}
+
+.compare-range {
+  font-weight: 400;
 }
 
 .battle-result {
@@ -1614,6 +1622,7 @@
 
 .battle-result-graph {
   display: block;
+  padding: 4px 0;
 }
 
 .battle-result-stage .battle-result-graphs {
@@ -1650,15 +1659,15 @@
 }
 
 .battle-result-graph.ally .speed-graph {
-  transform: translateY(5px);
+  transform: none;
 }
 
 .battle-result-graph.enemy .speed-graph {
-  transform: translateY(-5px);
+  transform: translateY(-14px);
 }
 
-.battle-result-graph.enemy {
-  padding-bottom: 6px;
+.battle-result-graph.ally .speed-graph-value.top {
+  bottom: calc(100% - 6px);
 }
 
 .battle-result.ally {
@@ -1713,18 +1722,22 @@
 .compare-list {
   display: grid;
   gap: 6px;
+  min-width: 0;
 }
 
 .compare-panel {
   position: sticky;
   top: 16px;
-  max-height: calc(100vh - 32px);
-  overflow: auto;
+  align-self: start;
+  height: fit-content;
+  max-height: none;
+  overflow: visible;
+  min-width: 0;
 }
 
 .compare-row {
   display: grid;
-  grid-template-columns: minmax(0, 188px) minmax(0, 1fr);
+  grid-template-columns: minmax(0, 160px) minmax(0, 1fr);
   gap: 14px;
   align-items: center;
   padding: 6px 0;
@@ -1732,6 +1745,7 @@
   border: 0;
   background: transparent;
   will-change: transform;
+  min-width: 0;
 }
 
 .compare-meta {
@@ -1745,8 +1759,9 @@
 .compare-graph-block {
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
-  gap: 10px;
+  gap: 8px;
   align-items: center;
+  min-width: 0;
 }
 
 .compare-panel .slot-icon {
@@ -1779,9 +1794,10 @@
 }
 
 .compare-panel .compare-range {
-  min-width: 64px;
+  min-width: 0;
   font-size: 0.92rem;
   white-space: nowrap;
+  justify-self: end;
 }
 
 .compare-panel .compare-row {
@@ -1803,6 +1819,7 @@
 
 .compare-panel .compare-meta {
   align-items: flex-start;
+  min-width: 0;
 }
 
 .compare-panel .compare-meta strong {
@@ -1812,6 +1829,7 @@
 .compare-panel .compare-meta span {
   margin-top: 1px;
   line-height: 1.02;
+  min-width: 0;
 }
 
 .compare-panel .compare-meta,
@@ -1823,99 +1841,152 @@
 
 .speed-graph {
   position: relative;
-  height: 28px;
+  height: 40px;
+  overflow: visible;
+  isolation: isolate;
 }
 
 .speed-graph.compact {
-  height: 34px;
+  height: 44px;
 }
 
-.speed-graph-line,
-.speed-graph-thick,
+.speed-graph-layer-segment,
 .speed-graph-point,
-.speed-graph-point-range,
-.speed-graph-cap,
-.speed-graph-marker {
+.speed-graph-point-range {
   position: absolute;
-  top: 50%;
-}
-
-.speed-graph-segment {
-  position: absolute;
-  top: 50%;
-  height: 18px;
-  transform: translateY(-50%);
-  transition: left 220ms ease, width 220ms ease, opacity 180ms ease, transform 180ms ease;
-}
-
-.speed-graph-line {
-  height: 2px;
+  --graph-bar-height: 10px;
+  height: var(--graph-bar-height);
+  min-width: 12px;
   border-radius: 999px;
-  transform: translateY(-50%);
-  width: 100%;
-  left: 0;
-  transition: background-color 180ms ease;
+  background: var(--graph-base);
+  border: 2px solid var(--panel-strong);
+  box-shadow: 0 0 0 1px rgba(15, 23, 42, 0.08);
+  transition: left 360ms cubic-bezier(0.22, 1, 0.36, 1), width 360ms cubic-bezier(0.22, 1, 0.36, 1), height 360ms cubic-bezier(0.22, 1, 0.36, 1), transform 360ms cubic-bezier(0.22, 1, 0.36, 1), box-shadow 180ms ease, background 180ms ease;
 }
 
-.speed-graph-cap {
-  width: 2px;
-  height: 14px;
-  border-radius: 999px;
-  transform: translateY(-50%);
-  transition: background-color 180ms ease;
-}
-
-.speed-graph-segment .speed-graph-cap.start {
-  left: 0;
-}
-
-.speed-graph-segment .speed-graph-cap.end {
-  right: 0;
-}
-
-.speed-graph-marker {
-  width: 3px;
-  height: 12px;
-  border-radius: 999px;
-  transform: translate(-50%, -50%);
-  transition: left 220ms ease, background-color 180ms ease, opacity 180ms ease, transform 180ms ease;
-}
-
-.speed-graph-value {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: 0.72rem;
-  font-weight: 600;
-  line-height: 1;
-  white-space: nowrap;
-  color: var(--text);
-  pointer-events: auto;
+.speed-graph-layer-segment {
   transform-origin: center;
+  transform: translateY(-50%);
   z-index: 2;
-  transition: left 220ms ease, color 180ms ease, opacity 180ms ease;
 }
 
-.speed-graph-value.top {
-  bottom: calc(100% + 2px);
+.speed-graph-layer-segment.single-value {
+  width: 12px !important;
+  transform: translate(-50%, -50%);
 }
 
-.speed-graph-value.bottom {
-  top: calc(100% + 2px);
+.speed-graph-layer-segment.is-entering,
+.speed-graph-layer-segment.is-exiting,
+.speed-graph-point-range.is-entering,
+.speed-graph-point-range.is-exiting {
+  pointer-events: none;
+  transform: translateY(-50%) scaleX(1) scaleY(0.14);
 }
 
-.speed-graph-value-text {
-  display: inline-block;
-  transform-origin: center;
+.speed-graph-layer-segment.single-value.is-entering,
+.speed-graph-layer-segment.single-value.is-exiting,
+.speed-graph-point.is-entering,
+.speed-graph-point.is-exiting {
+  transform: translate(-50%, -50%) scaleX(1) scaleY(0.14);
 }
 
-.speed-graph-value.top .speed-graph-value-text,
-.speed-graph-value.bottom .speed-graph-value-text {
-  transform: rotate(-45deg);
+.speed-graph-layer-segment.is-entering,
+.speed-graph-point-range.is-entering {
+  animation: graph-bar-bloom 420ms cubic-bezier(0.2, 0.85, 0.2, 1);
+}
+
+.speed-graph-layer-segment.single-value.is-entering,
+.speed-graph-point.is-entering {
+  animation: graph-dot-bloom 420ms cubic-bezier(0.2, 0.85, 0.2, 1);
+}
+
+.speed-graph-layer-segment.is-exiting,
+.speed-graph-point-range.is-exiting {
+  animation: graph-bar-shrink 420ms cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.speed-graph-layer-segment.single-value.is-exiting,
+.speed-graph-point.is-exiting {
+  animation: graph-dot-shrink 420ms cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes graph-bar-bloom {
+  0% {
+    transform: translateY(-50%) scaleX(1) scaleY(0.14);
+  }
+  68% {
+    transform: translateY(-50%) scaleX(1.02) scaleY(1.08);
+  }
+  100% {
+    transform: translateY(-50%) scaleX(1) scaleY(1);
+  }
+}
+
+@keyframes graph-dot-bloom {
+  0% {
+    transform: translate(-50%, -50%) scaleX(1) scaleY(0.14);
+  }
+  68% {
+    transform: translate(-50%, -50%) scaleX(1.04) scaleY(1.08);
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+@keyframes graph-bar-shrink {
+  0% {
+    transform: translateY(-50%) scale(1);
+  }
+  100% {
+    transform: translateY(-50%) scaleX(1) scaleY(0.14);
+  }
+}
+
+@keyframes graph-dot-shrink {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  100% {
+    transform: translate(-50%, -50%) scaleX(1) scaleY(0.14);
+  }
+}
+
+.speed-graph-layer-nature {
+  --graph-bar-height: 15px;
+}
+
+.speed-graph-layer-item {
+  --graph-bar-height: 10px;
+}
+
+.speed-graph-layer-ability {
+  --graph-bar-height: 10px;
+}
+
+.speed-graph-layer-both {
+  --graph-bar-height: 10px;
+}
+
+.speed-graph-layer-item.speed-graph-tone-neutral,
+.speed-graph-layer-ability.speed-graph-tone-neutral,
+.speed-graph-layer-both.speed-graph-tone-neutral {
+  --graph-bar-height: 15px;
 }
 
 .marker-tooltip {
   cursor: help;
+}
+
+.speed-graph-layer-segment.marker-tooltip:hover,
+.speed-graph-layer-segment.marker-tooltip:focus-visible,
+.speed-graph-point.marker-tooltip:hover,
+.speed-graph-point.marker-tooltip:focus-visible,
+.speed-graph-point-range.marker-tooltip:hover,
+.speed-graph-point-range.marker-tooltip:focus-visible,
+.speed-graph-value.marker-tooltip:hover,
+.speed-graph-value.marker-tooltip:focus-visible {
+  z-index: 120;
 }
 
 .marker-tooltip .marker-hitbox {
@@ -1947,7 +2018,7 @@
   white-space: pre-line;
   opacity: 0;
   pointer-events: none;
-  z-index: 20;
+  z-index: 60;
   transition: opacity 140ms ease, transform 140ms ease;
 }
 
@@ -1964,7 +2035,7 @@
   transform: translateX(-50%) rotate(225deg);
   opacity: 0;
   pointer-events: none;
-  z-index: 19;
+  z-index: 59;
   transition: opacity 140ms ease;
 }
 
@@ -1980,92 +2051,150 @@
   transform: translateX(-50%) translateY(0);
 }
 
-.speed-graph-thick {
-  height: 14px;
-  border-radius: 999px;
-  transform: translateY(-50%);
-  min-width: 10px;
-  transition: left 220ms ease, width 220ms ease, background 180ms ease, border-color 180ms ease, box-shadow 180ms ease, opacity 180ms ease, transform 180ms ease;
+.speed-graph-value {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.72rem;
+  font-weight: 600;
+  line-height: 1;
+  white-space: nowrap;
+  color: var(--text);
+  pointer-events: auto;
+  transform-origin: center;
+  z-index: 4;
+  transition: left 220ms ease, color 180ms ease, opacity 180ms ease;
 }
 
-.speed-graph-point {
-  width: 14px;
-  height: 14px;
-  border-radius: 999px;
-  transform: translate(-50%, -50%);
-  transition: left 220ms ease, background 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+.speed-graph-value.is-entering {
+  animation: graph-label-bloom 420ms cubic-bezier(0.2, 0.85, 0.2, 1);
 }
 
-.speed-graph-point-range {
-  height: 10px;
-  border-radius: 999px;
-  transform: translateY(-50%);
-  transition: left 220ms ease, width 220ms ease, background 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
-}
-
-.speed-graph.ally .speed-graph-line,
-.speed-graph.ally .speed-graph-cap,
-.speed-graph.ally .speed-graph-marker {
-  background: rgba(81, 201, 255, 0.9);
-}
-
-.speed-graph.ally .speed-graph-thick,
-.speed-graph.ally .speed-graph-point,
-.speed-graph.ally .speed-graph-point-range {
-  background: linear-gradient(90deg, var(--ally), var(--ally-strong));
-}
-
-.speed-graph.enemy .speed-graph-line,
-.speed-graph.enemy .speed-graph-cap,
-.speed-graph.enemy .speed-graph-marker {
-  background: rgba(255, 136, 151, 0.92);
-}
-
-.speed-graph.enemy .speed-graph-thick,
-.speed-graph.enemy .speed-graph-point,
-.speed-graph.enemy .speed-graph-point-range {
-  background: linear-gradient(90deg, var(--enemy), var(--enemy-strong));
-}
-
-.speed-graph.mega .speed-graph-line,
-.speed-graph.mega .speed-graph-cap,
-.speed-graph.mega .speed-graph-marker {
-  background: rgba(87, 208, 106, 0.92);
-}
-
-.speed-graph.mega .speed-graph-thick,
-.speed-graph.mega .speed-graph-point,
-.speed-graph.mega .speed-graph-point-range {
-  background: linear-gradient(90deg, var(--mega), #16a34a);
-}
-
-.speed-graph-point {
-  border: 3px solid var(--panel-strong);
-  box-shadow: 0 0 0 1px rgba(15, 23, 42, 0.08);
-}
-
-.speed-graph-point-range {
-  border: 2px solid var(--panel-strong);
-  box-shadow: 0 0 0 1px rgba(15, 23, 42, 0.08);
-}
-
-.speed-graph-segment.is-hidden,
-.speed-graph-thick.is-hidden,
-.speed-graph-marker.is-hidden {
-  opacity: 0;
+.speed-graph-value.is-exiting {
+  animation: graph-label-shrink 420ms cubic-bezier(0.4, 0, 0.2, 1) forwards;
   pointer-events: none;
 }
 
-.speed-graph-segment.is-hidden {
-  transform: translateY(-50%) scaleX(0.68);
+.speed-graph-value.top {
+  bottom: calc(100% + 2px);
 }
 
-.speed-graph-thick.is-hidden {
-  transform: translateY(-50%) scaleX(0.7);
+.speed-graph-value.bottom {
+  top: calc(100% + 2px);
 }
 
-.speed-graph-marker.is-hidden {
-  transform: translate(-50%, -50%) scaleY(0.45);
+.speed-graph-value-text {
+  display: inline-block;
+  transform-origin: center;
+  font-variant-numeric: tabular-nums;
+}
+
+.speed-graph-value.top .speed-graph-value-text,
+.speed-graph-value.bottom .speed-graph-value-text {
+  transform: rotate(-45deg);
+}
+
+@keyframes graph-label-bloom {
+  0% {
+    transform: translateX(-50%) scaleY(0.14);
+  }
+  68% {
+    transform: translateX(-50%) scaleY(1.08);
+  }
+  100% {
+    transform: translateX(-50%) scaleY(1);
+  }
+}
+
+@keyframes graph-label-shrink {
+  0% {
+    transform: translateX(-50%) scaleY(1);
+  }
+  100% {
+    transform: translateX(-50%) scaleY(0.14);
+  }
+}
+
+.rolling-number {
+  display: inline-flex;
+  align-items: center;
+}
+
+.rolling-digit-window {
+  display: inline-flex;
+  height: 1em;
+  overflow: hidden;
+  align-items: flex-start;
+}
+
+.rolling-digit-track {
+  display: inline-flex;
+  flex-direction: column;
+  transform: translateY(0);
+}
+
+.rolling-digit-track.is-animating {
+  transform: translateY(calc(var(--digit-offset) * -1em));
+  transition: transform 260ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.rolling-digit-cell,
+.rolling-digit-static {
+  display: block;
+  height: 1em;
+  line-height: 1;
+  min-width: 0.62ch;
+  text-align: center;
+}
+
+.speed-graph-point {
+  --graph-bar-height: 20px;
+  width: 12px;
+  transform: translate(-50%, -50%);
+  z-index: 3;
+}
+
+.speed-graph-point-range {
+  --graph-bar-height: 20px;
+  transform: translateY(-50%);
+  z-index: 3;
+}
+
+.speed-graph.ally {
+  --graph-layer: rgba(81, 201, 255, 0.9);
+  --graph-layer-strong: rgba(166, 236, 255, 1);
+  --graph-glow: rgba(81, 201, 255, 0.3);
+  --graph-base: linear-gradient(90deg, var(--ally), var(--ally-strong));
+}
+
+.speed-graph.enemy {
+  --graph-layer: rgba(255, 136, 151, 0.92);
+  --graph-layer-strong: rgba(255, 188, 198, 1);
+  --graph-glow: rgba(255, 136, 151, 0.32);
+  --graph-base: linear-gradient(90deg, var(--enemy), var(--enemy-strong));
+}
+
+.speed-graph.mega {
+  --graph-layer: rgba(87, 208, 106, 0.92);
+  --graph-layer-strong: rgba(171, 241, 184, 1);
+  --graph-glow: rgba(87, 208, 106, 0.28);
+  --graph-base: linear-gradient(90deg, var(--mega), #16a34a);
+}
+
+.speed-graph-tone-slow {
+  opacity: 1;
+}
+
+.speed-graph-tone-neutral {
+  opacity: 1;
+}
+
+.speed-graph-tone-fast {
+  opacity: 1;
+}
+
+.speed-graph-point.with-layers {
+  box-shadow: 0 0 0 1px rgba(15, 23, 42, 0.08);
 }
 
 .icon-shell {
@@ -2144,7 +2273,8 @@
 
   .compare-panel {
     order: 3;
-    position: static;
+    position: sticky;
+    top: 16px;
     max-height: none;
     overflow: visible;
   }
