@@ -45,6 +45,7 @@
   min-height: 100vh;
   color: var(--text);
   background: var(--bg);
+  overflow-x: hidden;
 }
 
 .app-chrome {
@@ -292,17 +293,41 @@
   top: calc(100% + 10px);
   left: 0;
   z-index: 100;
-  width: min(320px, calc(100vw - 32px));
+  width: min(360px, calc(100vw - 32px));
   padding: 12px 14px;
   border-radius: 14px;
   border: 1px solid var(--panel-border);
   background: var(--panel-strong);
   color: var(--text);
   box-shadow: 0 18px 40px rgba(15, 23, 42, 0.24);
+  white-space: pre-line;
+  line-height: 1.5;
   opacity: 0;
   pointer-events: none;
   transform: translateY(6px);
   transition: opacity 160ms ease, transform 160ms ease;
+}
+
+.tooltip-anchor .tooltip-panel.multiline {
+  white-space: normal;
+}
+
+.tooltip-lines {
+  display: grid;
+  gap: 6px;
+}
+
+.tooltip-line {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 8px;
+  align-items: start;
+}
+
+.tooltip-line::before {
+  content: "•";
+  color: color-mix(in srgb, var(--text) 72%, var(--accent));
+  line-height: 1.4;
 }
 
 .tooltip-anchor:hover .tooltip-panel,
@@ -1820,7 +1845,7 @@
   top: 50%;
   height: 18px;
   transform: translateY(-50%);
-  transition: left 220ms ease, width 220ms ease;
+  transition: left 220ms ease, width 220ms ease, opacity 180ms ease, transform 180ms ease;
 }
 
 .speed-graph-line {
@@ -1853,7 +1878,7 @@
   height: 12px;
   border-radius: 999px;
   transform: translate(-50%, -50%);
-  transition: left 220ms ease, background-color 180ms ease;
+  transition: left 220ms ease, background-color 180ms ease, opacity 180ms ease, transform 180ms ease;
 }
 
 .speed-graph-value {
@@ -1960,7 +1985,7 @@
   border-radius: 999px;
   transform: translateY(-50%);
   min-width: 10px;
-  transition: left 220ms ease, width 220ms ease, background 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+  transition: left 220ms ease, width 220ms ease, background 180ms ease, border-color 180ms ease, box-shadow 180ms ease, opacity 180ms ease, transform 180ms ease;
 }
 
 .speed-graph-point {
@@ -2024,6 +2049,25 @@
   box-shadow: 0 0 0 1px rgba(15, 23, 42, 0.08);
 }
 
+.speed-graph-segment.is-hidden,
+.speed-graph-thick.is-hidden,
+.speed-graph-marker.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.speed-graph-segment.is-hidden {
+  transform: translateY(-50%) scaleX(0.68);
+}
+
+.speed-graph-thick.is-hidden {
+  transform: translateY(-50%) scaleX(0.7);
+}
+
+.speed-graph-marker.is-hidden {
+  transform: translate(-50%, -50%) scaleY(0.45);
+}
+
 .icon-shell {
   display: inline-flex;
   align-items: center;
@@ -2049,6 +2093,7 @@
   background: var(--panel-inner);
   color: var(--muted);
   text-align: center;
+  white-space: pre-line;
 }
 
 .empty-box.in-panel {
@@ -2174,9 +2219,9 @@
 
 @media (max-width: 820px) {
   .app-chrome {
-    width: min(calc(100vw - 18px), 430px);
+    width: min(414px, calc(100vw - 16px));
     padding-top: 8px;
-    padding-bottom: 16px;
+    padding-bottom: 14px;
   }
 
   .panel {
@@ -2195,15 +2240,15 @@
   .compare-list,
   .app-footer,
   .battle-result {
-    margin-left: 18px;
-    margin-right: 18px;
+    margin-left: 14px;
+    margin-right: 14px;
   }
 
   .team-card,
   .detail-card,
   .battle-side {
-    padding: 12px;
-    border-radius: 20px;
+    padding: 11px;
+    border-radius: 18px;
   }
 
   .app-header {
@@ -2366,10 +2411,10 @@
   }
 
   .saved-manager-dialog {
-    width: min(calc(100vw - 12px), 430px);
+    width: min(414px, calc(100vw - 16px));
     max-height: calc(100vh - 12px);
     padding: 14px;
-    border-radius: 22px;
+    border-radius: 20px;
   }
 
   .detail-card {
@@ -2508,7 +2553,7 @@
 
 @media (max-width: 480px) {
   .app-chrome {
-    width: min(calc(100vw - 14px), 414px);
+    width: min(414px, calc(100vw - 16px));
   }
 
   .panel-head {
@@ -2523,8 +2568,8 @@
   .compare-list,
   .app-footer,
   .battle-result {
-    margin-left: 16px;
-    margin-right: 16px;
+    margin-left: 14px;
+    margin-right: 14px;
   }
 
   .team-card,

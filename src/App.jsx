@@ -24,8 +24,8 @@ const TEXT = {
     titleHelp: "포켓몬 챔피언스 기준으로 양 팀 포켓몬들의 스피드와 현재 대면 선공을 빠르게 파악하는 도구입니다.",
     graphHelpLabel: "그래프 보는 법 ?",
     graphHelp:
-      "점은 무보정 실수치에 능력 포인트를 반영한 값입니다. 능력 포인트를 모르면 점 대신 0~32 범위가 짧은 막대로 표시됩니다. 굵은 선은 성격을 모를 경우 반영한 범위, 얇은 선은 도구/특성 포함 전체 범위, 세로 눈금은 그에 따른 가능한 수치들입니다.",
-    rosterHelp: "무보정 실수치를 기준으로 성격·도구·특성에 따른 가능한 범위를 함께 보여줍니다.",
+      "점은 무보정 실수치에 능력 포인트를 반영한 값입니다. 능력 포인트를 모르면 점 대신 0~32 범위가 짧은 막대로 표시됩니다.\n굵은 선은 성격을 모를 경우 반영한 범위, 얇은 선은 도구/특성 포함 전체 범위,\n눈금은 그에 따른 가능한 수치들입니다.",
+    rosterHelp: "능력 포인트/성격/도구/특성에 따른 가능한 범위를 함께 보여줍니다.",
     teamView: "팀 비교",
     rosterView: "전체 포켓몬",
     myTeam: "내 팀",
@@ -34,12 +34,12 @@ const TEXT = {
     searchTarget: "현재 추가 대상",
     teamSettings: "팀 설정",
     detailSettings: "상세 설정",
-    detailEmptyHint: "엔트리에서 포켓몬을 선택해 상세 설정을 확인하세요.",
+    detailEmptyHint: "엔트리에서 포켓몬을 선택해\n상세 설정을 확인하세요.",
     liveBattle: "실시간 대면",
-    liveBattleEmptyHint: "실시간 대면에서 포켓몬을 선택해 전투 상황을 설정하세요.",
-    battleResultEmptyHint: "내 팀과 상대 팀 포켓몬을 설정하고 누가 먼저 행동할지 확인해보세요.",
+    liveBattleEmptyHint: "실시간 대면에서 포켓몬을 선택해\n전투 상황을 설정하세요.",
+    battleResultEmptyHint: "내 팀과 상대 팀 포켓몬을 설정하고\n누가 먼저 행동할지 확인해보세요.",
     speedCompare: "팀 스피드 비교",
-    speedCompareHelp: "내 팀과 상대 팀 전체 엔트리 포켓몬들의 스피드를 비교해보세요. 출전 포켓몬이 모두 확정되면 나머지 포켓몬은 제외됩니다.",
+    speedCompareHelp: "내 팀과 상대 팀 전체 엔트리 포켓몬들의 스피드를 비교해보세요.\n출전 포켓몬이 모두 확정되면 나머지 포켓몬은 제외됩니다.",
     allPokemon: "전체 포켓몬",
     battleMode: "배틀 모드",
     single: "싱글",
@@ -55,7 +55,7 @@ const TEXT = {
     savedTeamsTitle: "내 팀 저장 관리",
     saveName: "저장 이름",
     savePlaceholder: "팀 이름을 입력하면 새 저장본으로 보관됩니다.",
-    saveHelp: "현재 설정된 내 팀만 저장되며, 저장본을 즉시 불러오거나 삭제할 수 있습니다.",
+    saveHelp: "현재 설정된 내 팀만 저장됩니다.\n저장본을 즉시 불러오거나 삭제할 수 있습니다.",
     noSavedTeams: "아직 저장된 팀이 없습니다.",
     selectedSaved: "선택된 저장본",
     savedMembers: "마리 저장",
@@ -70,7 +70,7 @@ const TEXT = {
     nature: "능력 보정 (성격)",
     item: "도구",
     ability: "특성",
-    abilityHelp: "포켓몬에 따라 스피드 관련 특성이 있는 경우 설정할 수 있습니다. 속도 보정 특성을 선택하면 이 툴팁에서 발동 조건과 배율을 확인할 수 있습니다.",
+    abilityHelp: "포켓몬에 따라 스피드 관련 특성이 있는 경우 설정할 수 있습니다.\n속도 보정 특성을 선택하면 이 툴팁에서 발동 조건과 배율을 확인할 수 있습니다.",
     active: "출전",
     standby: "대기",
     resetSlot: "선택 슬롯 초기화",
@@ -79,8 +79,8 @@ const TEXT = {
     tailwind: "순풍 ×2.0",
     paralysis: "마비 ×0.5",
     rank: "랭크",
-    battleHelp: "실시간 대면 정보를 설정해보세요(위 상세 설정과 연동 가능). 선공 여부를 예측할 수 있습니다. 누가 먼저 행동할까요?",
-    addHint: "팀을 선택하고 포켓몬을 검색해 슬롯에 추가하세요. 상세 설정에서 스피드 관련 설정을 할 수 있습니다. 각 슬롯의 출전/대기 버튼을 눌러 출전 포켓몬을 간편하게 표시해보세요. 슬롯을 드래그하여 순서를 변경할 수 있습니다.",
+    battleHelp: "실시간 대면 정보를 설정해보세요.\n위 상세 설정과 연동되어 선공 여부를 예측할 수 있습니다.\n누가 먼저 행동할까요?",
+    addHint: "팀을 선택하고 포켓몬을 검색해 슬롯에 추가하세요.\n상세 설정에서 스피드 관련 설정을 할 수 있습니다.\n각 슬롯의 출전/대기 버튼을 눌러 출전 포켓몬을 표시해보세요.\n슬롯을 드래그하여 순서를 변경할 수 있습니다.",
     duplicatePokemon: "같은 팀에는 같은 포켓몬을 중복해서 추가할 수 없습니다.",
     savePrompt: "저장할 팀 이름을 입력하세요.",
     saveEmpty: "저장할 내 팀이 없습니다.",
@@ -104,27 +104,27 @@ const TEXT = {
   en: {
     titleMain: "SCARF",
     titleSub: "Pokémon Speed Matchups",
-    titleHelp: "A quick speed comparison tool for Pokemon Champions.",
-    graphHelpLabel: "How to read graphs ?",
+    titleHelp: "A quick tool for Pokémon Champions that lets you compare team-wide Speed ranges and live turn order at a glance.",
+    graphHelpLabel: "How to read the graph?",
     graphHelp:
-      "The point shows the unmodified speed with stat points applied. If stat points are unknown, that point becomes a short range. The thick bar is the nature range, the thin line is the full range including item and ability, and the vertical ticks are the possible exact values.",
-    rosterHelp: "The All Pokemon page starts from the unmodified speed, then shows how nature, item, and ability expand that range.",
-    teamView: "Team",
-    rosterView: "All Pokemon",
+      "The point shows the Speed after stat points are applied with no extra boosts. If stat points are unknown, the point becomes a short 0-32 range.\nThe thick bar appears only when nature is unknown, the thin line shows the full range including item and ability,\nand the ticks mark the possible exact values.",
+    rosterHelp: "Shows each Pokémon's possible Speed range based on stat points, nature, item, and ability.",
+    teamView: "Team Compare",
+    rosterView: "All Pokémon",
     myTeam: "My Team",
-    opponentTeam: "Opponent",
-    search: "Search Pokemon",
+    opponentTeam: "Opponent Team",
+    search: "Search Pokémon",
     searchTarget: "Current target",
     teamSettings: "Team Setup",
-    detailSettings: "Detail",
-    detailEmptyHint: "Select a Pokemon from the entries to open its detail settings.",
+    detailSettings: "Details",
+    detailEmptyHint: "Select a Pokémon from the entries\nto open its detail settings.",
     liveBattle: "Live Matchup",
-    liveBattleEmptyHint: "Choose a Pokemon in live matchup to configure the battle state.",
-    battleResultEmptyHint: "Set your Pokemon and the opponent's Pokemon to see who moves first.",
+    liveBattleEmptyHint: "Select a Pokémon in Live Matchup\nto configure the battle state.",
+    battleResultEmptyHint: "Set both your Pokémon and the opponent's Pokémon\nto check who moves first.",
     speedCompare: "Team Speed Compare",
-    speedCompareHelp: "Compare the Speed ranges of all entry Pokemon on both teams. Once all active Pokemon are locked in, the remaining Pokemon are excluded.",
-    allPokemon: "All Pokemon",
-    battleMode: "Mode",
+    speedCompareHelp: "Compare the Speed ranges of all entry Pokémon on both teams.\nOnce all active Pokémon are locked in, the remaining ones are excluded.",
+    allPokemon: "All Pokémon",
+    battleMode: "Battle Mode",
     single: "Single",
     double: "Double",
     save: "Save",
@@ -137,14 +137,14 @@ const TEXT = {
     savedTeams: "Saved Teams",
     savedTeamsTitle: "Saved Team Manager",
     saveName: "Save name",
-    savePlaceholder: "Enter a team name to keep a new snapshot.",
-    saveHelp: "Only your current team is stored here. Pick a saved team to load or delete it instantly.",
+    savePlaceholder: "Enter a team name to save a new snapshot.",
+    saveHelp: "Only your current My Team setup is saved here.\nYou can load or delete any saved team immediately.",
     noSavedTeams: "No saved teams yet.",
     selectedSaved: "Selected save",
     savedMembers: "members saved",
     clearOpponent: "Clear All",
     slotEmpty: "Empty Slot",
-    statRange: "Current speed range",
+    statRange: "Current Speed range",
     baseSpeed: "Base Speed",
     mega: "Mega Evolution",
     noMega: "None",
@@ -153,36 +153,36 @@ const TEXT = {
     nature: "Nature Modifier",
     item: "Item",
     ability: "Ability",
-    abilityHelp: "Species-matched speed-related abilities are shown when available. If a speed ability is selected, the ? shows its trigger and multiplier.",
+    abilityHelp: "If this Pokémon has a Speed-related ability option, you can configure it here.\nWhen a Speed ability is selected, this tooltip explains its trigger and multiplier.",
     active: "Active",
     standby: "Bench",
     resetSlot: "Reset Slot",
-    clearDetailPanel: "Close Detail",
-    currentPokemon: "Current Pokemon",
+    clearDetailPanel: "Close Details",
+    currentPokemon: "Current Pokémon",
     tailwind: "Tailwind ×2.0",
     paralysis: "Paralysis ×0.5",
     rank: "Stage",
-    battleHelp: "You can edit the same settings here and they stay synced with the detail panel.",
-    addHint: "Click a result to place it into the selected slot.",
-    duplicatePokemon: "You can't add the same Pokemon twice to one team.",
+    battleHelp: "Configure the current live matchup here.\nThese settings stay synced with the detail panel,\nso you can quickly check who moves first.",
+    addHint: "Choose a team and search for a Pokémon to add to a slot.\nUse the detail panel to adjust Speed-related settings.\nYou can also mark active Pokémon and drag slots to reorder them.",
+    duplicatePokemon: "You can't add the same Pokémon twice to one team.",
     savePrompt: "Enter a team name.",
-    saveEmpty: "No ally team to save.",
-    noData: "No Pokemon yet.",
-    sureFirstMy: "My Team Guaranteed",
-    sureFirstOpp: "Opponent Guaranteed",
+    saveEmpty: "There is no My Team setup to save.",
+    noData: "No Pokémon yet.",
+    sureFirstMy: "My Team Always Moves First",
+    sureFirstOpp: "Opponent Always Moves First",
     likelyFirstMy: "My Team Favored",
     likelyFirstOpp: "Opponent Favored",
     tieExact: "Speed Tie",
-    tiePossible: "Tie Possible",
-    mixed: "Mixed",
-    tieExactSub: "If both exact values match, move order is random every turn.",
-    tiePossibleSub: "The remaining variables can still create a tie.",
+    tiePossible: "Possible Speed Tie",
+    mixed: "Too Close to Call",
+    tieExactSub: "If both exact Speed values match, move order is random each turn.",
+    tiePossibleSub: "The remaining variables can still produce a Speed tie.",
     likelySubMy: "Based on the known settings, my team is more likely to move first.",
     likelySubOpp: "Based on the known settings, the opponent is more likely to move first.",
     sureSubMy: "The opponent cannot outspeed within the current range.",
     sureSubOpp: "My team cannot outspeed within the current range.",
-    mixedSub: "Too many variables still overlap.",
-    footer: "Contact: admin@poketeamspeed.local",
+    mixedSub: "There are still too many overlapping variables to call it cleanly.",
+    footer: "Contact: teamscarf@proton.me",
   },
 };
 
@@ -194,10 +194,10 @@ const NATURES = {
 };
 
 const NATURE_OPTIONS = [
-  { key: "slow", label: "×0.9", values: [0.9] },
-  { key: "neutral", label: "×1.0", values: [1] },
-  { key: "fast", label: "×1.1", values: [1.1] },
-  { key: "unknown", label: "모름", values: [0.9, 1, 1.1] },
+  { key: "slow", labelKo: "×0.9", labelEn: "×0.9", values: [0.9] },
+  { key: "neutral", labelKo: "×1.0", labelEn: "×1.0", values: [1] },
+  { key: "fast", labelKo: "×1.1", labelEn: "×1.1", values: [1.1] },
+  { key: "unknown", labelKo: "모름", labelEn: "Unknown", values: [0.9, 1, 1.1] },
 ];
 
 const ITEMS = {
@@ -297,6 +297,7 @@ function createSlot(index) {
     dexNo: null,
     formKey: "base",
     name: "",
+    nameEn: "",
     baseSpeed: 0,
     icon: "",
     active: false,
@@ -342,6 +343,7 @@ function normalizeMegaChoice(name, megaChoice) {
 function normalizeSlot(raw, index) {
   const canonical = getCanonicalRosterEntry(raw);
   const name = canonical?.displayName ?? raw?.name ?? "";
+  const nameEn = canonical?.displayNameEn ?? raw?.nameEn ?? "";
   return {
     ...createSlot(index),
     ...raw,
@@ -350,6 +352,7 @@ function normalizeSlot(raw, index) {
     dexNo: canonical?.dexNo ?? raw?.dexNo ?? null,
     formKey: canonical?.formKey ?? raw?.formKey ?? "base",
     name,
+    nameEn,
     baseSpeed: clampInt(canonical?.speed ?? raw?.baseSpeed ?? 0, 0, 255),
     icon: canonical?.icon ?? raw?.icon ?? "",
     megaChoice: normalizeMegaChoice(name, raw?.megaChoice ?? ""),
@@ -359,6 +362,18 @@ function normalizeSlot(raw, index) {
 
 function normalizeTeam(raw) {
   return Array.from({ length: 6 }, (_, index) => normalizeSlot(raw?.[index], index));
+}
+
+function getLocalizedName(entity, language) {
+  if (!entity) return "";
+  const koName = entity.displayName ?? entity.name ?? "";
+  const enName = entity.displayNameEn ?? entity.nameEn ?? koName;
+  return language === "en" ? enName || koName : koName;
+}
+
+function getLocalizedMegaLabel(mega, language) {
+  if (!mega) return "";
+  return language === "en" ? mega.labelEn || mega.label : mega.label;
 }
 
 function normalizePreset(raw, index) {
@@ -421,41 +436,45 @@ function dedupe(values) {
   return [...new Set(values.filter((value) => Number.isFinite(value)).map((value) => Math.round(value)))].sort((a, b) => a - b);
 }
 
-function getItemLabelFromFactor(factor) {
-  if (factor === 1.5) return "구애스카프";
-  return "도구 없음";
+function getItemLabelFromFactor(factor, language = "ko") {
+  if (factor === 1.5) return language === "en" ? "Choice Scarf" : "구애스카프";
+  return language === "en" ? "No item" : "도구 없음";
 }
 
-function getAbilityLabelFromFactor(factor, slot) {
-  if (factor <= 1) return "특성 없음";
+function getAbilityLabelFromFactor(factor, slot, language = "ko") {
+  if (factor <= 1) return language === "en" ? "No ability boost" : "특성 없음";
   const matched = getAbilityOptions(slot).find((option) => option.multiplier === factor && option.key !== "unknown");
-  return matched ? `특성 ${matched.labelKo || matched.labelEn}` : "특성 발동";
+  if (matched) return language === "en" ? `Ability ${matched.labelEn || matched.labelKo}` : `특성 ${matched.labelKo || matched.labelEn}`;
+  return language === "en" ? "Ability activated" : "특성 발동";
 }
 
-function getNatureLabelFromFactor(factor) {
-  if (factor === 0.9) return "성격 x0.9";
-  if (factor === 1.1) return "성격 x1.1";
-  return "성격 x1.0";
+function getNatureLabelFromFactor(factor, language = "ko") {
+  if (factor === 0.9) return language === "en" ? "Nature x0.9" : "성격 x0.9";
+  if (factor === 1.1) return language === "en" ? "Nature x1.1" : "성격 x1.1";
+  return language === "en" ? "Nature x1.0" : "성격 x1.0";
 }
 
-function summarizeTooltipLines(lines, maxLines = 4) {
+function summarizeTooltipLines(lines, language = "ko", maxLines = 4) {
   const unique = [...new Set(lines.filter(Boolean))];
   if (unique.length <= maxLines) return unique;
-  return [...unique.slice(0, maxLines), `외 ${unique.length - maxLines}가지 경우`];
+  return [...unique.slice(0, maxLines), language === "en" ? `+${unique.length - maxLines} more cases` : `외 ${unique.length - maxLines}가지 경우`];
 }
 
-function formatExactValueSummary(slot, baseSpeed, ev, natureFactor, itemFactor, abilityFactor, battleState = null) {
+function formatExactValueSummary(slot, baseSpeed, ev, natureFactor, itemFactor, abilityFactor, battleState = null, language = "ko") {
   const baseStat = level50Speed(baseSpeed, ev, natureFactor);
-  const labels = [`포인트 ${ev} · ${getNatureLabelFromFactor(natureFactor)}`, `기본 실수치 ${baseStat}`];
+  const labels = [
+    language === "en" ? `Points ${ev} · ${getNatureLabelFromFactor(natureFactor, language)}` : `포인트 ${ev} · ${getNatureLabelFromFactor(natureFactor, language)}`,
+    language === "en" ? `Base Speed stat ${baseStat}` : `기본 실수치 ${baseStat}`,
+  ];
 
-  if (itemFactor !== 1) labels.push(getItemLabelFromFactor(itemFactor));
-  if (abilityFactor > 1) labels.push(getAbilityLabelFromFactor(abilityFactor, slot));
+  if (itemFactor !== 1) labels.push(getItemLabelFromFactor(itemFactor, language));
+  if (abilityFactor > 1) labels.push(getAbilityLabelFromFactor(abilityFactor, slot, language));
 
   if (battleState) {
-    if (battleState.mega) labels.push("메가진화");
-    if (battleState.tailwind) labels.push("순풍");
-    if (battleState.paralysis) labels.push("마비");
-    if (battleState.rank !== 0) labels.push(`랭크 ${battleState.rank}`);
+    if (battleState.mega) labels.push(language === "en" ? "Mega Evolution" : "메가진화");
+    if (battleState.tailwind) labels.push(language === "en" ? "Tailwind" : "순풍");
+    if (battleState.paralysis) labels.push(language === "en" ? "Paralysis" : "마비");
+    if (battleState.rank !== 0) labels.push(language === "en" ? `Stage ${battleState.rank}` : `랭크 ${battleState.rank}`);
   }
 
   return labels.join(" · ");
@@ -475,44 +494,59 @@ function summarizeMarkerMap(markerMap) {
   return [...new Map(picks.map((index) => [entries[index].value, entries[index]])).values()];
 }
 
-function formatSegmentSummary(slot, baseSpeed, itemFactor, abilityFactor, battleFactors) {
+function formatSegmentSummary(slot, baseSpeed, itemFactor, abilityFactor, battleFactors, language = "ko") {
   const unboosted = applySpeed(level50Speed(baseSpeed, 0, 1), [itemFactor, abilityFactor, ...battleFactors]);
   const neutralMax = applySpeed(level50Speed(baseSpeed, 32, 1), [itemFactor, abilityFactor, ...battleFactors]);
   const fastMax = applySpeed(level50Speed(baseSpeed, 32, 1.1), [itemFactor, abilityFactor, ...battleFactors]);
   return [
-    `${getItemLabelFromFactor(itemFactor)} / ${getAbilityLabelFromFactor(abilityFactor, slot)}`,
-    `무보정 ${unboosted} · 준속 ${neutralMax} · 최속 ${fastMax}`,
+    `${getItemLabelFromFactor(itemFactor, language)} / ${getAbilityLabelFromFactor(abilityFactor, slot, language)}`,
+    language === "en"
+      ? `Unboosted ${unboosted} · Neutral ${neutralMax} · Max ${fastMax}`
+      : `무보정 ${unboosted} · 준속 ${neutralMax} · 최속 ${fastMax}`,
   ];
 }
 
-function formatPointSummary(slot, baseSpeed, battleState) {
+function formatPointSummary(slot, baseSpeed, battleState, language = "ko") {
   const item = ITEMS[slot.itemSetting] || ITEMS.none;
   const ability = getSelectedAbility(slot);
-  const itemLabel = slot.itemSetting === "unknown" ? "도구 모름" : item.point === 1.5 ? "구애스카프" : "도구 없음";
-  const abilityLabel = slot.abilitySetting === "unknown" ? "특성 모름" : ability.multiplier > 1 ? `특성 ${ability.labelKo || ability.labelEn}` : "특성 없음";
+  const itemLabel = slot.itemSetting === "unknown"
+    ? language === "en" ? "Unknown item" : "도구 모름"
+    : item.point === 1.5
+      ? language === "en" ? "Choice Scarf" : "구애스카프"
+      : language === "en" ? "No item" : "도구 없음";
+  const abilityLabel = slot.abilitySetting === "unknown"
+    ? language === "en" ? "Unknown ability" : "특성 모름"
+    : ability.multiplier > 1
+      ? language === "en" ? `Ability ${ability.labelEn || ability.labelKo}` : `특성 ${ability.labelKo || ability.labelEn}`
+      : language === "en" ? "No ability boost" : "특성 없음";
   const battleLabels = [];
   if (battleState) {
-    if (battleState.mega) battleLabels.push("메가진화");
-    if (battleState.ability && ability.multiplier > 1) battleLabels.push("특성 발동");
-    if (battleState.tailwind) battleLabels.push("순풍");
-    if (battleState.paralysis) battleLabels.push("마비");
-    if (battleState.rank !== 0) battleLabels.push(`랭크 ${battleState.rank}`);
+    if (battleState.mega) battleLabels.push(language === "en" ? "Mega Evolution" : "메가진화");
+    if (battleState.ability && ability.multiplier > 1) battleLabels.push(language === "en" ? "Ability active" : "특성 발동");
+    if (battleState.tailwind) battleLabels.push(language === "en" ? "Tailwind" : "순풍");
+    if (battleState.paralysis) battleLabels.push(language === "en" ? "Paralysis" : "마비");
+    if (battleState.rank !== 0) battleLabels.push(language === "en" ? `Stage ${battleState.rank}` : `랭크 ${battleState.rank}`);
   }
 
   return [
     `${itemLabel} / ${abilityLabel}`,
-    `무보정 ${level50Speed(baseSpeed, 0, 1)} · 준속 ${level50Speed(baseSpeed, 32, 1)} · 최속 ${level50Speed(baseSpeed, 32, 1.1)}`,
-    battleLabels.length ? battleLabels.join(", ") : "현재 확정 구간",
+    language === "en"
+      ? `Unboosted ${level50Speed(baseSpeed, 0, 1)} · Neutral ${level50Speed(baseSpeed, 32, 1)} · Max ${level50Speed(baseSpeed, 32, 1.1)}`
+      : `무보정 ${level50Speed(baseSpeed, 0, 1)} · 준속 ${level50Speed(baseSpeed, 32, 1)} · 최속 ${level50Speed(baseSpeed, 32, 1.1)}`,
+    battleLabels.length ? battleLabels.join(", ") : language === "en" ? "Currently confirmed range" : "현재 확정 구간",
   ];
 }
 
-function formatPointRangeSummary(slot, baseSpeed, battleState) {
-  const pointSummary = formatPointSummary(slot, baseSpeed, battleState);
-  return summarizeTooltipLines(pointSummary);
+function formatPointRangeSummary(slot, baseSpeed, battleState, language = "ko") {
+  const pointSummary = formatPointSummary(slot, baseSpeed, battleState, language);
+  return summarizeTooltipLines(pointSummary, language);
 }
 
-function formatThickRangeSummary(slot, baseSpeed, battleState) {
-  return summarizeTooltipLines(["성격 반영 범위", ...formatPointRangeSummary(slot, baseSpeed, battleState)]);
+function formatThickRangeSummary(slot, baseSpeed, battleState, language = "ko") {
+  return summarizeTooltipLines(
+    [language === "en" ? "Nature-adjusted range" : "성격 반영 범위", ...formatPointRangeSummary(slot, baseSpeed, battleState, language)],
+    language
+  );
 }
 
 function getMegaChoices(slot) {
@@ -563,8 +597,9 @@ function getDisplayIcon(slot, megaActive = false) {
   return CANONICAL_MEGA_ART[mega.label] || slot.icon;
 }
 
-function buildGraph(slot, baseSpeed, battleState = null) {
+function buildGraph(slot, baseSpeed, battleState = null, language = "ko") {
   const selectedNature = NATURE_OPTIONS.find((option) => option.key === slot.nature) || NATURE_OPTIONS[1];
+  const showThickRange = slot.nature === "unknown";
   const pointNatureValues = slot.nature === "unknown" ? [1] : selectedNature.values;
   const thickNatureValues = slot.nature === "unknown" ? [0.9, 1, 1.1] : selectedNature.values;
   const item = ITEMS[slot.itemSetting] || ITEMS.none;
@@ -628,7 +663,7 @@ function buildGraph(slot, baseSpeed, battleState = null) {
           const current = lineSegmentMap.get(segmentKey) || {
             min: Number.POSITIVE_INFINITY,
             max: Number.NEGATIVE_INFINITY,
-            labels: formatSegmentSummary(slot, baseSpeed, itemFactor, abilityFactor, battleFactors),
+            labels: formatSegmentSummary(slot, baseSpeed, itemFactor, abilityFactor, battleFactors, language),
           };
           current.min = Math.min(current.min, full);
           current.max = Math.max(current.max, full);
@@ -651,7 +686,7 @@ function buildGraph(slot, baseSpeed, battleState = null) {
       itemValues.forEach((itemFactor) => {
         markerAbilityValues.forEach((abilityFactor) => {
           const markerValue = applySpeed(stat, [itemFactor, abilityFactor, ...battleFactors]);
-          const labels = [formatExactValueSummary(slot, baseSpeed, ev, natureFactor, itemFactor, abilityFactor, battleState)];
+          const labels = [formatExactValueSummary(slot, baseSpeed, ev, natureFactor, itemFactor, abilityFactor, battleState, language)];
           const existing = markerMap.get(markerValue) || new Set();
           labels.forEach((label) => existing.add(label));
           markerMap.set(markerValue, existing);
@@ -663,18 +698,23 @@ function buildGraph(slot, baseSpeed, battleState = null) {
   const pointSorted = dedupe(pointValues);
   const thickSorted = dedupe(thickValues);
   const lineSorted = dedupe(lineValues);
+  const pointMin = pointSorted[0] ?? 0;
+  const pointMax = pointSorted[pointSorted.length - 1] ?? pointMin;
+  const point = pointSorted[Math.floor(pointSorted.length / 2)] ?? 0;
+  const pointIsRange = pointMax > pointMin;
 
   const compactMarkers = summarizeMarkerMap(markerMap);
   const lineSegments = [...lineSegmentMap.values()]
-    .filter((segment) => Number.isFinite(segment.min) && Number.isFinite(segment.max))
+    .filter((segment) => Number.isFinite(segment.min) && Number.isFinite(segment.max) && segment.max > segment.min)
     .sort((a, b) => a.min - b.min);
 
   return {
-    pointMin: pointSorted[0],
-    pointMax: pointSorted[pointSorted.length - 1],
-    point: pointSorted[Math.floor(pointSorted.length / 2)] ?? 0,
-    pointTooltip: formatPointRangeSummary(slot, baseSpeed, battleState),
-    thickTooltip: formatThickRangeSummary(slot, baseSpeed, battleState),
+    showThickRange,
+    pointMin,
+    pointMax,
+    point,
+    pointTooltip: formatPointRangeSummary(slot, baseSpeed, battleState, language),
+    thickTooltip: formatThickRangeSummary(slot, baseSpeed, battleState, language),
     thickMin: thickSorted[0] ?? pointSorted[0] ?? 0,
     thickMax: thickSorted[thickSorted.length - 1] ?? pointSorted[pointSorted.length - 1] ?? 0,
     min: lineSorted[0] ?? pointSorted[0] ?? 0,
@@ -684,10 +724,25 @@ function buildGraph(slot, baseSpeed, battleState = null) {
   };
 }
 
-function buildRosterGraph(entry, speed = entry.speed) {
+function getGraphPriorityRange(graph) {
+  if (graph.showThickRange) {
+    return {
+      max: graph.thickMax,
+      min: graph.thickMin,
+    };
+  }
+
+  return {
+    max: graph.pointMax ?? graph.point ?? 0,
+    min: graph.pointMin ?? graph.point ?? 0,
+  };
+}
+
+function buildRosterGraph(entry, speed = entry.speed, language = "ko") {
   return buildGraph(
     {
       name: entry.displayName,
+      nameEn: entry.displayNameEn,
       nature: "unknown",
       itemSetting: "unknown",
       abilitySetting: "unknown",
@@ -695,7 +750,9 @@ function buildRosterGraph(entry, speed = entry.speed) {
       evValue: 32,
       megaChoice: "",
     },
-    speed
+    speed,
+    null,
+    language
   );
 }
 
@@ -716,10 +773,27 @@ function getVerdict(allyGraph, enemyGraph, t) {
 }
 
 function Tooltip({ label, text, className = "" }) {
+  const lines = String(text)
+    .split("\n")
+    .map((line) => line.trim())
+    .filter(Boolean);
+
   return (
     <span className={`tooltip-anchor ${className}`} tabIndex={0}>
       {label}
-      <span className="tooltip-panel">{text}</span>
+      <span className={`tooltip-panel ${lines.length > 1 ? "multiline" : ""}`}>
+        {lines.length > 1 ? (
+          <span className="tooltip-lines">
+            {lines.map((line) => (
+              <span key={line} className="tooltip-line">
+                {line}
+              </span>
+            ))}
+          </span>
+        ) : (
+          text
+        )}
+      </span>
     </span>
   );
 }
@@ -733,8 +807,14 @@ function SpeedGraph({ graph, maxValue, tone = "ally", compact = false, markerVal
   const pointRangeLeft = (graph.pointMin / maxValue) * 100;
   const pointRangeWidth = ((graph.pointMax - graph.pointMin) / maxValue) * 100;
   const pointIsRange = graph.pointMax > graph.pointMin;
+  const showThickRange = graph.showThickRange !== false;
+  const isSingleResolvedPoint =
+    graph.min === graph.max &&
+    graph.thickMin === graph.thickMax &&
+    !pointIsRange;
   const pointTooltip = graph.pointTooltip?.join("\n") || "";
   const thickTooltip = graph.thickTooltip?.join("\n") || pointTooltip;
+  const visualMarkers = pointIsRange ? graph.markers : graph.markers.filter((marker) => marker.value !== graph.point);
   const markerLabels = markerValuePlacement === "none"
     ? []
     : (() => {
@@ -802,10 +882,10 @@ function SpeedGraph({ graph, maxValue, tone = "ally", compact = false, markerVal
         return (
           <div
             key={`${segment.min}-${segment.max}-${index}`}
-            className="speed-graph-segment marker-tooltip"
+            className={`speed-graph-segment marker-tooltip ${isSingleResolvedPoint ? "is-hidden" : ""}`}
             data-tooltip={segment.labels.join("\n")}
             style={{ left: `${left}%`, width: `${Math.max(0.8, width)}%` }}
-            tabIndex={0}
+            tabIndex={isSingleResolvedPoint ? -1 : 0}
           >
             <div className="speed-graph-line" />
             <div className="speed-graph-cap start" />
@@ -813,11 +893,16 @@ function SpeedGraph({ graph, maxValue, tone = "ally", compact = false, markerVal
           </div>
         );
       })}
-      <div className="speed-graph-thick marker-tooltip" style={{ left: `${thickLeft}%`, width: `${Math.max(1, thickWidth)}%` }} data-tooltip={thickTooltip} tabIndex={0} />
-        {graph.markers.map((marker) => (
+      <div
+        className={`speed-graph-thick marker-tooltip ${isSingleResolvedPoint || !showThickRange ? "is-hidden" : ""}`}
+        style={{ left: `${thickLeft}%`, width: `${Math.max(1, thickWidth)}%` }}
+        data-tooltip={thickTooltip}
+        tabIndex={isSingleResolvedPoint || !showThickRange ? -1 : 0}
+      />
+        {visualMarkers.map((marker) => (
           <div
             key={`${marker.value}-${marker.labels.join("-")}`}
-            className="speed-graph-marker"
+            className={`speed-graph-marker ${isSingleResolvedPoint ? "is-hidden" : ""}`}
             style={{ left: `${(marker.value / maxValue) * 100}%` }}
           />
         ))}
@@ -922,7 +1007,7 @@ function App() {
   const searchResults = useMemo(() => {
     const keyword = search.trim().toLowerCase();
     if (!keyword) return [];
-    return championsRoster.filter((entry) => entry.displayName.toLowerCase().includes(keyword)).slice(0, 10);
+    return championsRoster.filter((entry) => `${entry.displayName} ${entry.displayNameEn || ""}`.toLowerCase().includes(keyword)).slice(0, 10);
   }, [search]);
 
   const battleSearchResults = useMemo(
@@ -930,7 +1015,7 @@ function App() {
       ["ally", "enemy"].reduce(
         (acc, side) => {
           const keyword = battleSearch[side].trim().toLowerCase();
-          acc[side] = keyword ? championsRoster.filter((entry) => entry.displayName.toLowerCase().includes(keyword)).slice(0, 8) : [];
+          acc[side] = keyword ? championsRoster.filter((entry) => `${entry.displayName} ${entry.displayNameEn || ""}`.toLowerCase().includes(keyword)).slice(0, 8) : [];
           return acc;
         },
         { ally: [], enemy: [] }
@@ -969,6 +1054,7 @@ function App() {
       dexNo: entry.dexNo,
       formKey: entry.formKey,
       name: entry.displayName,
+      nameEn: entry.displayNameEn,
       baseSpeed: entry.speed,
       icon: entry.icon,
       megaChoice: hasMega ? "unknown" : "",
@@ -1086,14 +1172,14 @@ function App() {
     const pushRows = (slots, side) => {
       slots.forEach((slot, index) => {
         if (!slotHasPokemon(slot)) return;
-        const baseGraph = buildGraph(slot, slot.baseSpeed);
+        const baseGraph = buildGraph(slot, slot.baseSpeed, null, language);
         const locked = side === "ally" ? allyActiveLocked : enemyActiveLocked;
         const deemphasized = locked && !slot.active;
         rows.push({
           id: `${side}-${index}-base`,
           side,
           index,
-          label: slot.name,
+          label: getLocalizedName(slot, language),
           icon: slot.icon,
           graph: baseGraph,
           baseSpeed: slot.baseSpeed,
@@ -1109,9 +1195,9 @@ function App() {
             id: `${side}-${index}-${mega.key}`,
             side,
             index,
-            label: mega.label,
+            label: getLocalizedMegaLabel(mega, language),
             icon: getDisplayIcon({ ...slot, megaChoice: mega.key }, true),
-            graph: buildGraph(slot, mega.speed),
+            graph: buildGraph(slot, mega.speed, null, language),
             baseSpeed: mega.speed,
             active: slot.active,
             selected: battleState[side].index === index && battleState[side].mega && slot.megaChoice === mega.key,
@@ -1125,12 +1211,14 @@ function App() {
     pushRows(allySlots, "ally");
     pushRows(enemySlots, "enemy");
     return rows.sort((a, b) => {
+      const aPriorityRange = getGraphPriorityRange(a.graph);
+      const bPriorityRange = getGraphPriorityRange(b.graph);
       if (a.priority !== b.priority) return a.priority - b.priority;
-      if (b.graph.thickMax !== a.graph.thickMax) return b.graph.thickMax - a.graph.thickMax;
-      if (b.graph.thickMin !== a.graph.thickMin) return b.graph.thickMin - a.graph.thickMin;
+      if (bPriorityRange.max !== aPriorityRange.max) return bPriorityRange.max - aPriorityRange.max;
+      if (bPriorityRange.min !== aPriorityRange.min) return bPriorityRange.min - aPriorityRange.min;
       return b.graph.max - a.graph.max;
     });
-  }, [allySlots, enemySlots, battleState, allyActiveLocked, enemyActiveLocked]);
+  }, [allySlots, enemySlots, battleState, allyActiveLocked, enemyActiveLocked, language]);
 
   const compareMax = Math.max(200, ...compareRows.map((row) => row.graph.max), 200);
 
@@ -1171,29 +1259,31 @@ function App() {
     championsRoster.forEach((entry) => {
       rows.push({
         id: entry.id,
-        label: entry.displayName,
+        label: getLocalizedName(entry, language),
         icon: entry.icon,
-        graph: buildRosterGraph(entry),
+        graph: buildRosterGraph(entry, entry.speed, language),
         baseSpeed: entry.speed,
         isMega: false,
       });
       (MEGA_OPTIONS[entry.displayName] || []).forEach((mega) => {
         rows.push({
           id: `${entry.id}-${mega.key}`,
-          label: mega.label,
+          label: getLocalizedMegaLabel(mega, language),
           icon: CANONICAL_MEGA_ART[mega.label] || entry.icon,
-          graph: buildRosterGraph(entry, mega.speed),
+          graph: buildRosterGraph(entry, mega.speed, language),
           baseSpeed: mega.speed,
           isMega: true,
         });
       });
     });
     return rows.sort((a, b) => {
-      if (b.graph.thickMax !== a.graph.thickMax) return b.graph.thickMax - a.graph.thickMax;
-      if (b.graph.thickMin !== a.graph.thickMin) return b.graph.thickMin - a.graph.thickMin;
+      const aPriorityRange = getGraphPriorityRange(a.graph);
+      const bPriorityRange = getGraphPriorityRange(b.graph);
+      if (bPriorityRange.max !== aPriorityRange.max) return bPriorityRange.max - aPriorityRange.max;
+      if (bPriorityRange.min !== aPriorityRange.min) return bPriorityRange.min - aPriorityRange.min;
       return b.graph.max - a.graph.max;
     });
-  }, []);
+  }, [language]);
 
   const rosterMax = Math.max(200, ...rosterRows.map((row) => row.graph.max), 200);
 
@@ -1201,13 +1291,13 @@ function App() {
   const enemyBattleSlot = enemySlots[battleState.enemy.index] || createSlot(0);
   const allyBattleSpeed = battleState.ally.mega ? getSelectedMega(allyBattleSlot)?.speed || allyBattleSlot.baseSpeed : allyBattleSlot.baseSpeed;
   const enemyBattleSpeed = battleState.enemy.mega ? getSelectedMega(enemyBattleSlot)?.speed || enemyBattleSlot.baseSpeed : enemyBattleSlot.baseSpeed;
-  const allyBattleGraph = slotHasPokemon(allyBattleSlot) ? buildGraph(allyBattleSlot, allyBattleSpeed, battleState.ally) : null;
-  const enemyBattleGraph = slotHasPokemon(enemyBattleSlot) ? buildGraph(enemyBattleSlot, enemyBattleSpeed, battleState.enemy) : null;
+  const allyBattleGraph = slotHasPokemon(allyBattleSlot) ? buildGraph(allyBattleSlot, allyBattleSpeed, battleState.ally, language) : null;
+  const enemyBattleGraph = slotHasPokemon(enemyBattleSlot) ? buildGraph(enemyBattleSlot, enemyBattleSpeed, battleState.enemy, language) : null;
   const battleMax = Math.max(200, allyBattleGraph?.max || 0, enemyBattleGraph?.max || 0);
   const verdict = allyBattleGraph && enemyBattleGraph ? getVerdict(allyBattleGraph, enemyBattleGraph, t) : null;
 
   const isDetailSlotVisible = slotHasPokemon(selectedSlot) && !isDetailPanelCleared;
-  const selectedGraph = isDetailSlotVisible ? buildGraph(selectedSlot, selectedSlot.baseSpeed) : null;
+  const selectedGraph = isDetailSlotVisible ? buildGraph(selectedSlot, selectedSlot.baseSpeed, null, language) : null;
 
   const renderSlotRow = (side, slots, title) => (
     <section className={`team-card ${side}`}>
@@ -1273,7 +1363,7 @@ function App() {
                   <div className="slot-card-top compact">
                     <img src={slot.icon} alt="" className="slot-icon" />
                     <div className="slot-copy">
-                      <strong>{slot.name}</strong>
+                      <strong>{getLocalizedName(slot, language)}</strong>
                     </div>
                     <div className="slot-actions">
                       <button
@@ -1343,7 +1433,7 @@ function App() {
           {megaChoices.length > 0 && <option value="unknown">{t.unknown}</option>}
           {megaChoices.map((mega) => (
             <option key={mega.key} value={mega.key}>
-              {mega.label}
+              {getLocalizedMegaLabel(mega, language)}
             </option>
           ))}
         </select>
@@ -1439,7 +1529,7 @@ function App() {
                     {searchResults.map((entry) => (
                       <button key={entry.id} type="button" className="search-result" onClick={() => applyRosterEntry(entry)}>
                         <img src={entry.icon} alt="" className="result-icon" />
-                        <span>{entry.displayName}</span>
+                        <span>{getLocalizedName(entry, language)}</span>
                         <em>{t.baseSpeed} {entry.speed}</em>
                       </button>
                     ))}
@@ -1470,7 +1560,7 @@ function App() {
                             <img src={getDisplayIcon(selectedSlot, false)} alt="" className="detail-icon" />
                           </div>
                           <div className="detail-copy">
-                            <strong>{selectedSlot.name}</strong>
+                            <strong>{getLocalizedName(selectedSlot, language)}</strong>
                             <span>{t.baseSpeed} {selectedSlot.baseSpeed}</span>
                           </div>
                           <div className="detail-range action-slot">
@@ -1506,7 +1596,7 @@ function App() {
                             <div className="segmented">
                               {NATURE_OPTIONS.map((option) => (
                                 <button key={option.key} type="button" className={selectedSlot.nature === option.key ? "active" : ""} onClick={() => updateSlot(selectedSide, selectedIndex, { nature: option.key })}>
-                                  {option.label}
+                                  {language === "ko" ? option.labelKo : option.labelEn}
                                 </button>
                               ))}
                             </div>
@@ -1564,7 +1654,7 @@ function App() {
                         <select value={state.index} onChange={(event) => setBattleState((current) => ({ ...current, [side]: { ...current[side], index: Number(event.target.value) } }))}>
                           {(side === "ally" ? allySlots : enemySlots).map((teamSlot, index) => (
                             <option key={`${side}-${index}`} value={index}>
-                              {slotHasPokemon(teamSlot) ? teamSlot.name : `${t.slotEmpty} ${index + 1}`}
+                              {slotHasPokemon(teamSlot) ? getLocalizedName(teamSlot, language) : `${t.slotEmpty} ${index + 1}`}
                             </option>
                           ))}
                         </select>
@@ -1589,7 +1679,7 @@ function App() {
                                 onClick={() => applyRosterEntryToSide(entry, side, { preferredIndex: battleState[side].index, syncBattleIndex: true })}
                               >
                                 <img src={entry.icon} alt="" className="result-icon" />
-                                <span>{entry.displayName}</span>
+                                <span>{getLocalizedName(entry, language)}</span>
                                 <em>{t.baseSpeed} {entry.speed}</em>
                               </button>
                             ))}
@@ -1604,7 +1694,7 @@ function App() {
                                 <img src={getDisplayIcon(slot, state.mega)} alt="" className="slot-icon large" />
                             </div>
                             <div>
-                              <strong>{state.mega && getSelectedMega(slot) ? getSelectedMega(slot).label : slot.name}</strong>
+                              <strong>{state.mega && getSelectedMega(slot) ? getLocalizedMegaLabel(getSelectedMega(slot), language) : getLocalizedName(slot, language)}</strong>
                                 <span>{t.baseSpeed} {speed}</span>
                               </div>
                             </div>
@@ -1630,7 +1720,7 @@ function App() {
                                 <div className="segmented compact">
                                   {NATURE_OPTIONS.map((option) => (
                                     <button key={option.key} type="button" className={slot.nature === option.key ? "active" : ""} onClick={() => updateBattleSlot(side, { nature: option.key })}>
-                                      {option.label}
+                                      {language === "ko" ? option.labelKo : option.labelEn}
                                     </button>
                                   ))}
                                 </div>
@@ -1697,7 +1787,7 @@ function App() {
                       </div>
                       <div className="battle-result-stage">
                         <div className="battle-result-icon-spot ally">
-                          <img src={getDisplayIcon(allyBattleSlot, battleState.ally.mega)} alt={allyBattleSlot.name || t.myTeam} className="battle-result-icon" />
+                          <img src={getDisplayIcon(allyBattleSlot, battleState.ally.mega)} alt={getLocalizedName(allyBattleSlot, language) || t.myTeam} className="battle-result-icon" />
                         </div>
                         <div className="battle-result-graphs">
                           <div className="battle-result-graph ally">
@@ -1708,7 +1798,7 @@ function App() {
                           </div>
                         </div>
                         <div className="battle-result-icon-spot enemy">
-                          <img src={getDisplayIcon(enemyBattleSlot, battleState.enemy.mega)} alt={enemyBattleSlot.name || t.opponentTeam} className="battle-result-icon" />
+                          <img src={getDisplayIcon(enemyBattleSlot, battleState.enemy.mega)} alt={getLocalizedName(enemyBattleSlot, language) || t.opponentTeam} className="battle-result-icon" />
                         </div>
                       </div>
                     </>

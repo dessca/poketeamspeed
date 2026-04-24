@@ -1,3 +1,5 @@
+import { getEnglishMegaLabel, getEnglishPokemonName } from "./pokemonDisplayNames.js";
+
 const OA = (dex) =>
   `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${dex}.png`;
 
@@ -13,10 +15,11 @@ const rosterEntry = (dexNo, displayName, speed, formKey = "base", iconSource = d
   dexNo,
   formKey,
   displayName,
+  displayNameEn: getEnglishPokemonName(dexNo, formKey),
   speed,
   icon: typeof iconSource === "number" ? OA(iconSource) : iconSource,
 });
-export const championsRoster = [
+const CHAMPIONS_ROSTER_RAW = [
   rosterEntry(3, "이상해꽃", 80),
   rosterEntry(6, "리자몽", 100),
   rosterEntry(9, "거북왕", 78),
@@ -227,10 +230,12 @@ export const championsRoster = [
   rosterEntry(706, "과미드라", 44, "alt", LOCAL_ICON("sliggoo-hisuian.png")),
 ];
 
+export const championsRoster = CHAMPIONS_ROSTER_RAW;
 
 
 
-export const MEGA_OPTIONS = {
+
+const MEGA_OPTIONS_RAW = {
   "이상해꽃": [{ key: "mega", label: "메가이상해꽃", speed: 80 }],
   "리자몽": [
     { key: "mega-x", label: "메가리자몽X", speed: 100 },
@@ -293,6 +298,21 @@ export const MEGA_OPTIONS = {
   "스코빌런": [{ key: "mega", label: "메가스코빌런", speed: 75 }],
   "킬라플로르": [{ key: "mega", label: "메가킬라플로르", speed: 101 }],
 };
+
+export const MEGA_OPTIONS = Object.fromEntries(
+  Object.entries(MEGA_OPTIONS_RAW).map(([displayName, options]) => {
+    const matchedEntry = championsRoster.find((entry) => entry.displayName === displayName);
+    const baseEnglishName = matchedEntry?.displayNameEn || displayName;
+
+    return [
+      displayName,
+      options.map((option) => ({
+        ...option,
+        labelEn: getEnglishMegaLabel(baseEnglishName, option.key),
+      })),
+    ];
+  })
+);
 export const SPECIAL_POKEMON_RULES = {
   메타몽: {
     type: "transform",
