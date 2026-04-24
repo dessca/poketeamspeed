@@ -24,7 +24,7 @@ const TEXT = {
     titleHelp: "포켓몬 챔피언스 기준으로 양 팀 포켓몬들의 스피드와 현재 대면 선공을 빠르게 파악하는 도구입니다.",
     graphHelpLabel: "그래프 보는 법 ?",
     graphHelp:
-      "점은 무보정 실수치와 능력 포인트 반영값입니다. 능력 포인트를 모르면 점 대신 0~32 범위가 짧은 막대로 표시됩니다. 굵은 선은 성격 반영 범위, 얇은 선은 도구/특성 포함 전체 범위, 세로 눈금은 가능한 수치들입니다.",
+      "점은 무보정 실수치에 능력 포인트를 반영한 값입니다. 능력 포인트를 모르면 점 대신 0~32 범위가 짧은 막대로 표시됩니다. 굵은 선은 성격을 모를 경우 반영한 범위, 얇은 선은 도구/특성 포함 전체 범위, 세로 눈금은 그에 따른 가능한 수치들입니다.",
     rosterHelp: "무보정 실수치를 기준으로 성격·도구·특성에 따른 가능한 범위를 함께 보여줍니다.",
     teamView: "팀 비교",
     rosterView: "전체 포켓몬",
@@ -684,35 +684,19 @@ function buildGraph(slot, baseSpeed, battleState = null) {
   };
 }
 
-function buildRosterGraph(baseSpeed) {
-  const thick = [];
-  const line = [];
-  [0.9, 1, 1.1].forEach((nature) => {
-    [0, 32].forEach((ev) => {
-      const stat = level50Speed(baseSpeed, ev, nature);
-      thick.push(stat);
-      [1, 1.5].forEach((item) => {
-        [1, 1.5, 2].forEach((ability) => {
-          line.push(applySpeed(stat, [item, ability]));
-        });
-      });
-    });
-  });
-  const thickSorted = dedupe(thick);
-  const lineSorted = dedupe(line);
-  return {
-    point: level50Speed(baseSpeed, 0, 1),
-    pointMin: level50Speed(baseSpeed, 0, 1),
-    pointMax: level50Speed(baseSpeed, 0, 1),
-    pointTooltip: summarizeTooltipLines([`무보정 ${level50Speed(baseSpeed, 0, 1)}`, `준속 ${level50Speed(baseSpeed, 32, 1)} · 최속 ${level50Speed(baseSpeed, 32, 1.1)}`]),
-    thickTooltip: summarizeTooltipLines(["성격 반영 범위", `무보정 ${level50Speed(baseSpeed, 0, 1)}`, `준속 ${level50Speed(baseSpeed, 32, 1)} · 최속 ${level50Speed(baseSpeed, 32, 1.1)}`]),
-    thickMin: thickSorted[0],
-    thickMax: thickSorted[thickSorted.length - 1],
-    min: lineSorted[0],
-    max: lineSorted[lineSorted.length - 1],
-    markers: [],
-    lineSegments: [{ min: lineSorted[0], max: lineSorted[lineSorted.length - 1], labels: ["전체 가능 범위"] }],
-  };
+function buildRosterGraph(entry, speed = entry.speed) {
+  return buildGraph(
+    {
+      name: entry.displayName,
+      nature: "unknown",
+      itemSetting: "unknown",
+      abilitySetting: "unknown",
+      evUnknown: true,
+      evValue: 32,
+      megaChoice: "",
+    },
+    speed
+  );
 }
 
 function formatRange(min, max) {
@@ -876,6 +860,8 @@ function App() {
   const [isDetailPanelCleared, setIsDetailPanelCleared] = useState(false);
   const [searchTargetSide, setSearchTargetSide] = useState("ally");
   const [draggingSlot, setDraggingSlot] = useState(null);
+  const compareRowRefs = useRef(new Map());
+  const previousComparePositions = useRef(new Map());
   const [battleState, setBattleState] = useState({
     ally: { index: 0, mega: false, ability: false, tailwind: false, paralysis: false, rank: 0 },
     enemy: { index: 0, mega: false, ability: false, tailwind: false, paralysis: false, rank: 0 },
@@ -1140,11 +1126,45 @@ function App() {
     pushRows(enemySlots, "enemy");
     return rows.sort((a, b) => {
       if (a.priority !== b.priority) return a.priority - b.priority;
+      if (b.graph.thickMax !== a.graph.thickMax) return b.graph.thickMax - a.graph.thickMax;
+      if (b.graph.thickMin !== a.graph.thickMin) return b.graph.thickMin - a.graph.thickMin;
       return b.graph.max - a.graph.max;
     });
   }, [allySlots, enemySlots, battleState, allyActiveLocked, enemyActiveLocked]);
 
   const compareMax = Math.max(200, ...compareRows.map((row) => row.graph.max), 200);
+
+  useEffect(() => {
+    const nextPositions = new Map();
+
+    compareRowRefs.current.forEach((node, id) => {
+      if (!node) return;
+      nextPositions.set(id, node.getBoundingClientRect());
+    });
+
+    previousComparePositions.current.forEach((prevRect, id) => {
+      const node = compareRowRefs.current.get(id);
+      const nextRect = nextPositions.get(id);
+      if (!node || !nextRect) return;
+
+      const deltaY = prevRect.top - nextRect.top;
+      if (Math.abs(deltaY) < 1) return;
+
+      node.getAnimations().forEach((animation) => animation.cancel());
+      node.animate(
+        [
+          { transform: `translateY(${deltaY}px)` },
+          { transform: "translateY(0)" },
+        ],
+        {
+          duration: 260,
+          easing: "cubic-bezier(0.22, 1, 0.36, 1)",
+        }
+      );
+    });
+
+    previousComparePositions.current = nextPositions;
+  }, [compareRows]);
 
   const rosterRows = useMemo(() => {
     const rows = [];
@@ -1153,7 +1173,7 @@ function App() {
         id: entry.id,
         label: entry.displayName,
         icon: entry.icon,
-        graph: buildRosterGraph(entry.speed),
+        graph: buildRosterGraph(entry),
         baseSpeed: entry.speed,
         isMega: false,
       });
@@ -1162,13 +1182,17 @@ function App() {
           id: `${entry.id}-${mega.key}`,
           label: mega.label,
           icon: CANONICAL_MEGA_ART[mega.label] || entry.icon,
-          graph: buildRosterGraph(mega.speed),
+          graph: buildRosterGraph(entry, mega.speed),
           baseSpeed: mega.speed,
           isMega: true,
         });
       });
     });
-    return rows.sort((a, b) => b.graph.max - a.graph.max);
+    return rows.sort((a, b) => {
+      if (b.graph.thickMax !== a.graph.thickMax) return b.graph.thickMax - a.graph.thickMax;
+      if (b.graph.thickMin !== a.graph.thickMin) return b.graph.thickMin - a.graph.thickMin;
+      return b.graph.max - a.graph.max;
+    });
   }, []);
 
   const rosterMax = Math.max(200, ...rosterRows.map((row) => row.graph.max), 200);
@@ -1705,7 +1729,17 @@ function App() {
               <div className="compare-list">
                 {compareRows.length ? (
                   compareRows.map((row) => (
-                    <article key={row.id} className={`compare-row ${row.side} ${row.selected ? "selected" : ""} ${row.deemphasized ? "inactive" : ""}`}>
+                    <article
+                      key={row.id}
+                      ref={(node) => {
+                        if (node) {
+                          compareRowRefs.current.set(row.id, node);
+                        } else {
+                          compareRowRefs.current.delete(row.id);
+                        }
+                      }}
+                      className={`compare-row ${row.side} ${row.selected ? "selected" : ""} ${row.deemphasized ? "inactive" : ""}`}
+                    >
                       <div className="compare-meta">
                         <div className={`icon-shell ${row.side}`}>
                           <img src={row.icon} alt="" className="slot-icon" />
@@ -1743,7 +1777,7 @@ function App() {
                 {rosterRows.map((row) => (
                   <article key={row.id} className={`compare-row roster-row ${row.isMega ? "mega" : ""}`}>
                     <div className="compare-meta">
-                      <div className={`icon-shell ${row.isMega ? "mega-on" : ""}`}>
+                      <div className="icon-shell">
                         <img src={row.icon} alt="" className="slot-icon" />
                       </div>
                       <div>
