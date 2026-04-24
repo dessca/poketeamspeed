@@ -114,7 +114,7 @@ const TEXT = {
     titleHelp: "포켓몬 챔피언스 기준으로 양 팀 포켓몬들의 스피드와 현재 대면 선공을 빠르게 파악하는 도구입니다.",
     graphHelpLabel: "그래프 보는 법 ?",
     graphHelp:
-      "점 또는 짧은 막대는 현재 확인된 스피드입니다. 능력 포인트를 모르면 0~32 범위가 짧은 막대로 표시됩니다.\n그 위 막대들은 성격, 구애스카프, 스피드 특성, 스카프+특성 가능 범위를 단계별로 보여줍니다.\n같은 막대 안의 서로 다른 질감은 성격 x0.9 / x1.0 / x1.1 경우를 구분합니다.",
+      "가장 두껍게 보이는 막대가 현재 기준으로 가장 확실한 스피드 범위입니다.\n능력 포인트를 모르면 기본 범위가 더 넓게 표시됩니다.\n구애스카프, 스피드 특성처럼 추가 조건이 붙는 가능성은 더 얇은 막대로 함께 표시됩니다.\n더 확실한 범위일수록 두껍고, 가정이 많이 필요한 가능성일수록 더 얇게 보입니다.",
     rosterHelp: "능력 포인트/성격/도구/특성에 따른 스피드 가능 범위를 단계형 막대로 보여줍니다.",
     teamView: "팀 비교",
     rosterView: "전체 포켓몬",
@@ -136,8 +136,8 @@ const TEXT = {
     rosterSearchMiss: "일치하는 포켓몬을 찾지 못했습니다.",
     scrollTop: "맨 위로",
     battleMode: "배틀 모드",
-    single: "싱글",
-    double: "더블",
+    single: "싱글 배틀",
+    double: "더블 배틀",
     save: "저장",
     overwrite: "덮어쓰기",
     load: "불러오기",
@@ -214,12 +214,12 @@ const TEXT = {
     titleHelp: "A quick tool for Pokémon Champions that lets you compare team-wide Speed ranges and live turn order at a glance.",
     graphHelpLabel: "How to read the graph?",
     graphHelp:
-      "The dot or short bar shows the currently confirmed Speed. If stat points are unknown, it becomes a short 0-32 range.\nBars above it add possible ranges step by step for nature, Choice Scarf, Speed abilities, and Scarf + ability.\nDifferent textures inside the same layer separate nature x0.9 / x1.0 / x1.1 cases.",
+      "The thickest bar shows the most certain Speed range based on the current information.\nIf stat points are unknown, the base range becomes wider.\nExtra possibilities such as Choice Scarf or Speed abilities appear as thinner bars alongside it.\nMore certain ranges are drawn thicker, while more conditional possibilities are drawn thinner.",
     rosterHelp: "Shows each Pokémon's possible Speed range as layered bars for points, nature, item, and ability.",
     teamView: "Team Compare",
     rosterView: "All Pokémon",
     myTeam: "My Team",
-    opponentTeam: "Opponent Team",
+    opponentTeam: "Opposing Team",
     search: "Search Pokémon",
     searchTarget: "Current target",
     teamSettings: "Team Setup",
@@ -235,9 +235,9 @@ const TEXT = {
     rosterSearchAction: "Go",
     rosterSearchMiss: "No matching Pokemon was found.",
     scrollTop: "Back to top",
-    battleMode: "Battle Mode",
-    single: "Single",
-    double: "Double",
+    battleMode: "Battle\nMode",
+    single: "Single Battle",
+    double: "Double Battle",
     save: "Save",
     overwrite: "Overwrite",
     load: "Load",
@@ -291,17 +291,17 @@ const TEXT = {
     saveEmpty: "There is no My Team setup to save.",
     noData: "No Pokémon yet.",
     sureFirstMy: "My Team Always Moves First",
-    sureFirstOpp: "Opponent Always Moves First",
+    sureFirstOpp: "Opposing Team Always Moves First",
     likelyFirstMy: "My Team Favored",
-    likelyFirstOpp: "Opponent Favored",
+    likelyFirstOpp: "Opposing Team Favored",
     tieExact: "Speed Tie",
     tiePossible: "Possible Speed Tie",
     mixed: "Too Close to Call",
     tieExactSub: "If both exact Speed values match, move order is random each turn.",
     tiePossibleSub: "The remaining variables can still produce a Speed tie.",
     likelySubMy: "Based on the known settings, my team is more likely to move first.",
-    likelySubOpp: "Based on the known settings, the opponent is more likely to move first.",
-    sureSubMy: "The opponent cannot outspeed within the current range.",
+    likelySubOpp: "Based on the known settings, the opposing team is more likely to move first.",
+    sureSubMy: "The opposing team cannot outspeed within the current range.",
     sureSubOpp: "My team cannot outspeed within the current range.",
     mixedSub: "There are still too many overlapping variables to call it cleanly.",
     doubleOrderTitle: "Predicted Turn Order",
@@ -2531,7 +2531,7 @@ function App() {
   const toneClass = theme === "dark" ? "dark" : "light";
 
   return (
-    <div className={`app-shell ${toneClass}`}>
+    <div className={`app-shell ${toneClass} lang-${language}`}>
       <div className="app-chrome">
         <header className="app-header">
           <div className="brand">
@@ -2575,16 +2575,10 @@ function App() {
             <div className="left-stack">
               <section className="panel team-panel">
                 <div className="panel-head">
-                  <div className="heading-with-help">
+                  <div className="heading-with-help team-heading-row">
                     <h2>{t.teamSettings}</h2>
                     <Tooltip label="?" text={t.addHint} className="inline-help" />
-                  </div>
-                </div>
-
-                <div className="team-toolbar">
-                  <div className="toolbar-group mode-group">
-                    <span className="toolbar-label">{t.battleMode}</span>
-                    <div className="segmented compact">
+                    <div className="segmented compact panel-mode-switch">
                       <button type="button" className={battleMode === "single" ? "active" : ""} onClick={() => setBattleMode("single")}>
                         {t.single}
                       </button>
@@ -2593,7 +2587,9 @@ function App() {
                       </button>
                     </div>
                   </div>
+                </div>
 
+                <div className="team-toolbar">
                   <div className="toolbar-group side-group">
                     <div className="segmented compact target-toggle">
                       <button type="button" className={searchTargetSide === "ally" ? "active" : ""} onClick={() => setSearchTargetSide("ally")}>
