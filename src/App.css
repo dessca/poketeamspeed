@@ -2230,9 +2230,38 @@
   top: 16px;
   align-self: start;
   height: fit-content;
-  max-height: none;
-  overflow: visible;
+  max-height: calc(100vh - 32px);
+  overflow-y: auto;
+  overflow-x: clip;
+  overscroll-behavior: contain;
+  scrollbar-gutter: stable;
   min-width: 0;
+}
+
+.compare-panel {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(119, 168, 255, 0.42) rgba(15, 23, 42, 0.18);
+}
+
+.compare-panel::-webkit-scrollbar {
+  width: 10px;
+}
+
+.compare-panel::-webkit-scrollbar-track {
+  border-radius: 999px;
+  background: rgba(15, 23, 42, 0.18);
+}
+
+.compare-panel::-webkit-scrollbar-thumb {
+  border: 3px solid transparent;
+  border-radius: 999px;
+  background: rgba(119, 168, 255, 0.44);
+  background-clip: padding-box;
+}
+
+.compare-panel::-webkit-scrollbar-thumb:hover {
+  background: rgba(119, 168, 255, 0.62);
+  background-clip: padding-box;
 }
 
 .compare-row {
@@ -2744,9 +2773,26 @@
   display: grid;
   gap: 4px;
   font-size: 0.82rem;
+  justify-items: center;
   line-height: 1.55;
-  text-align: right;
-  padding-top: 10px;
+  text-align: center;
+  padding-top: 28px;
+  padding-bottom: 34px;
+}
+
+.app-footer span {
+  max-width: min(760px, 100%);
+}
+
+.app-footer a {
+  color: var(--accent);
+  display: inline-flex;
+  margin-left: 12px;
+  text-decoration: none;
+}
+
+.app-footer a:hover {
+  text-decoration: underline;
 }
 
 @media (max-width: 1380px) {
@@ -2758,8 +2804,9 @@
     order: 3;
     position: sticky;
     top: 16px;
-    max-height: none;
-    overflow: visible;
+    max-height: calc(100vh - 32px);
+    overflow-y: auto;
+    overflow-x: clip;
   }
 }
 

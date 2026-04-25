@@ -269,11 +269,11 @@ const TEXT = {
     doubleOrderTitle: "4마리 행동 순서 예상",
     doubleOrderSub: "현재 설정 기준으로 더블 대면 4마리의 스피드 순위를 비교합니다.",
     footerLines: [
-      "SCARF | Pokemon Speed Matchups",
-      "문의: teamscarf@proton.me",
-      "비공식 팬 도구입니다. Pokemon 및 관련 명칭은 Nintendo, Creatures, GAME FREAK, The Pokemon Company의 상표입니다.",
-      "데이터/아트워크 참고: PokeAPI, PokemonDB, RotomLabs.",
+      "SCARF | Pokemon Speed Matchups · 문의: teamscarf@proton.me",
+      "비공식 팬 도구입니다. Pokemon 및 관련 명칭은 각 권리자의 상표입니다.",
     ],
+    footerSource: "데이터/아트워크 참고: PokeAPI, PokemonDB, RotomLabs.",
+    privacy: "Privacy",
   },
   en: {
     titleMain: "SCARF",
@@ -381,11 +381,11 @@ const TEXT = {
     doubleOrderTitle: "Predicted Turn Order",
     doubleOrderSub: "Compare the current Speed ranking of all four Pokemon in the live double matchup.",
     footerLines: [
-      "SCARF | Pokemon Speed Matchups",
-      "Contact: teamscarf@proton.me",
-      "Unofficial fan tool. Pokemon and related names are trademarks of Nintendo, Creatures, GAME FREAK, and The Pokemon Company.",
-      "Data/artwork references: PokeAPI, PokemonDB, RotomLabs.",
+      "SCARF | Pokemon Speed Matchups · Contact: teamscarf@proton.me",
+      "Unofficial fan tool. Pokemon and related names are trademarks of their respective owners.",
     ],
+    footerSource: "Data/artwork references: PokeAPI, PokemonDB, RotomLabs.",
+    privacy: "Privacy",
   },
   ja: {
     titleMain: "SCARF",
@@ -493,11 +493,11 @@ const TEXT = {
     doubleOrderTitle: "4体の行動順予想",
     doubleOrderSub: "現在の設定を基準に、ダブル対面の4体の素早さ順位を比較します。",
     footerLines: [
-      "SCARF | Pokemon Speed Matchups",
-      "お問い合わせ: teamscarf@proton.me",
-      "非公式のファンツールです。Pokemonおよび関連名称はNintendo、Creatures、GAME FREAK、The Pokemon Companyの商標です。",
-      "データ/アートワーク参照: PokeAPI、PokemonDB、RotomLabs。",
+      "SCARF | Pokemon Speed Matchups · お問い合わせ: teamscarf@proton.me",
+      "非公式のファンツールです。Pokemonおよび関連名称は各権利者の商標です。",
     ],
+    footerSource: "データ/アートワーク参照: PokeAPI、PokemonDB、RotomLabs。",
+    privacy: "Privacy",
   },
 };
 
@@ -2501,6 +2501,10 @@ function App() {
           {t.footerLines.map((line) => (
             <span key={line}>{line}</span>
           ))}
+          <span>
+            {t.footerSource}
+            <a href="/privacy.html">{t.privacy}</a>
+          </span>
         </footer>
       </div>
 
