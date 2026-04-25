@@ -16,7 +16,7 @@ export const NATURE_OPTIONS = [
 
 export const ITEMS = {
   none: { labelKo: "없음", labelEn: "None", labelJa: "なし", values: [1], point: 1 },
-  scarf: { labelKo: "구애스카프 ×1.5", labelEn: "Scarf ×1.5", labelJa: "こだわりスカーフ ×1.5", values: [1.5], point: 1.5 },
+  scarf: { labelKo: "구애스카프", labelEn: "Scarf", labelJa: "こだわりスカーフ", values: [1.5], point: 1.5 },
   unknown: { labelKo: "모름", labelEn: "Unknown", labelJa: "不明", values: [1, 1.5], point: 1 },
 };
 

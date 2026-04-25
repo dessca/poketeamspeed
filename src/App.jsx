@@ -20,7 +20,6 @@ import {
   buildGraph,
   canActivateBattleAbility,
   DEFAULT_ABILITY_OPTIONS,
-  getAbilityHelpText,
   getAbilityOptions,
   getDisplayIcon,
   getMegaChoices,
@@ -40,6 +39,7 @@ import {
   getLocalizedCurrentSpeedLabel,
   getLocalizedMegaLabel,
   getLocalizedName,
+  getLocalizedOptionHelp,
   getLocalizedOptionLabel,
   pickLocalizedText,
 } from "./domain/localization";
@@ -237,14 +237,14 @@ const TEXT = {
     nature: "능력 보정 (성격)",
     item: "도구",
     ability: "특성",
-    abilityHelp: "포켓몬에 따라 스피드 관련 특성이 있는 경우 설정할 수 있습니다.\n속도 보정 특성을 선택하면 이 툴팁에서 발동 조건과 배율을 확인할 수 있습니다.",
+    abilityHelp: "스피드에 영향을 주는 특성은 버튼 안에 배율 배지가 표시되며, 버튼에 마우스를 올리거나 포커스하면 발동 조건을 확인할 수 있습니다.",
     active: "출전",
     standby: "대기",
     resetSlot: "선택 슬롯 초기화",
     clearDetailPanel: "상세 설정 닫기",
     currentPokemon: "현재 포켓몬",
-    tailwind: "순풍 ×2.0",
-    paralysis: "마비 ×0.5",
+    tailwind: "순풍",
+    paralysis: "마비",
     rank: "랭크",
     battleHelp: "실시간 대면 정보를 설정해보세요.\n위 상세 설정과 연동되어 선공 여부를 예측할 수 있습니다.\n누가 먼저 행동할까요?",
     addHint: "팀을 선택하고 포켓몬을 검색해 슬롯에 추가하세요.\n상세 설정에서 스피드 관련 설정을 할 수 있습니다.\n각 슬롯의 출전/대기 버튼을 눌러 출전 포켓몬을 표시해보세요.\n슬롯을 드래그하여 순서를 변경할 수 있습니다.",
@@ -349,14 +349,14 @@ const TEXT = {
     nature: "Nature Modifier",
     item: "Item",
     ability: "Ability",
-    abilityHelp: "If this Pokémon has a Speed-related ability option, you can configure it here.\nWhen a Speed ability is selected, this tooltip explains its trigger and multiplier.",
+    abilityHelp: "Speed-affecting abilities show a multiplier badge inside the button; hover or focus the button to see when it activates.",
     active: "Active",
     standby: "Bench",
     resetSlot: "Reset Slot",
     clearDetailPanel: "Close Details",
     currentPokemon: "Current Pokémon",
-    tailwind: "Tailwind ×2.0",
-    paralysis: "Paralysis ×0.5",
+    tailwind: "Tailwind",
+    paralysis: "Paralysis",
     rank: "Stage",
     battleHelp: "Configure the current live matchup here.\nThese settings stay synced with the detail panel,\nso you can quickly check who moves first.",
     addHint: "Choose a team and search for a Pokémon to add to a slot.\nUse the detail panel to adjust Speed-related settings.\nYou can also mark active Pokémon and drag slots to reorder them.",
@@ -461,14 +461,14 @@ const TEXT = {
     nature: "性格補正",
     item: "持ち物",
     ability: "特性",
-    abilityHelp: "このポケモンに素早さ関連の特性候補がある場合は、ここで設定できます。\n素早さ特性を選ぶと、このツールチップで発動条件と倍率を確認できます。",
+    abilityHelp: "素早さに影響する特性はボタン内に倍率バッジが表示され、ボタンにホバーまたはフォーカスすると発動条件を確認できます。",
     active: "出場",
     standby: "控え",
     resetSlot: "スロット初期化",
     clearDetailPanel: "詳細設定を閉じる",
     currentPokemon: "現在のポケモン",
-    tailwind: "おいかぜ ×2.0",
-    paralysis: "まひ ×0.5",
+    tailwind: "おいかぜ",
+    paralysis: "まひ",
     rank: "ランク",
     battleHelp: "現在の対面情報をここで設定します。\n詳細設定と連動しているので、\nどちらが先に動くかをすばやく確認できます。",
     addHint: "チームを選び、ポケモンを検索してスロットに追加してください。\n詳細設定で素早さ関連の設定を調整できます。\n出場ポケモンの指定やスロットのドラッグ並び替えもできます。",
@@ -778,6 +778,21 @@ function Tooltip({ label, text, className = "" }) {
           text
         )}
       </span>
+    </span>
+  );
+}
+
+function formatAbilityMultiplier(multiplier) {
+  if (multiplier === 1) return "";
+  return `×${Number.isInteger(multiplier) ? multiplier : multiplier.toFixed(1)}`;
+}
+
+function MultiplierBadge({ value }) {
+  const label = formatAbilityMultiplier(value);
+  if (!label) return null;
+  return (
+    <span className="multiplier-badge" aria-label={label}>
+      <span className="multiplier-badge-text">{label}</span>
     </span>
   );
 }
@@ -1675,16 +1690,23 @@ function App() {
     const options = getAbilityOptions(slot, battleState);
     const selectedKey = options.some((option) => option.key === slot.abilitySetting) ? slot.abilitySetting : options[0].key;
 
-    return options.map((option) => (
-      <button
-        key={option.key}
-        type="button"
-        className={selectedKey === option.key ? "active" : ""}
-        onClick={() => onChange(option.key)}
-      >
-        {getLocalizedOptionLabel(option, language)}
-      </button>
-    ));
+    return options.map((option) => {
+      const multiplierLabel = option.key !== "unknown" ? formatAbilityMultiplier(option.multiplier) : "";
+      const helpText = option.key !== "unknown" && option.multiplier !== 1 ? getLocalizedOptionHelp(option, language, "") : "";
+
+      return (
+        <button
+          key={option.key}
+          type="button"
+          className={`${selectedKey === option.key ? "active" : ""} ${multiplierLabel ? "speed-modifier-option speed-ability-option" : ""}`.trim()}
+          onClick={() => onChange(option.key)}
+        >
+          <span className="ability-option-label">{getLocalizedOptionLabel(option, language)}</span>
+          {multiplierLabel && <MultiplierBadge value={option.multiplier} />}
+          {helpText && <span className="ability-option-tooltip">{helpText}</span>}
+        </button>
+      );
+    });
   };
 
   const renderMegaField = (slot, onChange) => {
@@ -1842,15 +1864,21 @@ function App() {
                 <span>{t.item}</span>
                 <div className="segmented wrap">
                   {Object.entries(ITEMS).map(([key, item]) => (
-                    <button key={key} type="button" className={slot.itemSetting === key ? "active" : ""} onClick={() => updateBattleSlot(side, battleSlotIndex, { itemSetting: key })}>
-                      {getLocalizedOptionLabel(item, language)}
+                    <button
+                      key={key}
+                      type="button"
+                      className={`${slot.itemSetting === key ? "active" : ""} ${key !== "unknown" ? "speed-modifier-option" : ""}`.trim()}
+                      onClick={() => updateBattleSlot(side, battleSlotIndex, { itemSetting: key })}
+                    >
+                      <span className="option-label">{getLocalizedOptionLabel(item, language)}</span>
+                      {key !== "unknown" && <MultiplierBadge value={item.point} />}
                     </button>
                   ))}
                 </div>
               </div>
 
               <div className="field span-2 battle-field battle-field-ability">
-                <span>{t.ability} <Tooltip label="?" text={getAbilityHelpText(slot, language, t.abilityHelp, state)} className="inline-help" /></span>
+                <span>{t.ability} <Tooltip label="?" text={t.abilityHelp} className="inline-help" /></span>
                 <div className="segmented wrap">
                   {renderAbilityButtons(slot, (value) => updateBattleSlot(side, battleSlotIndex, { abilitySetting: value }), state)}
                 </div>
@@ -1863,10 +1891,12 @@ function App() {
                 className={`toggle-chip ${state.tailwind ? "on" : ""}`}
                 onClick={() => dispatchBattle({ type: "set_side_tailwind", side, value: !state.tailwind })}
               >
-                {t.tailwind}
+                <span className="option-label">{t.tailwind}</span>
+                <MultiplierBadge value={2} />
               </button>
               <button type="button" className={`toggle-chip ${state.paralysis ? "on" : ""}`} onClick={() => setBattleUnitState(side, battleSlotIndex, { paralysis: !state.paralysis })}>
-                {t.paralysis}
+                <span className="option-label">{t.paralysis}</span>
+                <MultiplierBadge value={0.5} />
               </button>
               <button type="button" className={`toggle-chip ${state.mega ? "on" : ""}`} disabled={!getSelectedMega(slot)} onClick={() => setBattleUnitState(side, battleSlotIndex, { mega: !state.mega })}>
                 {t.mega}
@@ -2161,15 +2191,21 @@ function App() {
                             <span>{t.item}</span>
                             <div className="segmented wrap">
                               {Object.entries(ITEMS).map(([key, item]) => (
-                                <button key={key} type="button" className={selectedSlot.itemSetting === key ? "active" : ""} onClick={() => updateSlot(selectedSide, selectedIndex, { itemSetting: key })}>
-                                  {getLocalizedOptionLabel(item, language)}
+                                <button
+                                  key={key}
+                                  type="button"
+                                  className={`${selectedSlot.itemSetting === key ? "active" : ""} ${key !== "unknown" ? "speed-modifier-option" : ""}`.trim()}
+                                  onClick={() => updateSlot(selectedSide, selectedIndex, { itemSetting: key })}
+                                >
+                                  <span className="option-label">{getLocalizedOptionLabel(item, language)}</span>
+                                  {key !== "unknown" && <MultiplierBadge value={item.point} />}
                                 </button>
                               ))}
                             </div>
                           </div>
 
                           <div className="field span-2">
-                            <span>{t.ability} <Tooltip label="?" text={getAbilityHelpText(selectedSlot, language, t.abilityHelp)} className="inline-help" /></span>
+                            <span>{t.ability} <Tooltip label="?" text={t.abilityHelp} className="inline-help" /></span>
                             <div className="segmented wrap">
                               {renderAbilityButtons(selectedSlot, (value) => updateSlot(selectedSide, selectedIndex, { abilitySetting: value }))}
                             </div>
