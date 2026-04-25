@@ -1910,8 +1910,8 @@ function App() {
               </button>
 
               <select className="lang-select styled-select" value={language} onChange={(event) => setLanguage(event.target.value)}>
-                <option value="ko">한국어</option>
                 <option value="en">English</option>
+                <option value="ko">한국어</option>
                 <option value="ja">日本語</option>
               </select>
             </div>
