@@ -3682,7 +3682,7 @@
   }
 
   .team-toolbar {
-    grid-template-columns: minmax(0, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 10px;
   }
 
@@ -3726,8 +3726,10 @@
     padding: 0 14px;
   }
 
-  .toolbar-search-shell {
+  .team-toolbar > .toolbar-search-shell {
     grid-column: 1 / -1;
+    width: 100%;
+    justify-self: stretch;
   }
 
   .team-toolbar .search-box span,
