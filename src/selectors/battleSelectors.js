@@ -1,10 +1,10 @@
 import {
   buildGraph,
   buildRosterGraph,
-  CANONICAL_MEGA_ART,
   getCompareMegaChoices,
   getDisplayIcon,
   getGraphPriorityRange,
+  getMegaArt,
   getSelectedMega,
   slotHasPokemon,
 } from "../domain/battle";
@@ -131,7 +131,7 @@ export function buildRosterRows({ roster, megaOptions, language, sortMode = ROST
         id: `${entry.id}-${mega.key}`,
         dexNo: entry.dexNo,
         label: getLocalizedMegaLabel(mega, language),
-        icon: mega.icon || CANONICAL_MEGA_ART[mega.label] || entry.icon,
+        icon: getMegaArt(mega) || entry.icon,
         graph: buildRosterGraph(entry, mega.speed, language),
         baseSpeed: mega.speed,
         isMega: true,

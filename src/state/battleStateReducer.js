@@ -1,4 +1,4 @@
-import { canActivateBattleAbility, normalizeBattleSideState, resetBattleTransientState } from "../domain/battle";
+import { canActivateBattleAbility, getSelectedMega, normalizeBattleSideState, resetBattleTransientState } from "../domain/battle";
 
 export function sanitizeBattleStateForSlots(state, slotsBySide) {
   let changed = false;
@@ -12,6 +12,14 @@ export function sanitizeBattleStateForSlots(state, slotsBySide) {
       if (!entry.ability) return;
       if (slot && canActivateBattleAbility(slot, entry)) return;
       next[side][battleSlotIndex] = { ...entry, ability: false };
+      changed = true;
+    });
+
+    next[side].forEach((entry, battleSlotIndex) => {
+      const slot = slotsBySide?.[side]?.[entry.index];
+      if (!entry.mega) return;
+      if (slot && getSelectedMega(slot)) return;
+      next[side][battleSlotIndex] = { ...entry, mega: false };
       changed = true;
     });
   });
@@ -34,12 +42,17 @@ export function battleStateReducer(state, action) {
     case "set_unit_index": {
       const nextSide = state[action.side].map((entry) => ({ ...entry }));
       const otherIndex = nextSide.findIndex((entry, index) => index !== action.battleSlotIndex && entry.index === action.targetIndex);
+      const slots = action.slotsBySide?.[action.side] || [];
+      const getPersistentState = (teamIndex) => ({
+        mega: slots[teamIndex]?.megaActive,
+      });
 
       if (otherIndex !== -1) {
-        nextSide[otherIndex] = resetBattleTransientState(nextSide[otherIndex], nextSide[action.battleSlotIndex].index);
+        const swappedIndex = nextSide[action.battleSlotIndex].index;
+        nextSide[otherIndex] = resetBattleTransientState(nextSide[otherIndex], swappedIndex, getPersistentState(swappedIndex));
       }
 
-      nextSide[action.battleSlotIndex] = resetBattleTransientState(nextSide[action.battleSlotIndex], action.targetIndex);
+      nextSide[action.battleSlotIndex] = resetBattleTransientState(nextSide[action.battleSlotIndex], action.targetIndex, getPersistentState(action.targetIndex));
       const next = { ...state, [action.side]: nextSide };
       return action.slotsBySide ? sanitizeBattleStateForSlots(next, action.slotsBySide) : next;
     }

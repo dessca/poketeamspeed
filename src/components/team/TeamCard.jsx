@@ -46,6 +46,7 @@ export default function TeamCard({
         {slots.map((slot, index) => {
           const selected = selectedSide === side && selectedIndex === index;
           const hasPokemon = Boolean(slot.name && slot.baseSpeed);
+          const localizedName = hasPokemon ? getLocalizedName(slot) : "";
 
           return (
             <div
@@ -70,7 +71,7 @@ export default function TeamCard({
                 <div className="slot-card-top compact">
                   <img src={slot.icon} alt="" className="slot-icon" />
                   <div className="slot-copy">
-                    <strong>{getLocalizedName(slot)}</strong>
+                    <strong title={localizedName}>{localizedName}</strong>
                   </div>
                   <div className="slot-actions">
                     <button

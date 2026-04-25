@@ -504,6 +504,7 @@ function createSlot(index) {
     baseSpeed: 0,
     icon: "",
     active: false,
+    megaActive: false,
     megaChoice: "",
     evUnknown: true,
     evValue: 32,
@@ -1235,6 +1236,12 @@ function App() {
   };
 
   const setBattleUnitState = (side, battleSlotIndex, updater) => {
+    if (updater && typeof updater === "object" && Object.hasOwn(updater, "mega")) {
+      const teamIndex = battleState[side][battleSlotIndex]?.index;
+      if (Number.isInteger(teamIndex)) {
+        updateSlot(side, teamIndex, { megaActive: Boolean(updater.mega) });
+      }
+    }
     dispatchBattle({ type: "set_unit_state", side, battleSlotIndex, updater });
   };
 
@@ -1244,7 +1251,11 @@ function App() {
 
   const updateBattleSlot = (side, battleSlotIndex, patch) => {
     const index = battleState[side][battleSlotIndex].index;
-    updateSlot(side, index, patch);
+    const nextPatch = patch && Object.hasOwn(patch, "megaChoice") ? { ...patch, megaActive: false } : patch;
+    updateSlot(side, index, nextPatch);
+    if (patch && Object.hasOwn(patch, "megaChoice")) {
+      setBattleUnitState(side, battleSlotIndex, { mega: false });
+    }
   };
 
   const jumpToRosterRow = (row) => {
@@ -1419,6 +1430,7 @@ function App() {
       names: getRosterEntryNames(entry),
       baseSpeed: entry.speed,
       icon: entry.icon,
+      megaActive: false,
       megaChoice: hasMega ? "unknown" : "",
       nature: "unknown",
       itemSetting: "unknown",
@@ -1682,6 +1694,7 @@ function App() {
   const renderBattleCard = (side, battleSlotIndex, title, unit) => {
     const { slot, state, speed, graph } = unit;
     const searchResultsForUnit = battleSearchResults[side][battleSlotIndex];
+    const battleDisplayName = state.mega && getSelectedMega(slot) ? getLocalizedMegaLabel(getSelectedMega(slot), language) : getLocalizedName(slot, language);
 
     return (
       <div key={`${side}-${battleSlotIndex}`} className={`battle-side ${side} ${slotHasPokemon(slot) ? "" : "battle-side-empty"} ${searchResultsForUnit.length > 0 ? "battle-side-searching" : ""}`}>
@@ -1729,7 +1742,7 @@ function App() {
                   }
                 >
                   <img src={entry.icon} alt="" className="result-icon" />
-                  <span>{getLocalizedName(entry, language)}</span>
+                  <span title={getLocalizedName(entry, language)}>{getLocalizedName(entry, language)}</span>
                   <em>{t.baseSpeed} {entry.speed}</em>
                 </button>
               ))}
@@ -1748,7 +1761,7 @@ function App() {
                 <img src={getDisplayIcon(slot, state.mega)} alt="" className="slot-icon large" />
               </div>
               <div className="detail-copy">
-                <strong>{state.mega && getSelectedMega(slot) ? getLocalizedMegaLabel(getSelectedMega(slot), language) : getLocalizedName(slot, language)}</strong>
+                <strong title={battleDisplayName}>{battleDisplayName}</strong>
                 <span>{t.baseSpeed} {speed}</span>
               </div>
               {graph && (
@@ -1961,7 +1974,7 @@ function App() {
                         {searchResults.map((entry) => (
                           <button key={entry.id} type="button" className="search-result" onClick={() => applyRosterEntry(entry)}>
                             <img src={entry.icon} alt="" className="result-icon" />
-                            <span>{getLocalizedName(entry, language)}</span>
+                            <span title={getLocalizedName(entry, language)}>{getLocalizedName(entry, language)}</span>
                             <em>{t.baseSpeed} {entry.speed}</em>
                           </button>
                         ))}
@@ -2067,7 +2080,7 @@ function App() {
                             <img src={getDisplayIcon(selectedSlot, false)} alt="" className="detail-icon" />
                           </div>
                           <div className="detail-copy">
-                            <strong>{getLocalizedName(selectedSlot, language)}</strong>
+                            <strong title={getLocalizedName(selectedSlot, language)}>{getLocalizedName(selectedSlot, language)}</strong>
                             <span>{t.baseSpeed} {selectedSlot.baseSpeed}</span>
                           </div>
                           {selectedGraph && (
@@ -2191,7 +2204,7 @@ function App() {
                               <div className="battle-order-copy">
                                 <div className="battle-order-head">
                                   <div className={`detail-side-badge ${entry.side}`}>{entry.title}</div>
-                                  <strong>{entry.label}</strong>
+                                  <strong title={entry.label}>{entry.label}</strong>
                                 </div>
                               </div>
                               <div className="battle-order-graph">
@@ -2276,7 +2289,7 @@ function App() {
                         </div>
                         <div className="compare-copy">
                           <div className="compare-name-line">
-                            <strong>{row.label}</strong>
+                            <strong title={row.label}>{row.label}</strong>
                             <span className={`mini-chip compare-active-chip ${row.active ? "on" : "is-hidden"}`}>{t.active}</span>
                           </div>
                           <span>{t.baseSpeed} {row.baseSpeed}</span>
@@ -2365,7 +2378,7 @@ function App() {
                           onClick={() => jumpToRosterRow(row)}
                         >
                           <img src={row.icon} alt="" className="result-icon" />
-                          <span>{row.label}</span>
+                          <span title={row.label}>{row.label}</span>
                           <em>{t.baseSpeed} {row.baseSpeed}</em>
                         </button>
                       ))}
@@ -2395,7 +2408,7 @@ function App() {
                       </div>
                       <div>
                         <div className="compare-name-line">
-                          <strong>{row.label}</strong>
+                          <strong title={row.label}>{row.label}</strong>
                           {row.isMega && <span className="mini-chip mega">Mega</span>}
                         </div>
                         <span>{t.baseSpeed} {row.baseSpeed}</span>

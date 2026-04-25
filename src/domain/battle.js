@@ -104,6 +104,35 @@ export const CANONICAL_MEGA_ART = {
   메가눈여아: megaFroslassArt,
 };
 
+const CANONICAL_MEGA_ART_BY_EN = {
+  "Mega Clefable": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10278.png",
+  "Mega Victreebel": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10279.png",
+  "Mega Starmie": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10280.png",
+  "Mega Dragonite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10281.png",
+  "Mega Meganium": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10282.png",
+  "Mega Feraligatr": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10283.png",
+  "Mega Skarmory": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10284.png",
+  "Mega Chimecho": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10306.png",
+  "Mega Emboar": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10286.png",
+  "Mega Excadrill": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10287.png",
+  "Mega Chandelure": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10291.png",
+  "Mega Golurk": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10313.png",
+  "Mega Chesnaught": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10292.png",
+  "Mega Delphox": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10293.png",
+  "Mega Greninja": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10294.png",
+  "Mega Floette": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10296.png",
+  "Mega Meowstic": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10314.png",
+  "Mega Hawlucha": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10300.png",
+  "Mega Crabominable": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10315.png",
+  "Mega Scovillain": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10320.png",
+  "Mega Glimmora": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10321.png",
+};
+
+export function getMegaArt(mega) {
+  if (!mega) return "";
+  return mega.icon || CANONICAL_MEGA_ART[mega.label] || CANONICAL_MEGA_ART_BY_EN[mega.labelEn] || "";
+}
+
 export function slotHasPokemon(slot) {
   return Boolean(slot.name && slot.baseSpeed);
 }
@@ -528,7 +557,7 @@ export function getDisplayIcon(slot, megaActive = false) {
   if (!megaActive) return slot.icon;
   const mega = getSelectedMega(slot);
   if (!mega) return slot.icon;
-  return CANONICAL_MEGA_ART[mega.label] || slot.icon;
+  return getMegaArt(mega) || slot.icon;
 }
 
 export function buildGraph(slot, baseSpeed, battleState = null, language = "ko") {
@@ -725,9 +754,10 @@ export function createBattleSlotState(index = 0) {
   return { index, mega: false, ability: false, tailwind: false, paralysis: false, rank: 0 };
 }
 
-export function resetBattleTransientState(entry, index = entry.index) {
+export function resetBattleTransientState(entry, index = entry.index, persistent = {}) {
   return {
     ...createBattleSlotState(index),
+    mega: Boolean(persistent.mega),
     tailwind: entry.tailwind,
   };
 }
