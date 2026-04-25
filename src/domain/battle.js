@@ -1,4 +1,3 @@
-import megaFroslassArt from "../../image/Mega_Froslass.webp";
 import { championsRoster, MEGA_OPTIONS_BY_ID } from "../data/championsRoster";
 import {
   getEntityNames,
@@ -101,7 +100,7 @@ export const CANONICAL_MEGA_ART = {
   메가루카리오: "https://img.pokemondb.net/sprites/home/normal/lucario-mega.png",
   메가눈설왕: "https://img.pokemondb.net/sprites/home/normal/abomasnow-mega.png",
   메가엘레이드: "https://img.pokemondb.net/sprites/home/normal/gallade-mega.png",
-  메가눈여아: megaFroslassArt,
+  메가눈여아: "https://static.rotomlabs.net/images/official-artwork/0478-froslass-mega.webp",
 };
 
 const CANONICAL_MEGA_ART_BY_EN = {
