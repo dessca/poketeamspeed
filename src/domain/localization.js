@@ -30,11 +30,16 @@ export function getLocalizedCurrentSpeedLabel(language) {
   });
 }
 
+export function getEntityNames(entity) {
+  const ko = entity?.names?.ko ?? entity?.displayName ?? entity?.name ?? "";
+  const en = entity?.names?.en ?? entity?.displayNameEn ?? entity?.nameEn ?? ko;
+  const ja = entity?.names?.ja ?? entity?.displayNameJa ?? entity?.nameJa ?? en ?? ko;
+  return { ko, en, ja };
+}
+
 export function getLocalizedName(entity, language) {
   if (!entity) return "";
-  const koName = entity.displayName ?? entity.name ?? "";
-  const enName = entity.displayNameEn ?? entity.nameEn ?? koName;
-  const jaName = entity.displayNameJa ?? entity.nameJa ?? enName ?? koName;
+  const { ko: koName, en: enName, ja: jaName } = getEntityNames(entity);
   if (language === "ja") return jaName || enName || koName;
   if (language === "en") return enName || koName;
   return koName;

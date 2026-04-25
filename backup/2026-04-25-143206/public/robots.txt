@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://poketeamspeed.vercel.app/sitemap.xml

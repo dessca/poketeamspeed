@@ -5,6 +5,10 @@ import { useReducer } from "react";
 import {
   championsRoster,
   getRosterSourceData,
+  getMegaOptionsForEntry,
+  getPrimaryRosterName,
+  getRosterEntryNames,
+  getRosterSearchNames,
   loadNationalRosterBundle,
   MEGA_OPTIONS,
   ROSTER_SORTS,
@@ -52,7 +56,9 @@ import ShowdownImportModal from "./components/modals/ShowdownImportModal";
 import TeamCard from "./components/team/TeamCard";
 
 const ROSTER_BY_ID = new Map(championsRoster.map((entry) => [entry.id, entry]));
-const ROSTER_BY_NAME = new Map(championsRoster.map((entry) => [entry.displayName, entry]));
+const ROSTER_BY_NAME = new Map(
+  championsRoster.flatMap((entry) => getRosterSearchNames(entry).map((name) => [name, entry]))
+);
 const BASE_ROSTER_BY_DEX = new Map(
   championsRoster
     .filter((entry) => entry.formKey === "base")
@@ -86,9 +92,10 @@ function normalizeSearchKey(value) {
 
 function getShowdownAliasesForEntry(entry) {
   const aliases = new Set();
-  const baseName = BASE_ROSTER_BY_DEX.get(entry.dexNo)?.displayNameEn || entry.displayNameEn || "";
+  const entryNames = getRosterEntryNames(entry);
+  const baseName = getRosterEntryNames(BASE_ROSTER_BY_DEX.get(entry.dexNo)).en || entryNames.en || "";
 
-  if (entry.displayNameEn) aliases.add(entry.displayNameEn);
+  if (entryNames.en) aliases.add(entryNames.en);
 
   switch (entry.formKey) {
     case "alola":
@@ -130,8 +137,8 @@ function getShowdownAliasesForEntry(entry) {
       aliases.add("Lycanroc-Dusk");
       break;
     case "alt":
-      if (entry.displayNameEn === "Runerigus") aliases.add("Runerigus");
-      if (entry.displayNameEn === "Hisuian Sliggoo") aliases.add("Sliggoo-Hisui");
+      if (entryNames.en === "Runerigus") aliases.add("Runerigus");
+      if (entryNames.en === "Hisuian Sliggoo") aliases.add("Sliggoo-Hisui");
       break;
     default:
       break;
@@ -490,6 +497,7 @@ function createSlot(index) {
     rosterId: "",
     dexNo: null,
     formKey: "base",
+    names: { ko: "", en: "", ja: "" },
     name: "",
     nameEn: "",
     nameJa: "",
@@ -547,7 +555,11 @@ function detectInitialLanguage() {
 }
 
 function writeStorage(key, value) {
-  window.localStorage.setItem(key, JSON.stringify(value));
+  try {
+    window.localStorage.setItem(key, JSON.stringify(value));
+  } catch {
+    // Storage can be unavailable in private browsing or when the quota is full.
+  }
 }
 
 function clampInt(value, min, max) {
@@ -558,7 +570,12 @@ function clampInt(value, min, max) {
 
 function getCanonicalRosterEntry(raw) {
   if (raw?.rosterId && ROSTER_BY_ID.has(raw.rosterId)) return ROSTER_BY_ID.get(raw.rosterId);
-  if (raw?.name && ROSTER_BY_NAME.has(raw.name)) return ROSTER_BY_NAME.get(raw.name);
+  const legacyName = [raw?.name, raw?.nameEn, raw?.nameJa].find((name) => ROSTER_BY_NAME.has(name));
+  if (legacyName) return ROSTER_BY_NAME.get(legacyName);
+  if (raw?.names) {
+    const matchedName = Object.values(raw.names).find((name) => ROSTER_BY_NAME.has(name));
+    if (matchedName) return ROSTER_BY_NAME.get(matchedName);
+  }
   return null;
 }
 
@@ -569,9 +586,18 @@ function normalizeMegaChoice(name, megaChoice) {
 
 function normalizeSlot(raw, index) {
   const canonical = getCanonicalRosterEntry(raw);
-  const name = canonical?.displayName ?? raw?.name ?? "";
-  const nameEn = canonical?.displayNameEn ?? raw?.nameEn ?? "";
-  const nameJa = canonical?.displayNameJa ?? raw?.nameJa ?? "";
+  const canonicalNames = getRosterEntryNames(canonical);
+  const rawNames = getRosterEntryNames(raw);
+  const names = canonical
+    ? canonicalNames
+    : {
+        ko: rawNames.ko,
+        en: rawNames.en,
+        ja: rawNames.ja,
+      };
+  const name = names.ko;
+  const nameEn = names.en;
+  const nameJa = names.ja;
   return {
     ...createSlot(index),
     ...raw,
@@ -579,6 +605,7 @@ function normalizeSlot(raw, index) {
     rosterId: canonical?.id ?? raw?.rosterId ?? "",
     dexNo: canonical?.dexNo ?? raw?.dexNo ?? null,
     formKey: canonical?.formKey ?? raw?.formKey ?? "base",
+    names,
     name,
     nameEn,
     nameJa,
@@ -628,7 +655,7 @@ function parseShowdownSpeedEv(evLine) {
 }
 
 function resolveImportedAbilitySetting(entry, abilityName) {
-  const options = ABILITY_OPTIONS_BY_NAME[entry.displayName] || DEFAULT_ABILITY_OPTIONS;
+  const options = ABILITY_OPTIONS_BY_NAME[getPrimaryRosterName(entry)] || DEFAULT_ABILITY_OPTIONS;
   if (!abilityName) return options.length > 1 ? "unknown" : "none";
 
   const normalizedAbility = normalizeLookupKey(abilityName);
@@ -1265,16 +1292,14 @@ function App() {
         return;
       }
 
-      const hasMega = (MEGA_OPTIONS[entry.displayName] || []).length > 0;
+      const hasMega = getMegaOptionsForEntry(MEGA_OPTIONS, entry).length > 0;
       importedSlots.push(
         normalizeSlot(
           {
             rosterId: entry.id,
             dexNo: entry.dexNo,
             formKey: entry.formKey,
-            name: entry.displayName,
-            nameEn: entry.displayNameEn,
-            nameJa: entry.displayNameJa,
+            names: getRosterEntryNames(entry),
             baseSpeed: entry.speed,
             icon: entry.icon,
             active: false,
@@ -1335,7 +1360,7 @@ function App() {
     if (!keyword) return [];
     return championsRoster
       .filter((entry) =>
-        normalizeSearchKey(`${entry.displayName} ${entry.displayNameEn || ""} ${entry.displayNameJa || ""}`).includes(keyword)
+        normalizeSearchKey(getRosterSearchNames(entry).join(" ")).includes(keyword)
       )
       .slice(0, 10);
   }, [search]);
@@ -1349,7 +1374,7 @@ function App() {
             return keyword
               ? championsRoster
                   .filter((entry) =>
-                    normalizeSearchKey(`${entry.displayName} ${entry.displayNameEn || ""} ${entry.displayNameJa || ""}`).includes(keyword)
+                    normalizeSearchKey(getRosterSearchNames(entry).join(" ")).includes(keyword)
                   )
                   .slice(0, 8)
               : [];
@@ -1374,7 +1399,7 @@ function App() {
     return team.some((slot, index) => {
       if (index === preferredIndex) return false;
       if (!slotHasPokemon(slot)) return false;
-      return slot.name === entry.displayName;
+      return slot.rosterId ? slot.rosterId === entry.id : slot.name === getPrimaryRosterName(entry);
     });
   };
 
@@ -1384,16 +1409,14 @@ function App() {
       window.alert(t.duplicatePokemon);
       return;
     }
-    const hasMega = (MEGA_OPTIONS[entry.displayName] || []).length > 0;
-    const abilityOptions = ABILITY_OPTIONS_BY_NAME[entry.displayName] || DEFAULT_ABILITY_OPTIONS;
+    const hasMega = getMegaOptionsForEntry(MEGA_OPTIONS, entry).length > 0;
+    const abilityOptions = ABILITY_OPTIONS_BY_NAME[getPrimaryRosterName(entry)] || DEFAULT_ABILITY_OPTIONS;
     const targetIndex = findNextInsertIndex(side, preferredIndex);
     updateSlot(side, targetIndex, {
       rosterId: entry.id,
       dexNo: entry.dexNo,
       formKey: entry.formKey,
-      name: entry.displayName,
-      nameEn: entry.displayNameEn,
-      nameJa: entry.displayNameJa,
+      names: getRosterEntryNames(entry),
       baseSpeed: entry.speed,
       icon: entry.icon,
       megaChoice: hasMega ? "unknown" : "",

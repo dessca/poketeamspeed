@@ -9,7 +9,7 @@ import {
   slotHasPokemon,
 } from "../domain/battle";
 import { getLocalizedMegaLabel, getLocalizedName } from "../domain/localization";
-import { ROSTER_SORTS } from "../data/rosterSources";
+import { getMegaOptionsForEntry, getRosterSearchNames, ROSTER_SORTS } from "../data/rosterSources";
 
 export function isBattleSelection(battleState, allySlots, enemySlots, side, teamIndex, megaKey = null) {
   const teamSlots = side === "ally" ? allySlots : enemySlots;
@@ -123,10 +123,10 @@ export function buildRosterRows({ roster, megaOptions, language, sortMode = ROST
       graph: buildRosterGraph(entry, entry.speed, language),
       baseSpeed: entry.speed,
       isMega: false,
-      searchTerms: [getLocalizedName(entry, language), entry.displayName, entry.displayNameEn, entry.displayNameJa].filter(Boolean),
+      searchTerms: getRosterSearchNames(entry),
     });
 
-    (megaOptions[entry.displayName] || []).forEach((mega) => {
+    getMegaOptionsForEntry(megaOptions, entry).forEach((mega) => {
       rows.push({
         id: `${entry.id}-${mega.key}`,
         dexNo: entry.dexNo,
@@ -140,9 +140,7 @@ export function buildRosterRows({ roster, megaOptions, language, sortMode = ROST
           mega.label,
           mega.labelEn,
           mega.labelJa,
-          entry.displayName,
-          entry.displayNameEn,
-          entry.displayNameJa,
+          ...getRosterSearchNames(entry),
         ].filter(Boolean),
       });
     });

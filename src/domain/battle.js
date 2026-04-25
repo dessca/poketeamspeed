@@ -1,6 +1,7 @@
 import megaFroslassArt from "../../image/Mega_Froslass.webp";
-import { MEGA_OPTIONS } from "../data/championsRoster";
+import { championsRoster, MEGA_OPTIONS_BY_ID } from "../data/championsRoster";
 import {
+  getEntityNames,
   getLocalizedMegaLabel,
   getLocalizedOptionHelp,
   getLocalizedOptionLabel,
@@ -425,6 +426,10 @@ function createGraphLayer({
   };
 }
 
+const CHAMPION_ENTRY_BY_NAME = new Map(
+  championsRoster.flatMap((entry) => Object.values(getEntityNames(entry)).filter(Boolean).map((name) => [name, entry]))
+);
+
 function getPotentialAbilityFactors(slot) {
   const selectedAbility = getSelectedAbility(slot);
   const boostedFactors = [...new Set(getAbilityValues(slot).filter((value) => value > 1))];
@@ -439,7 +444,8 @@ function getPotentialAbilityFactors(slot) {
 }
 
 export function getMegaChoices(slot) {
-  return slot.name ? MEGA_OPTIONS[slot.name] || [] : [];
+  const rosterId = slot.rosterId || CHAMPION_ENTRY_BY_NAME.get(slot.name)?.id;
+  return MEGA_OPTIONS_BY_ID[rosterId] || [];
 }
 
 export function getCompareMegaChoices(slot) {
@@ -682,11 +688,14 @@ export function getGraphPriorityRange(graph) {
 }
 
 export function buildRosterGraph(entry, speed = entry.speed, language = "ko") {
+  const names = getEntityNames(entry);
   return buildGraph(
     {
-      name: entry.displayName,
-      nameEn: entry.displayNameEn,
-      nameJa: entry.displayNameJa,
+      names,
+      name: names.ko,
+      nameEn: names.en,
+      nameJa: names.ja,
+      rosterId: entry.id,
       nature: "unknown",
       itemSetting: "unknown",
       abilitySetting: "unknown",

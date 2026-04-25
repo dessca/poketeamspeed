@@ -11,6 +11,9 @@ node_modules
 dist
 dist-ssr
 *.local
+backup/
+review-*.png
+tmp-chrome-profile*/
 
 # Editor directories and files
 .vscode/*

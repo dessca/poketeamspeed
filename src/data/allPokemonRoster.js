@@ -6,9 +6,11 @@ export const allPokemonRoster = [
     "id": "nat-0001",
     "dexNo": 1,
     "formKey": "base",
-    "displayName": "이상해씨",
-    "displayNameEn": "Bulbasaur",
-    "displayNameJa": "フシギダネ",
+    "names": {
+      "ko": "이상해씨",
+      "en": "Bulbasaur",
+      "ja": "フシギダネ"
+    },
     "speed": 45,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png"
   },
@@ -16,9 +18,11 @@ export const allPokemonRoster = [
     "id": "nat-0002",
     "dexNo": 2,
     "formKey": "base",
-    "displayName": "이상해풀",
-    "displayNameEn": "Ivysaur",
-    "displayNameJa": "フシギソウ",
+    "names": {
+      "ko": "이상해풀",
+      "en": "Ivysaur",
+      "ja": "フシギソウ"
+    },
     "speed": 60,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/2.png"
   },
@@ -26,9 +30,11 @@ export const allPokemonRoster = [
     "id": "nat-0003",
     "dexNo": 3,
     "formKey": "base",
-    "displayName": "이상해꽃",
-    "displayNameEn": "Venusaur",
-    "displayNameJa": "フシギバナ",
+    "names": {
+      "ko": "이상해꽃",
+      "en": "Venusaur",
+      "ja": "フシギバナ"
+    },
     "speed": 80,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/3.png"
   },
@@ -36,9 +42,11 @@ export const allPokemonRoster = [
     "id": "nat-0004",
     "dexNo": 4,
     "formKey": "base",
-    "displayName": "파이리",
-    "displayNameEn": "Charmander",
-    "displayNameJa": "ヒトカゲ",
+    "names": {
+      "ko": "파이리",
+      "en": "Charmander",
+      "ja": "ヒトカゲ"
+    },
     "speed": 65,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/4.png"
   },
@@ -46,9 +54,11 @@ export const allPokemonRoster = [
     "id": "nat-0005",
     "dexNo": 5,
     "formKey": "base",
-    "displayName": "리자드",
-    "displayNameEn": "Charmeleon",
-    "displayNameJa": "リザード",
+    "names": {
+      "ko": "리자드",
+      "en": "Charmeleon",
+      "ja": "リザード"
+    },
     "speed": 80,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/5.png"
   },
@@ -56,9 +66,11 @@ export const allPokemonRoster = [
     "id": "nat-0006",
     "dexNo": 6,
     "formKey": "base",
-    "displayName": "리자몽",
-    "displayNameEn": "Charizard",
-    "displayNameJa": "リザードン",
+    "names": {
+      "ko": "리자몽",
+      "en": "Charizard",
+      "ja": "リザードン"
+    },
     "speed": 100,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/6.png"
   },
@@ -66,9 +78,11 @@ export const allPokemonRoster = [
     "id": "nat-0007",
     "dexNo": 7,
     "formKey": "base",
-    "displayName": "꼬부기",
-    "displayNameEn": "Squirtle",
-    "displayNameJa": "ゼニガメ",
+    "names": {
+      "ko": "꼬부기",
+      "en": "Squirtle",
+      "ja": "ゼニガメ"
+    },
     "speed": 43,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/7.png"
   },
@@ -76,9 +90,11 @@ export const allPokemonRoster = [
     "id": "nat-0008",
     "dexNo": 8,
     "formKey": "base",
-    "displayName": "어니부기",
-    "displayNameEn": "Wartortle",
-    "displayNameJa": "カメール",
+    "names": {
+      "ko": "어니부기",
+      "en": "Wartortle",
+      "ja": "カメール"
+    },
     "speed": 58,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/8.png"
   },
@@ -86,9 +102,11 @@ export const allPokemonRoster = [
     "id": "nat-0009",
     "dexNo": 9,
     "formKey": "base",
-    "displayName": "거북왕",
-    "displayNameEn": "Blastoise",
-    "displayNameJa": "カメックス",
+    "names": {
+      "ko": "거북왕",
+      "en": "Blastoise",
+      "ja": "カメックス"
+    },
     "speed": 78,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/9.png"
   },
@@ -96,9 +114,11 @@ export const allPokemonRoster = [
     "id": "nat-0010",
     "dexNo": 10,
     "formKey": "base",
-    "displayName": "캐터피",
-    "displayNameEn": "Caterpie",
-    "displayNameJa": "キャタピー",
+    "names": {
+      "ko": "캐터피",
+      "en": "Caterpie",
+      "ja": "キャタピー"
+    },
     "speed": 45,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10.png"
   },
@@ -106,9 +126,11 @@ export const allPokemonRoster = [
     "id": "nat-0011",
     "dexNo": 11,
     "formKey": "base",
-    "displayName": "단데기",
-    "displayNameEn": "Metapod",
-    "displayNameJa": "トランセル",
+    "names": {
+      "ko": "단데기",
+      "en": "Metapod",
+      "ja": "トランセル"
+    },
     "speed": 30,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/11.png"
   },
@@ -116,9 +138,11 @@ export const allPokemonRoster = [
     "id": "nat-0012",
     "dexNo": 12,
     "formKey": "base",
-    "displayName": "버터플",
-    "displayNameEn": "Butterfree",
-    "displayNameJa": "バタフリー",
+    "names": {
+      "ko": "버터플",
+      "en": "Butterfree",
+      "ja": "バタフリー"
+    },
     "speed": 70,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/12.png"
   },
@@ -126,9 +150,11 @@ export const allPokemonRoster = [
     "id": "nat-0013",
     "dexNo": 13,
     "formKey": "base",
-    "displayName": "뿔충이",
-    "displayNameEn": "Weedle",
-    "displayNameJa": "ビードル",
+    "names": {
+      "ko": "뿔충이",
+      "en": "Weedle",
+      "ja": "ビードル"
+    },
     "speed": 50,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/13.png"
   },
@@ -136,9 +162,11 @@ export const allPokemonRoster = [
     "id": "nat-0014",
     "dexNo": 14,
     "formKey": "base",
-    "displayName": "딱충이",
-    "displayNameEn": "Kakuna",
-    "displayNameJa": "コクーン",
+    "names": {
+      "ko": "딱충이",
+      "en": "Kakuna",
+      "ja": "コクーン"
+    },
     "speed": 35,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/14.png"
   },
@@ -146,9 +174,11 @@ export const allPokemonRoster = [
     "id": "nat-0015",
     "dexNo": 15,
     "formKey": "base",
-    "displayName": "독침붕",
-    "displayNameEn": "Beedrill",
-    "displayNameJa": "スピアー",
+    "names": {
+      "ko": "독침붕",
+      "en": "Beedrill",
+      "ja": "スピアー"
+    },
     "speed": 75,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/15.png"
   },
@@ -156,9 +186,11 @@ export const allPokemonRoster = [
     "id": "nat-0016",
     "dexNo": 16,
     "formKey": "base",
-    "displayName": "구구",
-    "displayNameEn": "Pidgey",
-    "displayNameJa": "ポッポ",
+    "names": {
+      "ko": "구구",
+      "en": "Pidgey",
+      "ja": "ポッポ"
+    },
     "speed": 56,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/16.png"
   },
@@ -166,9 +198,11 @@ export const allPokemonRoster = [
     "id": "nat-0017",
     "dexNo": 17,
     "formKey": "base",
-    "displayName": "피죤",
-    "displayNameEn": "Pidgeotto",
-    "displayNameJa": "ピジョン",
+    "names": {
+      "ko": "피죤",
+      "en": "Pidgeotto",
+      "ja": "ピジョン"
+    },
     "speed": 71,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/17.png"
   },
@@ -176,9 +210,11 @@ export const allPokemonRoster = [
     "id": "nat-0018",
     "dexNo": 18,
     "formKey": "base",
-    "displayName": "피죤투",
-    "displayNameEn": "Pidgeot",
-    "displayNameJa": "ピジョット",
+    "names": {
+      "ko": "피죤투",
+      "en": "Pidgeot",
+      "ja": "ピジョット"
+    },
     "speed": 101,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/18.png"
   },
@@ -186,9 +222,11 @@ export const allPokemonRoster = [
     "id": "nat-0019",
     "dexNo": 19,
     "formKey": "base",
-    "displayName": "꼬렛",
-    "displayNameEn": "Rattata",
-    "displayNameJa": "コラッタ",
+    "names": {
+      "ko": "꼬렛",
+      "en": "Rattata",
+      "ja": "コラッタ"
+    },
     "speed": 72,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/19.png"
   },
@@ -196,9 +234,11 @@ export const allPokemonRoster = [
     "id": "nat-0020",
     "dexNo": 20,
     "formKey": "base",
-    "displayName": "레트라",
-    "displayNameEn": "Raticate",
-    "displayNameJa": "ラッタ",
+    "names": {
+      "ko": "레트라",
+      "en": "Raticate",
+      "ja": "ラッタ"
+    },
     "speed": 97,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/20.png"
   },
@@ -206,9 +246,11 @@ export const allPokemonRoster = [
     "id": "nat-0021",
     "dexNo": 21,
     "formKey": "base",
-    "displayName": "깨비참",
-    "displayNameEn": "Spearow",
-    "displayNameJa": "オニスズメ",
+    "names": {
+      "ko": "깨비참",
+      "en": "Spearow",
+      "ja": "オニスズメ"
+    },
     "speed": 70,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/21.png"
   },
@@ -216,9 +258,11 @@ export const allPokemonRoster = [
     "id": "nat-0022",
     "dexNo": 22,
     "formKey": "base",
-    "displayName": "깨비드릴조",
-    "displayNameEn": "Fearow",
-    "displayNameJa": "オニドリル",
+    "names": {
+      "ko": "깨비드릴조",
+      "en": "Fearow",
+      "ja": "オニドリル"
+    },
     "speed": 100,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/22.png"
   },
@@ -226,9 +270,11 @@ export const allPokemonRoster = [
     "id": "nat-0023",
     "dexNo": 23,
     "formKey": "base",
-    "displayName": "아보",
-    "displayNameEn": "Ekans",
-    "displayNameJa": "アーボ",
+    "names": {
+      "ko": "아보",
+      "en": "Ekans",
+      "ja": "アーボ"
+    },
     "speed": 55,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/23.png"
   },
@@ -236,9 +282,11 @@ export const allPokemonRoster = [
     "id": "nat-0024",
     "dexNo": 24,
     "formKey": "base",
-    "displayName": "아보크",
-    "displayNameEn": "Arbok",
-    "displayNameJa": "アーボック",
+    "names": {
+      "ko": "아보크",
+      "en": "Arbok",
+      "ja": "アーボック"
+    },
     "speed": 80,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/24.png"
   },
@@ -246,9 +294,11 @@ export const allPokemonRoster = [
     "id": "nat-0025",
     "dexNo": 25,
     "formKey": "base",
-    "displayName": "피카츄",
-    "displayNameEn": "Pikachu",
-    "displayNameJa": "ピカチュウ",
+    "names": {
+      "ko": "피카츄",
+      "en": "Pikachu",
+      "ja": "ピカチュウ"
+    },
     "speed": 90,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png"
   },
@@ -256,9 +306,11 @@ export const allPokemonRoster = [
     "id": "nat-0026",
     "dexNo": 26,
     "formKey": "base",
-    "displayName": "라이츄",
-    "displayNameEn": "Raichu",
-    "displayNameJa": "ライチュウ",
+    "names": {
+      "ko": "라이츄",
+      "en": "Raichu",
+      "ja": "ライチュウ"
+    },
     "speed": 110,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/26.png"
   },
@@ -266,9 +318,11 @@ export const allPokemonRoster = [
     "id": "nat-0027",
     "dexNo": 27,
     "formKey": "base",
-    "displayName": "모래두지",
-    "displayNameEn": "Sandshrew",
-    "displayNameJa": "サンド",
+    "names": {
+      "ko": "모래두지",
+      "en": "Sandshrew",
+      "ja": "サンド"
+    },
     "speed": 40,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/27.png"
   },
@@ -276,9 +330,11 @@ export const allPokemonRoster = [
     "id": "nat-0028",
     "dexNo": 28,
     "formKey": "base",
-    "displayName": "고지",
-    "displayNameEn": "Sandslash",
-    "displayNameJa": "サンドパン",
+    "names": {
+      "ko": "고지",
+      "en": "Sandslash",
+      "ja": "サンドパン"
+    },
     "speed": 65,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/28.png"
   },
@@ -286,9 +342,11 @@ export const allPokemonRoster = [
     "id": "nat-0029",
     "dexNo": 29,
     "formKey": "base",
-    "displayName": "니드런♀",
-    "displayNameEn": "Nidoran♀",
-    "displayNameJa": "ニドラン♀",
+    "names": {
+      "ko": "니드런♀",
+      "en": "Nidoran♀",
+      "ja": "ニドラン♀"
+    },
     "speed": 41,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/29.png"
   },
@@ -296,9 +354,11 @@ export const allPokemonRoster = [
     "id": "nat-0030",
     "dexNo": 30,
     "formKey": "base",
-    "displayName": "니드리나",
-    "displayNameEn": "Nidorina",
-    "displayNameJa": "ニドリーナ",
+    "names": {
+      "ko": "니드리나",
+      "en": "Nidorina",
+      "ja": "ニドリーナ"
+    },
     "speed": 56,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/30.png"
   },
@@ -306,9 +366,11 @@ export const allPokemonRoster = [
     "id": "nat-0031",
     "dexNo": 31,
     "formKey": "base",
-    "displayName": "니드퀸",
-    "displayNameEn": "Nidoqueen",
-    "displayNameJa": "ニドクイン",
+    "names": {
+      "ko": "니드퀸",
+      "en": "Nidoqueen",
+      "ja": "ニドクイン"
+    },
     "speed": 76,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/31.png"
   },
@@ -316,9 +378,11 @@ export const allPokemonRoster = [
     "id": "nat-0032",
     "dexNo": 32,
     "formKey": "base",
-    "displayName": "니드런♂",
-    "displayNameEn": "Nidoran♂",
-    "displayNameJa": "ニドラン♂",
+    "names": {
+      "ko": "니드런♂",
+      "en": "Nidoran♂",
+      "ja": "ニドラン♂"
+    },
     "speed": 50,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/32.png"
   },
@@ -326,9 +390,11 @@ export const allPokemonRoster = [
     "id": "nat-0033",
     "dexNo": 33,
     "formKey": "base",
-    "displayName": "니드리노",
-    "displayNameEn": "Nidorino",
-    "displayNameJa": "ニドリーノ",
+    "names": {
+      "ko": "니드리노",
+      "en": "Nidorino",
+      "ja": "ニドリーノ"
+    },
     "speed": 65,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/33.png"
   },
@@ -336,9 +402,11 @@ export const allPokemonRoster = [
     "id": "nat-0034",
     "dexNo": 34,
     "formKey": "base",
-    "displayName": "니드킹",
-    "displayNameEn": "Nidoking",
-    "displayNameJa": "ニドキング",
+    "names": {
+      "ko": "니드킹",
+      "en": "Nidoking",
+      "ja": "ニドキング"
+    },
     "speed": 85,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/34.png"
   },
@@ -346,9 +414,11 @@ export const allPokemonRoster = [
     "id": "nat-0035",
     "dexNo": 35,
     "formKey": "base",
-    "displayName": "삐삐",
-    "displayNameEn": "Clefairy",
-    "displayNameJa": "ピッピ",
+    "names": {
+      "ko": "삐삐",
+      "en": "Clefairy",
+      "ja": "ピッピ"
+    },
     "speed": 35,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/35.png"
   },
@@ -356,9 +426,11 @@ export const allPokemonRoster = [
     "id": "nat-0036",
     "dexNo": 36,
     "formKey": "base",
-    "displayName": "픽시",
-    "displayNameEn": "Clefable",
-    "displayNameJa": "ピクシー",
+    "names": {
+      "ko": "픽시",
+      "en": "Clefable",
+      "ja": "ピクシー"
+    },
     "speed": 60,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/36.png"
   },
@@ -366,9 +438,11 @@ export const allPokemonRoster = [
     "id": "nat-0037",
     "dexNo": 37,
     "formKey": "base",
-    "displayName": "식스테일",
-    "displayNameEn": "Vulpix",
-    "displayNameJa": "ロコン",
+    "names": {
+      "ko": "식스테일",
+      "en": "Vulpix",
+      "ja": "ロコン"
+    },
     "speed": 65,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/37.png"
   },
@@ -376,9 +450,11 @@ export const allPokemonRoster = [
     "id": "nat-0038",
     "dexNo": 38,
     "formKey": "base",
-    "displayName": "나인테일",
-    "displayNameEn": "Ninetales",
-    "displayNameJa": "キュウコン",
+    "names": {
+      "ko": "나인테일",
+      "en": "Ninetales",
+      "ja": "キュウコン"
+    },
     "speed": 100,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/38.png"
   },
@@ -386,9 +462,11 @@ export const allPokemonRoster = [
     "id": "nat-0039",
     "dexNo": 39,
     "formKey": "base",
-    "displayName": "푸린",
-    "displayNameEn": "Jigglypuff",
-    "displayNameJa": "プリン",
+    "names": {
+      "ko": "푸린",
+      "en": "Jigglypuff",
+      "ja": "プリン"
+    },
     "speed": 20,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/39.png"
   },
@@ -396,9 +474,11 @@ export const allPokemonRoster = [
     "id": "nat-0040",
     "dexNo": 40,
     "formKey": "base",
-    "displayName": "푸크린",
-    "displayNameEn": "Wigglytuff",
-    "displayNameJa": "プクリン",
+    "names": {
+      "ko": "푸크린",
+      "en": "Wigglytuff",
+      "ja": "プクリン"
+    },
     "speed": 45,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/40.png"
   },
@@ -406,9 +486,11 @@ export const allPokemonRoster = [
     "id": "nat-0041",
     "dexNo": 41,
     "formKey": "base",
-    "displayName": "주뱃",
-    "displayNameEn": "Zubat",
-    "displayNameJa": "ズバット",
+    "names": {
+      "ko": "주뱃",
+      "en": "Zubat",
+      "ja": "ズバット"
+    },
     "speed": 55,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/41.png"
   },
@@ -416,9 +498,11 @@ export const allPokemonRoster = [
     "id": "nat-0042",
     "dexNo": 42,
     "formKey": "base",
-    "displayName": "골뱃",
-    "displayNameEn": "Golbat",
-    "displayNameJa": "ゴルバット",
+    "names": {
+      "ko": "골뱃",
+      "en": "Golbat",
+      "ja": "ゴルバット"
+    },
     "speed": 90,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/42.png"
   },
@@ -426,9 +510,11 @@ export const allPokemonRoster = [
     "id": "nat-0043",
     "dexNo": 43,
     "formKey": "base",
-    "displayName": "뚜벅쵸",
-    "displayNameEn": "Oddish",
-    "displayNameJa": "ナゾノクサ",
+    "names": {
+      "ko": "뚜벅쵸",
+      "en": "Oddish",
+      "ja": "ナゾノクサ"
+    },
     "speed": 30,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/43.png"
   },
@@ -436,9 +522,11 @@ export const allPokemonRoster = [
     "id": "nat-0044",
     "dexNo": 44,
     "formKey": "base",
-    "displayName": "냄새꼬",
-    "displayNameEn": "Gloom",
-    "displayNameJa": "クサイハナ",
+    "names": {
+      "ko": "냄새꼬",
+      "en": "Gloom",
+      "ja": "クサイハナ"
+    },
     "speed": 40,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/44.png"
   },
@@ -446,9 +534,11 @@ export const allPokemonRoster = [
     "id": "nat-0045",
     "dexNo": 45,
     "formKey": "base",
-    "displayName": "라플레시아",
-    "displayNameEn": "Vileplume",
-    "displayNameJa": "ラフレシア",
+    "names": {
+      "ko": "라플레시아",
+      "en": "Vileplume",
+      "ja": "ラフレシア"
+    },
     "speed": 50,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/45.png"
   },
@@ -456,9 +546,11 @@ export const allPokemonRoster = [
     "id": "nat-0046",
     "dexNo": 46,
     "formKey": "base",
-    "displayName": "파라스",
-    "displayNameEn": "Paras",
-    "displayNameJa": "パラス",
+    "names": {
+      "ko": "파라스",
+      "en": "Paras",
+      "ja": "パラス"
+    },
     "speed": 25,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/46.png"
   },
@@ -466,9 +558,11 @@ export const allPokemonRoster = [
     "id": "nat-0047",
     "dexNo": 47,
     "formKey": "base",
-    "displayName": "파라섹트",
-    "displayNameEn": "Parasect",
-    "displayNameJa": "パラセクト",
+    "names": {
+      "ko": "파라섹트",
+      "en": "Parasect",
+      "ja": "パラセクト"
+    },
     "speed": 30,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/47.png"
   },
@@ -476,9 +570,11 @@ export const allPokemonRoster = [
     "id": "nat-0048",
     "dexNo": 48,
     "formKey": "base",
-    "displayName": "콘팡",
-    "displayNameEn": "Venonat",
-    "displayNameJa": "コンパン",
+    "names": {
+      "ko": "콘팡",
+      "en": "Venonat",
+      "ja": "コンパン"
+    },
     "speed": 45,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/48.png"
   },
@@ -486,9 +582,11 @@ export const allPokemonRoster = [
     "id": "nat-0049",
     "dexNo": 49,
     "formKey": "base",
-    "displayName": "도나리",
-    "displayNameEn": "Venomoth",
-    "displayNameJa": "モルフォン",
+    "names": {
+      "ko": "도나리",
+      "en": "Venomoth",
+      "ja": "モルフォン"
+    },
     "speed": 90,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/49.png"
   },
@@ -496,9 +594,11 @@ export const allPokemonRoster = [
     "id": "nat-0050",
     "dexNo": 50,
     "formKey": "base",
-    "displayName": "디그다",
-    "displayNameEn": "Diglett",
-    "displayNameJa": "ディグダ",
+    "names": {
+      "ko": "디그다",
+      "en": "Diglett",
+      "ja": "ディグダ"
+    },
     "speed": 95,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/50.png"
   },
@@ -506,9 +606,11 @@ export const allPokemonRoster = [
     "id": "nat-0051",
     "dexNo": 51,
     "formKey": "base",
-    "displayName": "닥트리오",
-    "displayNameEn": "Dugtrio",
-    "displayNameJa": "ダグトリオ",
+    "names": {
+      "ko": "닥트리오",
+      "en": "Dugtrio",
+      "ja": "ダグトリオ"
+    },
     "speed": 120,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/51.png"
   },
@@ -516,9 +618,11 @@ export const allPokemonRoster = [
     "id": "nat-0052",
     "dexNo": 52,
     "formKey": "base",
-    "displayName": "나옹",
-    "displayNameEn": "Meowth",
-    "displayNameJa": "ニャース",
+    "names": {
+      "ko": "나옹",
+      "en": "Meowth",
+      "ja": "ニャース"
+    },
     "speed": 90,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/52.png"
   },
@@ -526,9 +630,11 @@ export const allPokemonRoster = [
     "id": "nat-0053",
     "dexNo": 53,
     "formKey": "base",
-    "displayName": "페르시온",
-    "displayNameEn": "Persian",
-    "displayNameJa": "ペルシアン",
+    "names": {
+      "ko": "페르시온",
+      "en": "Persian",
+      "ja": "ペルシアン"
+    },
     "speed": 115,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/53.png"
   },
@@ -536,9 +642,11 @@ export const allPokemonRoster = [
     "id": "nat-0054",
     "dexNo": 54,
     "formKey": "base",
-    "displayName": "고라파덕",
-    "displayNameEn": "Psyduck",
-    "displayNameJa": "コダック",
+    "names": {
+      "ko": "고라파덕",
+      "en": "Psyduck",
+      "ja": "コダック"
+    },
     "speed": 55,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/54.png"
   },
@@ -546,9 +654,11 @@ export const allPokemonRoster = [
     "id": "nat-0055",
     "dexNo": 55,
     "formKey": "base",
-    "displayName": "골덕",
-    "displayNameEn": "Golduck",
-    "displayNameJa": "ゴルダック",
+    "names": {
+      "ko": "골덕",
+      "en": "Golduck",
+      "ja": "ゴルダック"
+    },
     "speed": 85,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/55.png"
   },
@@ -556,9 +666,11 @@ export const allPokemonRoster = [
     "id": "nat-0056",
     "dexNo": 56,
     "formKey": "base",
-    "displayName": "망키",
-    "displayNameEn": "Mankey",
-    "displayNameJa": "マンキー",
+    "names": {
+      "ko": "망키",
+      "en": "Mankey",
+      "ja": "マンキー"
+    },
     "speed": 70,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/56.png"
   },
@@ -566,9 +678,11 @@ export const allPokemonRoster = [
     "id": "nat-0057",
     "dexNo": 57,
     "formKey": "base",
-    "displayName": "성원숭",
-    "displayNameEn": "Primeape",
-    "displayNameJa": "オコリザル",
+    "names": {
+      "ko": "성원숭",
+      "en": "Primeape",
+      "ja": "オコリザル"
+    },
     "speed": 95,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/57.png"
   },
@@ -576,9 +690,11 @@ export const allPokemonRoster = [
     "id": "nat-0058",
     "dexNo": 58,
     "formKey": "base",
-    "displayName": "가디",
-    "displayNameEn": "Growlithe",
-    "displayNameJa": "ガーディ",
+    "names": {
+      "ko": "가디",
+      "en": "Growlithe",
+      "ja": "ガーディ"
+    },
     "speed": 60,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/58.png"
   },
@@ -586,9 +702,11 @@ export const allPokemonRoster = [
     "id": "nat-0059",
     "dexNo": 59,
     "formKey": "base",
-    "displayName": "윈디",
-    "displayNameEn": "Arcanine",
-    "displayNameJa": "ウインディ",
+    "names": {
+      "ko": "윈디",
+      "en": "Arcanine",
+      "ja": "ウインディ"
+    },
     "speed": 95,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/59.png"
   },
@@ -596,9 +714,11 @@ export const allPokemonRoster = [
     "id": "nat-0060",
     "dexNo": 60,
     "formKey": "base",
-    "displayName": "발챙이",
-    "displayNameEn": "Poliwag",
-    "displayNameJa": "ニョロモ",
+    "names": {
+      "ko": "발챙이",
+      "en": "Poliwag",
+      "ja": "ニョロモ"
+    },
     "speed": 90,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/60.png"
   },
@@ -606,9 +726,11 @@ export const allPokemonRoster = [
     "id": "nat-0061",
     "dexNo": 61,
     "formKey": "base",
-    "displayName": "슈륙챙이",
-    "displayNameEn": "Poliwhirl",
-    "displayNameJa": "ニョロゾ",
+    "names": {
+      "ko": "슈륙챙이",
+      "en": "Poliwhirl",
+      "ja": "ニョロゾ"
+    },
     "speed": 90,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/61.png"
   },
@@ -616,9 +738,11 @@ export const allPokemonRoster = [
     "id": "nat-0062",
     "dexNo": 62,
     "formKey": "base",
-    "displayName": "강챙이",
-    "displayNameEn": "Poliwrath",
-    "displayNameJa": "ニョロボン",
+    "names": {
+      "ko": "강챙이",
+      "en": "Poliwrath",
+      "ja": "ニョロボン"
+    },
     "speed": 70,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/62.png"
   },
@@ -626,9 +750,11 @@ export const allPokemonRoster = [
     "id": "nat-0063",
     "dexNo": 63,
     "formKey": "base",
-    "displayName": "캐이시",
-    "displayNameEn": "Abra",
-    "displayNameJa": "ケーシィ",
+    "names": {
+      "ko": "캐이시",
+      "en": "Abra",
+      "ja": "ケーシィ"
+    },
     "speed": 90,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/63.png"
   },
@@ -636,9 +762,11 @@ export const allPokemonRoster = [
     "id": "nat-0064",
     "dexNo": 64,
     "formKey": "base",
-    "displayName": "윤겔라",
-    "displayNameEn": "Kadabra",
-    "displayNameJa": "ユンゲラー",
+    "names": {
+      "ko": "윤겔라",
+      "en": "Kadabra",
+      "ja": "ユンゲラー"
+    },
     "speed": 105,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/64.png"
   },
@@ -646,9 +774,11 @@ export const allPokemonRoster = [
     "id": "nat-0065",
     "dexNo": 65,
     "formKey": "base",
-    "displayName": "후딘",
-    "displayNameEn": "Alakazam",
-    "displayNameJa": "フーディン",
+    "names": {
+      "ko": "후딘",
+      "en": "Alakazam",
+      "ja": "フーディン"
+    },
     "speed": 120,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/65.png"
   },
@@ -656,9 +786,11 @@ export const allPokemonRoster = [
     "id": "nat-0066",
     "dexNo": 66,
     "formKey": "base",
-    "displayName": "알통몬",
-    "displayNameEn": "Machop",
-    "displayNameJa": "ワンリキー",
+    "names": {
+      "ko": "알통몬",
+      "en": "Machop",
+      "ja": "ワンリキー"
+    },
     "speed": 35,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/66.png"
   },
@@ -666,9 +798,11 @@ export const allPokemonRoster = [
     "id": "nat-0067",
     "dexNo": 67,
     "formKey": "base",
-    "displayName": "근육몬",
-    "displayNameEn": "Machoke",
-    "displayNameJa": "ゴーリキー",
+    "names": {
+      "ko": "근육몬",
+      "en": "Machoke",
+      "ja": "ゴーリキー"
+    },
     "speed": 45,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/67.png"
   },
@@ -676,9 +810,11 @@ export const allPokemonRoster = [
     "id": "nat-0068",
     "dexNo": 68,
     "formKey": "base",
-    "displayName": "괴력몬",
-    "displayNameEn": "Machamp",
-    "displayNameJa": "カイリキー",
+    "names": {
+      "ko": "괴력몬",
+      "en": "Machamp",
+      "ja": "カイリキー"
+    },
     "speed": 55,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/68.png"
   },
@@ -686,9 +822,11 @@ export const allPokemonRoster = [
     "id": "nat-0069",
     "dexNo": 69,
     "formKey": "base",
-    "displayName": "모다피",
-    "displayNameEn": "Bellsprout",
-    "displayNameJa": "マダツボミ",
+    "names": {
+      "ko": "모다피",
+      "en": "Bellsprout",
+      "ja": "マダツボミ"
+    },
     "speed": 40,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/69.png"
   },
@@ -696,9 +834,11 @@ export const allPokemonRoster = [
     "id": "nat-0070",
     "dexNo": 70,
     "formKey": "base",
-    "displayName": "우츠동",
-    "displayNameEn": "Weepinbell",
-    "displayNameJa": "ウツドン",
+    "names": {
+      "ko": "우츠동",
+      "en": "Weepinbell",
+      "ja": "ウツドン"
+    },
     "speed": 55,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/70.png"
   },
@@ -706,9 +846,11 @@ export const allPokemonRoster = [
     "id": "nat-0071",
     "dexNo": 71,
     "formKey": "base",
-    "displayName": "우츠보트",
-    "displayNameEn": "Victreebel",
-    "displayNameJa": "ウツボット",
+    "names": {
+      "ko": "우츠보트",
+      "en": "Victreebel",
+      "ja": "ウツボット"
+    },
     "speed": 70,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/71.png"
   },
@@ -716,9 +858,11 @@ export const allPokemonRoster = [
     "id": "nat-0072",
     "dexNo": 72,
     "formKey": "base",
-    "displayName": "왕눈해",
-    "displayNameEn": "Tentacool",
-    "displayNameJa": "メノクラゲ",
+    "names": {
+      "ko": "왕눈해",
+      "en": "Tentacool",
+      "ja": "メノクラゲ"
+    },
     "speed": 70,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/72.png"
   },
@@ -726,9 +870,11 @@ export const allPokemonRoster = [
     "id": "nat-0073",
     "dexNo": 73,
     "formKey": "base",
-    "displayName": "독파리",
-    "displayNameEn": "Tentacruel",
-    "displayNameJa": "ドククラゲ",
+    "names": {
+      "ko": "독파리",
+      "en": "Tentacruel",
+      "ja": "ドククラゲ"
+    },
     "speed": 100,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/73.png"
   },
@@ -736,9 +882,11 @@ export const allPokemonRoster = [
     "id": "nat-0074",
     "dexNo": 74,
     "formKey": "base",
-    "displayName": "꼬마돌",
-    "displayNameEn": "Geodude",
-    "displayNameJa": "イシツブテ",
+    "names": {
+      "ko": "꼬마돌",
+      "en": "Geodude",
+      "ja": "イシツブテ"
+    },
     "speed": 20,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/74.png"
   },
@@ -746,9 +894,11 @@ export const allPokemonRoster = [
     "id": "nat-0075",
     "dexNo": 75,
     "formKey": "base",
-    "displayName": "데구리",
-    "displayNameEn": "Graveler",
-    "displayNameJa": "ゴローン",
+    "names": {
+      "ko": "데구리",
+      "en": "Graveler",
+      "ja": "ゴローン"
+    },
     "speed": 35,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/75.png"
   },
@@ -756,9 +906,11 @@ export const allPokemonRoster = [
     "id": "nat-0076",
     "dexNo": 76,
     "formKey": "base",
-    "displayName": "딱구리",
-    "displayNameEn": "Golem",
-    "displayNameJa": "ゴローニャ",
+    "names": {
+      "ko": "딱구리",
+      "en": "Golem",
+      "ja": "ゴローニャ"
+    },
     "speed": 45,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/76.png"
   },
@@ -766,9 +918,11 @@ export const allPokemonRoster = [
     "id": "nat-0077",
     "dexNo": 77,
     "formKey": "base",
-    "displayName": "포니타",
-    "displayNameEn": "Ponyta",
-    "displayNameJa": "ポニータ",
+    "names": {
+      "ko": "포니타",
+      "en": "Ponyta",
+      "ja": "ポニータ"
+    },
     "speed": 90,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/77.png"
   },
@@ -776,9 +930,11 @@ export const allPokemonRoster = [
     "id": "nat-0078",
     "dexNo": 78,
     "formKey": "base",
-    "displayName": "날쌩마",
-    "displayNameEn": "Rapidash",
-    "displayNameJa": "ギャロップ",
+    "names": {
+      "ko": "날쌩마",
+      "en": "Rapidash",
+      "ja": "ギャロップ"
+    },
     "speed": 105,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/78.png"
   },
@@ -786,9 +942,11 @@ export const allPokemonRoster = [
     "id": "nat-0079",
     "dexNo": 79,
     "formKey": "base",
-    "displayName": "야돈",
-    "displayNameEn": "Slowpoke",
-    "displayNameJa": "ヤドン",
+    "names": {
+      "ko": "야돈",
+      "en": "Slowpoke",
+      "ja": "ヤドン"
+    },
     "speed": 15,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/79.png"
   },
@@ -796,9 +954,11 @@ export const allPokemonRoster = [
     "id": "nat-0080",
     "dexNo": 80,
     "formKey": "base",
-    "displayName": "야도란",
-    "displayNameEn": "Slowbro",
-    "displayNameJa": "ヤドラン",
+    "names": {
+      "ko": "야도란",
+      "en": "Slowbro",
+      "ja": "ヤドラン"
+    },
     "speed": 30,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/80.png"
   },
@@ -806,9 +966,11 @@ export const allPokemonRoster = [
     "id": "nat-0081",
     "dexNo": 81,
     "formKey": "base",
-    "displayName": "코일",
-    "displayNameEn": "Magnemite",
-    "displayNameJa": "コイル",
+    "names": {
+      "ko": "코일",
+      "en": "Magnemite",
+      "ja": "コイル"
+    },
     "speed": 45,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/81.png"
   },
@@ -816,9 +978,11 @@ export const allPokemonRoster = [
     "id": "nat-0082",
     "dexNo": 82,
     "formKey": "base",
-    "displayName": "레어코일",
-    "displayNameEn": "Magneton",
-    "displayNameJa": "レアコイル",
+    "names": {
+      "ko": "레어코일",
+      "en": "Magneton",
+      "ja": "レアコイル"
+    },
     "speed": 70,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/82.png"
   },
@@ -826,9 +990,11 @@ export const allPokemonRoster = [
     "id": "nat-0083",
     "dexNo": 83,
     "formKey": "base",
-    "displayName": "파오리",
-    "displayNameEn": "Farfetch’d",
-    "displayNameJa": "カモネギ",
+    "names": {
+      "ko": "파오리",
+      "en": "Farfetch’d",
+      "ja": "カモネギ"
+    },
     "speed": 60,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/83.png"
   },
@@ -836,9 +1002,11 @@ export const allPokemonRoster = [
     "id": "nat-0084",
     "dexNo": 84,
     "formKey": "base",
-    "displayName": "두두",
-    "displayNameEn": "Doduo",
-    "displayNameJa": "ドードー",
+    "names": {
+      "ko": "두두",
+      "en": "Doduo",
+      "ja": "ドードー"
+    },
     "speed": 75,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/84.png"
   },
@@ -846,9 +1014,11 @@ export const allPokemonRoster = [
     "id": "nat-0085",
     "dexNo": 85,
     "formKey": "base",
-    "displayName": "두트리오",
-    "displayNameEn": "Dodrio",
-    "displayNameJa": "ドードリオ",
+    "names": {
+      "ko": "두트리오",
+      "en": "Dodrio",
+      "ja": "ドードリオ"
+    },
     "speed": 110,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/85.png"
   },
@@ -856,9 +1026,11 @@ export const allPokemonRoster = [
     "id": "nat-0086",
     "dexNo": 86,
     "formKey": "base",
-    "displayName": "쥬쥬",
-    "displayNameEn": "Seel",
-    "displayNameJa": "パウワウ",
+    "names": {
+      "ko": "쥬쥬",
+      "en": "Seel",
+      "ja": "パウワウ"
+    },
     "speed": 45,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/86.png"
   },
@@ -866,9 +1038,11 @@ export const allPokemonRoster = [
     "id": "nat-0087",
     "dexNo": 87,
     "formKey": "base",
-    "displayName": "쥬레곤",
-    "displayNameEn": "Dewgong",
-    "displayNameJa": "ジュゴン",
+    "names": {
+      "ko": "쥬레곤",
+      "en": "Dewgong",
+      "ja": "ジュゴン"
+    },
     "speed": 70,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/87.png"
   },
@@ -876,9 +1050,11 @@ export const allPokemonRoster = [
     "id": "nat-0088",
     "dexNo": 88,
     "formKey": "base",
-    "displayName": "질퍽이",
-    "displayNameEn": "Grimer",
-    "displayNameJa": "ベトベター",
+    "names": {
+      "ko": "질퍽이",
+      "en": "Grimer",
+      "ja": "ベトベター"
+    },
     "speed": 25,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/88.png"
   },
@@ -886,9 +1062,11 @@ export const allPokemonRoster = [
     "id": "nat-0089",
     "dexNo": 89,
     "formKey": "base",
-    "displayName": "질뻐기",
-    "displayNameEn": "Muk",
-    "displayNameJa": "ベトベトン",
+    "names": {
+      "ko": "질뻐기",
+      "en": "Muk",
+      "ja": "ベトベトン"
+    },
     "speed": 50,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/89.png"
   },
@@ -896,9 +1074,11 @@ export const allPokemonRoster = [
     "id": "nat-0090",
     "dexNo": 90,
     "formKey": "base",
-    "displayName": "셀러",
-    "displayNameEn": "Shellder",
-    "displayNameJa": "シェルダー",
+    "names": {
+      "ko": "셀러",
+      "en": "Shellder",
+      "ja": "シェルダー"
+    },
     "speed": 40,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/90.png"
   },
@@ -906,9 +1086,11 @@ export const allPokemonRoster = [
     "id": "nat-0091",
     "dexNo": 91,
     "formKey": "base",
-    "displayName": "파르셀",
-    "displayNameEn": "Cloyster",
-    "displayNameJa": "パルシェン",
+    "names": {
+      "ko": "파르셀",
+      "en": "Cloyster",
+      "ja": "パルシェン"
+    },
     "speed": 70,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/91.png"
   },
@@ -916,9 +1098,11 @@ export const allPokemonRoster = [
     "id": "nat-0092",
     "dexNo": 92,
     "formKey": "base",
-    "displayName": "고오스",
-    "displayNameEn": "Gastly",
-    "displayNameJa": "ゴース",
+    "names": {
+      "ko": "고오스",
+      "en": "Gastly",
+      "ja": "ゴース"
+    },
     "speed": 80,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/92.png"
   },
@@ -926,9 +1110,11 @@ export const allPokemonRoster = [
     "id": "nat-0093",
     "dexNo": 93,
     "formKey": "base",
-    "displayName": "고우스트",
-    "displayNameEn": "Haunter",
-    "displayNameJa": "ゴースト",
+    "names": {
+      "ko": "고우스트",
+      "en": "Haunter",
+      "ja": "ゴースト"
+    },
     "speed": 95,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/93.png"
   },
@@ -936,9 +1122,11 @@ export const allPokemonRoster = [
     "id": "nat-0094",
     "dexNo": 94,
     "formKey": "base",
-    "displayName": "팬텀",
-    "displayNameEn": "Gengar",
-    "displayNameJa": "ゲンガー",
+    "names": {
+      "ko": "팬텀",
+      "en": "Gengar",
+      "ja": "ゲンガー"
+    },
     "speed": 110,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/94.png"
   },
@@ -946,9 +1134,11 @@ export const allPokemonRoster = [
     "id": "nat-0095",
     "dexNo": 95,
     "formKey": "base",
-    "displayName": "롱스톤",
-    "displayNameEn": "Onix",
-    "displayNameJa": "イワーク",
+    "names": {
+      "ko": "롱스톤",
+      "en": "Onix",
+      "ja": "イワーク"
+    },
     "speed": 70,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/95.png"
   },
@@ -956,9 +1146,11 @@ export const allPokemonRoster = [
     "id": "nat-0096",
     "dexNo": 96,
     "formKey": "base",
-    "displayName": "슬리프",
-    "displayNameEn": "Drowzee",
-    "displayNameJa": "スリープ",
+    "names": {
+      "ko": "슬리프",
+      "en": "Drowzee",
+      "ja": "スリープ"
+    },
     "speed": 42,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/96.png"
   },
@@ -966,9 +1158,11 @@ export const allPokemonRoster = [
     "id": "nat-0097",
     "dexNo": 97,
     "formKey": "base",
-    "displayName": "슬리퍼",
-    "displayNameEn": "Hypno",
-    "displayNameJa": "スリーパー",
+    "names": {
+      "ko": "슬리퍼",
+      "en": "Hypno",
+      "ja": "スリーパー"
+    },
     "speed": 67,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/97.png"
   },
@@ -976,9 +1170,11 @@ export const allPokemonRoster = [
     "id": "nat-0098",
     "dexNo": 98,
     "formKey": "base",
-    "displayName": "크랩",
-    "displayNameEn": "Krabby",
-    "displayNameJa": "クラブ",
+    "names": {
+      "ko": "크랩",
+      "en": "Krabby",
+      "ja": "クラブ"
+    },
     "speed": 50,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/98.png"
   },
@@ -986,9 +1182,11 @@ export const allPokemonRoster = [
     "id": "nat-0099",
     "dexNo": 99,
     "formKey": "base",
-    "displayName": "킹크랩",
-    "displayNameEn": "Kingler",
-    "displayNameJa": "キングラー",
+    "names": {
+      "ko": "킹크랩",
+      "en": "Kingler",
+      "ja": "キングラー"
+    },
     "speed": 75,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/99.png"
   },
@@ -996,9 +1194,11 @@ export const allPokemonRoster = [
     "id": "nat-0100",
     "dexNo": 100,
     "formKey": "base",
-    "displayName": "찌리리공",
-    "displayNameEn": "Voltorb",
-    "displayNameJa": "ビリリダマ",
+    "names": {
+      "ko": "찌리리공",
+      "en": "Voltorb",
+      "ja": "ビリリダマ"
+    },
     "speed": 100,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/100.png"
   },
@@ -1006,9 +1206,11 @@ export const allPokemonRoster = [
     "id": "nat-0101",
     "dexNo": 101,
     "formKey": "base",
-    "displayName": "붐볼",
-    "displayNameEn": "Electrode",
-    "displayNameJa": "マルマイン",
+    "names": {
+      "ko": "붐볼",
+      "en": "Electrode",
+      "ja": "マルマイン"
+    },
     "speed": 150,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/101.png"
   },
@@ -1016,9 +1218,11 @@ export const allPokemonRoster = [
     "id": "nat-0102",
     "dexNo": 102,
     "formKey": "base",
-    "displayName": "아라리",
-    "displayNameEn": "Exeggcute",
-    "displayNameJa": "タマタマ",
+    "names": {
+      "ko": "아라리",
+      "en": "Exeggcute",
+      "ja": "タマタマ"
+    },
     "speed": 40,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/102.png"
   },
@@ -1026,9 +1230,11 @@ export const allPokemonRoster = [
     "id": "nat-0103",
     "dexNo": 103,
     "formKey": "base",
-    "displayName": "나시",
-    "displayNameEn": "Exeggutor",
-    "displayNameJa": "ナッシー",
+    "names": {
+      "ko": "나시",
+      "en": "Exeggutor",
+      "ja": "ナッシー"
+    },
     "speed": 55,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/103.png"
   },
@@ -1036,9 +1242,11 @@ export const allPokemonRoster = [
     "id": "nat-0104",
     "dexNo": 104,
     "formKey": "base",
-    "displayName": "탕구리",
-    "displayNameEn": "Cubone",
-    "displayNameJa": "カラカラ",
+    "names": {
+      "ko": "탕구리",
+      "en": "Cubone",
+      "ja": "カラカラ"
+    },
     "speed": 35,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/104.png"
   },
@@ -1046,9 +1254,11 @@ export const allPokemonRoster = [
     "id": "nat-0105",
     "dexNo": 105,
     "formKey": "base",
-    "displayName": "텅구리",
-    "displayNameEn": "Marowak",
-    "displayNameJa": "ガラガラ",
+    "names": {
+      "ko": "텅구리",
+      "en": "Marowak",
+      "ja": "ガラガラ"
+    },
     "speed": 45,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/105.png"
   },
@@ -1056,9 +1266,11 @@ export const allPokemonRoster = [
     "id": "nat-0106",
     "dexNo": 106,
     "formKey": "base",
-    "displayName": "시라소몬",
-    "displayNameEn": "Hitmonlee",
-    "displayNameJa": "サワムラー",
+    "names": {
+      "ko": "시라소몬",
+      "en": "Hitmonlee",
+      "ja": "サワムラー"
+    },
     "speed": 87,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/106.png"
   },
@@ -1066,9 +1278,11 @@ export const allPokemonRoster = [
     "id": "nat-0107",
     "dexNo": 107,
     "formKey": "base",
-    "displayName": "홍수몬",
-    "displayNameEn": "Hitmonchan",
-    "displayNameJa": "エビワラー",
+    "names": {
+      "ko": "홍수몬",
+      "en": "Hitmonchan",
+      "ja": "エビワラー"
+    },
     "speed": 76,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/107.png"
   },
@@ -1076,9 +1290,11 @@ export const allPokemonRoster = [
     "id": "nat-0108",
     "dexNo": 108,
     "formKey": "base",
-    "displayName": "내루미",
-    "displayNameEn": "Lickitung",
-    "displayNameJa": "ベロリンガ",
+    "names": {
+      "ko": "내루미",
+      "en": "Lickitung",
+      "ja": "ベロリンガ"
+    },
     "speed": 30,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/108.png"
   },
@@ -1086,9 +1302,11 @@ export const allPokemonRoster = [
     "id": "nat-0109",
     "dexNo": 109,
     "formKey": "base",
-    "displayName": "또가스",
-    "displayNameEn": "Koffing",
-    "displayNameJa": "ドガース",
+    "names": {
+      "ko": "또가스",
+      "en": "Koffing",
+      "ja": "ドガース"
+    },
     "speed": 35,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/109.png"
   },
@@ -1096,9 +1314,11 @@ export const allPokemonRoster = [
     "id": "nat-0110",
     "dexNo": 110,
     "formKey": "base",
-    "displayName": "또도가스",
-    "displayNameEn": "Weezing",
-    "displayNameJa": "マタドガス",
+    "names": {
+      "ko": "또도가스",
+      "en": "Weezing",
+      "ja": "マタドガス"
+    },
     "speed": 60,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/110.png"
   },
@@ -1106,9 +1326,11 @@ export const allPokemonRoster = [
     "id": "nat-0111",
     "dexNo": 111,
     "formKey": "base",
-    "displayName": "뿔카노",
-    "displayNameEn": "Rhyhorn",
-    "displayNameJa": "サイホーン",
+    "names": {
+      "ko": "뿔카노",
+      "en": "Rhyhorn",
+      "ja": "サイホーン"
+    },
     "speed": 25,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/111.png"
   },
@@ -1116,9 +1338,11 @@ export const allPokemonRoster = [
     "id": "nat-0112",
     "dexNo": 112,
     "formKey": "base",
-    "displayName": "코뿌리",
-    "displayNameEn": "Rhydon",
-    "displayNameJa": "サイドン",
+    "names": {
+      "ko": "코뿌리",
+      "en": "Rhydon",
+      "ja": "サイドン"
+    },
     "speed": 40,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/112.png"
   },
@@ -1126,9 +1350,11 @@ export const allPokemonRoster = [
     "id": "nat-0113",
     "dexNo": 113,
     "formKey": "base",
-    "displayName": "럭키",
-    "displayNameEn": "Chansey",
-    "displayNameJa": "ラッキー",
+    "names": {
+      "ko": "럭키",
+      "en": "Chansey",
+      "ja": "ラッキー"
+    },
     "speed": 50,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/113.png"
   },
@@ -1136,9 +1362,11 @@ export const allPokemonRoster = [
     "id": "nat-0114",
     "dexNo": 114,
     "formKey": "base",
-    "displayName": "덩쿠리",
-    "displayNameEn": "Tangela",
-    "displayNameJa": "モンジャラ",
+    "names": {
+      "ko": "덩쿠리",
+      "en": "Tangela",
+      "ja": "モンジャラ"
+    },
     "speed": 60,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/114.png"
   },
@@ -1146,9 +1374,11 @@ export const allPokemonRoster = [
     "id": "nat-0115",
     "dexNo": 115,
     "formKey": "base",
-    "displayName": "캥카",
-    "displayNameEn": "Kangaskhan",
-    "displayNameJa": "ガルーラ",
+    "names": {
+      "ko": "캥카",
+      "en": "Kangaskhan",
+      "ja": "ガルーラ"
+    },
     "speed": 90,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/115.png"
   },
@@ -1156,9 +1386,11 @@ export const allPokemonRoster = [
     "id": "nat-0116",
     "dexNo": 116,
     "formKey": "base",
-    "displayName": "쏘드라",
-    "displayNameEn": "Horsea",
-    "displayNameJa": "タッツー",
+    "names": {
+      "ko": "쏘드라",
+      "en": "Horsea",
+      "ja": "タッツー"
+    },
     "speed": 60,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/116.png"
   },
@@ -1166,9 +1398,11 @@ export const allPokemonRoster = [
     "id": "nat-0117",
     "dexNo": 117,
     "formKey": "base",
-    "displayName": "시드라",
-    "displayNameEn": "Seadra",
-    "displayNameJa": "シードラ",
+    "names": {
+      "ko": "시드라",
+      "en": "Seadra",
+      "ja": "シードラ"
+    },
     "speed": 85,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/117.png"
   },
@@ -1176,9 +1410,11 @@ export const allPokemonRoster = [
     "id": "nat-0118",
     "dexNo": 118,
     "formKey": "base",
-    "displayName": "콘치",
-    "displayNameEn": "Goldeen",
-    "displayNameJa": "トサキント",
+    "names": {
+      "ko": "콘치",
+      "en": "Goldeen",
+      "ja": "トサキント"
+    },
     "speed": 63,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/118.png"
   },
@@ -1186,9 +1422,11 @@ export const allPokemonRoster = [
     "id": "nat-0119",
     "dexNo": 119,
     "formKey": "base",
-    "displayName": "왕콘치",
-    "displayNameEn": "Seaking",
-    "displayNameJa": "アズマオウ",
+    "names": {
+      "ko": "왕콘치",
+      "en": "Seaking",
+      "ja": "アズマオウ"
+    },
     "speed": 68,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/119.png"
   },
@@ -1196,9 +1434,11 @@ export const allPokemonRoster = [
     "id": "nat-0120",
     "dexNo": 120,
     "formKey": "base",
-    "displayName": "별가사리",
-    "displayNameEn": "Staryu",
-    "displayNameJa": "ヒトデマン",
+    "names": {
+      "ko": "별가사리",
+      "en": "Staryu",
+      "ja": "ヒトデマン"
+    },
     "speed": 85,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/120.png"
   },
@@ -1206,9 +1446,11 @@ export const allPokemonRoster = [
     "id": "nat-0121",
     "dexNo": 121,
     "formKey": "base",
-    "displayName": "아쿠스타",
-    "displayNameEn": "Starmie",
-    "displayNameJa": "スターミー",
+    "names": {
+      "ko": "아쿠스타",
+      "en": "Starmie",
+      "ja": "スターミー"
+    },
     "speed": 115,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/121.png"
   },
@@ -1216,9 +1458,11 @@ export const allPokemonRoster = [
     "id": "nat-0122",
     "dexNo": 122,
     "formKey": "base",
-    "displayName": "마임맨",
-    "displayNameEn": "Mr. Mime",
-    "displayNameJa": "バリヤード",
+    "names": {
+      "ko": "마임맨",
+      "en": "Mr. Mime",
+      "ja": "バリヤード"
+    },
     "speed": 90,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/122.png"
   },
@@ -1226,9 +1470,11 @@ export const allPokemonRoster = [
     "id": "nat-0123",
     "dexNo": 123,
     "formKey": "base",
-    "displayName": "스라크",
-    "displayNameEn": "Scyther",
-    "displayNameJa": "ストライク",
+    "names": {
+      "ko": "스라크",
+      "en": "Scyther",
+      "ja": "ストライク"
+    },
     "speed": 105,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/123.png"
   },
@@ -1236,9 +1482,11 @@ export const allPokemonRoster = [
     "id": "nat-0124",
     "dexNo": 124,
     "formKey": "base",
-    "displayName": "루주라",
-    "displayNameEn": "Jynx",
-    "displayNameJa": "ルージュラ",
+    "names": {
+      "ko": "루주라",
+      "en": "Jynx",
+      "ja": "ルージュラ"
+    },
     "speed": 95,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/124.png"
   },
@@ -1246,9 +1494,11 @@ export const allPokemonRoster = [
     "id": "nat-0125",
     "dexNo": 125,
     "formKey": "base",
-    "displayName": "에레브",
-    "displayNameEn": "Electabuzz",
-    "displayNameJa": "エレブー",
+    "names": {
+      "ko": "에레브",
+      "en": "Electabuzz",
+      "ja": "エレブー"
+    },
     "speed": 105,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/125.png"
   },
@@ -1256,9 +1506,11 @@ export const allPokemonRoster = [
     "id": "nat-0126",
     "dexNo": 126,
     "formKey": "base",
-    "displayName": "마그마",
-    "displayNameEn": "Magmar",
-    "displayNameJa": "ブーバー",
+    "names": {
+      "ko": "마그마",
+      "en": "Magmar",
+      "ja": "ブーバー"
+    },
     "speed": 93,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/126.png"
   },
@@ -1266,9 +1518,11 @@ export const allPokemonRoster = [
     "id": "nat-0127",
     "dexNo": 127,
     "formKey": "base",
-    "displayName": "쁘사이저",
-    "displayNameEn": "Pinsir",
-    "displayNameJa": "カイロス",
+    "names": {
+      "ko": "쁘사이저",
+      "en": "Pinsir",
+      "ja": "カイロス"
+    },
     "speed": 85,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/127.png"
   },
@@ -1276,9 +1530,11 @@ export const allPokemonRoster = [
     "id": "nat-0128",
     "dexNo": 128,
     "formKey": "base",
-    "displayName": "켄타로스",
-    "displayNameEn": "Tauros",
-    "displayNameJa": "ケンタロス",
+    "names": {
+      "ko": "켄타로스",
+      "en": "Tauros",
+      "ja": "ケンタロス"
+    },
     "speed": 110,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/128.png"
   },
@@ -1286,9 +1542,11 @@ export const allPokemonRoster = [
     "id": "nat-0129",
     "dexNo": 129,
     "formKey": "base",
-    "displayName": "잉어킹",
-    "displayNameEn": "Magikarp",
-    "displayNameJa": "コイキング",
+    "names": {
+      "ko": "잉어킹",
+      "en": "Magikarp",
+      "ja": "コイキング"
+    },
     "speed": 80,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/129.png"
   },
@@ -1296,9 +1554,11 @@ export const allPokemonRoster = [
     "id": "nat-0130",
     "dexNo": 130,
     "formKey": "base",
-    "displayName": "갸라도스",
-    "displayNameEn": "Gyarados",
-    "displayNameJa": "ギャラドス",
+    "names": {
+      "ko": "갸라도스",
+      "en": "Gyarados",
+      "ja": "ギャラドス"
+    },
     "speed": 81,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/130.png"
   },
@@ -1306,9 +1566,11 @@ export const allPokemonRoster = [
     "id": "nat-0131",
     "dexNo": 131,
     "formKey": "base",
-    "displayName": "라프라스",
-    "displayNameEn": "Lapras",
-    "displayNameJa": "ラプラス",
+    "names": {
+      "ko": "라프라스",
+      "en": "Lapras",
+      "ja": "ラプラス"
+    },
     "speed": 60,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/131.png"
   },
@@ -1316,9 +1578,11 @@ export const allPokemonRoster = [
     "id": "nat-0132",
     "dexNo": 132,
     "formKey": "base",
-    "displayName": "메타몽",
-    "displayNameEn": "Ditto",
-    "displayNameJa": "メタモン",
+    "names": {
+      "ko": "메타몽",
+      "en": "Ditto",
+      "ja": "メタモン"
+    },
     "speed": 48,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/132.png"
   },
@@ -1326,9 +1590,11 @@ export const allPokemonRoster = [
     "id": "nat-0133",
     "dexNo": 133,
     "formKey": "base",
-    "displayName": "이브이",
-    "displayNameEn": "Eevee",
-    "displayNameJa": "イーブイ",
+    "names": {
+      "ko": "이브이",
+      "en": "Eevee",
+      "ja": "イーブイ"
+    },
     "speed": 55,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/133.png"
   },
@@ -1336,9 +1602,11 @@ export const allPokemonRoster = [
     "id": "nat-0134",
     "dexNo": 134,
     "formKey": "base",
-    "displayName": "샤미드",
-    "displayNameEn": "Vaporeon",
-    "displayNameJa": "シャワーズ",
+    "names": {
+      "ko": "샤미드",
+      "en": "Vaporeon",
+      "ja": "シャワーズ"
+    },
     "speed": 65,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/134.png"
   },
@@ -1346,9 +1614,11 @@ export const allPokemonRoster = [
     "id": "nat-0135",
     "dexNo": 135,
     "formKey": "base",
-    "displayName": "쥬피썬더",
-    "displayNameEn": "Jolteon",
-    "displayNameJa": "サンダース",
+    "names": {
+      "ko": "쥬피썬더",
+      "en": "Jolteon",
+      "ja": "サンダース"
+    },
     "speed": 130,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/135.png"
   },
@@ -1356,9 +1626,11 @@ export const allPokemonRoster = [
     "id": "nat-0136",
     "dexNo": 136,
     "formKey": "base",
-    "displayName": "부스터",
-    "displayNameEn": "Flareon",
-    "displayNameJa": "ブースター",
+    "names": {
+      "ko": "부스터",
+      "en": "Flareon",
+      "ja": "ブースター"
+    },
     "speed": 65,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/136.png"
   },
@@ -1366,9 +1638,11 @@ export const allPokemonRoster = [
     "id": "nat-0137",
     "dexNo": 137,
     "formKey": "base",
-    "displayName": "폴리곤",
-    "displayNameEn": "Porygon",
-    "displayNameJa": "ポリゴン",
+    "names": {
+      "ko": "폴리곤",
+      "en": "Porygon",
+      "ja": "ポリゴン"
+    },
     "speed": 40,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/137.png"
   },
@@ -1376,9 +1650,11 @@ export const allPokemonRoster = [
     "id": "nat-0138",
     "dexNo": 138,
     "formKey": "base",
-    "displayName": "암나이트",
-    "displayNameEn": "Omanyte",
-    "displayNameJa": "オムナイト",
+    "names": {
+      "ko": "암나이트",
+      "en": "Omanyte",
+      "ja": "オムナイト"
+    },
     "speed": 35,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/138.png"
   },
@@ -1386,9 +1662,11 @@ export const allPokemonRoster = [
     "id": "nat-0139",
     "dexNo": 139,
     "formKey": "base",
-    "displayName": "암스타",
-    "displayNameEn": "Omastar",
-    "displayNameJa": "オムスター",
+    "names": {
+      "ko": "암스타",
+      "en": "Omastar",
+      "ja": "オムスター"
+    },
     "speed": 55,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/139.png"
   },
@@ -1396,9 +1674,11 @@ export const allPokemonRoster = [
     "id": "nat-0140",
     "dexNo": 140,
     "formKey": "base",
-    "displayName": "투구",
-    "displayNameEn": "Kabuto",
-    "displayNameJa": "カブト",
+    "names": {
+      "ko": "투구",
+      "en": "Kabuto",
+      "ja": "カブト"
+    },
     "speed": 55,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/140.png"
   },
@@ -1406,9 +1686,11 @@ export const allPokemonRoster = [
     "id": "nat-0141",
     "dexNo": 141,
     "formKey": "base",
-    "displayName": "투구푸스",
-    "displayNameEn": "Kabutops",
-    "displayNameJa": "カブトプス",
+    "names": {
+      "ko": "투구푸스",
+      "en": "Kabutops",
+      "ja": "カブトプス"
+    },
     "speed": 80,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/141.png"
   },
@@ -1416,9 +1698,11 @@ export const allPokemonRoster = [
     "id": "nat-0142",
     "dexNo": 142,
     "formKey": "base",
-    "displayName": "프테라",
-    "displayNameEn": "Aerodactyl",
-    "displayNameJa": "プテラ",
+    "names": {
+      "ko": "프테라",
+      "en": "Aerodactyl",
+      "ja": "プテラ"
+    },
     "speed": 130,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/142.png"
   },
@@ -1426,9 +1710,11 @@ export const allPokemonRoster = [
     "id": "nat-0143",
     "dexNo": 143,
     "formKey": "base",
-    "displayName": "잠만보",
-    "displayNameEn": "Snorlax",
-    "displayNameJa": "カビゴン",
+    "names": {
+      "ko": "잠만보",
+      "en": "Snorlax",
+      "ja": "カビゴン"
+    },
     "speed": 30,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/143.png"
   },
@@ -1436,9 +1722,11 @@ export const allPokemonRoster = [
     "id": "nat-0144",
     "dexNo": 144,
     "formKey": "base",
-    "displayName": "프리져",
-    "displayNameEn": "Articuno",
-    "displayNameJa": "フリーザー",
+    "names": {
+      "ko": "프리져",
+      "en": "Articuno",
+      "ja": "フリーザー"
+    },
     "speed": 85,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/144.png"
   },
@@ -1446,9 +1734,11 @@ export const allPokemonRoster = [
     "id": "nat-0145",
     "dexNo": 145,
     "formKey": "base",
-    "displayName": "썬더",
-    "displayNameEn": "Zapdos",
-    "displayNameJa": "サンダー",
+    "names": {
+      "ko": "썬더",
+      "en": "Zapdos",
+      "ja": "サンダー"
+    },
     "speed": 100,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/145.png"
   },
@@ -1456,9 +1746,11 @@ export const allPokemonRoster = [
     "id": "nat-0146",
     "dexNo": 146,
     "formKey": "base",
-    "displayName": "파이어",
-    "displayNameEn": "Moltres",
-    "displayNameJa": "ファイヤー",
+    "names": {
+      "ko": "파이어",
+      "en": "Moltres",
+      "ja": "ファイヤー"
+    },
     "speed": 90,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/146.png"
   },
@@ -1466,9 +1758,11 @@ export const allPokemonRoster = [
     "id": "nat-0147",
     "dexNo": 147,
     "formKey": "base",
-    "displayName": "미뇽",
-    "displayNameEn": "Dratini",
-    "displayNameJa": "ミニリュウ",
+    "names": {
+      "ko": "미뇽",
+      "en": "Dratini",
+      "ja": "ミニリュウ"
+    },
     "speed": 50,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/147.png"
   },
@@ -1476,9 +1770,11 @@ export const allPokemonRoster = [
     "id": "nat-0148",
     "dexNo": 148,
     "formKey": "base",
-    "displayName": "신뇽",
-    "displayNameEn": "Dragonair",
-    "displayNameJa": "ハクリュー",
+    "names": {
+      "ko": "신뇽",
+      "en": "Dragonair",
+      "ja": "ハクリュー"
+    },
     "speed": 70,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/148.png"
   },
@@ -1486,9 +1782,11 @@ export const allPokemonRoster = [
     "id": "nat-0149",
     "dexNo": 149,
     "formKey": "base",
-    "displayName": "망나뇽",
-    "displayNameEn": "Dragonite",
-    "displayNameJa": "カイリュー",
+    "names": {
+      "ko": "망나뇽",
+      "en": "Dragonite",
+      "ja": "カイリュー"
+    },
     "speed": 80,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/149.png"
   },
@@ -1496,9 +1794,11 @@ export const allPokemonRoster = [
     "id": "nat-0150",
     "dexNo": 150,
     "formKey": "base",
-    "displayName": "뮤츠",
-    "displayNameEn": "Mewtwo",
-    "displayNameJa": "ミュウツー",
+    "names": {
+      "ko": "뮤츠",
+      "en": "Mewtwo",
+      "ja": "ミュウツー"
+    },
     "speed": 130,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/150.png"
   },
@@ -1506,9 +1806,11 @@ export const allPokemonRoster = [
     "id": "nat-0151",
     "dexNo": 151,
     "formKey": "base",
-    "displayName": "뮤",
-    "displayNameEn": "Mew",
-    "displayNameJa": "ミュウ",
+    "names": {
+      "ko": "뮤",
+      "en": "Mew",
+      "ja": "ミュウ"
+    },
     "speed": 100,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/151.png"
   },
@@ -1516,9 +1818,11 @@ export const allPokemonRoster = [
     "id": "nat-0152",
     "dexNo": 152,
     "formKey": "base",
-    "displayName": "치코리타",
-    "displayNameEn": "Chikorita",
-    "displayNameJa": "チコリータ",
+    "names": {
+      "ko": "치코리타",
+      "en": "Chikorita",
+      "ja": "チコリータ"
+    },
     "speed": 45,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/152.png"
   },
@@ -1526,9 +1830,11 @@ export const allPokemonRoster = [
     "id": "nat-0153",
     "dexNo": 153,
     "formKey": "base",
-    "displayName": "베이리프",
-    "displayNameEn": "Bayleef",
-    "displayNameJa": "ベイリーフ",
+    "names": {
+      "ko": "베이리프",
+      "en": "Bayleef",
+      "ja": "ベイリーフ"
+    },
     "speed": 60,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/153.png"
   },
@@ -1536,9 +1842,11 @@ export const allPokemonRoster = [
     "id": "nat-0154",
     "dexNo": 154,
     "formKey": "base",
-    "displayName": "메가니움",
-    "displayNameEn": "Meganium",
-    "displayNameJa": "メガニウム",
+    "names": {
+      "ko": "메가니움",
+      "en": "Meganium",
+      "ja": "メガニウム"
+    },
     "speed": 80,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/154.png"
   },
@@ -1546,9 +1854,11 @@ export const allPokemonRoster = [
     "id": "nat-0155",
     "dexNo": 155,
     "formKey": "base",
-    "displayName": "브케인",
-    "displayNameEn": "Cyndaquil",
-    "displayNameJa": "ヒノアラシ",
+    "names": {
+      "ko": "브케인",
+      "en": "Cyndaquil",
+      "ja": "ヒノアラシ"
+    },
     "speed": 65,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/155.png"
   },
@@ -1556,9 +1866,11 @@ export const allPokemonRoster = [
     "id": "nat-0156",
     "dexNo": 156,
     "formKey": "base",
-    "displayName": "마그케인",
-    "displayNameEn": "Quilava",
-    "displayNameJa": "マグマラシ",
+    "names": {
+      "ko": "마그케인",
+      "en": "Quilava",
+      "ja": "マグマラシ"
+    },
     "speed": 80,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/156.png"
   },
@@ -1566,9 +1878,11 @@ export const allPokemonRoster = [
     "id": "nat-0157",
     "dexNo": 157,
     "formKey": "base",
-    "displayName": "블레이범",
-    "displayNameEn": "Typhlosion",
-    "displayNameJa": "バクフーン",
+    "names": {
+      "ko": "블레이범",
+      "en": "Typhlosion",
+      "ja": "バクフーン"
+    },
     "speed": 100,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/157.png"
   },
@@ -1576,9 +1890,11 @@ export const allPokemonRoster = [
     "id": "nat-0158",
     "dexNo": 158,
     "formKey": "base",
-    "displayName": "리아코",
-    "displayNameEn": "Totodile",
-    "displayNameJa": "ワニノコ",
+    "names": {
+      "ko": "리아코",
+      "en": "Totodile",
+      "ja": "ワニノコ"
+    },
     "speed": 43,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/158.png"
   },
@@ -1586,9 +1902,11 @@ export const allPokemonRoster = [
     "id": "nat-0159",
     "dexNo": 159,
     "formKey": "base",
-    "displayName": "엘리게이",
-    "displayNameEn": "Croconaw",
-    "displayNameJa": "アリゲイツ",
+    "names": {
+      "ko": "엘리게이",
+      "en": "Croconaw",
+      "ja": "アリゲイツ"
+    },
     "speed": 58,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/159.png"
   },
@@ -1596,9 +1914,11 @@ export const allPokemonRoster = [
     "id": "nat-0160",
     "dexNo": 160,
     "formKey": "base",
-    "displayName": "장크로다일",
-    "displayNameEn": "Feraligatr",
-    "displayNameJa": "オーダイル",
+    "names": {
+      "ko": "장크로다일",
+      "en": "Feraligatr",
+      "ja": "オーダイル"
+    },
     "speed": 78,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/160.png"
   },
@@ -1606,9 +1926,11 @@ export const allPokemonRoster = [
     "id": "nat-0161",
     "dexNo": 161,
     "formKey": "base",
-    "displayName": "꼬리선",
-    "displayNameEn": "Sentret",
-    "displayNameJa": "オタチ",
+    "names": {
+      "ko": "꼬리선",
+      "en": "Sentret",
+      "ja": "オタチ"
+    },
     "speed": 20,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/161.png"
   },
@@ -1616,9 +1938,11 @@ export const allPokemonRoster = [
     "id": "nat-0162",
     "dexNo": 162,
     "formKey": "base",
-    "displayName": "다꼬리",
-    "displayNameEn": "Furret",
-    "displayNameJa": "オオタチ",
+    "names": {
+      "ko": "다꼬리",
+      "en": "Furret",
+      "ja": "オオタチ"
+    },
     "speed": 90,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/162.png"
   },
@@ -1626,9 +1950,11 @@ export const allPokemonRoster = [
     "id": "nat-0163",
     "dexNo": 163,
     "formKey": "base",
-    "displayName": "부우부",
-    "displayNameEn": "Hoothoot",
-    "displayNameJa": "ホーホー",
+    "names": {
+      "ko": "부우부",
+      "en": "Hoothoot",
+      "ja": "ホーホー"
+    },
     "speed": 50,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/163.png"
   },
@@ -1636,9 +1962,11 @@ export const allPokemonRoster = [
     "id": "nat-0164",
     "dexNo": 164,
     "formKey": "base",
-    "displayName": "야부엉",
-    "displayNameEn": "Noctowl",
-    "displayNameJa": "ヨルノズク",
+    "names": {
+      "ko": "야부엉",
+      "en": "Noctowl",
+      "ja": "ヨルノズク"
+    },
     "speed": 70,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/164.png"
   },
@@ -1646,9 +1974,11 @@ export const allPokemonRoster = [
     "id": "nat-0165",
     "dexNo": 165,
     "formKey": "base",
-    "displayName": "레디바",
-    "displayNameEn": "Ledyba",
-    "displayNameJa": "レディバ",
+    "names": {
+      "ko": "레디바",
+      "en": "Ledyba",
+      "ja": "レディバ"
+    },
     "speed": 55,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/165.png"
   },
@@ -1656,9 +1986,11 @@ export const allPokemonRoster = [
     "id": "nat-0166",
     "dexNo": 166,
     "formKey": "base",
-    "displayName": "레디안",
-    "displayNameEn": "Ledian",
-    "displayNameJa": "レディアン",
+    "names": {
+      "ko": "레디안",
+      "en": "Ledian",
+      "ja": "レディアン"
+    },
     "speed": 85,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/166.png"
   },
@@ -1666,9 +1998,11 @@ export const allPokemonRoster = [
     "id": "nat-0167",
     "dexNo": 167,
     "formKey": "base",
-    "displayName": "페이검",
-    "displayNameEn": "Spinarak",
-    "displayNameJa": "イトマル",
+    "names": {
+      "ko": "페이검",
+      "en": "Spinarak",
+      "ja": "イトマル"
+    },
     "speed": 30,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/167.png"
   },
@@ -1676,9 +2010,11 @@ export const allPokemonRoster = [
     "id": "nat-0168",
     "dexNo": 168,
     "formKey": "base",
-    "displayName": "아리아도스",
-    "displayNameEn": "Ariados",
-    "displayNameJa": "アリアドス",
+    "names": {
+      "ko": "아리아도스",
+      "en": "Ariados",
+      "ja": "アリアドス"
+    },
     "speed": 40,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/168.png"
   },
@@ -1686,9 +2022,11 @@ export const allPokemonRoster = [
     "id": "nat-0169",
     "dexNo": 169,
     "formKey": "base",
-    "displayName": "크로뱃",
-    "displayNameEn": "Crobat",
-    "displayNameJa": "クロバット",
+    "names": {
+      "ko": "크로뱃",
+      "en": "Crobat",
+      "ja": "クロバット"
+    },
     "speed": 130,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/169.png"
   },
@@ -1696,9 +2034,11 @@ export const allPokemonRoster = [
     "id": "nat-0170",
     "dexNo": 170,
     "formKey": "base",
-    "displayName": "초라기",
-    "displayNameEn": "Chinchou",
-    "displayNameJa": "チョンチー",
+    "names": {
+      "ko": "초라기",
+      "en": "Chinchou",
+      "ja": "チョンチー"
+    },
     "speed": 67,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/170.png"
   },
@@ -1706,9 +2046,11 @@ export const allPokemonRoster = [
     "id": "nat-0171",
     "dexNo": 171,
     "formKey": "base",
-    "displayName": "랜턴",
-    "displayNameEn": "Lanturn",
-    "displayNameJa": "ランターン",
+    "names": {
+      "ko": "랜턴",
+      "en": "Lanturn",
+      "ja": "ランターン"
+    },
     "speed": 67,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/171.png"
   },
@@ -1716,9 +2058,11 @@ export const allPokemonRoster = [
     "id": "nat-0172",
     "dexNo": 172,
     "formKey": "base",
-    "displayName": "피츄",
-    "displayNameEn": "Pichu",
-    "displayNameJa": "ピチュー",
+    "names": {
+      "ko": "피츄",
+      "en": "Pichu",
+      "ja": "ピチュー"
+    },
     "speed": 60,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/172.png"
   },
@@ -1726,9 +2070,11 @@ export const allPokemonRoster = [
     "id": "nat-0173",
     "dexNo": 173,
     "formKey": "base",
-    "displayName": "삐",
-    "displayNameEn": "Cleffa",
-    "displayNameJa": "ピィ",
+    "names": {
+      "ko": "삐",
+      "en": "Cleffa",
+      "ja": "ピィ"
+    },
     "speed": 15,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/173.png"
   },
@@ -1736,9 +2082,11 @@ export const allPokemonRoster = [
     "id": "nat-0174",
     "dexNo": 174,
     "formKey": "base",
-    "displayName": "푸푸린",
-    "displayNameEn": "Igglybuff",
-    "displayNameJa": "ププリン",
+    "names": {
+      "ko": "푸푸린",
+      "en": "Igglybuff",
+      "ja": "ププリン"
+    },
     "speed": 15,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/174.png"
   },
@@ -1746,9 +2094,11 @@ export const allPokemonRoster = [
     "id": "nat-0175",
     "dexNo": 175,
     "formKey": "base",
-    "displayName": "토게피",
-    "displayNameEn": "Togepi",
-    "displayNameJa": "トゲピー",
+    "names": {
+      "ko": "토게피",
+      "en": "Togepi",
+      "ja": "トゲピー"
+    },
     "speed": 20,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/175.png"
   },
@@ -1756,9 +2106,11 @@ export const allPokemonRoster = [
     "id": "nat-0176",
     "dexNo": 176,
     "formKey": "base",
-    "displayName": "토게틱",
-    "displayNameEn": "Togetic",
-    "displayNameJa": "トゲチック",
+    "names": {
+      "ko": "토게틱",
+      "en": "Togetic",
+      "ja": "トゲチック"
+    },
     "speed": 40,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/176.png"
   },
@@ -1766,9 +2118,11 @@ export const allPokemonRoster = [
     "id": "nat-0177",
     "dexNo": 177,
     "formKey": "base",
-    "displayName": "네이티",
-    "displayNameEn": "Natu",
-    "displayNameJa": "ネイティ",
+    "names": {
+      "ko": "네이티",
+      "en": "Natu",
+      "ja": "ネイティ"
+    },
     "speed": 70,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/177.png"
   },
@@ -1776,9 +2130,11 @@ export const allPokemonRoster = [
     "id": "nat-0178",
     "dexNo": 178,
     "formKey": "base",
-    "displayName": "네이티오",
-    "displayNameEn": "Xatu",
-    "displayNameJa": "ネイティオ",
+    "names": {
+      "ko": "네이티오",
+      "en": "Xatu",
+      "ja": "ネイティオ"
+    },
     "speed": 95,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/178.png"
   },
@@ -1786,9 +2142,11 @@ export const allPokemonRoster = [
     "id": "nat-0179",
     "dexNo": 179,
     "formKey": "base",
-    "displayName": "메리프",
-    "displayNameEn": "Mareep",
-    "displayNameJa": "メリープ",
+    "names": {
+      "ko": "메리프",
+      "en": "Mareep",
+      "ja": "メリープ"
+    },
     "speed": 35,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/179.png"
   },
@@ -1796,9 +2154,11 @@ export const allPokemonRoster = [
     "id": "nat-0180",
     "dexNo": 180,
     "formKey": "base",
-    "displayName": "보송송",
-    "displayNameEn": "Flaaffy",
-    "displayNameJa": "モココ",
+    "names": {
+      "ko": "보송송",
+      "en": "Flaaffy",
+      "ja": "モココ"
+    },
     "speed": 45,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/180.png"
   },
@@ -1806,9 +2166,11 @@ export const allPokemonRoster = [
     "id": "nat-0181",
     "dexNo": 181,
     "formKey": "base",
-    "displayName": "전룡",
-    "displayNameEn": "Ampharos",
-    "displayNameJa": "デンリュウ",
+    "names": {
+      "ko": "전룡",
+      "en": "Ampharos",
+      "ja": "デンリュウ"
+    },
     "speed": 55,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/181.png"
   },
@@ -1816,9 +2178,11 @@ export const allPokemonRoster = [
     "id": "nat-0182",
     "dexNo": 182,
     "formKey": "base",
-    "displayName": "아르코",
-    "displayNameEn": "Bellossom",
-    "displayNameJa": "キレイハナ",
+    "names": {
+      "ko": "아르코",
+      "en": "Bellossom",
+      "ja": "キレイハナ"
+    },
     "speed": 50,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/182.png"
   },
@@ -1826,9 +2190,11 @@ export const allPokemonRoster = [
     "id": "nat-0183",
     "dexNo": 183,
     "formKey": "base",
-    "displayName": "마릴",
-    "displayNameEn": "Marill",
-    "displayNameJa": "マリル",
+    "names": {
+      "ko": "마릴",
+      "en": "Marill",
+      "ja": "マリル"
+    },
     "speed": 40,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/183.png"
   },
@@ -1836,9 +2202,11 @@ export const allPokemonRoster = [
     "id": "nat-0184",
     "dexNo": 184,
     "formKey": "base",
-    "displayName": "마릴리",
-    "displayNameEn": "Azumarill",
-    "displayNameJa": "マリルリ",
+    "names": {
+      "ko": "마릴리",
+      "en": "Azumarill",
+      "ja": "マリルリ"
+    },
     "speed": 50,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/184.png"
   },
@@ -1846,9 +2214,11 @@ export const allPokemonRoster = [
     "id": "nat-0185",
     "dexNo": 185,
     "formKey": "base",
-    "displayName": "꼬지모",
-    "displayNameEn": "Sudowoodo",
-    "displayNameJa": "ウソッキー",
+    "names": {
+      "ko": "꼬지모",
+      "en": "Sudowoodo",
+      "ja": "ウソッキー"
+    },
     "speed": 30,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/185.png"
   },
@@ -1856,9 +2226,11 @@ export const allPokemonRoster = [
     "id": "nat-0186",
     "dexNo": 186,
     "formKey": "base",
-    "displayName": "왕구리",
-    "displayNameEn": "Politoed",
-    "displayNameJa": "ニョロトノ",
+    "names": {
+      "ko": "왕구리",
+      "en": "Politoed",
+      "ja": "ニョロトノ"
+    },
     "speed": 70,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/186.png"
   },
@@ -1866,9 +2238,11 @@ export const allPokemonRoster = [
     "id": "nat-0187",
     "dexNo": 187,
     "formKey": "base",
-    "displayName": "통통코",
-    "displayNameEn": "Hoppip",
-    "displayNameJa": "ハネッコ",
+    "names": {
+      "ko": "통통코",
+      "en": "Hoppip",
+      "ja": "ハネッコ"
+    },
     "speed": 50,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/187.png"
   },
@@ -1876,9 +2250,11 @@ export const allPokemonRoster = [
     "id": "nat-0188",
     "dexNo": 188,
     "formKey": "base",
-    "displayName": "두코",
-    "displayNameEn": "Skiploom",
-    "displayNameJa": "ポポッコ",
+    "names": {
+      "ko": "두코",
+      "en": "Skiploom",
+      "ja": "ポポッコ"
+    },
     "speed": 80,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/188.png"
   },
@@ -1886,9 +2262,11 @@ export const allPokemonRoster = [
     "id": "nat-0189",
     "dexNo": 189,
     "formKey": "base",
-    "displayName": "솜솜코",
-    "displayNameEn": "Jumpluff",
-    "displayNameJa": "ワタッコ",
+    "names": {
+      "ko": "솜솜코",
+      "en": "Jumpluff",
+      "ja": "ワタッコ"
+    },
     "speed": 110,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/189.png"
   },
@@ -1896,9 +2274,11 @@ export const allPokemonRoster = [
     "id": "nat-0190",
     "dexNo": 190,
     "formKey": "base",
-    "displayName": "에이팜",
-    "displayNameEn": "Aipom",
-    "displayNameJa": "エイパム",
+    "names": {
+      "ko": "에이팜",
+      "en": "Aipom",
+      "ja": "エイパム"
+    },
     "speed": 85,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/190.png"
   },
@@ -1906,9 +2286,11 @@ export const allPokemonRoster = [
     "id": "nat-0191",
     "dexNo": 191,
     "formKey": "base",
-    "displayName": "해너츠",
-    "displayNameEn": "Sunkern",
-    "displayNameJa": "ヒマナッツ",
+    "names": {
+      "ko": "해너츠",
+      "en": "Sunkern",
+      "ja": "ヒマナッツ"
+    },
     "speed": 30,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/191.png"
   },
@@ -1916,9 +2298,11 @@ export const allPokemonRoster = [
     "id": "nat-0192",
     "dexNo": 192,
     "formKey": "base",
-    "displayName": "해루미",
-    "displayNameEn": "Sunflora",
-    "displayNameJa": "キマワリ",
+    "names": {
+      "ko": "해루미",
+      "en": "Sunflora",
+      "ja": "キマワリ"
+    },
     "speed": 30,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/192.png"
   },
@@ -1926,9 +2310,11 @@ export const allPokemonRoster = [
     "id": "nat-0193",
     "dexNo": 193,
     "formKey": "base",
-    "displayName": "왕자리",
-    "displayNameEn": "Yanma",
-    "displayNameJa": "ヤンヤンマ",
+    "names": {
+      "ko": "왕자리",
+      "en": "Yanma",
+      "ja": "ヤンヤンマ"
+    },
     "speed": 95,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/193.png"
   },
@@ -1936,9 +2322,11 @@ export const allPokemonRoster = [
     "id": "nat-0194",
     "dexNo": 194,
     "formKey": "base",
-    "displayName": "우파",
-    "displayNameEn": "Wooper",
-    "displayNameJa": "ウパー",
+    "names": {
+      "ko": "우파",
+      "en": "Wooper",
+      "ja": "ウパー"
+    },
     "speed": 15,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/194.png"
   },
@@ -1946,9 +2334,11 @@ export const allPokemonRoster = [
     "id": "nat-0195",
     "dexNo": 195,
     "formKey": "base",
-    "displayName": "누오",
-    "displayNameEn": "Quagsire",
-    "displayNameJa": "ヌオー",
+    "names": {
+      "ko": "누오",
+      "en": "Quagsire",
+      "ja": "ヌオー"
+    },
     "speed": 35,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/195.png"
   },
@@ -1956,9 +2346,11 @@ export const allPokemonRoster = [
     "id": "nat-0196",
     "dexNo": 196,
     "formKey": "base",
-    "displayName": "에브이",
-    "displayNameEn": "Espeon",
-    "displayNameJa": "エーフィ",
+    "names": {
+      "ko": "에브이",
+      "en": "Espeon",
+      "ja": "エーフィ"
+    },
     "speed": 110,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/196.png"
   },
@@ -1966,9 +2358,11 @@ export const allPokemonRoster = [
     "id": "nat-0197",
     "dexNo": 197,
     "formKey": "base",
-    "displayName": "블래키",
-    "displayNameEn": "Umbreon",
-    "displayNameJa": "ブラッキー",
+    "names": {
+      "ko": "블래키",
+      "en": "Umbreon",
+      "ja": "ブラッキー"
+    },
     "speed": 65,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/197.png"
   },
@@ -1976,9 +2370,11 @@ export const allPokemonRoster = [
     "id": "nat-0198",
     "dexNo": 198,
     "formKey": "base",
-    "displayName": "니로우",
-    "displayNameEn": "Murkrow",
-    "displayNameJa": "ヤミカラス",
+    "names": {
+      "ko": "니로우",
+      "en": "Murkrow",
+      "ja": "ヤミカラス"
+    },
     "speed": 91,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/198.png"
   },
@@ -1986,9 +2382,11 @@ export const allPokemonRoster = [
     "id": "nat-0199",
     "dexNo": 199,
     "formKey": "base",
-    "displayName": "야도킹",
-    "displayNameEn": "Slowking",
-    "displayNameJa": "ヤドキング",
+    "names": {
+      "ko": "야도킹",
+      "en": "Slowking",
+      "ja": "ヤドキング"
+    },
     "speed": 30,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/199.png"
   },
@@ -1996,9 +2394,11 @@ export const allPokemonRoster = [
     "id": "nat-0200",
     "dexNo": 200,
     "formKey": "base",
-    "displayName": "무우마",
-    "displayNameEn": "Misdreavus",
-    "displayNameJa": "ムウマ",
+    "names": {
+      "ko": "무우마",
+      "en": "Misdreavus",
+      "ja": "ムウマ"
+    },
     "speed": 85,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/200.png"
   },
@@ -2006,9 +2406,11 @@ export const allPokemonRoster = [
     "id": "nat-0201",
     "dexNo": 201,
     "formKey": "base",
-    "displayName": "안농",
-    "displayNameEn": "Unown",
-    "displayNameJa": "アンノーン",
+    "names": {
+      "ko": "안농",
+      "en": "Unown",
+      "ja": "アンノーン"
+    },
     "speed": 48,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/201.png"
   },
@@ -2016,9 +2418,11 @@ export const allPokemonRoster = [
     "id": "nat-0202",
     "dexNo": 202,
     "formKey": "base",
-    "displayName": "마자용",
-    "displayNameEn": "Wobbuffet",
-    "displayNameJa": "ソーナンス",
+    "names": {
+      "ko": "마자용",
+      "en": "Wobbuffet",
+      "ja": "ソーナンス"
+    },
     "speed": 33,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/202.png"
   },
@@ -2026,9 +2430,11 @@ export const allPokemonRoster = [
     "id": "nat-0203",
     "dexNo": 203,
     "formKey": "base",
-    "displayName": "키링키",
-    "displayNameEn": "Girafarig",
-    "displayNameJa": "キリンリキ",
+    "names": {
+      "ko": "키링키",
+      "en": "Girafarig",
+      "ja": "キリンリキ"
+    },
     "speed": 85,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/203.png"
   },
@@ -2036,9 +2442,11 @@ export const allPokemonRoster = [
     "id": "nat-0204",
     "dexNo": 204,
     "formKey": "base",
-    "displayName": "피콘",
-    "displayNameEn": "Pineco",
-    "displayNameJa": "クヌギダマ",
+    "names": {
+      "ko": "피콘",
+      "en": "Pineco",
+      "ja": "クヌギダマ"
+    },
     "speed": 15,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/204.png"
   },
@@ -2046,9 +2454,11 @@ export const allPokemonRoster = [
     "id": "nat-0205",
     "dexNo": 205,
     "formKey": "base",
-    "displayName": "쏘콘",
-    "displayNameEn": "Forretress",
-    "displayNameJa": "フォレトス",
+    "names": {
+      "ko": "쏘콘",
+      "en": "Forretress",
+      "ja": "フォレトス"
+    },
     "speed": 40,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/205.png"
   },
@@ -2056,9 +2466,11 @@ export const allPokemonRoster = [
     "id": "nat-0206",
     "dexNo": 206,
     "formKey": "base",
-    "displayName": "노고치",
-    "displayNameEn": "Dunsparce",
-    "displayNameJa": "ノコッチ",
+    "names": {
+      "ko": "노고치",
+      "en": "Dunsparce",
+      "ja": "ノコッチ"
+    },
     "speed": 45,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/206.png"
   },
@@ -2066,9 +2478,11 @@ export const allPokemonRoster = [
     "id": "nat-0207",
     "dexNo": 207,
     "formKey": "base",
-    "displayName": "글라이거",
-    "displayNameEn": "Gligar",
-    "displayNameJa": "グライガー",
+    "names": {
+      "ko": "글라이거",
+      "en": "Gligar",
+      "ja": "グライガー"
+    },
     "speed": 85,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/207.png"
   },
@@ -2076,9 +2490,11 @@ export const allPokemonRoster = [
     "id": "nat-0208",
     "dexNo": 208,
     "formKey": "base",
-    "displayName": "강철톤",
-    "displayNameEn": "Steelix",
-    "displayNameJa": "ハガネール",
+    "names": {
+      "ko": "강철톤",
+      "en": "Steelix",
+      "ja": "ハガネール"
+    },
     "speed": 30,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/208.png"
   },
@@ -2086,9 +2502,11 @@ export const allPokemonRoster = [
     "id": "nat-0209",
     "dexNo": 209,
     "formKey": "base",
-    "displayName": "블루",
-    "displayNameEn": "Snubbull",
-    "displayNameJa": "ブルー",
+    "names": {
+      "ko": "블루",
+      "en": "Snubbull",
+      "ja": "ブルー"
+    },
     "speed": 30,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/209.png"
   },
@@ -2096,9 +2514,11 @@ export const allPokemonRoster = [
     "id": "nat-0210",
     "dexNo": 210,
     "formKey": "base",
-    "displayName": "그랑블루",
-    "displayNameEn": "Granbull",
-    "displayNameJa": "グランブル",
+    "names": {
+      "ko": "그랑블루",
+      "en": "Granbull",
+      "ja": "グランブル"
+    },
     "speed": 45,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/210.png"
   },
@@ -2106,9 +2526,11 @@ export const allPokemonRoster = [
     "id": "nat-0211",
     "dexNo": 211,
     "formKey": "base",
-    "displayName": "침바루",
-    "displayNameEn": "Qwilfish",
-    "displayNameJa": "ハリーセン",
+    "names": {
+      "ko": "침바루",
+      "en": "Qwilfish",
+      "ja": "ハリーセン"
+    },
     "speed": 85,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/211.png"
   },
@@ -2116,9 +2538,11 @@ export const allPokemonRoster = [
     "id": "nat-0212",
     "dexNo": 212,
     "formKey": "base",
-    "displayName": "핫삼",
-    "displayNameEn": "Scizor",
-    "displayNameJa": "ハッサム",
+    "names": {
+      "ko": "핫삼",
+      "en": "Scizor",
+      "ja": "ハッサム"
+    },
     "speed": 65,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/212.png"
   },
@@ -2126,9 +2550,11 @@ export const allPokemonRoster = [
     "id": "nat-0213",
     "dexNo": 213,
     "formKey": "base",
-    "displayName": "단단지",
-    "displayNameEn": "Shuckle",
-    "displayNameJa": "ツボツボ",
+    "names": {
+      "ko": "단단지",
+      "en": "Shuckle",
+      "ja": "ツボツボ"
+    },
     "speed": 5,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/213.png"
   },
@@ -2136,9 +2562,11 @@ export const allPokemonRoster = [
     "id": "nat-0214",
     "dexNo": 214,
     "formKey": "base",
-    "displayName": "헤라크로스",
-    "displayNameEn": "Heracross",
-    "displayNameJa": "ヘラクロス",
+    "names": {
+      "ko": "헤라크로스",
+      "en": "Heracross",
+      "ja": "ヘラクロス"
+    },
     "speed": 85,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/214.png"
   },
@@ -2146,9 +2574,11 @@ export const allPokemonRoster = [
     "id": "nat-0215",
     "dexNo": 215,
     "formKey": "base",
-    "displayName": "포푸니",
-    "displayNameEn": "Sneasel",
-    "displayNameJa": "ニューラ",
+    "names": {
+      "ko": "포푸니",
+      "en": "Sneasel",
+      "ja": "ニューラ"
+    },
     "speed": 115,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/215.png"
   },
@@ -2156,9 +2586,11 @@ export const allPokemonRoster = [
     "id": "nat-0216",
     "dexNo": 216,
     "formKey": "base",
-    "displayName": "깜지곰",
-    "displayNameEn": "Teddiursa",
-    "displayNameJa": "ヒメグマ",
+    "names": {
+      "ko": "깜지곰",
+      "en": "Teddiursa",
+      "ja": "ヒメグマ"
+    },
     "speed": 40,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/216.png"
   },
@@ -2166,9 +2598,11 @@ export const allPokemonRoster = [
     "id": "nat-0217",
     "dexNo": 217,
     "formKey": "base",
-    "displayName": "링곰",
-    "displayNameEn": "Ursaring",
-    "displayNameJa": "リングマ",
+    "names": {
+      "ko": "링곰",
+      "en": "Ursaring",
+      "ja": "リングマ"
+    },
     "speed": 55,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/217.png"
   },
@@ -2176,9 +2610,11 @@ export const allPokemonRoster = [
     "id": "nat-0218",
     "dexNo": 218,
     "formKey": "base",
-    "displayName": "마그마그",
-    "displayNameEn": "Slugma",
-    "displayNameJa": "マグマッグ",
+    "names": {
+      "ko": "마그마그",
+      "en": "Slugma",
+      "ja": "マグマッグ"
+    },
     "speed": 20,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/218.png"
   },
@@ -2186,9 +2622,11 @@ export const allPokemonRoster = [
     "id": "nat-0219",
     "dexNo": 219,
     "formKey": "base",
-    "displayName": "마그카르고",
-    "displayNameEn": "Magcargo",
-    "displayNameJa": "マグカルゴ",
+    "names": {
+      "ko": "마그카르고",
+      "en": "Magcargo",
+      "ja": "マグカルゴ"
+    },
     "speed": 30,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/219.png"
   },
@@ -2196,9 +2634,11 @@ export const allPokemonRoster = [
     "id": "nat-0220",
     "dexNo": 220,
     "formKey": "base",
-    "displayName": "꾸꾸리",
-    "displayNameEn": "Swinub",
-    "displayNameJa": "ウリムー",
+    "names": {
+      "ko": "꾸꾸리",
+      "en": "Swinub",
+      "ja": "ウリムー"
+    },
     "speed": 50,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/220.png"
   },
@@ -2206,9 +2646,11 @@ export const allPokemonRoster = [
     "id": "nat-0221",
     "dexNo": 221,
     "formKey": "base",
-    "displayName": "메꾸리",
-    "displayNameEn": "Piloswine",
-    "displayNameJa": "イノムー",
+    "names": {
+      "ko": "메꾸리",
+      "en": "Piloswine",
+      "ja": "イノムー"
+    },
     "speed": 50,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/221.png"
   },
@@ -2216,9 +2658,11 @@ export const allPokemonRoster = [
     "id": "nat-0222",
     "dexNo": 222,
     "formKey": "base",
-    "displayName": "코산호",
-    "displayNameEn": "Corsola",
-    "displayNameJa": "サニーゴ",
+    "names": {
+      "ko": "코산호",
+      "en": "Corsola",
+      "ja": "サニーゴ"
+    },
     "speed": 35,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/222.png"
   },
@@ -2226,9 +2670,11 @@ export const allPokemonRoster = [
     "id": "nat-0223",
     "dexNo": 223,
     "formKey": "base",
-    "displayName": "총어",
-    "displayNameEn": "Remoraid",
-    "displayNameJa": "テッポウオ",
+    "names": {
+      "ko": "총어",
+      "en": "Remoraid",
+      "ja": "テッポウオ"
+    },
     "speed": 65,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/223.png"
   },
@@ -2236,9 +2682,11 @@ export const allPokemonRoster = [
     "id": "nat-0224",
     "dexNo": 224,
     "formKey": "base",
-    "displayName": "대포무노",
-    "displayNameEn": "Octillery",
-    "displayNameJa": "オクタン",
+    "names": {
+      "ko": "대포무노",
+      "en": "Octillery",
+      "ja": "オクタン"
+    },
     "speed": 45,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/224.png"
   },
@@ -2246,9 +2694,11 @@ export const allPokemonRoster = [
     "id": "nat-0225",
     "dexNo": 225,
     "formKey": "base",
-    "displayName": "딜리버드",
-    "displayNameEn": "Delibird",
-    "displayNameJa": "デリバード",
+    "names": {
+      "ko": "딜리버드",
+      "en": "Delibird",
+      "ja": "デリバード"
+    },
     "speed": 75,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/225.png"
   },
@@ -2256,9 +2706,11 @@ export const allPokemonRoster = [
     "id": "nat-0226",
     "dexNo": 226,
     "formKey": "base",
-    "displayName": "만타인",
-    "displayNameEn": "Mantine",
-    "displayNameJa": "マンタイン",
+    "names": {
+      "ko": "만타인",
+      "en": "Mantine",
+      "ja": "マンタイン"
+    },
     "speed": 70,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/226.png"
   },
@@ -2266,9 +2718,11 @@ export const allPokemonRoster = [
     "id": "nat-0227",
     "dexNo": 227,
     "formKey": "base",
-    "displayName": "무장조",
-    "displayNameEn": "Skarmory",
-    "displayNameJa": "エアームド",
+    "names": {
+      "ko": "무장조",
+      "en": "Skarmory",
+      "ja": "エアームド"
+    },
     "speed": 70,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/227.png"
   },
@@ -2276,9 +2730,11 @@ export const allPokemonRoster = [
     "id": "nat-0228",
     "dexNo": 228,
     "formKey": "base",
-    "displayName": "델빌",
-    "displayNameEn": "Houndour",
-    "displayNameJa": "デルビル",
+    "names": {
+      "ko": "델빌",
+      "en": "Houndour",
+      "ja": "デルビル"
+    },
     "speed": 65,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/228.png"
   },
@@ -2286,9 +2742,11 @@ export const allPokemonRoster = [
     "id": "nat-0229",
     "dexNo": 229,
     "formKey": "base",
-    "displayName": "헬가",
-    "displayNameEn": "Houndoom",
-    "displayNameJa": "ヘルガー",
+    "names": {
+      "ko": "헬가",
+      "en": "Houndoom",
+      "ja": "ヘルガー"
+    },
     "speed": 95,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/229.png"
   },
@@ -2296,9 +2754,11 @@ export const allPokemonRoster = [
     "id": "nat-0230",
     "dexNo": 230,
     "formKey": "base",
-    "displayName": "킹드라",
-    "displayNameEn": "Kingdra",
-    "displayNameJa": "キングドラ",
+    "names": {
+      "ko": "킹드라",
+      "en": "Kingdra",
+      "ja": "キングドラ"
+    },
     "speed": 85,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/230.png"
   },
@@ -2306,9 +2766,11 @@ export const allPokemonRoster = [
     "id": "nat-0231",
     "dexNo": 231,
     "formKey": "base",
-    "displayName": "코코리",
-    "displayNameEn": "Phanpy",
-    "displayNameJa": "ゴマゾウ",
+    "names": {
+      "ko": "코코리",
+      "en": "Phanpy",
+      "ja": "ゴマゾウ"
+    },
     "speed": 40,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/231.png"
   },
@@ -2316,9 +2778,11 @@ export const allPokemonRoster = [
     "id": "nat-0232",
     "dexNo": 232,
     "formKey": "base",
-    "displayName": "코리갑",
-    "displayNameEn": "Donphan",
-    "displayNameJa": "ドンファン",
+    "names": {
+      "ko": "코리갑",
+      "en": "Donphan",
+      "ja": "ドンファン"
+    },
     "speed": 50,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/232.png"
   },
@@ -2326,9 +2790,11 @@ export const allPokemonRoster = [
     "id": "nat-0233",
     "dexNo": 233,
     "formKey": "base",
-    "displayName": "폴리곤2",
-    "displayNameEn": "Porygon2",
-    "displayNameJa": "ポリゴン２",
+    "names": {
+      "ko": "폴리곤2",
+      "en": "Porygon2",
+      "ja": "ポリゴン２"
+    },
     "speed": 60,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/233.png"
   },
@@ -2336,9 +2802,11 @@ export const allPokemonRoster = [
     "id": "nat-0234",
     "dexNo": 234,
     "formKey": "base",
-    "displayName": "노라키",
-    "displayNameEn": "Stantler",
-    "displayNameJa": "オドシシ",
+    "names": {
+      "ko": "노라키",
+      "en": "Stantler",
+      "ja": "オドシシ"
+    },
     "speed": 85,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/234.png"
   },
@@ -2346,9 +2814,11 @@ export const allPokemonRoster = [
     "id": "nat-0235",
     "dexNo": 235,
     "formKey": "base",
-    "displayName": "루브도",
-    "displayNameEn": "Smeargle",
-    "displayNameJa": "ドーブル",
+    "names": {
+      "ko": "루브도",
+      "en": "Smeargle",
+      "ja": "ドーブル"
+    },
     "speed": 75,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/235.png"
   },
@@ -2356,9 +2826,11 @@ export const allPokemonRoster = [
     "id": "nat-0236",
     "dexNo": 236,
     "formKey": "base",
-    "displayName": "배루키",
-    "displayNameEn": "Tyrogue",
-    "displayNameJa": "バルキー",
+    "names": {
+      "ko": "배루키",
+      "en": "Tyrogue",
+      "ja": "バルキー"
+    },
     "speed": 35,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/236.png"
   },
@@ -2366,9 +2838,11 @@ export const allPokemonRoster = [
     "id": "nat-0237",
     "dexNo": 237,
     "formKey": "base",
-    "displayName": "카포에라",
-    "displayNameEn": "Hitmontop",
-    "displayNameJa": "カポエラー",
+    "names": {
+      "ko": "카포에라",
+      "en": "Hitmontop",
+      "ja": "カポエラー"
+    },
     "speed": 70,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/237.png"
   },
@@ -2376,9 +2850,11 @@ export const allPokemonRoster = [
     "id": "nat-0238",
     "dexNo": 238,
     "formKey": "base",
-    "displayName": "뽀뽀라",
-    "displayNameEn": "Smoochum",
-    "displayNameJa": "ムチュール",
+    "names": {
+      "ko": "뽀뽀라",
+      "en": "Smoochum",
+      "ja": "ムチュール"
+    },
     "speed": 65,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/238.png"
   },
@@ -2386,9 +2862,11 @@ export const allPokemonRoster = [
     "id": "nat-0239",
     "dexNo": 239,
     "formKey": "base",
-    "displayName": "에레키드",
-    "displayNameEn": "Elekid",
-    "displayNameJa": "エレキッド",
+    "names": {
+      "ko": "에레키드",
+      "en": "Elekid",
+      "ja": "エレキッド"
+    },
     "speed": 95,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/239.png"
   },
@@ -2396,9 +2874,11 @@ export const allPokemonRoster = [
     "id": "nat-0240",
     "dexNo": 240,
     "formKey": "base",
-    "displayName": "마그비",
-    "displayNameEn": "Magby",
-    "displayNameJa": "ブビィ",
+    "names": {
+      "ko": "마그비",
+      "en": "Magby",
+      "ja": "ブビィ"
+    },
     "speed": 83,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/240.png"
   },
@@ -2406,9 +2886,11 @@ export const allPokemonRoster = [
     "id": "nat-0241",
     "dexNo": 241,
     "formKey": "base",
-    "displayName": "밀탱크",
-    "displayNameEn": "Miltank",
-    "displayNameJa": "ミルタンク",
+    "names": {
+      "ko": "밀탱크",
+      "en": "Miltank",
+      "ja": "ミルタンク"
+    },
     "speed": 100,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/241.png"
   },
@@ -2416,9 +2898,11 @@ export const allPokemonRoster = [
     "id": "nat-0242",
     "dexNo": 242,
     "formKey": "base",
-    "displayName": "해피너스",
-    "displayNameEn": "Blissey",
-    "displayNameJa": "ハピナス",
+    "names": {
+      "ko": "해피너스",
+      "en": "Blissey",
+      "ja": "ハピナス"
+    },
     "speed": 55,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/242.png"
   },
@@ -2426,9 +2910,11 @@ export const allPokemonRoster = [
     "id": "nat-0243",
     "dexNo": 243,
     "formKey": "base",
-    "displayName": "라이코",
-    "displayNameEn": "Raikou",
-    "displayNameJa": "ライコウ",
+    "names": {
+      "ko": "라이코",
+      "en": "Raikou",
+      "ja": "ライコウ"
+    },
     "speed": 115,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/243.png"
   },
@@ -2436,9 +2922,11 @@ export const allPokemonRoster = [
     "id": "nat-0244",
     "dexNo": 244,
     "formKey": "base",
-    "displayName": "앤테이",
-    "displayNameEn": "Entei",
-    "displayNameJa": "エンテイ",
+    "names": {
+      "ko": "앤테이",
+      "en": "Entei",
+      "ja": "エンテイ"
+    },
     "speed": 100,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/244.png"
   },
@@ -2446,9 +2934,11 @@ export const allPokemonRoster = [
     "id": "nat-0245",
     "dexNo": 245,
     "formKey": "base",
-    "displayName": "스이쿤",
-    "displayNameEn": "Suicune",
-    "displayNameJa": "スイクン",
+    "names": {
+      "ko": "스이쿤",
+      "en": "Suicune",
+      "ja": "スイクン"
+    },
     "speed": 85,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/245.png"
   },
@@ -2456,9 +2946,11 @@ export const allPokemonRoster = [
     "id": "nat-0246",
     "dexNo": 246,
     "formKey": "base",
-    "displayName": "애버라스",
-    "displayNameEn": "Larvitar",
-    "displayNameJa": "ヨーギラス",
+    "names": {
+      "ko": "애버라스",
+      "en": "Larvitar",
+      "ja": "ヨーギラス"
+    },
     "speed": 41,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/246.png"
   },
@@ -2466,9 +2958,11 @@ export const allPokemonRoster = [
     "id": "nat-0247",
     "dexNo": 247,
     "formKey": "base",
-    "displayName": "데기라스",
-    "displayNameEn": "Pupitar",
-    "displayNameJa": "サナギラス",
+    "names": {
+      "ko": "데기라스",
+      "en": "Pupitar",
+      "ja": "サナギラス"
+    },
     "speed": 51,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/247.png"
   },
@@ -2476,9 +2970,11 @@ export const allPokemonRoster = [
     "id": "nat-0248",
     "dexNo": 248,
     "formKey": "base",
-    "displayName": "마기라스",
-    "displayNameEn": "Tyranitar",
-    "displayNameJa": "バンギラス",
+    "names": {
+      "ko": "마기라스",
+      "en": "Tyranitar",
+      "ja": "バンギラス"
+    },
     "speed": 61,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/248.png"
   },
@@ -2486,9 +2982,11 @@ export const allPokemonRoster = [
     "id": "nat-0249",
     "dexNo": 249,
     "formKey": "base",
-    "displayName": "루기아",
-    "displayNameEn": "Lugia",
-    "displayNameJa": "ルギア",
+    "names": {
+      "ko": "루기아",
+      "en": "Lugia",
+      "ja": "ルギア"
+    },
     "speed": 110,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/249.png"
   },
@@ -2496,9 +2994,11 @@ export const allPokemonRoster = [
     "id": "nat-0250",
     "dexNo": 250,
     "formKey": "base",
-    "displayName": "칠색조",
-    "displayNameEn": "Ho-Oh",
-    "displayNameJa": "ホウオウ",
+    "names": {
+      "ko": "칠색조",
+      "en": "Ho-Oh",
+      "ja": "ホウオウ"
+    },
     "speed": 90,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/250.png"
   },
@@ -2506,9 +3006,11 @@ export const allPokemonRoster = [
     "id": "nat-0251",
     "dexNo": 251,
     "formKey": "base",
-    "displayName": "세레비",
-    "displayNameEn": "Celebi",
-    "displayNameJa": "セレビィ",
+    "names": {
+      "ko": "세레비",
+      "en": "Celebi",
+      "ja": "セレビィ"
+    },
     "speed": 100,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/251.png"
   },
@@ -2516,9 +3018,11 @@ export const allPokemonRoster = [
     "id": "nat-0252",
     "dexNo": 252,
     "formKey": "base",
-    "displayName": "나무지기",
-    "displayNameEn": "Treecko",
-    "displayNameJa": "キモリ",
+    "names": {
+      "ko": "나무지기",
+      "en": "Treecko",
+      "ja": "キモリ"
+    },
     "speed": 70,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/252.png"
   },
@@ -2526,9 +3030,11 @@ export const allPokemonRoster = [
     "id": "nat-0253",
     "dexNo": 253,
     "formKey": "base",
-    "displayName": "나무돌이",
-    "displayNameEn": "Grovyle",
-    "displayNameJa": "ジュプトル",
+    "names": {
+      "ko": "나무돌이",
+      "en": "Grovyle",
+      "ja": "ジュプトル"
+    },
     "speed": 95,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/253.png"
   },
@@ -2536,9 +3042,11 @@ export const allPokemonRoster = [
     "id": "nat-0254",
     "dexNo": 254,
     "formKey": "base",
-    "displayName": "나무킹",
-    "displayNameEn": "Sceptile",
-    "displayNameJa": "ジュカイン",
+    "names": {
+      "ko": "나무킹",
+      "en": "Sceptile",
+      "ja": "ジュカイン"
+    },
     "speed": 120,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/254.png"
   },
@@ -2546,9 +3054,11 @@ export const allPokemonRoster = [
     "id": "nat-0255",
     "dexNo": 255,
     "formKey": "base",
-    "displayName": "아차모",
-    "displayNameEn": "Torchic",
-    "displayNameJa": "アチャモ",
+    "names": {
+      "ko": "아차모",
+      "en": "Torchic",
+      "ja": "アチャモ"
+    },
     "speed": 45,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/255.png"
   },
@@ -2556,9 +3066,11 @@ export const allPokemonRoster = [
     "id": "nat-0256",
     "dexNo": 256,
     "formKey": "base",
-    "displayName": "영치코",
-    "displayNameEn": "Combusken",
-    "displayNameJa": "ワカシャモ",
+    "names": {
+      "ko": "영치코",
+      "en": "Combusken",
+      "ja": "ワカシャモ"
+    },
     "speed": 55,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/256.png"
   },
@@ -2566,9 +3078,11 @@ export const allPokemonRoster = [
     "id": "nat-0257",
     "dexNo": 257,
     "formKey": "base",
-    "displayName": "번치코",
-    "displayNameEn": "Blaziken",
-    "displayNameJa": "バシャーモ",
+    "names": {
+      "ko": "번치코",
+      "en": "Blaziken",
+      "ja": "バシャーモ"
+    },
     "speed": 80,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/257.png"
   },
@@ -2576,9 +3090,11 @@ export const allPokemonRoster = [
     "id": "nat-0258",
     "dexNo": 258,
     "formKey": "base",
-    "displayName": "물짱이",
-    "displayNameEn": "Mudkip",
-    "displayNameJa": "ミズゴロウ",
+    "names": {
+      "ko": "물짱이",
+      "en": "Mudkip",
+      "ja": "ミズゴロウ"
+    },
     "speed": 40,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/258.png"
   },
@@ -2586,9 +3102,11 @@ export const allPokemonRoster = [
     "id": "nat-0259",
     "dexNo": 259,
     "formKey": "base",
-    "displayName": "늪짱이",
-    "displayNameEn": "Marshtomp",
-    "displayNameJa": "ヌマクロー",
+    "names": {
+      "ko": "늪짱이",
+      "en": "Marshtomp",
+      "ja": "ヌマクロー"
+    },
     "speed": 50,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/259.png"
   },
@@ -2596,9 +3114,11 @@ export const allPokemonRoster = [
     "id": "nat-0260",
     "dexNo": 260,
     "formKey": "base",
-    "displayName": "대짱이",
-    "displayNameEn": "Swampert",
-    "displayNameJa": "ラグラージ",
+    "names": {
+      "ko": "대짱이",
+      "en": "Swampert",
+      "ja": "ラグラージ"
+    },
     "speed": 60,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/260.png"
   },
@@ -2606,9 +3126,11 @@ export const allPokemonRoster = [
     "id": "nat-0261",
     "dexNo": 261,
     "formKey": "base",
-    "displayName": "포챠나",
-    "displayNameEn": "Poochyena",
-    "displayNameJa": "ポチエナ",
+    "names": {
+      "ko": "포챠나",
+      "en": "Poochyena",
+      "ja": "ポチエナ"
+    },
     "speed": 35,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/261.png"
   },
@@ -2616,9 +3138,11 @@ export const allPokemonRoster = [
     "id": "nat-0262",
     "dexNo": 262,
     "formKey": "base",
-    "displayName": "그라에나",
-    "displayNameEn": "Mightyena",
-    "displayNameJa": "グラエナ",
+    "names": {
+      "ko": "그라에나",
+      "en": "Mightyena",
+      "ja": "グラエナ"
+    },
     "speed": 70,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/262.png"
   },
@@ -2626,9 +3150,11 @@ export const allPokemonRoster = [
     "id": "nat-0263",
     "dexNo": 263,
     "formKey": "base",
-    "displayName": "지그제구리",
-    "displayNameEn": "Zigzagoon",
-    "displayNameJa": "ジグザグマ",
+    "names": {
+      "ko": "지그제구리",
+      "en": "Zigzagoon",
+      "ja": "ジグザグマ"
+    },
     "speed": 60,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/263.png"
   },
@@ -2636,9 +3162,11 @@ export const allPokemonRoster = [
     "id": "nat-0264",
     "dexNo": 264,
     "formKey": "base",
-    "displayName": "직구리",
-    "displayNameEn": "Linoone",
-    "displayNameJa": "マッスグマ",
+    "names": {
+      "ko": "직구리",
+      "en": "Linoone",
+      "ja": "マッスグマ"
+    },
     "speed": 100,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/264.png"
   },
@@ -2646,9 +3174,11 @@ export const allPokemonRoster = [
     "id": "nat-0265",
     "dexNo": 265,
     "formKey": "base",
-    "displayName": "개무소",
-    "displayNameEn": "Wurmple",
-    "displayNameJa": "ケムッソ",
+    "names": {
+      "ko": "개무소",
+      "en": "Wurmple",
+      "ja": "ケムッソ"
+    },
     "speed": 20,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/265.png"
   },
@@ -2656,9 +3186,11 @@ export const allPokemonRoster = [
     "id": "nat-0266",
     "dexNo": 266,
     "formKey": "base",
-    "displayName": "실쿤",
-    "displayNameEn": "Silcoon",
-    "displayNameJa": "カラサリス",
+    "names": {
+      "ko": "실쿤",
+      "en": "Silcoon",
+      "ja": "カラサリス"
+    },
     "speed": 15,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/266.png"
   },
@@ -2666,9 +3198,11 @@ export const allPokemonRoster = [
     "id": "nat-0267",
     "dexNo": 267,
     "formKey": "base",
-    "displayName": "뷰티플라이",
-    "displayNameEn": "Beautifly",
-    "displayNameJa": "アゲハント",
+    "names": {
+      "ko": "뷰티플라이",
+      "en": "Beautifly",
+      "ja": "アゲハント"
+    },
     "speed": 65,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/267.png"
   },
@@ -2676,9 +3210,11 @@ export const allPokemonRoster = [
     "id": "nat-0268",
     "dexNo": 268,
     "formKey": "base",
-    "displayName": "카스쿤",
-    "displayNameEn": "Cascoon",
-    "displayNameJa": "マユルド",
+    "names": {
+      "ko": "카스쿤",
+      "en": "Cascoon",
+      "ja": "マユルド"
+    },
     "speed": 15,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/268.png"
   },
@@ -2686,9 +3222,11 @@ export const allPokemonRoster = [
     "id": "nat-0269",
     "dexNo": 269,
     "formKey": "base",
-    "displayName": "독케일",
-    "displayNameEn": "Dustox",
-    "displayNameJa": "ドクケイル",
+    "names": {
+      "ko": "독케일",
+      "en": "Dustox",
+      "ja": "ドクケイル"
+    },
     "speed": 65,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/269.png"
   },
@@ -2696,9 +3234,11 @@ export const allPokemonRoster = [
     "id": "nat-0270",
     "dexNo": 270,
     "formKey": "base",
-    "displayName": "연꽃몬",
-    "displayNameEn": "Lotad",
-    "displayNameJa": "ハスボー",
+    "names": {
+      "ko": "연꽃몬",
+      "en": "Lotad",
+      "ja": "ハスボー"
+    },
     "speed": 30,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/270.png"
   },
@@ -2706,9 +3246,11 @@ export const allPokemonRoster = [
     "id": "nat-0271",
     "dexNo": 271,
     "formKey": "base",
-    "displayName": "로토스",
-    "displayNameEn": "Lombre",
-    "displayNameJa": "ハスブレロ",
+    "names": {
+      "ko": "로토스",
+      "en": "Lombre",
+      "ja": "ハスブレロ"
+    },
     "speed": 50,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/271.png"
   },
@@ -2716,9 +3258,11 @@ export const allPokemonRoster = [
     "id": "nat-0272",
     "dexNo": 272,
     "formKey": "base",
-    "displayName": "로파파",
-    "displayNameEn": "Ludicolo",
-    "displayNameJa": "ルンパッパ",
+    "names": {
+      "ko": "로파파",
+      "en": "Ludicolo",
+      "ja": "ルンパッパ"
+    },
     "speed": 70,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/272.png"
   },
@@ -2726,9 +3270,11 @@ export const allPokemonRoster = [
     "id": "nat-0273",
     "dexNo": 273,
     "formKey": "base",
-    "displayName": "도토링",
-    "displayNameEn": "Seedot",
-    "displayNameJa": "タネボー",
+    "names": {
+      "ko": "도토링",
+      "en": "Seedot",
+      "ja": "タネボー"
+    },
     "speed": 30,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/273.png"
   },
@@ -2736,9 +3282,11 @@ export const allPokemonRoster = [
     "id": "nat-0274",
     "dexNo": 274,
     "formKey": "base",
-    "displayName": "잎새코",
-    "displayNameEn": "Nuzleaf",
-    "displayNameJa": "コノハナ",
+    "names": {
+      "ko": "잎새코",
+      "en": "Nuzleaf",
+      "ja": "コノハナ"
+    },
     "speed": 60,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/274.png"
   },
@@ -2746,9 +3294,11 @@ export const allPokemonRoster = [
     "id": "nat-0275",
     "dexNo": 275,
     "formKey": "base",
-    "displayName": "다탱구",
-    "displayNameEn": "Shiftry",
-    "displayNameJa": "ダーテング",
+    "names": {
+      "ko": "다탱구",
+      "en": "Shiftry",
+      "ja": "ダーテング"
+    },
     "speed": 80,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/275.png"
   },
@@ -2756,9 +3306,11 @@ export const allPokemonRoster = [
     "id": "nat-0276",
     "dexNo": 276,
     "formKey": "base",
-    "displayName": "테일로",
-    "displayNameEn": "Taillow",
-    "displayNameJa": "スバメ",
+    "names": {
+      "ko": "테일로",
+      "en": "Taillow",
+      "ja": "スバメ"
+    },
     "speed": 85,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/276.png"
   },
@@ -2766,9 +3318,11 @@ export const allPokemonRoster = [
     "id": "nat-0277",
     "dexNo": 277,
     "formKey": "base",
-    "displayName": "스왈로",
-    "displayNameEn": "Swellow",
-    "displayNameJa": "オオスバメ",
+    "names": {
+      "ko": "스왈로",
+      "en": "Swellow",
+      "ja": "オオスバメ"
+    },
     "speed": 125,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/277.png"
   },
@@ -2776,9 +3330,11 @@ export const allPokemonRoster = [
     "id": "nat-0278",
     "dexNo": 278,
     "formKey": "base",
-    "displayName": "갈모매",
-    "displayNameEn": "Wingull",
-    "displayNameJa": "キャモメ",
+    "names": {
+      "ko": "갈모매",
+      "en": "Wingull",
+      "ja": "キャモメ"
+    },
     "speed": 85,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/278.png"
   },
@@ -2786,9 +3342,11 @@ export const allPokemonRoster = [
     "id": "nat-0279",
     "dexNo": 279,
     "formKey": "base",
-    "displayName": "패리퍼",
-    "displayNameEn": "Pelipper",
-    "displayNameJa": "ペリッパー",
+    "names": {
+      "ko": "패리퍼",
+      "en": "Pelipper",
+      "ja": "ペリッパー"
+    },
     "speed": 65,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/279.png"
   },
@@ -2796,9 +3354,11 @@ export const allPokemonRoster = [
     "id": "nat-0280",
     "dexNo": 280,
     "formKey": "base",
-    "displayName": "랄토스",
-    "displayNameEn": "Ralts",
-    "displayNameJa": "ラルトス",
+    "names": {
+      "ko": "랄토스",
+      "en": "Ralts",
+      "ja": "ラルトス"
+    },
     "speed": 40,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/280.png"
   },
@@ -2806,9 +3366,11 @@ export const allPokemonRoster = [
     "id": "nat-0281",
     "dexNo": 281,
     "formKey": "base",
-    "displayName": "킬리아",
-    "displayNameEn": "Kirlia",
-    "displayNameJa": "キルリア",
+    "names": {
+      "ko": "킬리아",
+      "en": "Kirlia",
+      "ja": "キルリア"
+    },
     "speed": 50,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/281.png"
   },
@@ -2816,9 +3378,11 @@ export const allPokemonRoster = [
     "id": "nat-0282",
     "dexNo": 282,
     "formKey": "base",
-    "displayName": "가디안",
-    "displayNameEn": "Gardevoir",
-    "displayNameJa": "サーナイト",
+    "names": {
+      "ko": "가디안",
+      "en": "Gardevoir",
+      "ja": "サーナイト"
+    },
     "speed": 80,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/282.png"
   },
@@ -2826,9 +3390,11 @@ export const allPokemonRoster = [
     "id": "nat-0283",
     "dexNo": 283,
     "formKey": "base",
-    "displayName": "비구술",
-    "displayNameEn": "Surskit",
-    "displayNameJa": "アメタマ",
+    "names": {
+      "ko": "비구술",
+      "en": "Surskit",
+      "ja": "アメタマ"
+    },
     "speed": 65,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/283.png"
   },
@@ -2836,9 +3402,11 @@ export const allPokemonRoster = [
     "id": "nat-0284",
     "dexNo": 284,
     "formKey": "base",
-    "displayName": "비나방",
-    "displayNameEn": "Masquerain",
-    "displayNameJa": "アメモース",
+    "names": {
+      "ko": "비나방",
+      "en": "Masquerain",
+      "ja": "アメモース"
+    },
     "speed": 80,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/284.png"
   },
@@ -2846,9 +3414,11 @@ export const allPokemonRoster = [
     "id": "nat-0285",
     "dexNo": 285,
     "formKey": "base",
-    "displayName": "버섯꼬",
-    "displayNameEn": "Shroomish",
-    "displayNameJa": "キノココ",
+    "names": {
+      "ko": "버섯꼬",
+      "en": "Shroomish",
+      "ja": "キノココ"
+    },
     "speed": 35,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/285.png"
   },
@@ -2856,9 +3426,11 @@ export const allPokemonRoster = [
     "id": "nat-0286",
     "dexNo": 286,
     "formKey": "base",
-    "displayName": "버섯모",
-    "displayNameEn": "Breloom",
-    "displayNameJa": "キノガッサ",
+    "names": {
+      "ko": "버섯모",
+      "en": "Breloom",
+      "ja": "キノガッサ"
+    },
     "speed": 70,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/286.png"
   },
@@ -2866,9 +3438,11 @@ export const allPokemonRoster = [
     "id": "nat-0287",
     "dexNo": 287,
     "formKey": "base",
-    "displayName": "게을로",
-    "displayNameEn": "Slakoth",
-    "displayNameJa": "ナマケロ",
+    "names": {
+      "ko": "게을로",
+      "en": "Slakoth",
+      "ja": "ナマケロ"
+    },
     "speed": 30,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/287.png"
   },
@@ -2876,9 +3450,11 @@ export const allPokemonRoster = [
     "id": "nat-0288",
     "dexNo": 288,
     "formKey": "base",
-    "displayName": "발바로",
-    "displayNameEn": "Vigoroth",
-    "displayNameJa": "ヤルキモノ",
+    "names": {
+      "ko": "발바로",
+      "en": "Vigoroth",
+      "ja": "ヤルキモノ"
+    },
     "speed": 90,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/288.png"
   },
@@ -2886,9 +3462,11 @@ export const allPokemonRoster = [
     "id": "nat-0289",
     "dexNo": 289,
     "formKey": "base",
-    "displayName": "게을킹",
-    "displayNameEn": "Slaking",
-    "displayNameJa": "ケッキング",
+    "names": {
+      "ko": "게을킹",
+      "en": "Slaking",
+      "ja": "ケッキング"
+    },
     "speed": 100,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/289.png"
   },
@@ -2896,9 +3474,11 @@ export const allPokemonRoster = [
     "id": "nat-0290",
     "dexNo": 290,
     "formKey": "base",
-    "displayName": "토중몬",
-    "displayNameEn": "Nincada",
-    "displayNameJa": "ツチニン",
+    "names": {
+      "ko": "토중몬",
+      "en": "Nincada",
+      "ja": "ツチニン"
+    },
     "speed": 40,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/290.png"
   },
@@ -2906,9 +3486,11 @@ export const allPokemonRoster = [
     "id": "nat-0291",
     "dexNo": 291,
     "formKey": "base",
-    "displayName": "아이스크",
-    "displayNameEn": "Ninjask",
-    "displayNameJa": "テッカニン",
+    "names": {
+      "ko": "아이스크",
+      "en": "Ninjask",
+      "ja": "テッカニン"
+    },
     "speed": 160,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/291.png"
   },
@@ -2916,9 +3498,11 @@ export const allPokemonRoster = [
     "id": "nat-0292",
     "dexNo": 292,
     "formKey": "base",
-    "displayName": "껍질몬",
-    "displayNameEn": "Shedinja",
-    "displayNameJa": "ヌケニン",
+    "names": {
+      "ko": "껍질몬",
+      "en": "Shedinja",
+      "ja": "ヌケニン"
+    },
     "speed": 40,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/292.png"
   },
@@ -2926,9 +3510,11 @@ export const allPokemonRoster = [
     "id": "nat-0293",
     "dexNo": 293,
     "formKey": "base",
-    "displayName": "소곤룡",
-    "displayNameEn": "Whismur",
-    "displayNameJa": "ゴニョニョ",
+    "names": {
+      "ko": "소곤룡",
+      "en": "Whismur",
+      "ja": "ゴニョニョ"
+    },
     "speed": 28,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/293.png"
   },
@@ -2936,9 +3522,11 @@ export const allPokemonRoster = [
     "id": "nat-0294",
     "dexNo": 294,
     "formKey": "base",
-    "displayName": "노공룡",
-    "displayNameEn": "Loudred",
-    "displayNameJa": "ドゴーム",
+    "names": {
+      "ko": "노공룡",
+      "en": "Loudred",
+      "ja": "ドゴーム"
+    },
     "speed": 48,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/294.png"
   },
@@ -2946,9 +3534,11 @@ export const allPokemonRoster = [
     "id": "nat-0295",
     "dexNo": 295,
     "formKey": "base",
-    "displayName": "폭음룡",
-    "displayNameEn": "Exploud",
-    "displayNameJa": "バクオング",
+    "names": {
+      "ko": "폭음룡",
+      "en": "Exploud",
+      "ja": "バクオング"
+    },
     "speed": 68,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/295.png"
   },
@@ -2956,9 +3546,11 @@ export const allPokemonRoster = [
     "id": "nat-0296",
     "dexNo": 296,
     "formKey": "base",
-    "displayName": "마크탕",
-    "displayNameEn": "Makuhita",
-    "displayNameJa": "マクノシタ",
+    "names": {
+      "ko": "마크탕",
+      "en": "Makuhita",
+      "ja": "マクノシタ"
+    },
     "speed": 25,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/296.png"
   },
@@ -2966,9 +3558,11 @@ export const allPokemonRoster = [
     "id": "nat-0297",
     "dexNo": 297,
     "formKey": "base",
-    "displayName": "하리뭉",
-    "displayNameEn": "Hariyama",
-    "displayNameJa": "ハリテヤマ",
+    "names": {
+      "ko": "하리뭉",
+      "en": "Hariyama",
+      "ja": "ハリテヤマ"
+    },
     "speed": 50,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/297.png"
   },
@@ -2976,9 +3570,11 @@ export const allPokemonRoster = [
     "id": "nat-0298",
     "dexNo": 298,
     "formKey": "base",
-    "displayName": "루리리",
-    "displayNameEn": "Azurill",
-    "displayNameJa": "ルリリ",
+    "names": {
+      "ko": "루리리",
+      "en": "Azurill",
+      "ja": "ルリリ"
+    },
     "speed": 20,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/298.png"
   },
@@ -2986,9 +3582,11 @@ export const allPokemonRoster = [
     "id": "nat-0299",
     "dexNo": 299,
     "formKey": "base",
-    "displayName": "코코파스",
-    "displayNameEn": "Nosepass",
-    "displayNameJa": "ノズパス",
+    "names": {
+      "ko": "코코파스",
+      "en": "Nosepass",
+      "ja": "ノズパス"
+    },
     "speed": 30,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/299.png"
   },
@@ -2996,9 +3594,11 @@ export const allPokemonRoster = [
     "id": "nat-0300",
     "dexNo": 300,
     "formKey": "base",
-    "displayName": "에나비",
-    "displayNameEn": "Skitty",
-    "displayNameJa": "エネコ",
+    "names": {
+      "ko": "에나비",
+      "en": "Skitty",
+      "ja": "エネコ"
+    },
     "speed": 50,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/300.png"
   },
@@ -3006,9 +3606,11 @@ export const allPokemonRoster = [
     "id": "nat-0301",
     "dexNo": 301,
     "formKey": "base",
-    "displayName": "델케티",
-    "displayNameEn": "Delcatty",
-    "displayNameJa": "エネコロロ",
+    "names": {
+      "ko": "델케티",
+      "en": "Delcatty",
+      "ja": "エネコロロ"
+    },
     "speed": 90,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/301.png"
   },
@@ -3016,9 +3618,11 @@ export const allPokemonRoster = [
     "id": "nat-0302",
     "dexNo": 302,
     "formKey": "base",
-    "displayName": "깜까미",
-    "displayNameEn": "Sableye",
-    "displayNameJa": "ヤミラミ",
+    "names": {
+      "ko": "깜까미",
+      "en": "Sableye",
+      "ja": "ヤミラミ"
+    },
     "speed": 50,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/302.png"
   },
@@ -3026,9 +3630,11 @@ export const allPokemonRoster = [
     "id": "nat-0303",
     "dexNo": 303,
     "formKey": "base",
-    "displayName": "입치트",
-    "displayNameEn": "Mawile",
-    "displayNameJa": "クチート",
+    "names": {
+      "ko": "입치트",
+      "en": "Mawile",
+      "ja": "クチート"
+    },
     "speed": 50,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/303.png"
   },
@@ -3036,9 +3642,11 @@ export const allPokemonRoster = [
     "id": "nat-0304",
     "dexNo": 304,
     "formKey": "base",
-    "displayName": "가보리",
-    "displayNameEn": "Aron",
-    "displayNameJa": "ココドラ",
+    "names": {
+      "ko": "가보리",
+      "en": "Aron",
+      "ja": "ココドラ"
+    },
     "speed": 30,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/304.png"
   },
@@ -3046,9 +3654,11 @@ export const allPokemonRoster = [
     "id": "nat-0305",
     "dexNo": 305,
     "formKey": "base",
-    "displayName": "갱도라",
-    "displayNameEn": "Lairon",
-    "displayNameJa": "コドラ",
+    "names": {
+      "ko": "갱도라",
+      "en": "Lairon",
+      "ja": "コドラ"
+    },
     "speed": 40,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/305.png"
   },
@@ -3056,9 +3666,11 @@ export const allPokemonRoster = [
     "id": "nat-0306",
     "dexNo": 306,
     "formKey": "base",
-    "displayName": "보스로라",
-    "displayNameEn": "Aggron",
-    "displayNameJa": "ボスゴドラ",
+    "names": {
+      "ko": "보스로라",
+      "en": "Aggron",
+      "ja": "ボスゴドラ"
+    },
     "speed": 50,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/306.png"
   },
@@ -3066,9 +3678,11 @@ export const allPokemonRoster = [
     "id": "nat-0307",
     "dexNo": 307,
     "formKey": "base",
-    "displayName": "요가랑",
-    "displayNameEn": "Meditite",
-    "displayNameJa": "アサナン",
+    "names": {
+      "ko": "요가랑",
+      "en": "Meditite",
+      "ja": "アサナン"
+    },
     "speed": 60,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/307.png"
   },
@@ -3076,9 +3690,11 @@ export const allPokemonRoster = [
     "id": "nat-0308",
     "dexNo": 308,
     "formKey": "base",
-    "displayName": "요가램",
-    "displayNameEn": "Medicham",
-    "displayNameJa": "チャーレム",
+    "names": {
+      "ko": "요가램",
+      "en": "Medicham",
+      "ja": "チャーレム"
+    },
     "speed": 80,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/308.png"
   },
@@ -3086,9 +3702,11 @@ export const allPokemonRoster = [
     "id": "nat-0309",
     "dexNo": 309,
     "formKey": "base",
-    "displayName": "썬더라이",
-    "displayNameEn": "Electrike",
-    "displayNameJa": "ラクライ",
+    "names": {
+      "ko": "썬더라이",
+      "en": "Electrike",
+      "ja": "ラクライ"
+    },
     "speed": 65,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/309.png"
   },
@@ -3096,9 +3714,11 @@ export const allPokemonRoster = [
     "id": "nat-0310",
     "dexNo": 310,
     "formKey": "base",
-    "displayName": "썬더볼트",
-    "displayNameEn": "Manectric",
-    "displayNameJa": "ライボルト",
+    "names": {
+      "ko": "썬더볼트",
+      "en": "Manectric",
+      "ja": "ライボルト"
+    },
     "speed": 105,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/310.png"
   },
@@ -3106,9 +3726,11 @@ export const allPokemonRoster = [
     "id": "nat-0311",
     "dexNo": 311,
     "formKey": "base",
-    "displayName": "플러시",
-    "displayNameEn": "Plusle",
-    "displayNameJa": "プラスル",
+    "names": {
+      "ko": "플러시",
+      "en": "Plusle",
+      "ja": "プラスル"
+    },
     "speed": 95,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/311.png"
   },
@@ -3116,9 +3738,11 @@ export const allPokemonRoster = [
     "id": "nat-0312",
     "dexNo": 312,
     "formKey": "base",
-    "displayName": "마이농",
-    "displayNameEn": "Minun",
-    "displayNameJa": "マイナン",
+    "names": {
+      "ko": "마이농",
+      "en": "Minun",
+      "ja": "マイナン"
+    },
     "speed": 95,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/312.png"
   },
@@ -3126,9 +3750,11 @@ export const allPokemonRoster = [
     "id": "nat-0313",
     "dexNo": 313,
     "formKey": "base",
-    "displayName": "볼비트",
-    "displayNameEn": "Volbeat",
-    "displayNameJa": "バルビート",
+    "names": {
+      "ko": "볼비트",
+      "en": "Volbeat",
+      "ja": "バルビート"
+    },
     "speed": 85,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/313.png"
   },
@@ -3136,9 +3762,11 @@ export const allPokemonRoster = [
     "id": "nat-0314",
     "dexNo": 314,
     "formKey": "base",
-    "displayName": "네오비트",
-    "displayNameEn": "Illumise",
-    "displayNameJa": "イルミーゼ",
+    "names": {
+      "ko": "네오비트",
+      "en": "Illumise",
+      "ja": "イルミーゼ"
+    },
     "speed": 85,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/314.png"
   },
@@ -3146,9 +3774,11 @@ export const allPokemonRoster = [
     "id": "nat-0315",
     "dexNo": 315,
     "formKey": "base",
-    "displayName": "로젤리아",
-    "displayNameEn": "Roselia",
-    "displayNameJa": "ロゼリア",
+    "names": {
+      "ko": "로젤리아",
+      "en": "Roselia",
+      "ja": "ロゼリア"
+    },
     "speed": 65,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/315.png"
   },
@@ -3156,9 +3786,11 @@ export const allPokemonRoster = [
     "id": "nat-0316",
     "dexNo": 316,
     "formKey": "base",
-    "displayName": "꼴깍몬",
-    "displayNameEn": "Gulpin",
-    "displayNameJa": "ゴクリン",
+    "names": {
+      "ko": "꼴깍몬",
+      "en": "Gulpin",
+      "ja": "ゴクリン"
+    },
     "speed": 40,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/316.png"
   },
@@ -3166,9 +3798,11 @@ export const allPokemonRoster = [
     "id": "nat-0317",
     "dexNo": 317,
     "formKey": "base",
-    "displayName": "꿀꺽몬",
-    "displayNameEn": "Swalot",
-    "displayNameJa": "マルノーム",
+    "names": {
+      "ko": "꿀꺽몬",
+      "en": "Swalot",
+      "ja": "マルノーム"
+    },
     "speed": 55,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/317.png"
   },
@@ -3176,9 +3810,11 @@ export const allPokemonRoster = [
     "id": "nat-0318",
     "dexNo": 318,
     "formKey": "base",
-    "displayName": "샤프니아",
-    "displayNameEn": "Carvanha",
-    "displayNameJa": "キバニア",
+    "names": {
+      "ko": "샤프니아",
+      "en": "Carvanha",
+      "ja": "キバニア"
+    },
     "speed": 65,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/318.png"
   },
@@ -3186,9 +3822,11 @@ export const allPokemonRoster = [
     "id": "nat-0319",
     "dexNo": 319,
     "formKey": "base",
-    "displayName": "샤크니아",
-    "displayNameEn": "Sharpedo",
-    "displayNameJa": "サメハダー",
+    "names": {
+      "ko": "샤크니아",
+      "en": "Sharpedo",
+      "ja": "サメハダー"
+    },
     "speed": 95,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/319.png"
   },
@@ -3196,9 +3834,11 @@ export const allPokemonRoster = [
     "id": "nat-0320",
     "dexNo": 320,
     "formKey": "base",
-    "displayName": "고래왕자",
-    "displayNameEn": "Wailmer",
-    "displayNameJa": "ホエルコ",
+    "names": {
+      "ko": "고래왕자",
+      "en": "Wailmer",
+      "ja": "ホエルコ"
+    },
     "speed": 60,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/320.png"
   },
@@ -3206,9 +3846,11 @@ export const allPokemonRoster = [
     "id": "nat-0321",
     "dexNo": 321,
     "formKey": "base",
-    "displayName": "고래왕",
-    "displayNameEn": "Wailord",
-    "displayNameJa": "ホエルオー",
+    "names": {
+      "ko": "고래왕",
+      "en": "Wailord",
+      "ja": "ホエルオー"
+    },
     "speed": 60,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/321.png"
   },
@@ -3216,9 +3858,11 @@ export const allPokemonRoster = [
     "id": "nat-0322",
     "dexNo": 322,
     "formKey": "base",
-    "displayName": "둔타",
-    "displayNameEn": "Numel",
-    "displayNameJa": "ドンメル",
+    "names": {
+      "ko": "둔타",
+      "en": "Numel",
+      "ja": "ドンメル"
+    },
     "speed": 35,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/322.png"
   },
@@ -3226,9 +3870,11 @@ export const allPokemonRoster = [
     "id": "nat-0323",
     "dexNo": 323,
     "formKey": "base",
-    "displayName": "폭타",
-    "displayNameEn": "Camerupt",
-    "displayNameJa": "バクーダ",
+    "names": {
+      "ko": "폭타",
+      "en": "Camerupt",
+      "ja": "バクーダ"
+    },
     "speed": 40,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/323.png"
   },
@@ -3236,9 +3882,11 @@ export const allPokemonRoster = [
     "id": "nat-0324",
     "dexNo": 324,
     "formKey": "base",
-    "displayName": "코터스",
-    "displayNameEn": "Torkoal",
-    "displayNameJa": "コータス",
+    "names": {
+      "ko": "코터스",
+      "en": "Torkoal",
+      "ja": "コータス"
+    },
     "speed": 20,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/324.png"
   },
@@ -3246,9 +3894,11 @@ export const allPokemonRoster = [
     "id": "nat-0325",
     "dexNo": 325,
     "formKey": "base",
-    "displayName": "피그점프",
-    "displayNameEn": "Spoink",
-    "displayNameJa": "バネブー",
+    "names": {
+      "ko": "피그점프",
+      "en": "Spoink",
+      "ja": "バネブー"
+    },
     "speed": 60,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/325.png"
   },
@@ -3256,9 +3906,11 @@ export const allPokemonRoster = [
     "id": "nat-0326",
     "dexNo": 326,
     "formKey": "base",
-    "displayName": "피그킹",
-    "displayNameEn": "Grumpig",
-    "displayNameJa": "ブーピッグ",
+    "names": {
+      "ko": "피그킹",
+      "en": "Grumpig",
+      "ja": "ブーピッグ"
+    },
     "speed": 80,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/326.png"
   },
@@ -3266,9 +3918,11 @@ export const allPokemonRoster = [
     "id": "nat-0327",
     "dexNo": 327,
     "formKey": "base",
-    "displayName": "얼루기",
-    "displayNameEn": "Spinda",
-    "displayNameJa": "パッチール",
+    "names": {
+      "ko": "얼루기",
+      "en": "Spinda",
+      "ja": "パッチール"
+    },
     "speed": 60,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/327.png"
   },
@@ -3276,9 +3930,11 @@ export const allPokemonRoster = [
     "id": "nat-0328",
     "dexNo": 328,
     "formKey": "base",
-    "displayName": "톱치",
-    "displayNameEn": "Trapinch",
-    "displayNameJa": "ナックラー",
+    "names": {
+      "ko": "톱치",
+      "en": "Trapinch",
+      "ja": "ナックラー"
+    },
     "speed": 10,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/328.png"
   },
@@ -3286,9 +3942,11 @@ export const allPokemonRoster = [
     "id": "nat-0329",
     "dexNo": 329,
     "formKey": "base",
-    "displayName": "비브라바",
-    "displayNameEn": "Vibrava",
-    "displayNameJa": "ビブラーバ",
+    "names": {
+      "ko": "비브라바",
+      "en": "Vibrava",
+      "ja": "ビブラーバ"
+    },
     "speed": 70,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/329.png"
   },
@@ -3296,9 +3954,11 @@ export const allPokemonRoster = [
     "id": "nat-0330",
     "dexNo": 330,
     "formKey": "base",
-    "displayName": "플라이곤",
-    "displayNameEn": "Flygon",
-    "displayNameJa": "フライゴン",
+    "names": {
+      "ko": "플라이곤",
+      "en": "Flygon",
+      "ja": "フライゴン"
+    },
     "speed": 100,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/330.png"
   },
@@ -3306,9 +3966,11 @@ export const allPokemonRoster = [
     "id": "nat-0331",
     "dexNo": 331,
     "formKey": "base",
-    "displayName": "선인왕",
-    "displayNameEn": "Cacnea",
-    "displayNameJa": "サボネア",
+    "names": {
+      "ko": "선인왕",
+      "en": "Cacnea",
+      "ja": "サボネア"
+    },
     "speed": 35,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/331.png"
   },
@@ -3316,9 +3978,11 @@ export const allPokemonRoster = [
     "id": "nat-0332",
     "dexNo": 332,
     "formKey": "base",
-    "displayName": "밤선인",
-    "displayNameEn": "Cacturne",
-    "displayNameJa": "ノクタス",
+    "names": {
+      "ko": "밤선인",
+      "en": "Cacturne",
+      "ja": "ノクタス"
+    },
     "speed": 55,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/332.png"
   },
@@ -3326,9 +3990,11 @@ export const allPokemonRoster = [
     "id": "nat-0333",
     "dexNo": 333,
     "formKey": "base",
-    "displayName": "파비코",
-    "displayNameEn": "Swablu",
-    "displayNameJa": "チルット",
+    "names": {
+      "ko": "파비코",
+      "en": "Swablu",
+      "ja": "チルット"
+    },
     "speed": 50,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/333.png"
   },
@@ -3336,9 +4002,11 @@ export const allPokemonRoster = [
     "id": "nat-0334",
     "dexNo": 334,
     "formKey": "base",
-    "displayName": "파비코리",
-    "displayNameEn": "Altaria",
-    "displayNameJa": "チルタリス",
+    "names": {
+      "ko": "파비코리",
+      "en": "Altaria",
+      "ja": "チルタリス"
+    },
     "speed": 80,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/334.png"
   },
@@ -3346,9 +4014,11 @@ export const allPokemonRoster = [
     "id": "nat-0335",
     "dexNo": 335,
     "formKey": "base",
-    "displayName": "쟝고",
-    "displayNameEn": "Zangoose",
-    "displayNameJa": "ザングース",
+    "names": {
+      "ko": "쟝고",
+      "en": "Zangoose",
+      "ja": "ザングース"
+    },
     "speed": 90,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/335.png"
   },
@@ -3356,9 +4026,11 @@ export const allPokemonRoster = [
     "id": "nat-0336",
     "dexNo": 336,
     "formKey": "base",
-    "displayName": "세비퍼",
-    "displayNameEn": "Seviper",
-    "displayNameJa": "ハブネーク",
+    "names": {
+      "ko": "세비퍼",
+      "en": "Seviper",
+      "ja": "ハブネーク"
+    },
     "speed": 65,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/336.png"
   },
@@ -3366,9 +4038,11 @@ export const allPokemonRoster = [
     "id": "nat-0337",
     "dexNo": 337,
     "formKey": "base",
-    "displayName": "루나톤",
-    "displayNameEn": "Lunatone",
-    "displayNameJa": "ルナトーン",
+    "names": {
+      "ko": "루나톤",
+      "en": "Lunatone",
+      "ja": "ルナトーン"
+    },
     "speed": 70,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/337.png"
   },
@@ -3376,9 +4050,11 @@ export const allPokemonRoster = [
     "id": "nat-0338",
     "dexNo": 338,
     "formKey": "base",
-    "displayName": "솔록",
-    "displayNameEn": "Solrock",
-    "displayNameJa": "ソルロック",
+    "names": {
+      "ko": "솔록",
+      "en": "Solrock",
+      "ja": "ソルロック"
+    },
     "speed": 70,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/338.png"
   },
@@ -3386,9 +4062,11 @@ export const allPokemonRoster = [
     "id": "nat-0339",
     "dexNo": 339,
     "formKey": "base",
-    "displayName": "미꾸리",
-    "displayNameEn": "Barboach",
-    "displayNameJa": "ドジョッチ",
+    "names": {
+      "ko": "미꾸리",
+      "en": "Barboach",
+      "ja": "ドジョッチ"
+    },
     "speed": 60,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/339.png"
   },
@@ -3396,9 +4074,11 @@ export const allPokemonRoster = [
     "id": "nat-0340",
     "dexNo": 340,
     "formKey": "base",
-    "displayName": "메깅",
-    "displayNameEn": "Whiscash",
-    "displayNameJa": "ナマズン",
+    "names": {
+      "ko": "메깅",
+      "en": "Whiscash",
+      "ja": "ナマズン"
+    },
     "speed": 60,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/340.png"
   },
@@ -3406,9 +4086,11 @@ export const allPokemonRoster = [
     "id": "nat-0341",
     "dexNo": 341,
     "formKey": "base",
-    "displayName": "가재군",
-    "displayNameEn": "Corphish",
-    "displayNameJa": "ヘイガニ",
+    "names": {
+      "ko": "가재군",
+      "en": "Corphish",
+      "ja": "ヘイガニ"
+    },
     "speed": 35,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/341.png"
   },
@@ -3416,9 +4098,11 @@ export const allPokemonRoster = [
     "id": "nat-0342",
     "dexNo": 342,
     "formKey": "base",
-    "displayName": "가재장군",
-    "displayNameEn": "Crawdaunt",
-    "displayNameJa": "シザリガー",
+    "names": {
+      "ko": "가재장군",
+      "en": "Crawdaunt",
+      "ja": "シザリガー"
+    },
     "speed": 55,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/342.png"
   },
@@ -3426,9 +4110,11 @@ export const allPokemonRoster = [
     "id": "nat-0343",
     "dexNo": 343,
     "formKey": "base",
-    "displayName": "오뚝군",
-    "displayNameEn": "Baltoy",
-    "displayNameJa": "ヤジロン",
+    "names": {
+      "ko": "오뚝군",
+      "en": "Baltoy",
+      "ja": "ヤジロン"
+    },
     "speed": 55,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/343.png"
   },
@@ -3436,9 +4122,11 @@ export const allPokemonRoster = [
     "id": "nat-0344",
     "dexNo": 344,
     "formKey": "base",
-    "displayName": "점토도리",
-    "displayNameEn": "Claydol",
-    "displayNameJa": "ネンドール",
+    "names": {
+      "ko": "점토도리",
+      "en": "Claydol",
+      "ja": "ネンドール"
+    },
     "speed": 75,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/344.png"
   },
@@ -3446,9 +4134,11 @@ export const allPokemonRoster = [
     "id": "nat-0345",
     "dexNo": 345,
     "formKey": "base",
-    "displayName": "릴링",
-    "displayNameEn": "Lileep",
-    "displayNameJa": "リリーラ",
+    "names": {
+      "ko": "릴링",
+      "en": "Lileep",
+      "ja": "リリーラ"
+    },
     "speed": 23,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/345.png"
   },
@@ -3456,9 +4146,11 @@ export const allPokemonRoster = [
     "id": "nat-0346",
     "dexNo": 346,
     "formKey": "base",
-    "displayName": "릴리요",
-    "displayNameEn": "Cradily",
-    "displayNameJa": "ユレイドル",
+    "names": {
+      "ko": "릴리요",
+      "en": "Cradily",
+      "ja": "ユレイドル"
+    },
     "speed": 43,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/346.png"
   },
@@ -3466,9 +4158,11 @@ export const allPokemonRoster = [
     "id": "nat-0347",
     "dexNo": 347,
     "formKey": "base",
-    "displayName": "아노딥스",
-    "displayNameEn": "Anorith",
-    "displayNameJa": "アノプス",
+    "names": {
+      "ko": "아노딥스",
+      "en": "Anorith",
+      "ja": "アノプス"
+    },
     "speed": 75,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/347.png"
   },
@@ -3476,9 +4170,11 @@ export const allPokemonRoster = [
     "id": "nat-0348",
     "dexNo": 348,
     "formKey": "base",
-    "displayName": "아말도",
-    "displayNameEn": "Armaldo",
-    "displayNameJa": "アーマルド",
+    "names": {
+      "ko": "아말도",
+      "en": "Armaldo",
+      "ja": "アーマルド"
+    },
     "speed": 45,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/348.png"
   },
@@ -3486,9 +4182,11 @@ export const allPokemonRoster = [
     "id": "nat-0349",
     "dexNo": 349,
     "formKey": "base",
-    "displayName": "빈티나",
-    "displayNameEn": "Feebas",
-    "displayNameJa": "ヒンバス",
+    "names": {
+      "ko": "빈티나",
+      "en": "Feebas",
+      "ja": "ヒンバス"
+    },
     "speed": 80,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/349.png"
   },
@@ -3496,9 +4194,11 @@ export const allPokemonRoster = [
     "id": "nat-0350",
     "dexNo": 350,
     "formKey": "base",
-    "displayName": "밀로틱",
-    "displayNameEn": "Milotic",
-    "displayNameJa": "ミロカロス",
+    "names": {
+      "ko": "밀로틱",
+      "en": "Milotic",
+      "ja": "ミロカロス"
+    },
     "speed": 81,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/350.png"
   },
@@ -3506,9 +4206,11 @@ export const allPokemonRoster = [
     "id": "nat-0351",
     "dexNo": 351,
     "formKey": "base",
-    "displayName": "캐스퐁",
-    "displayNameEn": "Castform",
-    "displayNameJa": "ポワルン",
+    "names": {
+      "ko": "캐스퐁",
+      "en": "Castform",
+      "ja": "ポワルン"
+    },
     "speed": 70,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/351.png"
   },
@@ -3516,9 +4218,11 @@ export const allPokemonRoster = [
     "id": "nat-0352",
     "dexNo": 352,
     "formKey": "base",
-    "displayName": "켈리몬",
-    "displayNameEn": "Kecleon",
-    "displayNameJa": "カクレオン",
+    "names": {
+      "ko": "켈리몬",
+      "en": "Kecleon",
+      "ja": "カクレオン"
+    },
     "speed": 40,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/352.png"
   },
@@ -3526,9 +4230,11 @@ export const allPokemonRoster = [
     "id": "nat-0353",
     "dexNo": 353,
     "formKey": "base",
-    "displayName": "어둠대신",
-    "displayNameEn": "Shuppet",
-    "displayNameJa": "カゲボウズ",
+    "names": {
+      "ko": "어둠대신",
+      "en": "Shuppet",
+      "ja": "カゲボウズ"
+    },
     "speed": 45,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/353.png"
   },
@@ -3536,9 +4242,11 @@ export const allPokemonRoster = [
     "id": "nat-0354",
     "dexNo": 354,
     "formKey": "base",
-    "displayName": "다크펫",
-    "displayNameEn": "Banette",
-    "displayNameJa": "ジュペッタ",
+    "names": {
+      "ko": "다크펫",
+      "en": "Banette",
+      "ja": "ジュペッタ"
+    },
     "speed": 65,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/354.png"
   },
@@ -3546,9 +4254,11 @@ export const allPokemonRoster = [
     "id": "nat-0355",
     "dexNo": 355,
     "formKey": "base",
-    "displayName": "해골몽",
-    "displayNameEn": "Duskull",
-    "displayNameJa": "ヨマワル",
+    "names": {
+      "ko": "해골몽",
+      "en": "Duskull",
+      "ja": "ヨマワル"
+    },
     "speed": 25,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/355.png"
   },
@@ -3556,9 +4266,11 @@ export const allPokemonRoster = [
     "id": "nat-0356",
     "dexNo": 356,
     "formKey": "base",
-    "displayName": "미라몽",
-    "displayNameEn": "Dusclops",
-    "displayNameJa": "サマヨール",
+    "names": {
+      "ko": "미라몽",
+      "en": "Dusclops",
+      "ja": "サマヨール"
+    },
     "speed": 25,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/356.png"
   },
@@ -3566,9 +4278,11 @@ export const allPokemonRoster = [
     "id": "nat-0357",
     "dexNo": 357,
     "formKey": "base",
-    "displayName": "트로피우스",
-    "displayNameEn": "Tropius",
-    "displayNameJa": "トロピウス",
+    "names": {
+      "ko": "트로피우스",
+      "en": "Tropius",
+      "ja": "トロピウス"
+    },
     "speed": 51,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/357.png"
   },
@@ -3576,9 +4290,11 @@ export const allPokemonRoster = [
     "id": "nat-0358",
     "dexNo": 358,
     "formKey": "base",
-    "displayName": "치렁",
-    "displayNameEn": "Chimecho",
-    "displayNameJa": "チリーン",
+    "names": {
+      "ko": "치렁",
+      "en": "Chimecho",
+      "ja": "チリーン"
+    },
     "speed": 65,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/358.png"
   },
@@ -3586,9 +4302,11 @@ export const allPokemonRoster = [
     "id": "nat-0359",
     "dexNo": 359,
     "formKey": "base",
-    "displayName": "앱솔",
-    "displayNameEn": "Absol",
-    "displayNameJa": "アブソル",
+    "names": {
+      "ko": "앱솔",
+      "en": "Absol",
+      "ja": "アブソル"
+    },
     "speed": 75,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/359.png"
   },
@@ -3596,9 +4314,11 @@ export const allPokemonRoster = [
     "id": "nat-0360",
     "dexNo": 360,
     "formKey": "base",
-    "displayName": "마자",
-    "displayNameEn": "Wynaut",
-    "displayNameJa": "ソーナノ",
+    "names": {
+      "ko": "마자",
+      "en": "Wynaut",
+      "ja": "ソーナノ"
+    },
     "speed": 23,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/360.png"
   },
@@ -3606,9 +4326,11 @@ export const allPokemonRoster = [
     "id": "nat-0361",
     "dexNo": 361,
     "formKey": "base",
-    "displayName": "눈꼬마",
-    "displayNameEn": "Snorunt",
-    "displayNameJa": "ユキワラシ",
+    "names": {
+      "ko": "눈꼬마",
+      "en": "Snorunt",
+      "ja": "ユキワラシ"
+    },
     "speed": 50,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/361.png"
   },
@@ -3616,9 +4338,11 @@ export const allPokemonRoster = [
     "id": "nat-0362",
     "dexNo": 362,
     "formKey": "base",
-    "displayName": "얼음귀신",
-    "displayNameEn": "Glalie",
-    "displayNameJa": "オニゴーリ",
+    "names": {
+      "ko": "얼음귀신",
+      "en": "Glalie",
+      "ja": "オニゴーリ"
+    },
     "speed": 80,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/362.png"
   },
@@ -3626,9 +4350,11 @@ export const allPokemonRoster = [
     "id": "nat-0363",
     "dexNo": 363,
     "formKey": "base",
-    "displayName": "대굴레오",
-    "displayNameEn": "Spheal",
-    "displayNameJa": "タマザラシ",
+    "names": {
+      "ko": "대굴레오",
+      "en": "Spheal",
+      "ja": "タマザラシ"
+    },
     "speed": 25,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/363.png"
   },
@@ -3636,9 +4362,11 @@ export const allPokemonRoster = [
     "id": "nat-0364",
     "dexNo": 364,
     "formKey": "base",
-    "displayName": "씨레오",
-    "displayNameEn": "Sealeo",
-    "displayNameJa": "トドグラー",
+    "names": {
+      "ko": "씨레오",
+      "en": "Sealeo",
+      "ja": "トドグラー"
+    },
     "speed": 45,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/364.png"
   },
@@ -3646,9 +4374,11 @@ export const allPokemonRoster = [
     "id": "nat-0365",
     "dexNo": 365,
     "formKey": "base",
-    "displayName": "씨카이저",
-    "displayNameEn": "Walrein",
-    "displayNameJa": "トドゼルガ",
+    "names": {
+      "ko": "씨카이저",
+      "en": "Walrein",
+      "ja": "トドゼルガ"
+    },
     "speed": 65,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/365.png"
   },
@@ -3656,9 +4386,11 @@ export const allPokemonRoster = [
     "id": "nat-0366",
     "dexNo": 366,
     "formKey": "base",
-    "displayName": "진주몽",
-    "displayNameEn": "Clamperl",
-    "displayNameJa": "パールル",
+    "names": {
+      "ko": "진주몽",
+      "en": "Clamperl",
+      "ja": "パールル"
+    },
     "speed": 32,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/366.png"
   },
@@ -3666,9 +4398,11 @@ export const allPokemonRoster = [
     "id": "nat-0367",
     "dexNo": 367,
     "formKey": "base",
-    "displayName": "헌테일",
-    "displayNameEn": "Huntail",
-    "displayNameJa": "ハンテール",
+    "names": {
+      "ko": "헌테일",
+      "en": "Huntail",
+      "ja": "ハンテール"
+    },
     "speed": 52,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/367.png"
   },
@@ -3676,9 +4410,11 @@ export const allPokemonRoster = [
     "id": "nat-0368",
     "dexNo": 368,
     "formKey": "base",
-    "displayName": "분홍장이",
-    "displayNameEn": "Gorebyss",
-    "displayNameJa": "サクラビス",
+    "names": {
+      "ko": "분홍장이",
+      "en": "Gorebyss",
+      "ja": "サクラビス"
+    },
     "speed": 52,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/368.png"
   },
@@ -3686,9 +4422,11 @@ export const allPokemonRoster = [
     "id": "nat-0369",
     "dexNo": 369,
     "formKey": "base",
-    "displayName": "시라칸",
-    "displayNameEn": "Relicanth",
-    "displayNameJa": "ジーランス",
+    "names": {
+      "ko": "시라칸",
+      "en": "Relicanth",
+      "ja": "ジーランス"
+    },
     "speed": 55,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/369.png"
   },
@@ -3696,9 +4434,11 @@ export const allPokemonRoster = [
     "id": "nat-0370",
     "dexNo": 370,
     "formKey": "base",
-    "displayName": "사랑동이",
-    "displayNameEn": "Luvdisc",
-    "displayNameJa": "ラブカス",
+    "names": {
+      "ko": "사랑동이",
+      "en": "Luvdisc",
+      "ja": "ラブカス"
+    },
     "speed": 97,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/370.png"
   },
@@ -3706,9 +4446,11 @@ export const allPokemonRoster = [
     "id": "nat-0371",
     "dexNo": 371,
     "formKey": "base",
-    "displayName": "아공이",
-    "displayNameEn": "Bagon",
-    "displayNameJa": "タツベイ",
+    "names": {
+      "ko": "아공이",
+      "en": "Bagon",
+      "ja": "タツベイ"
+    },
     "speed": 50,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/371.png"
   },
@@ -3716,9 +4458,11 @@ export const allPokemonRoster = [
     "id": "nat-0372",
     "dexNo": 372,
     "formKey": "base",
-    "displayName": "쉘곤",
-    "displayNameEn": "Shelgon",
-    "displayNameJa": "コモルー",
+    "names": {
+      "ko": "쉘곤",
+      "en": "Shelgon",
+      "ja": "コモルー"
+    },
     "speed": 50,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/372.png"
   },
@@ -3726,9 +4470,11 @@ export const allPokemonRoster = [
     "id": "nat-0373",
     "dexNo": 373,
     "formKey": "base",
-    "displayName": "보만다",
-    "displayNameEn": "Salamence",
-    "displayNameJa": "ボーマンダ",
+    "names": {
+      "ko": "보만다",
+      "en": "Salamence",
+      "ja": "ボーマンダ"
+    },
     "speed": 100,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/373.png"
   },
@@ -3736,9 +4482,11 @@ export const allPokemonRoster = [
     "id": "nat-0374",
     "dexNo": 374,
     "formKey": "base",
-    "displayName": "메탕",
-    "displayNameEn": "Beldum",
-    "displayNameJa": "ダンバル",
+    "names": {
+      "ko": "메탕",
+      "en": "Beldum",
+      "ja": "ダンバル"
+    },
     "speed": 30,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/374.png"
   },
@@ -3746,9 +4494,11 @@ export const allPokemonRoster = [
     "id": "nat-0375",
     "dexNo": 375,
     "formKey": "base",
-    "displayName": "메탕구",
-    "displayNameEn": "Metang",
-    "displayNameJa": "メタング",
+    "names": {
+      "ko": "메탕구",
+      "en": "Metang",
+      "ja": "メタング"
+    },
     "speed": 50,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/375.png"
   },
@@ -3756,9 +4506,11 @@ export const allPokemonRoster = [
     "id": "nat-0376",
     "dexNo": 376,
     "formKey": "base",
-    "displayName": "메타그로스",
-    "displayNameEn": "Metagross",
-    "displayNameJa": "メタグロス",
+    "names": {
+      "ko": "메타그로스",
+      "en": "Metagross",
+      "ja": "メタグロス"
+    },
     "speed": 70,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/376.png"
   },
@@ -3766,9 +4518,11 @@ export const allPokemonRoster = [
     "id": "nat-0377",
     "dexNo": 377,
     "formKey": "base",
-    "displayName": "레지락",
-    "displayNameEn": "Regirock",
-    "displayNameJa": "レジロック",
+    "names": {
+      "ko": "레지락",
+      "en": "Regirock",
+      "ja": "レジロック"
+    },
     "speed": 50,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/377.png"
   },
@@ -3776,9 +4530,11 @@ export const allPokemonRoster = [
     "id": "nat-0378",
     "dexNo": 378,
     "formKey": "base",
-    "displayName": "레지아이스",
-    "displayNameEn": "Regice",
-    "displayNameJa": "レジアイス",
+    "names": {
+      "ko": "레지아이스",
+      "en": "Regice",
+      "ja": "レジアイス"
+    },
     "speed": 50,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/378.png"
   },
@@ -3786,9 +4542,11 @@ export const allPokemonRoster = [
     "id": "nat-0379",
     "dexNo": 379,
     "formKey": "base",
-    "displayName": "레지스틸",
-    "displayNameEn": "Registeel",
-    "displayNameJa": "レジスチル",
+    "names": {
+      "ko": "레지스틸",
+      "en": "Registeel",
+      "ja": "レジスチル"
+    },
     "speed": 50,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/379.png"
   },
@@ -3796,9 +4554,11 @@ export const allPokemonRoster = [
     "id": "nat-0380",
     "dexNo": 380,
     "formKey": "base",
-    "displayName": "라티아스",
-    "displayNameEn": "Latias",
-    "displayNameJa": "ラティアス",
+    "names": {
+      "ko": "라티아스",
+      "en": "Latias",
+      "ja": "ラティアス"
+    },
     "speed": 110,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/380.png"
   },
@@ -3806,9 +4566,11 @@ export const allPokemonRoster = [
     "id": "nat-0381",
     "dexNo": 381,
     "formKey": "base",
-    "displayName": "라티오스",
-    "displayNameEn": "Latios",
-    "displayNameJa": "ラティオス",
+    "names": {
+      "ko": "라티오스",
+      "en": "Latios",
+      "ja": "ラティオス"
+    },
     "speed": 110,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/381.png"
   },
@@ -3816,9 +4578,11 @@ export const allPokemonRoster = [
     "id": "nat-0382",
     "dexNo": 382,
     "formKey": "base",
-    "displayName": "가이오가",
-    "displayNameEn": "Kyogre",
-    "displayNameJa": "カイオーガ",
+    "names": {
+      "ko": "가이오가",
+      "en": "Kyogre",
+      "ja": "カイオーガ"
+    },
     "speed": 90,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/382.png"
   },
@@ -3826,9 +4590,11 @@ export const allPokemonRoster = [
     "id": "nat-0383",
     "dexNo": 383,
     "formKey": "base",
-    "displayName": "그란돈",
-    "displayNameEn": "Groudon",
-    "displayNameJa": "グラードン",
+    "names": {
+      "ko": "그란돈",
+      "en": "Groudon",
+      "ja": "グラードン"
+    },
     "speed": 90,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/383.png"
   },
@@ -3836,9 +4602,11 @@ export const allPokemonRoster = [
     "id": "nat-0384",
     "dexNo": 384,
     "formKey": "base",
-    "displayName": "레쿠쟈",
-    "displayNameEn": "Rayquaza",
-    "displayNameJa": "レックウザ",
+    "names": {
+      "ko": "레쿠쟈",
+      "en": "Rayquaza",
+      "ja": "レックウザ"
+    },
     "speed": 95,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/384.png"
   },
@@ -3846,9 +4614,11 @@ export const allPokemonRoster = [
     "id": "nat-0385",
     "dexNo": 385,
     "formKey": "base",
-    "displayName": "지라치",
-    "displayNameEn": "Jirachi",
-    "displayNameJa": "ジラーチ",
+    "names": {
+      "ko": "지라치",
+      "en": "Jirachi",
+      "ja": "ジラーチ"
+    },
     "speed": 100,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/385.png"
   },
@@ -3856,9 +4626,11 @@ export const allPokemonRoster = [
     "id": "nat-0386",
     "dexNo": 386,
     "formKey": "base",
-    "displayName": "테오키스",
-    "displayNameEn": "Deoxys",
-    "displayNameJa": "デオキシス",
+    "names": {
+      "ko": "테오키스",
+      "en": "Deoxys",
+      "ja": "デオキシス"
+    },
     "speed": 150,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/386.png"
   },
@@ -3866,9 +4638,11 @@ export const allPokemonRoster = [
     "id": "nat-0387",
     "dexNo": 387,
     "formKey": "base",
-    "displayName": "모부기",
-    "displayNameEn": "Turtwig",
-    "displayNameJa": "ナエトル",
+    "names": {
+      "ko": "모부기",
+      "en": "Turtwig",
+      "ja": "ナエトル"
+    },
     "speed": 31,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/387.png"
   },
@@ -3876,9 +4650,11 @@ export const allPokemonRoster = [
     "id": "nat-0388",
     "dexNo": 388,
     "formKey": "base",
-    "displayName": "수풀부기",
-    "displayNameEn": "Grotle",
-    "displayNameJa": "ハヤシガメ",
+    "names": {
+      "ko": "수풀부기",
+      "en": "Grotle",
+      "ja": "ハヤシガメ"
+    },
     "speed": 36,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/388.png"
   },
@@ -3886,9 +4662,11 @@ export const allPokemonRoster = [
     "id": "nat-0389",
     "dexNo": 389,
     "formKey": "base",
-    "displayName": "토대부기",
-    "displayNameEn": "Torterra",
-    "displayNameJa": "ドダイトス",
+    "names": {
+      "ko": "토대부기",
+      "en": "Torterra",
+      "ja": "ドダイトス"
+    },
     "speed": 56,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/389.png"
   },
@@ -3896,9 +4674,11 @@ export const allPokemonRoster = [
     "id": "nat-0390",
     "dexNo": 390,
     "formKey": "base",
-    "displayName": "불꽃숭이",
-    "displayNameEn": "Chimchar",
-    "displayNameJa": "ヒコザル",
+    "names": {
+      "ko": "불꽃숭이",
+      "en": "Chimchar",
+      "ja": "ヒコザル"
+    },
     "speed": 61,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/390.png"
   },
@@ -3906,9 +4686,11 @@ export const allPokemonRoster = [
     "id": "nat-0391",
     "dexNo": 391,
     "formKey": "base",
-    "displayName": "파이숭이",
-    "displayNameEn": "Monferno",
-    "displayNameJa": "モウカザル",
+    "names": {
+      "ko": "파이숭이",
+      "en": "Monferno",
+      "ja": "モウカザル"
+    },
     "speed": 81,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/391.png"
   },
@@ -3916,9 +4698,11 @@ export const allPokemonRoster = [
     "id": "nat-0392",
     "dexNo": 392,
     "formKey": "base",
-    "displayName": "초염몽",
-    "displayNameEn": "Infernape",
-    "displayNameJa": "ゴウカザル",
+    "names": {
+      "ko": "초염몽",
+      "en": "Infernape",
+      "ja": "ゴウカザル"
+    },
     "speed": 108,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/392.png"
   },
@@ -3926,9 +4710,11 @@ export const allPokemonRoster = [
     "id": "nat-0393",
     "dexNo": 393,
     "formKey": "base",
-    "displayName": "팽도리",
-    "displayNameEn": "Piplup",
-    "displayNameJa": "ポッチャマ",
+    "names": {
+      "ko": "팽도리",
+      "en": "Piplup",
+      "ja": "ポッチャマ"
+    },
     "speed": 40,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/393.png"
   },
@@ -3936,9 +4722,11 @@ export const allPokemonRoster = [
     "id": "nat-0394",
     "dexNo": 394,
     "formKey": "base",
-    "displayName": "팽태자",
-    "displayNameEn": "Prinplup",
-    "displayNameJa": "ポッタイシ",
+    "names": {
+      "ko": "팽태자",
+      "en": "Prinplup",
+      "ja": "ポッタイシ"
+    },
     "speed": 50,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/394.png"
   },
@@ -3946,9 +4734,11 @@ export const allPokemonRoster = [
     "id": "nat-0395",
     "dexNo": 395,
     "formKey": "base",
-    "displayName": "엠페르트",
-    "displayNameEn": "Empoleon",
-    "displayNameJa": "エンペルト",
+    "names": {
+      "ko": "엠페르트",
+      "en": "Empoleon",
+      "ja": "エンペルト"
+    },
     "speed": 60,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/395.png"
   },
@@ -3956,9 +4746,11 @@ export const allPokemonRoster = [
     "id": "nat-0396",
     "dexNo": 396,
     "formKey": "base",
-    "displayName": "찌르꼬",
-    "displayNameEn": "Starly",
-    "displayNameJa": "ムックル",
+    "names": {
+      "ko": "찌르꼬",
+      "en": "Starly",
+      "ja": "ムックル"
+    },
     "speed": 60,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/396.png"
   },
@@ -3966,9 +4758,11 @@ export const allPokemonRoster = [
     "id": "nat-0397",
     "dexNo": 397,
     "formKey": "base",
-    "displayName": "찌르버드",
-    "displayNameEn": "Staravia",
-    "displayNameJa": "ムクバード",
+    "names": {
+      "ko": "찌르버드",
+      "en": "Staravia",
+      "ja": "ムクバード"
+    },
     "speed": 80,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/397.png"
   },
@@ -3976,9 +4770,11 @@ export const allPokemonRoster = [
     "id": "nat-0398",
     "dexNo": 398,
     "formKey": "base",
-    "displayName": "찌르호크",
-    "displayNameEn": "Staraptor",
-    "displayNameJa": "ムクホーク",
+    "names": {
+      "ko": "찌르호크",
+      "en": "Staraptor",
+      "ja": "ムクホーク"
+    },
     "speed": 100,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/398.png"
   },
@@ -3986,9 +4782,11 @@ export const allPokemonRoster = [
     "id": "nat-0399",
     "dexNo": 399,
     "formKey": "base",
-    "displayName": "비버니",
-    "displayNameEn": "Bidoof",
-    "displayNameJa": "ビッパ",
+    "names": {
+      "ko": "비버니",
+      "en": "Bidoof",
+      "ja": "ビッパ"
+    },
     "speed": 31,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/399.png"
   },
@@ -3996,9 +4794,11 @@ export const allPokemonRoster = [
     "id": "nat-0400",
     "dexNo": 400,
     "formKey": "base",
-    "displayName": "비버통",
-    "displayNameEn": "Bibarel",
-    "displayNameJa": "ビーダル",
+    "names": {
+      "ko": "비버통",
+      "en": "Bibarel",
+      "ja": "ビーダル"
+    },
     "speed": 71,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/400.png"
   },
@@ -4006,9 +4806,11 @@ export const allPokemonRoster = [
     "id": "nat-0401",
     "dexNo": 401,
     "formKey": "base",
-    "displayName": "귀뚤뚜기",
-    "displayNameEn": "Kricketot",
-    "displayNameJa": "コロボーシ",
+    "names": {
+      "ko": "귀뚤뚜기",
+      "en": "Kricketot",
+      "ja": "コロボーシ"
+    },
     "speed": 25,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/401.png"
   },
@@ -4016,9 +4818,11 @@ export const allPokemonRoster = [
     "id": "nat-0402",
     "dexNo": 402,
     "formKey": "base",
-    "displayName": "귀뚤톡크",
-    "displayNameEn": "Kricketune",
-    "displayNameJa": "コロトック",
+    "names": {
+      "ko": "귀뚤톡크",
+      "en": "Kricketune",
+      "ja": "コロトック"
+    },
     "speed": 65,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/402.png"
   },
@@ -4026,9 +4830,11 @@ export const allPokemonRoster = [
     "id": "nat-0403",
     "dexNo": 403,
     "formKey": "base",
-    "displayName": "꼬링크",
-    "displayNameEn": "Shinx",
-    "displayNameJa": "コリンク",
+    "names": {
+      "ko": "꼬링크",
+      "en": "Shinx",
+      "ja": "コリンク"
+    },
     "speed": 45,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/403.png"
   },
@@ -4036,9 +4842,11 @@ export const allPokemonRoster = [
     "id": "nat-0404",
     "dexNo": 404,
     "formKey": "base",
-    "displayName": "럭시오",
-    "displayNameEn": "Luxio",
-    "displayNameJa": "ルクシオ",
+    "names": {
+      "ko": "럭시오",
+      "en": "Luxio",
+      "ja": "ルクシオ"
+    },
     "speed": 60,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/404.png"
   },
@@ -4046,9 +4854,11 @@ export const allPokemonRoster = [
     "id": "nat-0405",
     "dexNo": 405,
     "formKey": "base",
-    "displayName": "렌트라",
-    "displayNameEn": "Luxray",
-    "displayNameJa": "レントラー",
+    "names": {
+      "ko": "렌트라",
+      "en": "Luxray",
+      "ja": "レントラー"
+    },
     "speed": 70,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/405.png"
   },
@@ -4056,9 +4866,11 @@ export const allPokemonRoster = [
     "id": "nat-0406",
     "dexNo": 406,
     "formKey": "base",
-    "displayName": "꼬몽울",
-    "displayNameEn": "Budew",
-    "displayNameJa": "スボミー",
+    "names": {
+      "ko": "꼬몽울",
+      "en": "Budew",
+      "ja": "スボミー"
+    },
     "speed": 55,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/406.png"
   },
@@ -4066,9 +4878,11 @@ export const allPokemonRoster = [
     "id": "nat-0407",
     "dexNo": 407,
     "formKey": "base",
-    "displayName": "로즈레이드",
-    "displayNameEn": "Roserade",
-    "displayNameJa": "ロズレイド",
+    "names": {
+      "ko": "로즈레이드",
+      "en": "Roserade",
+      "ja": "ロズレイド"
+    },
     "speed": 90,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/407.png"
   },
@@ -4076,9 +4890,11 @@ export const allPokemonRoster = [
     "id": "nat-0408",
     "dexNo": 408,
     "formKey": "base",
-    "displayName": "두개도스",
-    "displayNameEn": "Cranidos",
-    "displayNameJa": "ズガイドス",
+    "names": {
+      "ko": "두개도스",
+      "en": "Cranidos",
+      "ja": "ズガイドス"
+    },
     "speed": 58,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/408.png"
   },
@@ -4086,9 +4902,11 @@ export const allPokemonRoster = [
     "id": "nat-0409",
     "dexNo": 409,
     "formKey": "base",
-    "displayName": "램펄드",
-    "displayNameEn": "Rampardos",
-    "displayNameJa": "ラムパルド",
+    "names": {
+      "ko": "램펄드",
+      "en": "Rampardos",
+      "ja": "ラムパルド"
+    },
     "speed": 58,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/409.png"
   },
@@ -4096,9 +4914,11 @@ export const allPokemonRoster = [
     "id": "nat-0410",
     "dexNo": 410,
     "formKey": "base",
-    "displayName": "방패톱스",
-    "displayNameEn": "Shieldon",
-    "displayNameJa": "タテトプス",
+    "names": {
+      "ko": "방패톱스",
+      "en": "Shieldon",
+      "ja": "タテトプス"
+    },
     "speed": 30,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/410.png"
   },
@@ -4106,9 +4926,11 @@ export const allPokemonRoster = [
     "id": "nat-0411",
     "dexNo": 411,
     "formKey": "base",
-    "displayName": "바리톱스",
-    "displayNameEn": "Bastiodon",
-    "displayNameJa": "トリデプス",
+    "names": {
+      "ko": "바리톱스",
+      "en": "Bastiodon",
+      "ja": "トリデプス"
+    },
     "speed": 30,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/411.png"
   },
@@ -4116,9 +4938,11 @@ export const allPokemonRoster = [
     "id": "nat-0412",
     "dexNo": 412,
     "formKey": "base",
-    "displayName": "도롱충이",
-    "displayNameEn": "Burmy",
-    "displayNameJa": "ミノムッチ",
+    "names": {
+      "ko": "도롱충이",
+      "en": "Burmy",
+      "ja": "ミノムッチ"
+    },
     "speed": 36,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/412.png"
   },
@@ -4126,9 +4950,11 @@ export const allPokemonRoster = [
     "id": "nat-0413",
     "dexNo": 413,
     "formKey": "base",
-    "displayName": "도롱마담",
-    "displayNameEn": "Wormadam",
-    "displayNameJa": "ミノマダム",
+    "names": {
+      "ko": "도롱마담",
+      "en": "Wormadam",
+      "ja": "ミノマダム"
+    },
     "speed": 36,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/413.png"
   },
@@ -4136,9 +4962,11 @@ export const allPokemonRoster = [
     "id": "nat-0414",
     "dexNo": 414,
     "formKey": "base",
-    "displayName": "나메일",
-    "displayNameEn": "Mothim",
-    "displayNameJa": "ガーメイル",
+    "names": {
+      "ko": "나메일",
+      "en": "Mothim",
+      "ja": "ガーメイル"
+    },
     "speed": 66,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/414.png"
   },
@@ -4146,9 +4974,11 @@ export const allPokemonRoster = [
     "id": "nat-0415",
     "dexNo": 415,
     "formKey": "base",
-    "displayName": "세꿀버리",
-    "displayNameEn": "Combee",
-    "displayNameJa": "ミツハニー",
+    "names": {
+      "ko": "세꿀버리",
+      "en": "Combee",
+      "ja": "ミツハニー"
+    },
     "speed": 70,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/415.png"
   },
@@ -4156,9 +4986,11 @@ export const allPokemonRoster = [
     "id": "nat-0416",
     "dexNo": 416,
     "formKey": "base",
-    "displayName": "비퀸",
-    "displayNameEn": "Vespiquen",
-    "displayNameJa": "ビークイン",
+    "names": {
+      "ko": "비퀸",
+      "en": "Vespiquen",
+      "ja": "ビークイン"
+    },
     "speed": 40,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/416.png"
   },
@@ -4166,9 +4998,11 @@ export const allPokemonRoster = [
     "id": "nat-0417",
     "dexNo": 417,
     "formKey": "base",
-    "displayName": "파치리스",
-    "displayNameEn": "Pachirisu",
-    "displayNameJa": "パチリス",
+    "names": {
+      "ko": "파치리스",
+      "en": "Pachirisu",
+      "ja": "パチリス"
+    },
     "speed": 95,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/417.png"
   },
@@ -4176,9 +5010,11 @@ export const allPokemonRoster = [
     "id": "nat-0418",
     "dexNo": 418,
     "formKey": "base",
-    "displayName": "브이젤",
-    "displayNameEn": "Buizel",
-    "displayNameJa": "ブイゼル",
+    "names": {
+      "ko": "브이젤",
+      "en": "Buizel",
+      "ja": "ブイゼル"
+    },
     "speed": 85,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/418.png"
   },
@@ -4186,9 +5022,11 @@ export const allPokemonRoster = [
     "id": "nat-0419",
     "dexNo": 419,
     "formKey": "base",
-    "displayName": "플로젤",
-    "displayNameEn": "Floatzel",
-    "displayNameJa": "フローゼル",
+    "names": {
+      "ko": "플로젤",
+      "en": "Floatzel",
+      "ja": "フローゼル"
+    },
     "speed": 115,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/419.png"
   },
@@ -4196,9 +5034,11 @@ export const allPokemonRoster = [
     "id": "nat-0420",
     "dexNo": 420,
     "formKey": "base",
-    "displayName": "체리버",
-    "displayNameEn": "Cherubi",
-    "displayNameJa": "チェリンボ",
+    "names": {
+      "ko": "체리버",
+      "en": "Cherubi",
+      "ja": "チェリンボ"
+    },
     "speed": 35,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/420.png"
   },
@@ -4206,9 +5046,11 @@ export const allPokemonRoster = [
     "id": "nat-0421",
     "dexNo": 421,
     "formKey": "base",
-    "displayName": "체리꼬",
-    "displayNameEn": "Cherrim",
-    "displayNameJa": "チェリム",
+    "names": {
+      "ko": "체리꼬",
+      "en": "Cherrim",
+      "ja": "チェリム"
+    },
     "speed": 85,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/421.png"
   },
@@ -4216,9 +5058,11 @@ export const allPokemonRoster = [
     "id": "nat-0422",
     "dexNo": 422,
     "formKey": "base",
-    "displayName": "깝질무",
-    "displayNameEn": "Shellos",
-    "displayNameJa": "カラナクシ",
+    "names": {
+      "ko": "깝질무",
+      "en": "Shellos",
+      "ja": "カラナクシ"
+    },
     "speed": 34,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/422.png"
   },
@@ -4226,9 +5070,11 @@ export const allPokemonRoster = [
     "id": "nat-0423",
     "dexNo": 423,
     "formKey": "base",
-    "displayName": "트리토돈",
-    "displayNameEn": "Gastrodon",
-    "displayNameJa": "トリトドン",
+    "names": {
+      "ko": "트리토돈",
+      "en": "Gastrodon",
+      "ja": "トリトドン"
+    },
     "speed": 39,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/423.png"
   },
@@ -4236,9 +5082,11 @@ export const allPokemonRoster = [
     "id": "nat-0424",
     "dexNo": 424,
     "formKey": "base",
-    "displayName": "겟핸보숭",
-    "displayNameEn": "Ambipom",
-    "displayNameJa": "エテボース",
+    "names": {
+      "ko": "겟핸보숭",
+      "en": "Ambipom",
+      "ja": "エテボース"
+    },
     "speed": 115,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/424.png"
   },
@@ -4246,9 +5094,11 @@ export const allPokemonRoster = [
     "id": "nat-0425",
     "dexNo": 425,
     "formKey": "base",
-    "displayName": "흔들풍손",
-    "displayNameEn": "Drifloon",
-    "displayNameJa": "フワンテ",
+    "names": {
+      "ko": "흔들풍손",
+      "en": "Drifloon",
+      "ja": "フワンテ"
+    },
     "speed": 70,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/425.png"
   },
@@ -4256,9 +5106,11 @@ export const allPokemonRoster = [
     "id": "nat-0426",
     "dexNo": 426,
     "formKey": "base",
-    "displayName": "둥실라이드",
-    "displayNameEn": "Drifblim",
-    "displayNameJa": "フワライド",
+    "names": {
+      "ko": "둥실라이드",
+      "en": "Drifblim",
+      "ja": "フワライド"
+    },
     "speed": 80,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/426.png"
   },
@@ -4266,9 +5118,11 @@ export const allPokemonRoster = [
     "id": "nat-0427",
     "dexNo": 427,
     "formKey": "base",
-    "displayName": "이어롤",
-    "displayNameEn": "Buneary",
-    "displayNameJa": "ミミロル",
+    "names": {
+      "ko": "이어롤",
+      "en": "Buneary",
+      "ja": "ミミロル"
+    },
     "speed": 85,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/427.png"
   },
@@ -4276,9 +5130,11 @@ export const allPokemonRoster = [
     "id": "nat-0428",
     "dexNo": 428,
     "formKey": "base",
-    "displayName": "이어롭",
-    "displayNameEn": "Lopunny",
-    "displayNameJa": "ミミロップ",
+    "names": {
+      "ko": "이어롭",
+      "en": "Lopunny",
+      "ja": "ミミロップ"
+    },
     "speed": 105,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/428.png"
   },
@@ -4286,9 +5142,11 @@ export const allPokemonRoster = [
     "id": "nat-0429",
     "dexNo": 429,
     "formKey": "base",
-    "displayName": "무우마직",
-    "displayNameEn": "Mismagius",
-    "displayNameJa": "ムウマージ",
+    "names": {
+      "ko": "무우마직",
+      "en": "Mismagius",
+      "ja": "ムウマージ"
+    },
     "speed": 105,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/429.png"
   },
@@ -4296,9 +5154,11 @@ export const allPokemonRoster = [
     "id": "nat-0430",
     "dexNo": 430,
     "formKey": "base",
-    "displayName": "돈크로우",
-    "displayNameEn": "Honchkrow",
-    "displayNameJa": "ドンカラス",
+    "names": {
+      "ko": "돈크로우",
+      "en": "Honchkrow",
+      "ja": "ドンカラス"
+    },
     "speed": 71,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/430.png"
   },
@@ -4306,9 +5166,11 @@ export const allPokemonRoster = [
     "id": "nat-0431",
     "dexNo": 431,
     "formKey": "base",
-    "displayName": "나옹마",
-    "displayNameEn": "Glameow",
-    "displayNameJa": "ニャルマー",
+    "names": {
+      "ko": "나옹마",
+      "en": "Glameow",
+      "ja": "ニャルマー"
+    },
     "speed": 85,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/431.png"
   },
@@ -4316,9 +5178,11 @@ export const allPokemonRoster = [
     "id": "nat-0432",
     "dexNo": 432,
     "formKey": "base",
-    "displayName": "몬냥이",
-    "displayNameEn": "Purugly",
-    "displayNameJa": "ブニャット",
+    "names": {
+      "ko": "몬냥이",
+      "en": "Purugly",
+      "ja": "ブニャット"
+    },
     "speed": 112,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/432.png"
   },
@@ -4326,9 +5190,11 @@ export const allPokemonRoster = [
     "id": "nat-0433",
     "dexNo": 433,
     "formKey": "base",
-    "displayName": "랑딸랑",
-    "displayNameEn": "Chingling",
-    "displayNameJa": "リーシャン",
+    "names": {
+      "ko": "랑딸랑",
+      "en": "Chingling",
+      "ja": "リーシャン"
+    },
     "speed": 45,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/433.png"
   },
@@ -4336,9 +5202,11 @@ export const allPokemonRoster = [
     "id": "nat-0434",
     "dexNo": 434,
     "formKey": "base",
-    "displayName": "스컹뿡",
-    "displayNameEn": "Stunky",
-    "displayNameJa": "スカンプー",
+    "names": {
+      "ko": "스컹뿡",
+      "en": "Stunky",
+      "ja": "スカンプー"
+    },
     "speed": 74,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/434.png"
   },
@@ -4346,9 +5214,11 @@ export const allPokemonRoster = [
     "id": "nat-0435",
     "dexNo": 435,
     "formKey": "base",
-    "displayName": "스컹탱크",
-    "displayNameEn": "Skuntank",
-    "displayNameJa": "スカタンク",
+    "names": {
+      "ko": "스컹탱크",
+      "en": "Skuntank",
+      "ja": "スカタンク"
+    },
     "speed": 84,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/435.png"
   },
@@ -4356,9 +5226,11 @@ export const allPokemonRoster = [
     "id": "nat-0436",
     "dexNo": 436,
     "formKey": "base",
-    "displayName": "동미러",
-    "displayNameEn": "Bronzor",
-    "displayNameJa": "ドーミラー",
+    "names": {
+      "ko": "동미러",
+      "en": "Bronzor",
+      "ja": "ドーミラー"
+    },
     "speed": 23,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/436.png"
   },
@@ -4366,9 +5238,11 @@ export const allPokemonRoster = [
     "id": "nat-0437",
     "dexNo": 437,
     "formKey": "base",
-    "displayName": "동탁군",
-    "displayNameEn": "Bronzong",
-    "displayNameJa": "ドータクン",
+    "names": {
+      "ko": "동탁군",
+      "en": "Bronzong",
+      "ja": "ドータクン"
+    },
     "speed": 33,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/437.png"
   },
@@ -4376,9 +5250,11 @@ export const allPokemonRoster = [
     "id": "nat-0438",
     "dexNo": 438,
     "formKey": "base",
-    "displayName": "꼬지지",
-    "displayNameEn": "Bonsly",
-    "displayNameJa": "ウソハチ",
+    "names": {
+      "ko": "꼬지지",
+      "en": "Bonsly",
+      "ja": "ウソハチ"
+    },
     "speed": 10,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/438.png"
   },
@@ -4386,9 +5262,11 @@ export const allPokemonRoster = [
     "id": "nat-0439",
     "dexNo": 439,
     "formKey": "base",
-    "displayName": "흉내내",
-    "displayNameEn": "Mime Jr.",
-    "displayNameJa": "マネネ",
+    "names": {
+      "ko": "흉내내",
+      "en": "Mime Jr.",
+      "ja": "マネネ"
+    },
     "speed": 60,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/439.png"
   },
@@ -4396,9 +5274,11 @@ export const allPokemonRoster = [
     "id": "nat-0440",
     "dexNo": 440,
     "formKey": "base",
-    "displayName": "핑복",
-    "displayNameEn": "Happiny",
-    "displayNameJa": "ピンプク",
+    "names": {
+      "ko": "핑복",
+      "en": "Happiny",
+      "ja": "ピンプク"
+    },
     "speed": 30,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/440.png"
   },
@@ -4406,9 +5286,11 @@ export const allPokemonRoster = [
     "id": "nat-0441",
     "dexNo": 441,
     "formKey": "base",
-    "displayName": "페라페",
-    "displayNameEn": "Chatot",
-    "displayNameJa": "ペラップ",
+    "names": {
+      "ko": "페라페",
+      "en": "Chatot",
+      "ja": "ペラップ"
+    },
     "speed": 91,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/441.png"
   },
@@ -4416,9 +5298,11 @@ export const allPokemonRoster = [
     "id": "nat-0442",
     "dexNo": 442,
     "formKey": "base",
-    "displayName": "화강돌",
-    "displayNameEn": "Spiritomb",
-    "displayNameJa": "ミカルゲ",
+    "names": {
+      "ko": "화강돌",
+      "en": "Spiritomb",
+      "ja": "ミカルゲ"
+    },
     "speed": 35,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/442.png"
   },
@@ -4426,9 +5310,11 @@ export const allPokemonRoster = [
     "id": "nat-0443",
     "dexNo": 443,
     "formKey": "base",
-    "displayName": "딥상어동",
-    "displayNameEn": "Gible",
-    "displayNameJa": "フカマル",
+    "names": {
+      "ko": "딥상어동",
+      "en": "Gible",
+      "ja": "フカマル"
+    },
     "speed": 42,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/443.png"
   },
@@ -4436,9 +5322,11 @@ export const allPokemonRoster = [
     "id": "nat-0444",
     "dexNo": 444,
     "formKey": "base",
-    "displayName": "한바이트",
-    "displayNameEn": "Gabite",
-    "displayNameJa": "ガバイト",
+    "names": {
+      "ko": "한바이트",
+      "en": "Gabite",
+      "ja": "ガバイト"
+    },
     "speed": 82,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/444.png"
   },
@@ -4446,9 +5334,11 @@ export const allPokemonRoster = [
     "id": "nat-0445",
     "dexNo": 445,
     "formKey": "base",
-    "displayName": "한카리아스",
-    "displayNameEn": "Garchomp",
-    "displayNameJa": "ガブリアス",
+    "names": {
+      "ko": "한카리아스",
+      "en": "Garchomp",
+      "ja": "ガブリアス"
+    },
     "speed": 102,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/445.png"
   },
@@ -4456,9 +5346,11 @@ export const allPokemonRoster = [
     "id": "nat-0446",
     "dexNo": 446,
     "formKey": "base",
-    "displayName": "먹고자",
-    "displayNameEn": "Munchlax",
-    "displayNameJa": "ゴンベ",
+    "names": {
+      "ko": "먹고자",
+      "en": "Munchlax",
+      "ja": "ゴンベ"
+    },
     "speed": 5,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/446.png"
   },
@@ -4466,9 +5358,11 @@ export const allPokemonRoster = [
     "id": "nat-0447",
     "dexNo": 447,
     "formKey": "base",
-    "displayName": "리오르",
-    "displayNameEn": "Riolu",
-    "displayNameJa": "リオル",
+    "names": {
+      "ko": "리오르",
+      "en": "Riolu",
+      "ja": "リオル"
+    },
     "speed": 60,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/447.png"
   },
@@ -4476,9 +5370,11 @@ export const allPokemonRoster = [
     "id": "nat-0448",
     "dexNo": 448,
     "formKey": "base",
-    "displayName": "루카리오",
-    "displayNameEn": "Lucario",
-    "displayNameJa": "ルカリオ",
+    "names": {
+      "ko": "루카리오",
+      "en": "Lucario",
+      "ja": "ルカリオ"
+    },
     "speed": 90,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/448.png"
   },
@@ -4486,9 +5382,11 @@ export const allPokemonRoster = [
     "id": "nat-0449",
     "dexNo": 449,
     "formKey": "base",
-    "displayName": "히포포타스",
-    "displayNameEn": "Hippopotas",
-    "displayNameJa": "ヒポポタス",
+    "names": {
+      "ko": "히포포타스",
+      "en": "Hippopotas",
+      "ja": "ヒポポタス"
+    },
     "speed": 32,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/449.png"
   },
@@ -4496,9 +5394,11 @@ export const allPokemonRoster = [
     "id": "nat-0450",
     "dexNo": 450,
     "formKey": "base",
-    "displayName": "하마돈",
-    "displayNameEn": "Hippowdon",
-    "displayNameJa": "カバルドン",
+    "names": {
+      "ko": "하마돈",
+      "en": "Hippowdon",
+      "ja": "カバルドン"
+    },
     "speed": 47,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/450.png"
   },
@@ -4506,9 +5406,11 @@ export const allPokemonRoster = [
     "id": "nat-0451",
     "dexNo": 451,
     "formKey": "base",
-    "displayName": "스콜피",
-    "displayNameEn": "Skorupi",
-    "displayNameJa": "スコルピ",
+    "names": {
+      "ko": "스콜피",
+      "en": "Skorupi",
+      "ja": "スコルピ"
+    },
     "speed": 65,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/451.png"
   },
@@ -4516,9 +5418,11 @@ export const allPokemonRoster = [
     "id": "nat-0452",
     "dexNo": 452,
     "formKey": "base",
-    "displayName": "드래피온",
-    "displayNameEn": "Drapion",
-    "displayNameJa": "ドラピオン",
+    "names": {
+      "ko": "드래피온",
+      "en": "Drapion",
+      "ja": "ドラピオン"
+    },
     "speed": 95,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/452.png"
   },
@@ -4526,9 +5430,11 @@ export const allPokemonRoster = [
     "id": "nat-0453",
     "dexNo": 453,
     "formKey": "base",
-    "displayName": "삐딱구리",
-    "displayNameEn": "Croagunk",
-    "displayNameJa": "グレッグル",
+    "names": {
+      "ko": "삐딱구리",
+      "en": "Croagunk",
+      "ja": "グレッグル"
+    },
     "speed": 50,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/453.png"
   },
@@ -4536,9 +5442,11 @@ export const allPokemonRoster = [
     "id": "nat-0454",
     "dexNo": 454,
     "formKey": "base",
-    "displayName": "독개굴",
-    "displayNameEn": "Toxicroak",
-    "displayNameJa": "ドクロッグ",
+    "names": {
+      "ko": "독개굴",
+      "en": "Toxicroak",
+      "ja": "ドクロッグ"
+    },
     "speed": 85,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/454.png"
   },
@@ -4546,9 +5454,11 @@ export const allPokemonRoster = [
     "id": "nat-0455",
     "dexNo": 455,
     "formKey": "base",
-    "displayName": "무스틈니",
-    "displayNameEn": "Carnivine",
-    "displayNameJa": "マスキッパ",
+    "names": {
+      "ko": "무스틈니",
+      "en": "Carnivine",
+      "ja": "マスキッパ"
+    },
     "speed": 46,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/455.png"
   },
@@ -4556,9 +5466,11 @@ export const allPokemonRoster = [
     "id": "nat-0456",
     "dexNo": 456,
     "formKey": "base",
-    "displayName": "형광어",
-    "displayNameEn": "Finneon",
-    "displayNameJa": "ケイコウオ",
+    "names": {
+      "ko": "형광어",
+      "en": "Finneon",
+      "ja": "ケイコウオ"
+    },
     "speed": 66,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/456.png"
   },
@@ -4566,9 +5478,11 @@ export const allPokemonRoster = [
     "id": "nat-0457",
     "dexNo": 457,
     "formKey": "base",
-    "displayName": "네오라이트",
-    "displayNameEn": "Lumineon",
-    "displayNameJa": "ネオラント",
+    "names": {
+      "ko": "네오라이트",
+      "en": "Lumineon",
+      "ja": "ネオラント"
+    },
     "speed": 91,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/457.png"
   },
@@ -4576,9 +5490,11 @@ export const allPokemonRoster = [
     "id": "nat-0458",
     "dexNo": 458,
     "formKey": "base",
-    "displayName": "타만타",
-    "displayNameEn": "Mantyke",
-    "displayNameJa": "タマンタ",
+    "names": {
+      "ko": "타만타",
+      "en": "Mantyke",
+      "ja": "タマンタ"
+    },
     "speed": 50,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/458.png"
   },
@@ -4586,9 +5502,11 @@ export const allPokemonRoster = [
     "id": "nat-0459",
     "dexNo": 459,
     "formKey": "base",
-    "displayName": "눈쓰개",
-    "displayNameEn": "Snover",
-    "displayNameJa": "ユキカブリ",
+    "names": {
+      "ko": "눈쓰개",
+      "en": "Snover",
+      "ja": "ユキカブリ"
+    },
     "speed": 40,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/459.png"
   },
@@ -4596,9 +5514,11 @@ export const allPokemonRoster = [
     "id": "nat-0460",
     "dexNo": 460,
     "formKey": "base",
-    "displayName": "눈설왕",
-    "displayNameEn": "Abomasnow",
-    "displayNameJa": "ユキノオー",
+    "names": {
+      "ko": "눈설왕",
+      "en": "Abomasnow",
+      "ja": "ユキノオー"
+    },
     "speed": 60,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/460.png"
   },
@@ -4606,9 +5526,11 @@ export const allPokemonRoster = [
     "id": "nat-0461",
     "dexNo": 461,
     "formKey": "base",
-    "displayName": "포푸니라",
-    "displayNameEn": "Weavile",
-    "displayNameJa": "マニューラ",
+    "names": {
+      "ko": "포푸니라",
+      "en": "Weavile",
+      "ja": "マニューラ"
+    },
     "speed": 125,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/461.png"
   },
@@ -4616,9 +5538,11 @@ export const allPokemonRoster = [
     "id": "nat-0462",
     "dexNo": 462,
     "formKey": "base",
-    "displayName": "자포코일",
-    "displayNameEn": "Magnezone",
-    "displayNameJa": "ジバコイル",
+    "names": {
+      "ko": "자포코일",
+      "en": "Magnezone",
+      "ja": "ジバコイル"
+    },
     "speed": 60,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/462.png"
   },
@@ -4626,9 +5550,11 @@ export const allPokemonRoster = [
     "id": "nat-0463",
     "dexNo": 463,
     "formKey": "base",
-    "displayName": "내룸벨트",
-    "displayNameEn": "Lickilicky",
-    "displayNameJa": "ベロベルト",
+    "names": {
+      "ko": "내룸벨트",
+      "en": "Lickilicky",
+      "ja": "ベロベルト"
+    },
     "speed": 50,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/463.png"
   },
@@ -4636,9 +5562,11 @@ export const allPokemonRoster = [
     "id": "nat-0464",
     "dexNo": 464,
     "formKey": "base",
-    "displayName": "거대코뿌리",
-    "displayNameEn": "Rhyperior",
-    "displayNameJa": "ドサイドン",
+    "names": {
+      "ko": "거대코뿌리",
+      "en": "Rhyperior",
+      "ja": "ドサイドン"
+    },
     "speed": 40,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/464.png"
   },
@@ -4646,9 +5574,11 @@ export const allPokemonRoster = [
     "id": "nat-0465",
     "dexNo": 465,
     "formKey": "base",
-    "displayName": "덩쿠림보",
-    "displayNameEn": "Tangrowth",
-    "displayNameJa": "モジャンボ",
+    "names": {
+      "ko": "덩쿠림보",
+      "en": "Tangrowth",
+      "ja": "モジャンボ"
+    },
     "speed": 50,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/465.png"
   },
@@ -4656,9 +5586,11 @@ export const allPokemonRoster = [
     "id": "nat-0466",
     "dexNo": 466,
     "formKey": "base",
-    "displayName": "에레키블",
-    "displayNameEn": "Electivire",
-    "displayNameJa": "エレキブル",
+    "names": {
+      "ko": "에레키블",
+      "en": "Electivire",
+      "ja": "エレキブル"
+    },
     "speed": 95,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/466.png"
   },
@@ -4666,9 +5598,11 @@ export const allPokemonRoster = [
     "id": "nat-0467",
     "dexNo": 467,
     "formKey": "base",
-    "displayName": "마그마번",
-    "displayNameEn": "Magmortar",
-    "displayNameJa": "ブーバーン",
+    "names": {
+      "ko": "마그마번",
+      "en": "Magmortar",
+      "ja": "ブーバーン"
+    },
     "speed": 83,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/467.png"
   },
@@ -4676,9 +5610,11 @@ export const allPokemonRoster = [
     "id": "nat-0468",
     "dexNo": 468,
     "formKey": "base",
-    "displayName": "토게키스",
-    "displayNameEn": "Togekiss",
-    "displayNameJa": "トゲキッス",
+    "names": {
+      "ko": "토게키스",
+      "en": "Togekiss",
+      "ja": "トゲキッス"
+    },
     "speed": 80,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/468.png"
   },
@@ -4686,9 +5622,11 @@ export const allPokemonRoster = [
     "id": "nat-0469",
     "dexNo": 469,
     "formKey": "base",
-    "displayName": "메가자리",
-    "displayNameEn": "Yanmega",
-    "displayNameJa": "メガヤンマ",
+    "names": {
+      "ko": "메가자리",
+      "en": "Yanmega",
+      "ja": "メガヤンマ"
+    },
     "speed": 95,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/469.png"
   },
@@ -4696,9 +5634,11 @@ export const allPokemonRoster = [
     "id": "nat-0470",
     "dexNo": 470,
     "formKey": "base",
-    "displayName": "리피아",
-    "displayNameEn": "Leafeon",
-    "displayNameJa": "リーフィア",
+    "names": {
+      "ko": "리피아",
+      "en": "Leafeon",
+      "ja": "リーフィア"
+    },
     "speed": 95,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/470.png"
   },
@@ -4706,9 +5646,11 @@ export const allPokemonRoster = [
     "id": "nat-0471",
     "dexNo": 471,
     "formKey": "base",
-    "displayName": "글레이시아",
-    "displayNameEn": "Glaceon",
-    "displayNameJa": "グレイシア",
+    "names": {
+      "ko": "글레이시아",
+      "en": "Glaceon",
+      "ja": "グレイシア"
+    },
     "speed": 65,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/471.png"
   },
@@ -4716,9 +5658,11 @@ export const allPokemonRoster = [
     "id": "nat-0472",
     "dexNo": 472,
     "formKey": "base",
-    "displayName": "글라이온",
-    "displayNameEn": "Gliscor",
-    "displayNameJa": "グライオン",
+    "names": {
+      "ko": "글라이온",
+      "en": "Gliscor",
+      "ja": "グライオン"
+    },
     "speed": 95,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/472.png"
   },
@@ -4726,9 +5670,11 @@ export const allPokemonRoster = [
     "id": "nat-0473",
     "dexNo": 473,
     "formKey": "base",
-    "displayName": "맘모꾸리",
-    "displayNameEn": "Mamoswine",
-    "displayNameJa": "マンムー",
+    "names": {
+      "ko": "맘모꾸리",
+      "en": "Mamoswine",
+      "ja": "マンムー"
+    },
     "speed": 80,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/473.png"
   },
@@ -4736,9 +5682,11 @@ export const allPokemonRoster = [
     "id": "nat-0474",
     "dexNo": 474,
     "formKey": "base",
-    "displayName": "폴리곤Z",
-    "displayNameEn": "Porygon-Z",
-    "displayNameJa": "ポリゴンＺ",
+    "names": {
+      "ko": "폴리곤Z",
+      "en": "Porygon-Z",
+      "ja": "ポリゴンＺ"
+    },
     "speed": 90,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/474.png"
   },
@@ -4746,9 +5694,11 @@ export const allPokemonRoster = [
     "id": "nat-0475",
     "dexNo": 475,
     "formKey": "base",
-    "displayName": "엘레이드",
-    "displayNameEn": "Gallade",
-    "displayNameJa": "エルレイド",
+    "names": {
+      "ko": "엘레이드",
+      "en": "Gallade",
+      "ja": "エルレイド"
+    },
     "speed": 80,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/475.png"
   },
@@ -4756,9 +5706,11 @@ export const allPokemonRoster = [
     "id": "nat-0476",
     "dexNo": 476,
     "formKey": "base",
-    "displayName": "대코파스",
-    "displayNameEn": "Probopass",
-    "displayNameJa": "ダイノーズ",
+    "names": {
+      "ko": "대코파스",
+      "en": "Probopass",
+      "ja": "ダイノーズ"
+    },
     "speed": 40,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/476.png"
   },
@@ -4766,9 +5718,11 @@ export const allPokemonRoster = [
     "id": "nat-0477",
     "dexNo": 477,
     "formKey": "base",
-    "displayName": "야느와르몽",
-    "displayNameEn": "Dusknoir",
-    "displayNameJa": "ヨノワール",
+    "names": {
+      "ko": "야느와르몽",
+      "en": "Dusknoir",
+      "ja": "ヨノワール"
+    },
     "speed": 45,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/477.png"
   },
@@ -4776,9 +5730,11 @@ export const allPokemonRoster = [
     "id": "nat-0478",
     "dexNo": 478,
     "formKey": "base",
-    "displayName": "눈여아",
-    "displayNameEn": "Froslass",
-    "displayNameJa": "ユキメノコ",
+    "names": {
+      "ko": "눈여아",
+      "en": "Froslass",
+      "ja": "ユキメノコ"
+    },
     "speed": 110,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/478.png"
   },
@@ -4786,9 +5742,11 @@ export const allPokemonRoster = [
     "id": "nat-0479",
     "dexNo": 479,
     "formKey": "base",
-    "displayName": "로토무",
-    "displayNameEn": "Rotom",
-    "displayNameJa": "ロトム",
+    "names": {
+      "ko": "로토무",
+      "en": "Rotom",
+      "ja": "ロトム"
+    },
     "speed": 91,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/479.png"
   },
@@ -4796,9 +5754,11 @@ export const allPokemonRoster = [
     "id": "nat-0480",
     "dexNo": 480,
     "formKey": "base",
-    "displayName": "유크시",
-    "displayNameEn": "Uxie",
-    "displayNameJa": "ユクシー",
+    "names": {
+      "ko": "유크시",
+      "en": "Uxie",
+      "ja": "ユクシー"
+    },
     "speed": 95,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/480.png"
   },
@@ -4806,9 +5766,11 @@ export const allPokemonRoster = [
     "id": "nat-0481",
     "dexNo": 481,
     "formKey": "base",
-    "displayName": "엠라이트",
-    "displayNameEn": "Mesprit",
-    "displayNameJa": "エムリット",
+    "names": {
+      "ko": "엠라이트",
+      "en": "Mesprit",
+      "ja": "エムリット"
+    },
     "speed": 80,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/481.png"
   },
@@ -4816,9 +5778,11 @@ export const allPokemonRoster = [
     "id": "nat-0482",
     "dexNo": 482,
     "formKey": "base",
-    "displayName": "아그놈",
-    "displayNameEn": "Azelf",
-    "displayNameJa": "アグノム",
+    "names": {
+      "ko": "아그놈",
+      "en": "Azelf",
+      "ja": "アグノム"
+    },
     "speed": 115,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/482.png"
   },
@@ -4826,9 +5790,11 @@ export const allPokemonRoster = [
     "id": "nat-0483",
     "dexNo": 483,
     "formKey": "base",
-    "displayName": "디아루가",
-    "displayNameEn": "Dialga",
-    "displayNameJa": "ディアルガ",
+    "names": {
+      "ko": "디아루가",
+      "en": "Dialga",
+      "ja": "ディアルガ"
+    },
     "speed": 90,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/483.png"
   },
@@ -4836,9 +5802,11 @@ export const allPokemonRoster = [
     "id": "nat-0484",
     "dexNo": 484,
     "formKey": "base",
-    "displayName": "펄기아",
-    "displayNameEn": "Palkia",
-    "displayNameJa": "パルキア",
+    "names": {
+      "ko": "펄기아",
+      "en": "Palkia",
+      "ja": "パルキア"
+    },
     "speed": 100,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/484.png"
   },
@@ -4846,9 +5814,11 @@ export const allPokemonRoster = [
     "id": "nat-0485",
     "dexNo": 485,
     "formKey": "base",
-    "displayName": "히드런",
-    "displayNameEn": "Heatran",
-    "displayNameJa": "ヒードラン",
+    "names": {
+      "ko": "히드런",
+      "en": "Heatran",
+      "ja": "ヒードラン"
+    },
     "speed": 77,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/485.png"
   },
@@ -4856,9 +5826,11 @@ export const allPokemonRoster = [
     "id": "nat-0486",
     "dexNo": 486,
     "formKey": "base",
-    "displayName": "레지기가스",
-    "displayNameEn": "Regigigas",
-    "displayNameJa": "レジギガス",
+    "names": {
+      "ko": "레지기가스",
+      "en": "Regigigas",
+      "ja": "レジギガス"
+    },
     "speed": 100,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/486.png"
   },
@@ -4866,9 +5838,11 @@ export const allPokemonRoster = [
     "id": "nat-0487",
     "dexNo": 487,
     "formKey": "base",
-    "displayName": "기라티나",
-    "displayNameEn": "Giratina",
-    "displayNameJa": "ギラティナ",
+    "names": {
+      "ko": "기라티나",
+      "en": "Giratina",
+      "ja": "ギラティナ"
+    },
     "speed": 90,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/487.png"
   },
@@ -4876,9 +5850,11 @@ export const allPokemonRoster = [
     "id": "nat-0488",
     "dexNo": 488,
     "formKey": "base",
-    "displayName": "크레세리아",
-    "displayNameEn": "Cresselia",
-    "displayNameJa": "クレセリア",
+    "names": {
+      "ko": "크레세리아",
+      "en": "Cresselia",
+      "ja": "クレセリア"
+    },
     "speed": 85,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/488.png"
   },
@@ -4886,9 +5862,11 @@ export const allPokemonRoster = [
     "id": "nat-0489",
     "dexNo": 489,
     "formKey": "base",
-    "displayName": "피오네",
-    "displayNameEn": "Phione",
-    "displayNameJa": "フィオネ",
+    "names": {
+      "ko": "피오네",
+      "en": "Phione",
+      "ja": "フィオネ"
+    },
     "speed": 80,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/489.png"
   },
@@ -4896,9 +5874,11 @@ export const allPokemonRoster = [
     "id": "nat-0490",
     "dexNo": 490,
     "formKey": "base",
-    "displayName": "마나피",
-    "displayNameEn": "Manaphy",
-    "displayNameJa": "マナフィ",
+    "names": {
+      "ko": "마나피",
+      "en": "Manaphy",
+      "ja": "マナフィ"
+    },
     "speed": 100,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/490.png"
   },
@@ -4906,9 +5886,11 @@ export const allPokemonRoster = [
     "id": "nat-0491",
     "dexNo": 491,
     "formKey": "base",
-    "displayName": "다크라이",
-    "displayNameEn": "Darkrai",
-    "displayNameJa": "ダークライ",
+    "names": {
+      "ko": "다크라이",
+      "en": "Darkrai",
+      "ja": "ダークライ"
+    },
     "speed": 125,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/491.png"
   },
@@ -4916,9 +5898,11 @@ export const allPokemonRoster = [
     "id": "nat-0492",
     "dexNo": 492,
     "formKey": "base",
-    "displayName": "쉐이미",
-    "displayNameEn": "Shaymin",
-    "displayNameJa": "シェイミ",
+    "names": {
+      "ko": "쉐이미",
+      "en": "Shaymin",
+      "ja": "シェイミ"
+    },
     "speed": 100,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/492.png"
   },
@@ -4926,9 +5910,11 @@ export const allPokemonRoster = [
     "id": "nat-0493",
     "dexNo": 493,
     "formKey": "base",
-    "displayName": "아르세우스",
-    "displayNameEn": "Arceus",
-    "displayNameJa": "アルセウス",
+    "names": {
+      "ko": "아르세우스",
+      "en": "Arceus",
+      "ja": "アルセウス"
+    },
     "speed": 120,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/493.png"
   },
@@ -4936,9 +5922,11 @@ export const allPokemonRoster = [
     "id": "nat-0494",
     "dexNo": 494,
     "formKey": "base",
-    "displayName": "비크티니",
-    "displayNameEn": "Victini",
-    "displayNameJa": "ビクティニ",
+    "names": {
+      "ko": "비크티니",
+      "en": "Victini",
+      "ja": "ビクティニ"
+    },
     "speed": 100,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/494.png"
   },
@@ -4946,9 +5934,11 @@ export const allPokemonRoster = [
     "id": "nat-0495",
     "dexNo": 495,
     "formKey": "base",
-    "displayName": "주리비얀",
-    "displayNameEn": "Snivy",
-    "displayNameJa": "ツタージャ",
+    "names": {
+      "ko": "주리비얀",
+      "en": "Snivy",
+      "ja": "ツタージャ"
+    },
     "speed": 63,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/495.png"
   },
@@ -4956,9 +5946,11 @@ export const allPokemonRoster = [
     "id": "nat-0496",
     "dexNo": 496,
     "formKey": "base",
-    "displayName": "샤비",
-    "displayNameEn": "Servine",
-    "displayNameJa": "ジャノビー",
+    "names": {
+      "ko": "샤비",
+      "en": "Servine",
+      "ja": "ジャノビー"
+    },
     "speed": 83,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/496.png"
   },
@@ -4966,9 +5958,11 @@ export const allPokemonRoster = [
     "id": "nat-0497",
     "dexNo": 497,
     "formKey": "base",
-    "displayName": "샤로다",
-    "displayNameEn": "Serperior",
-    "displayNameJa": "ジャローダ",
+    "names": {
+      "ko": "샤로다",
+      "en": "Serperior",
+      "ja": "ジャローダ"
+    },
     "speed": 113,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/497.png"
   },
@@ -4976,9 +5970,11 @@ export const allPokemonRoster = [
     "id": "nat-0498",
     "dexNo": 498,
     "formKey": "base",
-    "displayName": "뚜꾸리",
-    "displayNameEn": "Tepig",
-    "displayNameJa": "ポカブ",
+    "names": {
+      "ko": "뚜꾸리",
+      "en": "Tepig",
+      "ja": "ポカブ"
+    },
     "speed": 45,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/498.png"
   },
@@ -4986,9 +5982,11 @@ export const allPokemonRoster = [
     "id": "nat-0499",
     "dexNo": 499,
     "formKey": "base",
-    "displayName": "차오꿀",
-    "displayNameEn": "Pignite",
-    "displayNameJa": "チャオブー",
+    "names": {
+      "ko": "차오꿀",
+      "en": "Pignite",
+      "ja": "チャオブー"
+    },
     "speed": 55,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/499.png"
   },
@@ -4996,9 +5994,11 @@ export const allPokemonRoster = [
     "id": "nat-0500",
     "dexNo": 500,
     "formKey": "base",
-    "displayName": "염무왕",
-    "displayNameEn": "Emboar",
-    "displayNameJa": "エンブオー",
+    "names": {
+      "ko": "염무왕",
+      "en": "Emboar",
+      "ja": "エンブオー"
+    },
     "speed": 65,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/500.png"
   },
@@ -5006,9 +6006,11 @@ export const allPokemonRoster = [
     "id": "nat-0501",
     "dexNo": 501,
     "formKey": "base",
-    "displayName": "수댕이",
-    "displayNameEn": "Oshawott",
-    "displayNameJa": "ミジュマル",
+    "names": {
+      "ko": "수댕이",
+      "en": "Oshawott",
+      "ja": "ミジュマル"
+    },
     "speed": 45,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/501.png"
   },
@@ -5016,9 +6018,11 @@ export const allPokemonRoster = [
     "id": "nat-0502",
     "dexNo": 502,
     "formKey": "base",
-    "displayName": "쌍검자비",
-    "displayNameEn": "Dewott",
-    "displayNameJa": "フタチマル",
+    "names": {
+      "ko": "쌍검자비",
+      "en": "Dewott",
+      "ja": "フタチマル"
+    },
     "speed": 60,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/502.png"
   },
@@ -5026,9 +6030,11 @@ export const allPokemonRoster = [
     "id": "nat-0503",
     "dexNo": 503,
     "formKey": "base",
-    "displayName": "대검귀",
-    "displayNameEn": "Samurott",
-    "displayNameJa": "ダイケンキ",
+    "names": {
+      "ko": "대검귀",
+      "en": "Samurott",
+      "ja": "ダイケンキ"
+    },
     "speed": 70,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/503.png"
   },
@@ -5036,9 +6042,11 @@ export const allPokemonRoster = [
     "id": "nat-0504",
     "dexNo": 504,
     "formKey": "base",
-    "displayName": "보르쥐",
-    "displayNameEn": "Patrat",
-    "displayNameJa": "ミネズミ",
+    "names": {
+      "ko": "보르쥐",
+      "en": "Patrat",
+      "ja": "ミネズミ"
+    },
     "speed": 42,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/504.png"
   },
@@ -5046,9 +6054,11 @@ export const allPokemonRoster = [
     "id": "nat-0505",
     "dexNo": 505,
     "formKey": "base",
-    "displayName": "보르그",
-    "displayNameEn": "Watchog",
-    "displayNameJa": "ミルホッグ",
+    "names": {
+      "ko": "보르그",
+      "en": "Watchog",
+      "ja": "ミルホッグ"
+    },
     "speed": 77,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/505.png"
   },
@@ -5056,9 +6066,11 @@ export const allPokemonRoster = [
     "id": "nat-0506",
     "dexNo": 506,
     "formKey": "base",
-    "displayName": "요테리",
-    "displayNameEn": "Lillipup",
-    "displayNameJa": "ヨーテリー",
+    "names": {
+      "ko": "요테리",
+      "en": "Lillipup",
+      "ja": "ヨーテリー"
+    },
     "speed": 55,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/506.png"
   },
@@ -5066,9 +6078,11 @@ export const allPokemonRoster = [
     "id": "nat-0507",
     "dexNo": 507,
     "formKey": "base",
-    "displayName": "하데리어",
-    "displayNameEn": "Herdier",
-    "displayNameJa": "ハーデリア",
+    "names": {
+      "ko": "하데리어",
+      "en": "Herdier",
+      "ja": "ハーデリア"
+    },
     "speed": 60,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/507.png"
   },
@@ -5076,9 +6090,11 @@ export const allPokemonRoster = [
     "id": "nat-0508",
     "dexNo": 508,
     "formKey": "base",
-    "displayName": "바랜드",
-    "displayNameEn": "Stoutland",
-    "displayNameJa": "ムーランド",
+    "names": {
+      "ko": "바랜드",
+      "en": "Stoutland",
+      "ja": "ムーランド"
+    },
     "speed": 80,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/508.png"
   },
@@ -5086,9 +6102,11 @@ export const allPokemonRoster = [
     "id": "nat-0509",
     "dexNo": 509,
     "formKey": "base",
-    "displayName": "쌔비냥",
-    "displayNameEn": "Purrloin",
-    "displayNameJa": "チョロネコ",
+    "names": {
+      "ko": "쌔비냥",
+      "en": "Purrloin",
+      "ja": "チョロネコ"
+    },
     "speed": 66,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/509.png"
   },
@@ -5096,9 +6114,11 @@ export const allPokemonRoster = [
     "id": "nat-0510",
     "dexNo": 510,
     "formKey": "base",
-    "displayName": "레파르다스",
-    "displayNameEn": "Liepard",
-    "displayNameJa": "レパルダス",
+    "names": {
+      "ko": "레파르다스",
+      "en": "Liepard",
+      "ja": "レパルダス"
+    },
     "speed": 106,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/510.png"
   },
@@ -5106,9 +6126,11 @@ export const allPokemonRoster = [
     "id": "nat-0511",
     "dexNo": 511,
     "formKey": "base",
-    "displayName": "야나프",
-    "displayNameEn": "Pansage",
-    "displayNameJa": "ヤナップ",
+    "names": {
+      "ko": "야나프",
+      "en": "Pansage",
+      "ja": "ヤナップ"
+    },
     "speed": 64,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/511.png"
   },
@@ -5116,9 +6138,11 @@ export const allPokemonRoster = [
     "id": "nat-0512",
     "dexNo": 512,
     "formKey": "base",
-    "displayName": "야나키",
-    "displayNameEn": "Simisage",
-    "displayNameJa": "ヤナッキー",
+    "names": {
+      "ko": "야나키",
+      "en": "Simisage",
+      "ja": "ヤナッキー"
+    },
     "speed": 101,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/512.png"
   },
@@ -5126,9 +6150,11 @@ export const allPokemonRoster = [
     "id": "nat-0513",
     "dexNo": 513,
     "formKey": "base",
-    "displayName": "바오프",
-    "displayNameEn": "Pansear",
-    "displayNameJa": "バオップ",
+    "names": {
+      "ko": "바오프",
+      "en": "Pansear",
+      "ja": "バオップ"
+    },
     "speed": 64,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/513.png"
   },
@@ -5136,9 +6162,11 @@ export const allPokemonRoster = [
     "id": "nat-0514",
     "dexNo": 514,
     "formKey": "base",
-    "displayName": "바오키",
-    "displayNameEn": "Simisear",
-    "displayNameJa": "バオッキー",
+    "names": {
+      "ko": "바오키",
+      "en": "Simisear",
+      "ja": "バオッキー"
+    },
     "speed": 101,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/514.png"
   },
@@ -5146,9 +6174,11 @@ export const allPokemonRoster = [
     "id": "nat-0515",
     "dexNo": 515,
     "formKey": "base",
-    "displayName": "앗차프",
-    "displayNameEn": "Panpour",
-    "displayNameJa": "ヒヤップ",
+    "names": {
+      "ko": "앗차프",
+      "en": "Panpour",
+      "ja": "ヒヤップ"
+    },
     "speed": 64,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/515.png"
   },
@@ -5156,9 +6186,11 @@ export const allPokemonRoster = [
     "id": "nat-0516",
     "dexNo": 516,
     "formKey": "base",
-    "displayName": "앗차키",
-    "displayNameEn": "Simipour",
-    "displayNameJa": "ヒヤッキー",
+    "names": {
+      "ko": "앗차키",
+      "en": "Simipour",
+      "ja": "ヒヤッキー"
+    },
     "speed": 101,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/516.png"
   },
@@ -5166,9 +6198,11 @@ export const allPokemonRoster = [
     "id": "nat-0517",
     "dexNo": 517,
     "formKey": "base",
-    "displayName": "몽나",
-    "displayNameEn": "Munna",
-    "displayNameJa": "ムンナ",
+    "names": {
+      "ko": "몽나",
+      "en": "Munna",
+      "ja": "ムンナ"
+    },
     "speed": 24,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/517.png"
   },
@@ -5176,9 +6210,11 @@ export const allPokemonRoster = [
     "id": "nat-0518",
     "dexNo": 518,
     "formKey": "base",
-    "displayName": "몽얌나",
-    "displayNameEn": "Musharna",
-    "displayNameJa": "ムシャーナ",
+    "names": {
+      "ko": "몽얌나",
+      "en": "Musharna",
+      "ja": "ムシャーナ"
+    },
     "speed": 29,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/518.png"
   },
@@ -5186,9 +6222,11 @@ export const allPokemonRoster = [
     "id": "nat-0519",
     "dexNo": 519,
     "formKey": "base",
-    "displayName": "콩둘기",
-    "displayNameEn": "Pidove",
-    "displayNameJa": "マメパト",
+    "names": {
+      "ko": "콩둘기",
+      "en": "Pidove",
+      "ja": "マメパト"
+    },
     "speed": 43,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/519.png"
   },
@@ -5196,9 +6234,11 @@ export const allPokemonRoster = [
     "id": "nat-0520",
     "dexNo": 520,
     "formKey": "base",
-    "displayName": "유토브",
-    "displayNameEn": "Tranquill",
-    "displayNameJa": "ハトーボー",
+    "names": {
+      "ko": "유토브",
+      "en": "Tranquill",
+      "ja": "ハトーボー"
+    },
     "speed": 65,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/520.png"
   },
@@ -5206,9 +6246,11 @@ export const allPokemonRoster = [
     "id": "nat-0521",
     "dexNo": 521,
     "formKey": "base",
-    "displayName": "켄호로우",
-    "displayNameEn": "Unfezant",
-    "displayNameJa": "ケンホロウ",
+    "names": {
+      "ko": "켄호로우",
+      "en": "Unfezant",
+      "ja": "ケンホロウ"
+    },
     "speed": 93,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/521.png"
   },
@@ -5216,9 +6258,11 @@ export const allPokemonRoster = [
     "id": "nat-0522",
     "dexNo": 522,
     "formKey": "base",
-    "displayName": "줄뮤마",
-    "displayNameEn": "Blitzle",
-    "displayNameJa": "シママ",
+    "names": {
+      "ko": "줄뮤마",
+      "en": "Blitzle",
+      "ja": "シママ"
+    },
     "speed": 76,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/522.png"
   },
@@ -5226,9 +6270,11 @@ export const allPokemonRoster = [
     "id": "nat-0523",
     "dexNo": 523,
     "formKey": "base",
-    "displayName": "제브라이카",
-    "displayNameEn": "Zebstrika",
-    "displayNameJa": "ゼブライカ",
+    "names": {
+      "ko": "제브라이카",
+      "en": "Zebstrika",
+      "ja": "ゼブライカ"
+    },
     "speed": 116,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/523.png"
   },
@@ -5236,9 +6282,11 @@ export const allPokemonRoster = [
     "id": "nat-0524",
     "dexNo": 524,
     "formKey": "base",
-    "displayName": "단굴",
-    "displayNameEn": "Roggenrola",
-    "displayNameJa": "ダンゴロ",
+    "names": {
+      "ko": "단굴",
+      "en": "Roggenrola",
+      "ja": "ダンゴロ"
+    },
     "speed": 15,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/524.png"
   },
@@ -5246,9 +6294,11 @@ export const allPokemonRoster = [
     "id": "nat-0525",
     "dexNo": 525,
     "formKey": "base",
-    "displayName": "암트르",
-    "displayNameEn": "Boldore",
-    "displayNameJa": "ガントル",
+    "names": {
+      "ko": "암트르",
+      "en": "Boldore",
+      "ja": "ガントル"
+    },
     "speed": 20,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/525.png"
   },
@@ -5256,9 +6306,11 @@ export const allPokemonRoster = [
     "id": "nat-0526",
     "dexNo": 526,
     "formKey": "base",
-    "displayName": "기가이어스",
-    "displayNameEn": "Gigalith",
-    "displayNameJa": "ギガイアス",
+    "names": {
+      "ko": "기가이어스",
+      "en": "Gigalith",
+      "ja": "ギガイアス"
+    },
     "speed": 25,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/526.png"
   },
@@ -5266,9 +6318,11 @@ export const allPokemonRoster = [
     "id": "nat-0527",
     "dexNo": 527,
     "formKey": "base",
-    "displayName": "또르박쥐",
-    "displayNameEn": "Woobat",
-    "displayNameJa": "コロモリ",
+    "names": {
+      "ko": "또르박쥐",
+      "en": "Woobat",
+      "ja": "コロモリ"
+    },
     "speed": 72,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/527.png"
   },
@@ -5276,9 +6330,11 @@ export const allPokemonRoster = [
     "id": "nat-0528",
     "dexNo": 528,
     "formKey": "base",
-    "displayName": "맘박쥐",
-    "displayNameEn": "Swoobat",
-    "displayNameJa": "ココロモリ",
+    "names": {
+      "ko": "맘박쥐",
+      "en": "Swoobat",
+      "ja": "ココロモリ"
+    },
     "speed": 114,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/528.png"
   },
@@ -5286,9 +6342,11 @@ export const allPokemonRoster = [
     "id": "nat-0529",
     "dexNo": 529,
     "formKey": "base",
-    "displayName": "두더류",
-    "displayNameEn": "Drilbur",
-    "displayNameJa": "モグリュー",
+    "names": {
+      "ko": "두더류",
+      "en": "Drilbur",
+      "ja": "モグリュー"
+    },
     "speed": 68,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/529.png"
   },
@@ -5296,9 +6354,11 @@ export const allPokemonRoster = [
     "id": "nat-0530",
     "dexNo": 530,
     "formKey": "base",
-    "displayName": "몰드류",
-    "displayNameEn": "Excadrill",
-    "displayNameJa": "ドリュウズ",
+    "names": {
+      "ko": "몰드류",
+      "en": "Excadrill",
+      "ja": "ドリュウズ"
+    },
     "speed": 88,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/530.png"
   },
@@ -5306,9 +6366,11 @@ export const allPokemonRoster = [
     "id": "nat-0531",
     "dexNo": 531,
     "formKey": "base",
-    "displayName": "다부니",
-    "displayNameEn": "Audino",
-    "displayNameJa": "タブンネ",
+    "names": {
+      "ko": "다부니",
+      "en": "Audino",
+      "ja": "タブンネ"
+    },
     "speed": 50,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/531.png"
   },
@@ -5316,9 +6378,11 @@ export const allPokemonRoster = [
     "id": "nat-0532",
     "dexNo": 532,
     "formKey": "base",
-    "displayName": "으랏차",
-    "displayNameEn": "Timburr",
-    "displayNameJa": "ドッコラー",
+    "names": {
+      "ko": "으랏차",
+      "en": "Timburr",
+      "ja": "ドッコラー"
+    },
     "speed": 35,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/532.png"
   },
@@ -5326,9 +6390,11 @@ export const allPokemonRoster = [
     "id": "nat-0533",
     "dexNo": 533,
     "formKey": "base",
-    "displayName": "토쇠골",
-    "displayNameEn": "Gurdurr",
-    "displayNameJa": "ドテッコツ",
+    "names": {
+      "ko": "토쇠골",
+      "en": "Gurdurr",
+      "ja": "ドテッコツ"
+    },
     "speed": 40,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/533.png"
   },
@@ -5336,9 +6402,11 @@ export const allPokemonRoster = [
     "id": "nat-0534",
     "dexNo": 534,
     "formKey": "base",
-    "displayName": "노보청",
-    "displayNameEn": "Conkeldurr",
-    "displayNameJa": "ローブシン",
+    "names": {
+      "ko": "노보청",
+      "en": "Conkeldurr",
+      "ja": "ローブシン"
+    },
     "speed": 45,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/534.png"
   },
@@ -5346,9 +6414,11 @@ export const allPokemonRoster = [
     "id": "nat-0535",
     "dexNo": 535,
     "formKey": "base",
-    "displayName": "동챙이",
-    "displayNameEn": "Tympole",
-    "displayNameJa": "オタマロ",
+    "names": {
+      "ko": "동챙이",
+      "en": "Tympole",
+      "ja": "オタマロ"
+    },
     "speed": 64,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/535.png"
   },
@@ -5356,9 +6426,11 @@ export const allPokemonRoster = [
     "id": "nat-0536",
     "dexNo": 536,
     "formKey": "base",
-    "displayName": "두까비",
-    "displayNameEn": "Palpitoad",
-    "displayNameJa": "ガマガル",
+    "names": {
+      "ko": "두까비",
+      "en": "Palpitoad",
+      "ja": "ガマガル"
+    },
     "speed": 69,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/536.png"
   },
@@ -5366,9 +6438,11 @@ export const allPokemonRoster = [
     "id": "nat-0537",
     "dexNo": 537,
     "formKey": "base",
-    "displayName": "두빅굴",
-    "displayNameEn": "Seismitoad",
-    "displayNameJa": "ガマゲロゲ",
+    "names": {
+      "ko": "두빅굴",
+      "en": "Seismitoad",
+      "ja": "ガマゲロゲ"
+    },
     "speed": 74,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/537.png"
   },
@@ -5376,9 +6450,11 @@ export const allPokemonRoster = [
     "id": "nat-0538",
     "dexNo": 538,
     "formKey": "base",
-    "displayName": "던지미",
-    "displayNameEn": "Throh",
-    "displayNameJa": "ナゲキ",
+    "names": {
+      "ko": "던지미",
+      "en": "Throh",
+      "ja": "ナゲキ"
+    },
     "speed": 45,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/538.png"
   },
@@ -5386,9 +6462,11 @@ export const allPokemonRoster = [
     "id": "nat-0539",
     "dexNo": 539,
     "formKey": "base",
-    "displayName": "타격귀",
-    "displayNameEn": "Sawk",
-    "displayNameJa": "ダゲキ",
+    "names": {
+      "ko": "타격귀",
+      "en": "Sawk",
+      "ja": "ダゲキ"
+    },
     "speed": 85,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/539.png"
   },
@@ -5396,9 +6474,11 @@ export const allPokemonRoster = [
     "id": "nat-0540",
     "dexNo": 540,
     "formKey": "base",
-    "displayName": "두르보",
-    "displayNameEn": "Sewaddle",
-    "displayNameJa": "クルミル",
+    "names": {
+      "ko": "두르보",
+      "en": "Sewaddle",
+      "ja": "クルミル"
+    },
     "speed": 42,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/540.png"
   },
@@ -5406,9 +6486,11 @@ export const allPokemonRoster = [
     "id": "nat-0541",
     "dexNo": 541,
     "formKey": "base",
-    "displayName": "두르쿤",
-    "displayNameEn": "Swadloon",
-    "displayNameJa": "クルマユ",
+    "names": {
+      "ko": "두르쿤",
+      "en": "Swadloon",
+      "ja": "クルマユ"
+    },
     "speed": 42,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/541.png"
   },
@@ -5416,9 +6498,11 @@ export const allPokemonRoster = [
     "id": "nat-0542",
     "dexNo": 542,
     "formKey": "base",
-    "displayName": "모아머",
-    "displayNameEn": "Leavanny",
-    "displayNameJa": "ハハコモリ",
+    "names": {
+      "ko": "모아머",
+      "en": "Leavanny",
+      "ja": "ハハコモリ"
+    },
     "speed": 92,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/542.png"
   },
@@ -5426,9 +6510,11 @@ export const allPokemonRoster = [
     "id": "nat-0543",
     "dexNo": 543,
     "formKey": "base",
-    "displayName": "마디네",
-    "displayNameEn": "Venipede",
-    "displayNameJa": "フシデ",
+    "names": {
+      "ko": "마디네",
+      "en": "Venipede",
+      "ja": "フシデ"
+    },
     "speed": 57,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/543.png"
   },
@@ -5436,9 +6522,11 @@ export const allPokemonRoster = [
     "id": "nat-0544",
     "dexNo": 544,
     "formKey": "base",
-    "displayName": "휠구",
-    "displayNameEn": "Whirlipede",
-    "displayNameJa": "ホイーガ",
+    "names": {
+      "ko": "휠구",
+      "en": "Whirlipede",
+      "ja": "ホイーガ"
+    },
     "speed": 47,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/544.png"
   },
@@ -5446,9 +6534,11 @@ export const allPokemonRoster = [
     "id": "nat-0545",
     "dexNo": 545,
     "formKey": "base",
-    "displayName": "펜드라",
-    "displayNameEn": "Scolipede",
-    "displayNameJa": "ペンドラー",
+    "names": {
+      "ko": "펜드라",
+      "en": "Scolipede",
+      "ja": "ペンドラー"
+    },
     "speed": 112,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/545.png"
   },
@@ -5456,9 +6546,11 @@ export const allPokemonRoster = [
     "id": "nat-0546",
     "dexNo": 546,
     "formKey": "base",
-    "displayName": "소미안",
-    "displayNameEn": "Cottonee",
-    "displayNameJa": "モンメン",
+    "names": {
+      "ko": "소미안",
+      "en": "Cottonee",
+      "ja": "モンメン"
+    },
     "speed": 66,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/546.png"
   },
@@ -5466,9 +6558,11 @@ export const allPokemonRoster = [
     "id": "nat-0547",
     "dexNo": 547,
     "formKey": "base",
-    "displayName": "엘풍",
-    "displayNameEn": "Whimsicott",
-    "displayNameJa": "エルフーン",
+    "names": {
+      "ko": "엘풍",
+      "en": "Whimsicott",
+      "ja": "エルフーン"
+    },
     "speed": 116,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/547.png"
   },
@@ -5476,9 +6570,11 @@ export const allPokemonRoster = [
     "id": "nat-0548",
     "dexNo": 548,
     "formKey": "base",
-    "displayName": "치릴리",
-    "displayNameEn": "Petilil",
-    "displayNameJa": "チュリネ",
+    "names": {
+      "ko": "치릴리",
+      "en": "Petilil",
+      "ja": "チュリネ"
+    },
     "speed": 30,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/548.png"
   },
@@ -5486,9 +6582,11 @@ export const allPokemonRoster = [
     "id": "nat-0549",
     "dexNo": 549,
     "formKey": "base",
-    "displayName": "드레디어",
-    "displayNameEn": "Lilligant",
-    "displayNameJa": "ドレディア",
+    "names": {
+      "ko": "드레디어",
+      "en": "Lilligant",
+      "ja": "ドレディア"
+    },
     "speed": 90,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/549.png"
   },
@@ -5496,9 +6594,11 @@ export const allPokemonRoster = [
     "id": "nat-0550",
     "dexNo": 550,
     "formKey": "base",
-    "displayName": "배쓰나이",
-    "displayNameEn": "Basculin",
-    "displayNameJa": "バスラオ",
+    "names": {
+      "ko": "배쓰나이",
+      "en": "Basculin",
+      "ja": "バスラオ"
+    },
     "speed": 98,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/550.png"
   },
@@ -5506,9 +6606,11 @@ export const allPokemonRoster = [
     "id": "nat-0551",
     "dexNo": 551,
     "formKey": "base",
-    "displayName": "깜눈크",
-    "displayNameEn": "Sandile",
-    "displayNameJa": "メグロコ",
+    "names": {
+      "ko": "깜눈크",
+      "en": "Sandile",
+      "ja": "メグロコ"
+    },
     "speed": 65,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/551.png"
   },
@@ -5516,9 +6618,11 @@ export const allPokemonRoster = [
     "id": "nat-0552",
     "dexNo": 552,
     "formKey": "base",
-    "displayName": "악비르",
-    "displayNameEn": "Krokorok",
-    "displayNameJa": "ワルビル",
+    "names": {
+      "ko": "악비르",
+      "en": "Krokorok",
+      "ja": "ワルビル"
+    },
     "speed": 74,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/552.png"
   },
@@ -5526,9 +6630,11 @@ export const allPokemonRoster = [
     "id": "nat-0553",
     "dexNo": 553,
     "formKey": "base",
-    "displayName": "악비아르",
-    "displayNameEn": "Krookodile",
-    "displayNameJa": "ワルビアル",
+    "names": {
+      "ko": "악비아르",
+      "en": "Krookodile",
+      "ja": "ワルビアル"
+    },
     "speed": 92,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/553.png"
   },
@@ -5536,9 +6642,11 @@ export const allPokemonRoster = [
     "id": "nat-0554",
     "dexNo": 554,
     "formKey": "base",
-    "displayName": "달막화",
-    "displayNameEn": "Darumaka",
-    "displayNameJa": "ダルマッカ",
+    "names": {
+      "ko": "달막화",
+      "en": "Darumaka",
+      "ja": "ダルマッカ"
+    },
     "speed": 50,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/554.png"
   },
@@ -5546,9 +6654,11 @@ export const allPokemonRoster = [
     "id": "nat-0555",
     "dexNo": 555,
     "formKey": "base",
-    "displayName": "불비달마",
-    "displayNameEn": "Darmanitan",
-    "displayNameJa": "ヒヒダルマ",
+    "names": {
+      "ko": "불비달마",
+      "en": "Darmanitan",
+      "ja": "ヒヒダルマ"
+    },
     "speed": 95,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/555.png"
   },
@@ -5556,9 +6666,11 @@ export const allPokemonRoster = [
     "id": "nat-0556",
     "dexNo": 556,
     "formKey": "base",
-    "displayName": "마라카치",
-    "displayNameEn": "Maractus",
-    "displayNameJa": "マラカッチ",
+    "names": {
+      "ko": "마라카치",
+      "en": "Maractus",
+      "ja": "マラカッチ"
+    },
     "speed": 60,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/556.png"
   },
@@ -5566,9 +6678,11 @@ export const allPokemonRoster = [
     "id": "nat-0557",
     "dexNo": 557,
     "formKey": "base",
-    "displayName": "돌살이",
-    "displayNameEn": "Dwebble",
-    "displayNameJa": "イシズマイ",
+    "names": {
+      "ko": "돌살이",
+      "en": "Dwebble",
+      "ja": "イシズマイ"
+    },
     "speed": 55,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/557.png"
   },
@@ -5576,9 +6690,11 @@ export const allPokemonRoster = [
     "id": "nat-0558",
     "dexNo": 558,
     "formKey": "base",
-    "displayName": "암팰리스",
-    "displayNameEn": "Crustle",
-    "displayNameJa": "イワパレス",
+    "names": {
+      "ko": "암팰리스",
+      "en": "Crustle",
+      "ja": "イワパレス"
+    },
     "speed": 45,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/558.png"
   },
@@ -5586,9 +6702,11 @@ export const allPokemonRoster = [
     "id": "nat-0559",
     "dexNo": 559,
     "formKey": "base",
-    "displayName": "곤율랭",
-    "displayNameEn": "Scraggy",
-    "displayNameJa": "ズルッグ",
+    "names": {
+      "ko": "곤율랭",
+      "en": "Scraggy",
+      "ja": "ズルッグ"
+    },
     "speed": 48,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/559.png"
   },
@@ -5596,9 +6714,11 @@ export const allPokemonRoster = [
     "id": "nat-0560",
     "dexNo": 560,
     "formKey": "base",
-    "displayName": "곤율거니",
-    "displayNameEn": "Scrafty",
-    "displayNameJa": "ズルズキン",
+    "names": {
+      "ko": "곤율거니",
+      "en": "Scrafty",
+      "ja": "ズルズキン"
+    },
     "speed": 58,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/560.png"
   },
@@ -5606,9 +6726,11 @@ export const allPokemonRoster = [
     "id": "nat-0561",
     "dexNo": 561,
     "formKey": "base",
-    "displayName": "심보러",
-    "displayNameEn": "Sigilyph",
-    "displayNameJa": "シンボラー",
+    "names": {
+      "ko": "심보러",
+      "en": "Sigilyph",
+      "ja": "シンボラー"
+    },
     "speed": 97,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/561.png"
   },
@@ -5616,9 +6738,11 @@ export const allPokemonRoster = [
     "id": "nat-0562",
     "dexNo": 562,
     "formKey": "base",
-    "displayName": "데스마스",
-    "displayNameEn": "Yamask",
-    "displayNameJa": "デスマス",
+    "names": {
+      "ko": "데스마스",
+      "en": "Yamask",
+      "ja": "デスマス"
+    },
     "speed": 30,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/562.png"
   },
@@ -5626,9 +6750,11 @@ export const allPokemonRoster = [
     "id": "nat-0563",
     "dexNo": 563,
     "formKey": "base",
-    "displayName": "데스니칸",
-    "displayNameEn": "Cofagrigus",
-    "displayNameJa": "デスカーン",
+    "names": {
+      "ko": "데스니칸",
+      "en": "Cofagrigus",
+      "ja": "デスカーン"
+    },
     "speed": 30,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/563.png"
   },
@@ -5636,9 +6762,11 @@ export const allPokemonRoster = [
     "id": "nat-0564",
     "dexNo": 564,
     "formKey": "base",
-    "displayName": "프로토가",
-    "displayNameEn": "Tirtouga",
-    "displayNameJa": "プロトーガ",
+    "names": {
+      "ko": "프로토가",
+      "en": "Tirtouga",
+      "ja": "プロトーガ"
+    },
     "speed": 22,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/564.png"
   },
@@ -5646,9 +6774,11 @@ export const allPokemonRoster = [
     "id": "nat-0565",
     "dexNo": 565,
     "formKey": "base",
-    "displayName": "늑골라",
-    "displayNameEn": "Carracosta",
-    "displayNameJa": "アバゴーラ",
+    "names": {
+      "ko": "늑골라",
+      "en": "Carracosta",
+      "ja": "アバゴーラ"
+    },
     "speed": 32,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/565.png"
   },
@@ -5656,9 +6786,11 @@ export const allPokemonRoster = [
     "id": "nat-0566",
     "dexNo": 566,
     "formKey": "base",
-    "displayName": "아켄",
-    "displayNameEn": "Archen",
-    "displayNameJa": "アーケン",
+    "names": {
+      "ko": "아켄",
+      "en": "Archen",
+      "ja": "アーケン"
+    },
     "speed": 70,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/566.png"
   },
@@ -5666,9 +6798,11 @@ export const allPokemonRoster = [
     "id": "nat-0567",
     "dexNo": 567,
     "formKey": "base",
-    "displayName": "아케오스",
-    "displayNameEn": "Archeops",
-    "displayNameJa": "アーケオス",
+    "names": {
+      "ko": "아케오스",
+      "en": "Archeops",
+      "ja": "アーケオス"
+    },
     "speed": 110,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/567.png"
   },
@@ -5676,9 +6810,11 @@ export const allPokemonRoster = [
     "id": "nat-0568",
     "dexNo": 568,
     "formKey": "base",
-    "displayName": "깨봉이",
-    "displayNameEn": "Trubbish",
-    "displayNameJa": "ヤブクロン",
+    "names": {
+      "ko": "깨봉이",
+      "en": "Trubbish",
+      "ja": "ヤブクロン"
+    },
     "speed": 65,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/568.png"
   },
@@ -5686,9 +6822,11 @@ export const allPokemonRoster = [
     "id": "nat-0569",
     "dexNo": 569,
     "formKey": "base",
-    "displayName": "더스트나",
-    "displayNameEn": "Garbodor",
-    "displayNameJa": "ダストダス",
+    "names": {
+      "ko": "더스트나",
+      "en": "Garbodor",
+      "ja": "ダストダス"
+    },
     "speed": 75,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/569.png"
   },
@@ -5696,9 +6834,11 @@ export const allPokemonRoster = [
     "id": "nat-0570",
     "dexNo": 570,
     "formKey": "base",
-    "displayName": "조로아",
-    "displayNameEn": "Zorua",
-    "displayNameJa": "ゾロア",
+    "names": {
+      "ko": "조로아",
+      "en": "Zorua",
+      "ja": "ゾロア"
+    },
     "speed": 65,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/570.png"
   },
@@ -5706,9 +6846,11 @@ export const allPokemonRoster = [
     "id": "nat-0571",
     "dexNo": 571,
     "formKey": "base",
-    "displayName": "조로아크",
-    "displayNameEn": "Zoroark",
-    "displayNameJa": "ゾロアーク",
+    "names": {
+      "ko": "조로아크",
+      "en": "Zoroark",
+      "ja": "ゾロアーク"
+    },
     "speed": 105,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/571.png"
   },
@@ -5716,9 +6858,11 @@ export const allPokemonRoster = [
     "id": "nat-0572",
     "dexNo": 572,
     "formKey": "base",
-    "displayName": "치라미",
-    "displayNameEn": "Minccino",
-    "displayNameJa": "チラーミィ",
+    "names": {
+      "ko": "치라미",
+      "en": "Minccino",
+      "ja": "チラーミィ"
+    },
     "speed": 75,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/572.png"
   },
@@ -5726,9 +6870,11 @@ export const allPokemonRoster = [
     "id": "nat-0573",
     "dexNo": 573,
     "formKey": "base",
-    "displayName": "치라치노",
-    "displayNameEn": "Cinccino",
-    "displayNameJa": "チラチーノ",
+    "names": {
+      "ko": "치라치노",
+      "en": "Cinccino",
+      "ja": "チラチーノ"
+    },
     "speed": 115,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/573.png"
   },
@@ -5736,9 +6882,11 @@ export const allPokemonRoster = [
     "id": "nat-0574",
     "dexNo": 574,
     "formKey": "base",
-    "displayName": "고디탱",
-    "displayNameEn": "Gothita",
-    "displayNameJa": "ゴチム",
+    "names": {
+      "ko": "고디탱",
+      "en": "Gothita",
+      "ja": "ゴチム"
+    },
     "speed": 45,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/574.png"
   },
@@ -5746,9 +6894,11 @@ export const allPokemonRoster = [
     "id": "nat-0575",
     "dexNo": 575,
     "formKey": "base",
-    "displayName": "고디보미",
-    "displayNameEn": "Gothorita",
-    "displayNameJa": "ゴチミル",
+    "names": {
+      "ko": "고디보미",
+      "en": "Gothorita",
+      "ja": "ゴチミル"
+    },
     "speed": 55,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/575.png"
   },
@@ -5756,9 +6906,11 @@ export const allPokemonRoster = [
     "id": "nat-0576",
     "dexNo": 576,
     "formKey": "base",
-    "displayName": "고디모아젤",
-    "displayNameEn": "Gothitelle",
-    "displayNameJa": "ゴチルゼル",
+    "names": {
+      "ko": "고디모아젤",
+      "en": "Gothitelle",
+      "ja": "ゴチルゼル"
+    },
     "speed": 65,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/576.png"
   },
@@ -5766,9 +6918,11 @@ export const allPokemonRoster = [
     "id": "nat-0577",
     "dexNo": 577,
     "formKey": "base",
-    "displayName": "유니란",
-    "displayNameEn": "Solosis",
-    "displayNameJa": "ユニラン",
+    "names": {
+      "ko": "유니란",
+      "en": "Solosis",
+      "ja": "ユニラン"
+    },
     "speed": 20,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/577.png"
   },
@@ -5776,9 +6930,11 @@ export const allPokemonRoster = [
     "id": "nat-0578",
     "dexNo": 578,
     "formKey": "base",
-    "displayName": "듀란",
-    "displayNameEn": "Duosion",
-    "displayNameJa": "ダブラン",
+    "names": {
+      "ko": "듀란",
+      "en": "Duosion",
+      "ja": "ダブラン"
+    },
     "speed": 30,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/578.png"
   },
@@ -5786,9 +6942,11 @@ export const allPokemonRoster = [
     "id": "nat-0579",
     "dexNo": 579,
     "formKey": "base",
-    "displayName": "란쿨루스",
-    "displayNameEn": "Reuniclus",
-    "displayNameJa": "ランクルス",
+    "names": {
+      "ko": "란쿨루스",
+      "en": "Reuniclus",
+      "ja": "ランクルス"
+    },
     "speed": 30,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/579.png"
   },
@@ -5796,9 +6954,11 @@ export const allPokemonRoster = [
     "id": "nat-0580",
     "dexNo": 580,
     "formKey": "base",
-    "displayName": "꼬지보리",
-    "displayNameEn": "Ducklett",
-    "displayNameJa": "コアルヒー",
+    "names": {
+      "ko": "꼬지보리",
+      "en": "Ducklett",
+      "ja": "コアルヒー"
+    },
     "speed": 55,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/580.png"
   },
@@ -5806,9 +6966,11 @@ export const allPokemonRoster = [
     "id": "nat-0581",
     "dexNo": 581,
     "formKey": "base",
-    "displayName": "스완나",
-    "displayNameEn": "Swanna",
-    "displayNameJa": "スワンナ",
+    "names": {
+      "ko": "스완나",
+      "en": "Swanna",
+      "ja": "スワンナ"
+    },
     "speed": 98,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/581.png"
   },
@@ -5816,9 +6978,11 @@ export const allPokemonRoster = [
     "id": "nat-0582",
     "dexNo": 582,
     "formKey": "base",
-    "displayName": "바닐프티",
-    "displayNameEn": "Vanillite",
-    "displayNameJa": "バニプッチ",
+    "names": {
+      "ko": "바닐프티",
+      "en": "Vanillite",
+      "ja": "バニプッチ"
+    },
     "speed": 44,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/582.png"
   },
@@ -5826,9 +6990,11 @@ export const allPokemonRoster = [
     "id": "nat-0583",
     "dexNo": 583,
     "formKey": "base",
-    "displayName": "바닐리치",
-    "displayNameEn": "Vanillish",
-    "displayNameJa": "バニリッチ",
+    "names": {
+      "ko": "바닐리치",
+      "en": "Vanillish",
+      "ja": "バニリッチ"
+    },
     "speed": 59,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/583.png"
   },
@@ -5836,9 +7002,11 @@ export const allPokemonRoster = [
     "id": "nat-0584",
     "dexNo": 584,
     "formKey": "base",
-    "displayName": "배바닐라",
-    "displayNameEn": "Vanilluxe",
-    "displayNameJa": "バイバニラ",
+    "names": {
+      "ko": "배바닐라",
+      "en": "Vanilluxe",
+      "ja": "バイバニラ"
+    },
     "speed": 79,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/584.png"
   },
@@ -5846,9 +7014,11 @@ export const allPokemonRoster = [
     "id": "nat-0585",
     "dexNo": 585,
     "formKey": "base",
-    "displayName": "사철록",
-    "displayNameEn": "Deerling",
-    "displayNameJa": "シキジカ",
+    "names": {
+      "ko": "사철록",
+      "en": "Deerling",
+      "ja": "シキジカ"
+    },
     "speed": 75,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/585.png"
   },
@@ -5856,9 +7026,11 @@ export const allPokemonRoster = [
     "id": "nat-0586",
     "dexNo": 586,
     "formKey": "base",
-    "displayName": "바라철록",
-    "displayNameEn": "Sawsbuck",
-    "displayNameJa": "メブキジカ",
+    "names": {
+      "ko": "바라철록",
+      "en": "Sawsbuck",
+      "ja": "メブキジカ"
+    },
     "speed": 95,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/586.png"
   },
@@ -5866,9 +7038,11 @@ export const allPokemonRoster = [
     "id": "nat-0587",
     "dexNo": 587,
     "formKey": "base",
-    "displayName": "에몽가",
-    "displayNameEn": "Emolga",
-    "displayNameJa": "エモンガ",
+    "names": {
+      "ko": "에몽가",
+      "en": "Emolga",
+      "ja": "エモンガ"
+    },
     "speed": 103,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/587.png"
   },
@@ -5876,9 +7050,11 @@ export const allPokemonRoster = [
     "id": "nat-0588",
     "dexNo": 588,
     "formKey": "base",
-    "displayName": "딱정곤",
-    "displayNameEn": "Karrablast",
-    "displayNameJa": "カブルモ",
+    "names": {
+      "ko": "딱정곤",
+      "en": "Karrablast",
+      "ja": "カブルモ"
+    },
     "speed": 60,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/588.png"
   },
@@ -5886,9 +7062,11 @@ export const allPokemonRoster = [
     "id": "nat-0589",
     "dexNo": 589,
     "formKey": "base",
-    "displayName": "슈바르고",
-    "displayNameEn": "Escavalier",
-    "displayNameJa": "シュバルゴ",
+    "names": {
+      "ko": "슈바르고",
+      "en": "Escavalier",
+      "ja": "シュバルゴ"
+    },
     "speed": 20,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/589.png"
   },
@@ -5896,9 +7074,11 @@ export const allPokemonRoster = [
     "id": "nat-0590",
     "dexNo": 590,
     "formKey": "base",
-    "displayName": "깜놀버슬",
-    "displayNameEn": "Foongus",
-    "displayNameJa": "タマゲタケ",
+    "names": {
+      "ko": "깜놀버슬",
+      "en": "Foongus",
+      "ja": "タマゲタケ"
+    },
     "speed": 15,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/590.png"
   },
@@ -5906,9 +7086,11 @@ export const allPokemonRoster = [
     "id": "nat-0591",
     "dexNo": 591,
     "formKey": "base",
-    "displayName": "뽀록나",
-    "displayNameEn": "Amoonguss",
-    "displayNameJa": "モロバレル",
+    "names": {
+      "ko": "뽀록나",
+      "en": "Amoonguss",
+      "ja": "モロバレル"
+    },
     "speed": 30,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/591.png"
   },
@@ -5916,9 +7098,11 @@ export const allPokemonRoster = [
     "id": "nat-0592",
     "dexNo": 592,
     "formKey": "base",
-    "displayName": "탱그릴",
-    "displayNameEn": "Frillish",
-    "displayNameJa": "プルリル",
+    "names": {
+      "ko": "탱그릴",
+      "en": "Frillish",
+      "ja": "プルリル"
+    },
     "speed": 40,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/592.png"
   },
@@ -5926,9 +7110,11 @@ export const allPokemonRoster = [
     "id": "nat-0593",
     "dexNo": 593,
     "formKey": "base",
-    "displayName": "탱탱겔",
-    "displayNameEn": "Jellicent",
-    "displayNameJa": "ブルンゲル",
+    "names": {
+      "ko": "탱탱겔",
+      "en": "Jellicent",
+      "ja": "ブルンゲル"
+    },
     "speed": 60,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/593.png"
   },
@@ -5936,9 +7122,11 @@ export const allPokemonRoster = [
     "id": "nat-0594",
     "dexNo": 594,
     "formKey": "base",
-    "displayName": "맘복치",
-    "displayNameEn": "Alomomola",
-    "displayNameJa": "ママンボウ",
+    "names": {
+      "ko": "맘복치",
+      "en": "Alomomola",
+      "ja": "ママンボウ"
+    },
     "speed": 65,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/594.png"
   },
@@ -5946,9 +7134,11 @@ export const allPokemonRoster = [
     "id": "nat-0595",
     "dexNo": 595,
     "formKey": "base",
-    "displayName": "파쪼옥",
-    "displayNameEn": "Joltik",
-    "displayNameJa": "バチュル",
+    "names": {
+      "ko": "파쪼옥",
+      "en": "Joltik",
+      "ja": "バチュル"
+    },
     "speed": 65,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/595.png"
   },
@@ -5956,9 +7146,11 @@ export const allPokemonRoster = [
     "id": "nat-0596",
     "dexNo": 596,
     "formKey": "base",
-    "displayName": "전툴라",
-    "displayNameEn": "Galvantula",
-    "displayNameJa": "デンチュラ",
+    "names": {
+      "ko": "전툴라",
+      "en": "Galvantula",
+      "ja": "デンチュラ"
+    },
     "speed": 108,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/596.png"
   },
@@ -5966,9 +7158,11 @@ export const allPokemonRoster = [
     "id": "nat-0597",
     "dexNo": 597,
     "formKey": "base",
-    "displayName": "철시드",
-    "displayNameEn": "Ferroseed",
-    "displayNameJa": "テッシード",
+    "names": {
+      "ko": "철시드",
+      "en": "Ferroseed",
+      "ja": "テッシード"
+    },
     "speed": 10,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/597.png"
   },
@@ -5976,9 +7170,11 @@ export const allPokemonRoster = [
     "id": "nat-0598",
     "dexNo": 598,
     "formKey": "base",
-    "displayName": "너트령",
-    "displayNameEn": "Ferrothorn",
-    "displayNameJa": "ナットレイ",
+    "names": {
+      "ko": "너트령",
+      "en": "Ferrothorn",
+      "ja": "ナットレイ"
+    },
     "speed": 20,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/598.png"
   },
@@ -5986,9 +7182,11 @@ export const allPokemonRoster = [
     "id": "nat-0599",
     "dexNo": 599,
     "formKey": "base",
-    "displayName": "기어르",
-    "displayNameEn": "Klink",
-    "displayNameJa": "ギアル",
+    "names": {
+      "ko": "기어르",
+      "en": "Klink",
+      "ja": "ギアル"
+    },
     "speed": 30,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/599.png"
   },
@@ -5996,9 +7194,11 @@ export const allPokemonRoster = [
     "id": "nat-0600",
     "dexNo": 600,
     "formKey": "base",
-    "displayName": "기기어르",
-    "displayNameEn": "Klang",
-    "displayNameJa": "ギギアル",
+    "names": {
+      "ko": "기기어르",
+      "en": "Klang",
+      "ja": "ギギアル"
+    },
     "speed": 50,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/600.png"
   },
@@ -6006,9 +7206,11 @@ export const allPokemonRoster = [
     "id": "nat-0601",
     "dexNo": 601,
     "formKey": "base",
-    "displayName": "기기기어르",
-    "displayNameEn": "Klinklang",
-    "displayNameJa": "ギギギアル",
+    "names": {
+      "ko": "기기기어르",
+      "en": "Klinklang",
+      "ja": "ギギギアル"
+    },
     "speed": 90,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/601.png"
   },
@@ -6016,9 +7218,11 @@ export const allPokemonRoster = [
     "id": "nat-0602",
     "dexNo": 602,
     "formKey": "base",
-    "displayName": "저리어",
-    "displayNameEn": "Tynamo",
-    "displayNameJa": "シビシラス",
+    "names": {
+      "ko": "저리어",
+      "en": "Tynamo",
+      "ja": "シビシラス"
+    },
     "speed": 60,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/602.png"
   },
@@ -6026,9 +7230,11 @@ export const allPokemonRoster = [
     "id": "nat-0603",
     "dexNo": 603,
     "formKey": "base",
-    "displayName": "저리릴",
-    "displayNameEn": "Eelektrik",
-    "displayNameJa": "シビビール",
+    "names": {
+      "ko": "저리릴",
+      "en": "Eelektrik",
+      "ja": "シビビール"
+    },
     "speed": 40,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/603.png"
   },
@@ -6036,9 +7242,11 @@ export const allPokemonRoster = [
     "id": "nat-0604",
     "dexNo": 604,
     "formKey": "base",
-    "displayName": "저리더프",
-    "displayNameEn": "Eelektross",
-    "displayNameJa": "シビルドン",
+    "names": {
+      "ko": "저리더프",
+      "en": "Eelektross",
+      "ja": "シビルドン"
+    },
     "speed": 50,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/604.png"
   },
@@ -6046,9 +7254,11 @@ export const allPokemonRoster = [
     "id": "nat-0605",
     "dexNo": 605,
     "formKey": "base",
-    "displayName": "리그레",
-    "displayNameEn": "Elgyem",
-    "displayNameJa": "リグレー",
+    "names": {
+      "ko": "리그레",
+      "en": "Elgyem",
+      "ja": "リグレー"
+    },
     "speed": 30,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/605.png"
   },
@@ -6056,9 +7266,11 @@ export const allPokemonRoster = [
     "id": "nat-0606",
     "dexNo": 606,
     "formKey": "base",
-    "displayName": "벰크",
-    "displayNameEn": "Beheeyem",
-    "displayNameJa": "オーベム",
+    "names": {
+      "ko": "벰크",
+      "en": "Beheeyem",
+      "ja": "オーベム"
+    },
     "speed": 40,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/606.png"
   },
@@ -6066,9 +7278,11 @@ export const allPokemonRoster = [
     "id": "nat-0607",
     "dexNo": 607,
     "formKey": "base",
-    "displayName": "불켜미",
-    "displayNameEn": "Litwick",
-    "displayNameJa": "ヒトモシ",
+    "names": {
+      "ko": "불켜미",
+      "en": "Litwick",
+      "ja": "ヒトモシ"
+    },
     "speed": 20,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/607.png"
   },
@@ -6076,9 +7290,11 @@ export const allPokemonRoster = [
     "id": "nat-0608",
     "dexNo": 608,
     "formKey": "base",
-    "displayName": "램프라",
-    "displayNameEn": "Lampent",
-    "displayNameJa": "ランプラー",
+    "names": {
+      "ko": "램프라",
+      "en": "Lampent",
+      "ja": "ランプラー"
+    },
     "speed": 55,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/608.png"
   },
@@ -6086,9 +7302,11 @@ export const allPokemonRoster = [
     "id": "nat-0609",
     "dexNo": 609,
     "formKey": "base",
-    "displayName": "샹델라",
-    "displayNameEn": "Chandelure",
-    "displayNameJa": "シャンデラ",
+    "names": {
+      "ko": "샹델라",
+      "en": "Chandelure",
+      "ja": "シャンデラ"
+    },
     "speed": 80,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/609.png"
   },
@@ -6096,9 +7314,11 @@ export const allPokemonRoster = [
     "id": "nat-0610",
     "dexNo": 610,
     "formKey": "base",
-    "displayName": "터검니",
-    "displayNameEn": "Axew",
-    "displayNameJa": "キバゴ",
+    "names": {
+      "ko": "터검니",
+      "en": "Axew",
+      "ja": "キバゴ"
+    },
     "speed": 57,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/610.png"
   },
@@ -6106,9 +7326,11 @@ export const allPokemonRoster = [
     "id": "nat-0611",
     "dexNo": 611,
     "formKey": "base",
-    "displayName": "액슨도",
-    "displayNameEn": "Fraxure",
-    "displayNameJa": "オノンド",
+    "names": {
+      "ko": "액슨도",
+      "en": "Fraxure",
+      "ja": "オノンド"
+    },
     "speed": 67,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/611.png"
   },
@@ -6116,9 +7338,11 @@ export const allPokemonRoster = [
     "id": "nat-0612",
     "dexNo": 612,
     "formKey": "base",
-    "displayName": "액스라이즈",
-    "displayNameEn": "Haxorus",
-    "displayNameJa": "オノノクス",
+    "names": {
+      "ko": "액스라이즈",
+      "en": "Haxorus",
+      "ja": "オノノクス"
+    },
     "speed": 97,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/612.png"
   },
@@ -6126,9 +7350,11 @@ export const allPokemonRoster = [
     "id": "nat-0613",
     "dexNo": 613,
     "formKey": "base",
-    "displayName": "코고미",
-    "displayNameEn": "Cubchoo",
-    "displayNameJa": "クマシュン",
+    "names": {
+      "ko": "코고미",
+      "en": "Cubchoo",
+      "ja": "クマシュン"
+    },
     "speed": 40,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/613.png"
   },
@@ -6136,9 +7362,11 @@ export const allPokemonRoster = [
     "id": "nat-0614",
     "dexNo": 614,
     "formKey": "base",
-    "displayName": "툰베어",
-    "displayNameEn": "Beartic",
-    "displayNameJa": "ツンベアー",
+    "names": {
+      "ko": "툰베어",
+      "en": "Beartic",
+      "ja": "ツンベアー"
+    },
     "speed": 50,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/614.png"
   },
@@ -6146,9 +7374,11 @@ export const allPokemonRoster = [
     "id": "nat-0615",
     "dexNo": 615,
     "formKey": "base",
-    "displayName": "프리지오",
-    "displayNameEn": "Cryogonal",
-    "displayNameJa": "フリージオ",
+    "names": {
+      "ko": "프리지오",
+      "en": "Cryogonal",
+      "ja": "フリージオ"
+    },
     "speed": 105,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/615.png"
   },
@@ -6156,9 +7386,11 @@ export const allPokemonRoster = [
     "id": "nat-0616",
     "dexNo": 616,
     "formKey": "base",
-    "displayName": "쪼마리",
-    "displayNameEn": "Shelmet",
-    "displayNameJa": "チョボマキ",
+    "names": {
+      "ko": "쪼마리",
+      "en": "Shelmet",
+      "ja": "チョボマキ"
+    },
     "speed": 25,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/616.png"
   },
@@ -6166,9 +7398,11 @@ export const allPokemonRoster = [
     "id": "nat-0617",
     "dexNo": 617,
     "formKey": "base",
-    "displayName": "어지리더",
-    "displayNameEn": "Accelgor",
-    "displayNameJa": "アギルダー",
+    "names": {
+      "ko": "어지리더",
+      "en": "Accelgor",
+      "ja": "アギルダー"
+    },
     "speed": 145,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/617.png"
   },
@@ -6176,9 +7410,11 @@ export const allPokemonRoster = [
     "id": "nat-0618",
     "dexNo": 618,
     "formKey": "base",
-    "displayName": "메더",
-    "displayNameEn": "Stunfisk",
-    "displayNameJa": "マッギョ",
+    "names": {
+      "ko": "메더",
+      "en": "Stunfisk",
+      "ja": "マッギョ"
+    },
     "speed": 32,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/618.png"
   },
@@ -6186,9 +7422,11 @@ export const allPokemonRoster = [
     "id": "nat-0619",
     "dexNo": 619,
     "formKey": "base",
-    "displayName": "비조푸",
-    "displayNameEn": "Mienfoo",
-    "displayNameJa": "コジョフー",
+    "names": {
+      "ko": "비조푸",
+      "en": "Mienfoo",
+      "ja": "コジョフー"
+    },
     "speed": 65,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/619.png"
   },
@@ -6196,9 +7434,11 @@ export const allPokemonRoster = [
     "id": "nat-0620",
     "dexNo": 620,
     "formKey": "base",
-    "displayName": "비조도",
-    "displayNameEn": "Mienshao",
-    "displayNameJa": "コジョンド",
+    "names": {
+      "ko": "비조도",
+      "en": "Mienshao",
+      "ja": "コジョンド"
+    },
     "speed": 105,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/620.png"
   },
@@ -6206,9 +7446,11 @@ export const allPokemonRoster = [
     "id": "nat-0621",
     "dexNo": 621,
     "formKey": "base",
-    "displayName": "크리만",
-    "displayNameEn": "Druddigon",
-    "displayNameJa": "クリムガン",
+    "names": {
+      "ko": "크리만",
+      "en": "Druddigon",
+      "ja": "クリムガン"
+    },
     "speed": 48,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/621.png"
   },
@@ -6216,9 +7458,11 @@ export const allPokemonRoster = [
     "id": "nat-0622",
     "dexNo": 622,
     "formKey": "base",
-    "displayName": "골비람",
-    "displayNameEn": "Golett",
-    "displayNameJa": "ゴビット",
+    "names": {
+      "ko": "골비람",
+      "en": "Golett",
+      "ja": "ゴビット"
+    },
     "speed": 35,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/622.png"
   },
@@ -6226,9 +7470,11 @@ export const allPokemonRoster = [
     "id": "nat-0623",
     "dexNo": 623,
     "formKey": "base",
-    "displayName": "골루그",
-    "displayNameEn": "Golurk",
-    "displayNameJa": "ゴルーグ",
+    "names": {
+      "ko": "골루그",
+      "en": "Golurk",
+      "ja": "ゴルーグ"
+    },
     "speed": 55,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/623.png"
   },
@@ -6236,9 +7482,11 @@ export const allPokemonRoster = [
     "id": "nat-0624",
     "dexNo": 624,
     "formKey": "base",
-    "displayName": "자망칼",
-    "displayNameEn": "Pawniard",
-    "displayNameJa": "コマタナ",
+    "names": {
+      "ko": "자망칼",
+      "en": "Pawniard",
+      "ja": "コマタナ"
+    },
     "speed": 60,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/624.png"
   },
@@ -6246,9 +7494,11 @@ export const allPokemonRoster = [
     "id": "nat-0625",
     "dexNo": 625,
     "formKey": "base",
-    "displayName": "절각참",
-    "displayNameEn": "Bisharp",
-    "displayNameJa": "キリキザン",
+    "names": {
+      "ko": "절각참",
+      "en": "Bisharp",
+      "ja": "キリキザン"
+    },
     "speed": 70,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/625.png"
   },
@@ -6256,9 +7506,11 @@ export const allPokemonRoster = [
     "id": "nat-0626",
     "dexNo": 626,
     "formKey": "base",
-    "displayName": "버프론",
-    "displayNameEn": "Bouffalant",
-    "displayNameJa": "バッフロン",
+    "names": {
+      "ko": "버프론",
+      "en": "Bouffalant",
+      "ja": "バッフロン"
+    },
     "speed": 55,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/626.png"
   },
@@ -6266,9 +7518,11 @@ export const allPokemonRoster = [
     "id": "nat-0627",
     "dexNo": 627,
     "formKey": "base",
-    "displayName": "수리둥보",
-    "displayNameEn": "Rufflet",
-    "displayNameJa": "ワシボン",
+    "names": {
+      "ko": "수리둥보",
+      "en": "Rufflet",
+      "ja": "ワシボン"
+    },
     "speed": 60,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/627.png"
   },
@@ -6276,9 +7530,11 @@ export const allPokemonRoster = [
     "id": "nat-0628",
     "dexNo": 628,
     "formKey": "base",
-    "displayName": "워글",
-    "displayNameEn": "Braviary",
-    "displayNameJa": "ウォーグル",
+    "names": {
+      "ko": "워글",
+      "en": "Braviary",
+      "ja": "ウォーグル"
+    },
     "speed": 80,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/628.png"
   },
@@ -6286,9 +7542,11 @@ export const allPokemonRoster = [
     "id": "nat-0629",
     "dexNo": 629,
     "formKey": "base",
-    "displayName": "벌차이",
-    "displayNameEn": "Vullaby",
-    "displayNameJa": "バルチャイ",
+    "names": {
+      "ko": "벌차이",
+      "en": "Vullaby",
+      "ja": "バルチャイ"
+    },
     "speed": 60,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/629.png"
   },
@@ -6296,9 +7554,11 @@ export const allPokemonRoster = [
     "id": "nat-0630",
     "dexNo": 630,
     "formKey": "base",
-    "displayName": "버랜지나",
-    "displayNameEn": "Mandibuzz",
-    "displayNameJa": "バルジーナ",
+    "names": {
+      "ko": "버랜지나",
+      "en": "Mandibuzz",
+      "ja": "バルジーナ"
+    },
     "speed": 80,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/630.png"
   },
@@ -6306,9 +7566,11 @@ export const allPokemonRoster = [
     "id": "nat-0631",
     "dexNo": 631,
     "formKey": "base",
-    "displayName": "앤티골",
-    "displayNameEn": "Heatmor",
-    "displayNameJa": "クイタラン",
+    "names": {
+      "ko": "앤티골",
+      "en": "Heatmor",
+      "ja": "クイタラン"
+    },
     "speed": 65,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/631.png"
   },
@@ -6316,9 +7578,11 @@ export const allPokemonRoster = [
     "id": "nat-0632",
     "dexNo": 632,
     "formKey": "base",
-    "displayName": "아이앤트",
-    "displayNameEn": "Durant",
-    "displayNameJa": "アイアント",
+    "names": {
+      "ko": "아이앤트",
+      "en": "Durant",
+      "ja": "アイアント"
+    },
     "speed": 109,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/632.png"
   },
@@ -6326,9 +7590,11 @@ export const allPokemonRoster = [
     "id": "nat-0633",
     "dexNo": 633,
     "formKey": "base",
-    "displayName": "모노두",
-    "displayNameEn": "Deino",
-    "displayNameJa": "モノズ",
+    "names": {
+      "ko": "모노두",
+      "en": "Deino",
+      "ja": "モノズ"
+    },
     "speed": 38,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/633.png"
   },
@@ -6336,9 +7602,11 @@ export const allPokemonRoster = [
     "id": "nat-0634",
     "dexNo": 634,
     "formKey": "base",
-    "displayName": "디헤드",
-    "displayNameEn": "Zweilous",
-    "displayNameJa": "ジヘッド",
+    "names": {
+      "ko": "디헤드",
+      "en": "Zweilous",
+      "ja": "ジヘッド"
+    },
     "speed": 58,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/634.png"
   },
@@ -6346,9 +7614,11 @@ export const allPokemonRoster = [
     "id": "nat-0635",
     "dexNo": 635,
     "formKey": "base",
-    "displayName": "삼삼드래",
-    "displayNameEn": "Hydreigon",
-    "displayNameJa": "サザンドラ",
+    "names": {
+      "ko": "삼삼드래",
+      "en": "Hydreigon",
+      "ja": "サザンドラ"
+    },
     "speed": 98,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/635.png"
   },
@@ -6356,9 +7626,11 @@ export const allPokemonRoster = [
     "id": "nat-0636",
     "dexNo": 636,
     "formKey": "base",
-    "displayName": "활화르바",
-    "displayNameEn": "Larvesta",
-    "displayNameJa": "メラルバ",
+    "names": {
+      "ko": "활화르바",
+      "en": "Larvesta",
+      "ja": "メラルバ"
+    },
     "speed": 60,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/636.png"
   },
@@ -6366,9 +7638,11 @@ export const allPokemonRoster = [
     "id": "nat-0637",
     "dexNo": 637,
     "formKey": "base",
-    "displayName": "불카모스",
-    "displayNameEn": "Volcarona",
-    "displayNameJa": "ウルガモス",
+    "names": {
+      "ko": "불카모스",
+      "en": "Volcarona",
+      "ja": "ウルガモス"
+    },
     "speed": 100,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/637.png"
   },
@@ -6376,9 +7650,11 @@ export const allPokemonRoster = [
     "id": "nat-0638",
     "dexNo": 638,
     "formKey": "base",
-    "displayName": "코바르온",
-    "displayNameEn": "Cobalion",
-    "displayNameJa": "コバルオン",
+    "names": {
+      "ko": "코바르온",
+      "en": "Cobalion",
+      "ja": "コバルオン"
+    },
     "speed": 108,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/638.png"
   },
@@ -6386,9 +7662,11 @@ export const allPokemonRoster = [
     "id": "nat-0639",
     "dexNo": 639,
     "formKey": "base",
-    "displayName": "테라키온",
-    "displayNameEn": "Terrakion",
-    "displayNameJa": "テラキオン",
+    "names": {
+      "ko": "테라키온",
+      "en": "Terrakion",
+      "ja": "テラキオン"
+    },
     "speed": 108,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/639.png"
   },
@@ -6396,9 +7674,11 @@ export const allPokemonRoster = [
     "id": "nat-0640",
     "dexNo": 640,
     "formKey": "base",
-    "displayName": "비리디온",
-    "displayNameEn": "Virizion",
-    "displayNameJa": "ビリジオン",
+    "names": {
+      "ko": "비리디온",
+      "en": "Virizion",
+      "ja": "ビリジオン"
+    },
     "speed": 108,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/640.png"
   },
@@ -6406,9 +7686,11 @@ export const allPokemonRoster = [
     "id": "nat-0641",
     "dexNo": 641,
     "formKey": "base",
-    "displayName": "토네로스",
-    "displayNameEn": "Tornadus",
-    "displayNameJa": "トルネロス",
+    "names": {
+      "ko": "토네로스",
+      "en": "Tornadus",
+      "ja": "トルネロス"
+    },
     "speed": 111,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/641.png"
   },
@@ -6416,9 +7698,11 @@ export const allPokemonRoster = [
     "id": "nat-0642",
     "dexNo": 642,
     "formKey": "base",
-    "displayName": "볼트로스",
-    "displayNameEn": "Thundurus",
-    "displayNameJa": "ボルトロス",
+    "names": {
+      "ko": "볼트로스",
+      "en": "Thundurus",
+      "ja": "ボルトロス"
+    },
     "speed": 111,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/642.png"
   },
@@ -6426,9 +7710,11 @@ export const allPokemonRoster = [
     "id": "nat-0643",
     "dexNo": 643,
     "formKey": "base",
-    "displayName": "레시라무",
-    "displayNameEn": "Reshiram",
-    "displayNameJa": "レシラム",
+    "names": {
+      "ko": "레시라무",
+      "en": "Reshiram",
+      "ja": "レシラム"
+    },
     "speed": 90,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/643.png"
   },
@@ -6436,9 +7722,11 @@ export const allPokemonRoster = [
     "id": "nat-0644",
     "dexNo": 644,
     "formKey": "base",
-    "displayName": "제크로무",
-    "displayNameEn": "Zekrom",
-    "displayNameJa": "ゼクロム",
+    "names": {
+      "ko": "제크로무",
+      "en": "Zekrom",
+      "ja": "ゼクロム"
+    },
     "speed": 90,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/644.png"
   },
@@ -6446,9 +7734,11 @@ export const allPokemonRoster = [
     "id": "nat-0645",
     "dexNo": 645,
     "formKey": "base",
-    "displayName": "랜드로스",
-    "displayNameEn": "Landorus",
-    "displayNameJa": "ランドロス",
+    "names": {
+      "ko": "랜드로스",
+      "en": "Landorus",
+      "ja": "ランドロス"
+    },
     "speed": 101,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/645.png"
   },
@@ -6456,9 +7746,11 @@ export const allPokemonRoster = [
     "id": "nat-0646",
     "dexNo": 646,
     "formKey": "base",
-    "displayName": "큐레무",
-    "displayNameEn": "Kyurem",
-    "displayNameJa": "キュレム",
+    "names": {
+      "ko": "큐레무",
+      "en": "Kyurem",
+      "ja": "キュレム"
+    },
     "speed": 95,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/646.png"
   },
@@ -6466,9 +7758,11 @@ export const allPokemonRoster = [
     "id": "nat-0647",
     "dexNo": 647,
     "formKey": "base",
-    "displayName": "케르디오",
-    "displayNameEn": "Keldeo",
-    "displayNameJa": "ケルディオ",
+    "names": {
+      "ko": "케르디오",
+      "en": "Keldeo",
+      "ja": "ケルディオ"
+    },
     "speed": 108,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/647.png"
   },
@@ -6476,9 +7770,11 @@ export const allPokemonRoster = [
     "id": "nat-0648",
     "dexNo": 648,
     "formKey": "base",
-    "displayName": "메로엣타",
-    "displayNameEn": "Meloetta",
-    "displayNameJa": "メロエッタ",
+    "names": {
+      "ko": "메로엣타",
+      "en": "Meloetta",
+      "ja": "メロエッタ"
+    },
     "speed": 90,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/648.png"
   },
@@ -6486,9 +7782,11 @@ export const allPokemonRoster = [
     "id": "nat-0649",
     "dexNo": 649,
     "formKey": "base",
-    "displayName": "게노세크트",
-    "displayNameEn": "Genesect",
-    "displayNameJa": "ゲノセクト",
+    "names": {
+      "ko": "게노세크트",
+      "en": "Genesect",
+      "ja": "ゲノセクト"
+    },
     "speed": 99,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/649.png"
   },
@@ -6496,9 +7794,11 @@ export const allPokemonRoster = [
     "id": "nat-0650",
     "dexNo": 650,
     "formKey": "base",
-    "displayName": "도치마론",
-    "displayNameEn": "Chespin",
-    "displayNameJa": "ハリマロン",
+    "names": {
+      "ko": "도치마론",
+      "en": "Chespin",
+      "ja": "ハリマロン"
+    },
     "speed": 38,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/650.png"
   },
@@ -6506,9 +7806,11 @@ export const allPokemonRoster = [
     "id": "nat-0651",
     "dexNo": 651,
     "formKey": "base",
-    "displayName": "도치보구",
-    "displayNameEn": "Quilladin",
-    "displayNameJa": "ハリボーグ",
+    "names": {
+      "ko": "도치보구",
+      "en": "Quilladin",
+      "ja": "ハリボーグ"
+    },
     "speed": 57,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/651.png"
   },
@@ -6516,9 +7818,11 @@ export const allPokemonRoster = [
     "id": "nat-0652",
     "dexNo": 652,
     "formKey": "base",
-    "displayName": "브리가론",
-    "displayNameEn": "Chesnaught",
-    "displayNameJa": "ブリガロン",
+    "names": {
+      "ko": "브리가론",
+      "en": "Chesnaught",
+      "ja": "ブリガロン"
+    },
     "speed": 64,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/652.png"
   },
@@ -6526,9 +7830,11 @@ export const allPokemonRoster = [
     "id": "nat-0653",
     "dexNo": 653,
     "formKey": "base",
-    "displayName": "푸호꼬",
-    "displayNameEn": "Fennekin",
-    "displayNameJa": "フォッコ",
+    "names": {
+      "ko": "푸호꼬",
+      "en": "Fennekin",
+      "ja": "フォッコ"
+    },
     "speed": 60,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/653.png"
   },
@@ -6536,9 +7842,11 @@ export const allPokemonRoster = [
     "id": "nat-0654",
     "dexNo": 654,
     "formKey": "base",
-    "displayName": "테르나",
-    "displayNameEn": "Braixen",
-    "displayNameJa": "テールナー",
+    "names": {
+      "ko": "테르나",
+      "en": "Braixen",
+      "ja": "テールナー"
+    },
     "speed": 73,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/654.png"
   },
@@ -6546,9 +7854,11 @@ export const allPokemonRoster = [
     "id": "nat-0655",
     "dexNo": 655,
     "formKey": "base",
-    "displayName": "마폭시",
-    "displayNameEn": "Delphox",
-    "displayNameJa": "マフォクシー",
+    "names": {
+      "ko": "마폭시",
+      "en": "Delphox",
+      "ja": "マフォクシー"
+    },
     "speed": 104,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/655.png"
   },
@@ -6556,9 +7866,11 @@ export const allPokemonRoster = [
     "id": "nat-0656",
     "dexNo": 656,
     "formKey": "base",
-    "displayName": "개구마르",
-    "displayNameEn": "Froakie",
-    "displayNameJa": "ケロマツ",
+    "names": {
+      "ko": "개구마르",
+      "en": "Froakie",
+      "ja": "ケロマツ"
+    },
     "speed": 71,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/656.png"
   },
@@ -6566,9 +7878,11 @@ export const allPokemonRoster = [
     "id": "nat-0657",
     "dexNo": 657,
     "formKey": "base",
-    "displayName": "개굴반장",
-    "displayNameEn": "Frogadier",
-    "displayNameJa": "ゲコガシラ",
+    "names": {
+      "ko": "개굴반장",
+      "en": "Frogadier",
+      "ja": "ゲコガシラ"
+    },
     "speed": 97,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/657.png"
   },
@@ -6576,9 +7890,11 @@ export const allPokemonRoster = [
     "id": "nat-0658",
     "dexNo": 658,
     "formKey": "base",
-    "displayName": "개굴닌자",
-    "displayNameEn": "Greninja",
-    "displayNameJa": "ゲッコウガ",
+    "names": {
+      "ko": "개굴닌자",
+      "en": "Greninja",
+      "ja": "ゲッコウガ"
+    },
     "speed": 122,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/658.png"
   },
@@ -6586,9 +7902,11 @@ export const allPokemonRoster = [
     "id": "nat-0659",
     "dexNo": 659,
     "formKey": "base",
-    "displayName": "파르빗",
-    "displayNameEn": "Bunnelby",
-    "displayNameJa": "ホルビー",
+    "names": {
+      "ko": "파르빗",
+      "en": "Bunnelby",
+      "ja": "ホルビー"
+    },
     "speed": 57,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/659.png"
   },
@@ -6596,9 +7914,11 @@ export const allPokemonRoster = [
     "id": "nat-0660",
     "dexNo": 660,
     "formKey": "base",
-    "displayName": "파르토",
-    "displayNameEn": "Diggersby",
-    "displayNameJa": "ホルード",
+    "names": {
+      "ko": "파르토",
+      "en": "Diggersby",
+      "ja": "ホルード"
+    },
     "speed": 78,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/660.png"
   },
@@ -6606,9 +7926,11 @@ export const allPokemonRoster = [
     "id": "nat-0661",
     "dexNo": 661,
     "formKey": "base",
-    "displayName": "화살꼬빈",
-    "displayNameEn": "Fletchling",
-    "displayNameJa": "ヤヤコマ",
+    "names": {
+      "ko": "화살꼬빈",
+      "en": "Fletchling",
+      "ja": "ヤヤコマ"
+    },
     "speed": 62,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/661.png"
   },
@@ -6616,9 +7938,11 @@ export const allPokemonRoster = [
     "id": "nat-0662",
     "dexNo": 662,
     "formKey": "base",
-    "displayName": "불화살빈",
-    "displayNameEn": "Fletchinder",
-    "displayNameJa": "ヒノヤコマ",
+    "names": {
+      "ko": "불화살빈",
+      "en": "Fletchinder",
+      "ja": "ヒノヤコマ"
+    },
     "speed": 84,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/662.png"
   },
@@ -6626,9 +7950,11 @@ export const allPokemonRoster = [
     "id": "nat-0663",
     "dexNo": 663,
     "formKey": "base",
-    "displayName": "파이어로",
-    "displayNameEn": "Talonflame",
-    "displayNameJa": "ファイアロー",
+    "names": {
+      "ko": "파이어로",
+      "en": "Talonflame",
+      "ja": "ファイアロー"
+    },
     "speed": 126,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/663.png"
   },
@@ -6636,9 +7962,11 @@ export const allPokemonRoster = [
     "id": "nat-0664",
     "dexNo": 664,
     "formKey": "base",
-    "displayName": "분이벌레",
-    "displayNameEn": "Scatterbug",
-    "displayNameJa": "コフキムシ",
+    "names": {
+      "ko": "분이벌레",
+      "en": "Scatterbug",
+      "ja": "コフキムシ"
+    },
     "speed": 35,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/664.png"
   },
@@ -6646,9 +7974,11 @@ export const allPokemonRoster = [
     "id": "nat-0665",
     "dexNo": 665,
     "formKey": "base",
-    "displayName": "분떠도리",
-    "displayNameEn": "Spewpa",
-    "displayNameJa": "コフーライ",
+    "names": {
+      "ko": "분떠도리",
+      "en": "Spewpa",
+      "ja": "コフーライ"
+    },
     "speed": 29,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/665.png"
   },
@@ -6656,9 +7986,11 @@ export const allPokemonRoster = [
     "id": "nat-0666",
     "dexNo": 666,
     "formKey": "base",
-    "displayName": "비비용",
-    "displayNameEn": "Vivillon",
-    "displayNameJa": "ビビヨン",
+    "names": {
+      "ko": "비비용",
+      "en": "Vivillon",
+      "ja": "ビビヨン"
+    },
     "speed": 89,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/666.png"
   },
@@ -6666,9 +7998,11 @@ export const allPokemonRoster = [
     "id": "nat-0667",
     "dexNo": 667,
     "formKey": "base",
-    "displayName": "레오꼬",
-    "displayNameEn": "Litleo",
-    "displayNameJa": "シシコ",
+    "names": {
+      "ko": "레오꼬",
+      "en": "Litleo",
+      "ja": "シシコ"
+    },
     "speed": 72,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/667.png"
   },
@@ -6676,9 +8010,11 @@ export const allPokemonRoster = [
     "id": "nat-0668",
     "dexNo": 668,
     "formKey": "base",
-    "displayName": "화염레오",
-    "displayNameEn": "Pyroar",
-    "displayNameJa": "カエンジシ",
+    "names": {
+      "ko": "화염레오",
+      "en": "Pyroar",
+      "ja": "カエンジシ"
+    },
     "speed": 106,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/668.png"
   },
@@ -6686,9 +8022,11 @@ export const allPokemonRoster = [
     "id": "nat-0669",
     "dexNo": 669,
     "formKey": "base",
-    "displayName": "플라베베",
-    "displayNameEn": "Flabébé",
-    "displayNameJa": "フラベベ",
+    "names": {
+      "ko": "플라베베",
+      "en": "Flabébé",
+      "ja": "フラベベ"
+    },
     "speed": 42,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/669.png"
   },
@@ -6696,9 +8034,11 @@ export const allPokemonRoster = [
     "id": "nat-0670",
     "dexNo": 670,
     "formKey": "base",
-    "displayName": "플라엣테",
-    "displayNameEn": "Floette",
-    "displayNameJa": "フラエッテ",
+    "names": {
+      "ko": "플라엣테",
+      "en": "Floette",
+      "ja": "フラエッテ"
+    },
     "speed": 52,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/670.png"
   },
@@ -6706,9 +8046,11 @@ export const allPokemonRoster = [
     "id": "nat-0671",
     "dexNo": 671,
     "formKey": "base",
-    "displayName": "플라제스",
-    "displayNameEn": "Florges",
-    "displayNameJa": "フラージェス",
+    "names": {
+      "ko": "플라제스",
+      "en": "Florges",
+      "ja": "フラージェス"
+    },
     "speed": 75,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/671.png"
   },
@@ -6716,9 +8058,11 @@ export const allPokemonRoster = [
     "id": "nat-0672",
     "dexNo": 672,
     "formKey": "base",
-    "displayName": "메이클",
-    "displayNameEn": "Skiddo",
-    "displayNameJa": "メェークル",
+    "names": {
+      "ko": "메이클",
+      "en": "Skiddo",
+      "ja": "メェークル"
+    },
     "speed": 52,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/672.png"
   },
@@ -6726,9 +8070,11 @@ export const allPokemonRoster = [
     "id": "nat-0673",
     "dexNo": 673,
     "formKey": "base",
-    "displayName": "고고트",
-    "displayNameEn": "Gogoat",
-    "displayNameJa": "ゴーゴート",
+    "names": {
+      "ko": "고고트",
+      "en": "Gogoat",
+      "ja": "ゴーゴート"
+    },
     "speed": 68,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/673.png"
   },
@@ -6736,9 +8082,11 @@ export const allPokemonRoster = [
     "id": "nat-0674",
     "dexNo": 674,
     "formKey": "base",
-    "displayName": "판짱",
-    "displayNameEn": "Pancham",
-    "displayNameJa": "ヤンチャム",
+    "names": {
+      "ko": "판짱",
+      "en": "Pancham",
+      "ja": "ヤンチャム"
+    },
     "speed": 43,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/674.png"
   },
@@ -6746,9 +8094,11 @@ export const allPokemonRoster = [
     "id": "nat-0675",
     "dexNo": 675,
     "formKey": "base",
-    "displayName": "부란다",
-    "displayNameEn": "Pangoro",
-    "displayNameJa": "ゴロンダ",
+    "names": {
+      "ko": "부란다",
+      "en": "Pangoro",
+      "ja": "ゴロンダ"
+    },
     "speed": 58,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/675.png"
   },
@@ -6756,9 +8106,11 @@ export const allPokemonRoster = [
     "id": "nat-0676",
     "dexNo": 676,
     "formKey": "base",
-    "displayName": "트리미앙",
-    "displayNameEn": "Furfrou",
-    "displayNameJa": "トリミアン",
+    "names": {
+      "ko": "트리미앙",
+      "en": "Furfrou",
+      "ja": "トリミアン"
+    },
     "speed": 102,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/676.png"
   },
@@ -6766,9 +8118,11 @@ export const allPokemonRoster = [
     "id": "nat-0677",
     "dexNo": 677,
     "formKey": "base",
-    "displayName": "냐스퍼",
-    "displayNameEn": "Espurr",
-    "displayNameJa": "ニャスパー",
+    "names": {
+      "ko": "냐스퍼",
+      "en": "Espurr",
+      "ja": "ニャスパー"
+    },
     "speed": 68,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/677.png"
   },
@@ -6776,9 +8130,11 @@ export const allPokemonRoster = [
     "id": "nat-0678",
     "dexNo": 678,
     "formKey": "base",
-    "displayName": "냐오닉스",
-    "displayNameEn": "Meowstic",
-    "displayNameJa": "ニャオニクス",
+    "names": {
+      "ko": "냐오닉스",
+      "en": "Meowstic",
+      "ja": "ニャオニクス"
+    },
     "speed": 104,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/678.png"
   },
@@ -6786,9 +8142,11 @@ export const allPokemonRoster = [
     "id": "nat-0679",
     "dexNo": 679,
     "formKey": "base",
-    "displayName": "단칼빙",
-    "displayNameEn": "Honedge",
-    "displayNameJa": "ヒトツキ",
+    "names": {
+      "ko": "단칼빙",
+      "en": "Honedge",
+      "ja": "ヒトツキ"
+    },
     "speed": 28,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/679.png"
   },
@@ -6796,9 +8154,11 @@ export const allPokemonRoster = [
     "id": "nat-0680",
     "dexNo": 680,
     "formKey": "base",
-    "displayName": "쌍검킬",
-    "displayNameEn": "Doublade",
-    "displayNameJa": "ニダンギル",
+    "names": {
+      "ko": "쌍검킬",
+      "en": "Doublade",
+      "ja": "ニダンギル"
+    },
     "speed": 35,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/680.png"
   },
@@ -6806,9 +8166,11 @@ export const allPokemonRoster = [
     "id": "nat-0681",
     "dexNo": 681,
     "formKey": "base",
-    "displayName": "킬가르도",
-    "displayNameEn": "Aegislash",
-    "displayNameJa": "ギルガルド",
+    "names": {
+      "ko": "킬가르도",
+      "en": "Aegislash",
+      "ja": "ギルガルド"
+    },
     "speed": 60,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/681.png"
   },
@@ -6816,9 +8178,11 @@ export const allPokemonRoster = [
     "id": "nat-0682",
     "dexNo": 682,
     "formKey": "base",
-    "displayName": "슈쁘",
-    "displayNameEn": "Spritzee",
-    "displayNameJa": "シュシュプ",
+    "names": {
+      "ko": "슈쁘",
+      "en": "Spritzee",
+      "ja": "シュシュプ"
+    },
     "speed": 23,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/682.png"
   },
@@ -6826,9 +8190,11 @@ export const allPokemonRoster = [
     "id": "nat-0683",
     "dexNo": 683,
     "formKey": "base",
-    "displayName": "프레프티르",
-    "displayNameEn": "Aromatisse",
-    "displayNameJa": "フレフワン",
+    "names": {
+      "ko": "프레프티르",
+      "en": "Aromatisse",
+      "ja": "フレフワン"
+    },
     "speed": 29,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/683.png"
   },
@@ -6836,9 +8202,11 @@ export const allPokemonRoster = [
     "id": "nat-0684",
     "dexNo": 684,
     "formKey": "base",
-    "displayName": "나룸퍼프",
-    "displayNameEn": "Swirlix",
-    "displayNameJa": "ペロッパフ",
+    "names": {
+      "ko": "나룸퍼프",
+      "en": "Swirlix",
+      "ja": "ペロッパフ"
+    },
     "speed": 49,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/684.png"
   },
@@ -6846,9 +8214,11 @@ export const allPokemonRoster = [
     "id": "nat-0685",
     "dexNo": 685,
     "formKey": "base",
-    "displayName": "나루림",
-    "displayNameEn": "Slurpuff",
-    "displayNameJa": "ペロリーム",
+    "names": {
+      "ko": "나루림",
+      "en": "Slurpuff",
+      "ja": "ペロリーム"
+    },
     "speed": 72,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/685.png"
   },
@@ -6856,9 +8226,11 @@ export const allPokemonRoster = [
     "id": "nat-0686",
     "dexNo": 686,
     "formKey": "base",
-    "displayName": "오케이징",
-    "displayNameEn": "Inkay",
-    "displayNameJa": "マーイーカ",
+    "names": {
+      "ko": "오케이징",
+      "en": "Inkay",
+      "ja": "マーイーカ"
+    },
     "speed": 45,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/686.png"
   },
@@ -6866,9 +8238,11 @@ export const allPokemonRoster = [
     "id": "nat-0687",
     "dexNo": 687,
     "formKey": "base",
-    "displayName": "칼라마네로",
-    "displayNameEn": "Malamar",
-    "displayNameJa": "カラマネロ",
+    "names": {
+      "ko": "칼라마네로",
+      "en": "Malamar",
+      "ja": "カラマネロ"
+    },
     "speed": 73,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/687.png"
   },
@@ -6876,9 +8250,11 @@ export const allPokemonRoster = [
     "id": "nat-0688",
     "dexNo": 688,
     "formKey": "base",
-    "displayName": "거북손손",
-    "displayNameEn": "Binacle",
-    "displayNameJa": "カメテテ",
+    "names": {
+      "ko": "거북손손",
+      "en": "Binacle",
+      "ja": "カメテテ"
+    },
     "speed": 50,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/688.png"
   },
@@ -6886,9 +8262,11 @@ export const allPokemonRoster = [
     "id": "nat-0689",
     "dexNo": 689,
     "formKey": "base",
-    "displayName": "거북손데스",
-    "displayNameEn": "Barbaracle",
-    "displayNameJa": "ガメノデス",
+    "names": {
+      "ko": "거북손데스",
+      "en": "Barbaracle",
+      "ja": "ガメノデス"
+    },
     "speed": 68,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/689.png"
   },
@@ -6896,9 +8274,11 @@ export const allPokemonRoster = [
     "id": "nat-0690",
     "dexNo": 690,
     "formKey": "base",
-    "displayName": "수레기",
-    "displayNameEn": "Skrelp",
-    "displayNameJa": "クズモー",
+    "names": {
+      "ko": "수레기",
+      "en": "Skrelp",
+      "ja": "クズモー"
+    },
     "speed": 30,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/690.png"
   },
@@ -6906,9 +8286,11 @@ export const allPokemonRoster = [
     "id": "nat-0691",
     "dexNo": 691,
     "formKey": "base",
-    "displayName": "드래캄",
-    "displayNameEn": "Dragalge",
-    "displayNameJa": "ドラミドロ",
+    "names": {
+      "ko": "드래캄",
+      "en": "Dragalge",
+      "ja": "ドラミドロ"
+    },
     "speed": 44,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/691.png"
   },
@@ -6916,9 +8298,11 @@ export const allPokemonRoster = [
     "id": "nat-0692",
     "dexNo": 692,
     "formKey": "base",
-    "displayName": "완철포",
-    "displayNameEn": "Clauncher",
-    "displayNameJa": "ウデッポウ",
+    "names": {
+      "ko": "완철포",
+      "en": "Clauncher",
+      "ja": "ウデッポウ"
+    },
     "speed": 44,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/692.png"
   },
@@ -6926,9 +8310,11 @@ export const allPokemonRoster = [
     "id": "nat-0693",
     "dexNo": 693,
     "formKey": "base",
-    "displayName": "블로스터",
-    "displayNameEn": "Clawitzer",
-    "displayNameJa": "ブロスター",
+    "names": {
+      "ko": "블로스터",
+      "en": "Clawitzer",
+      "ja": "ブロスター"
+    },
     "speed": 59,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/693.png"
   },
@@ -6936,9 +8322,11 @@ export const allPokemonRoster = [
     "id": "nat-0694",
     "dexNo": 694,
     "formKey": "base",
-    "displayName": "목도리키텔",
-    "displayNameEn": "Helioptile",
-    "displayNameJa": "エリキテル",
+    "names": {
+      "ko": "목도리키텔",
+      "en": "Helioptile",
+      "ja": "エリキテル"
+    },
     "speed": 70,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/694.png"
   },
@@ -6946,9 +8334,11 @@ export const allPokemonRoster = [
     "id": "nat-0695",
     "dexNo": 695,
     "formKey": "base",
-    "displayName": "일레도리자드",
-    "displayNameEn": "Heliolisk",
-    "displayNameJa": "エレザード",
+    "names": {
+      "ko": "일레도리자드",
+      "en": "Heliolisk",
+      "ja": "エレザード"
+    },
     "speed": 109,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/695.png"
   },
@@ -6956,9 +8346,11 @@ export const allPokemonRoster = [
     "id": "nat-0696",
     "dexNo": 696,
     "formKey": "base",
-    "displayName": "티고라스",
-    "displayNameEn": "Tyrunt",
-    "displayNameJa": "チゴラス",
+    "names": {
+      "ko": "티고라스",
+      "en": "Tyrunt",
+      "ja": "チゴラス"
+    },
     "speed": 48,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/696.png"
   },
@@ -6966,9 +8358,11 @@ export const allPokemonRoster = [
     "id": "nat-0697",
     "dexNo": 697,
     "formKey": "base",
-    "displayName": "견고라스",
-    "displayNameEn": "Tyrantrum",
-    "displayNameJa": "ガチゴラス",
+    "names": {
+      "ko": "견고라스",
+      "en": "Tyrantrum",
+      "ja": "ガチゴラス"
+    },
     "speed": 71,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/697.png"
   },
@@ -6976,9 +8370,11 @@ export const allPokemonRoster = [
     "id": "nat-0698",
     "dexNo": 698,
     "formKey": "base",
-    "displayName": "아마루스",
-    "displayNameEn": "Amaura",
-    "displayNameJa": "アマルス",
+    "names": {
+      "ko": "아마루스",
+      "en": "Amaura",
+      "ja": "アマルス"
+    },
     "speed": 46,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/698.png"
   },
@@ -6986,9 +8382,11 @@ export const allPokemonRoster = [
     "id": "nat-0699",
     "dexNo": 699,
     "formKey": "base",
-    "displayName": "아마루르가",
-    "displayNameEn": "Aurorus",
-    "displayNameJa": "アマルルガ",
+    "names": {
+      "ko": "아마루르가",
+      "en": "Aurorus",
+      "ja": "アマルルガ"
+    },
     "speed": 58,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/699.png"
   },
@@ -6996,9 +8394,11 @@ export const allPokemonRoster = [
     "id": "nat-0700",
     "dexNo": 700,
     "formKey": "base",
-    "displayName": "님피아",
-    "displayNameEn": "Sylveon",
-    "displayNameJa": "ニンフィア",
+    "names": {
+      "ko": "님피아",
+      "en": "Sylveon",
+      "ja": "ニンフィア"
+    },
     "speed": 60,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/700.png"
   },
@@ -7006,9 +8406,11 @@ export const allPokemonRoster = [
     "id": "nat-0701",
     "dexNo": 701,
     "formKey": "base",
-    "displayName": "루차불",
-    "displayNameEn": "Hawlucha",
-    "displayNameJa": "ルチャブル",
+    "names": {
+      "ko": "루차불",
+      "en": "Hawlucha",
+      "ja": "ルチャブル"
+    },
     "speed": 118,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/701.png"
   },
@@ -7016,9 +8418,11 @@ export const allPokemonRoster = [
     "id": "nat-0702",
     "dexNo": 702,
     "formKey": "base",
-    "displayName": "데덴네",
-    "displayNameEn": "Dedenne",
-    "displayNameJa": "デデンネ",
+    "names": {
+      "ko": "데덴네",
+      "en": "Dedenne",
+      "ja": "デデンネ"
+    },
     "speed": 101,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/702.png"
   },
@@ -7026,9 +8430,11 @@ export const allPokemonRoster = [
     "id": "nat-0703",
     "dexNo": 703,
     "formKey": "base",
-    "displayName": "멜리시",
-    "displayNameEn": "Carbink",
-    "displayNameJa": "メレシー",
+    "names": {
+      "ko": "멜리시",
+      "en": "Carbink",
+      "ja": "メレシー"
+    },
     "speed": 50,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/703.png"
   },
@@ -7036,9 +8442,11 @@ export const allPokemonRoster = [
     "id": "nat-0704",
     "dexNo": 704,
     "formKey": "base",
-    "displayName": "미끄메라",
-    "displayNameEn": "Goomy",
-    "displayNameJa": "ヌメラ",
+    "names": {
+      "ko": "미끄메라",
+      "en": "Goomy",
+      "ja": "ヌメラ"
+    },
     "speed": 40,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/704.png"
   },
@@ -7046,9 +8454,11 @@ export const allPokemonRoster = [
     "id": "nat-0705",
     "dexNo": 705,
     "formKey": "base",
-    "displayName": "미끄네일",
-    "displayNameEn": "Sliggoo",
-    "displayNameJa": "ヌメイル",
+    "names": {
+      "ko": "미끄네일",
+      "en": "Sliggoo",
+      "ja": "ヌメイル"
+    },
     "speed": 60,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/705.png"
   },
@@ -7056,9 +8466,11 @@ export const allPokemonRoster = [
     "id": "nat-0706",
     "dexNo": 706,
     "formKey": "base",
-    "displayName": "미끄래곤",
-    "displayNameEn": "Goodra",
-    "displayNameJa": "ヌメルゴン",
+    "names": {
+      "ko": "미끄래곤",
+      "en": "Goodra",
+      "ja": "ヌメルゴン"
+    },
     "speed": 80,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/706.png"
   },
@@ -7066,9 +8478,11 @@ export const allPokemonRoster = [
     "id": "nat-0707",
     "dexNo": 707,
     "formKey": "base",
-    "displayName": "클레피",
-    "displayNameEn": "Klefki",
-    "displayNameJa": "クレッフィ",
+    "names": {
+      "ko": "클레피",
+      "en": "Klefki",
+      "ja": "クレッフィ"
+    },
     "speed": 75,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/707.png"
   },
@@ -7076,9 +8490,11 @@ export const allPokemonRoster = [
     "id": "nat-0708",
     "dexNo": 708,
     "formKey": "base",
-    "displayName": "나목령",
-    "displayNameEn": "Phantump",
-    "displayNameJa": "ボクレー",
+    "names": {
+      "ko": "나목령",
+      "en": "Phantump",
+      "ja": "ボクレー"
+    },
     "speed": 38,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/708.png"
   },
@@ -7086,9 +8502,11 @@ export const allPokemonRoster = [
     "id": "nat-0709",
     "dexNo": 709,
     "formKey": "base",
-    "displayName": "대로트",
-    "displayNameEn": "Trevenant",
-    "displayNameJa": "オーロット",
+    "names": {
+      "ko": "대로트",
+      "en": "Trevenant",
+      "ja": "オーロット"
+    },
     "speed": 56,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/709.png"
   },
@@ -7096,9 +8514,11 @@ export const allPokemonRoster = [
     "id": "nat-0710",
     "dexNo": 710,
     "formKey": "base",
-    "displayName": "호바귀",
-    "displayNameEn": "Pumpkaboo",
-    "displayNameJa": "バケッチャ",
+    "names": {
+      "ko": "호바귀",
+      "en": "Pumpkaboo",
+      "ja": "バケッチャ"
+    },
     "speed": 51,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/710.png"
   },
@@ -7106,9 +8526,11 @@ export const allPokemonRoster = [
     "id": "nat-0711",
     "dexNo": 711,
     "formKey": "base",
-    "displayName": "펌킨인",
-    "displayNameEn": "Gourgeist",
-    "displayNameJa": "パンプジン",
+    "names": {
+      "ko": "펌킨인",
+      "en": "Gourgeist",
+      "ja": "パンプジン"
+    },
     "speed": 84,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/711.png"
   },
@@ -7116,9 +8538,11 @@ export const allPokemonRoster = [
     "id": "nat-0712",
     "dexNo": 712,
     "formKey": "base",
-    "displayName": "꽁어름",
-    "displayNameEn": "Bergmite",
-    "displayNameJa": "カチコール",
+    "names": {
+      "ko": "꽁어름",
+      "en": "Bergmite",
+      "ja": "カチコール"
+    },
     "speed": 28,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/712.png"
   },
@@ -7126,9 +8550,11 @@ export const allPokemonRoster = [
     "id": "nat-0713",
     "dexNo": 713,
     "formKey": "base",
-    "displayName": "크레베이스",
-    "displayNameEn": "Avalugg",
-    "displayNameJa": "クレベース",
+    "names": {
+      "ko": "크레베이스",
+      "en": "Avalugg",
+      "ja": "クレベース"
+    },
     "speed": 28,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/713.png"
   },
@@ -7136,9 +8562,11 @@ export const allPokemonRoster = [
     "id": "nat-0714",
     "dexNo": 714,
     "formKey": "base",
-    "displayName": "음뱃",
-    "displayNameEn": "Noibat",
-    "displayNameJa": "オンバット",
+    "names": {
+      "ko": "음뱃",
+      "en": "Noibat",
+      "ja": "オンバット"
+    },
     "speed": 55,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/714.png"
   },
@@ -7146,9 +8574,11 @@ export const allPokemonRoster = [
     "id": "nat-0715",
     "dexNo": 715,
     "formKey": "base",
-    "displayName": "음번",
-    "displayNameEn": "Noivern",
-    "displayNameJa": "オンバーン",
+    "names": {
+      "ko": "음번",
+      "en": "Noivern",
+      "ja": "オンバーン"
+    },
     "speed": 123,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/715.png"
   },
@@ -7156,9 +8586,11 @@ export const allPokemonRoster = [
     "id": "nat-0716",
     "dexNo": 716,
     "formKey": "base",
-    "displayName": "제르네아스",
-    "displayNameEn": "Xerneas",
-    "displayNameJa": "ゼルネアス",
+    "names": {
+      "ko": "제르네아스",
+      "en": "Xerneas",
+      "ja": "ゼルネアス"
+    },
     "speed": 99,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/716.png"
   },
@@ -7166,9 +8598,11 @@ export const allPokemonRoster = [
     "id": "nat-0717",
     "dexNo": 717,
     "formKey": "base",
-    "displayName": "이벨타르",
-    "displayNameEn": "Yveltal",
-    "displayNameJa": "イベルタル",
+    "names": {
+      "ko": "이벨타르",
+      "en": "Yveltal",
+      "ja": "イベルタル"
+    },
     "speed": 99,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/717.png"
   },
@@ -7176,9 +8610,11 @@ export const allPokemonRoster = [
     "id": "nat-0718",
     "dexNo": 718,
     "formKey": "base",
-    "displayName": "지가르데",
-    "displayNameEn": "Zygarde",
-    "displayNameJa": "ジガルデ",
+    "names": {
+      "ko": "지가르데",
+      "en": "Zygarde",
+      "ja": "ジガルデ"
+    },
     "speed": 95,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/718.png"
   },
@@ -7186,9 +8622,11 @@ export const allPokemonRoster = [
     "id": "nat-0719",
     "dexNo": 719,
     "formKey": "base",
-    "displayName": "디안시",
-    "displayNameEn": "Diancie",
-    "displayNameJa": "ディアンシー",
+    "names": {
+      "ko": "디안시",
+      "en": "Diancie",
+      "ja": "ディアンシー"
+    },
     "speed": 50,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/719.png"
   },
@@ -7196,9 +8634,11 @@ export const allPokemonRoster = [
     "id": "nat-0720",
     "dexNo": 720,
     "formKey": "base",
-    "displayName": "후파",
-    "displayNameEn": "Hoopa",
-    "displayNameJa": "フーパ",
+    "names": {
+      "ko": "후파",
+      "en": "Hoopa",
+      "ja": "フーパ"
+    },
     "speed": 70,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/720.png"
   },
@@ -7206,9 +8646,11 @@ export const allPokemonRoster = [
     "id": "nat-0721",
     "dexNo": 721,
     "formKey": "base",
-    "displayName": "볼케니온",
-    "displayNameEn": "Volcanion",
-    "displayNameJa": "ボルケニオン",
+    "names": {
+      "ko": "볼케니온",
+      "en": "Volcanion",
+      "ja": "ボルケニオン"
+    },
     "speed": 70,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/721.png"
   },
@@ -7216,9 +8658,11 @@ export const allPokemonRoster = [
     "id": "nat-0722",
     "dexNo": 722,
     "formKey": "base",
-    "displayName": "나몰빼미",
-    "displayNameEn": "Rowlet",
-    "displayNameJa": "モクロー",
+    "names": {
+      "ko": "나몰빼미",
+      "en": "Rowlet",
+      "ja": "モクロー"
+    },
     "speed": 42,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/722.png"
   },
@@ -7226,9 +8670,11 @@ export const allPokemonRoster = [
     "id": "nat-0723",
     "dexNo": 723,
     "formKey": "base",
-    "displayName": "빼미스로우",
-    "displayNameEn": "Dartrix",
-    "displayNameJa": "フクスロー",
+    "names": {
+      "ko": "빼미스로우",
+      "en": "Dartrix",
+      "ja": "フクスロー"
+    },
     "speed": 52,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/723.png"
   },
@@ -7236,9 +8682,11 @@ export const allPokemonRoster = [
     "id": "nat-0724",
     "dexNo": 724,
     "formKey": "base",
-    "displayName": "모크나이퍼",
-    "displayNameEn": "Decidueye",
-    "displayNameJa": "ジュナイパー",
+    "names": {
+      "ko": "모크나이퍼",
+      "en": "Decidueye",
+      "ja": "ジュナイパー"
+    },
     "speed": 70,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/724.png"
   },
@@ -7246,9 +8694,11 @@ export const allPokemonRoster = [
     "id": "nat-0725",
     "dexNo": 725,
     "formKey": "base",
-    "displayName": "냐오불",
-    "displayNameEn": "Litten",
-    "displayNameJa": "ニャビー",
+    "names": {
+      "ko": "냐오불",
+      "en": "Litten",
+      "ja": "ニャビー"
+    },
     "speed": 70,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/725.png"
   },
@@ -7256,9 +8706,11 @@ export const allPokemonRoster = [
     "id": "nat-0726",
     "dexNo": 726,
     "formKey": "base",
-    "displayName": "냐오히트",
-    "displayNameEn": "Torracat",
-    "displayNameJa": "ニャヒート",
+    "names": {
+      "ko": "냐오히트",
+      "en": "Torracat",
+      "ja": "ニャヒート"
+    },
     "speed": 90,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/726.png"
   },
@@ -7266,9 +8718,11 @@ export const allPokemonRoster = [
     "id": "nat-0727",
     "dexNo": 727,
     "formKey": "base",
-    "displayName": "어흥염",
-    "displayNameEn": "Incineroar",
-    "displayNameJa": "ガオガエン",
+    "names": {
+      "ko": "어흥염",
+      "en": "Incineroar",
+      "ja": "ガオガエン"
+    },
     "speed": 60,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/727.png"
   },
@@ -7276,9 +8730,11 @@ export const allPokemonRoster = [
     "id": "nat-0728",
     "dexNo": 728,
     "formKey": "base",
-    "displayName": "누리공",
-    "displayNameEn": "Popplio",
-    "displayNameJa": "アシマリ",
+    "names": {
+      "ko": "누리공",
+      "en": "Popplio",
+      "ja": "アシマリ"
+    },
     "speed": 40,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/728.png"
   },
@@ -7286,9 +8742,11 @@ export const allPokemonRoster = [
     "id": "nat-0729",
     "dexNo": 729,
     "formKey": "base",
-    "displayName": "키요공",
-    "displayNameEn": "Brionne",
-    "displayNameJa": "オシャマリ",
+    "names": {
+      "ko": "키요공",
+      "en": "Brionne",
+      "ja": "オシャマリ"
+    },
     "speed": 50,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/729.png"
   },
@@ -7296,9 +8754,11 @@ export const allPokemonRoster = [
     "id": "nat-0730",
     "dexNo": 730,
     "formKey": "base",
-    "displayName": "누리레느",
-    "displayNameEn": "Primarina",
-    "displayNameJa": "アシレーヌ",
+    "names": {
+      "ko": "누리레느",
+      "en": "Primarina",
+      "ja": "アシレーヌ"
+    },
     "speed": 60,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/730.png"
   },
@@ -7306,9 +8766,11 @@ export const allPokemonRoster = [
     "id": "nat-0731",
     "dexNo": 731,
     "formKey": "base",
-    "displayName": "콕코구리",
-    "displayNameEn": "Pikipek",
-    "displayNameJa": "ツツケラ",
+    "names": {
+      "ko": "콕코구리",
+      "en": "Pikipek",
+      "ja": "ツツケラ"
+    },
     "speed": 65,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/731.png"
   },
@@ -7316,9 +8778,11 @@ export const allPokemonRoster = [
     "id": "nat-0732",
     "dexNo": 732,
     "formKey": "base",
-    "displayName": "크라파",
-    "displayNameEn": "Trumbeak",
-    "displayNameJa": "ケララッパ",
+    "names": {
+      "ko": "크라파",
+      "en": "Trumbeak",
+      "ja": "ケララッパ"
+    },
     "speed": 75,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/732.png"
   },
@@ -7326,9 +8790,11 @@ export const allPokemonRoster = [
     "id": "nat-0733",
     "dexNo": 733,
     "formKey": "base",
-    "displayName": "왕큰부리",
-    "displayNameEn": "Toucannon",
-    "displayNameJa": "ドデカバシ",
+    "names": {
+      "ko": "왕큰부리",
+      "en": "Toucannon",
+      "ja": "ドデカバシ"
+    },
     "speed": 60,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/733.png"
   },
@@ -7336,9 +8802,11 @@ export const allPokemonRoster = [
     "id": "nat-0734",
     "dexNo": 734,
     "formKey": "base",
-    "displayName": "영구스",
-    "displayNameEn": "Yungoos",
-    "displayNameJa": "ヤングース",
+    "names": {
+      "ko": "영구스",
+      "en": "Yungoos",
+      "ja": "ヤングース"
+    },
     "speed": 45,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/734.png"
   },
@@ -7346,9 +8814,11 @@ export const allPokemonRoster = [
     "id": "nat-0735",
     "dexNo": 735,
     "formKey": "base",
-    "displayName": "형사구스",
-    "displayNameEn": "Gumshoos",
-    "displayNameJa": "デカグース",
+    "names": {
+      "ko": "형사구스",
+      "en": "Gumshoos",
+      "ja": "デカグース"
+    },
     "speed": 45,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/735.png"
   },
@@ -7356,9 +8826,11 @@ export const allPokemonRoster = [
     "id": "nat-0736",
     "dexNo": 736,
     "formKey": "base",
-    "displayName": "턱지충이",
-    "displayNameEn": "Grubbin",
-    "displayNameJa": "アゴジムシ",
+    "names": {
+      "ko": "턱지충이",
+      "en": "Grubbin",
+      "ja": "アゴジムシ"
+    },
     "speed": 46,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/736.png"
   },
@@ -7366,9 +8838,11 @@ export const allPokemonRoster = [
     "id": "nat-0737",
     "dexNo": 737,
     "formKey": "base",
-    "displayName": "전지충이",
-    "displayNameEn": "Charjabug",
-    "displayNameJa": "デンヂムシ",
+    "names": {
+      "ko": "전지충이",
+      "en": "Charjabug",
+      "ja": "デンヂムシ"
+    },
     "speed": 36,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/737.png"
   },
@@ -7376,9 +8850,11 @@ export const allPokemonRoster = [
     "id": "nat-0738",
     "dexNo": 738,
     "formKey": "base",
-    "displayName": "투구뿌논",
-    "displayNameEn": "Vikavolt",
-    "displayNameJa": "クワガノン",
+    "names": {
+      "ko": "투구뿌논",
+      "en": "Vikavolt",
+      "ja": "クワガノン"
+    },
     "speed": 43,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/738.png"
   },
@@ -7386,9 +8862,11 @@ export const allPokemonRoster = [
     "id": "nat-0739",
     "dexNo": 739,
     "formKey": "base",
-    "displayName": "오기지게",
-    "displayNameEn": "Crabrawler",
-    "displayNameJa": "マケンカニ",
+    "names": {
+      "ko": "오기지게",
+      "en": "Crabrawler",
+      "ja": "マケンカニ"
+    },
     "speed": 63,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/739.png"
   },
@@ -7396,9 +8874,11 @@ export const allPokemonRoster = [
     "id": "nat-0740",
     "dexNo": 740,
     "formKey": "base",
-    "displayName": "모단단게",
-    "displayNameEn": "Crabominable",
-    "displayNameJa": "ケケンカニ",
+    "names": {
+      "ko": "모단단게",
+      "en": "Crabominable",
+      "ja": "ケケンカニ"
+    },
     "speed": 43,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/740.png"
   },
@@ -7406,9 +8886,11 @@ export const allPokemonRoster = [
     "id": "nat-0741",
     "dexNo": 741,
     "formKey": "base",
-    "displayName": "춤추새",
-    "displayNameEn": "Oricorio",
-    "displayNameJa": "オドリドリ",
+    "names": {
+      "ko": "춤추새",
+      "en": "Oricorio",
+      "ja": "オドリドリ"
+    },
     "speed": 93,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/741.png"
   },
@@ -7416,9 +8898,11 @@ export const allPokemonRoster = [
     "id": "nat-0742",
     "dexNo": 742,
     "formKey": "base",
-    "displayName": "에블리",
-    "displayNameEn": "Cutiefly",
-    "displayNameJa": "アブリー",
+    "names": {
+      "ko": "에블리",
+      "en": "Cutiefly",
+      "ja": "アブリー"
+    },
     "speed": 84,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/742.png"
   },
@@ -7426,9 +8910,11 @@ export const allPokemonRoster = [
     "id": "nat-0743",
     "dexNo": 743,
     "formKey": "base",
-    "displayName": "에리본",
-    "displayNameEn": "Ribombee",
-    "displayNameJa": "アブリボン",
+    "names": {
+      "ko": "에리본",
+      "en": "Ribombee",
+      "ja": "アブリボン"
+    },
     "speed": 124,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/743.png"
   },
@@ -7436,9 +8922,11 @@ export const allPokemonRoster = [
     "id": "nat-0744",
     "dexNo": 744,
     "formKey": "base",
-    "displayName": "암멍이",
-    "displayNameEn": "Rockruff",
-    "displayNameJa": "イワンコ",
+    "names": {
+      "ko": "암멍이",
+      "en": "Rockruff",
+      "ja": "イワンコ"
+    },
     "speed": 60,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/744.png"
   },
@@ -7446,9 +8934,11 @@ export const allPokemonRoster = [
     "id": "nat-0745",
     "dexNo": 745,
     "formKey": "base",
-    "displayName": "루가루암",
-    "displayNameEn": "Lycanroc",
-    "displayNameJa": "ルガルガン",
+    "names": {
+      "ko": "루가루암",
+      "en": "Lycanroc",
+      "ja": "ルガルガン"
+    },
     "speed": 112,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/745.png"
   },
@@ -7456,9 +8946,11 @@ export const allPokemonRoster = [
     "id": "nat-0746",
     "dexNo": 746,
     "formKey": "base",
-    "displayName": "약어리",
-    "displayNameEn": "Wishiwashi",
-    "displayNameJa": "ヨワシ",
+    "names": {
+      "ko": "약어리",
+      "en": "Wishiwashi",
+      "ja": "ヨワシ"
+    },
     "speed": 40,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/746.png"
   },
@@ -7466,9 +8958,11 @@ export const allPokemonRoster = [
     "id": "nat-0747",
     "dexNo": 747,
     "formKey": "base",
-    "displayName": "시마사리",
-    "displayNameEn": "Mareanie",
-    "displayNameJa": "ヒドイデ",
+    "names": {
+      "ko": "시마사리",
+      "en": "Mareanie",
+      "ja": "ヒドイデ"
+    },
     "speed": 45,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/747.png"
   },
@@ -7476,9 +8970,11 @@ export const allPokemonRoster = [
     "id": "nat-0748",
     "dexNo": 748,
     "formKey": "base",
-    "displayName": "더시마사리",
-    "displayNameEn": "Toxapex",
-    "displayNameJa": "ドヒドイデ",
+    "names": {
+      "ko": "더시마사리",
+      "en": "Toxapex",
+      "ja": "ドヒドイデ"
+    },
     "speed": 35,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/748.png"
   },
@@ -7486,9 +8982,11 @@ export const allPokemonRoster = [
     "id": "nat-0749",
     "dexNo": 749,
     "formKey": "base",
-    "displayName": "머드나기",
-    "displayNameEn": "Mudbray",
-    "displayNameJa": "ドロバンコ",
+    "names": {
+      "ko": "머드나기",
+      "en": "Mudbray",
+      "ja": "ドロバンコ"
+    },
     "speed": 45,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/749.png"
   },
@@ -7496,9 +8994,11 @@ export const allPokemonRoster = [
     "id": "nat-0750",
     "dexNo": 750,
     "formKey": "base",
-    "displayName": "만마드",
-    "displayNameEn": "Mudsdale",
-    "displayNameJa": "バンバドロ",
+    "names": {
+      "ko": "만마드",
+      "en": "Mudsdale",
+      "ja": "バンバドロ"
+    },
     "speed": 35,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/750.png"
   },
@@ -7506,9 +9006,11 @@ export const allPokemonRoster = [
     "id": "nat-0751",
     "dexNo": 751,
     "formKey": "base",
-    "displayName": "물거미",
-    "displayNameEn": "Dewpider",
-    "displayNameJa": "シズクモ",
+    "names": {
+      "ko": "물거미",
+      "en": "Dewpider",
+      "ja": "シズクモ"
+    },
     "speed": 27,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/751.png"
   },
@@ -7516,9 +9018,11 @@ export const allPokemonRoster = [
     "id": "nat-0752",
     "dexNo": 752,
     "formKey": "base",
-    "displayName": "깨비물거미",
-    "displayNameEn": "Araquanid",
-    "displayNameJa": "オニシズクモ",
+    "names": {
+      "ko": "깨비물거미",
+      "en": "Araquanid",
+      "ja": "オニシズクモ"
+    },
     "speed": 42,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/752.png"
   },
@@ -7526,9 +9030,11 @@ export const allPokemonRoster = [
     "id": "nat-0753",
     "dexNo": 753,
     "formKey": "base",
-    "displayName": "짜랑랑",
-    "displayNameEn": "Fomantis",
-    "displayNameJa": "カリキリ",
+    "names": {
+      "ko": "짜랑랑",
+      "en": "Fomantis",
+      "ja": "カリキリ"
+    },
     "speed": 35,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/753.png"
   },
@@ -7536,9 +9042,11 @@ export const allPokemonRoster = [
     "id": "nat-0754",
     "dexNo": 754,
     "formKey": "base",
-    "displayName": "라란티스",
-    "displayNameEn": "Lurantis",
-    "displayNameJa": "ラランテス",
+    "names": {
+      "ko": "라란티스",
+      "en": "Lurantis",
+      "ja": "ラランテス"
+    },
     "speed": 45,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/754.png"
   },
@@ -7546,9 +9054,11 @@ export const allPokemonRoster = [
     "id": "nat-0755",
     "dexNo": 755,
     "formKey": "base",
-    "displayName": "자마슈",
-    "displayNameEn": "Morelull",
-    "displayNameJa": "ネマシュ",
+    "names": {
+      "ko": "자마슈",
+      "en": "Morelull",
+      "ja": "ネマシュ"
+    },
     "speed": 15,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/755.png"
   },
@@ -7556,9 +9066,11 @@ export const allPokemonRoster = [
     "id": "nat-0756",
     "dexNo": 756,
     "formKey": "base",
-    "displayName": "마셰이드",
-    "displayNameEn": "Shiinotic",
-    "displayNameJa": "マシェード",
+    "names": {
+      "ko": "마셰이드",
+      "en": "Shiinotic",
+      "ja": "マシェード"
+    },
     "speed": 30,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/756.png"
   },
@@ -7566,9 +9078,11 @@ export const allPokemonRoster = [
     "id": "nat-0757",
     "dexNo": 757,
     "formKey": "base",
-    "displayName": "야도뇽",
-    "displayNameEn": "Salandit",
-    "displayNameJa": "ヤトウモリ",
+    "names": {
+      "ko": "야도뇽",
+      "en": "Salandit",
+      "ja": "ヤトウモリ"
+    },
     "speed": 77,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/757.png"
   },
@@ -7576,9 +9090,11 @@ export const allPokemonRoster = [
     "id": "nat-0758",
     "dexNo": 758,
     "formKey": "base",
-    "displayName": "염뉴트",
-    "displayNameEn": "Salazzle",
-    "displayNameJa": "エンニュート",
+    "names": {
+      "ko": "염뉴트",
+      "en": "Salazzle",
+      "ja": "エンニュート"
+    },
     "speed": 117,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/758.png"
   },
@@ -7586,9 +9102,11 @@ export const allPokemonRoster = [
     "id": "nat-0759",
     "dexNo": 759,
     "formKey": "base",
-    "displayName": "포곰곰",
-    "displayNameEn": "Stufful",
-    "displayNameJa": "ヌイコグマ",
+    "names": {
+      "ko": "포곰곰",
+      "en": "Stufful",
+      "ja": "ヌイコグマ"
+    },
     "speed": 50,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/759.png"
   },
@@ -7596,9 +9114,11 @@ export const allPokemonRoster = [
     "id": "nat-0760",
     "dexNo": 760,
     "formKey": "base",
-    "displayName": "이븐곰",
-    "displayNameEn": "Bewear",
-    "displayNameJa": "キテルグマ",
+    "names": {
+      "ko": "이븐곰",
+      "en": "Bewear",
+      "ja": "キテルグマ"
+    },
     "speed": 60,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/760.png"
   },
@@ -7606,9 +9126,11 @@ export const allPokemonRoster = [
     "id": "nat-0761",
     "dexNo": 761,
     "formKey": "base",
-    "displayName": "달콤아",
-    "displayNameEn": "Bounsweet",
-    "displayNameJa": "アマカジ",
+    "names": {
+      "ko": "달콤아",
+      "en": "Bounsweet",
+      "ja": "アマカジ"
+    },
     "speed": 32,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/761.png"
   },
@@ -7616,9 +9138,11 @@ export const allPokemonRoster = [
     "id": "nat-0762",
     "dexNo": 762,
     "formKey": "base",
-    "displayName": "달무리나",
-    "displayNameEn": "Steenee",
-    "displayNameJa": "アママイコ",
+    "names": {
+      "ko": "달무리나",
+      "en": "Steenee",
+      "ja": "アママイコ"
+    },
     "speed": 62,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/762.png"
   },
@@ -7626,9 +9150,11 @@ export const allPokemonRoster = [
     "id": "nat-0763",
     "dexNo": 763,
     "formKey": "base",
-    "displayName": "달코퀸",
-    "displayNameEn": "Tsareena",
-    "displayNameJa": "アマージョ",
+    "names": {
+      "ko": "달코퀸",
+      "en": "Tsareena",
+      "ja": "アマージョ"
+    },
     "speed": 72,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/763.png"
   },
@@ -7636,9 +9162,11 @@ export const allPokemonRoster = [
     "id": "nat-0764",
     "dexNo": 764,
     "formKey": "base",
-    "displayName": "큐아링",
-    "displayNameEn": "Comfey",
-    "displayNameJa": "キュワワー",
+    "names": {
+      "ko": "큐아링",
+      "en": "Comfey",
+      "ja": "キュワワー"
+    },
     "speed": 100,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/764.png"
   },
@@ -7646,9 +9174,11 @@ export const allPokemonRoster = [
     "id": "nat-0765",
     "dexNo": 765,
     "formKey": "base",
-    "displayName": "하랑우탄",
-    "displayNameEn": "Oranguru",
-    "displayNameJa": "ヤレユータン",
+    "names": {
+      "ko": "하랑우탄",
+      "en": "Oranguru",
+      "ja": "ヤレユータン"
+    },
     "speed": 60,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/765.png"
   },
@@ -7656,9 +9186,11 @@ export const allPokemonRoster = [
     "id": "nat-0766",
     "dexNo": 766,
     "formKey": "base",
-    "displayName": "내던숭이",
-    "displayNameEn": "Passimian",
-    "displayNameJa": "ナゲツケサル",
+    "names": {
+      "ko": "내던숭이",
+      "en": "Passimian",
+      "ja": "ナゲツケサル"
+    },
     "speed": 80,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/766.png"
   },
@@ -7666,9 +9198,11 @@ export const allPokemonRoster = [
     "id": "nat-0767",
     "dexNo": 767,
     "formKey": "base",
-    "displayName": "꼬시레",
-    "displayNameEn": "Wimpod",
-    "displayNameJa": "コソクムシ",
+    "names": {
+      "ko": "꼬시레",
+      "en": "Wimpod",
+      "ja": "コソクムシ"
+    },
     "speed": 80,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/767.png"
   },
@@ -7676,9 +9210,11 @@ export const allPokemonRoster = [
     "id": "nat-0768",
     "dexNo": 768,
     "formKey": "base",
-    "displayName": "갑주무사",
-    "displayNameEn": "Golisopod",
-    "displayNameJa": "グソクムシャ",
+    "names": {
+      "ko": "갑주무사",
+      "en": "Golisopod",
+      "ja": "グソクムシャ"
+    },
     "speed": 40,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/768.png"
   },
@@ -7686,9 +9222,11 @@ export const allPokemonRoster = [
     "id": "nat-0769",
     "dexNo": 769,
     "formKey": "base",
-    "displayName": "모래꿍",
-    "displayNameEn": "Sandygast",
-    "displayNameJa": "スナバァ",
+    "names": {
+      "ko": "모래꿍",
+      "en": "Sandygast",
+      "ja": "スナバァ"
+    },
     "speed": 15,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/769.png"
   },
@@ -7696,9 +9234,11 @@ export const allPokemonRoster = [
     "id": "nat-0770",
     "dexNo": 770,
     "formKey": "base",
-    "displayName": "모래성이당",
-    "displayNameEn": "Palossand",
-    "displayNameJa": "シロデスナ",
+    "names": {
+      "ko": "모래성이당",
+      "en": "Palossand",
+      "ja": "シロデスナ"
+    },
     "speed": 35,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/770.png"
   },
@@ -7706,9 +9246,11 @@ export const allPokemonRoster = [
     "id": "nat-0771",
     "dexNo": 771,
     "formKey": "base",
-    "displayName": "해무기",
-    "displayNameEn": "Pyukumuku",
-    "displayNameJa": "ナマコブシ",
+    "names": {
+      "ko": "해무기",
+      "en": "Pyukumuku",
+      "ja": "ナマコブシ"
+    },
     "speed": 5,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/771.png"
   },
@@ -7716,9 +9258,11 @@ export const allPokemonRoster = [
     "id": "nat-0772",
     "dexNo": 772,
     "formKey": "base",
-    "displayName": "타입:널",
-    "displayNameEn": "Type: Null",
-    "displayNameJa": "タイプ：ヌル",
+    "names": {
+      "ko": "타입:널",
+      "en": "Type: Null",
+      "ja": "タイプ：ヌル"
+    },
     "speed": 59,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/772.png"
   },
@@ -7726,9 +9270,11 @@ export const allPokemonRoster = [
     "id": "nat-0773",
     "dexNo": 773,
     "formKey": "base",
-    "displayName": "실버디",
-    "displayNameEn": "Silvally",
-    "displayNameJa": "シルヴァディ",
+    "names": {
+      "ko": "실버디",
+      "en": "Silvally",
+      "ja": "シルヴァディ"
+    },
     "speed": 95,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/773.png"
   },
@@ -7736,9 +9282,11 @@ export const allPokemonRoster = [
     "id": "nat-0774",
     "dexNo": 774,
     "formKey": "base",
-    "displayName": "메테노",
-    "displayNameEn": "Minior",
-    "displayNameJa": "メテノ",
+    "names": {
+      "ko": "메테노",
+      "en": "Minior",
+      "ja": "メテノ"
+    },
     "speed": 60,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/774.png"
   },
@@ -7746,9 +9294,11 @@ export const allPokemonRoster = [
     "id": "nat-0775",
     "dexNo": 775,
     "formKey": "base",
-    "displayName": "자말라",
-    "displayNameEn": "Komala",
-    "displayNameJa": "ネッコアラ",
+    "names": {
+      "ko": "자말라",
+      "en": "Komala",
+      "ja": "ネッコアラ"
+    },
     "speed": 65,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/775.png"
   },
@@ -7756,9 +9306,11 @@ export const allPokemonRoster = [
     "id": "nat-0776",
     "dexNo": 776,
     "formKey": "base",
-    "displayName": "폭거북스",
-    "displayNameEn": "Turtonator",
-    "displayNameJa": "バクガメス",
+    "names": {
+      "ko": "폭거북스",
+      "en": "Turtonator",
+      "ja": "バクガメス"
+    },
     "speed": 36,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/776.png"
   },
@@ -7766,9 +9318,11 @@ export const allPokemonRoster = [
     "id": "nat-0777",
     "dexNo": 777,
     "formKey": "base",
-    "displayName": "토게데마루",
-    "displayNameEn": "Togedemaru",
-    "displayNameJa": "トゲデマル",
+    "names": {
+      "ko": "토게데마루",
+      "en": "Togedemaru",
+      "ja": "トゲデマル"
+    },
     "speed": 96,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/777.png"
   },
@@ -7776,9 +9330,11 @@ export const allPokemonRoster = [
     "id": "nat-0778",
     "dexNo": 778,
     "formKey": "base",
-    "displayName": "따라큐",
-    "displayNameEn": "Mimikyu",
-    "displayNameJa": "ミミッキュ",
+    "names": {
+      "ko": "따라큐",
+      "en": "Mimikyu",
+      "ja": "ミミッキュ"
+    },
     "speed": 96,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/778.png"
   },
@@ -7786,9 +9342,11 @@ export const allPokemonRoster = [
     "id": "nat-0779",
     "dexNo": 779,
     "formKey": "base",
-    "displayName": "치갈기",
-    "displayNameEn": "Bruxish",
-    "displayNameJa": "ハギギシリ",
+    "names": {
+      "ko": "치갈기",
+      "en": "Bruxish",
+      "ja": "ハギギシリ"
+    },
     "speed": 92,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/779.png"
   },
@@ -7796,9 +9354,11 @@ export const allPokemonRoster = [
     "id": "nat-0780",
     "dexNo": 780,
     "formKey": "base",
-    "displayName": "할비롱",
-    "displayNameEn": "Drampa",
-    "displayNameJa": "ジジーロン",
+    "names": {
+      "ko": "할비롱",
+      "en": "Drampa",
+      "ja": "ジジーロン"
+    },
     "speed": 36,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/780.png"
   },
@@ -7806,9 +9366,11 @@ export const allPokemonRoster = [
     "id": "nat-0781",
     "dexNo": 781,
     "formKey": "base",
-    "displayName": "타타륜",
-    "displayNameEn": "Dhelmise",
-    "displayNameJa": "ダダリン",
+    "names": {
+      "ko": "타타륜",
+      "en": "Dhelmise",
+      "ja": "ダダリン"
+    },
     "speed": 40,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/781.png"
   },
@@ -7816,9 +9378,11 @@ export const allPokemonRoster = [
     "id": "nat-0782",
     "dexNo": 782,
     "formKey": "base",
-    "displayName": "짜랑꼬",
-    "displayNameEn": "Jangmo-o",
-    "displayNameJa": "ジャラコ",
+    "names": {
+      "ko": "짜랑꼬",
+      "en": "Jangmo-o",
+      "ja": "ジャラコ"
+    },
     "speed": 45,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/782.png"
   },
@@ -7826,9 +9390,11 @@ export const allPokemonRoster = [
     "id": "nat-0783",
     "dexNo": 783,
     "formKey": "base",
-    "displayName": "짜랑고우",
-    "displayNameEn": "Hakamo-o",
-    "displayNameJa": "ジャランゴ",
+    "names": {
+      "ko": "짜랑고우",
+      "en": "Hakamo-o",
+      "ja": "ジャランゴ"
+    },
     "speed": 65,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/783.png"
   },
@@ -7836,9 +9402,11 @@ export const allPokemonRoster = [
     "id": "nat-0784",
     "dexNo": 784,
     "formKey": "base",
-    "displayName": "짜랑고우거",
-    "displayNameEn": "Kommo-o",
-    "displayNameJa": "ジャラランガ",
+    "names": {
+      "ko": "짜랑고우거",
+      "en": "Kommo-o",
+      "ja": "ジャラランガ"
+    },
     "speed": 85,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/784.png"
   },
@@ -7846,9 +9414,11 @@ export const allPokemonRoster = [
     "id": "nat-0785",
     "dexNo": 785,
     "formKey": "base",
-    "displayName": "카푸꼬꼬꼭",
-    "displayNameEn": "Tapu Koko",
-    "displayNameJa": "カプ・コケコ",
+    "names": {
+      "ko": "카푸꼬꼬꼭",
+      "en": "Tapu Koko",
+      "ja": "カプ・コケコ"
+    },
     "speed": 130,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/785.png"
   },
@@ -7856,9 +9426,11 @@ export const allPokemonRoster = [
     "id": "nat-0786",
     "dexNo": 786,
     "formKey": "base",
-    "displayName": "카푸나비나",
-    "displayNameEn": "Tapu Lele",
-    "displayNameJa": "カプ・テテフ",
+    "names": {
+      "ko": "카푸나비나",
+      "en": "Tapu Lele",
+      "ja": "カプ・テテフ"
+    },
     "speed": 95,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/786.png"
   },
@@ -7866,9 +9438,11 @@ export const allPokemonRoster = [
     "id": "nat-0787",
     "dexNo": 787,
     "formKey": "base",
-    "displayName": "카푸브루루",
-    "displayNameEn": "Tapu Bulu",
-    "displayNameJa": "カプ・ブルル",
+    "names": {
+      "ko": "카푸브루루",
+      "en": "Tapu Bulu",
+      "ja": "カプ・ブルル"
+    },
     "speed": 75,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/787.png"
   },
@@ -7876,9 +9450,11 @@ export const allPokemonRoster = [
     "id": "nat-0788",
     "dexNo": 788,
     "formKey": "base",
-    "displayName": "카푸느지느",
-    "displayNameEn": "Tapu Fini",
-    "displayNameJa": "カプ・レヒレ",
+    "names": {
+      "ko": "카푸느지느",
+      "en": "Tapu Fini",
+      "ja": "カプ・レヒレ"
+    },
     "speed": 85,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/788.png"
   },
@@ -7886,9 +9462,11 @@ export const allPokemonRoster = [
     "id": "nat-0789",
     "dexNo": 789,
     "formKey": "base",
-    "displayName": "코스모그",
-    "displayNameEn": "Cosmog",
-    "displayNameJa": "コスモッグ",
+    "names": {
+      "ko": "코스모그",
+      "en": "Cosmog",
+      "ja": "コスモッグ"
+    },
     "speed": 37,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/789.png"
   },
@@ -7896,9 +9474,11 @@ export const allPokemonRoster = [
     "id": "nat-0790",
     "dexNo": 790,
     "formKey": "base",
-    "displayName": "코스모움",
-    "displayNameEn": "Cosmoem",
-    "displayNameJa": "コスモウム",
+    "names": {
+      "ko": "코스모움",
+      "en": "Cosmoem",
+      "ja": "コスモウム"
+    },
     "speed": 37,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/790.png"
   },
@@ -7906,9 +9486,11 @@ export const allPokemonRoster = [
     "id": "nat-0791",
     "dexNo": 791,
     "formKey": "base",
-    "displayName": "솔가레오",
-    "displayNameEn": "Solgaleo",
-    "displayNameJa": "ソルガレオ",
+    "names": {
+      "ko": "솔가레오",
+      "en": "Solgaleo",
+      "ja": "ソルガレオ"
+    },
     "speed": 97,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/791.png"
   },
@@ -7916,9 +9498,11 @@ export const allPokemonRoster = [
     "id": "nat-0792",
     "dexNo": 792,
     "formKey": "base",
-    "displayName": "루나아라",
-    "displayNameEn": "Lunala",
-    "displayNameJa": "ルナアーラ",
+    "names": {
+      "ko": "루나아라",
+      "en": "Lunala",
+      "ja": "ルナアーラ"
+    },
     "speed": 97,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/792.png"
   },
@@ -7926,9 +9510,11 @@ export const allPokemonRoster = [
     "id": "nat-0793",
     "dexNo": 793,
     "formKey": "base",
-    "displayName": "텅비드",
-    "displayNameEn": "Nihilego",
-    "displayNameJa": "ウツロイド",
+    "names": {
+      "ko": "텅비드",
+      "en": "Nihilego",
+      "ja": "ウツロイド"
+    },
     "speed": 103,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/793.png"
   },
@@ -7936,9 +9522,11 @@ export const allPokemonRoster = [
     "id": "nat-0794",
     "dexNo": 794,
     "formKey": "base",
-    "displayName": "매시붕",
-    "displayNameEn": "Buzzwole",
-    "displayNameJa": "マッシブーン",
+    "names": {
+      "ko": "매시붕",
+      "en": "Buzzwole",
+      "ja": "マッシブーン"
+    },
     "speed": 79,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/794.png"
   },
@@ -7946,9 +9534,11 @@ export const allPokemonRoster = [
     "id": "nat-0795",
     "dexNo": 795,
     "formKey": "base",
-    "displayName": "페로코체",
-    "displayNameEn": "Pheromosa",
-    "displayNameJa": "フェローチェ",
+    "names": {
+      "ko": "페로코체",
+      "en": "Pheromosa",
+      "ja": "フェローチェ"
+    },
     "speed": 151,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/795.png"
   },
@@ -7956,9 +9546,11 @@ export const allPokemonRoster = [
     "id": "nat-0796",
     "dexNo": 796,
     "formKey": "base",
-    "displayName": "전수목",
-    "displayNameEn": "Xurkitree",
-    "displayNameJa": "デンジュモク",
+    "names": {
+      "ko": "전수목",
+      "en": "Xurkitree",
+      "ja": "デンジュモク"
+    },
     "speed": 83,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/796.png"
   },
@@ -7966,9 +9558,11 @@ export const allPokemonRoster = [
     "id": "nat-0797",
     "dexNo": 797,
     "formKey": "base",
-    "displayName": "철화구야",
-    "displayNameEn": "Celesteela",
-    "displayNameJa": "テッカグヤ",
+    "names": {
+      "ko": "철화구야",
+      "en": "Celesteela",
+      "ja": "テッカグヤ"
+    },
     "speed": 61,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/797.png"
   },
@@ -7976,9 +9570,11 @@ export const allPokemonRoster = [
     "id": "nat-0798",
     "dexNo": 798,
     "formKey": "base",
-    "displayName": "종이신도",
-    "displayNameEn": "Kartana",
-    "displayNameJa": "カミツルギ",
+    "names": {
+      "ko": "종이신도",
+      "en": "Kartana",
+      "ja": "カミツルギ"
+    },
     "speed": 109,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/798.png"
   },
@@ -7986,9 +9582,11 @@ export const allPokemonRoster = [
     "id": "nat-0799",
     "dexNo": 799,
     "formKey": "base",
-    "displayName": "악식킹",
-    "displayNameEn": "Guzzlord",
-    "displayNameJa": "アクジキング",
+    "names": {
+      "ko": "악식킹",
+      "en": "Guzzlord",
+      "ja": "アクジキング"
+    },
     "speed": 43,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/799.png"
   },
@@ -7996,9 +9594,11 @@ export const allPokemonRoster = [
     "id": "nat-0800",
     "dexNo": 800,
     "formKey": "base",
-    "displayName": "네크로즈마",
-    "displayNameEn": "Necrozma",
-    "displayNameJa": "ネクロズマ",
+    "names": {
+      "ko": "네크로즈마",
+      "en": "Necrozma",
+      "ja": "ネクロズマ"
+    },
     "speed": 79,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/800.png"
   },
@@ -8006,9 +9606,11 @@ export const allPokemonRoster = [
     "id": "nat-0801",
     "dexNo": 801,
     "formKey": "base",
-    "displayName": "마기아나",
-    "displayNameEn": "Magearna",
-    "displayNameJa": "マギアナ",
+    "names": {
+      "ko": "마기아나",
+      "en": "Magearna",
+      "ja": "マギアナ"
+    },
     "speed": 65,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/801.png"
   },
@@ -8016,9 +9618,11 @@ export const allPokemonRoster = [
     "id": "nat-0802",
     "dexNo": 802,
     "formKey": "base",
-    "displayName": "마샤도",
-    "displayNameEn": "Marshadow",
-    "displayNameJa": "マーシャドー",
+    "names": {
+      "ko": "마샤도",
+      "en": "Marshadow",
+      "ja": "マーシャドー"
+    },
     "speed": 125,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/802.png"
   },
@@ -8026,9 +9630,11 @@ export const allPokemonRoster = [
     "id": "nat-0803",
     "dexNo": 803,
     "formKey": "base",
-    "displayName": "베베놈",
-    "displayNameEn": "Poipole",
-    "displayNameJa": "ベベノム",
+    "names": {
+      "ko": "베베놈",
+      "en": "Poipole",
+      "ja": "ベベノム"
+    },
     "speed": 73,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/803.png"
   },
@@ -8036,9 +9642,11 @@ export const allPokemonRoster = [
     "id": "nat-0804",
     "dexNo": 804,
     "formKey": "base",
-    "displayName": "아고용",
-    "displayNameEn": "Naganadel",
-    "displayNameJa": "アーゴヨン",
+    "names": {
+      "ko": "아고용",
+      "en": "Naganadel",
+      "ja": "アーゴヨン"
+    },
     "speed": 121,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/804.png"
   },
@@ -8046,9 +9654,11 @@ export const allPokemonRoster = [
     "id": "nat-0805",
     "dexNo": 805,
     "formKey": "base",
-    "displayName": "차곡차곡",
-    "displayNameEn": "Stakataka",
-    "displayNameJa": "ツンデツンデ",
+    "names": {
+      "ko": "차곡차곡",
+      "en": "Stakataka",
+      "ja": "ツンデツンデ"
+    },
     "speed": 13,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/805.png"
   },
@@ -8056,9 +9666,11 @@ export const allPokemonRoster = [
     "id": "nat-0806",
     "dexNo": 806,
     "formKey": "base",
-    "displayName": "두파팡",
-    "displayNameEn": "Blacephalon",
-    "displayNameJa": "ズガドーン",
+    "names": {
+      "ko": "두파팡",
+      "en": "Blacephalon",
+      "ja": "ズガドーン"
+    },
     "speed": 107,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/806.png"
   },
@@ -8066,9 +9678,11 @@ export const allPokemonRoster = [
     "id": "nat-0807",
     "dexNo": 807,
     "formKey": "base",
-    "displayName": "제라오라",
-    "displayNameEn": "Zeraora",
-    "displayNameJa": "ゼラオラ",
+    "names": {
+      "ko": "제라오라",
+      "en": "Zeraora",
+      "ja": "ゼラオラ"
+    },
     "speed": 143,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/807.png"
   },
@@ -8076,9 +9690,11 @@ export const allPokemonRoster = [
     "id": "nat-0808",
     "dexNo": 808,
     "formKey": "base",
-    "displayName": "멜탄",
-    "displayNameEn": "Meltan",
-    "displayNameJa": "メルタン",
+    "names": {
+      "ko": "멜탄",
+      "en": "Meltan",
+      "ja": "メルタン"
+    },
     "speed": 34,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/808.png"
   },
@@ -8086,9 +9702,11 @@ export const allPokemonRoster = [
     "id": "nat-0809",
     "dexNo": 809,
     "formKey": "base",
-    "displayName": "멜메탈",
-    "displayNameEn": "Melmetal",
-    "displayNameJa": "メルメタル",
+    "names": {
+      "ko": "멜메탈",
+      "en": "Melmetal",
+      "ja": "メルメタル"
+    },
     "speed": 34,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/809.png"
   },
@@ -8096,9 +9714,11 @@ export const allPokemonRoster = [
     "id": "nat-0810",
     "dexNo": 810,
     "formKey": "base",
-    "displayName": "흥나숭",
-    "displayNameEn": "Grookey",
-    "displayNameJa": "サルノリ",
+    "names": {
+      "ko": "흥나숭",
+      "en": "Grookey",
+      "ja": "サルノリ"
+    },
     "speed": 65,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/810.png"
   },
@@ -8106,9 +9726,11 @@ export const allPokemonRoster = [
     "id": "nat-0811",
     "dexNo": 811,
     "formKey": "base",
-    "displayName": "채키몽",
-    "displayNameEn": "Thwackey",
-    "displayNameJa": "バチンキー",
+    "names": {
+      "ko": "채키몽",
+      "en": "Thwackey",
+      "ja": "バチンキー"
+    },
     "speed": 80,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/811.png"
   },
@@ -8116,9 +9738,11 @@ export const allPokemonRoster = [
     "id": "nat-0812",
     "dexNo": 812,
     "formKey": "base",
-    "displayName": "고릴타",
-    "displayNameEn": "Rillaboom",
-    "displayNameJa": "ゴリランダー",
+    "names": {
+      "ko": "고릴타",
+      "en": "Rillaboom",
+      "ja": "ゴリランダー"
+    },
     "speed": 85,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/812.png"
   },
@@ -8126,9 +9750,11 @@ export const allPokemonRoster = [
     "id": "nat-0813",
     "dexNo": 813,
     "formKey": "base",
-    "displayName": "염버니",
-    "displayNameEn": "Scorbunny",
-    "displayNameJa": "ヒバニー",
+    "names": {
+      "ko": "염버니",
+      "en": "Scorbunny",
+      "ja": "ヒバニー"
+    },
     "speed": 69,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/813.png"
   },
@@ -8136,9 +9762,11 @@ export const allPokemonRoster = [
     "id": "nat-0814",
     "dexNo": 814,
     "formKey": "base",
-    "displayName": "래비풋",
-    "displayNameEn": "Raboot",
-    "displayNameJa": "ラビフット",
+    "names": {
+      "ko": "래비풋",
+      "en": "Raboot",
+      "ja": "ラビフット"
+    },
     "speed": 94,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/814.png"
   },
@@ -8146,9 +9774,11 @@ export const allPokemonRoster = [
     "id": "nat-0815",
     "dexNo": 815,
     "formKey": "base",
-    "displayName": "에이스번",
-    "displayNameEn": "Cinderace",
-    "displayNameJa": "エースバーン",
+    "names": {
+      "ko": "에이스번",
+      "en": "Cinderace",
+      "ja": "エースバーン"
+    },
     "speed": 119,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/815.png"
   },
@@ -8156,9 +9786,11 @@ export const allPokemonRoster = [
     "id": "nat-0816",
     "dexNo": 816,
     "formKey": "base",
-    "displayName": "울머기",
-    "displayNameEn": "Sobble",
-    "displayNameJa": "メッソン",
+    "names": {
+      "ko": "울머기",
+      "en": "Sobble",
+      "ja": "メッソン"
+    },
     "speed": 70,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/816.png"
   },
@@ -8166,9 +9798,11 @@ export const allPokemonRoster = [
     "id": "nat-0817",
     "dexNo": 817,
     "formKey": "base",
-    "displayName": "누겔레온",
-    "displayNameEn": "Drizzile",
-    "displayNameJa": "ジメレオン",
+    "names": {
+      "ko": "누겔레온",
+      "en": "Drizzile",
+      "ja": "ジメレオン"
+    },
     "speed": 90,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/817.png"
   },
@@ -8176,9 +9810,11 @@ export const allPokemonRoster = [
     "id": "nat-0818",
     "dexNo": 818,
     "formKey": "base",
-    "displayName": "인텔리레온",
-    "displayNameEn": "Inteleon",
-    "displayNameJa": "インテレオン",
+    "names": {
+      "ko": "인텔리레온",
+      "en": "Inteleon",
+      "ja": "インテレオン"
+    },
     "speed": 120,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/818.png"
   },
@@ -8186,9 +9822,11 @@ export const allPokemonRoster = [
     "id": "nat-0819",
     "dexNo": 819,
     "formKey": "base",
-    "displayName": "탐리스",
-    "displayNameEn": "Skwovet",
-    "displayNameJa": "ホシガリス",
+    "names": {
+      "ko": "탐리스",
+      "en": "Skwovet",
+      "ja": "ホシガリス"
+    },
     "speed": 25,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/819.png"
   },
@@ -8196,9 +9834,11 @@ export const allPokemonRoster = [
     "id": "nat-0820",
     "dexNo": 820,
     "formKey": "base",
-    "displayName": "요씽리스",
-    "displayNameEn": "Greedent",
-    "displayNameJa": "ヨクバリス",
+    "names": {
+      "ko": "요씽리스",
+      "en": "Greedent",
+      "ja": "ヨクバリス"
+    },
     "speed": 20,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/820.png"
   },
@@ -8206,9 +9846,11 @@ export const allPokemonRoster = [
     "id": "nat-0821",
     "dexNo": 821,
     "formKey": "base",
-    "displayName": "파라꼬",
-    "displayNameEn": "Rookidee",
-    "displayNameJa": "ココガラ",
+    "names": {
+      "ko": "파라꼬",
+      "en": "Rookidee",
+      "ja": "ココガラ"
+    },
     "speed": 57,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/821.png"
   },
@@ -8216,9 +9858,11 @@ export const allPokemonRoster = [
     "id": "nat-0822",
     "dexNo": 822,
     "formKey": "base",
-    "displayName": "파크로우",
-    "displayNameEn": "Corvisquire",
-    "displayNameJa": "アオガラス",
+    "names": {
+      "ko": "파크로우",
+      "en": "Corvisquire",
+      "ja": "アオガラス"
+    },
     "speed": 77,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/822.png"
   },
@@ -8226,9 +9870,11 @@ export const allPokemonRoster = [
     "id": "nat-0823",
     "dexNo": 823,
     "formKey": "base",
-    "displayName": "아머까오",
-    "displayNameEn": "Corviknight",
-    "displayNameJa": "アーマーガア",
+    "names": {
+      "ko": "아머까오",
+      "en": "Corviknight",
+      "ja": "アーマーガア"
+    },
     "speed": 67,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/823.png"
   },
@@ -8236,9 +9882,11 @@ export const allPokemonRoster = [
     "id": "nat-0824",
     "dexNo": 824,
     "formKey": "base",
-    "displayName": "두루지벌레",
-    "displayNameEn": "Blipbug",
-    "displayNameJa": "サッチムシ",
+    "names": {
+      "ko": "두루지벌레",
+      "en": "Blipbug",
+      "ja": "サッチムシ"
+    },
     "speed": 45,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/824.png"
   },
@@ -8246,9 +9894,11 @@ export const allPokemonRoster = [
     "id": "nat-0825",
     "dexNo": 825,
     "formKey": "base",
-    "displayName": "레돔벌레",
-    "displayNameEn": "Dottler",
-    "displayNameJa": "レドームシ",
+    "names": {
+      "ko": "레돔벌레",
+      "en": "Dottler",
+      "ja": "レドームシ"
+    },
     "speed": 30,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/825.png"
   },
@@ -8256,9 +9906,11 @@ export const allPokemonRoster = [
     "id": "nat-0826",
     "dexNo": 826,
     "formKey": "base",
-    "displayName": "이올브",
-    "displayNameEn": "Orbeetle",
-    "displayNameJa": "イオルブ",
+    "names": {
+      "ko": "이올브",
+      "en": "Orbeetle",
+      "ja": "イオルブ"
+    },
     "speed": 90,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/826.png"
   },
@@ -8266,9 +9918,11 @@ export const allPokemonRoster = [
     "id": "nat-0827",
     "dexNo": 827,
     "formKey": "base",
-    "displayName": "훔처우",
-    "displayNameEn": "Nickit",
-    "displayNameJa": "クスネ",
+    "names": {
+      "ko": "훔처우",
+      "en": "Nickit",
+      "ja": "クスネ"
+    },
     "speed": 50,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/827.png"
   },
@@ -8276,9 +9930,11 @@ export const allPokemonRoster = [
     "id": "nat-0828",
     "dexNo": 828,
     "formKey": "base",
-    "displayName": "폭슬라이",
-    "displayNameEn": "Thievul",
-    "displayNameJa": "フォクスライ",
+    "names": {
+      "ko": "폭슬라이",
+      "en": "Thievul",
+      "ja": "フォクスライ"
+    },
     "speed": 90,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/828.png"
   },
@@ -8286,9 +9942,11 @@ export const allPokemonRoster = [
     "id": "nat-0829",
     "dexNo": 829,
     "formKey": "base",
-    "displayName": "꼬모카",
-    "displayNameEn": "Gossifleur",
-    "displayNameJa": "ヒメンカ",
+    "names": {
+      "ko": "꼬모카",
+      "en": "Gossifleur",
+      "ja": "ヒメンカ"
+    },
     "speed": 10,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/829.png"
   },
@@ -8296,9 +9954,11 @@ export const allPokemonRoster = [
     "id": "nat-0830",
     "dexNo": 830,
     "formKey": "base",
-    "displayName": "백솜모카",
-    "displayNameEn": "Eldegoss",
-    "displayNameJa": "ワタシラガ",
+    "names": {
+      "ko": "백솜모카",
+      "en": "Eldegoss",
+      "ja": "ワタシラガ"
+    },
     "speed": 60,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/830.png"
   },
@@ -8306,9 +9966,11 @@ export const allPokemonRoster = [
     "id": "nat-0831",
     "dexNo": 831,
     "formKey": "base",
-    "displayName": "우르",
-    "displayNameEn": "Wooloo",
-    "displayNameJa": "ウールー",
+    "names": {
+      "ko": "우르",
+      "en": "Wooloo",
+      "ja": "ウールー"
+    },
     "speed": 48,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/831.png"
   },
@@ -8316,9 +9978,11 @@ export const allPokemonRoster = [
     "id": "nat-0832",
     "dexNo": 832,
     "formKey": "base",
-    "displayName": "배우르",
-    "displayNameEn": "Dubwool",
-    "displayNameJa": "バイウールー",
+    "names": {
+      "ko": "배우르",
+      "en": "Dubwool",
+      "ja": "バイウールー"
+    },
     "speed": 88,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/832.png"
   },
@@ -8326,9 +9990,11 @@ export const allPokemonRoster = [
     "id": "nat-0833",
     "dexNo": 833,
     "formKey": "base",
-    "displayName": "깨물부기",
-    "displayNameEn": "Chewtle",
-    "displayNameJa": "カムカメ",
+    "names": {
+      "ko": "깨물부기",
+      "en": "Chewtle",
+      "ja": "カムカメ"
+    },
     "speed": 44,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/833.png"
   },
@@ -8336,9 +10002,11 @@ export const allPokemonRoster = [
     "id": "nat-0834",
     "dexNo": 834,
     "formKey": "base",
-    "displayName": "갈가부기",
-    "displayNameEn": "Drednaw",
-    "displayNameJa": "カジリガメ",
+    "names": {
+      "ko": "갈가부기",
+      "en": "Drednaw",
+      "ja": "カジリガメ"
+    },
     "speed": 74,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/834.png"
   },
@@ -8346,9 +10014,11 @@ export const allPokemonRoster = [
     "id": "nat-0835",
     "dexNo": 835,
     "formKey": "base",
-    "displayName": "멍파치",
-    "displayNameEn": "Yamper",
-    "displayNameJa": "ワンパチ",
+    "names": {
+      "ko": "멍파치",
+      "en": "Yamper",
+      "ja": "ワンパチ"
+    },
     "speed": 26,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/835.png"
   },
@@ -8356,9 +10026,11 @@ export const allPokemonRoster = [
     "id": "nat-0836",
     "dexNo": 836,
     "formKey": "base",
-    "displayName": "펄스멍",
-    "displayNameEn": "Boltund",
-    "displayNameJa": "パルスワン",
+    "names": {
+      "ko": "펄스멍",
+      "en": "Boltund",
+      "ja": "パルスワン"
+    },
     "speed": 121,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/836.png"
   },
@@ -8366,9 +10038,11 @@ export const allPokemonRoster = [
     "id": "nat-0837",
     "dexNo": 837,
     "formKey": "base",
-    "displayName": "탄동",
-    "displayNameEn": "Rolycoly",
-    "displayNameJa": "タンドン",
+    "names": {
+      "ko": "탄동",
+      "en": "Rolycoly",
+      "ja": "タンドン"
+    },
     "speed": 30,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/837.png"
   },
@@ -8376,9 +10050,11 @@ export const allPokemonRoster = [
     "id": "nat-0838",
     "dexNo": 838,
     "formKey": "base",
-    "displayName": "탄차곤",
-    "displayNameEn": "Carkol",
-    "displayNameJa": "トロッゴン",
+    "names": {
+      "ko": "탄차곤",
+      "en": "Carkol",
+      "ja": "トロッゴン"
+    },
     "speed": 50,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/838.png"
   },
@@ -8386,9 +10062,11 @@ export const allPokemonRoster = [
     "id": "nat-0839",
     "dexNo": 839,
     "formKey": "base",
-    "displayName": "석탄산",
-    "displayNameEn": "Coalossal",
-    "displayNameJa": "セキタンザン",
+    "names": {
+      "ko": "석탄산",
+      "en": "Coalossal",
+      "ja": "セキタンザン"
+    },
     "speed": 30,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/839.png"
   },
@@ -8396,9 +10074,11 @@ export const allPokemonRoster = [
     "id": "nat-0840",
     "dexNo": 840,
     "formKey": "base",
-    "displayName": "과사삭벌레",
-    "displayNameEn": "Applin",
-    "displayNameJa": "カジッチュ",
+    "names": {
+      "ko": "과사삭벌레",
+      "en": "Applin",
+      "ja": "カジッチュ"
+    },
     "speed": 20,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/840.png"
   },
@@ -8406,9 +10086,11 @@ export const allPokemonRoster = [
     "id": "nat-0841",
     "dexNo": 841,
     "formKey": "base",
-    "displayName": "애프룡",
-    "displayNameEn": "Flapple",
-    "displayNameJa": "アップリュー",
+    "names": {
+      "ko": "애프룡",
+      "en": "Flapple",
+      "ja": "アップリュー"
+    },
     "speed": 70,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/841.png"
   },
@@ -8416,9 +10098,11 @@ export const allPokemonRoster = [
     "id": "nat-0842",
     "dexNo": 842,
     "formKey": "base",
-    "displayName": "단지래플",
-    "displayNameEn": "Appletun",
-    "displayNameJa": "タルップル",
+    "names": {
+      "ko": "단지래플",
+      "en": "Appletun",
+      "ja": "タルップル"
+    },
     "speed": 30,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/842.png"
   },
@@ -8426,9 +10110,11 @@ export const allPokemonRoster = [
     "id": "nat-0843",
     "dexNo": 843,
     "formKey": "base",
-    "displayName": "모래뱀",
-    "displayNameEn": "Silicobra",
-    "displayNameJa": "スナヘビ",
+    "names": {
+      "ko": "모래뱀",
+      "en": "Silicobra",
+      "ja": "スナヘビ"
+    },
     "speed": 46,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/843.png"
   },
@@ -8436,9 +10122,11 @@ export const allPokemonRoster = [
     "id": "nat-0844",
     "dexNo": 844,
     "formKey": "base",
-    "displayName": "사다이사",
-    "displayNameEn": "Sandaconda",
-    "displayNameJa": "サダイジャ",
+    "names": {
+      "ko": "사다이사",
+      "en": "Sandaconda",
+      "ja": "サダイジャ"
+    },
     "speed": 71,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/844.png"
   },
@@ -8446,9 +10134,11 @@ export const allPokemonRoster = [
     "id": "nat-0845",
     "dexNo": 845,
     "formKey": "base",
-    "displayName": "윽우지",
-    "displayNameEn": "Cramorant",
-    "displayNameJa": "ウッウ",
+    "names": {
+      "ko": "윽우지",
+      "en": "Cramorant",
+      "ja": "ウッウ"
+    },
     "speed": 85,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/845.png"
   },
@@ -8456,9 +10146,11 @@ export const allPokemonRoster = [
     "id": "nat-0846",
     "dexNo": 846,
     "formKey": "base",
-    "displayName": "찌로꼬치",
-    "displayNameEn": "Arrokuda",
-    "displayNameJa": "サシカマス",
+    "names": {
+      "ko": "찌로꼬치",
+      "en": "Arrokuda",
+      "ja": "サシカマス"
+    },
     "speed": 66,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/846.png"
   },
@@ -8466,9 +10158,11 @@ export const allPokemonRoster = [
     "id": "nat-0847",
     "dexNo": 847,
     "formKey": "base",
-    "displayName": "꼬치조",
-    "displayNameEn": "Barraskewda",
-    "displayNameJa": "カマスジョー",
+    "names": {
+      "ko": "꼬치조",
+      "en": "Barraskewda",
+      "ja": "カマスジョー"
+    },
     "speed": 136,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/847.png"
   },
@@ -8476,9 +10170,11 @@ export const allPokemonRoster = [
     "id": "nat-0848",
     "dexNo": 848,
     "formKey": "base",
-    "displayName": "일레즌",
-    "displayNameEn": "Toxel",
-    "displayNameJa": "エレズン",
+    "names": {
+      "ko": "일레즌",
+      "en": "Toxel",
+      "ja": "エレズン"
+    },
     "speed": 40,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/848.png"
   },
@@ -8486,9 +10182,11 @@ export const allPokemonRoster = [
     "id": "nat-0849",
     "dexNo": 849,
     "formKey": "base",
-    "displayName": "스트린더",
-    "displayNameEn": "Toxtricity",
-    "displayNameJa": "ストリンダー",
+    "names": {
+      "ko": "스트린더",
+      "en": "Toxtricity",
+      "ja": "ストリンダー"
+    },
     "speed": 75,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/849.png"
   },
@@ -8496,9 +10194,11 @@ export const allPokemonRoster = [
     "id": "nat-0850",
     "dexNo": 850,
     "formKey": "base",
-    "displayName": "태우지네",
-    "displayNameEn": "Sizzlipede",
-    "displayNameJa": "ヤクデ",
+    "names": {
+      "ko": "태우지네",
+      "en": "Sizzlipede",
+      "ja": "ヤクデ"
+    },
     "speed": 45,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/850.png"
   },
@@ -8506,9 +10206,11 @@ export const allPokemonRoster = [
     "id": "nat-0851",
     "dexNo": 851,
     "formKey": "base",
-    "displayName": "다태우지네",
-    "displayNameEn": "Centiskorch",
-    "displayNameJa": "マルヤクデ",
+    "names": {
+      "ko": "다태우지네",
+      "en": "Centiskorch",
+      "ja": "マルヤクデ"
+    },
     "speed": 65,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/851.png"
   },
@@ -8516,9 +10218,11 @@ export const allPokemonRoster = [
     "id": "nat-0852",
     "dexNo": 852,
     "formKey": "base",
-    "displayName": "때때무노",
-    "displayNameEn": "Clobbopus",
-    "displayNameJa": "タタッコ",
+    "names": {
+      "ko": "때때무노",
+      "en": "Clobbopus",
+      "ja": "タタッコ"
+    },
     "speed": 32,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/852.png"
   },
@@ -8526,9 +10230,11 @@ export const allPokemonRoster = [
     "id": "nat-0853",
     "dexNo": 853,
     "formKey": "base",
-    "displayName": "케오퍼스",
-    "displayNameEn": "Grapploct",
-    "displayNameJa": "オトスパス",
+    "names": {
+      "ko": "케오퍼스",
+      "en": "Grapploct",
+      "ja": "オトスパス"
+    },
     "speed": 42,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/853.png"
   },
@@ -8536,9 +10242,11 @@ export const allPokemonRoster = [
     "id": "nat-0854",
     "dexNo": 854,
     "formKey": "base",
-    "displayName": "데인차",
-    "displayNameEn": "Sinistea",
-    "displayNameJa": "ヤバチャ",
+    "names": {
+      "ko": "데인차",
+      "en": "Sinistea",
+      "ja": "ヤバチャ"
+    },
     "speed": 50,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/854.png"
   },
@@ -8546,9 +10254,11 @@ export const allPokemonRoster = [
     "id": "nat-0855",
     "dexNo": 855,
     "formKey": "base",
-    "displayName": "포트데스",
-    "displayNameEn": "Polteageist",
-    "displayNameJa": "ポットデス",
+    "names": {
+      "ko": "포트데스",
+      "en": "Polteageist",
+      "ja": "ポットデス"
+    },
     "speed": 70,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/855.png"
   },
@@ -8556,9 +10266,11 @@ export const allPokemonRoster = [
     "id": "nat-0856",
     "dexNo": 856,
     "formKey": "base",
-    "displayName": "몸지브림",
-    "displayNameEn": "Hatenna",
-    "displayNameJa": "ミブリム",
+    "names": {
+      "ko": "몸지브림",
+      "en": "Hatenna",
+      "ja": "ミブリム"
+    },
     "speed": 39,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/856.png"
   },
@@ -8566,9 +10278,11 @@ export const allPokemonRoster = [
     "id": "nat-0857",
     "dexNo": 857,
     "formKey": "base",
-    "displayName": "손지브림",
-    "displayNameEn": "Hattrem",
-    "displayNameJa": "テブリム",
+    "names": {
+      "ko": "손지브림",
+      "en": "Hattrem",
+      "ja": "テブリム"
+    },
     "speed": 49,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/857.png"
   },
@@ -8576,9 +10290,11 @@ export const allPokemonRoster = [
     "id": "nat-0858",
     "dexNo": 858,
     "formKey": "base",
-    "displayName": "브리무음",
-    "displayNameEn": "Hatterene",
-    "displayNameJa": "ブリムオン",
+    "names": {
+      "ko": "브리무음",
+      "en": "Hatterene",
+      "ja": "ブリムオン"
+    },
     "speed": 29,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/858.png"
   },
@@ -8586,9 +10302,11 @@ export const allPokemonRoster = [
     "id": "nat-0859",
     "dexNo": 859,
     "formKey": "base",
-    "displayName": "메롱꿍",
-    "displayNameEn": "Impidimp",
-    "displayNameJa": "ベロバー",
+    "names": {
+      "ko": "메롱꿍",
+      "en": "Impidimp",
+      "ja": "ベロバー"
+    },
     "speed": 50,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/859.png"
   },
@@ -8596,9 +10314,11 @@ export const allPokemonRoster = [
     "id": "nat-0860",
     "dexNo": 860,
     "formKey": "base",
-    "displayName": "쏘겨모",
-    "displayNameEn": "Morgrem",
-    "displayNameJa": "ギモー",
+    "names": {
+      "ko": "쏘겨모",
+      "en": "Morgrem",
+      "ja": "ギモー"
+    },
     "speed": 70,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/860.png"
   },
@@ -8606,9 +10326,11 @@ export const allPokemonRoster = [
     "id": "nat-0861",
     "dexNo": 861,
     "formKey": "base",
-    "displayName": "오롱털",
-    "displayNameEn": "Grimmsnarl",
-    "displayNameJa": "オーロンゲ",
+    "names": {
+      "ko": "오롱털",
+      "en": "Grimmsnarl",
+      "ja": "オーロンゲ"
+    },
     "speed": 60,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/861.png"
   },
@@ -8616,9 +10338,11 @@ export const allPokemonRoster = [
     "id": "nat-0862",
     "dexNo": 862,
     "formKey": "base",
-    "displayName": "가로막구리",
-    "displayNameEn": "Obstagoon",
-    "displayNameJa": "タチフサグマ",
+    "names": {
+      "ko": "가로막구리",
+      "en": "Obstagoon",
+      "ja": "タチフサグマ"
+    },
     "speed": 95,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/862.png"
   },
@@ -8626,9 +10350,11 @@ export const allPokemonRoster = [
     "id": "nat-0863",
     "dexNo": 863,
     "formKey": "base",
-    "displayName": "나이킹",
-    "displayNameEn": "Perrserker",
-    "displayNameJa": "ニャイキング",
+    "names": {
+      "ko": "나이킹",
+      "en": "Perrserker",
+      "ja": "ニャイキング"
+    },
     "speed": 50,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/863.png"
   },
@@ -8636,9 +10362,11 @@ export const allPokemonRoster = [
     "id": "nat-0864",
     "dexNo": 864,
     "formKey": "base",
-    "displayName": "산호르곤",
-    "displayNameEn": "Cursola",
-    "displayNameJa": "サニゴーン",
+    "names": {
+      "ko": "산호르곤",
+      "en": "Cursola",
+      "ja": "サニゴーン"
+    },
     "speed": 30,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/864.png"
   },
@@ -8646,9 +10374,11 @@ export const allPokemonRoster = [
     "id": "nat-0865",
     "dexNo": 865,
     "formKey": "base",
-    "displayName": "창파나이트",
-    "displayNameEn": "Sirfetch’d",
-    "displayNameJa": "ネギガナイト",
+    "names": {
+      "ko": "창파나이트",
+      "en": "Sirfetch’d",
+      "ja": "ネギガナイト"
+    },
     "speed": 65,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/865.png"
   },
@@ -8656,9 +10386,11 @@ export const allPokemonRoster = [
     "id": "nat-0866",
     "dexNo": 866,
     "formKey": "base",
-    "displayName": "마임꽁꽁",
-    "displayNameEn": "Mr. Rime",
-    "displayNameJa": "バリコオル",
+    "names": {
+      "ko": "마임꽁꽁",
+      "en": "Mr. Rime",
+      "ja": "バリコオル"
+    },
     "speed": 70,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/866.png"
   },
@@ -8666,9 +10398,11 @@ export const allPokemonRoster = [
     "id": "nat-0867",
     "dexNo": 867,
     "formKey": "base",
-    "displayName": "데스판",
-    "displayNameEn": "Runerigus",
-    "displayNameJa": "デスバーン",
+    "names": {
+      "ko": "데스판",
+      "en": "Runerigus",
+      "ja": "デスバーン"
+    },
     "speed": 30,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/867.png"
   },
@@ -8676,9 +10410,11 @@ export const allPokemonRoster = [
     "id": "nat-0868",
     "dexNo": 868,
     "formKey": "base",
-    "displayName": "마빌크",
-    "displayNameEn": "Milcery",
-    "displayNameJa": "マホミル",
+    "names": {
+      "ko": "마빌크",
+      "en": "Milcery",
+      "ja": "マホミル"
+    },
     "speed": 34,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/868.png"
   },
@@ -8686,9 +10422,11 @@ export const allPokemonRoster = [
     "id": "nat-0869",
     "dexNo": 869,
     "formKey": "base",
-    "displayName": "마휘핑",
-    "displayNameEn": "Alcremie",
-    "displayNameJa": "マホイップ",
+    "names": {
+      "ko": "마휘핑",
+      "en": "Alcremie",
+      "ja": "マホイップ"
+    },
     "speed": 64,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/869.png"
   },
@@ -8696,9 +10434,11 @@ export const allPokemonRoster = [
     "id": "nat-0870",
     "dexNo": 870,
     "formKey": "base",
-    "displayName": "대여르",
-    "displayNameEn": "Falinks",
-    "displayNameJa": "タイレーツ",
+    "names": {
+      "ko": "대여르",
+      "en": "Falinks",
+      "ja": "タイレーツ"
+    },
     "speed": 75,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/870.png"
   },
@@ -8706,9 +10446,11 @@ export const allPokemonRoster = [
     "id": "nat-0871",
     "dexNo": 871,
     "formKey": "base",
-    "displayName": "찌르성게",
-    "displayNameEn": "Pincurchin",
-    "displayNameJa": "バチンウニ",
+    "names": {
+      "ko": "찌르성게",
+      "en": "Pincurchin",
+      "ja": "バチンウニ"
+    },
     "speed": 15,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/871.png"
   },
@@ -8716,9 +10458,11 @@ export const allPokemonRoster = [
     "id": "nat-0872",
     "dexNo": 872,
     "formKey": "base",
-    "displayName": "누니머기",
-    "displayNameEn": "Snom",
-    "displayNameJa": "ユキハミ",
+    "names": {
+      "ko": "누니머기",
+      "en": "Snom",
+      "ja": "ユキハミ"
+    },
     "speed": 20,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/872.png"
   },
@@ -8726,9 +10470,11 @@ export const allPokemonRoster = [
     "id": "nat-0873",
     "dexNo": 873,
     "formKey": "base",
-    "displayName": "모스노우",
-    "displayNameEn": "Frosmoth",
-    "displayNameJa": "モスノウ",
+    "names": {
+      "ko": "모스노우",
+      "en": "Frosmoth",
+      "ja": "モスノウ"
+    },
     "speed": 65,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/873.png"
   },
@@ -8736,9 +10482,11 @@ export const allPokemonRoster = [
     "id": "nat-0874",
     "dexNo": 874,
     "formKey": "base",
-    "displayName": "돌헨진",
-    "displayNameEn": "Stonjourner",
-    "displayNameJa": "イシヘンジン",
+    "names": {
+      "ko": "돌헨진",
+      "en": "Stonjourner",
+      "ja": "イシヘンジン"
+    },
     "speed": 70,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/874.png"
   },
@@ -8746,9 +10494,11 @@ export const allPokemonRoster = [
     "id": "nat-0875",
     "dexNo": 875,
     "formKey": "base",
-    "displayName": "빙큐보",
-    "displayNameEn": "Eiscue",
-    "displayNameJa": "コオリッポ",
+    "names": {
+      "ko": "빙큐보",
+      "en": "Eiscue",
+      "ja": "コオリッポ"
+    },
     "speed": 50,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/875.png"
   },
@@ -8756,9 +10506,11 @@ export const allPokemonRoster = [
     "id": "nat-0876",
     "dexNo": 876,
     "formKey": "base",
-    "displayName": "에써르",
-    "displayNameEn": "Indeedee",
-    "displayNameJa": "イエッサン",
+    "names": {
+      "ko": "에써르",
+      "en": "Indeedee",
+      "ja": "イエッサン"
+    },
     "speed": 95,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/876.png"
   },
@@ -8766,9 +10518,11 @@ export const allPokemonRoster = [
     "id": "nat-0877",
     "dexNo": 877,
     "formKey": "base",
-    "displayName": "모르페코",
-    "displayNameEn": "Morpeko",
-    "displayNameJa": "モルペコ",
+    "names": {
+      "ko": "모르페코",
+      "en": "Morpeko",
+      "ja": "モルペコ"
+    },
     "speed": 97,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/877.png"
   },
@@ -8776,9 +10530,11 @@ export const allPokemonRoster = [
     "id": "nat-0878",
     "dexNo": 878,
     "formKey": "base",
-    "displayName": "끼리동",
-    "displayNameEn": "Cufant",
-    "displayNameJa": "ゾウドウ",
+    "names": {
+      "ko": "끼리동",
+      "en": "Cufant",
+      "ja": "ゾウドウ"
+    },
     "speed": 40,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/878.png"
   },
@@ -8786,9 +10542,11 @@ export const allPokemonRoster = [
     "id": "nat-0879",
     "dexNo": 879,
     "formKey": "base",
-    "displayName": "대왕끼리동",
-    "displayNameEn": "Copperajah",
-    "displayNameJa": "ダイオウドウ",
+    "names": {
+      "ko": "대왕끼리동",
+      "en": "Copperajah",
+      "ja": "ダイオウドウ"
+    },
     "speed": 30,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/879.png"
   },
@@ -8796,9 +10554,11 @@ export const allPokemonRoster = [
     "id": "nat-0880",
     "dexNo": 880,
     "formKey": "base",
-    "displayName": "파치래곤",
-    "displayNameEn": "Dracozolt",
-    "displayNameJa": "パッチラゴン",
+    "names": {
+      "ko": "파치래곤",
+      "en": "Dracozolt",
+      "ja": "パッチラゴン"
+    },
     "speed": 75,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/880.png"
   },
@@ -8806,9 +10566,11 @@ export const allPokemonRoster = [
     "id": "nat-0881",
     "dexNo": 881,
     "formKey": "base",
-    "displayName": "파치르돈",
-    "displayNameEn": "Arctozolt",
-    "displayNameJa": "パッチルドン",
+    "names": {
+      "ko": "파치르돈",
+      "en": "Arctozolt",
+      "ja": "パッチルドン"
+    },
     "speed": 55,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/881.png"
   },
@@ -8816,9 +10578,11 @@ export const allPokemonRoster = [
     "id": "nat-0882",
     "dexNo": 882,
     "formKey": "base",
-    "displayName": "어래곤",
-    "displayNameEn": "Dracovish",
-    "displayNameJa": "ウオノラゴン",
+    "names": {
+      "ko": "어래곤",
+      "en": "Dracovish",
+      "ja": "ウオノラゴン"
+    },
     "speed": 75,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/882.png"
   },
@@ -8826,9 +10590,11 @@ export const allPokemonRoster = [
     "id": "nat-0883",
     "dexNo": 883,
     "formKey": "base",
-    "displayName": "어치르돈",
-    "displayNameEn": "Arctovish",
-    "displayNameJa": "ウオチルドン",
+    "names": {
+      "ko": "어치르돈",
+      "en": "Arctovish",
+      "ja": "ウオチルドン"
+    },
     "speed": 55,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/883.png"
   },
@@ -8836,9 +10602,11 @@ export const allPokemonRoster = [
     "id": "nat-0884",
     "dexNo": 884,
     "formKey": "base",
-    "displayName": "두랄루돈",
-    "displayNameEn": "Duraludon",
-    "displayNameJa": "ジュラルドン",
+    "names": {
+      "ko": "두랄루돈",
+      "en": "Duraludon",
+      "ja": "ジュラルドン"
+    },
     "speed": 85,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/884.png"
   },
@@ -8846,9 +10614,11 @@ export const allPokemonRoster = [
     "id": "nat-0885",
     "dexNo": 885,
     "formKey": "base",
-    "displayName": "드라꼰",
-    "displayNameEn": "Dreepy",
-    "displayNameJa": "ドラメシヤ",
+    "names": {
+      "ko": "드라꼰",
+      "en": "Dreepy",
+      "ja": "ドラメシヤ"
+    },
     "speed": 82,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/885.png"
   },
@@ -8856,9 +10626,11 @@ export const allPokemonRoster = [
     "id": "nat-0886",
     "dexNo": 886,
     "formKey": "base",
-    "displayName": "드래런치",
-    "displayNameEn": "Drakloak",
-    "displayNameJa": "ドロンチ",
+    "names": {
+      "ko": "드래런치",
+      "en": "Drakloak",
+      "ja": "ドロンチ"
+    },
     "speed": 102,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/886.png"
   },
@@ -8866,9 +10638,11 @@ export const allPokemonRoster = [
     "id": "nat-0887",
     "dexNo": 887,
     "formKey": "base",
-    "displayName": "드래펄트",
-    "displayNameEn": "Dragapult",
-    "displayNameJa": "ドラパルト",
+    "names": {
+      "ko": "드래펄트",
+      "en": "Dragapult",
+      "ja": "ドラパルト"
+    },
     "speed": 142,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/887.png"
   },
@@ -8876,9 +10650,11 @@ export const allPokemonRoster = [
     "id": "nat-0888",
     "dexNo": 888,
     "formKey": "base",
-    "displayName": "자시안",
-    "displayNameEn": "Zacian",
-    "displayNameJa": "ザシアン",
+    "names": {
+      "ko": "자시안",
+      "en": "Zacian",
+      "ja": "ザシアン"
+    },
     "speed": 138,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/888.png"
   },
@@ -8886,9 +10662,11 @@ export const allPokemonRoster = [
     "id": "nat-0889",
     "dexNo": 889,
     "formKey": "base",
-    "displayName": "자마젠타",
-    "displayNameEn": "Zamazenta",
-    "displayNameJa": "ザマゼンタ",
+    "names": {
+      "ko": "자마젠타",
+      "en": "Zamazenta",
+      "ja": "ザマゼンタ"
+    },
     "speed": 138,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/889.png"
   },
@@ -8896,9 +10674,11 @@ export const allPokemonRoster = [
     "id": "nat-0890",
     "dexNo": 890,
     "formKey": "base",
-    "displayName": "무한다이노",
-    "displayNameEn": "Eternatus",
-    "displayNameJa": "ムゲンダイナ",
+    "names": {
+      "ko": "무한다이노",
+      "en": "Eternatus",
+      "ja": "ムゲンダイナ"
+    },
     "speed": 130,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/890.png"
   },
@@ -8906,9 +10686,11 @@ export const allPokemonRoster = [
     "id": "nat-0891",
     "dexNo": 891,
     "formKey": "base",
-    "displayName": "치고마",
-    "displayNameEn": "Kubfu",
-    "displayNameJa": "ダクマ",
+    "names": {
+      "ko": "치고마",
+      "en": "Kubfu",
+      "ja": "ダクマ"
+    },
     "speed": 72,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/891.png"
   },
@@ -8916,9 +10698,11 @@ export const allPokemonRoster = [
     "id": "nat-0892",
     "dexNo": 892,
     "formKey": "base",
-    "displayName": "우라오스",
-    "displayNameEn": "Urshifu",
-    "displayNameJa": "ウーラオス",
+    "names": {
+      "ko": "우라오스",
+      "en": "Urshifu",
+      "ja": "ウーラオス"
+    },
     "speed": 97,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/892.png"
   },
@@ -8926,9 +10710,11 @@ export const allPokemonRoster = [
     "id": "nat-0893",
     "dexNo": 893,
     "formKey": "base",
-    "displayName": "자루도",
-    "displayNameEn": "Zarude",
-    "displayNameJa": "ザルード",
+    "names": {
+      "ko": "자루도",
+      "en": "Zarude",
+      "ja": "ザルード"
+    },
     "speed": 105,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/893.png"
   },
@@ -8936,9 +10722,11 @@ export const allPokemonRoster = [
     "id": "nat-0894",
     "dexNo": 894,
     "formKey": "base",
-    "displayName": "레지에레키",
-    "displayNameEn": "Regieleki",
-    "displayNameJa": "レジエレキ",
+    "names": {
+      "ko": "레지에레키",
+      "en": "Regieleki",
+      "ja": "レジエレキ"
+    },
     "speed": 200,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/894.png"
   },
@@ -8946,9 +10734,11 @@ export const allPokemonRoster = [
     "id": "nat-0895",
     "dexNo": 895,
     "formKey": "base",
-    "displayName": "레지드래고",
-    "displayNameEn": "Regidrago",
-    "displayNameJa": "レジドラゴ",
+    "names": {
+      "ko": "레지드래고",
+      "en": "Regidrago",
+      "ja": "レジドラゴ"
+    },
     "speed": 80,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/895.png"
   },
@@ -8956,9 +10746,11 @@ export const allPokemonRoster = [
     "id": "nat-0896",
     "dexNo": 896,
     "formKey": "base",
-    "displayName": "블리자포스",
-    "displayNameEn": "Glastrier",
-    "displayNameJa": "ブリザポス",
+    "names": {
+      "ko": "블리자포스",
+      "en": "Glastrier",
+      "ja": "ブリザポス"
+    },
     "speed": 30,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/896.png"
   },
@@ -8966,9 +10758,11 @@ export const allPokemonRoster = [
     "id": "nat-0897",
     "dexNo": 897,
     "formKey": "base",
-    "displayName": "레이스포스",
-    "displayNameEn": "Spectrier",
-    "displayNameJa": "レイスポス",
+    "names": {
+      "ko": "레이스포스",
+      "en": "Spectrier",
+      "ja": "レイスポス"
+    },
     "speed": 130,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/897.png"
   },
@@ -8976,9 +10770,11 @@ export const allPokemonRoster = [
     "id": "nat-0898",
     "dexNo": 898,
     "formKey": "base",
-    "displayName": "버드렉스",
-    "displayNameEn": "Calyrex",
-    "displayNameJa": "バドレックス",
+    "names": {
+      "ko": "버드렉스",
+      "en": "Calyrex",
+      "ja": "バドレックス"
+    },
     "speed": 80,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/898.png"
   },
@@ -8986,9 +10782,11 @@ export const allPokemonRoster = [
     "id": "nat-0899",
     "dexNo": 899,
     "formKey": "base",
-    "displayName": "신비록",
-    "displayNameEn": "Wyrdeer",
-    "displayNameJa": "アヤシシ",
+    "names": {
+      "ko": "신비록",
+      "en": "Wyrdeer",
+      "ja": "アヤシシ"
+    },
     "speed": 65,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/899.png"
   },
@@ -8996,9 +10794,11 @@ export const allPokemonRoster = [
     "id": "nat-0900",
     "dexNo": 900,
     "formKey": "base",
-    "displayName": "사마자르",
-    "displayNameEn": "Kleavor",
-    "displayNameJa": "バサギリ",
+    "names": {
+      "ko": "사마자르",
+      "en": "Kleavor",
+      "ja": "バサギリ"
+    },
     "speed": 85,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/900.png"
   },
@@ -9006,9 +10806,11 @@ export const allPokemonRoster = [
     "id": "nat-0901",
     "dexNo": 901,
     "formKey": "base",
-    "displayName": "다투곰",
-    "displayNameEn": "Ursaluna",
-    "displayNameJa": "ガチグマ",
+    "names": {
+      "ko": "다투곰",
+      "en": "Ursaluna",
+      "ja": "ガチグマ"
+    },
     "speed": 50,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/901.png"
   },
@@ -9016,9 +10818,11 @@ export const allPokemonRoster = [
     "id": "nat-0902",
     "dexNo": 902,
     "formKey": "base",
-    "displayName": "대쓰여너",
-    "displayNameEn": "Basculegion",
-    "displayNameJa": "イダイトウ",
+    "names": {
+      "ko": "대쓰여너",
+      "en": "Basculegion",
+      "ja": "イダイトウ"
+    },
     "speed": 78,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/902.png"
   },
@@ -9026,9 +10830,11 @@ export const allPokemonRoster = [
     "id": "nat-0903",
     "dexNo": 903,
     "formKey": "base",
-    "displayName": "포푸니크",
-    "displayNameEn": "Sneasler",
-    "displayNameJa": "オオニューラ",
+    "names": {
+      "ko": "포푸니크",
+      "en": "Sneasler",
+      "ja": "オオニューラ"
+    },
     "speed": 120,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/903.png"
   },
@@ -9036,9 +10842,11 @@ export const allPokemonRoster = [
     "id": "nat-0904",
     "dexNo": 904,
     "formKey": "base",
-    "displayName": "장침바루",
-    "displayNameEn": "Overqwil",
-    "displayNameJa": "ハリーマン",
+    "names": {
+      "ko": "장침바루",
+      "en": "Overqwil",
+      "ja": "ハリーマン"
+    },
     "speed": 85,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/904.png"
   },
@@ -9046,9 +10854,11 @@ export const allPokemonRoster = [
     "id": "nat-0905",
     "dexNo": 905,
     "formKey": "base",
-    "displayName": "러브로스",
-    "displayNameEn": "Enamorus",
-    "displayNameJa": "ラブトロス",
+    "names": {
+      "ko": "러브로스",
+      "en": "Enamorus",
+      "ja": "ラブトロス"
+    },
     "speed": 106,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/905.png"
   },
@@ -9056,9 +10866,11 @@ export const allPokemonRoster = [
     "id": "nat-0906",
     "dexNo": 906,
     "formKey": "base",
-    "displayName": "나오하",
-    "displayNameEn": "Sprigatito",
-    "displayNameJa": "ニャオハ",
+    "names": {
+      "ko": "나오하",
+      "en": "Sprigatito",
+      "ja": "ニャオハ"
+    },
     "speed": 65,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/906.png"
   },
@@ -9066,9 +10878,11 @@ export const allPokemonRoster = [
     "id": "nat-0907",
     "dexNo": 907,
     "formKey": "base",
-    "displayName": "나로테",
-    "displayNameEn": "Floragato",
-    "displayNameJa": "ニャローテ",
+    "names": {
+      "ko": "나로테",
+      "en": "Floragato",
+      "ja": "ニャローテ"
+    },
     "speed": 83,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/907.png"
   },
@@ -9076,9 +10890,11 @@ export const allPokemonRoster = [
     "id": "nat-0908",
     "dexNo": 908,
     "formKey": "base",
-    "displayName": "마스카나",
-    "displayNameEn": "Meowscarada",
-    "displayNameJa": "マスカーニャ",
+    "names": {
+      "ko": "마스카나",
+      "en": "Meowscarada",
+      "ja": "マスカーニャ"
+    },
     "speed": 123,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/908.png"
   },
@@ -9086,9 +10902,11 @@ export const allPokemonRoster = [
     "id": "nat-0909",
     "dexNo": 909,
     "formKey": "base",
-    "displayName": "뜨아거",
-    "displayNameEn": "Fuecoco",
-    "displayNameJa": "ホゲータ",
+    "names": {
+      "ko": "뜨아거",
+      "en": "Fuecoco",
+      "ja": "ホゲータ"
+    },
     "speed": 36,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/909.png"
   },
@@ -9096,9 +10914,11 @@ export const allPokemonRoster = [
     "id": "nat-0910",
     "dexNo": 910,
     "formKey": "base",
-    "displayName": "악뜨거",
-    "displayNameEn": "Crocalor",
-    "displayNameJa": "アチゲータ",
+    "names": {
+      "ko": "악뜨거",
+      "en": "Crocalor",
+      "ja": "アチゲータ"
+    },
     "speed": 49,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/910.png"
   },
@@ -9106,9 +10926,11 @@ export const allPokemonRoster = [
     "id": "nat-0911",
     "dexNo": 911,
     "formKey": "base",
-    "displayName": "라우드본",
-    "displayNameEn": "Skeledirge",
-    "displayNameJa": "ラウドボーン",
+    "names": {
+      "ko": "라우드본",
+      "en": "Skeledirge",
+      "ja": "ラウドボーン"
+    },
     "speed": 66,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/911.png"
   },
@@ -9116,9 +10938,11 @@ export const allPokemonRoster = [
     "id": "nat-0912",
     "dexNo": 912,
     "formKey": "base",
-    "displayName": "꾸왁스",
-    "displayNameEn": "Quaxly",
-    "displayNameJa": "クワッス",
+    "names": {
+      "ko": "꾸왁스",
+      "en": "Quaxly",
+      "ja": "クワッス"
+    },
     "speed": 50,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/912.png"
   },
@@ -9126,9 +10950,11 @@ export const allPokemonRoster = [
     "id": "nat-0913",
     "dexNo": 913,
     "formKey": "base",
-    "displayName": "아꾸왁",
-    "displayNameEn": "Quaxwell",
-    "displayNameJa": "ウェルカモ",
+    "names": {
+      "ko": "아꾸왁",
+      "en": "Quaxwell",
+      "ja": "ウェルカモ"
+    },
     "speed": 65,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/913.png"
   },
@@ -9136,9 +10962,11 @@ export const allPokemonRoster = [
     "id": "nat-0914",
     "dexNo": 914,
     "formKey": "base",
-    "displayName": "웨이니발",
-    "displayNameEn": "Quaquaval",
-    "displayNameJa": "ウェーニバル",
+    "names": {
+      "ko": "웨이니발",
+      "en": "Quaquaval",
+      "ja": "ウェーニバル"
+    },
     "speed": 85,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/914.png"
   },
@@ -9146,9 +10974,11 @@ export const allPokemonRoster = [
     "id": "nat-0915",
     "dexNo": 915,
     "formKey": "base",
-    "displayName": "맛보돈",
-    "displayNameEn": "Lechonk",
-    "displayNameJa": "グルトン",
+    "names": {
+      "ko": "맛보돈",
+      "en": "Lechonk",
+      "ja": "グルトン"
+    },
     "speed": 35,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/915.png"
   },
@@ -9156,9 +10986,11 @@ export const allPokemonRoster = [
     "id": "nat-0916",
     "dexNo": 916,
     "formKey": "base",
-    "displayName": "퍼퓨돈",
-    "displayNameEn": "Oinkologne",
-    "displayNameJa": "パフュートン",
+    "names": {
+      "ko": "퍼퓨돈",
+      "en": "Oinkologne",
+      "ja": "パフュートン"
+    },
     "speed": 65,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/916.png"
   },
@@ -9166,9 +10998,11 @@ export const allPokemonRoster = [
     "id": "nat-0917",
     "dexNo": 917,
     "formKey": "base",
-    "displayName": "타랜툴라",
-    "displayNameEn": "Tarountula",
-    "displayNameJa": "タマンチュラ",
+    "names": {
+      "ko": "타랜툴라",
+      "en": "Tarountula",
+      "ja": "タマンチュラ"
+    },
     "speed": 20,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/917.png"
   },
@@ -9176,9 +11010,11 @@ export const allPokemonRoster = [
     "id": "nat-0918",
     "dexNo": 918,
     "formKey": "base",
-    "displayName": "트래피더",
-    "displayNameEn": "Spidops",
-    "displayNameJa": "ワナイダー",
+    "names": {
+      "ko": "트래피더",
+      "en": "Spidops",
+      "ja": "ワナイダー"
+    },
     "speed": 35,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/918.png"
   },
@@ -9186,9 +11022,11 @@ export const allPokemonRoster = [
     "id": "nat-0919",
     "dexNo": 919,
     "formKey": "base",
-    "displayName": "콩알뚜기",
-    "displayNameEn": "Nymble",
-    "displayNameJa": "マメバッタ",
+    "names": {
+      "ko": "콩알뚜기",
+      "en": "Nymble",
+      "ja": "マメバッタ"
+    },
     "speed": 45,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/919.png"
   },
@@ -9196,9 +11034,11 @@ export const allPokemonRoster = [
     "id": "nat-0920",
     "dexNo": 920,
     "formKey": "base",
-    "displayName": "엑스레그",
-    "displayNameEn": "Lokix",
-    "displayNameJa": "エクスレッグ",
+    "names": {
+      "ko": "엑스레그",
+      "en": "Lokix",
+      "ja": "エクスレッグ"
+    },
     "speed": 92,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/920.png"
   },
@@ -9206,9 +11046,11 @@ export const allPokemonRoster = [
     "id": "nat-0921",
     "dexNo": 921,
     "formKey": "base",
-    "displayName": "빠모",
-    "displayNameEn": "Pawmi",
-    "displayNameJa": "パモ",
+    "names": {
+      "ko": "빠모",
+      "en": "Pawmi",
+      "ja": "パモ"
+    },
     "speed": 60,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/921.png"
   },
@@ -9216,9 +11058,11 @@ export const allPokemonRoster = [
     "id": "nat-0922",
     "dexNo": 922,
     "formKey": "base",
-    "displayName": "빠모트",
-    "displayNameEn": "Pawmo",
-    "displayNameJa": "パモット",
+    "names": {
+      "ko": "빠모트",
+      "en": "Pawmo",
+      "ja": "パモット"
+    },
     "speed": 85,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/922.png"
   },
@@ -9226,9 +11070,11 @@ export const allPokemonRoster = [
     "id": "nat-0923",
     "dexNo": 923,
     "formKey": "base",
-    "displayName": "빠르모트",
-    "displayNameEn": "Pawmot",
-    "displayNameJa": "パーモット",
+    "names": {
+      "ko": "빠르모트",
+      "en": "Pawmot",
+      "ja": "パーモット"
+    },
     "speed": 105,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/923.png"
   },
@@ -9236,9 +11082,11 @@ export const allPokemonRoster = [
     "id": "nat-0924",
     "dexNo": 924,
     "formKey": "base",
-    "displayName": "두리쥐",
-    "displayNameEn": "Tandemaus",
-    "displayNameJa": "ワッカネズミ",
+    "names": {
+      "ko": "두리쥐",
+      "en": "Tandemaus",
+      "ja": "ワッカネズミ"
+    },
     "speed": 75,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/924.png"
   },
@@ -9246,9 +11094,11 @@ export const allPokemonRoster = [
     "id": "nat-0925",
     "dexNo": 925,
     "formKey": "base",
-    "displayName": "파밀리쥐",
-    "displayNameEn": "Maushold",
-    "displayNameJa": "イッカネズミ",
+    "names": {
+      "ko": "파밀리쥐",
+      "en": "Maushold",
+      "ja": "イッカネズミ"
+    },
     "speed": 111,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/925.png"
   },
@@ -9256,9 +11106,11 @@ export const allPokemonRoster = [
     "id": "nat-0926",
     "dexNo": 926,
     "formKey": "base",
-    "displayName": "쫀도기",
-    "displayNameEn": "Fidough",
-    "displayNameJa": "パピモッチ",
+    "names": {
+      "ko": "쫀도기",
+      "en": "Fidough",
+      "ja": "パピモッチ"
+    },
     "speed": 65,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/926.png"
   },
@@ -9266,9 +11118,11 @@ export const allPokemonRoster = [
     "id": "nat-0927",
     "dexNo": 927,
     "formKey": "base",
-    "displayName": "바우첼",
-    "displayNameEn": "Dachsbun",
-    "displayNameJa": "バウッツェル",
+    "names": {
+      "ko": "바우첼",
+      "en": "Dachsbun",
+      "ja": "バウッツェル"
+    },
     "speed": 95,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/927.png"
   },
@@ -9276,9 +11130,11 @@ export const allPokemonRoster = [
     "id": "nat-0928",
     "dexNo": 928,
     "formKey": "base",
-    "displayName": "미니브",
-    "displayNameEn": "Smoliv",
-    "displayNameJa": "ミニーブ",
+    "names": {
+      "ko": "미니브",
+      "en": "Smoliv",
+      "ja": "ミニーブ"
+    },
     "speed": 30,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/928.png"
   },
@@ -9286,9 +11142,11 @@ export const allPokemonRoster = [
     "id": "nat-0929",
     "dexNo": 929,
     "formKey": "base",
-    "displayName": "올리뇨",
-    "displayNameEn": "Dolliv",
-    "displayNameJa": "オリーニョ",
+    "names": {
+      "ko": "올리뇨",
+      "en": "Dolliv",
+      "ja": "オリーニョ"
+    },
     "speed": 33,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/929.png"
   },
@@ -9296,9 +11154,11 @@ export const allPokemonRoster = [
     "id": "nat-0930",
     "dexNo": 930,
     "formKey": "base",
-    "displayName": "올리르바",
-    "displayNameEn": "Arboliva",
-    "displayNameJa": "オリーヴァ",
+    "names": {
+      "ko": "올리르바",
+      "en": "Arboliva",
+      "ja": "オリーヴァ"
+    },
     "speed": 39,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/930.png"
   },
@@ -9306,9 +11166,11 @@ export const allPokemonRoster = [
     "id": "nat-0931",
     "dexNo": 931,
     "formKey": "base",
-    "displayName": "시비꼬",
-    "displayNameEn": "Squawkabilly",
-    "displayNameJa": "イキリンコ",
+    "names": {
+      "ko": "시비꼬",
+      "en": "Squawkabilly",
+      "ja": "イキリンコ"
+    },
     "speed": 92,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/931.png"
   },
@@ -9316,9 +11178,11 @@ export const allPokemonRoster = [
     "id": "nat-0932",
     "dexNo": 932,
     "formKey": "base",
-    "displayName": "베베솔트",
-    "displayNameEn": "Nacli",
-    "displayNameJa": "コジオ",
+    "names": {
+      "ko": "베베솔트",
+      "en": "Nacli",
+      "ja": "コジオ"
+    },
     "speed": 25,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/932.png"
   },
@@ -9326,9 +11190,11 @@ export const allPokemonRoster = [
     "id": "nat-0933",
     "dexNo": 933,
     "formKey": "base",
-    "displayName": "스태솔트",
-    "displayNameEn": "Naclstack",
-    "displayNameJa": "ジオヅム",
+    "names": {
+      "ko": "스태솔트",
+      "en": "Naclstack",
+      "ja": "ジオヅム"
+    },
     "speed": 35,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/933.png"
   },
@@ -9336,9 +11202,11 @@ export const allPokemonRoster = [
     "id": "nat-0934",
     "dexNo": 934,
     "formKey": "base",
-    "displayName": "콜로솔트",
-    "displayNameEn": "Garganacl",
-    "displayNameJa": "キョジオーン",
+    "names": {
+      "ko": "콜로솔트",
+      "en": "Garganacl",
+      "ja": "キョジオーン"
+    },
     "speed": 35,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/934.png"
   },
@@ -9346,9 +11214,11 @@ export const allPokemonRoster = [
     "id": "nat-0935",
     "dexNo": 935,
     "formKey": "base",
-    "displayName": "카르본",
-    "displayNameEn": "Charcadet",
-    "displayNameJa": "カルボウ",
+    "names": {
+      "ko": "카르본",
+      "en": "Charcadet",
+      "ja": "カルボウ"
+    },
     "speed": 35,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/935.png"
   },
@@ -9356,9 +11226,11 @@ export const allPokemonRoster = [
     "id": "nat-0936",
     "dexNo": 936,
     "formKey": "base",
-    "displayName": "카디나르마",
-    "displayNameEn": "Armarouge",
-    "displayNameJa": "グレンアルマ",
+    "names": {
+      "ko": "카디나르마",
+      "en": "Armarouge",
+      "ja": "グレンアルマ"
+    },
     "speed": 75,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/936.png"
   },
@@ -9366,9 +11238,11 @@ export const allPokemonRoster = [
     "id": "nat-0937",
     "dexNo": 937,
     "formKey": "base",
-    "displayName": "파라블레이즈",
-    "displayNameEn": "Ceruledge",
-    "displayNameJa": "ソウブレイズ",
+    "names": {
+      "ko": "파라블레이즈",
+      "en": "Ceruledge",
+      "ja": "ソウブレイズ"
+    },
     "speed": 85,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/937.png"
   },
@@ -9376,9 +11250,11 @@ export const allPokemonRoster = [
     "id": "nat-0938",
     "dexNo": 938,
     "formKey": "base",
-    "displayName": "빈나두",
-    "displayNameEn": "Tadbulb",
-    "displayNameJa": "ズピカ",
+    "names": {
+      "ko": "빈나두",
+      "en": "Tadbulb",
+      "ja": "ズピカ"
+    },
     "speed": 45,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/938.png"
   },
@@ -9386,9 +11262,11 @@ export const allPokemonRoster = [
     "id": "nat-0939",
     "dexNo": 939,
     "formKey": "base",
-    "displayName": "찌리배리",
-    "displayNameEn": "Bellibolt",
-    "displayNameJa": "ハラバリー",
+    "names": {
+      "ko": "찌리배리",
+      "en": "Bellibolt",
+      "ja": "ハラバリー"
+    },
     "speed": 45,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/939.png"
   },
@@ -9396,9 +11274,11 @@ export const allPokemonRoster = [
     "id": "nat-0940",
     "dexNo": 940,
     "formKey": "base",
-    "displayName": "찌리비",
-    "displayNameEn": "Wattrel",
-    "displayNameJa": "カイデン",
+    "names": {
+      "ko": "찌리비",
+      "en": "Wattrel",
+      "ja": "カイデン"
+    },
     "speed": 70,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/940.png"
   },
@@ -9406,9 +11286,11 @@ export const allPokemonRoster = [
     "id": "nat-0941",
     "dexNo": 941,
     "formKey": "base",
-    "displayName": "찌리비크",
-    "displayNameEn": "Kilowattrel",
-    "displayNameJa": "タイカイデン",
+    "names": {
+      "ko": "찌리비크",
+      "en": "Kilowattrel",
+      "ja": "タイカイデン"
+    },
     "speed": 125,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/941.png"
   },
@@ -9416,9 +11298,11 @@ export const allPokemonRoster = [
     "id": "nat-0942",
     "dexNo": 942,
     "formKey": "base",
-    "displayName": "오라티프",
-    "displayNameEn": "Maschiff",
-    "displayNameJa": "オラチフ",
+    "names": {
+      "ko": "오라티프",
+      "en": "Maschiff",
+      "ja": "オラチフ"
+    },
     "speed": 51,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/942.png"
   },
@@ -9426,9 +11310,11 @@ export const allPokemonRoster = [
     "id": "nat-0943",
     "dexNo": 943,
     "formKey": "base",
-    "displayName": "마피티프",
-    "displayNameEn": "Mabosstiff",
-    "displayNameJa": "マフィティフ",
+    "names": {
+      "ko": "마피티프",
+      "en": "Mabosstiff",
+      "ja": "マフィティフ"
+    },
     "speed": 85,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/943.png"
   },
@@ -9436,9 +11322,11 @@ export const allPokemonRoster = [
     "id": "nat-0944",
     "dexNo": 944,
     "formKey": "base",
-    "displayName": "땃쭈르",
-    "displayNameEn": "Shroodle",
-    "displayNameJa": "シルシュルー",
+    "names": {
+      "ko": "땃쭈르",
+      "en": "Shroodle",
+      "ja": "シルシュルー"
+    },
     "speed": 75,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/944.png"
   },
@@ -9446,9 +11334,11 @@ export const allPokemonRoster = [
     "id": "nat-0945",
     "dexNo": 945,
     "formKey": "base",
-    "displayName": "태깅구르",
-    "displayNameEn": "Grafaiai",
-    "displayNameJa": "タギングル",
+    "names": {
+      "ko": "태깅구르",
+      "en": "Grafaiai",
+      "ja": "タギングル"
+    },
     "speed": 110,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/945.png"
   },
@@ -9456,9 +11346,11 @@ export const allPokemonRoster = [
     "id": "nat-0946",
     "dexNo": 946,
     "formKey": "base",
-    "displayName": "그푸리",
-    "displayNameEn": "Bramblin",
-    "displayNameJa": "アノクサ",
+    "names": {
+      "ko": "그푸리",
+      "en": "Bramblin",
+      "ja": "アノクサ"
+    },
     "speed": 60,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/946.png"
   },
@@ -9466,9 +11358,11 @@ export const allPokemonRoster = [
     "id": "nat-0947",
     "dexNo": 947,
     "formKey": "base",
-    "displayName": "공푸리",
-    "displayNameEn": "Brambleghast",
-    "displayNameJa": "アノホラグサ",
+    "names": {
+      "ko": "공푸리",
+      "en": "Brambleghast",
+      "ja": "アノホラグサ"
+    },
     "speed": 90,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/947.png"
   },
@@ -9476,9 +11370,11 @@ export const allPokemonRoster = [
     "id": "nat-0948",
     "dexNo": 948,
     "formKey": "base",
-    "displayName": "들눈해",
-    "displayNameEn": "Toedscool",
-    "displayNameJa": "ノノクラゲ",
+    "names": {
+      "ko": "들눈해",
+      "en": "Toedscool",
+      "ja": "ノノクラゲ"
+    },
     "speed": 70,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/948.png"
   },
@@ -9486,9 +11382,11 @@ export const allPokemonRoster = [
     "id": "nat-0949",
     "dexNo": 949,
     "formKey": "base",
-    "displayName": "육파리",
-    "displayNameEn": "Toedscruel",
-    "displayNameJa": "リククラゲ",
+    "names": {
+      "ko": "육파리",
+      "en": "Toedscruel",
+      "ja": "リククラゲ"
+    },
     "speed": 100,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/949.png"
   },
@@ -9496,9 +11394,11 @@ export const allPokemonRoster = [
     "id": "nat-0950",
     "dexNo": 950,
     "formKey": "base",
-    "displayName": "절벼게",
-    "displayNameEn": "Klawf",
-    "displayNameJa": "ガケガニ",
+    "names": {
+      "ko": "절벼게",
+      "en": "Klawf",
+      "ja": "ガケガニ"
+    },
     "speed": 75,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/950.png"
   },
@@ -9506,9 +11406,11 @@ export const allPokemonRoster = [
     "id": "nat-0951",
     "dexNo": 951,
     "formKey": "base",
-    "displayName": "캡싸이",
-    "displayNameEn": "Capsakid",
-    "displayNameJa": "カプサイジ",
+    "names": {
+      "ko": "캡싸이",
+      "en": "Capsakid",
+      "ja": "カプサイジ"
+    },
     "speed": 50,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/951.png"
   },
@@ -9516,9 +11418,11 @@ export const allPokemonRoster = [
     "id": "nat-0952",
     "dexNo": 952,
     "formKey": "base",
-    "displayName": "스코빌런",
-    "displayNameEn": "Scovillain",
-    "displayNameJa": "スコヴィラン",
+    "names": {
+      "ko": "스코빌런",
+      "en": "Scovillain",
+      "ja": "スコヴィラン"
+    },
     "speed": 75,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/952.png"
   },
@@ -9526,9 +11430,11 @@ export const allPokemonRoster = [
     "id": "nat-0953",
     "dexNo": 953,
     "formKey": "base",
-    "displayName": "구르데",
-    "displayNameEn": "Rellor",
-    "displayNameJa": "シガロコ",
+    "names": {
+      "ko": "구르데",
+      "en": "Rellor",
+      "ja": "シガロコ"
+    },
     "speed": 30,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/953.png"
   },
@@ -9536,9 +11442,11 @@ export const allPokemonRoster = [
     "id": "nat-0954",
     "dexNo": 954,
     "formKey": "base",
-    "displayName": "베라카스",
-    "displayNameEn": "Rabsca",
-    "displayNameJa": "ベラカス",
+    "names": {
+      "ko": "베라카스",
+      "en": "Rabsca",
+      "ja": "ベラカス"
+    },
     "speed": 45,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/954.png"
   },
@@ -9546,9 +11454,11 @@ export const allPokemonRoster = [
     "id": "nat-0955",
     "dexNo": 955,
     "formKey": "base",
-    "displayName": "하느라기",
-    "displayNameEn": "Flittle",
-    "displayNameJa": "ヒラヒナ",
+    "names": {
+      "ko": "하느라기",
+      "en": "Flittle",
+      "ja": "ヒラヒナ"
+    },
     "speed": 75,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/955.png"
   },
@@ -9556,9 +11466,11 @@ export const allPokemonRoster = [
     "id": "nat-0956",
     "dexNo": 956,
     "formKey": "base",
-    "displayName": "클레스퍼트라",
-    "displayNameEn": "Espathra",
-    "displayNameJa": "クエスパトラ",
+    "names": {
+      "ko": "클레스퍼트라",
+      "en": "Espathra",
+      "ja": "クエスパトラ"
+    },
     "speed": 105,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/956.png"
   },
@@ -9566,9 +11478,11 @@ export const allPokemonRoster = [
     "id": "nat-0957",
     "dexNo": 957,
     "formKey": "base",
-    "displayName": "어리짱",
-    "displayNameEn": "Tinkatink",
-    "displayNameJa": "カヌチャン",
+    "names": {
+      "ko": "어리짱",
+      "en": "Tinkatink",
+      "ja": "カヌチャン"
+    },
     "speed": 58,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/957.png"
   },
@@ -9576,9 +11490,11 @@ export const allPokemonRoster = [
     "id": "nat-0958",
     "dexNo": 958,
     "formKey": "base",
-    "displayName": "벼리짱",
-    "displayNameEn": "Tinkatuff",
-    "displayNameJa": "ナカヌチャン",
+    "names": {
+      "ko": "벼리짱",
+      "en": "Tinkatuff",
+      "ja": "ナカヌチャン"
+    },
     "speed": 78,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/958.png"
   },
@@ -9586,9 +11502,11 @@ export const allPokemonRoster = [
     "id": "nat-0959",
     "dexNo": 959,
     "formKey": "base",
-    "displayName": "두드리짱",
-    "displayNameEn": "Tinkaton",
-    "displayNameJa": "デカヌチャン",
+    "names": {
+      "ko": "두드리짱",
+      "en": "Tinkaton",
+      "ja": "デカヌチャン"
+    },
     "speed": 94,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/959.png"
   },
@@ -9596,9 +11514,11 @@ export const allPokemonRoster = [
     "id": "nat-0960",
     "dexNo": 960,
     "formKey": "base",
-    "displayName": "바다그다",
-    "displayNameEn": "Wiglett",
-    "displayNameJa": "ウミディグダ",
+    "names": {
+      "ko": "바다그다",
+      "en": "Wiglett",
+      "ja": "ウミディグダ"
+    },
     "speed": 95,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/960.png"
   },
@@ -9606,9 +11526,11 @@ export const allPokemonRoster = [
     "id": "nat-0961",
     "dexNo": 961,
     "formKey": "base",
-    "displayName": "바닥트리오",
-    "displayNameEn": "Wugtrio",
-    "displayNameJa": "ウミトリオ",
+    "names": {
+      "ko": "바닥트리오",
+      "en": "Wugtrio",
+      "ja": "ウミトリオ"
+    },
     "speed": 120,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/961.png"
   },
@@ -9616,9 +11538,11 @@ export const allPokemonRoster = [
     "id": "nat-0962",
     "dexNo": 962,
     "formKey": "base",
-    "displayName": "떨구새",
-    "displayNameEn": "Bombirdier",
-    "displayNameJa": "オトシドリ",
+    "names": {
+      "ko": "떨구새",
+      "en": "Bombirdier",
+      "ja": "オトシドリ"
+    },
     "speed": 82,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/962.png"
   },
@@ -9626,9 +11550,11 @@ export const allPokemonRoster = [
     "id": "nat-0963",
     "dexNo": 963,
     "formKey": "base",
-    "displayName": "맨돌핀",
-    "displayNameEn": "Finizen",
-    "displayNameJa": "ナミイルカ",
+    "names": {
+      "ko": "맨돌핀",
+      "en": "Finizen",
+      "ja": "ナミイルカ"
+    },
     "speed": 75,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/963.png"
   },
@@ -9636,9 +11562,11 @@ export const allPokemonRoster = [
     "id": "nat-0964",
     "dexNo": 964,
     "formKey": "base",
-    "displayName": "돌핀맨",
-    "displayNameEn": "Palafin",
-    "displayNameJa": "イルカマン",
+    "names": {
+      "ko": "돌핀맨",
+      "en": "Palafin",
+      "ja": "イルカマン"
+    },
     "speed": 100,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/964.png"
   },
@@ -9646,9 +11574,11 @@ export const allPokemonRoster = [
     "id": "nat-0965",
     "dexNo": 965,
     "formKey": "base",
-    "displayName": "부르롱",
-    "displayNameEn": "Varoom",
-    "displayNameJa": "ブロロン",
+    "names": {
+      "ko": "부르롱",
+      "en": "Varoom",
+      "ja": "ブロロン"
+    },
     "speed": 47,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/965.png"
   },
@@ -9656,9 +11586,11 @@ export const allPokemonRoster = [
     "id": "nat-0966",
     "dexNo": 966,
     "formKey": "base",
-    "displayName": "부르르룸",
-    "displayNameEn": "Revavroom",
-    "displayNameJa": "ブロロローム",
+    "names": {
+      "ko": "부르르룸",
+      "en": "Revavroom",
+      "ja": "ブロロローム"
+    },
     "speed": 90,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/966.png"
   },
@@ -9666,9 +11598,11 @@ export const allPokemonRoster = [
     "id": "nat-0967",
     "dexNo": 967,
     "formKey": "base",
-    "displayName": "모토마",
-    "displayNameEn": "Cyclizar",
-    "displayNameJa": "モトトカゲ",
+    "names": {
+      "ko": "모토마",
+      "en": "Cyclizar",
+      "ja": "モトトカゲ"
+    },
     "speed": 121,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/967.png"
   },
@@ -9676,9 +11610,11 @@ export const allPokemonRoster = [
     "id": "nat-0968",
     "dexNo": 968,
     "formKey": "base",
-    "displayName": "꿈트렁",
-    "displayNameEn": "Orthworm",
-    "displayNameJa": "ミミズズ",
+    "names": {
+      "ko": "꿈트렁",
+      "en": "Orthworm",
+      "ja": "ミミズズ"
+    },
     "speed": 65,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/968.png"
   },
@@ -9686,9 +11622,11 @@ export const allPokemonRoster = [
     "id": "nat-0969",
     "dexNo": 969,
     "formKey": "base",
-    "displayName": "초롱순",
-    "displayNameEn": "Glimmet",
-    "displayNameJa": "キラーメ",
+    "names": {
+      "ko": "초롱순",
+      "en": "Glimmet",
+      "ja": "キラーメ"
+    },
     "speed": 60,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/969.png"
   },
@@ -9696,9 +11634,11 @@ export const allPokemonRoster = [
     "id": "nat-0970",
     "dexNo": 970,
     "formKey": "base",
-    "displayName": "킬라플로르",
-    "displayNameEn": "Glimmora",
-    "displayNameJa": "キラフロル",
+    "names": {
+      "ko": "킬라플로르",
+      "en": "Glimmora",
+      "ja": "キラフロル"
+    },
     "speed": 86,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/970.png"
   },
@@ -9706,9 +11646,11 @@ export const allPokemonRoster = [
     "id": "nat-0971",
     "dexNo": 971,
     "formKey": "base",
-    "displayName": "망망이",
-    "displayNameEn": "Greavard",
-    "displayNameJa": "ボチ",
+    "names": {
+      "ko": "망망이",
+      "en": "Greavard",
+      "ja": "ボチ"
+    },
     "speed": 34,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/971.png"
   },
@@ -9716,9 +11658,11 @@ export const allPokemonRoster = [
     "id": "nat-0972",
     "dexNo": 972,
     "formKey": "base",
-    "displayName": "묘두기",
-    "displayNameEn": "Houndstone",
-    "displayNameJa": "ハカドッグ",
+    "names": {
+      "ko": "묘두기",
+      "en": "Houndstone",
+      "ja": "ハカドッグ"
+    },
     "speed": 68,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/972.png"
   },
@@ -9726,9 +11670,11 @@ export const allPokemonRoster = [
     "id": "nat-0973",
     "dexNo": 973,
     "formKey": "base",
-    "displayName": "꼬이밍고",
-    "displayNameEn": "Flamigo",
-    "displayNameJa": "カラミンゴ",
+    "names": {
+      "ko": "꼬이밍고",
+      "en": "Flamigo",
+      "ja": "カラミンゴ"
+    },
     "speed": 90,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/973.png"
   },
@@ -9736,9 +11682,11 @@ export const allPokemonRoster = [
     "id": "nat-0974",
     "dexNo": 974,
     "formKey": "base",
-    "displayName": "터벅고래",
-    "displayNameEn": "Cetoddle",
-    "displayNameJa": "アルクジラ",
+    "names": {
+      "ko": "터벅고래",
+      "en": "Cetoddle",
+      "ja": "アルクジラ"
+    },
     "speed": 43,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/974.png"
   },
@@ -9746,9 +11694,11 @@ export const allPokemonRoster = [
     "id": "nat-0975",
     "dexNo": 975,
     "formKey": "base",
-    "displayName": "우락고래",
-    "displayNameEn": "Cetitan",
-    "displayNameJa": "ハルクジラ",
+    "names": {
+      "ko": "우락고래",
+      "en": "Cetitan",
+      "ja": "ハルクジラ"
+    },
     "speed": 73,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/975.png"
   },
@@ -9756,9 +11706,11 @@ export const allPokemonRoster = [
     "id": "nat-0976",
     "dexNo": 976,
     "formKey": "base",
-    "displayName": "가비루사",
-    "displayNameEn": "Veluza",
-    "displayNameJa": "ミガルーサ",
+    "names": {
+      "ko": "가비루사",
+      "en": "Veluza",
+      "ja": "ミガルーサ"
+    },
     "speed": 70,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/976.png"
   },
@@ -9766,9 +11718,11 @@ export const allPokemonRoster = [
     "id": "nat-0977",
     "dexNo": 977,
     "formKey": "base",
-    "displayName": "어써러셔",
-    "displayNameEn": "Dondozo",
-    "displayNameJa": "ヘイラッシャ",
+    "names": {
+      "ko": "어써러셔",
+      "en": "Dondozo",
+      "ja": "ヘイラッシャ"
+    },
     "speed": 35,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/977.png"
   },
@@ -9776,9 +11730,11 @@ export const allPokemonRoster = [
     "id": "nat-0978",
     "dexNo": 978,
     "formKey": "base",
-    "displayName": "싸리용",
-    "displayNameEn": "Tatsugiri",
-    "displayNameJa": "シャリタツ",
+    "names": {
+      "ko": "싸리용",
+      "en": "Tatsugiri",
+      "ja": "シャリタツ"
+    },
     "speed": 82,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/978.png"
   },
@@ -9786,9 +11742,11 @@ export const allPokemonRoster = [
     "id": "nat-0979",
     "dexNo": 979,
     "formKey": "base",
-    "displayName": "저승갓숭",
-    "displayNameEn": "Annihilape",
-    "displayNameJa": "コノヨザル",
+    "names": {
+      "ko": "저승갓숭",
+      "en": "Annihilape",
+      "ja": "コノヨザル"
+    },
     "speed": 90,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/979.png"
   },
@@ -9796,9 +11754,11 @@ export const allPokemonRoster = [
     "id": "nat-0980",
     "dexNo": 980,
     "formKey": "base",
-    "displayName": "토오",
-    "displayNameEn": "Clodsire",
-    "displayNameJa": "ドオー",
+    "names": {
+      "ko": "토오",
+      "en": "Clodsire",
+      "ja": "ドオー"
+    },
     "speed": 20,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/980.png"
   },
@@ -9806,9 +11766,11 @@ export const allPokemonRoster = [
     "id": "nat-0981",
     "dexNo": 981,
     "formKey": "base",
-    "displayName": "키키링",
-    "displayNameEn": "Farigiraf",
-    "displayNameJa": "リキキリン",
+    "names": {
+      "ko": "키키링",
+      "en": "Farigiraf",
+      "ja": "リキキリン"
+    },
     "speed": 60,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/981.png"
   },
@@ -9816,9 +11778,11 @@ export const allPokemonRoster = [
     "id": "nat-0982",
     "dexNo": 982,
     "formKey": "base",
-    "displayName": "노고고치",
-    "displayNameEn": "Dudunsparce",
-    "displayNameJa": "ノココッチ",
+    "names": {
+      "ko": "노고고치",
+      "en": "Dudunsparce",
+      "ja": "ノココッチ"
+    },
     "speed": 55,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/982.png"
   },
@@ -9826,9 +11790,11 @@ export const allPokemonRoster = [
     "id": "nat-0983",
     "dexNo": 983,
     "formKey": "base",
-    "displayName": "대도각참",
-    "displayNameEn": "Kingambit",
-    "displayNameJa": "ドドゲザン",
+    "names": {
+      "ko": "대도각참",
+      "en": "Kingambit",
+      "ja": "ドドゲザン"
+    },
     "speed": 50,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/983.png"
   },
@@ -9836,9 +11802,11 @@ export const allPokemonRoster = [
     "id": "nat-0984",
     "dexNo": 984,
     "formKey": "base",
-    "displayName": "위대한엄니",
-    "displayNameEn": "Great Tusk",
-    "displayNameJa": "イダイナキバ",
+    "names": {
+      "ko": "위대한엄니",
+      "en": "Great Tusk",
+      "ja": "イダイナキバ"
+    },
     "speed": 87,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/984.png"
   },
@@ -9846,9 +11814,11 @@ export const allPokemonRoster = [
     "id": "nat-0985",
     "dexNo": 985,
     "formKey": "base",
-    "displayName": "우렁찬꼬리",
-    "displayNameEn": "Scream Tail",
-    "displayNameJa": "サケブシッポ",
+    "names": {
+      "ko": "우렁찬꼬리",
+      "en": "Scream Tail",
+      "ja": "サケブシッポ"
+    },
     "speed": 111,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/985.png"
   },
@@ -9856,9 +11826,11 @@ export const allPokemonRoster = [
     "id": "nat-0986",
     "dexNo": 986,
     "formKey": "base",
-    "displayName": "사나운버섯",
-    "displayNameEn": "Brute Bonnet",
-    "displayNameJa": "アラブルタケ",
+    "names": {
+      "ko": "사나운버섯",
+      "en": "Brute Bonnet",
+      "ja": "アラブルタケ"
+    },
     "speed": 55,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/986.png"
   },
@@ -9866,9 +11838,11 @@ export const allPokemonRoster = [
     "id": "nat-0987",
     "dexNo": 987,
     "formKey": "base",
-    "displayName": "날개치는머리",
-    "displayNameEn": "Flutter Mane",
-    "displayNameJa": "ハバタクカミ",
+    "names": {
+      "ko": "날개치는머리",
+      "en": "Flutter Mane",
+      "ja": "ハバタクカミ"
+    },
     "speed": 135,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/987.png"
   },
@@ -9876,9 +11850,11 @@ export const allPokemonRoster = [
     "id": "nat-0988",
     "dexNo": 988,
     "formKey": "base",
-    "displayName": "땅을기는날개",
-    "displayNameEn": "Slither Wing",
-    "displayNameJa": "チヲハウハネ",
+    "names": {
+      "ko": "땅을기는날개",
+      "en": "Slither Wing",
+      "ja": "チヲハウハネ"
+    },
     "speed": 81,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/988.png"
   },
@@ -9886,9 +11862,11 @@ export const allPokemonRoster = [
     "id": "nat-0989",
     "dexNo": 989,
     "formKey": "base",
-    "displayName": "모래털가죽",
-    "displayNameEn": "Sandy Shocks",
-    "displayNameJa": "スナノケガワ",
+    "names": {
+      "ko": "모래털가죽",
+      "en": "Sandy Shocks",
+      "ja": "スナノケガワ"
+    },
     "speed": 101,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/989.png"
   },
@@ -9896,9 +11874,11 @@ export const allPokemonRoster = [
     "id": "nat-0990",
     "dexNo": 990,
     "formKey": "base",
-    "displayName": "무쇠바퀴",
-    "displayNameEn": "Iron Treads",
-    "displayNameJa": "テツノワダチ",
+    "names": {
+      "ko": "무쇠바퀴",
+      "en": "Iron Treads",
+      "ja": "テツノワダチ"
+    },
     "speed": 106,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/990.png"
   },
@@ -9906,9 +11886,11 @@ export const allPokemonRoster = [
     "id": "nat-0991",
     "dexNo": 991,
     "formKey": "base",
-    "displayName": "무쇠보따리",
-    "displayNameEn": "Iron Bundle",
-    "displayNameJa": "テツノツツミ",
+    "names": {
+      "ko": "무쇠보따리",
+      "en": "Iron Bundle",
+      "ja": "テツノツツミ"
+    },
     "speed": 136,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/991.png"
   },
@@ -9916,9 +11898,11 @@ export const allPokemonRoster = [
     "id": "nat-0992",
     "dexNo": 992,
     "formKey": "base",
-    "displayName": "무쇠손",
-    "displayNameEn": "Iron Hands",
-    "displayNameJa": "テツノカイナ",
+    "names": {
+      "ko": "무쇠손",
+      "en": "Iron Hands",
+      "ja": "テツノカイナ"
+    },
     "speed": 50,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/992.png"
   },
@@ -9926,9 +11910,11 @@ export const allPokemonRoster = [
     "id": "nat-0993",
     "dexNo": 993,
     "formKey": "base",
-    "displayName": "무쇠머리",
-    "displayNameEn": "Iron Jugulis",
-    "displayNameJa": "テツノコウベ",
+    "names": {
+      "ko": "무쇠머리",
+      "en": "Iron Jugulis",
+      "ja": "テツノコウベ"
+    },
     "speed": 108,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/993.png"
   },
@@ -9936,9 +11922,11 @@ export const allPokemonRoster = [
     "id": "nat-0994",
     "dexNo": 994,
     "formKey": "base",
-    "displayName": "무쇠독나방",
-    "displayNameEn": "Iron Moth",
-    "displayNameJa": "テツノドクガ",
+    "names": {
+      "ko": "무쇠독나방",
+      "en": "Iron Moth",
+      "ja": "テツノドクガ"
+    },
     "speed": 110,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/994.png"
   },
@@ -9946,9 +11934,11 @@ export const allPokemonRoster = [
     "id": "nat-0995",
     "dexNo": 995,
     "formKey": "base",
-    "displayName": "무쇠가시",
-    "displayNameEn": "Iron Thorns",
-    "displayNameJa": "テツノイバラ",
+    "names": {
+      "ko": "무쇠가시",
+      "en": "Iron Thorns",
+      "ja": "テツノイバラ"
+    },
     "speed": 72,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/995.png"
   },
@@ -9956,9 +11946,11 @@ export const allPokemonRoster = [
     "id": "nat-0996",
     "dexNo": 996,
     "formKey": "base",
-    "displayName": "드니차",
-    "displayNameEn": "Frigibax",
-    "displayNameJa": "セビエ",
+    "names": {
+      "ko": "드니차",
+      "en": "Frigibax",
+      "ja": "セビエ"
+    },
     "speed": 55,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/996.png"
   },
@@ -9966,9 +11958,11 @@ export const allPokemonRoster = [
     "id": "nat-0997",
     "dexNo": 997,
     "formKey": "base",
-    "displayName": "드니꽁",
-    "displayNameEn": "Arctibax",
-    "displayNameJa": "セゴール",
+    "names": {
+      "ko": "드니꽁",
+      "en": "Arctibax",
+      "ja": "セゴール"
+    },
     "speed": 62,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/997.png"
   },
@@ -9976,9 +11970,11 @@ export const allPokemonRoster = [
     "id": "nat-0998",
     "dexNo": 998,
     "formKey": "base",
-    "displayName": "드닐레이브",
-    "displayNameEn": "Baxcalibur",
-    "displayNameJa": "セグレイブ",
+    "names": {
+      "ko": "드닐레이브",
+      "en": "Baxcalibur",
+      "ja": "セグレイブ"
+    },
     "speed": 87,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/998.png"
   },
@@ -9986,9 +11982,11 @@ export const allPokemonRoster = [
     "id": "nat-0999",
     "dexNo": 999,
     "formKey": "base",
-    "displayName": "모으령",
-    "displayNameEn": "Gimmighoul",
-    "displayNameJa": "コレクレー",
+    "names": {
+      "ko": "모으령",
+      "en": "Gimmighoul",
+      "ja": "コレクレー"
+    },
     "speed": 10,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/999.png"
   },
@@ -9996,9 +11994,11 @@ export const allPokemonRoster = [
     "id": "nat-1000",
     "dexNo": 1000,
     "formKey": "base",
-    "displayName": "타부자고",
-    "displayNameEn": "Gholdengo",
-    "displayNameJa": "サーフゴー",
+    "names": {
+      "ko": "타부자고",
+      "en": "Gholdengo",
+      "ja": "サーフゴー"
+    },
     "speed": 84,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1000.png"
   },
@@ -10006,9 +12006,11 @@ export const allPokemonRoster = [
     "id": "nat-1001",
     "dexNo": 1001,
     "formKey": "base",
-    "displayName": "총지엔",
-    "displayNameEn": "Wo-Chien",
-    "displayNameJa": "チオンジェン",
+    "names": {
+      "ko": "총지엔",
+      "en": "Wo-Chien",
+      "ja": "チオンジェン"
+    },
     "speed": 70,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1001.png"
   },
@@ -10016,9 +12018,11 @@ export const allPokemonRoster = [
     "id": "nat-1002",
     "dexNo": 1002,
     "formKey": "base",
-    "displayName": "파오젠",
-    "displayNameEn": "Chien-Pao",
-    "displayNameJa": "パオジアン",
+    "names": {
+      "ko": "파오젠",
+      "en": "Chien-Pao",
+      "ja": "パオジアン"
+    },
     "speed": 135,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1002.png"
   },
@@ -10026,9 +12030,11 @@ export const allPokemonRoster = [
     "id": "nat-1003",
     "dexNo": 1003,
     "formKey": "base",
-    "displayName": "딩루",
-    "displayNameEn": "Ting-Lu",
-    "displayNameJa": "ディンルー",
+    "names": {
+      "ko": "딩루",
+      "en": "Ting-Lu",
+      "ja": "ディンルー"
+    },
     "speed": 45,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1003.png"
   },
@@ -10036,9 +12042,11 @@ export const allPokemonRoster = [
     "id": "nat-1004",
     "dexNo": 1004,
     "formKey": "base",
-    "displayName": "위유이",
-    "displayNameEn": "Chi-Yu",
-    "displayNameJa": "イーユイ",
+    "names": {
+      "ko": "위유이",
+      "en": "Chi-Yu",
+      "ja": "イーユイ"
+    },
     "speed": 100,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1004.png"
   },
@@ -10046,9 +12054,11 @@ export const allPokemonRoster = [
     "id": "nat-1005",
     "dexNo": 1005,
     "formKey": "base",
-    "displayName": "고동치는달",
-    "displayNameEn": "Roaring Moon",
-    "displayNameJa": "トドロクツキ",
+    "names": {
+      "ko": "고동치는달",
+      "en": "Roaring Moon",
+      "ja": "トドロクツキ"
+    },
     "speed": 119,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1005.png"
   },
@@ -10056,9 +12066,11 @@ export const allPokemonRoster = [
     "id": "nat-1006",
     "dexNo": 1006,
     "formKey": "base",
-    "displayName": "무쇠무인",
-    "displayNameEn": "Iron Valiant",
-    "displayNameJa": "テツノブジン",
+    "names": {
+      "ko": "무쇠무인",
+      "en": "Iron Valiant",
+      "ja": "テツノブジン"
+    },
     "speed": 116,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1006.png"
   },
@@ -10066,9 +12078,11 @@ export const allPokemonRoster = [
     "id": "nat-1007",
     "dexNo": 1007,
     "formKey": "base",
-    "displayName": "코라이돈",
-    "displayNameEn": "Koraidon",
-    "displayNameJa": "コライドン",
+    "names": {
+      "ko": "코라이돈",
+      "en": "Koraidon",
+      "ja": "コライドン"
+    },
     "speed": 135,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1007.png"
   },
@@ -10076,9 +12090,11 @@ export const allPokemonRoster = [
     "id": "nat-1008",
     "dexNo": 1008,
     "formKey": "base",
-    "displayName": "미라이돈",
-    "displayNameEn": "Miraidon",
-    "displayNameJa": "ミライドン",
+    "names": {
+      "ko": "미라이돈",
+      "en": "Miraidon",
+      "ja": "ミライドン"
+    },
     "speed": 135,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1008.png"
   },
@@ -10086,9 +12102,11 @@ export const allPokemonRoster = [
     "id": "nat-1009",
     "dexNo": 1009,
     "formKey": "base",
-    "displayName": "굽이치는물결",
-    "displayNameEn": "Walking Wake",
-    "displayNameJa": "ウネルミナモ",
+    "names": {
+      "ko": "굽이치는물결",
+      "en": "Walking Wake",
+      "ja": "ウネルミナモ"
+    },
     "speed": 109,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1009.png"
   },
@@ -10096,9 +12114,11 @@ export const allPokemonRoster = [
     "id": "nat-1010",
     "dexNo": 1010,
     "formKey": "base",
-    "displayName": "무쇠잎새",
-    "displayNameEn": "Iron Leaves",
-    "displayNameJa": "テツノイサハ",
+    "names": {
+      "ko": "무쇠잎새",
+      "en": "Iron Leaves",
+      "ja": "テツノイサハ"
+    },
     "speed": 104,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1010.png"
   },
@@ -10106,9 +12126,11 @@ export const allPokemonRoster = [
     "id": "nat-1011",
     "dexNo": 1011,
     "formKey": "base",
-    "displayName": "과미르",
-    "displayNameEn": "Dipplin",
-    "displayNameJa": "カミッチュ",
+    "names": {
+      "ko": "과미르",
+      "en": "Dipplin",
+      "ja": "カミッチュ"
+    },
     "speed": 40,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1011.png"
   },
@@ -10116,9 +12138,11 @@ export const allPokemonRoster = [
     "id": "nat-1012",
     "dexNo": 1012,
     "formKey": "base",
-    "displayName": "차데스",
-    "displayNameEn": "Poltchageist",
-    "displayNameJa": "チャデス",
+    "names": {
+      "ko": "차데스",
+      "en": "Poltchageist",
+      "ja": "チャデス"
+    },
     "speed": 50,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1012.png"
   },
@@ -10126,9 +12150,11 @@ export const allPokemonRoster = [
     "id": "nat-1013",
     "dexNo": 1013,
     "formKey": "base",
-    "displayName": "그우린차",
-    "displayNameEn": "Sinistcha",
-    "displayNameJa": "ヤバソチャ",
+    "names": {
+      "ko": "그우린차",
+      "en": "Sinistcha",
+      "ja": "ヤバソチャ"
+    },
     "speed": 70,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1013.png"
   },
@@ -10136,9 +12162,11 @@ export const allPokemonRoster = [
     "id": "nat-1014",
     "dexNo": 1014,
     "formKey": "base",
-    "displayName": "조타구",
-    "displayNameEn": "Okidogi",
-    "displayNameJa": "イイネイヌ",
+    "names": {
+      "ko": "조타구",
+      "en": "Okidogi",
+      "ja": "イイネイヌ"
+    },
     "speed": 80,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1014.png"
   },
@@ -10146,9 +12174,11 @@ export const allPokemonRoster = [
     "id": "nat-1015",
     "dexNo": 1015,
     "formKey": "base",
-    "displayName": "이야후",
-    "displayNameEn": "Munkidori",
-    "displayNameJa": "マシマシラ",
+    "names": {
+      "ko": "이야후",
+      "en": "Munkidori",
+      "ja": "マシマシラ"
+    },
     "speed": 106,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1015.png"
   },
@@ -10156,9 +12186,11 @@ export const allPokemonRoster = [
     "id": "nat-1016",
     "dexNo": 1016,
     "formKey": "base",
-    "displayName": "기로치",
-    "displayNameEn": "Fezandipiti",
-    "displayNameJa": "キチキギス",
+    "names": {
+      "ko": "기로치",
+      "en": "Fezandipiti",
+      "ja": "キチキギス"
+    },
     "speed": 99,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1016.png"
   },
@@ -10166,9 +12198,11 @@ export const allPokemonRoster = [
     "id": "nat-1017",
     "dexNo": 1017,
     "formKey": "base",
-    "displayName": "오거폰",
-    "displayNameEn": "Ogerpon",
-    "displayNameJa": "オーガポン",
+    "names": {
+      "ko": "오거폰",
+      "en": "Ogerpon",
+      "ja": "オーガポン"
+    },
     "speed": 110,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1017.png"
   },
@@ -10176,9 +12210,11 @@ export const allPokemonRoster = [
     "id": "nat-1018",
     "dexNo": 1018,
     "formKey": "base",
-    "displayName": "브리두라스",
-    "displayNameEn": "Archaludon",
-    "displayNameJa": "ブリジュラス",
+    "names": {
+      "ko": "브리두라스",
+      "en": "Archaludon",
+      "ja": "ブリジュラス"
+    },
     "speed": 85,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1018.png"
   },
@@ -10186,9 +12222,11 @@ export const allPokemonRoster = [
     "id": "nat-1019",
     "dexNo": 1019,
     "formKey": "base",
-    "displayName": "과미드라",
-    "displayNameEn": "Hydrapple",
-    "displayNameJa": "カミツオロチ",
+    "names": {
+      "ko": "과미드라",
+      "en": "Hydrapple",
+      "ja": "カミツオロチ"
+    },
     "speed": 44,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1019.png"
   },
@@ -10196,9 +12234,11 @@ export const allPokemonRoster = [
     "id": "nat-1020",
     "dexNo": 1020,
     "formKey": "base",
-    "displayName": "꿰뚫는화염",
-    "displayNameEn": "Gouging Fire",
-    "displayNameJa": "ウガツホムラ",
+    "names": {
+      "ko": "꿰뚫는화염",
+      "en": "Gouging Fire",
+      "ja": "ウガツホムラ"
+    },
     "speed": 91,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1020.png"
   },
@@ -10206,9 +12246,11 @@ export const allPokemonRoster = [
     "id": "nat-1021",
     "dexNo": 1021,
     "formKey": "base",
-    "displayName": "날뛰는우레",
-    "displayNameEn": "Raging Bolt",
-    "displayNameJa": "タケルライコ",
+    "names": {
+      "ko": "날뛰는우레",
+      "en": "Raging Bolt",
+      "ja": "タケルライコ"
+    },
     "speed": 75,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1021.png"
   },
@@ -10216,9 +12258,11 @@ export const allPokemonRoster = [
     "id": "nat-1022",
     "dexNo": 1022,
     "formKey": "base",
-    "displayName": "무쇠암석",
-    "displayNameEn": "Iron Boulder",
-    "displayNameJa": "テツノイワオ",
+    "names": {
+      "ko": "무쇠암석",
+      "en": "Iron Boulder",
+      "ja": "テツノイワオ"
+    },
     "speed": 124,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1022.png"
   },
@@ -10226,9 +12270,11 @@ export const allPokemonRoster = [
     "id": "nat-1023",
     "dexNo": 1023,
     "formKey": "base",
-    "displayName": "무쇠감투",
-    "displayNameEn": "Iron Crown",
-    "displayNameJa": "テツノカシラ",
+    "names": {
+      "ko": "무쇠감투",
+      "en": "Iron Crown",
+      "ja": "テツノカシラ"
+    },
     "speed": 98,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1023.png"
   },
@@ -10236,9 +12282,11 @@ export const allPokemonRoster = [
     "id": "nat-1024",
     "dexNo": 1024,
     "formKey": "base",
-    "displayName": "테라파고스",
-    "displayNameEn": "Terapagos",
-    "displayNameJa": "テラパゴス",
+    "names": {
+      "ko": "테라파고스",
+      "en": "Terapagos",
+      "ja": "テラパゴス"
+    },
     "speed": 60,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1024.png"
   },
@@ -10246,16 +12294,18 @@ export const allPokemonRoster = [
     "id": "nat-1025",
     "dexNo": 1025,
     "formKey": "base",
-    "displayName": "복숭악동",
-    "displayNameEn": "Pecharunt",
-    "displayNameJa": "モモワロウ",
+    "names": {
+      "ko": "복숭악동",
+      "en": "Pecharunt",
+      "ja": "モモワロウ"
+    },
     "speed": 88,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1025.png"
   }
 ];
 
-export const allMegaOptionsByName = {
-  "이상해꽃": [
+export const allMegaOptionsById = {
+  "nat-0003": [
     {
       "key": "mega",
       "label": "메가이상해꽃",
@@ -10265,7 +12315,7 @@ export const allMegaOptionsByName = {
       "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10033.png"
     }
   ],
-  "리자몽": [
+  "nat-0006": [
     {
       "key": "mega-x",
       "label": "메가리자몽X",
@@ -10283,7 +12333,7 @@ export const allMegaOptionsByName = {
       "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10035.png"
     }
   ],
-  "거북왕": [
+  "nat-0009": [
     {
       "key": "mega",
       "label": "메가거북왕",
@@ -10293,7 +12343,7 @@ export const allMegaOptionsByName = {
       "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10036.png"
     }
   ],
-  "독침붕": [
+  "nat-0015": [
     {
       "key": "mega",
       "label": "메가독침붕",
@@ -10303,7 +12353,7 @@ export const allMegaOptionsByName = {
       "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10090.png"
     }
   ],
-  "피죤투": [
+  "nat-0018": [
     {
       "key": "mega",
       "label": "메가피죤투",
@@ -10313,7 +12363,7 @@ export const allMegaOptionsByName = {
       "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10073.png"
     }
   ],
-  "라이츄": [
+  "nat-0026": [
     {
       "key": "mega-x",
       "label": "메가라이츄X",
@@ -10331,7 +12381,7 @@ export const allMegaOptionsByName = {
       "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10305.png"
     }
   ],
-  "픽시": [
+  "nat-0036": [
     {
       "key": "mega",
       "label": "메가픽시",
@@ -10341,7 +12391,7 @@ export const allMegaOptionsByName = {
       "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10278.png"
     }
   ],
-  "후딘": [
+  "nat-0065": [
     {
       "key": "mega",
       "label": "메가후딘",
@@ -10351,7 +12401,7 @@ export const allMegaOptionsByName = {
       "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10037.png"
     }
   ],
-  "우츠보트": [
+  "nat-0071": [
     {
       "key": "mega",
       "label": "메가우츠보트",
@@ -10361,7 +12411,7 @@ export const allMegaOptionsByName = {
       "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10279.png"
     }
   ],
-  "야도란": [
+  "nat-0080": [
     {
       "key": "mega",
       "label": "메가야도란",
@@ -10371,7 +12421,7 @@ export const allMegaOptionsByName = {
       "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10071.png"
     }
   ],
-  "팬텀": [
+  "nat-0094": [
     {
       "key": "mega",
       "label": "메가팬텀",
@@ -10381,7 +12431,7 @@ export const allMegaOptionsByName = {
       "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10038.png"
     }
   ],
-  "캥카": [
+  "nat-0115": [
     {
       "key": "mega",
       "label": "메가캥카",
@@ -10391,7 +12441,7 @@ export const allMegaOptionsByName = {
       "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10039.png"
     }
   ],
-  "아쿠스타": [
+  "nat-0121": [
     {
       "key": "mega",
       "label": "메가아쿠스타",
@@ -10401,7 +12451,7 @@ export const allMegaOptionsByName = {
       "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10280.png"
     }
   ],
-  "쁘사이저": [
+  "nat-0127": [
     {
       "key": "mega",
       "label": "메가쁘사이저",
@@ -10411,7 +12461,7 @@ export const allMegaOptionsByName = {
       "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10040.png"
     }
   ],
-  "갸라도스": [
+  "nat-0130": [
     {
       "key": "mega",
       "label": "메가갸라도스",
@@ -10421,7 +12471,7 @@ export const allMegaOptionsByName = {
       "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10041.png"
     }
   ],
-  "프테라": [
+  "nat-0142": [
     {
       "key": "mega",
       "label": "메가프테라",
@@ -10431,7 +12481,7 @@ export const allMegaOptionsByName = {
       "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10042.png"
     }
   ],
-  "망나뇽": [
+  "nat-0149": [
     {
       "key": "mega",
       "label": "메가망나뇽",
@@ -10441,7 +12491,7 @@ export const allMegaOptionsByName = {
       "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10281.png"
     }
   ],
-  "뮤츠": [
+  "nat-0150": [
     {
       "key": "mega-x",
       "label": "메가뮤츠X",
@@ -10459,7 +12509,7 @@ export const allMegaOptionsByName = {
       "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10044.png"
     }
   ],
-  "메가니움": [
+  "nat-0154": [
     {
       "key": "mega",
       "label": "메가메가니움",
@@ -10469,7 +12519,7 @@ export const allMegaOptionsByName = {
       "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10282.png"
     }
   ],
-  "장크로다일": [
+  "nat-0160": [
     {
       "key": "mega",
       "label": "메가장크로다일",
@@ -10479,7 +12529,7 @@ export const allMegaOptionsByName = {
       "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10283.png"
     }
   ],
-  "전룡": [
+  "nat-0181": [
     {
       "key": "mega",
       "label": "메가전룡",
@@ -10489,7 +12539,7 @@ export const allMegaOptionsByName = {
       "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10045.png"
     }
   ],
-  "강철톤": [
+  "nat-0208": [
     {
       "key": "mega",
       "label": "메가강철톤",
@@ -10499,7 +12549,7 @@ export const allMegaOptionsByName = {
       "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10072.png"
     }
   ],
-  "핫삼": [
+  "nat-0212": [
     {
       "key": "mega",
       "label": "메가핫삼",
@@ -10509,7 +12559,7 @@ export const allMegaOptionsByName = {
       "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10046.png"
     }
   ],
-  "헤라크로스": [
+  "nat-0214": [
     {
       "key": "mega",
       "label": "메가헤라크로스",
@@ -10519,7 +12569,7 @@ export const allMegaOptionsByName = {
       "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10047.png"
     }
   ],
-  "무장조": [
+  "nat-0227": [
     {
       "key": "mega",
       "label": "메가무장조",
@@ -10529,7 +12579,7 @@ export const allMegaOptionsByName = {
       "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10284.png"
     }
   ],
-  "헬가": [
+  "nat-0229": [
     {
       "key": "mega",
       "label": "메가헬가",
@@ -10539,7 +12589,7 @@ export const allMegaOptionsByName = {
       "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10048.png"
     }
   ],
-  "마기라스": [
+  "nat-0248": [
     {
       "key": "mega",
       "label": "메가마기라스",
@@ -10549,7 +12599,7 @@ export const allMegaOptionsByName = {
       "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10049.png"
     }
   ],
-  "나무킹": [
+  "nat-0254": [
     {
       "key": "mega",
       "label": "메가나무킹",
@@ -10559,7 +12609,7 @@ export const allMegaOptionsByName = {
       "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10065.png"
     }
   ],
-  "번치코": [
+  "nat-0257": [
     {
       "key": "mega",
       "label": "메가번치코",
@@ -10569,7 +12619,7 @@ export const allMegaOptionsByName = {
       "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10050.png"
     }
   ],
-  "대짱이": [
+  "nat-0260": [
     {
       "key": "mega",
       "label": "메가대짱이",
@@ -10579,7 +12629,7 @@ export const allMegaOptionsByName = {
       "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10064.png"
     }
   ],
-  "가디안": [
+  "nat-0282": [
     {
       "key": "mega",
       "label": "메가가디안",
@@ -10589,7 +12639,7 @@ export const allMegaOptionsByName = {
       "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10051.png"
     }
   ],
-  "깜까미": [
+  "nat-0302": [
     {
       "key": "mega",
       "label": "메가깜까미",
@@ -10599,7 +12649,7 @@ export const allMegaOptionsByName = {
       "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10066.png"
     }
   ],
-  "입치트": [
+  "nat-0303": [
     {
       "key": "mega",
       "label": "메가입치트",
@@ -10609,7 +12659,7 @@ export const allMegaOptionsByName = {
       "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10052.png"
     }
   ],
-  "보스로라": [
+  "nat-0306": [
     {
       "key": "mega",
       "label": "메가보스로라",
@@ -10619,7 +12669,7 @@ export const allMegaOptionsByName = {
       "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10053.png"
     }
   ],
-  "요가램": [
+  "nat-0308": [
     {
       "key": "mega",
       "label": "메가요가램",
@@ -10629,7 +12679,7 @@ export const allMegaOptionsByName = {
       "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10054.png"
     }
   ],
-  "썬더볼트": [
+  "nat-0310": [
     {
       "key": "mega",
       "label": "메가썬더볼트",
@@ -10639,7 +12689,7 @@ export const allMegaOptionsByName = {
       "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10055.png"
     }
   ],
-  "샤크니아": [
+  "nat-0319": [
     {
       "key": "mega",
       "label": "메가샤크니아",
@@ -10649,7 +12699,7 @@ export const allMegaOptionsByName = {
       "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10070.png"
     }
   ],
-  "폭타": [
+  "nat-0323": [
     {
       "key": "mega",
       "label": "메가폭타",
@@ -10659,7 +12709,7 @@ export const allMegaOptionsByName = {
       "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10087.png"
     }
   ],
-  "파비코리": [
+  "nat-0334": [
     {
       "key": "mega",
       "label": "메가파비코리",
@@ -10669,7 +12719,7 @@ export const allMegaOptionsByName = {
       "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10067.png"
     }
   ],
-  "다크펫": [
+  "nat-0354": [
     {
       "key": "mega",
       "label": "메가다크펫",
@@ -10679,7 +12729,7 @@ export const allMegaOptionsByName = {
       "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10056.png"
     }
   ],
-  "치렁": [
+  "nat-0358": [
     {
       "key": "mega",
       "label": "메가치렁",
@@ -10689,7 +12739,7 @@ export const allMegaOptionsByName = {
       "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10306.png"
     }
   ],
-  "앱솔": [
+  "nat-0359": [
     {
       "key": "mega",
       "label": "메가앱솔",
@@ -10707,7 +12757,7 @@ export const allMegaOptionsByName = {
       "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10307.png"
     }
   ],
-  "얼음귀신": [
+  "nat-0362": [
     {
       "key": "mega",
       "label": "메가얼음귀신",
@@ -10717,7 +12767,7 @@ export const allMegaOptionsByName = {
       "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10074.png"
     }
   ],
-  "보만다": [
+  "nat-0373": [
     {
       "key": "mega",
       "label": "메가보만다",
@@ -10727,7 +12777,7 @@ export const allMegaOptionsByName = {
       "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10089.png"
     }
   ],
-  "메타그로스": [
+  "nat-0376": [
     {
       "key": "mega",
       "label": "메가메타그로스",
@@ -10737,7 +12787,7 @@ export const allMegaOptionsByName = {
       "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10076.png"
     }
   ],
-  "라티아스": [
+  "nat-0380": [
     {
       "key": "mega",
       "label": "메가라티아스",
@@ -10747,7 +12797,7 @@ export const allMegaOptionsByName = {
       "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10062.png"
     }
   ],
-  "라티오스": [
+  "nat-0381": [
     {
       "key": "mega",
       "label": "메가라티오스",
@@ -10757,7 +12807,7 @@ export const allMegaOptionsByName = {
       "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10063.png"
     }
   ],
-  "레쿠쟈": [
+  "nat-0384": [
     {
       "key": "mega",
       "label": "메가레쿠쟈",
@@ -10767,7 +12817,7 @@ export const allMegaOptionsByName = {
       "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10079.png"
     }
   ],
-  "찌르호크": [
+  "nat-0398": [
     {
       "key": "mega",
       "label": "메가찌르호크",
@@ -10777,7 +12827,7 @@ export const allMegaOptionsByName = {
       "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10308.png"
     }
   ],
-  "이어롭": [
+  "nat-0428": [
     {
       "key": "mega",
       "label": "메가이어롭",
@@ -10787,7 +12837,7 @@ export const allMegaOptionsByName = {
       "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10088.png"
     }
   ],
-  "한카리아스": [
+  "nat-0445": [
     {
       "key": "mega",
       "label": "메가한카리아스",
@@ -10805,7 +12855,7 @@ export const allMegaOptionsByName = {
       "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10309.png"
     }
   ],
-  "루카리오": [
+  "nat-0448": [
     {
       "key": "mega",
       "label": "메가루카리오",
@@ -10823,7 +12873,7 @@ export const allMegaOptionsByName = {
       "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10310.png"
     }
   ],
-  "눈설왕": [
+  "nat-0460": [
     {
       "key": "mega",
       "label": "메가눈설왕",
@@ -10833,7 +12883,7 @@ export const allMegaOptionsByName = {
       "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10060.png"
     }
   ],
-  "엘레이드": [
+  "nat-0475": [
     {
       "key": "mega",
       "label": "메가엘레이드",
@@ -10843,7 +12893,7 @@ export const allMegaOptionsByName = {
       "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10068.png"
     }
   ],
-  "눈여아": [
+  "nat-0478": [
     {
       "key": "mega",
       "label": "메가눈여아",
@@ -10853,7 +12903,7 @@ export const allMegaOptionsByName = {
       "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10285.png"
     }
   ],
-  "히드런": [
+  "nat-0485": [
     {
       "key": "mega",
       "label": "메가히드런",
@@ -10863,7 +12913,7 @@ export const allMegaOptionsByName = {
       "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10311.png"
     }
   ],
-  "다크라이": [
+  "nat-0491": [
     {
       "key": "mega",
       "label": "메가다크라이",
@@ -10873,7 +12923,7 @@ export const allMegaOptionsByName = {
       "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10312.png"
     }
   ],
-  "염무왕": [
+  "nat-0500": [
     {
       "key": "mega",
       "label": "메가염무왕",
@@ -10883,7 +12933,7 @@ export const allMegaOptionsByName = {
       "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10286.png"
     }
   ],
-  "몰드류": [
+  "nat-0530": [
     {
       "key": "mega",
       "label": "메가몰드류",
@@ -10893,7 +12943,7 @@ export const allMegaOptionsByName = {
       "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10287.png"
     }
   ],
-  "다부니": [
+  "nat-0531": [
     {
       "key": "mega",
       "label": "메가다부니",
@@ -10903,7 +12953,7 @@ export const allMegaOptionsByName = {
       "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10069.png"
     }
   ],
-  "펜드라": [
+  "nat-0545": [
     {
       "key": "mega",
       "label": "메가펜드라",
@@ -10913,7 +12963,7 @@ export const allMegaOptionsByName = {
       "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10288.png"
     }
   ],
-  "곤율거니": [
+  "nat-0560": [
     {
       "key": "mega",
       "label": "메가곤율거니",
@@ -10923,7 +12973,7 @@ export const allMegaOptionsByName = {
       "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10289.png"
     }
   ],
-  "저리더프": [
+  "nat-0604": [
     {
       "key": "mega",
       "label": "메가저리더프",
@@ -10933,7 +12983,7 @@ export const allMegaOptionsByName = {
       "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10290.png"
     }
   ],
-  "샹델라": [
+  "nat-0609": [
     {
       "key": "mega",
       "label": "메가샹델라",
@@ -10943,7 +12993,7 @@ export const allMegaOptionsByName = {
       "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10291.png"
     }
   ],
-  "골루그": [
+  "nat-0623": [
     {
       "key": "mega",
       "label": "메가골루그",
@@ -10953,7 +13003,7 @@ export const allMegaOptionsByName = {
       "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10313.png"
     }
   ],
-  "브리가론": [
+  "nat-0652": [
     {
       "key": "mega",
       "label": "메가브리가론",
@@ -10963,7 +13013,7 @@ export const allMegaOptionsByName = {
       "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10292.png"
     }
   ],
-  "마폭시": [
+  "nat-0655": [
     {
       "key": "mega",
       "label": "메가마폭시",
@@ -10973,7 +13023,7 @@ export const allMegaOptionsByName = {
       "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10293.png"
     }
   ],
-  "개굴닌자": [
+  "nat-0658": [
     {
       "key": "mega",
       "label": "메가개굴닌자",
@@ -10983,7 +13033,7 @@ export const allMegaOptionsByName = {
       "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10294.png"
     }
   ],
-  "화염레오": [
+  "nat-0668": [
     {
       "key": "mega",
       "label": "메가화염레오",
@@ -10993,7 +13043,7 @@ export const allMegaOptionsByName = {
       "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10295.png"
     }
   ],
-  "플라엣테": [
+  "nat-0670": [
     {
       "key": "mega",
       "label": "메가플라엣테",
@@ -11003,7 +13053,7 @@ export const allMegaOptionsByName = {
       "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10296.png"
     }
   ],
-  "냐오닉스": [
+  "nat-0678": [
     {
       "key": "mega",
       "label": "메가냐오닉스",
@@ -11013,7 +13063,7 @@ export const allMegaOptionsByName = {
       "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10314.png"
     }
   ],
-  "칼라마네로": [
+  "nat-0687": [
     {
       "key": "mega",
       "label": "메가칼라마네로",
@@ -11023,7 +13073,7 @@ export const allMegaOptionsByName = {
       "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10297.png"
     }
   ],
-  "거북손데스": [
+  "nat-0689": [
     {
       "key": "mega",
       "label": "메가거북손데스",
@@ -11033,7 +13083,7 @@ export const allMegaOptionsByName = {
       "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10298.png"
     }
   ],
-  "드래캄": [
+  "nat-0691": [
     {
       "key": "mega",
       "label": "메가드래캄",
@@ -11043,7 +13093,7 @@ export const allMegaOptionsByName = {
       "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10299.png"
     }
   ],
-  "루차불": [
+  "nat-0701": [
     {
       "key": "mega",
       "label": "메가루차불",
@@ -11053,7 +13103,7 @@ export const allMegaOptionsByName = {
       "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10300.png"
     }
   ],
-  "지가르데": [
+  "nat-0718": [
     {
       "key": "mega",
       "label": "메가지가르데",
@@ -11063,7 +13113,7 @@ export const allMegaOptionsByName = {
       "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10301.png"
     }
   ],
-  "디안시": [
+  "nat-0719": [
     {
       "key": "mega",
       "label": "메가디안시",
@@ -11073,7 +13123,7 @@ export const allMegaOptionsByName = {
       "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10075.png"
     }
   ],
-  "모단단게": [
+  "nat-0740": [
     {
       "key": "mega",
       "label": "메가모단단게",
@@ -11083,7 +13133,7 @@ export const allMegaOptionsByName = {
       "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10315.png"
     }
   ],
-  "갑주무사": [
+  "nat-0768": [
     {
       "key": "mega",
       "label": "메가갑주무사",
@@ -11093,7 +13143,7 @@ export const allMegaOptionsByName = {
       "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10316.png"
     }
   ],
-  "할비롱": [
+  "nat-0780": [
     {
       "key": "mega",
       "label": "메가할비롱",
@@ -11103,7 +13153,7 @@ export const allMegaOptionsByName = {
       "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10302.png"
     }
   ],
-  "마기아나": [
+  "nat-0801": [
     {
       "key": "mega",
       "label": "메가마기아나",
@@ -11121,7 +13171,7 @@ export const allMegaOptionsByName = {
       "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10318.png"
     }
   ],
-  "제라오라": [
+  "nat-0807": [
     {
       "key": "mega",
       "label": "메가제라오라",
@@ -11131,7 +13181,7 @@ export const allMegaOptionsByName = {
       "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10319.png"
     }
   ],
-  "대여르": [
+  "nat-0870": [
     {
       "key": "mega",
       "label": "메가대여르",
@@ -11141,7 +13191,7 @@ export const allMegaOptionsByName = {
       "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10303.png"
     }
   ],
-  "스코빌런": [
+  "nat-0952": [
     {
       "key": "mega",
       "label": "메가스코빌런",
@@ -11151,7 +13201,7 @@ export const allMegaOptionsByName = {
       "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10320.png"
     }
   ],
-  "킬라플로르": [
+  "nat-0970": [
     {
       "key": "mega",
       "label": "메가킬라플로르",
@@ -11161,7 +13211,7 @@ export const allMegaOptionsByName = {
       "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10321.png"
     }
   ],
-  "싸리용": [
+  "nat-0978": [
     {
       "key": "mega",
       "label": "메가싸리용",
@@ -11187,7 +13237,7 @@ export const allMegaOptionsByName = {
       "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10324.png"
     }
   ],
-  "드닐레이브": [
+  "nat-0998": [
     {
       "key": "mega",
       "label": "메가드닐레이브",
