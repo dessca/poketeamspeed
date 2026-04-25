@@ -1899,7 +1899,7 @@ function App() {
           <div className="brand">
             <img src="/logo.png" alt="" className="brand-mark" />
             <h1>
-              <span className="brand-main">{t.titleMain}</span>
+              <span className="brand-main">{t.titleMain} </span>
               <span className="brand-sub">{t.titleSub}</span>
             </h1>
             <Tooltip label="?" text={t.titleHelp} className="inline-help" />
