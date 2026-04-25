@@ -3569,6 +3569,20 @@
 }
 
 @media (max-width: 960px) {
+  .app-header {
+    grid-template-columns: minmax(0, 1fr);
+    align-items: stretch;
+    gap: 12px;
+  }
+
+  .brand {
+    align-items: center;
+  }
+
+  .brand h1 {
+    white-space: normal;
+  }
+
   .header-controls {
     display: grid;
     grid-template-columns: minmax(0, 1fr);
@@ -3579,8 +3593,42 @@
   .header-help,
   .header-view-switch,
   .header-meta-tools {
+    grid-column: 1 / -1;
     width: 100%;
+    min-width: 0;
+    max-width: 100%;
     justify-self: stretch;
+  }
+
+  .header-help {
+    order: 1;
+  }
+
+  .header-view-switch {
+    order: 2;
+  }
+
+  .header-meta-tools {
+    order: 3;
+  }
+
+  .header-help .tooltip-anchor {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .tooltip-anchor .tooltip-panel,
+  .tooltip-anchor.right .tooltip-panel {
+    position: fixed;
+    top: auto;
+    right: 12px;
+    bottom: max(12px, env(safe-area-inset-bottom));
+    left: 12px;
+    width: auto;
+    max-width: none;
+    max-height: calc(100dvh - 24px);
+    overflow: auto;
+    transform: translateY(10px);
   }
 
   .header-meta-tools {
@@ -3815,5 +3863,52 @@
   .team-card-head .danger-pill {
     margin-left: auto;
     white-space: nowrap;
+  }
+
+  .slot-grid {
+    gap: 8px;
+  }
+
+  .slot-card.empty {
+    min-height: 72px;
+    padding: 10px 12px;
+  }
+
+  .slot-card.compact.empty {
+    height: 60px;
+    min-height: 60px;
+  }
+
+  .slot-empty {
+    gap: 4px;
+  }
+
+  .slot-empty span {
+    font-size: 0.8rem;
+    line-height: 1.25;
+  }
+
+  .empty-box {
+    min-height: 92px;
+    padding: 16px;
+    border-radius: 18px;
+  }
+
+  .detail-card.detail-empty .empty-box.in-panel,
+  .battle-side.battle-side-empty .empty-box.in-panel {
+    min-height: 112px;
+    padding: 18px;
+    font-size: 0.94rem;
+    line-height: 1.55;
+  }
+
+  .battle-result.battle-result-empty {
+    min-height: 156px;
+  }
+
+  .battle-result-empty-box {
+    padding: 18px;
+    font-size: 0.94rem;
+    line-height: 1.55;
   }
 }
