@@ -24,6 +24,7 @@ async function fetchJson(url) {
 function getMegaKey(pokemonName) {
   if (pokemonName.endsWith("-mega-x")) return "mega-x";
   if (pokemonName.endsWith("-mega-y")) return "mega-y";
+  if (pokemonName.endsWith("-mega-z")) return "mega-z";
   if (pokemonName.includes("-mega")) return "mega";
   return null;
 }
@@ -31,6 +32,7 @@ function getMegaKey(pokemonName) {
 function getMegaSuffix(key) {
   if (key === "mega-x") return "X";
   if (key === "mega-y") return "Y";
+  if (key === "mega-z") return "Z";
   return "";
 }
 

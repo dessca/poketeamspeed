@@ -31,9 +31,65 @@ export function getRosterSearchNames(entry) {
   return [...new Set([names.ko, names.en, names.ja].filter(Boolean))];
 }
 
+const MEGA_OPTION_OVERRIDES_BY_ICON_ID = {
+  "10307": {
+    key: "mega-z",
+    label: "메가앱솔Z",
+    labelEn: "Mega Absol Z",
+    labelJa: "メガアブソルZ",
+  },
+  "10309": {
+    key: "mega-z",
+    label: "메가한카리아스Z",
+    labelEn: "Mega Garchomp Z",
+    labelJa: "メガガブリアスZ",
+  },
+  "10310": {
+    key: "mega-z",
+    label: "메가루카리오Z",
+    labelEn: "Mega Lucario Z",
+    labelJa: "メガルカリオZ",
+  },
+  "10322": {
+    icon: "https://static.rotomlabs.net/images/official-artwork/0978-tatsugiri-mega-curly.webp",
+  },
+};
+
+function getOfficialArtworkIconId(icon) {
+  const match = String(icon || "").match(/official-artwork\/(\d+)\.png$/);
+  return match?.[1] || "";
+}
+
+function normalizeMegaOptions(options) {
+  if (!Array.isArray(options)) return [];
+
+  const usedKeys = new Map();
+  const seenEquivalentOptions = new Set();
+
+  return options
+    .filter((option) => {
+      const equivalentKey = [option.labelEn || option.label, option.speed].join(":");
+      if (seenEquivalentOptions.has(equivalentKey)) return false;
+      seenEquivalentOptions.add(equivalentKey);
+      return true;
+    })
+    .map((option, index) => {
+      const override = MEGA_OPTION_OVERRIDES_BY_ICON_ID[getOfficialArtworkIconId(option.icon)] || {};
+      const baseKey = override.key || option.key || `mega-${index + 1}`;
+      const keyCount = usedKeys.get(baseKey) || 0;
+      usedKeys.set(baseKey, keyCount + 1);
+
+      return {
+        ...option,
+        ...override,
+        key: keyCount === 0 ? baseKey : `${baseKey}-${keyCount + 1}`,
+      };
+    });
+}
+
 export function getMegaOptionsForEntry(megaOptions, entry) {
   if (!entry) return [];
-  return megaOptions[entry.id] || megaOptions[getPrimaryRosterName(entry)] || [];
+  return normalizeMegaOptions(megaOptions[entry.id] || megaOptions[getPrimaryRosterName(entry)] || []);
 }
 
 function indexMegaOptionsByEntryId(roster, megaOptions) {
