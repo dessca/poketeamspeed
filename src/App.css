@@ -2741,7 +2741,10 @@
 
 .app-footer {
   color: var(--muted);
+  display: grid;
+  gap: 4px;
   font-size: 0.82rem;
+  line-height: 1.55;
   text-align: right;
   padding-top: 10px;
 }

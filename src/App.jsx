@@ -268,7 +268,12 @@ const TEXT = {
     mixedSub: "남아 있는 변수 때문에 결과 범위가 넓게 겹칩니다.",
     doubleOrderTitle: "4마리 행동 순서 예상",
     doubleOrderSub: "현재 설정 기준으로 더블 대면 4마리의 스피드 순위를 비교합니다.",
-    footer: "문의: teamscarf@proton.me",
+    footerLines: [
+      "SCARF | Pokemon Speed Matchups",
+      "문의: teamscarf@proton.me",
+      "비공식 팬 제작 도구입니다. Nintendo, Creatures, GAME FREAK, The Pokemon Company와 관련이 없습니다.",
+      "데이터 및 아트워크 참고: PokeAPI, PokemonDB, RotomLabs.",
+    ],
   },
   en: {
     titleMain: "SCARF",
@@ -375,7 +380,12 @@ const TEXT = {
     mixedSub: "There are still too many overlapping variables to call it cleanly.",
     doubleOrderTitle: "Predicted Turn Order",
     doubleOrderSub: "Compare the current Speed ranking of all four Pokemon in the live double matchup.",
-    footer: "Contact: teamscarf@proton.me",
+    footerLines: [
+      "SCARF | Pokemon Speed Matchups",
+      "Contact: teamscarf@proton.me",
+      "Unofficial fan-made tool. Not affiliated with Nintendo, Creatures, GAME FREAK, or The Pokemon Company.",
+      "Data and artwork references: PokeAPI, PokemonDB, RotomLabs.",
+    ],
   },
   ja: {
     titleMain: "SCARF",
@@ -482,7 +492,12 @@ const TEXT = {
     mixedSub: "残っている変数が重なっており、まだはっきり断定できません。",
     doubleOrderTitle: "4体の行動順予想",
     doubleOrderSub: "現在の設定を基準に、ダブル対面の4体の素早さ順位を比較します。",
-    footer: "お問い合わせ: teamscarf@proton.me",
+    footerLines: [
+      "SCARF | Pokemon Speed Matchups",
+      "お問い合わせ: teamscarf@proton.me",
+      "非公式のファン制作ツールです。Nintendo、Creatures、GAME FREAK、The Pokemon Companyとは関係ありません。",
+      "データおよびアートワーク参照: PokeAPI、PokemonDB、RotomLabs。",
+    ],
   },
 };
 
@@ -2482,7 +2497,11 @@ function App() {
           onImport={importShowdownTeam}
         />
 
-        <footer className="app-footer">{t.footer}</footer>
+        <footer className="app-footer">
+          {t.footerLines.map((line) => (
+            <span key={line}>{line}</span>
+          ))}
+        </footer>
       </div>
 
       <Analytics />
