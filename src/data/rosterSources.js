@@ -1,3 +1,4 @@
+import { allMegaOptionsById, allPokemonRoster } from "./allPokemonRoster";
 import { championsRoster, MEGA_OPTIONS } from "./championsRoster";
 
 export const ROSTER_SOURCES = {
@@ -46,7 +47,7 @@ function indexMegaOptionsByEntryId(roster, megaOptions) {
 }
 
 export function loadNationalRosterBundle() {
-  return import("./allPokemonRoster");
+  return Promise.resolve({ allPokemonRoster, allMegaOptionsById });
 }
 
 export function getRosterSourceData(source, nationalRosterBundle) {
