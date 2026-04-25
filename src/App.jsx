@@ -666,7 +666,7 @@ function parseShowdownNatureKey(natureName) {
 }
 
 function parseShowdownSpeedEv(evLine) {
-  const match = String(evLine || "").match(/(\d+)\s+Spe\b/i);
+  const match = String(evLine || "").match(/(?:^|[/\s])(\d+)\s*(?:Spe|Speed)\b/i);
   return match ? clampInt(Math.round(Number(match[1]) / 8), 0, 32) : 0;
 }
 
@@ -1662,8 +1662,8 @@ function App() {
   const isDetailSlotVisible = slotHasPokemon(selectedSlot) && !isDetailPanelCleared;
   const selectedGraph = isDetailSlotVisible ? buildGraph(selectedSlot, selectedSlot.baseSpeed, null, language) : null;
 
-  const renderAbilityButtons = (slot, onChange) => {
-    if (!hasSpeedAbilityOptions(slot)) {
+  const renderAbilityButtons = (slot, onChange, battleState = null) => {
+    if (!hasSpeedAbilityOptions(slot, battleState)) {
       const label = getLocalizedOptionLabel(DEFAULT_ABILITY_OPTIONS[0], language);
       return (
         <button type="button" className="active" disabled>
@@ -1672,11 +1672,14 @@ function App() {
       );
     }
 
-    return getAbilityOptions(slot).map((option) => (
+    const options = getAbilityOptions(slot, battleState);
+    const selectedKey = options.some((option) => option.key === slot.abilitySetting) ? slot.abilitySetting : options[0].key;
+
+    return options.map((option) => (
       <button
         key={option.key}
         type="button"
-        className={slot.abilitySetting === option.key ? "active" : ""}
+        className={selectedKey === option.key ? "active" : ""}
         onClick={() => onChange(option.key)}
       >
         {getLocalizedOptionLabel(option, language)}
@@ -1847,9 +1850,9 @@ function App() {
               </div>
 
               <div className="field span-2 battle-field battle-field-ability">
-                <span>{t.ability} <Tooltip label="?" text={getAbilityHelpText(slot, language, t.abilityHelp)} className="inline-help" /></span>
+                <span>{t.ability} <Tooltip label="?" text={getAbilityHelpText(slot, language, t.abilityHelp, state)} className="inline-help" /></span>
                 <div className="segmented wrap">
-                  {renderAbilityButtons(slot, (value) => updateBattleSlot(side, battleSlotIndex, { abilitySetting: value }))}
+                  {renderAbilityButtons(slot, (value) => updateBattleSlot(side, battleSlotIndex, { abilitySetting: value }), state)}
                 </div>
               </div>
             </div>

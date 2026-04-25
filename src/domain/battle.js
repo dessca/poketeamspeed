@@ -20,6 +20,91 @@ export const ITEMS = {
   unknown: { labelKo: "모름", labelEn: "Unknown", labelJa: "不明", values: [1, 1.5], point: 1 },
 };
 
+const UNBURDEN_ABILITY_OPTION = {
+  key: "unburden",
+  labelKo: "곡예",
+  labelEn: "Unburden",
+  labelJa: "かるわざ",
+  multiplier: 2,
+  helpKo: "지닌 도구를 잃은 뒤 스피드 x2",
+  helpEn: "Speed doubles after the held item is consumed or lost.",
+  helpJa: "持ち物がなくなると素早さが2倍になります。",
+};
+
+const SPEED_ABILITY_OPTIONS = {
+  swiftSwim: {
+    key: "swift-swim",
+    labelKo: "쓱쓱",
+    labelEn: "Swift Swim",
+    labelJa: "すいすい",
+    multiplier: 2,
+    helpKo: "비가 올 때 스피드 x2",
+    helpEn: "Speed doubles during rain.",
+    helpJa: "雨のとき、素早さが2倍になります。",
+  },
+  chlorophyll: {
+    key: "chlorophyll",
+    labelKo: "엽록소",
+    labelEn: "Chlorophyll",
+    labelJa: "ようりょくそ",
+    multiplier: 2,
+    helpKo: "날씨가 쾌청일 때 스피드 x2",
+    helpEn: "Speed doubles in harsh sunlight.",
+    helpJa: "にほんばれのとき、素早さが2倍になります。",
+  },
+  sandRush: {
+    key: "sand-rush",
+    labelKo: "모래헤치기",
+    labelEn: "Sand Rush",
+    labelJa: "すなかき",
+    multiplier: 2,
+    helpKo: "날씨가 모래바람일 때 스피드 x2",
+    helpEn: "Speed doubles during a sandstorm.",
+    helpJa: "すなあらしのとき、素早さが2倍になります。",
+  },
+  slushRush: {
+    key: "slush-rush",
+    labelKo: "눈치우기",
+    labelEn: "Slush Rush",
+    labelJa: "ゆきかき",
+    multiplier: 2,
+    helpKo: "눈일 때 스피드 x2",
+    helpEn: "Speed doubles during snow.",
+    helpJa: "雪のとき、素早さが2倍になります。",
+  },
+  quickFeet: {
+    key: "quick-feet",
+    labelKo: "속보",
+    labelEn: "Quick Feet",
+    labelJa: "はやあし",
+    multiplier: 1.5,
+    helpKo: "상태이상일 때 스피드 x1.5",
+    helpEn: "Speed is multiplied by 1.5 while affected by a status condition.",
+    helpJa: "状態異常のとき、素早さが1.5倍になります。",
+  },
+  slowStart: {
+    key: "slow-start",
+    labelKo: "슬로스타트",
+    labelEn: "Slow Start",
+    labelJa: "スロースタート",
+    multiplier: 0.5,
+    helpKo: "등장 후 5턴 동안 스피드 x0.5",
+    helpEn: "Speed is halved for five turns after entering battle.",
+    helpJa: "登場してから5ターンの間、素早さが半分になります。",
+  },
+};
+
+const createSpeedAbilityOptions = (fallbackAbility, speedAbility) => createMultiSpeedAbilityOptions(fallbackAbility, [speedAbility]);
+
+const createMultiSpeedAbilityOptions = (fallbackAbility, speedAbilities) => [
+  fallbackAbility,
+  ...speedAbilities,
+  { key: "unknown", labelKo: "모름", labelEn: "Unknown", labelJa: "不明", multiplier: 1, values: [1, ...speedAbilities.map((ability) => ability.multiplier)] },
+];
+
+const createUnburdenAbilityOptions = (fallbackAbility) => createSpeedAbilityOptions(fallbackAbility, UNBURDEN_ABILITY_OPTION);
+const NO_SPEED_ABILITY = { key: "none", labelKo: "보정 없음", labelEn: "No boost", labelJa: "補正なし", multiplier: 1 };
+
 export const ABILITY_OPTIONS_BY_NAME = {
   이상해꽃: [
     { key: "none", labelKo: "심록", labelEn: "Overgrow", labelJa: "しんりょく", multiplier: 1 },
@@ -55,6 +140,94 @@ export const ABILITY_OPTIONS_BY_NAME = {
     { key: "chlorophyll", labelKo: "엽록소", labelEn: "Chlorophyll", labelJa: "ようりょくそ", multiplier: 2, helpKo: "날씨가 쾌청일 때 스피드 x2", helpEn: "Speed doubles in harsh sunlight.", helpJa: "にほんばれのとき、素早さが2倍になります。" },
     { key: "unknown", labelKo: "모름", labelEn: "Unknown", labelJa: "不明", multiplier: 1, values: [1, 2] },
   ],
+  골덕: createSpeedAbilityOptions(NO_SPEED_ABILITY, SPEED_ABILITY_OPTIONS.swiftSwim),
+  강챙이: createSpeedAbilityOptions(NO_SPEED_ABILITY, SPEED_ABILITY_OPTIONS.swiftSwim),
+  쏘드라: createSpeedAbilityOptions(NO_SPEED_ABILITY, SPEED_ABILITY_OPTIONS.swiftSwim),
+  왕콘치: createSpeedAbilityOptions(NO_SPEED_ABILITY, SPEED_ABILITY_OPTIONS.swiftSwim),
+  잉어킹: createSpeedAbilityOptions(NO_SPEED_ABILITY, SPEED_ABILITY_OPTIONS.swiftSwim),
+  암스타: createSpeedAbilityOptions(NO_SPEED_ABILITY, SPEED_ABILITY_OPTIONS.swiftSwim),
+  투구푸스: createSpeedAbilityOptions(NO_SPEED_ABILITY, SPEED_ABILITY_OPTIONS.swiftSwim),
+  침바루: createSpeedAbilityOptions(NO_SPEED_ABILITY, SPEED_ABILITY_OPTIONS.swiftSwim),
+  만타인: createSpeedAbilityOptions(NO_SPEED_ABILITY, SPEED_ABILITY_OPTIONS.swiftSwim),
+  킹드라: createSpeedAbilityOptions(NO_SPEED_ABILITY, SPEED_ABILITY_OPTIONS.swiftSwim),
+  대짱이: createSpeedAbilityOptions(NO_SPEED_ABILITY, SPEED_ABILITY_OPTIONS.swiftSwim),
+  로파파: createSpeedAbilityOptions(NO_SPEED_ABILITY, SPEED_ABILITY_OPTIONS.swiftSwim),
+  비구술: createSpeedAbilityOptions(NO_SPEED_ABILITY, SPEED_ABILITY_OPTIONS.swiftSwim),
+  아말도: createSpeedAbilityOptions(NO_SPEED_ABILITY, SPEED_ABILITY_OPTIONS.swiftSwim),
+  빈티나: createSpeedAbilityOptions(NO_SPEED_ABILITY, SPEED_ABILITY_OPTIONS.swiftSwim),
+  헌테일: createSpeedAbilityOptions(NO_SPEED_ABILITY, SPEED_ABILITY_OPTIONS.swiftSwim),
+  분홍장이: createSpeedAbilityOptions(NO_SPEED_ABILITY, SPEED_ABILITY_OPTIONS.swiftSwim),
+  시라칸: createSpeedAbilityOptions(NO_SPEED_ABILITY, SPEED_ABILITY_OPTIONS.swiftSwim),
+  사랑동이: createSpeedAbilityOptions(NO_SPEED_ABILITY, SPEED_ABILITY_OPTIONS.swiftSwim),
+  플로젤: createSpeedAbilityOptions(NO_SPEED_ABILITY, SPEED_ABILITY_OPTIONS.swiftSwim),
+  네오라이트: createSpeedAbilityOptions(NO_SPEED_ABILITY, SPEED_ABILITY_OPTIONS.swiftSwim),
+  두빅굴: createSpeedAbilityOptions(NO_SPEED_ABILITY, SPEED_ABILITY_OPTIONS.swiftSwim),
+  늑골라: createSpeedAbilityOptions(NO_SPEED_ABILITY, SPEED_ABILITY_OPTIONS.swiftSwim),
+  툰베어: createMultiSpeedAbilityOptions(NO_SPEED_ABILITY, [SPEED_ABILITY_OPTIONS.swiftSwim, SPEED_ABILITY_OPTIONS.slushRush]),
+  갈가부기: createSpeedAbilityOptions(NO_SPEED_ABILITY, SPEED_ABILITY_OPTIONS.swiftSwim),
+  꼬치조: createSpeedAbilityOptions(NO_SPEED_ABILITY, SPEED_ABILITY_OPTIONS.swiftSwim),
+  대쓰여너: createSpeedAbilityOptions(NO_SPEED_ABILITY, SPEED_ABILITY_OPTIONS.swiftSwim),
+  장침바루: createSpeedAbilityOptions(NO_SPEED_ABILITY, SPEED_ABILITY_OPTIONS.swiftSwim),
+  라플레시아: createSpeedAbilityOptions(NO_SPEED_ABILITY, SPEED_ABILITY_OPTIONS.chlorophyll),
+  우츠보트: createSpeedAbilityOptions(NO_SPEED_ABILITY, SPEED_ABILITY_OPTIONS.chlorophyll),
+  나시: createSpeedAbilityOptions(NO_SPEED_ABILITY, SPEED_ABILITY_OPTIONS.chlorophyll),
+  아르코: createSpeedAbilityOptions(NO_SPEED_ABILITY, SPEED_ABILITY_OPTIONS.chlorophyll),
+  솜솜코: createSpeedAbilityOptions(NO_SPEED_ABILITY, SPEED_ABILITY_OPTIONS.chlorophyll),
+  해루미: createSpeedAbilityOptions(NO_SPEED_ABILITY, SPEED_ABILITY_OPTIONS.chlorophyll),
+  다탱구: createSpeedAbilityOptions(NO_SPEED_ABILITY, SPEED_ABILITY_OPTIONS.chlorophyll),
+  트로피우스: createSpeedAbilityOptions(NO_SPEED_ABILITY, SPEED_ABILITY_OPTIONS.chlorophyll),
+  체리버: createSpeedAbilityOptions(NO_SPEED_ABILITY, SPEED_ABILITY_OPTIONS.chlorophyll),
+  덩쿠림보: createSpeedAbilityOptions(NO_SPEED_ABILITY, SPEED_ABILITY_OPTIONS.chlorophyll),
+  리피아: createSpeedAbilityOptions(NO_SPEED_ABILITY, SPEED_ABILITY_OPTIONS.chlorophyll),
+  모아머: createSpeedAbilityOptions(NO_SPEED_ABILITY, SPEED_ABILITY_OPTIONS.chlorophyll),
+  드레디어: createSpeedAbilityOptions(NO_SPEED_ABILITY, SPEED_ABILITY_OPTIONS.chlorophyll),
+  마라카치: createSpeedAbilityOptions(NO_SPEED_ABILITY, SPEED_ABILITY_OPTIONS.chlorophyll),
+  바라철록: createSpeedAbilityOptions(NO_SPEED_ABILITY, SPEED_ABILITY_OPTIONS.chlorophyll),
+  고지: createSpeedAbilityOptions(NO_SPEED_ABILITY, SPEED_ABILITY_OPTIONS.sandRush),
+  "알로라 고지": createSpeedAbilityOptions(NO_SPEED_ABILITY, SPEED_ABILITY_OPTIONS.slushRush),
+  "알로라 모래두지": createSpeedAbilityOptions(NO_SPEED_ABILITY, SPEED_ABILITY_OPTIONS.slushRush),
+  하데리어: createSpeedAbilityOptions(NO_SPEED_ABILITY, SPEED_ABILITY_OPTIONS.sandRush),
+  바랜드: createSpeedAbilityOptions(NO_SPEED_ABILITY, SPEED_ABILITY_OPTIONS.sandRush),
+  루가루암: createSpeedAbilityOptions(NO_SPEED_ABILITY, SPEED_ABILITY_OPTIONS.sandRush),
+  "루가루암(황혼)": createSpeedAbilityOptions(NO_SPEED_ABILITY, SPEED_ABILITY_OPTIONS.sandRush),
+  "루가루암(한낮)": createSpeedAbilityOptions(NO_SPEED_ABILITY, SPEED_ABILITY_OPTIONS.sandRush),
+  "루가루암(한밤)": createSpeedAbilityOptions(NO_SPEED_ABILITY, SPEED_ABILITY_OPTIONS.sandRush),
+  파치래곤: createSpeedAbilityOptions(NO_SPEED_ABILITY, SPEED_ABILITY_OPTIONS.sandRush),
+  어래곤: createSpeedAbilityOptions(NO_SPEED_ABILITY, SPEED_ABILITY_OPTIONS.sandRush),
+  묘두기: createSpeedAbilityOptions(NO_SPEED_ABILITY, SPEED_ABILITY_OPTIONS.sandRush),
+  파치르돈: createSpeedAbilityOptions(NO_SPEED_ABILITY, SPEED_ABILITY_OPTIONS.slushRush),
+  어치르돈: createSpeedAbilityOptions(NO_SPEED_ABILITY, SPEED_ABILITY_OPTIONS.slushRush),
+  우락고래: createSpeedAbilityOptions(NO_SPEED_ABILITY, SPEED_ABILITY_OPTIONS.slushRush),
+  "히스이 드레디어": createSpeedAbilityOptions(NO_SPEED_ABILITY, SPEED_ABILITY_OPTIONS.chlorophyll),
+  "히스이 침바루": createSpeedAbilityOptions(NO_SPEED_ABILITY, SPEED_ABILITY_OPTIONS.swiftSwim),
+  시라소몬: createUnburdenAbilityOptions({ key: "none", labelKo: "이판사판", labelEn: "Reckless", labelJa: "すてみ", multiplier: 1 }),
+  나무지기: createUnburdenAbilityOptions({ key: "none", labelKo: "심록", labelEn: "Overgrow", labelJa: "しんりょく", multiplier: 1 }),
+  나무돌이: createUnburdenAbilityOptions({ key: "none", labelKo: "심록", labelEn: "Overgrow", labelJa: "しんりょく", multiplier: 1 }),
+  나무킹: createUnburdenAbilityOptions({ key: "none", labelKo: "심록", labelEn: "Overgrow", labelJa: "しんりょく", multiplier: 1 }),
+  흔들풍손: createUnburdenAbilityOptions({ key: "none", labelKo: "유폭", labelEn: "Aftermath", labelJa: "ゆうばく", multiplier: 1 }),
+  둥실라이드: createUnburdenAbilityOptions({ key: "none", labelKo: "유폭", labelEn: "Aftermath", labelJa: "ゆうばく", multiplier: 1 }),
+  쌔비냥: createUnburdenAbilityOptions({ key: "none", labelKo: "유연", labelEn: "Limber", labelJa: "じゅうなん", multiplier: 1 }),
+  레파르다스: createUnburdenAbilityOptions({ key: "none", labelKo: "유연", labelEn: "Limber", labelJa: "じゅうなん", multiplier: 1 }),
+  어지리더: createUnburdenAbilityOptions({ key: "none", labelKo: "촉촉바디", labelEn: "Hydration", labelJa: "うるおいボディ", multiplier: 1 }),
+  나룸퍼프: createUnburdenAbilityOptions({ key: "none", labelKo: "스위트베일", labelEn: "Sweet Veil", labelJa: "スイートベール", multiplier: 1 }),
+  나루림: createUnburdenAbilityOptions({ key: "none", labelKo: "스위트베일", labelEn: "Sweet Veil", labelJa: "スイートベール", multiplier: 1 }),
+  루차불: createUnburdenAbilityOptions({ key: "none", labelKo: "유연", labelEn: "Limber", labelJa: "じゅうなん", multiplier: 1 }),
+  폭슬라이: createUnburdenAbilityOptions({ key: "none", labelKo: "도주", labelEn: "Run Away", labelJa: "にげあし", multiplier: 1 }),
+  포푸니크: createUnburdenAbilityOptions({ key: "none", labelKo: "프레셔", labelEn: "Pressure", labelJa: "プレッシャー", multiplier: 1 }),
+  태깅구르: createUnburdenAbilityOptions({ key: "none", labelKo: "독수", labelEn: "Poison Touch", labelJa: "どくしゅ", multiplier: 1 }),
+  쥬피썬더: createSpeedAbilityOptions(NO_SPEED_ABILITY, SPEED_ABILITY_OPTIONS.quickFeet),
+  그랑블루: createSpeedAbilityOptions(NO_SPEED_ABILITY, SPEED_ABILITY_OPTIONS.quickFeet),
+  깜지곰: createSpeedAbilityOptions(NO_SPEED_ABILITY, SPEED_ABILITY_OPTIONS.quickFeet),
+  링곰: createSpeedAbilityOptions(NO_SPEED_ABILITY, SPEED_ABILITY_OPTIONS.quickFeet),
+  그라에나: createSpeedAbilityOptions(NO_SPEED_ABILITY, SPEED_ABILITY_OPTIONS.quickFeet),
+  지그제구리: createSpeedAbilityOptions(NO_SPEED_ABILITY, SPEED_ABILITY_OPTIONS.quickFeet),
+  직구리: createSpeedAbilityOptions(NO_SPEED_ABILITY, SPEED_ABILITY_OPTIONS.quickFeet),
+  "가라르 지그제구리": createSpeedAbilityOptions(NO_SPEED_ABILITY, SPEED_ABILITY_OPTIONS.quickFeet),
+  "가라르 직구리": createSpeedAbilityOptions(NO_SPEED_ABILITY, SPEED_ABILITY_OPTIONS.quickFeet),
+  버섯꼬: createSpeedAbilityOptions(NO_SPEED_ABILITY, SPEED_ABILITY_OPTIONS.quickFeet),
+  펜드라: createSpeedAbilityOptions(NO_SPEED_ABILITY, SPEED_ABILITY_OPTIONS.quickFeet),
+  레지기가스: createSpeedAbilityOptions(NO_SPEED_ABILITY, SPEED_ABILITY_OPTIONS.slowStart),
+  메가대짱이: createSpeedAbilityOptions(NO_SPEED_ABILITY, SPEED_ABILITY_OPTIONS.swiftSwim),
 };
 
 const MEGA_SPEED_ABILITY_BLOCKED_LABELS = new Set(["메가이상해꽃", "메가샤크니아"]);
@@ -172,15 +345,15 @@ function getItemLabelFromFactor(factor, language = "ko") {
   });
 }
 
-function getAbilityLabelFromFactor(factor, slot, language = "ko") {
-  if (factor <= 1) {
+function getAbilityLabelFromFactor(factor, slot, language = "ko", battleState = null) {
+  if (factor === 1) {
     return pickLocalizedText(language, {
       ko: "특성 미적용",
       en: "No Speed ability applied",
       ja: "素早さ特性未適用",
     });
   }
-  const matched = getAbilityOptions(slot).find((option) => option.multiplier === factor && option.key !== "unknown");
+  const matched = getAbilityOptions(slot, battleState).find((option) => option.multiplier === factor && option.key !== "unknown");
   if (matched) {
     const label = getLocalizedOptionLabel(matched, language);
     return pickLocalizedText(language, {
@@ -245,7 +418,7 @@ function formatExactValueSummary(slot, baseSpeed, ev, natureFactor, itemFactor, 
   ];
 
   if (itemFactor !== 1) labels.push(getItemLabelFromFactor(itemFactor, language));
-  if (abilityFactor > 1) labels.push(getAbilityLabelFromFactor(abilityFactor, slot, language));
+  if (abilityFactor !== 1) labels.push(getAbilityLabelFromFactor(abilityFactor, slot, language, battleState));
 
   if (battleState) {
     if (battleState.mega) labels.push(pickLocalizedText(language, { ko: "메가진화", en: "Mega Evolution", ja: "メガシンカ" }));
@@ -262,7 +435,7 @@ function formatPointSummary(slot, baseSpeed, battleState, language = "ko") {
   const pointItemFactor = slot.itemSetting === "unknown" ? 1 : item.point;
   const pointAbilityFactor = getPointAbilityFactor(slot, battleState);
   const itemLabel = getItemLabelFromFactor(pointItemFactor, language);
-  const abilityLabel = getAbilityLabelFromFactor(pointAbilityFactor, slot, language);
+  const abilityLabel = getAbilityLabelFromFactor(pointAbilityFactor, slot, language, battleState);
   const battleLabels = [];
   if (battleState) {
     if (battleState.mega) battleLabels.push(pickLocalizedText(language, { ko: "메가진화", en: "Mega Evolution", ja: "メガシンカ" }));
@@ -293,7 +466,7 @@ function getBattleSummaryLabels(slot, battleState, abilityFactor, language = "ko
 
   const labels = [];
   if (battleState.mega) labels.push(pickLocalizedText(language, { ko: "메가진화", en: "Mega Evolution", ja: "メガシンカ" }));
-  if (battleState.ability && abilityFactor > 1) {
+  if (battleState.ability && abilityFactor !== 1) {
     labels.push(pickLocalizedText(language, { ko: "특성 발동", en: "Ability active", ja: "特性発動" }));
   }
   if (battleState.tailwind) labels.push(pickLocalizedText(language, { ko: "순풍", en: "Tailwind", ja: "おいかぜ" }));
@@ -458,17 +631,17 @@ const CHAMPION_ENTRY_BY_NAME = new Map(
   championsRoster.flatMap((entry) => Object.values(getEntityNames(entry)).filter(Boolean).map((name) => [name, entry]))
 );
 
-function getPotentialAbilityFactors(slot) {
-  const selectedAbility = getSelectedAbility(slot);
-  const boostedFactors = [...new Set(getAbilityValues(slot).filter((value) => value > 1))];
+function getPotentialAbilityFactors(slot, battleState = null) {
+  const selectedAbility = getSelectedAbility(slot, battleState);
+  const modifyingFactors = [...new Set(getAbilityValues(slot, battleState).filter((value) => value !== 1))];
 
-  if (!boostedFactors.length) return [];
+  if (!modifyingFactors.length) return [];
   if (slot.abilitySetting !== "unknown") {
-    if (selectedAbility.multiplier <= 1) return [];
+    if (selectedAbility.multiplier === 1) return [];
     return [selectedAbility.multiplier];
   }
 
-  return boostedFactors;
+  return modifyingFactors;
 }
 
 export function getMegaChoices(slot) {
@@ -489,21 +662,27 @@ export function getSelectedMega(slot) {
   return options.find((option) => option.key === slot.megaChoice) || null;
 }
 
-export function getAbilityOptions(slot) {
-  return ABILITY_OPTIONS_BY_NAME[slot.name] || DEFAULT_ABILITY_OPTIONS;
+function getAbilityLookupName(slot, battleState = null) {
+  if (slot?.abilityOptionName) return slot.abilityOptionName;
+  if (battleState?.mega) return getSelectedMega(slot)?.label || slot.name;
+  return slot.name;
 }
 
-export function hasSpeedAbilityOptions(slot) {
-  return Boolean(ABILITY_OPTIONS_BY_NAME[slot.name]);
+export function getAbilityOptions(slot, battleState = null) {
+  return ABILITY_OPTIONS_BY_NAME[getAbilityLookupName(slot, battleState)] || DEFAULT_ABILITY_OPTIONS;
 }
 
-function getSelectedAbility(slot) {
-  const options = getAbilityOptions(slot);
+export function hasSpeedAbilityOptions(slot, battleState = null) {
+  return Boolean(ABILITY_OPTIONS_BY_NAME[getAbilityLookupName(slot, battleState)]);
+}
+
+function getSelectedAbility(slot, battleState = null) {
+  const options = getAbilityOptions(slot, battleState);
   return options.find((option) => option.key === slot.abilitySetting) || options[0];
 }
 
-function getAbilityValues(slot) {
-  const selected = getSelectedAbility(slot);
+function getAbilityValues(slot, battleState = null) {
+  const selected = getSelectedAbility(slot, battleState);
   return selected.values || [selected.multiplier];
 }
 
@@ -514,12 +693,12 @@ function megaBlocksSpeedAbility(slot, battleState = null) {
 }
 
 export function canActivateBattleAbility(slot, battleState = null) {
-  const selected = getSelectedAbility(slot);
-  return selected.multiplier > 1 && !megaBlocksSpeedAbility(slot, battleState);
+  const selected = getSelectedAbility(slot, battleState);
+  return selected.multiplier !== 1 && !megaBlocksSpeedAbility(slot, battleState);
 }
 
 function getPointAbilityFactor(slot, battleState = null) {
-  const selected = getSelectedAbility(slot);
+  const selected = getSelectedAbility(slot, battleState);
 
   if (!battleState) {
     return slot.abilitySetting === "unknown" ? 1 : selected.multiplier;
@@ -531,24 +710,24 @@ function getPointAbilityFactor(slot, battleState = null) {
 }
 
 function getMarkerAbilityValues(slot, battleState = null) {
-  const selected = getSelectedAbility(slot);
+  const selected = getSelectedAbility(slot, battleState);
 
   if (!battleState) {
-    return slot.abilitySetting === "unknown" ? getAbilityValues(slot) : [selected.multiplier];
+    return slot.abilitySetting === "unknown" ? getAbilityValues(slot, battleState) : [selected.multiplier];
   }
 
   if (!canActivateBattleAbility(slot, battleState)) return [1];
 
   if (slot.abilitySetting === "unknown") {
-    const boostedValues = getAbilityValues(slot).filter((value) => value > 1);
-    return battleState.ability ? boostedValues : [1, ...boostedValues];
+    const modifyingValues = getAbilityValues(slot, battleState).filter((value) => value !== 1);
+    return battleState.ability ? modifyingValues : [1, ...modifyingValues];
   }
 
   return [battleState.ability ? selected.multiplier : 1];
 }
 
-export function getAbilityHelpText(slot, language, fallbackText) {
-  const selected = getSelectedAbility(slot);
+export function getAbilityHelpText(slot, language, fallbackText, battleState = null) {
+  const selected = getSelectedAbility(slot, battleState);
   return getLocalizedOptionHelp(selected, language, fallbackText);
 }
 
@@ -715,7 +894,7 @@ export function getGraphPriorityRange(graph) {
   };
 }
 
-export function buildRosterGraph(entry, speed = entry.speed, language = "ko") {
+export function buildRosterGraph(entry, speed = entry.speed, language = "ko", abilityOptionName = "") {
   const names = getEntityNames(entry);
   return buildGraph(
     {
@@ -727,6 +906,7 @@ export function buildRosterGraph(entry, speed = entry.speed, language = "ko") {
       nature: "unknown",
       itemSetting: "unknown",
       abilitySetting: "unknown",
+      abilityOptionName,
       evUnknown: true,
       evValue: 32,
       megaChoice: "",

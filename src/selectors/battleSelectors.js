@@ -58,7 +58,7 @@ export function buildCompareRows({
           index,
           label: getLocalizedMegaLabel(mega, language),
           icon: getDisplayIcon({ ...slot, megaChoice: mega.key }, true),
-          graph: buildGraph(slot, mega.speed, null, language),
+          graph: buildGraph({ ...slot, abilityOptionName: mega.label }, mega.speed, null, language),
           baseSpeed: mega.speed,
           active: slot.active,
           selected: isBattleSelection(battleState, allySlots, enemySlots, side, index, mega.key),
@@ -132,7 +132,7 @@ export function buildRosterRows({ roster, megaOptions, language, sortMode = ROST
         dexNo: entry.dexNo,
         label: getLocalizedMegaLabel(mega, language),
         icon: getMegaArt(mega) || entry.icon,
-        graph: buildRosterGraph(entry, mega.speed, language),
+        graph: buildRosterGraph(entry, mega.speed, language, mega.label),
         baseSpeed: mega.speed,
         isMega: true,
         searchTerms: [

@@ -6,6 +6,65 @@ const OFFICIAL_ARTWORK = (dexNo) =>
 
 const toDexId = (dexNo) => String(dexNo).padStart(4, "0");
 
+const REGIONAL_FORM_CONFIGS = [
+  {
+    test: (name) => name.endsWith("-alola"),
+    formKey: () => "alola",
+    ko: (name) => `알로라 ${name}`,
+    en: (name) => `Alolan ${name}`,
+    ja: (name) => `アローラ ${name}`,
+  },
+  {
+    test: (name) => name.endsWith("-galar") || name.endsWith("-galar-standard"),
+    formKey: () => "galar",
+    ko: (name) => `가라르 ${name}`,
+    en: (name) => `Galarian ${name}`,
+    ja: (name) => `ガラル ${name}`,
+  },
+  {
+    test: (name) => name.endsWith("-hisui"),
+    formKey: () => "hisui",
+    ko: (name) => `히스이 ${name}`,
+    en: (name) => `Hisuian ${name}`,
+    ja: (name) => `ヒスイ ${name}`,
+  },
+  {
+    test: (name) => name.endsWith("-paldea"),
+    formKey: () => "paldea",
+    ko: (name) => `팔데아 ${name}`,
+    en: (name) => `Paldean ${name}`,
+    ja: (name) => `パルデア ${name}`,
+  },
+  {
+    test: (name) => name === "tauros-paldea-combat-breed",
+    formKey: () => "paldea-combat",
+    ko: () => "팔데아 컴뱃종 켄타로스",
+    en: () => "Tauros (Paldean Combat Breed)",
+    ja: () => "ケンタロス(パルデア・コンバット種)",
+  },
+  {
+    test: (name) => name === "tauros-paldea-blaze-breed",
+    formKey: () => "paldea-blaze",
+    ko: () => "팔데아 블레이즈종 켄타로스",
+    en: () => "Tauros (Paldean Blaze Breed)",
+    ja: () => "ケンタロス(パルデア・ブレイズ種)",
+  },
+  {
+    test: (name) => name === "tauros-paldea-aqua-breed",
+    formKey: () => "paldea-water",
+    ko: () => "팔데아 워터종 켄타로스",
+    en: () => "Tauros (Paldean Aqua Breed)",
+    ja: () => "ケンタロス(パルデア・ウォーター種)",
+  },
+  {
+    test: (name) => name === "basculin-white-striped",
+    formKey: () => "hisui",
+    ko: (name) => `히스이 ${name}`,
+    en: (name) => `Hisuian ${name}`,
+    ja: (name) => `ヒスイ ${name}`,
+  },
+];
+
 function pickName(names, language) {
   return names.find((entry) => entry.language.name === language)?.name || "";
 }
@@ -36,15 +95,37 @@ function getMegaSuffix(key) {
   return "";
 }
 
+function getRegionalFormConfig(pokemonName) {
+  if (pokemonName.includes("-totem")) return null;
+  return REGIONAL_FORM_CONFIGS.find((config) => config.test(pokemonName)) || null;
+}
+
+function getRegionalFormKey(pokemonName) {
+  return getRegionalFormConfig(pokemonName)?.formKey(pokemonName) || "";
+}
+
+function createRegionalFormNames(config, names) {
+  return {
+    ko: config.ko(names.ko),
+    en: config.en(names.en),
+    ja: config.ja(names.ja),
+  };
+}
+
 async function loadExistingCuratedData() {
   try {
     const existing = await import(`../src/data/allPokemonRoster.js?refresh=${Date.now()}`);
+    const isCuratedForm = (entry) =>
+      entry.isChampion ||
+      entry.championId ||
+      entry.championSpeed !== undefined ||
+      String(entry.icon || "").startsWith("/pokemon-icons/");
     const curatedById = new Map(
       existing.allPokemonRoster
         .filter((entry) => entry.isChampion || entry.championId || entry.championSpeed !== undefined)
         .map((entry) => [entry.id, entry])
     );
-    const curatedForms = existing.allPokemonRoster.filter((entry) => entry.formKey !== "base");
+    const curatedForms = existing.allPokemonRoster.filter((entry) => entry.formKey !== "base" && isCuratedForm(entry));
 
     return {
       curatedById,
@@ -110,6 +191,26 @@ const speciesPayloads = await mapConcurrent(speciesRefs, 12, async (entry) => {
     icon: OFFICIAL_ARTWORK(entry.dexNo),
   };
 
+  const regionalVarieties = species.varieties.filter((variety) => getRegionalFormConfig(variety.pokemon.name));
+  const regionalForms = await mapConcurrent(regionalVarieties, 4, async (variety) => {
+    const config = getRegionalFormConfig(variety.pokemon.name);
+    const formKey = getRegionalFormKey(variety.pokemon.name);
+    if (!config || !formKey) return null;
+
+    const formPokemon = await fetchJson(variety.pokemon.url);
+    const formSpeed = formPokemon.stats.find((stat) => stat.stat.name === "speed")?.base_stat;
+    if (!Number.isFinite(formSpeed)) return null;
+
+    return {
+      id: `nat-${toDexId(entry.dexNo)}-${formKey}`,
+      dexNo: entry.dexNo,
+      formKey,
+      names: createRegionalFormNames(config, baseEntry.names),
+      speed: formSpeed,
+      icon: OFFICIAL_ARTWORK(formPokemon.id),
+    };
+  });
+
   const megaVarieties = species.varieties.filter((variety) => getMegaKey(variety.pokemon.name));
   const megaOptions = await mapConcurrent(megaVarieties, 4, async (variety) => {
     const key = getMegaKey(variety.pokemon.name);
@@ -130,9 +231,13 @@ const speciesPayloads = await mapConcurrent(speciesRefs, 12, async (entry) => {
 
   return {
     entry: baseEntry,
+    regionalForms: regionalForms.filter(Boolean),
     megaOptions: megaOptions.filter(Boolean),
   };
 });
+
+const generatedRegionalForms = speciesPayloads.flatMap((payload) => payload?.regionalForms || []);
+const curatedFormIds = new Set(existingCuratedData.curatedForms.map((entry) => entry.id));
 
 const roster = [
   ...speciesPayloads
@@ -149,6 +254,7 @@ const roster = [
         ...(curated.championSpeed !== undefined ? { championSpeed: curated.championSpeed } : {}),
       };
     }),
+  ...generatedRegionalForms.filter((entry) => !curatedFormIds.has(entry.id)),
   ...existingCuratedData.curatedForms,
 ].sort((a, b) => {
   if (a.dexNo !== b.dexNo) return a.dexNo - b.dexNo;
@@ -163,7 +269,7 @@ const allMegaOptionsById = Object.fromEntries(
     .map((payload) => [payload.entry.id, payload.megaOptions])
 );
 const content = `// Generated by scripts/generateAllPokemonRoster.mjs.
-// Base species plus official Mega Evolution options.
+// Base species plus regional forms and official/custom Mega Evolution options.
 
 export const allPokemonRoster = ${JSON.stringify(roster, null, 2)};
 
