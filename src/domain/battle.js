@@ -107,8 +107,12 @@ export function slotHasPokemon(slot) {
   return Boolean(slot.name && slot.baseSpeed);
 }
 
-function level50Speed(baseSpeed, evPoints, natureFactor) {
-  const raw = Math.floor(((baseSpeed * 2 + 31 + evPoints) * 50) / 100 + 5);
+function getStatPointFormulaTerm(statPoints) {
+  return statPoints * 2;
+}
+
+function level50Speed(baseSpeed, statPoints, natureFactor) {
+  const raw = Math.floor(((baseSpeed * 2 + 31 + getStatPointFormulaTerm(statPoints)) * 50) / 100 + 5);
   return Math.floor(raw * natureFactor);
 }
 
