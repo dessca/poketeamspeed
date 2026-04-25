@@ -565,6 +565,7 @@ export function formatRange(min, max) {
 
 function formatLayerSummary(title, slot, itemFactor, abilityFactor, branches, battleState, language = "ko") {
   const natureLine = branches
+    .toSorted((a, b) => a.natureFactor - b.natureFactor)
     .map((branch) => `${getNatureLabelFromFactor(branch.natureFactor, language)} ${formatRange(branch.min, branch.max)}`)
     .join(
       pickLocalizedText(language, {
