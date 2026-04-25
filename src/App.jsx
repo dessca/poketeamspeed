@@ -271,8 +271,8 @@ const TEXT = {
     footerLines: [
       "SCARF | Pokemon Speed Matchups",
       "문의: teamscarf@proton.me",
-      "비공식 팬 제작 도구입니다. Nintendo, Creatures, GAME FREAK, The Pokemon Company와 관련이 없습니다.",
-      "데이터 및 아트워크 참고: PokeAPI, PokemonDB, RotomLabs.",
+      "비공식 팬 도구입니다. Pokemon 및 관련 명칭은 Nintendo, Creatures, GAME FREAK, The Pokemon Company의 상표입니다.",
+      "데이터/아트워크 참고: PokeAPI, PokemonDB, RotomLabs.",
     ],
   },
   en: {
@@ -383,8 +383,8 @@ const TEXT = {
     footerLines: [
       "SCARF | Pokemon Speed Matchups",
       "Contact: teamscarf@proton.me",
-      "Unofficial fan-made tool. Not affiliated with Nintendo, Creatures, GAME FREAK, or The Pokemon Company.",
-      "Data and artwork references: PokeAPI, PokemonDB, RotomLabs.",
+      "Unofficial fan tool. Pokemon and related names are trademarks of Nintendo, Creatures, GAME FREAK, and The Pokemon Company.",
+      "Data/artwork references: PokeAPI, PokemonDB, RotomLabs.",
     ],
   },
   ja: {
@@ -495,8 +495,8 @@ const TEXT = {
     footerLines: [
       "SCARF | Pokemon Speed Matchups",
       "お問い合わせ: teamscarf@proton.me",
-      "非公式のファン制作ツールです。Nintendo、Creatures、GAME FREAK、The Pokemon Companyとは関係ありません。",
-      "データおよびアートワーク参照: PokeAPI、PokemonDB、RotomLabs。",
+      "非公式のファンツールです。Pokemonおよび関連名称はNintendo、Creatures、GAME FREAK、The Pokemon Companyの商標です。",
+      "データ/アートワーク参照: PokeAPI、PokemonDB、RotomLabs。",
     ],
   },
 };
