@@ -2719,7 +2719,6 @@
   white-space: nowrap;
   cursor: pointer;
   transition:
-    transform 150ms ease,
     background-color 170ms ease,
     border-color 170ms ease,
     color 170ms ease,
@@ -2727,9 +2726,9 @@
 }
 
 .roster-filter-pill:hover {
-  transform: translateY(-1px);
   border-color: color-mix(in srgb, var(--filter-color) 52%, transparent);
-  background: color-mix(in srgb, var(--filter-color) 18%, var(--panel));
+  background: color-mix(in srgb, var(--filter-color) 22%, var(--panel));
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--filter-color) 12%, transparent) inset;
 }
 
 .roster-filter-pill.active {

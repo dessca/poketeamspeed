@@ -234,7 +234,7 @@ const TEXT = {
     graphHelpLabel: "그래프 보는 법 ?",
     graphHelp:
       "가장 두껍게 보이는 막대가 현재 기준으로 가장 확실한 스피드 범위입니다.\n능력 포인트를 모르면 기본 범위가 더 넓게 표시됩니다.\n구애스카프, 스피드 특성처럼 추가 조건이 붙는 가능성은 더 얇은 막대로 함께 표시됩니다.\n더 확실한 범위일수록 두껍고, 가정이 많이 필요한 가능성일수록 더 얇게 보입니다.",
-    rosterHelp: "능력 포인트/성격/도구/특성에 따른 스피드 가능 범위를 단계형 막대로 보여줍니다.",
+    rosterHelp: "능력 포인트/성격/도구/특성에 따른 스피드 가능 범위를 단계형 막대로 보여줍니다.\n챔피언스, 메가진화, 타입, 세대 필터를 조합해 원하는 포켓몬만 좁혀 볼 수 있습니다.",
     teamView: "팀 비교",
     rosterView: "전체 포켓몬",
     themeToLight: "라이트 모드로 전환",
@@ -357,7 +357,7 @@ const TEXT = {
     graphHelpLabel: "How to read the graph?",
     graphHelp:
       "The thickest bar shows the most certain Speed range based on the current information.\nIf stat points are unknown, the base range becomes wider.\nExtra possibilities such as Choice Scarf or Speed abilities appear as thinner bars alongside it.\nMore certain ranges are drawn thicker, while more conditional possibilities are drawn thinner.",
-    rosterHelp: "Shows each Pokémon's possible Speed range as layered bars for points, nature, item, and ability.",
+    rosterHelp: "Shows each Pokémon's possible Speed range as layered bars for points, nature, item, and ability.\nUse the Champions, Mega, type, and generation filters together to narrow the list.",
     teamView: "Team Compare",
     rosterView: "All Pokémon",
     themeToLight: "Switch to light mode",
@@ -480,7 +480,7 @@ const TEXT = {
     graphHelpLabel: "グラフの見方",
     graphHelp:
       "最も太いバーが、現在の情報で最も確度の高い素早さ範囲です。\n能力ポイントが不明な場合は基本範囲が広く表示されます。\nこだわりスカーフや素早さ特性などの追加条件は、より細いバーで表示されます。\n確度が高い範囲ほど太く、仮定が多い可能性ほど細く表示されます。",
-    rosterHelp: "能力ポイント・性格・持ち物・特性による素早さ候補範囲を段階バーで表示します。",
+    rosterHelp: "能力ポイント・性格・持ち物・特性による素早さ候補範囲を段階バーで表示します。\nチャンピオンズ、メガ、タイプ、世代フィルターを組み合わせて表示対象を絞り込めます。",
     teamView: "チーム比較",
     rosterView: "全ポケモン",
     themeToLight: "ライトモードに切り替え",
