@@ -1209,6 +1209,7 @@ function App() {
   const [presets, setPresets] = useState(() => normalizePresets(readStorage(STORAGE.presets, [])));
   const [nationalRosterBundle, setNationalRosterBundle] = useState(null);
   const [uiState, dispatchUiState] = useReducer(uiStateReducer, undefined, createInitialUiState);
+  const [openBattlePicker, setOpenBattlePicker] = useState("");
   const compareRowRefs = useRef(new Map());
   const rosterRowRefs = useRef(new Map());
   const rosterSearchTimerRef = useRef(null);
@@ -1871,18 +1872,57 @@ function App() {
     const { slot, state, speed, graph } = unit;
     const searchResultsForUnit = battleSearchResults[side][battleSlotIndex];
     const battleDisplayName = state.mega && getSelectedMega(slot) ? getLocalizedMegaLabel(getSelectedMega(slot), language) : getLocalizedName(slot, language);
+    const pickerKey = `${side}-${battleSlotIndex}`;
+    const teamSlots = side === "ally" ? allySlots : enemySlots;
+    const selectedBattleSlot = teamSlots[state.index] || createSlot(state.index);
+    const selectedBattleLabel = slotHasPokemon(selectedBattleSlot) ? getLocalizedName(selectedBattleSlot, language) : `${t.slotEmpty} ${state.index + 1}`;
 
     return (
       <div key={`${side}-${battleSlotIndex}`} className={`battle-side ${side} ${slotHasPokemon(slot) ? "" : "battle-side-empty"} ${searchResultsForUnit.length > 0 ? "battle-side-searching" : ""}`}>
         <div className="battle-side-head">
           <h3>{title}</h3>
-          <select className="styled-select" value={state.index} onChange={(event) => setBattleUnitIndex(side, battleSlotIndex, Number(event.target.value))}>
-            {(side === "ally" ? allySlots : enemySlots).map((teamSlot, index) => (
-              <option key={`${side}-${battleSlotIndex}-${index}`} value={index}>
-                {slotHasPokemon(teamSlot) ? getLocalizedName(teamSlot, language) : `${t.slotEmpty} ${index + 1}`}
-              </option>
-            ))}
-          </select>
+          <div
+            className={`battle-picker ${openBattlePicker === pickerKey ? "open" : ""}`}
+            onBlur={(event) => {
+              if (!event.currentTarget.contains(event.relatedTarget)) setOpenBattlePicker("");
+            }}
+          >
+            <button
+              type="button"
+              className="battle-picker-trigger"
+              aria-haspopup="listbox"
+              aria-expanded={openBattlePicker === pickerKey}
+              onClick={() => setOpenBattlePicker(openBattlePicker === pickerKey ? "" : pickerKey)}
+            >
+              <span className="battle-picker-label" title={selectedBattleLabel}>{selectedBattleLabel}</span>
+              {slotHasPokemon(selectedBattleSlot) && selectedBattleSlot.active && <span className="active-badge">{t.active}</span>}
+              <span className="battle-picker-arrow" aria-hidden="true" />
+            </button>
+            {openBattlePicker === pickerKey && (
+              <div className="battle-picker-menu" role="listbox">
+                {teamSlots.map((teamSlot, index) => {
+                  const hasPokemon = slotHasPokemon(teamSlot);
+                  const label = hasPokemon ? getLocalizedName(teamSlot, language) : `${t.slotEmpty} ${index + 1}`;
+                  return (
+                    <button
+                      key={`${side}-${battleSlotIndex}-${index}`}
+                      type="button"
+                      className={`battle-picker-option ${state.index === index ? "selected" : ""}`}
+                      role="option"
+                      aria-selected={state.index === index}
+                      onClick={() => {
+                        setBattleUnitIndex(side, battleSlotIndex, index);
+                        setOpenBattlePicker("");
+                      }}
+                    >
+                      <span className="battle-picker-label" title={label}>{label}</span>
+                      {hasPokemon && teamSlot.active && <span className="active-badge">{t.active}</span>}
+                    </button>
+                  );
+                })}
+              </div>
+            )}
+          </div>
         </div>
 
         <div className="search-shell battle-search-shell">
