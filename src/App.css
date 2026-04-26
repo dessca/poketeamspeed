@@ -12,7 +12,7 @@
   --ally-strong: #177fdd;
   --enemy: #fb7185;
   --enemy-strong: #ef4444;
-  --mega: #22c55e;
+  --mega: #a855f7;
   --accent: #2563eb;
   --shadow: 0 18px 40px rgba(15, 23, 42, 0.08);
   --panel-title-size: 1.08rem;
@@ -36,7 +36,7 @@
   --ally-strong: #2d9cff;
   --enemy: #ff8897;
   --enemy-strong: #ff6176;
-  --mega: #57d06a;
+  --mega: #c084fc;
   --accent: #77a8ff;
   --shadow: 0 26px 48px rgba(2, 6, 23, 0.34);
 }
@@ -1516,8 +1516,9 @@
 }
 
 .mini-chip.mega {
-  background: rgba(34, 197, 94, 0.16);
+  background: color-mix(in srgb, var(--mega) 18%, transparent);
   color: var(--mega);
+  border-color: color-mix(in srgb, var(--mega) 26%, transparent);
 }
 
 .mini-chip.subtle {
@@ -2054,6 +2055,18 @@
   border-color: rgba(37, 99, 235, 0.34);
 }
 
+.toggle-chip.mega-action.on {
+  background: color-mix(in srgb, var(--mega) 17%, transparent);
+  border-color: color-mix(in srgb, var(--mega) 36%, transparent);
+  color: var(--mega);
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--mega) 12%, transparent);
+}
+
+.toggle-chip.mega-action.on:hover:not(:disabled) {
+  background: color-mix(in srgb, var(--mega) 24%, transparent);
+  border-color: color-mix(in srgb, var(--mega) 48%, transparent);
+}
+
 .toggle-chip:disabled,
 .ghost-icon:disabled {
   opacity: 0.42;
@@ -2138,12 +2151,88 @@
   margin-bottom: 6px;
 }
 
+.battle-result-tools {
+  position: absolute;
+  top: 12px;
+  right: 14px;
+  z-index: 2;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 6px;
+}
+
+.trick-room-toggle {
+  position: relative;
+  min-height: 30px;
+  padding-inline: 10px;
+  border-color: rgba(148, 163, 184, 0.2);
+  background: rgba(148, 163, 184, 0.06);
+  color: var(--muted);
+  font-size: 0.82rem;
+  border-radius: 12px;
+  box-shadow: none;
+}
+
+.trick-room-toggle.on {
+  border-color: rgba(236, 72, 153, 0.72);
+  background:
+    linear-gradient(180deg, rgba(236, 72, 153, 0.34), rgba(190, 24, 93, 0.24));
+  color: #ffe4f1;
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 228, 241, 0.16),
+    0 0 0 2px rgba(236, 72, 153, 0.16),
+    0 12px 28px rgba(236, 72, 153, 0.26);
+  text-shadow: 0 1px 8px rgba(255, 228, 241, 0.24);
+}
+
+.trick-room-toggle:hover:not(:disabled) {
+  border-color: rgba(236, 72, 153, 0.34);
+  background: rgba(236, 72, 153, 0.1);
+  color: color-mix(in srgb, var(--text) 82%, #ec4899);
+}
+
+.trick-room-toggle.on:hover:not(:disabled) {
+  background:
+    linear-gradient(180deg, rgba(236, 72, 153, 0.42), rgba(190, 24, 93, 0.3));
+}
+
+.trick-room-tooltip {
+  position: absolute;
+  right: 0;
+  top: calc(100% + 8px);
+  z-index: 20;
+  width: max-content;
+  max-width: min(260px, calc(100vw - 32px));
+  padding: 8px 10px;
+  border-radius: 12px;
+  border: 1px solid rgba(236, 72, 153, 0.24);
+  background: var(--panel-strong);
+  color: var(--text);
+  box-shadow: 0 16px 34px rgba(15, 23, 42, 0.24);
+  font-size: 0.78rem;
+  font-weight: 700;
+  line-height: 1.35;
+  text-align: left;
+  white-space: normal;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(5px);
+  transition: opacity 160ms ease, transform 160ms ease;
+}
+
+.trick-room-toggle:hover .trick-room-tooltip,
+.trick-room-toggle:focus-visible .trick-room-tooltip {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 .battle-result-badge {
   display: grid;
   gap: 4px;
   justify-items: center;
-  width: fit-content;
-  max-width: min(100%, 420px);
+  width: min(100%, 420px);
+  box-sizing: border-box;
   padding: 10px 16px;
   border-radius: 18px;
   border: 1px solid rgba(148, 163, 184, 0.18);
@@ -2545,19 +2634,141 @@
 }
 
 .roster-controls {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  flex: 1 1 360px;
-  min-width: min(100%, 320px);
+  display: block;
+  margin: 0 22px 12px;
 }
 
-.roster-source-switch {
-  flex: 1 1 220px;
+.roster-filter-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+  min-width: 0;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.roster-filter-group {
+  display: grid;
+  gap: 8px;
+  min-width: 0;
+}
+
+.roster-champion-filter {
+  flex: 0 0 auto;
+}
+
+.roster-type-filter {
+  flex: 1 1 560px;
+}
+
+.roster-generation-filter {
+  flex: 1 1 360px;
+}
+
+.roster-filter-label {
+  color: var(--muted);
+  font-size: 0.82rem;
+  font-weight: 800;
+}
+
+.roster-filter-pills {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  min-width: 0;
+}
+
+.roster-filter-pill {
+  --filter-color: var(--accent);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  min-height: 34px;
+  padding: 0 12px;
+  border: 1px solid color-mix(in srgb, var(--filter-color) 30%, var(--panel-border));
+  border-radius: 11px;
+  background: color-mix(in srgb, var(--filter-color) 11%, var(--panel));
+  color: color-mix(in srgb, var(--filter-color) 68%, var(--text));
+  box-shadow: none;
+  font-size: 0.82rem;
+  font-weight: 850;
+  line-height: 1;
+  white-space: nowrap;
+  cursor: pointer;
+  transition:
+    transform 150ms ease,
+    background-color 170ms ease,
+    border-color 170ms ease,
+    color 170ms ease,
+    box-shadow 170ms ease;
+}
+
+.roster-filter-pill:hover {
+  transform: translateY(-1px);
+  border-color: color-mix(in srgb, var(--filter-color) 52%, transparent);
+  background: color-mix(in srgb, var(--filter-color) 18%, var(--panel));
+}
+
+.roster-filter-pill.active {
+  background: var(--filter-color);
+  border-color: color-mix(in srgb, var(--filter-color) 82%, white);
+  color: #fff;
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.14),
+    0 8px 20px color-mix(in srgb, var(--filter-color) 24%, transparent);
+}
+
+.roster-filter-pill.all {
+  --filter-color: var(--accent);
+  color: var(--text);
+}
+
+.roster-filter-pill.all.active,
+.roster-filter-pill.champion.active {
+  color: #fff;
+}
+
+.roster-filter-pill.champion {
+  --filter-color: #f59e0b;
+}
+
+.roster-filter-pill.mega-filter {
+  --filter-color: var(--mega);
+}
+
+.roster-filter-pill.type-normal { --filter-color: #a4acaf; }
+.roster-filter-pill.type-fire { --filter-color: #fd7d24; }
+.roster-filter-pill.type-water { --filter-color: #4592c4; }
+.roster-filter-pill.type-electric { --filter-color: #eed535; }
+.roster-filter-pill.type-grass { --filter-color: #9bcc50; }
+.roster-filter-pill.type-ice { --filter-color: #51c4e7; }
+.roster-filter-pill.type-fighting { --filter-color: #d56723; }
+.roster-filter-pill.type-poison { --filter-color: #b97fc9; }
+.roster-filter-pill.type-ground { --filter-color: #ab9842; }
+.roster-filter-pill.type-flying { --filter-color: #3dc7ef; }
+.roster-filter-pill.type-psychic { --filter-color: #f366b9; }
+.roster-filter-pill.type-bug { --filter-color: #729f3f; }
+.roster-filter-pill.type-rock { --filter-color: #a38c21; }
+.roster-filter-pill.type-ghost { --filter-color: #7b62a3; }
+.roster-filter-pill.type-dragon { --filter-color: #f16e57; }
+.roster-filter-pill.type-dark { --filter-color: #707070; }
+.roster-filter-pill.type-steel { --filter-color: #9eb7b8; }
+.roster-filter-pill.type-fairy { --filter-color: #fdb9e9; }
+
+.roster-filter-pill.generation {
+  --filter-color: #64748b;
 }
 
 .roster-sort-select {
   flex: 0 0 150px;
+  min-width: 150px;
+}
+
+.roster-search-head {
+  align-items: center;
+  padding-top: 0;
 }
 
 .roster-search {
@@ -2889,15 +3100,6 @@
   --graph-base: linear-gradient(90deg, var(--enemy), var(--enemy-strong));
 }
 
-.speed-graph.mega {
-  --graph-layer: rgba(87, 208, 106, 0.92);
-  --graph-layer-strong: rgba(171, 241, 184, 1);
-  --graph-glow: rgba(87, 208, 106, 0.28);
-  --graph-fill: #43c85a;
-  --graph-outline: rgba(16, 48, 24, 0.95);
-  --graph-base: linear-gradient(90deg, var(--mega), #16a34a);
-}
-
 .speed-graph-tone-slow {
   opacity: 1;
 }
@@ -2926,7 +3128,7 @@
 
 .icon-shell.mega-on,
 .icon-shell.can-mega {
-  box-shadow: inset 0 0 0 2px rgba(34, 197, 94, 0.28);
+  box-shadow: inset 0 0 0 2px color-mix(in srgb, var(--mega) 30%, transparent);
 }
 
 .empty-box {
@@ -3983,9 +4185,43 @@
   .team-toolbar .search-shell,
   .team-toolbar .search-box,
   .battle-search-shell,
-  .battle-search-box {
+  .battle-search-box,
+  .roster-search-shell,
+  .roster-search {
     width: 100%;
     min-width: 0;
+    max-width: none;
+  }
+
+  .roster-controls {
+    margin-left: 14px;
+    margin-right: 14px;
+    width: 100%;
+  }
+
+  .roster-filter-row {
+    gap: 12px;
+  }
+
+  .roster-champion-filter,
+  .roster-type-filter,
+  .roster-generation-filter {
+    flex-basis: 100%;
+  }
+
+  .roster-sort-select {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .roster-filter-pills {
+    gap: 6px;
+  }
+
+  .roster-filter-pill {
+    min-height: 32px;
+    padding-inline: 10px;
+    font-size: 0.78rem;
   }
 
   .team-toolbar .search-box,

@@ -78,6 +78,47 @@ const STORAGE = {
 
 const ROSTER_RENDER_BATCH = 180;
 const ITEM_ENTRIES = Object.entries(ITEMS);
+const POKEMON_TYPES = [
+  "normal",
+  "fire",
+  "water",
+  "electric",
+  "grass",
+  "ice",
+  "fighting",
+  "poison",
+  "ground",
+  "flying",
+  "psychic",
+  "bug",
+  "rock",
+  "ghost",
+  "dragon",
+  "dark",
+  "steel",
+  "fairy",
+];
+const POKEMON_GENERATIONS = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+const TYPE_LABELS = {
+  normal: { ko: "노말", en: "Normal", ja: "ノーマル" },
+  fire: { ko: "불꽃", en: "Fire", ja: "ほのお" },
+  water: { ko: "물", en: "Water", ja: "みず" },
+  electric: { ko: "전기", en: "Electric", ja: "でんき" },
+  grass: { ko: "풀", en: "Grass", ja: "くさ" },
+  ice: { ko: "얼음", en: "Ice", ja: "こおり" },
+  fighting: { ko: "격투", en: "Fighting", ja: "かくとう" },
+  poison: { ko: "독", en: "Poison", ja: "どく" },
+  ground: { ko: "땅", en: "Ground", ja: "じめん" },
+  flying: { ko: "비행", en: "Flying", ja: "ひこう" },
+  psychic: { ko: "에스퍼", en: "Psychic", ja: "エスパー" },
+  bug: { ko: "벌레", en: "Bug", ja: "むし" },
+  rock: { ko: "바위", en: "Rock", ja: "いわ" },
+  ghost: { ko: "고스트", en: "Ghost", ja: "ゴースト" },
+  dragon: { ko: "드래곤", en: "Dragon", ja: "ドラゴン" },
+  dark: { ko: "악", en: "Dark", ja: "あく" },
+  steel: { ko: "강철", en: "Steel", ja: "はがね" },
+  fairy: { ko: "페어리", en: "Fairy", ja: "フェアリー" },
+};
 
 function normalizeLookupKey(value) {
   return String(value || "")
@@ -89,6 +130,10 @@ function normalizeSearchKey(value) {
   return String(value || "")
     .toLowerCase()
     .replace(/[^a-z0-9가-힣ぁ-ゔァ-ヴー々〆〤一-龠]+/g, "");
+}
+
+function getTypeLabel(type, language) {
+  return pickLocalizedText(language, TYPE_LABELS[type] || { en: type });
 }
 
 function getSwitchTrackStyle(selectedIndex, optionCount, preferredColumns = optionCount) {
@@ -206,6 +251,13 @@ const TEXT = {
     rosterSortSpeed: "스피드순",
     rosterSortName: "이름순",
     rosterSortDex: "도감번호순",
+    rosterFilterAll: "전체",
+    rosterFilterMisc: "기타",
+    rosterFilterChampion: "챔피언스",
+    rosterFilterMega: "메가",
+    rosterFilterChampionOnly: "챔피언스만",
+    rosterFilterType: "타입",
+    rosterFilterGeneration: "세대",
     rosterLoading: "전국도감을 불러오는 중입니다.",
     rosterLoadMore: "더 보기",
     rosterSearchPlaceholder: "포켓몬 이름으로 바로 이동",
@@ -260,6 +312,8 @@ const TEXT = {
     currentPokemon: "현재 포켓몬",
     tailwind: "순풍",
     paralysis: "마비",
+    trickRoom: "트릭룸",
+    trickRoomHelp: "트릭룸 상태에서는 스피드가 낮은 포켓몬부터 행동합니다.",
     rank: "랭크",
     battleHelp: "실시간 대면 정보를 설정해보세요.\n위 상세 설정과 연동되어 선공 여부를 예측할 수 있습니다.\n누가 먼저 행동할까요?",
     addHint: "팀을 선택하고 포켓몬을 검색해 슬롯에 추가하세요.\n상세 설정에서 스피드 관련 설정을 할 수 있습니다.\n각 슬롯의 출전/대기 버튼을 눌러 출전 포켓몬을 표시해보세요.\n슬롯을 드래그하여 순서를 변경할 수 있습니다.",
@@ -320,6 +374,13 @@ const TEXT = {
     rosterSortSpeed: "Speed",
     rosterSortName: "Name",
     rosterSortDex: "Dex No.",
+    rosterFilterAll: "All",
+    rosterFilterMisc: "Other",
+    rosterFilterChampion: "Champions",
+    rosterFilterMega: "Mega",
+    rosterFilterChampionOnly: "Champions only",
+    rosterFilterType: "Type",
+    rosterFilterGeneration: "Generation",
     rosterLoading: "Loading National Dex.",
     rosterLoadMore: "Show more",
     rosterSearchPlaceholder: "Jump to a Pokémon by name",
@@ -374,6 +435,8 @@ const TEXT = {
     currentPokemon: "Current Pokémon",
     tailwind: "Tailwind",
     paralysis: "Paralysis",
+    trickRoom: "Trick Room",
+    trickRoomHelp: "Under Trick Room, the slower Pokémon moves first.",
     rank: "Stage",
     battleHelp: "Configure the current live matchup here.\nThese settings stay synced with the detail panel,\nso you can quickly check who moves first.",
     addHint: "Choose a team and search for a Pokémon to add to a slot.\nUse the detail panel to adjust Speed-related settings.\nYou can also mark active Pokémon and drag slots to reorder them.",
@@ -434,6 +497,13 @@ const TEXT = {
     rosterSortSpeed: "素早さ順",
     rosterSortName: "名前順",
     rosterSortDex: "図鑑番号順",
+    rosterFilterAll: "すべて",
+    rosterFilterMisc: "その他",
+    rosterFilterChampion: "チャンピオンズ",
+    rosterFilterMega: "メガ",
+    rosterFilterChampionOnly: "チャンピオンズのみ",
+    rosterFilterType: "タイプ",
+    rosterFilterGeneration: "世代",
     rosterLoading: "全国図鑑を読み込み中です。",
     rosterLoadMore: "さらに表示",
     rosterSearchPlaceholder: "名前でポケモンへ移動",
@@ -488,6 +558,8 @@ const TEXT = {
     currentPokemon: "現在のポケモン",
     tailwind: "おいかぜ",
     paralysis: "まひ",
+    trickRoom: "トリックルーム",
+    trickRoomHelp: "トリックルーム中は、素早さが低いポケモンから行動します。",
     rank: "ランク",
     battleHelp: "現在の対面情報をここで設定します。\n詳細設定と連動しているので、\nどちらが先に動くかをすばやく確認できます。",
     addHint: "チームを選び、ポケモンを検索してスロットに追加してください。\n詳細設定で素早さ関連の設定を調整できます。\n出場ポケモンの指定やスロットのドラッグ並び替えもできます。",
@@ -1146,8 +1218,11 @@ function App() {
     search,
     rosterSearch,
     rosterSearchStatus,
-    rosterSource,
     rosterSort,
+    rosterChampionFilter,
+    rosterMegaFilter,
+    rosterTypeFilters,
+    rosterGenerationFilters,
     highlightedRosterRowId,
     showScrollTop,
     battleSearch,
@@ -1158,7 +1233,7 @@ function App() {
     draggingSlot,
   } = uiState;
 
-  const rosterWindowKey = `${language}:${rosterSort}:${rosterSource}`;
+  const rosterWindowKey = `${language}:${rosterSort}:${rosterChampionFilter}:${rosterMegaFilter}:${rosterTypeFilters.join(",")}:${rosterGenerationFilters.join(",")}`;
   const [rosterWindow, setRosterWindow] = useState({
     key: rosterWindowKey,
     count: ROSTER_RENDER_BATCH,
@@ -1200,7 +1275,7 @@ function App() {
   useEffect(() => writeStorage(STORAGE.enemy, enemySlots), [enemySlots]);
   useEffect(() => writeStorage(STORAGE.presets, presets), [presets]);
   useEffect(() => {
-    if (rosterSource !== ROSTER_SOURCES.national || nationalRosterBundle) return;
+    if (view !== "roster" || nationalRosterBundle) return;
 
     let active = true;
     loadNationalRosterBundle().then((module) => {
@@ -1210,7 +1285,7 @@ function App() {
     return () => {
       active = false;
     };
-  }, [nationalRosterBundle, rosterSource]);
+  }, [nationalRosterBundle, view]);
   useEffect(() => {
     const handleScroll = () => dispatchUiState({ type: "set_show_scroll_top", value: window.scrollY > 280 });
     handleScroll();
@@ -1227,19 +1302,34 @@ function App() {
   );
 
   const rosterSourceData = useMemo(
-    () => getRosterSourceData(rosterSource, nationalRosterBundle),
-    [nationalRosterBundle, rosterSource]
+    () => getRosterSourceData(ROSTER_SOURCES.national, nationalRosterBundle),
+    [nationalRosterBundle]
   );
   const { roster: sourceRoster, megaOptions: sourceMegaOptions } = rosterSourceData;
-  const rosterRows = useMemo(
+  const rosterMegaOptions = rosterChampionFilter ? MEGA_OPTIONS : sourceMegaOptions;
+  const filteredRoster = useMemo(
+    () =>
+      sourceRoster.filter((entry) => {
+        if (rosterChampionFilter && !entry.isChampion) return false;
+        if (rosterTypeFilters.length > 0 && !entry.types?.some((type) => rosterTypeFilters.includes(type))) return false;
+        if (rosterGenerationFilters.length > 0 && !rosterGenerationFilters.includes(entry.generation)) return false;
+        return true;
+      }),
+    [rosterChampionFilter, rosterGenerationFilters, rosterTypeFilters, sourceRoster]
+  );
+  const unfilteredMegaRosterRows = useMemo(
     () =>
       buildRosterRows({
-        roster: sourceRoster,
-        megaOptions: sourceMegaOptions,
+        roster: filteredRoster,
+        megaOptions: rosterMegaOptions,
         language,
         sortMode: rosterSort,
       }),
-    [language, sourceMegaOptions, sourceRoster, rosterSort]
+    [filteredRoster, language, rosterMegaOptions, rosterSort]
+  );
+  const rosterRows = useMemo(
+    () => (rosterMegaFilter ? unfilteredMegaRosterRows.filter((row) => row.isMega) : unfilteredMegaRosterRows),
+    [rosterMegaFilter, unfilteredMegaRosterRows]
   );
 
   const getSlotsBySide = (overrides = {}) => ({
@@ -1676,9 +1766,17 @@ function App() {
   const enemyBattleGraph = battleUnits.enemy[0]?.graph || null;
 
   const battleMax = Math.max(200, allyBattleGraph?.max || 0, enemyBattleGraph?.max || 0);
-  const verdict = allyBattleGraph && enemyBattleGraph ? getVerdict(allyBattleGraph, enemyBattleGraph, t) : null;
-  const allyGuaranteedFirst = Boolean(allyBattleGraph && enemyBattleGraph && allyBattleGraph.min > enemyBattleGraph.max);
-  const enemyGuaranteedFirst = Boolean(enemyBattleGraph && allyBattleGraph && enemyBattleGraph.min > allyBattleGraph.max);
+  const verdict = allyBattleGraph && enemyBattleGraph ? getVerdict(allyBattleGraph, enemyBattleGraph, t, battleState.trickRoom) : null;
+  const allyGuaranteedFirst = Boolean(
+    allyBattleGraph &&
+      enemyBattleGraph &&
+      (battleState.trickRoom ? allyBattleGraph.max < enemyBattleGraph.min : allyBattleGraph.min > enemyBattleGraph.max)
+  );
+  const enemyGuaranteedFirst = Boolean(
+    enemyBattleGraph &&
+      allyBattleGraph &&
+      (battleState.trickRoom ? enemyBattleGraph.max < allyBattleGraph.min : enemyBattleGraph.min > allyBattleGraph.max)
+  );
 
   const isDoubleBattleReady = battleUnits.ally.every(({ slot }) => slotHasPokemon(slot)) && battleUnits.enemy.every(({ slot }) => slotHasPokemon(slot));
   const doubleBattleEntries = useMemo(
@@ -1688,8 +1786,9 @@ function App() {
         language,
         myTeamLabel: t.myTeam,
         opponentTeamLabel: t.opponentTeam,
+        trickRoom: battleState.trickRoom,
       }),
-    [battleUnits, language, t.myTeam, t.opponentTeam]
+    [battleUnits, battleState.trickRoom, language, t.myTeam, t.opponentTeam]
   );
   const doubleBattleMax = Math.max(200, ...doubleBattleEntries.map((entry) => entry.graph.max), 200);
 
@@ -1939,7 +2038,7 @@ function App() {
                 <span className="option-label">{t.paralysis}</span>
                 <MultiplierBadge value={0.5} />
               </button>
-              <button type="button" className={`toggle-chip ${state.mega ? "on" : ""}`} disabled={!getSelectedMega(slot)} onClick={() => setBattleUnitState(side, battleSlotIndex, { mega: !state.mega })}>
+              <button type="button" className={`toggle-chip mega-action ${state.mega ? "on" : ""}`} disabled={!getSelectedMega(slot)} onClick={() => setBattleUnitState(side, battleSlotIndex, { mega: !state.mega })}>
                 {t.mega}
               </button>
               <button type="button" className={`toggle-chip ${state.ability ? "on" : ""}`} disabled={!canActivateBattleAbility(slot, state)} onClick={() => setBattleUnitState(side, battleSlotIndex, { ability: !state.ability })}>
@@ -1963,6 +2062,20 @@ function App() {
       </div>
     );
   };
+
+  const renderTrickRoomToggle = () => (
+    <div className="battle-result-tools">
+      <button
+        type="button"
+        className={`toggle-chip trick-room-toggle ${battleState.trickRoom ? "on" : ""}`}
+        aria-pressed={battleState.trickRoom}
+        onClick={() => dispatchBattle({ type: "set_trick_room", value: !battleState.trickRoom })}
+      >
+        {t.trickRoom}
+        <span className="trick-room-tooltip" role="tooltip">{t.trickRoomHelp}</span>
+      </button>
+    </div>
+  );
 
   const toneClass = theme === "dark" ? "dark" : "light";
 
@@ -2315,6 +2428,7 @@ function App() {
 
                 {battleMode === "double" ? (
                   <div className={`battle-result ${doubleBattleEntries[0]?.side || "neutral"} ${isDoubleBattleReady ? "" : "battle-result-empty"}`}>
+                    {renderTrickRoomToggle()}
                     {isDoubleBattleReady ? (
                       <>
                         <div className="battle-result-copy">
@@ -2348,6 +2462,7 @@ function App() {
                   </div>
                 ) : (
                   <div className={`battle-result ${verdict?.tone || "neutral"} ${allyBattleGraph && enemyBattleGraph ? "" : "battle-result-empty"}`}>
+                    {renderTrickRoomToggle()}
                     {allyBattleGraph && enemyBattleGraph ? (
                       <>
                         <div className="battle-result-copy">
@@ -2442,38 +2557,87 @@ function App() {
                   <h2>{t.allPokemon}</h2>
                   <Tooltip label="?" text={t.rosterHelp} className="inline-help" />
                 </div>
-                <div className="roster-controls">
-                  <div
-                    className="segmented compact roster-source-switch switch-track"
-                    style={getSwitchTrackStyle(rosterSource === ROSTER_SOURCES.champions ? 0 : 1, 2, 2)}
-                    aria-label="Roster source"
-                  >
-                    <button
-                      type="button"
-                      className={rosterSource === ROSTER_SOURCES.champions ? "active" : ""}
-                      onClick={() => dispatchUi({ type: "set_roster_source", value: ROSTER_SOURCES.champions })}
-                    >
-                      {t.rosterSourceChampions}
-                    </button>
-                    <button
-                      type="button"
-                      className={rosterSource === ROSTER_SOURCES.national ? "active" : ""}
-                      onClick={() => dispatchUi({ type: "set_roster_source", value: ROSTER_SOURCES.national })}
-                    >
-                      {t.rosterSourceNational}
-                    </button>
+              </div>
+              <div className="roster-controls">
+                <div className="roster-filter-row">
+                  <div className="roster-filter-group roster-champion-filter" aria-label={t.rosterFilterMisc}>
+                    <span className="roster-filter-label">{t.rosterFilterMisc}</span>
+                    <div className="roster-filter-pills">
+                      <button
+                        type="button"
+                        className={`roster-filter-pill champion ${rosterChampionFilter ? "active" : ""}`}
+                        aria-pressed={rosterChampionFilter}
+                        onClick={() => dispatchUi({ type: "set_roster_champion_filter", value: !rosterChampionFilter })}
+                      >
+                        <span>{t.rosterFilterChampion}</span>
+                      </button>
+                      <button
+                        type="button"
+                        className={`roster-filter-pill mega-filter ${rosterMegaFilter ? "active" : ""}`}
+                        aria-pressed={rosterMegaFilter}
+                        onClick={() => dispatchUi({ type: "set_roster_mega_filter", value: !rosterMegaFilter })}
+                      >
+                        <span>{t.rosterFilterMega}</span>
+                      </button>
+                    </div>
                   </div>
-                  <select
-                    className="styled-select roster-sort-select"
-                    value={rosterSort}
-                    onChange={(event) => dispatchUi({ type: "set_roster_sort", value: event.target.value })}
-                    aria-label="Roster sort"
-                  >
-                    <option value={ROSTER_SORTS.speed}>{t.rosterSortSpeed}</option>
-                    <option value={ROSTER_SORTS.name}>{t.rosterSortName}</option>
-                    <option value={ROSTER_SORTS.dex}>{t.rosterSortDex}</option>
-                  </select>
+                  <div className="roster-filter-group roster-type-filter" aria-label={t.rosterFilterType}>
+                    <span className="roster-filter-label">{t.rosterFilterType}</span>
+                    <div className="roster-filter-pills">
+                      <button
+                        type="button"
+                        className={`roster-filter-pill all ${rosterTypeFilters.length === 0 ? "active" : ""}`}
+                        aria-pressed={rosterTypeFilters.length === 0}
+                        onClick={() => dispatchUi({ type: "clear_roster_type_filters" })}
+                      >
+                        {t.rosterFilterAll}
+                      </button>
+                      {POKEMON_TYPES.map((type) => {
+                        const isActive = rosterTypeFilters.includes(type);
+                        return (
+                          <button
+                            key={type}
+                            type="button"
+                            className={`roster-filter-pill type-${type} ${isActive ? "active" : ""}`}
+                            aria-pressed={isActive}
+                            onClick={() => dispatchUi({ type: "toggle_roster_type_filter", value: type })}
+                          >
+                            <span>{getTypeLabel(type, language)}</span>
+                          </button>
+                        );
+                      })}
+                    </div>
+                  </div>
+                  <div className="roster-filter-group roster-generation-filter" aria-label={t.rosterFilterGeneration}>
+                    <span className="roster-filter-label">{t.rosterFilterGeneration}</span>
+                    <div className="roster-filter-pills">
+                      <button
+                        type="button"
+                        className={`roster-filter-pill all ${rosterGenerationFilters.length === 0 ? "active" : ""}`}
+                        aria-pressed={rosterGenerationFilters.length === 0}
+                        onClick={() => dispatchUi({ type: "clear_roster_generation_filters" })}
+                      >
+                        {t.rosterFilterAll}
+                      </button>
+                      {POKEMON_GENERATIONS.map((generation) => {
+                        const isActive = rosterGenerationFilters.includes(generation);
+                        return (
+                          <button
+                            key={generation}
+                            type="button"
+                            className={`roster-filter-pill generation gen-${generation} ${isActive ? "active" : ""}`}
+                            aria-pressed={isActive}
+                            onClick={() => dispatchUi({ type: "toggle_roster_generation_filter", value: generation })}
+                          >
+                            Gen {generation}
+                          </button>
+                        );
+                      })}
+                    </div>
+                  </div>
                 </div>
+              </div>
+              <div className="panel-head roster-search-head">
                 <div className="search-shell roster-search-shell">
                   <form
                     className="inline-input roster-search"
@@ -2516,11 +2680,23 @@ function App() {
                     </div>
                   )}
                 </div>
+                <select
+                  className="styled-select roster-sort-select"
+                  value={rosterSort}
+                  onChange={(event) => dispatchUi({ type: "set_roster_sort", value: event.target.value })}
+                  aria-label="Roster sort"
+                >
+                  <option value={ROSTER_SORTS.speed}>{t.rosterSortSpeed}</option>
+                  <option value={ROSTER_SORTS.name}>{t.rosterSortName}</option>
+                  <option value={ROSTER_SORTS.dex}>{t.rosterSortDex}</option>
+                </select>
               </div>
               {rosterSearchStatus && <p className="roster-search-status">{rosterSearchStatus}</p>}
               <div className="compare-list roster">
                 {rosterSourceData.loading ? (
                   <div className="empty-box">{t.rosterLoading}</div>
+                ) : rosterRows.length === 0 ? (
+                  <div className="empty-box">{t.noData}</div>
                 ) : visibleRosterRows.map((row) => (
                   <article
                     key={row.id}
@@ -2531,7 +2707,7 @@ function App() {
                         rosterRowRefs.current.delete(row.id);
                       }
                     }}
-                    className={`compare-row roster-row ${row.isMega ? "mega" : ""} ${highlightedRosterRowId === row.id ? "jump-highlight" : ""}`}
+                    className={`compare-row roster-row ${highlightedRosterRowId === row.id ? "jump-highlight" : ""}`}
                   >
                     <div className="compare-meta">
                       <div className="icon-shell">
@@ -2540,13 +2716,13 @@ function App() {
                       <div>
                         <div className="compare-name-line">
                           <strong title={row.label}>{row.label}</strong>
-                          {row.isMega && <span className="mini-chip mega">Mega</span>}
+                          {row.isMega && <span className="mini-chip mega">{t.rosterFilterMega}</span>}
                         </div>
                         <span>{t.baseSpeed} {row.baseSpeed}</span>
                       </div>
                     </div>
                     <div className="compare-graph-block">
-                      <SpeedGraph graph={row.graph} maxValue={rosterMax} tone={row.isMega ? "mega" : "ally"} />
+                      <SpeedGraph graph={row.graph} maxValue={rosterMax} tone="ally" />
                       <div className="compare-range">{formatRange(row.graph.min, row.graph.max, language)}</div>
                     </div>
                   </article>

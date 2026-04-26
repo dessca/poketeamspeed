@@ -169,7 +169,7 @@ export function buildBattleUnits({ allySlots, enemySlots, battleState, language,
   );
 }
 
-export function buildDoubleBattleEntries({ battleUnits, language, myTeamLabel, opponentTeamLabel }) {
+export function buildDoubleBattleEntries({ battleUnits, language, myTeamLabel, opponentTeamLabel, trickRoom = false }) {
   return [...battleUnits.ally, ...battleUnits.enemy]
     .filter(({ graph }) => Boolean(graph))
     .map((entry) => ({
@@ -182,8 +182,8 @@ export function buildDoubleBattleEntries({ battleUnits, language, myTeamLabel, o
       icon: getDisplayIcon(entry.slot, entry.state.mega),
     }))
     .sort((a, b) => {
-      if (b.graph.point !== a.graph.point) return b.graph.point - a.graph.point;
-      if (b.graph.max !== a.graph.max) return b.graph.max - a.graph.max;
-      return b.graph.min - a.graph.min;
+      if (b.graph.point !== a.graph.point) return trickRoom ? a.graph.point - b.graph.point : b.graph.point - a.graph.point;
+      if (b.graph.max !== a.graph.max) return trickRoom ? a.graph.max - b.graph.max : b.graph.max - a.graph.max;
+      return trickRoom ? a.graph.min - b.graph.min : b.graph.min - a.graph.min;
     });
 }

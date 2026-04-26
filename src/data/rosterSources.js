@@ -89,7 +89,9 @@ function normalizeMegaOptions(options) {
 
 export function getMegaOptionsForEntry(megaOptions, entry) {
   if (!entry) return [];
-  return normalizeMegaOptions(megaOptions[entry.id] || megaOptions[getPrimaryRosterName(entry)] || []);
+  return normalizeMegaOptions(
+    megaOptions[entry.id] || megaOptions[entry.championId] || megaOptions[getPrimaryRosterName(entry)] || []
+  );
 }
 
 function indexMegaOptionsByEntryId(roster, megaOptions) {

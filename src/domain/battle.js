@@ -924,7 +924,7 @@ export function buildRosterGraph(entry, speed = entry.speed, language = "ko", ab
   );
 }
 
-export function getVerdict(allyGraph, enemyGraph, t) {
+export function getVerdict(allyGraph, enemyGraph, t, trickRoom = false) {
   const allyExact = allyGraph.min === allyGraph.max;
   const enemyExact = enemyGraph.min === enemyGraph.max;
   const pointGap = Math.abs(allyGraph.point - enemyGraph.point);
@@ -933,12 +933,12 @@ export function getVerdict(allyGraph, enemyGraph, t) {
   const hasOverlap = overlapMax >= overlapMin;
 
   if (allyExact && enemyExact && allyGraph.min === enemyGraph.min) return { title: t.tieExact, sub: t.tieExactSub, tone: "tie" };
-  if (allyGraph.min > enemyGraph.max) return { title: t.sureFirstMy, sub: t.sureSubMy, tone: "ally" };
-  if (enemyGraph.min > allyGraph.max) return { title: t.sureFirstOpp, sub: t.sureSubOpp, tone: "enemy" };
+  if (trickRoom ? allyGraph.max < enemyGraph.min : allyGraph.min > enemyGraph.max) return { title: t.sureFirstMy, sub: t.sureSubMy, tone: "ally" };
+  if (trickRoom ? enemyGraph.max < allyGraph.min : enemyGraph.min > allyGraph.max) return { title: t.sureFirstOpp, sub: t.sureSubOpp, tone: "enemy" };
   if (allyGraph.point === enemyGraph.point) return { title: t.tiePossible, sub: t.tiePossibleSub, tone: "tie" };
   if (hasOverlap && pointGap <= 5) return { title: t.mixed, sub: t.mixedSub, tone: "neutral" };
-  if (allyGraph.point > enemyGraph.point) return { title: t.likelyFirstMy, sub: t.likelySubMy, tone: "ally" };
-  if (enemyGraph.point > allyGraph.point) return { title: t.likelyFirstOpp, sub: t.likelySubOpp, tone: "enemy" };
+  if (trickRoom ? allyGraph.point < enemyGraph.point : allyGraph.point > enemyGraph.point) return { title: t.likelyFirstMy, sub: t.likelySubMy, tone: "ally" };
+  if (trickRoom ? enemyGraph.point < allyGraph.point : enemyGraph.point > allyGraph.point) return { title: t.likelyFirstOpp, sub: t.likelySubOpp, tone: "enemy" };
   return { title: t.mixed, sub: t.mixedSub, tone: "neutral" };
 }
 
@@ -970,6 +970,7 @@ export function normalizeBattleState(raw) {
   return {
     ally: normalizeBattleSideState(raw?.ally),
     enemy: normalizeBattleSideState(raw?.enemy),
+    trickRoom: Boolean(raw?.trickRoom),
   };
 }
 

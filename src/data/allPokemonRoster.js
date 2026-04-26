@@ -12,6 +12,11 @@ export const allPokemonRoster = [
       "ja": "フシギダネ"
     },
     "speed": 45,
+    "types": [
+      "grass",
+      "poison"
+    ],
+    "generation": 1,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png"
   },
   {
@@ -24,6 +29,11 @@ export const allPokemonRoster = [
       "ja": "フシギソウ"
     },
     "speed": 60,
+    "types": [
+      "grass",
+      "poison"
+    ],
+    "generation": 1,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/2.png"
   },
   {
@@ -36,6 +46,11 @@ export const allPokemonRoster = [
       "ja": "フシギバナ"
     },
     "speed": 80,
+    "types": [
+      "grass",
+      "poison"
+    ],
+    "generation": 1,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/3.png",
     "isChampion": true,
     "championId": "0003"
@@ -50,6 +65,10 @@ export const allPokemonRoster = [
       "ja": "ヒトカゲ"
     },
     "speed": 65,
+    "types": [
+      "fire"
+    ],
+    "generation": 1,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/4.png"
   },
   {
@@ -62,6 +81,10 @@ export const allPokemonRoster = [
       "ja": "リザード"
     },
     "speed": 80,
+    "types": [
+      "fire"
+    ],
+    "generation": 1,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/5.png"
   },
   {
@@ -74,6 +97,11 @@ export const allPokemonRoster = [
       "ja": "リザードン"
     },
     "speed": 100,
+    "types": [
+      "fire",
+      "flying"
+    ],
+    "generation": 1,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/6.png",
     "isChampion": true,
     "championId": "0006"
@@ -88,6 +116,10 @@ export const allPokemonRoster = [
       "ja": "ゼニガメ"
     },
     "speed": 43,
+    "types": [
+      "water"
+    ],
+    "generation": 1,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/7.png"
   },
   {
@@ -100,6 +132,10 @@ export const allPokemonRoster = [
       "ja": "カメール"
     },
     "speed": 58,
+    "types": [
+      "water"
+    ],
+    "generation": 1,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/8.png"
   },
   {
@@ -112,6 +148,10 @@ export const allPokemonRoster = [
       "ja": "カメックス"
     },
     "speed": 78,
+    "types": [
+      "water"
+    ],
+    "generation": 1,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/9.png",
     "isChampion": true,
     "championId": "0009"
@@ -126,6 +166,10 @@ export const allPokemonRoster = [
       "ja": "キャタピー"
     },
     "speed": 45,
+    "types": [
+      "bug"
+    ],
+    "generation": 1,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10.png"
   },
   {
@@ -138,6 +182,10 @@ export const allPokemonRoster = [
       "ja": "トランセル"
     },
     "speed": 30,
+    "types": [
+      "bug"
+    ],
+    "generation": 1,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/11.png"
   },
   {
@@ -150,6 +198,11 @@ export const allPokemonRoster = [
       "ja": "バタフリー"
     },
     "speed": 70,
+    "types": [
+      "bug",
+      "flying"
+    ],
+    "generation": 1,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/12.png"
   },
   {
@@ -162,6 +215,11 @@ export const allPokemonRoster = [
       "ja": "ビードル"
     },
     "speed": 50,
+    "types": [
+      "bug",
+      "poison"
+    ],
+    "generation": 1,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/13.png"
   },
   {
@@ -174,6 +232,11 @@ export const allPokemonRoster = [
       "ja": "コクーン"
     },
     "speed": 35,
+    "types": [
+      "bug",
+      "poison"
+    ],
+    "generation": 1,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/14.png"
   },
   {
@@ -186,6 +249,11 @@ export const allPokemonRoster = [
       "ja": "スピアー"
     },
     "speed": 75,
+    "types": [
+      "bug",
+      "poison"
+    ],
+    "generation": 1,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/15.png",
     "isChampion": true,
     "championId": "0015"
@@ -200,6 +268,11 @@ export const allPokemonRoster = [
       "ja": "ポッポ"
     },
     "speed": 56,
+    "types": [
+      "normal",
+      "flying"
+    ],
+    "generation": 1,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/16.png"
   },
   {
@@ -212,6 +285,11 @@ export const allPokemonRoster = [
       "ja": "ピジョン"
     },
     "speed": 71,
+    "types": [
+      "normal",
+      "flying"
+    ],
+    "generation": 1,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/17.png"
   },
   {
@@ -224,6 +302,11 @@ export const allPokemonRoster = [
       "ja": "ピジョット"
     },
     "speed": 101,
+    "types": [
+      "normal",
+      "flying"
+    ],
+    "generation": 1,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/18.png",
     "isChampion": true,
     "championId": "0018"
@@ -238,6 +321,10 @@ export const allPokemonRoster = [
       "ja": "コラッタ"
     },
     "speed": 72,
+    "types": [
+      "normal"
+    ],
+    "generation": 1,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/19.png"
   },
   {
@@ -250,6 +337,11 @@ export const allPokemonRoster = [
       "ja": "アローラ コラッタ"
     },
     "speed": 72,
+    "types": [
+      "dark",
+      "normal"
+    ],
+    "generation": 1,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10091.png"
   },
   {
@@ -262,6 +354,10 @@ export const allPokemonRoster = [
       "ja": "ラッタ"
     },
     "speed": 97,
+    "types": [
+      "normal"
+    ],
+    "generation": 1,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/20.png"
   },
   {
@@ -274,6 +370,11 @@ export const allPokemonRoster = [
       "ja": "アローラ ラッタ"
     },
     "speed": 77,
+    "types": [
+      "dark",
+      "normal"
+    ],
+    "generation": 1,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10092.png"
   },
   {
@@ -286,6 +387,11 @@ export const allPokemonRoster = [
       "ja": "オニスズメ"
     },
     "speed": 70,
+    "types": [
+      "normal",
+      "flying"
+    ],
+    "generation": 1,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/21.png"
   },
   {
@@ -298,6 +404,11 @@ export const allPokemonRoster = [
       "ja": "オニドリル"
     },
     "speed": 100,
+    "types": [
+      "normal",
+      "flying"
+    ],
+    "generation": 1,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/22.png"
   },
   {
@@ -310,6 +421,10 @@ export const allPokemonRoster = [
       "ja": "アーボ"
     },
     "speed": 55,
+    "types": [
+      "poison"
+    ],
+    "generation": 1,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/23.png"
   },
   {
@@ -322,6 +437,10 @@ export const allPokemonRoster = [
       "ja": "アーボック"
     },
     "speed": 80,
+    "types": [
+      "poison"
+    ],
+    "generation": 1,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/24.png",
     "isChampion": true,
     "championId": "0024"
@@ -336,6 +455,10 @@ export const allPokemonRoster = [
       "ja": "ピカチュウ"
     },
     "speed": 90,
+    "types": [
+      "electric"
+    ],
+    "generation": 1,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png",
     "isChampion": true,
     "championId": "0025"
@@ -350,6 +473,10 @@ export const allPokemonRoster = [
       "ja": "ライチュウ"
     },
     "speed": 110,
+    "types": [
+      "electric"
+    ],
+    "generation": 1,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/26.png",
     "isChampion": true,
     "championId": "0026"
@@ -366,7 +493,12 @@ export const allPokemonRoster = [
     "icon": "/pokemon-icons/raichu-alolan.png",
     "id": "nat-0026-alola",
     "isChampion": true,
-    "championId": "0026-alola"
+    "championId": "0026-alola",
+    "types": [
+      "electric",
+      "psychic"
+    ],
+    "generation": 1
   },
   {
     "id": "nat-0027",
@@ -378,6 +510,10 @@ export const allPokemonRoster = [
       "ja": "サンド"
     },
     "speed": 40,
+    "types": [
+      "ground"
+    ],
+    "generation": 1,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/27.png"
   },
   {
@@ -390,6 +526,11 @@ export const allPokemonRoster = [
       "ja": "アローラ サンド"
     },
     "speed": 40,
+    "types": [
+      "ice",
+      "steel"
+    ],
+    "generation": 1,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10101.png"
   },
   {
@@ -402,6 +543,10 @@ export const allPokemonRoster = [
       "ja": "サンドパン"
     },
     "speed": 65,
+    "types": [
+      "ground"
+    ],
+    "generation": 1,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/28.png"
   },
   {
@@ -414,6 +559,11 @@ export const allPokemonRoster = [
       "ja": "アローラ サンドパン"
     },
     "speed": 65,
+    "types": [
+      "ice",
+      "steel"
+    ],
+    "generation": 1,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10102.png"
   },
   {
@@ -426,6 +576,10 @@ export const allPokemonRoster = [
       "ja": "ニドラン♀"
     },
     "speed": 41,
+    "types": [
+      "poison"
+    ],
+    "generation": 1,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/29.png"
   },
   {
@@ -438,6 +592,10 @@ export const allPokemonRoster = [
       "ja": "ニドリーナ"
     },
     "speed": 56,
+    "types": [
+      "poison"
+    ],
+    "generation": 1,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/30.png"
   },
   {
@@ -450,6 +608,11 @@ export const allPokemonRoster = [
       "ja": "ニドクイン"
     },
     "speed": 76,
+    "types": [
+      "poison",
+      "ground"
+    ],
+    "generation": 1,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/31.png"
   },
   {
@@ -462,6 +625,10 @@ export const allPokemonRoster = [
       "ja": "ニドラン♂"
     },
     "speed": 50,
+    "types": [
+      "poison"
+    ],
+    "generation": 1,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/32.png"
   },
   {
@@ -474,6 +641,10 @@ export const allPokemonRoster = [
       "ja": "ニドリーノ"
     },
     "speed": 65,
+    "types": [
+      "poison"
+    ],
+    "generation": 1,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/33.png"
   },
   {
@@ -486,6 +657,11 @@ export const allPokemonRoster = [
       "ja": "ニドキング"
     },
     "speed": 85,
+    "types": [
+      "poison",
+      "ground"
+    ],
+    "generation": 1,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/34.png"
   },
   {
@@ -498,6 +674,10 @@ export const allPokemonRoster = [
       "ja": "ピッピ"
     },
     "speed": 35,
+    "types": [
+      "fairy"
+    ],
+    "generation": 1,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/35.png"
   },
   {
@@ -510,6 +690,10 @@ export const allPokemonRoster = [
       "ja": "ピクシー"
     },
     "speed": 60,
+    "types": [
+      "fairy"
+    ],
+    "generation": 1,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/36.png",
     "isChampion": true,
     "championId": "0036"
@@ -524,6 +708,10 @@ export const allPokemonRoster = [
       "ja": "ロコン"
     },
     "speed": 65,
+    "types": [
+      "fire"
+    ],
+    "generation": 1,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/37.png"
   },
   {
@@ -536,6 +724,10 @@ export const allPokemonRoster = [
       "ja": "アローラ ロコン"
     },
     "speed": 65,
+    "types": [
+      "ice"
+    ],
+    "generation": 1,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10103.png"
   },
   {
@@ -548,6 +740,10 @@ export const allPokemonRoster = [
       "ja": "キュウコン"
     },
     "speed": 100,
+    "types": [
+      "fire"
+    ],
+    "generation": 1,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/38.png",
     "isChampion": true,
     "championId": "0038"
@@ -564,7 +760,12 @@ export const allPokemonRoster = [
     "icon": "/pokemon-icons/ninetales-alolan.png",
     "id": "nat-0038-alola",
     "isChampion": true,
-    "championId": "0038-alola"
+    "championId": "0038-alola",
+    "types": [
+      "ice",
+      "fairy"
+    ],
+    "generation": 1
   },
   {
     "id": "nat-0039",
@@ -576,6 +777,11 @@ export const allPokemonRoster = [
       "ja": "プリン"
     },
     "speed": 20,
+    "types": [
+      "normal",
+      "fairy"
+    ],
+    "generation": 1,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/39.png"
   },
   {
@@ -588,6 +794,11 @@ export const allPokemonRoster = [
       "ja": "プクリン"
     },
     "speed": 45,
+    "types": [
+      "normal",
+      "fairy"
+    ],
+    "generation": 1,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/40.png"
   },
   {
@@ -600,6 +811,11 @@ export const allPokemonRoster = [
       "ja": "ズバット"
     },
     "speed": 55,
+    "types": [
+      "poison",
+      "flying"
+    ],
+    "generation": 1,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/41.png"
   },
   {
@@ -612,6 +828,11 @@ export const allPokemonRoster = [
       "ja": "ゴルバット"
     },
     "speed": 90,
+    "types": [
+      "poison",
+      "flying"
+    ],
+    "generation": 1,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/42.png"
   },
   {
@@ -624,6 +845,11 @@ export const allPokemonRoster = [
       "ja": "ナゾノクサ"
     },
     "speed": 30,
+    "types": [
+      "grass",
+      "poison"
+    ],
+    "generation": 1,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/43.png"
   },
   {
@@ -636,6 +862,11 @@ export const allPokemonRoster = [
       "ja": "クサイハナ"
     },
     "speed": 40,
+    "types": [
+      "grass",
+      "poison"
+    ],
+    "generation": 1,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/44.png"
   },
   {
@@ -648,6 +879,11 @@ export const allPokemonRoster = [
       "ja": "ラフレシア"
     },
     "speed": 50,
+    "types": [
+      "grass",
+      "poison"
+    ],
+    "generation": 1,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/45.png"
   },
   {
@@ -660,6 +896,11 @@ export const allPokemonRoster = [
       "ja": "パラス"
     },
     "speed": 25,
+    "types": [
+      "bug",
+      "grass"
+    ],
+    "generation": 1,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/46.png"
   },
   {
@@ -672,6 +913,11 @@ export const allPokemonRoster = [
       "ja": "パラセクト"
     },
     "speed": 30,
+    "types": [
+      "bug",
+      "grass"
+    ],
+    "generation": 1,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/47.png"
   },
   {
@@ -684,6 +930,11 @@ export const allPokemonRoster = [
       "ja": "コンパン"
     },
     "speed": 45,
+    "types": [
+      "bug",
+      "poison"
+    ],
+    "generation": 1,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/48.png"
   },
   {
@@ -696,6 +947,11 @@ export const allPokemonRoster = [
       "ja": "モルフォン"
     },
     "speed": 90,
+    "types": [
+      "bug",
+      "poison"
+    ],
+    "generation": 1,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/49.png"
   },
   {
@@ -708,6 +964,10 @@ export const allPokemonRoster = [
       "ja": "ディグダ"
     },
     "speed": 95,
+    "types": [
+      "ground"
+    ],
+    "generation": 1,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/50.png"
   },
   {
@@ -720,6 +980,11 @@ export const allPokemonRoster = [
       "ja": "アローラ ディグダ"
     },
     "speed": 90,
+    "types": [
+      "ground",
+      "steel"
+    ],
+    "generation": 1,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10105.png"
   },
   {
@@ -732,6 +997,10 @@ export const allPokemonRoster = [
       "ja": "ダグトリオ"
     },
     "speed": 120,
+    "types": [
+      "ground"
+    ],
+    "generation": 1,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/51.png"
   },
   {
@@ -744,6 +1013,11 @@ export const allPokemonRoster = [
       "ja": "アローラ ダグトリオ"
     },
     "speed": 110,
+    "types": [
+      "ground",
+      "steel"
+    ],
+    "generation": 1,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10106.png"
   },
   {
@@ -756,6 +1030,10 @@ export const allPokemonRoster = [
       "ja": "ニャース"
     },
     "speed": 90,
+    "types": [
+      "normal"
+    ],
+    "generation": 1,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/52.png"
   },
   {
@@ -768,6 +1046,10 @@ export const allPokemonRoster = [
       "ja": "アローラ ニャース"
     },
     "speed": 90,
+    "types": [
+      "dark"
+    ],
+    "generation": 1,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10107.png"
   },
   {
@@ -780,6 +1062,10 @@ export const allPokemonRoster = [
       "ja": "ガラル ニャース"
     },
     "speed": 40,
+    "types": [
+      "steel"
+    ],
+    "generation": 1,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10161.png"
   },
   {
@@ -792,6 +1078,10 @@ export const allPokemonRoster = [
       "ja": "ペルシアン"
     },
     "speed": 115,
+    "types": [
+      "normal"
+    ],
+    "generation": 1,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/53.png"
   },
   {
@@ -804,6 +1094,10 @@ export const allPokemonRoster = [
       "ja": "アローラ ペルシアン"
     },
     "speed": 115,
+    "types": [
+      "dark"
+    ],
+    "generation": 1,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10108.png"
   },
   {
@@ -816,6 +1110,10 @@ export const allPokemonRoster = [
       "ja": "コダック"
     },
     "speed": 55,
+    "types": [
+      "water"
+    ],
+    "generation": 1,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/54.png"
   },
   {
@@ -828,6 +1126,10 @@ export const allPokemonRoster = [
       "ja": "ゴルダック"
     },
     "speed": 85,
+    "types": [
+      "water"
+    ],
+    "generation": 1,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/55.png"
   },
   {
@@ -840,6 +1142,10 @@ export const allPokemonRoster = [
       "ja": "マンキー"
     },
     "speed": 70,
+    "types": [
+      "fighting"
+    ],
+    "generation": 1,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/56.png"
   },
   {
@@ -852,6 +1158,10 @@ export const allPokemonRoster = [
       "ja": "オコリザル"
     },
     "speed": 95,
+    "types": [
+      "fighting"
+    ],
+    "generation": 1,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/57.png"
   },
   {
@@ -864,6 +1174,10 @@ export const allPokemonRoster = [
       "ja": "ガーディ"
     },
     "speed": 60,
+    "types": [
+      "fire"
+    ],
+    "generation": 1,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/58.png"
   },
   {
@@ -876,6 +1190,11 @@ export const allPokemonRoster = [
       "ja": "ヒスイ ガーディ"
     },
     "speed": 55,
+    "types": [
+      "fire",
+      "rock"
+    ],
+    "generation": 1,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10229.png"
   },
   {
@@ -888,6 +1207,10 @@ export const allPokemonRoster = [
       "ja": "ウインディ"
     },
     "speed": 95,
+    "types": [
+      "fire"
+    ],
+    "generation": 1,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/59.png",
     "isChampion": true,
     "championId": "0059"
@@ -904,7 +1227,12 @@ export const allPokemonRoster = [
     "icon": "/pokemon-icons/arcanine-hisuian.png",
     "id": "nat-0059-hisui",
     "isChampion": true,
-    "championId": "0059-hisui"
+    "championId": "0059-hisui",
+    "types": [
+      "fire",
+      "rock"
+    ],
+    "generation": 1
   },
   {
     "id": "nat-0060",
@@ -916,6 +1244,10 @@ export const allPokemonRoster = [
       "ja": "ニョロモ"
     },
     "speed": 90,
+    "types": [
+      "water"
+    ],
+    "generation": 1,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/60.png"
   },
   {
@@ -928,6 +1260,10 @@ export const allPokemonRoster = [
       "ja": "ニョロゾ"
     },
     "speed": 90,
+    "types": [
+      "water"
+    ],
+    "generation": 1,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/61.png"
   },
   {
@@ -940,6 +1276,11 @@ export const allPokemonRoster = [
       "ja": "ニョロボン"
     },
     "speed": 70,
+    "types": [
+      "water",
+      "fighting"
+    ],
+    "generation": 1,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/62.png"
   },
   {
@@ -952,6 +1293,10 @@ export const allPokemonRoster = [
       "ja": "ケーシィ"
     },
     "speed": 90,
+    "types": [
+      "psychic"
+    ],
+    "generation": 1,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/63.png"
   },
   {
@@ -964,6 +1309,10 @@ export const allPokemonRoster = [
       "ja": "ユンゲラー"
     },
     "speed": 105,
+    "types": [
+      "psychic"
+    ],
+    "generation": 1,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/64.png"
   },
   {
@@ -976,6 +1325,10 @@ export const allPokemonRoster = [
       "ja": "フーディン"
     },
     "speed": 120,
+    "types": [
+      "psychic"
+    ],
+    "generation": 1,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/65.png",
     "isChampion": true,
     "championId": "0065"
@@ -990,6 +1343,10 @@ export const allPokemonRoster = [
       "ja": "ワンリキー"
     },
     "speed": 35,
+    "types": [
+      "fighting"
+    ],
+    "generation": 1,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/66.png"
   },
   {
@@ -1002,6 +1359,10 @@ export const allPokemonRoster = [
       "ja": "ゴーリキー"
     },
     "speed": 45,
+    "types": [
+      "fighting"
+    ],
+    "generation": 1,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/67.png"
   },
   {
@@ -1014,6 +1375,10 @@ export const allPokemonRoster = [
       "ja": "カイリキー"
     },
     "speed": 55,
+    "types": [
+      "fighting"
+    ],
+    "generation": 1,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/68.png",
     "isChampion": true,
     "championId": "0068"
@@ -1028,6 +1393,11 @@ export const allPokemonRoster = [
       "ja": "マダツボミ"
     },
     "speed": 40,
+    "types": [
+      "grass",
+      "poison"
+    ],
+    "generation": 1,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/69.png"
   },
   {
@@ -1040,6 +1410,11 @@ export const allPokemonRoster = [
       "ja": "ウツドン"
     },
     "speed": 55,
+    "types": [
+      "grass",
+      "poison"
+    ],
+    "generation": 1,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/70.png"
   },
   {
@@ -1052,6 +1427,11 @@ export const allPokemonRoster = [
       "ja": "ウツボット"
     },
     "speed": 70,
+    "types": [
+      "grass",
+      "poison"
+    ],
+    "generation": 1,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/71.png",
     "isChampion": true,
     "championId": "0071"
@@ -1066,6 +1446,11 @@ export const allPokemonRoster = [
       "ja": "メノクラゲ"
     },
     "speed": 70,
+    "types": [
+      "water",
+      "poison"
+    ],
+    "generation": 1,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/72.png"
   },
   {
@@ -1078,6 +1463,11 @@ export const allPokemonRoster = [
       "ja": "ドククラゲ"
     },
     "speed": 100,
+    "types": [
+      "water",
+      "poison"
+    ],
+    "generation": 1,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/73.png"
   },
   {
@@ -1090,6 +1480,11 @@ export const allPokemonRoster = [
       "ja": "イシツブテ"
     },
     "speed": 20,
+    "types": [
+      "rock",
+      "ground"
+    ],
+    "generation": 1,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/74.png"
   },
   {
@@ -1102,6 +1497,11 @@ export const allPokemonRoster = [
       "ja": "アローラ イシツブテ"
     },
     "speed": 20,
+    "types": [
+      "rock",
+      "electric"
+    ],
+    "generation": 1,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10109.png"
   },
   {
@@ -1114,6 +1514,11 @@ export const allPokemonRoster = [
       "ja": "ゴローン"
     },
     "speed": 35,
+    "types": [
+      "rock",
+      "ground"
+    ],
+    "generation": 1,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/75.png"
   },
   {
@@ -1126,6 +1531,11 @@ export const allPokemonRoster = [
       "ja": "アローラ ゴローン"
     },
     "speed": 35,
+    "types": [
+      "rock",
+      "electric"
+    ],
+    "generation": 1,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10110.png"
   },
   {
@@ -1138,6 +1548,11 @@ export const allPokemonRoster = [
       "ja": "ゴローニャ"
     },
     "speed": 45,
+    "types": [
+      "rock",
+      "ground"
+    ],
+    "generation": 1,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/76.png"
   },
   {
@@ -1150,6 +1565,11 @@ export const allPokemonRoster = [
       "ja": "アローラ ゴローニャ"
     },
     "speed": 45,
+    "types": [
+      "rock",
+      "electric"
+    ],
+    "generation": 1,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10111.png"
   },
   {
@@ -1162,6 +1582,10 @@ export const allPokemonRoster = [
       "ja": "ポニータ"
     },
     "speed": 90,
+    "types": [
+      "fire"
+    ],
+    "generation": 1,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/77.png"
   },
   {
@@ -1174,6 +1598,10 @@ export const allPokemonRoster = [
       "ja": "ガラル ポニータ"
     },
     "speed": 90,
+    "types": [
+      "psychic"
+    ],
+    "generation": 1,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10162.png"
   },
   {
@@ -1186,6 +1614,10 @@ export const allPokemonRoster = [
       "ja": "ギャロップ"
     },
     "speed": 105,
+    "types": [
+      "fire"
+    ],
+    "generation": 1,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/78.png"
   },
   {
@@ -1198,6 +1630,11 @@ export const allPokemonRoster = [
       "ja": "ガラル ギャロップ"
     },
     "speed": 105,
+    "types": [
+      "psychic",
+      "fairy"
+    ],
+    "generation": 1,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10163.png"
   },
   {
@@ -1210,6 +1647,11 @@ export const allPokemonRoster = [
       "ja": "ヤドン"
     },
     "speed": 15,
+    "types": [
+      "water",
+      "psychic"
+    ],
+    "generation": 1,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/79.png"
   },
   {
@@ -1222,6 +1664,10 @@ export const allPokemonRoster = [
       "ja": "ガラル ヤドン"
     },
     "speed": 15,
+    "types": [
+      "psychic"
+    ],
+    "generation": 1,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10164.png"
   },
   {
@@ -1234,6 +1680,11 @@ export const allPokemonRoster = [
       "ja": "ヤドラン"
     },
     "speed": 30,
+    "types": [
+      "water",
+      "psychic"
+    ],
+    "generation": 1,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/80.png",
     "isChampion": true,
     "championId": "0080"
@@ -1250,7 +1701,12 @@ export const allPokemonRoster = [
     "icon": "/pokemon-icons/slowbro-galarian.png",
     "id": "nat-0080-galar",
     "isChampion": true,
-    "championId": "0080-galar"
+    "championId": "0080-galar",
+    "types": [
+      "poison",
+      "psychic"
+    ],
+    "generation": 1
   },
   {
     "id": "nat-0081",
@@ -1262,6 +1718,11 @@ export const allPokemonRoster = [
       "ja": "コイル"
     },
     "speed": 45,
+    "types": [
+      "electric",
+      "steel"
+    ],
+    "generation": 1,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/81.png"
   },
   {
@@ -1274,6 +1735,11 @@ export const allPokemonRoster = [
       "ja": "レアコイル"
     },
     "speed": 70,
+    "types": [
+      "electric",
+      "steel"
+    ],
+    "generation": 1,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/82.png"
   },
   {
@@ -1286,6 +1752,11 @@ export const allPokemonRoster = [
       "ja": "カモネギ"
     },
     "speed": 60,
+    "types": [
+      "normal",
+      "flying"
+    ],
+    "generation": 1,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/83.png"
   },
   {
@@ -1298,6 +1769,10 @@ export const allPokemonRoster = [
       "ja": "ガラル カモネギ"
     },
     "speed": 55,
+    "types": [
+      "fighting"
+    ],
+    "generation": 1,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10166.png"
   },
   {
@@ -1310,6 +1785,11 @@ export const allPokemonRoster = [
       "ja": "ドードー"
     },
     "speed": 75,
+    "types": [
+      "normal",
+      "flying"
+    ],
+    "generation": 1,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/84.png"
   },
   {
@@ -1322,6 +1802,11 @@ export const allPokemonRoster = [
       "ja": "ドードリオ"
     },
     "speed": 110,
+    "types": [
+      "normal",
+      "flying"
+    ],
+    "generation": 1,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/85.png"
   },
   {
@@ -1334,6 +1819,10 @@ export const allPokemonRoster = [
       "ja": "パウワウ"
     },
     "speed": 45,
+    "types": [
+      "water"
+    ],
+    "generation": 1,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/86.png"
   },
   {
@@ -1346,6 +1835,11 @@ export const allPokemonRoster = [
       "ja": "ジュゴン"
     },
     "speed": 70,
+    "types": [
+      "water",
+      "ice"
+    ],
+    "generation": 1,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/87.png"
   },
   {
@@ -1358,6 +1852,10 @@ export const allPokemonRoster = [
       "ja": "ベトベター"
     },
     "speed": 25,
+    "types": [
+      "poison"
+    ],
+    "generation": 1,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/88.png"
   },
   {
@@ -1370,6 +1868,11 @@ export const allPokemonRoster = [
       "ja": "アローラ ベトベター"
     },
     "speed": 25,
+    "types": [
+      "poison",
+      "dark"
+    ],
+    "generation": 1,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10112.png"
   },
   {
@@ -1382,6 +1885,10 @@ export const allPokemonRoster = [
       "ja": "ベトベトン"
     },
     "speed": 50,
+    "types": [
+      "poison"
+    ],
+    "generation": 1,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/89.png"
   },
   {
@@ -1394,6 +1901,11 @@ export const allPokemonRoster = [
       "ja": "アローラ ベトベトン"
     },
     "speed": 50,
+    "types": [
+      "poison",
+      "dark"
+    ],
+    "generation": 1,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10113.png"
   },
   {
@@ -1406,6 +1918,10 @@ export const allPokemonRoster = [
       "ja": "シェルダー"
     },
     "speed": 40,
+    "types": [
+      "water"
+    ],
+    "generation": 1,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/90.png"
   },
   {
@@ -1418,6 +1934,11 @@ export const allPokemonRoster = [
       "ja": "パルシェン"
     },
     "speed": 70,
+    "types": [
+      "water",
+      "ice"
+    ],
+    "generation": 1,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/91.png"
   },
   {
@@ -1430,6 +1951,11 @@ export const allPokemonRoster = [
       "ja": "ゴース"
     },
     "speed": 80,
+    "types": [
+      "ghost",
+      "poison"
+    ],
+    "generation": 1,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/92.png"
   },
   {
@@ -1442,6 +1968,11 @@ export const allPokemonRoster = [
       "ja": "ゴースト"
     },
     "speed": 95,
+    "types": [
+      "ghost",
+      "poison"
+    ],
+    "generation": 1,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/93.png"
   },
   {
@@ -1454,6 +1985,11 @@ export const allPokemonRoster = [
       "ja": "ゲンガー"
     },
     "speed": 110,
+    "types": [
+      "ghost",
+      "poison"
+    ],
+    "generation": 1,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/94.png",
     "isChampion": true,
     "championId": "0094"
@@ -1468,6 +2004,11 @@ export const allPokemonRoster = [
       "ja": "イワーク"
     },
     "speed": 70,
+    "types": [
+      "rock",
+      "ground"
+    ],
+    "generation": 1,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/95.png"
   },
   {
@@ -1480,6 +2021,10 @@ export const allPokemonRoster = [
       "ja": "スリープ"
     },
     "speed": 42,
+    "types": [
+      "psychic"
+    ],
+    "generation": 1,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/96.png"
   },
   {
@@ -1492,6 +2037,10 @@ export const allPokemonRoster = [
       "ja": "スリーパー"
     },
     "speed": 67,
+    "types": [
+      "psychic"
+    ],
+    "generation": 1,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/97.png"
   },
   {
@@ -1504,6 +2053,10 @@ export const allPokemonRoster = [
       "ja": "クラブ"
     },
     "speed": 50,
+    "types": [
+      "water"
+    ],
+    "generation": 1,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/98.png"
   },
   {
@@ -1516,6 +2069,10 @@ export const allPokemonRoster = [
       "ja": "キングラー"
     },
     "speed": 75,
+    "types": [
+      "water"
+    ],
+    "generation": 1,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/99.png"
   },
   {
@@ -1528,6 +2085,10 @@ export const allPokemonRoster = [
       "ja": "ビリリダマ"
     },
     "speed": 100,
+    "types": [
+      "electric"
+    ],
+    "generation": 1,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/100.png"
   },
   {
@@ -1540,6 +2101,11 @@ export const allPokemonRoster = [
       "ja": "ヒスイ ビリリダマ"
     },
     "speed": 100,
+    "types": [
+      "electric",
+      "grass"
+    ],
+    "generation": 1,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10231.png"
   },
   {
@@ -1552,6 +2118,10 @@ export const allPokemonRoster = [
       "ja": "マルマイン"
     },
     "speed": 150,
+    "types": [
+      "electric"
+    ],
+    "generation": 1,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/101.png"
   },
   {
@@ -1564,6 +2134,11 @@ export const allPokemonRoster = [
       "ja": "ヒスイ マルマイン"
     },
     "speed": 150,
+    "types": [
+      "electric",
+      "grass"
+    ],
+    "generation": 1,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10232.png"
   },
   {
@@ -1576,6 +2151,11 @@ export const allPokemonRoster = [
       "ja": "タマタマ"
     },
     "speed": 40,
+    "types": [
+      "grass",
+      "psychic"
+    ],
+    "generation": 1,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/102.png"
   },
   {
@@ -1588,6 +2168,11 @@ export const allPokemonRoster = [
       "ja": "ナッシー"
     },
     "speed": 55,
+    "types": [
+      "grass",
+      "psychic"
+    ],
+    "generation": 1,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/103.png"
   },
   {
@@ -1600,6 +2185,11 @@ export const allPokemonRoster = [
       "ja": "アローラ ナッシー"
     },
     "speed": 45,
+    "types": [
+      "grass",
+      "dragon"
+    ],
+    "generation": 1,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10114.png"
   },
   {
@@ -1612,6 +2202,10 @@ export const allPokemonRoster = [
       "ja": "カラカラ"
     },
     "speed": 35,
+    "types": [
+      "ground"
+    ],
+    "generation": 1,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/104.png"
   },
   {
@@ -1624,6 +2218,10 @@ export const allPokemonRoster = [
       "ja": "ガラガラ"
     },
     "speed": 45,
+    "types": [
+      "ground"
+    ],
+    "generation": 1,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/105.png"
   },
   {
@@ -1636,6 +2234,11 @@ export const allPokemonRoster = [
       "ja": "アローラ ガラガラ"
     },
     "speed": 45,
+    "types": [
+      "fire",
+      "ghost"
+    ],
+    "generation": 1,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10115.png"
   },
   {
@@ -1648,6 +2251,10 @@ export const allPokemonRoster = [
       "ja": "サワムラー"
     },
     "speed": 87,
+    "types": [
+      "fighting"
+    ],
+    "generation": 1,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/106.png"
   },
   {
@@ -1660,6 +2267,10 @@ export const allPokemonRoster = [
       "ja": "エビワラー"
     },
     "speed": 76,
+    "types": [
+      "fighting"
+    ],
+    "generation": 1,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/107.png"
   },
   {
@@ -1672,6 +2283,10 @@ export const allPokemonRoster = [
       "ja": "ベロリンガ"
     },
     "speed": 30,
+    "types": [
+      "normal"
+    ],
+    "generation": 1,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/108.png"
   },
   {
@@ -1684,6 +2299,10 @@ export const allPokemonRoster = [
       "ja": "ドガース"
     },
     "speed": 35,
+    "types": [
+      "poison"
+    ],
+    "generation": 1,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/109.png"
   },
   {
@@ -1696,6 +2315,10 @@ export const allPokemonRoster = [
       "ja": "マタドガス"
     },
     "speed": 60,
+    "types": [
+      "poison"
+    ],
+    "generation": 1,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/110.png"
   },
   {
@@ -1708,6 +2331,11 @@ export const allPokemonRoster = [
       "ja": "ガラル マタドガス"
     },
     "speed": 60,
+    "types": [
+      "poison",
+      "fairy"
+    ],
+    "generation": 1,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10167.png"
   },
   {
@@ -1720,6 +2348,11 @@ export const allPokemonRoster = [
       "ja": "サイホーン"
     },
     "speed": 25,
+    "types": [
+      "ground",
+      "rock"
+    ],
+    "generation": 1,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/111.png"
   },
   {
@@ -1732,6 +2365,11 @@ export const allPokemonRoster = [
       "ja": "サイドン"
     },
     "speed": 40,
+    "types": [
+      "ground",
+      "rock"
+    ],
+    "generation": 1,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/112.png"
   },
   {
@@ -1744,6 +2382,10 @@ export const allPokemonRoster = [
       "ja": "ラッキー"
     },
     "speed": 50,
+    "types": [
+      "normal"
+    ],
+    "generation": 1,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/113.png"
   },
   {
@@ -1756,6 +2398,10 @@ export const allPokemonRoster = [
       "ja": "モンジャラ"
     },
     "speed": 60,
+    "types": [
+      "grass"
+    ],
+    "generation": 1,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/114.png"
   },
   {
@@ -1768,6 +2414,10 @@ export const allPokemonRoster = [
       "ja": "ガルーラ"
     },
     "speed": 90,
+    "types": [
+      "normal"
+    ],
+    "generation": 1,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/115.png",
     "isChampion": true,
     "championId": "0115"
@@ -1782,6 +2432,10 @@ export const allPokemonRoster = [
       "ja": "タッツー"
     },
     "speed": 60,
+    "types": [
+      "water"
+    ],
+    "generation": 1,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/116.png"
   },
   {
@@ -1794,6 +2448,10 @@ export const allPokemonRoster = [
       "ja": "シードラ"
     },
     "speed": 85,
+    "types": [
+      "water"
+    ],
+    "generation": 1,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/117.png"
   },
   {
@@ -1806,6 +2464,10 @@ export const allPokemonRoster = [
       "ja": "トサキント"
     },
     "speed": 63,
+    "types": [
+      "water"
+    ],
+    "generation": 1,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/118.png"
   },
   {
@@ -1818,6 +2480,10 @@ export const allPokemonRoster = [
       "ja": "アズマオウ"
     },
     "speed": 68,
+    "types": [
+      "water"
+    ],
+    "generation": 1,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/119.png"
   },
   {
@@ -1830,6 +2496,10 @@ export const allPokemonRoster = [
       "ja": "ヒトデマン"
     },
     "speed": 85,
+    "types": [
+      "water"
+    ],
+    "generation": 1,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/120.png"
   },
   {
@@ -1842,6 +2512,11 @@ export const allPokemonRoster = [
       "ja": "スターミー"
     },
     "speed": 115,
+    "types": [
+      "water",
+      "psychic"
+    ],
+    "generation": 1,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/121.png",
     "isChampion": true,
     "championId": "0121"
@@ -1856,6 +2531,11 @@ export const allPokemonRoster = [
       "ja": "バリヤード"
     },
     "speed": 90,
+    "types": [
+      "psychic",
+      "fairy"
+    ],
+    "generation": 1,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/122.png"
   },
   {
@@ -1868,6 +2548,11 @@ export const allPokemonRoster = [
       "ja": "ガラル バリヤード"
     },
     "speed": 100,
+    "types": [
+      "ice",
+      "psychic"
+    ],
+    "generation": 1,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10168.png"
   },
   {
@@ -1880,6 +2565,11 @@ export const allPokemonRoster = [
       "ja": "ストライク"
     },
     "speed": 105,
+    "types": [
+      "bug",
+      "flying"
+    ],
+    "generation": 1,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/123.png"
   },
   {
@@ -1892,6 +2582,11 @@ export const allPokemonRoster = [
       "ja": "ルージュラ"
     },
     "speed": 95,
+    "types": [
+      "ice",
+      "psychic"
+    ],
+    "generation": 1,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/124.png"
   },
   {
@@ -1904,6 +2599,10 @@ export const allPokemonRoster = [
       "ja": "エレブー"
     },
     "speed": 105,
+    "types": [
+      "electric"
+    ],
+    "generation": 1,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/125.png"
   },
   {
@@ -1916,6 +2615,10 @@ export const allPokemonRoster = [
       "ja": "ブーバー"
     },
     "speed": 93,
+    "types": [
+      "fire"
+    ],
+    "generation": 1,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/126.png"
   },
   {
@@ -1928,6 +2631,10 @@ export const allPokemonRoster = [
       "ja": "カイロス"
     },
     "speed": 85,
+    "types": [
+      "bug"
+    ],
+    "generation": 1,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/127.png",
     "isChampion": true,
     "championId": "0127"
@@ -1942,6 +2649,10 @@ export const allPokemonRoster = [
       "ja": "ケンタロス"
     },
     "speed": 110,
+    "types": [
+      "normal"
+    ],
+    "generation": 1,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/128.png",
     "isChampion": true,
     "championId": "0128"
@@ -1958,7 +2669,12 @@ export const allPokemonRoster = [
     "icon": "/pokemon-icons/tauros-paldea-blaze.png",
     "id": "nat-0128-paldea-blaze",
     "isChampion": true,
-    "championId": "0128-paldea-blaze"
+    "championId": "0128-paldea-blaze",
+    "types": [
+      "fighting",
+      "fire"
+    ],
+    "generation": 1
   },
   {
     "dexNo": 128,
@@ -1972,7 +2688,11 @@ export const allPokemonRoster = [
     "icon": "/pokemon-icons/tauros-paldea-combat.png",
     "id": "nat-0128-paldea-combat",
     "isChampion": true,
-    "championId": "0128-paldea-combat"
+    "championId": "0128-paldea-combat",
+    "types": [
+      "fighting"
+    ],
+    "generation": 1
   },
   {
     "dexNo": 128,
@@ -1986,7 +2706,12 @@ export const allPokemonRoster = [
     "icon": "/pokemon-icons/tauros-paldea-aqua.png",
     "id": "nat-0128-paldea-water",
     "isChampion": true,
-    "championId": "0128-paldea-water"
+    "championId": "0128-paldea-water",
+    "types": [
+      "fighting",
+      "water"
+    ],
+    "generation": 1
   },
   {
     "id": "nat-0129",
@@ -1998,6 +2723,10 @@ export const allPokemonRoster = [
       "ja": "コイキング"
     },
     "speed": 80,
+    "types": [
+      "water"
+    ],
+    "generation": 1,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/129.png"
   },
   {
@@ -2010,6 +2739,11 @@ export const allPokemonRoster = [
       "ja": "ギャラドス"
     },
     "speed": 81,
+    "types": [
+      "water",
+      "flying"
+    ],
+    "generation": 1,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/130.png",
     "isChampion": true,
     "championId": "0130"
@@ -2024,6 +2758,11 @@ export const allPokemonRoster = [
       "ja": "ラプラス"
     },
     "speed": 60,
+    "types": [
+      "water",
+      "ice"
+    ],
+    "generation": 1,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/131.png"
   },
   {
@@ -2036,6 +2775,10 @@ export const allPokemonRoster = [
       "ja": "メタモン"
     },
     "speed": 48,
+    "types": [
+      "normal"
+    ],
+    "generation": 1,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/132.png",
     "isChampion": true,
     "championId": "0132"
@@ -2050,6 +2793,10 @@ export const allPokemonRoster = [
       "ja": "イーブイ"
     },
     "speed": 55,
+    "types": [
+      "normal"
+    ],
+    "generation": 1,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/133.png"
   },
   {
@@ -2062,6 +2809,10 @@ export const allPokemonRoster = [
       "ja": "シャワーズ"
     },
     "speed": 65,
+    "types": [
+      "water"
+    ],
+    "generation": 1,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/134.png",
     "isChampion": true,
     "championId": "0134"
@@ -2076,6 +2827,10 @@ export const allPokemonRoster = [
       "ja": "サンダース"
     },
     "speed": 130,
+    "types": [
+      "electric"
+    ],
+    "generation": 1,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/135.png",
     "isChampion": true,
     "championId": "0135"
@@ -2090,6 +2845,10 @@ export const allPokemonRoster = [
       "ja": "ブースター"
     },
     "speed": 65,
+    "types": [
+      "fire"
+    ],
+    "generation": 1,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/136.png",
     "isChampion": true,
     "championId": "0136"
@@ -2104,6 +2863,10 @@ export const allPokemonRoster = [
       "ja": "ポリゴン"
     },
     "speed": 40,
+    "types": [
+      "normal"
+    ],
+    "generation": 1,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/137.png"
   },
   {
@@ -2116,6 +2879,11 @@ export const allPokemonRoster = [
       "ja": "オムナイト"
     },
     "speed": 35,
+    "types": [
+      "rock",
+      "water"
+    ],
+    "generation": 1,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/138.png"
   },
   {
@@ -2128,6 +2896,11 @@ export const allPokemonRoster = [
       "ja": "オムスター"
     },
     "speed": 55,
+    "types": [
+      "rock",
+      "water"
+    ],
+    "generation": 1,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/139.png"
   },
   {
@@ -2140,6 +2913,11 @@ export const allPokemonRoster = [
       "ja": "カブト"
     },
     "speed": 55,
+    "types": [
+      "rock",
+      "water"
+    ],
+    "generation": 1,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/140.png"
   },
   {
@@ -2152,6 +2930,11 @@ export const allPokemonRoster = [
       "ja": "カブトプス"
     },
     "speed": 80,
+    "types": [
+      "rock",
+      "water"
+    ],
+    "generation": 1,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/141.png"
   },
   {
@@ -2164,6 +2947,11 @@ export const allPokemonRoster = [
       "ja": "プテラ"
     },
     "speed": 130,
+    "types": [
+      "rock",
+      "flying"
+    ],
+    "generation": 1,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/142.png",
     "isChampion": true,
     "championId": "0142"
@@ -2178,6 +2966,10 @@ export const allPokemonRoster = [
       "ja": "カビゴン"
     },
     "speed": 30,
+    "types": [
+      "normal"
+    ],
+    "generation": 1,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/143.png",
     "isChampion": true,
     "championId": "0143"
@@ -2192,6 +2984,11 @@ export const allPokemonRoster = [
       "ja": "フリーザー"
     },
     "speed": 85,
+    "types": [
+      "ice",
+      "flying"
+    ],
+    "generation": 1,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/144.png"
   },
   {
@@ -2204,6 +3001,11 @@ export const allPokemonRoster = [
       "ja": "ガラル フリーザー"
     },
     "speed": 95,
+    "types": [
+      "psychic",
+      "flying"
+    ],
+    "generation": 1,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10169.png"
   },
   {
@@ -2216,6 +3018,11 @@ export const allPokemonRoster = [
       "ja": "サンダー"
     },
     "speed": 100,
+    "types": [
+      "electric",
+      "flying"
+    ],
+    "generation": 1,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/145.png"
   },
   {
@@ -2228,6 +3035,11 @@ export const allPokemonRoster = [
       "ja": "ガラル サンダー"
     },
     "speed": 100,
+    "types": [
+      "fighting",
+      "flying"
+    ],
+    "generation": 1,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10170.png"
   },
   {
@@ -2240,6 +3052,11 @@ export const allPokemonRoster = [
       "ja": "ファイヤー"
     },
     "speed": 90,
+    "types": [
+      "fire",
+      "flying"
+    ],
+    "generation": 1,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/146.png"
   },
   {
@@ -2252,6 +3069,11 @@ export const allPokemonRoster = [
       "ja": "ガラル ファイヤー"
     },
     "speed": 90,
+    "types": [
+      "dark",
+      "flying"
+    ],
+    "generation": 1,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10171.png"
   },
   {
@@ -2264,6 +3086,10 @@ export const allPokemonRoster = [
       "ja": "ミニリュウ"
     },
     "speed": 50,
+    "types": [
+      "dragon"
+    ],
+    "generation": 1,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/147.png"
   },
   {
@@ -2276,6 +3102,10 @@ export const allPokemonRoster = [
       "ja": "ハクリュー"
     },
     "speed": 70,
+    "types": [
+      "dragon"
+    ],
+    "generation": 1,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/148.png"
   },
   {
@@ -2288,6 +3118,11 @@ export const allPokemonRoster = [
       "ja": "カイリュー"
     },
     "speed": 80,
+    "types": [
+      "dragon",
+      "flying"
+    ],
+    "generation": 1,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/149.png",
     "isChampion": true,
     "championId": "0149"
@@ -2302,6 +3137,10 @@ export const allPokemonRoster = [
       "ja": "ミュウツー"
     },
     "speed": 130,
+    "types": [
+      "psychic"
+    ],
+    "generation": 1,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/150.png"
   },
   {
@@ -2314,6 +3153,10 @@ export const allPokemonRoster = [
       "ja": "ミュウ"
     },
     "speed": 100,
+    "types": [
+      "psychic"
+    ],
+    "generation": 1,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/151.png"
   },
   {
@@ -2326,6 +3169,10 @@ export const allPokemonRoster = [
       "ja": "チコリータ"
     },
     "speed": 45,
+    "types": [
+      "grass"
+    ],
+    "generation": 2,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/152.png"
   },
   {
@@ -2338,6 +3185,10 @@ export const allPokemonRoster = [
       "ja": "ベイリーフ"
     },
     "speed": 60,
+    "types": [
+      "grass"
+    ],
+    "generation": 2,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/153.png"
   },
   {
@@ -2350,6 +3201,10 @@ export const allPokemonRoster = [
       "ja": "メガニウム"
     },
     "speed": 80,
+    "types": [
+      "grass"
+    ],
+    "generation": 2,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/154.png",
     "isChampion": true,
     "championId": "0154"
@@ -2364,6 +3219,10 @@ export const allPokemonRoster = [
       "ja": "ヒノアラシ"
     },
     "speed": 65,
+    "types": [
+      "fire"
+    ],
+    "generation": 2,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/155.png"
   },
   {
@@ -2376,6 +3235,10 @@ export const allPokemonRoster = [
       "ja": "マグマラシ"
     },
     "speed": 80,
+    "types": [
+      "fire"
+    ],
+    "generation": 2,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/156.png"
   },
   {
@@ -2388,6 +3251,10 @@ export const allPokemonRoster = [
       "ja": "バクフーン"
     },
     "speed": 100,
+    "types": [
+      "fire"
+    ],
+    "generation": 2,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/157.png",
     "isChampion": true,
     "championId": "0157"
@@ -2404,7 +3271,12 @@ export const allPokemonRoster = [
     "icon": "/pokemon-icons/typhlosion-hisuian.png",
     "id": "nat-0157-hisui",
     "isChampion": true,
-    "championId": "0157-hisui"
+    "championId": "0157-hisui",
+    "types": [
+      "fire",
+      "ghost"
+    ],
+    "generation": 2
   },
   {
     "id": "nat-0158",
@@ -2416,6 +3288,10 @@ export const allPokemonRoster = [
       "ja": "ワニノコ"
     },
     "speed": 43,
+    "types": [
+      "water"
+    ],
+    "generation": 2,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/158.png"
   },
   {
@@ -2428,6 +3304,10 @@ export const allPokemonRoster = [
       "ja": "アリゲイツ"
     },
     "speed": 58,
+    "types": [
+      "water"
+    ],
+    "generation": 2,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/159.png"
   },
   {
@@ -2440,6 +3320,10 @@ export const allPokemonRoster = [
       "ja": "オーダイル"
     },
     "speed": 78,
+    "types": [
+      "water"
+    ],
+    "generation": 2,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/160.png",
     "isChampion": true,
     "championId": "0160"
@@ -2454,6 +3338,10 @@ export const allPokemonRoster = [
       "ja": "オタチ"
     },
     "speed": 20,
+    "types": [
+      "normal"
+    ],
+    "generation": 2,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/161.png"
   },
   {
@@ -2466,6 +3354,10 @@ export const allPokemonRoster = [
       "ja": "オオタチ"
     },
     "speed": 90,
+    "types": [
+      "normal"
+    ],
+    "generation": 2,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/162.png"
   },
   {
@@ -2478,6 +3370,11 @@ export const allPokemonRoster = [
       "ja": "ホーホー"
     },
     "speed": 50,
+    "types": [
+      "normal",
+      "flying"
+    ],
+    "generation": 2,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/163.png"
   },
   {
@@ -2490,6 +3387,11 @@ export const allPokemonRoster = [
       "ja": "ヨルノズク"
     },
     "speed": 70,
+    "types": [
+      "normal",
+      "flying"
+    ],
+    "generation": 2,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/164.png"
   },
   {
@@ -2502,6 +3404,11 @@ export const allPokemonRoster = [
       "ja": "レディバ"
     },
     "speed": 55,
+    "types": [
+      "bug",
+      "flying"
+    ],
+    "generation": 2,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/165.png"
   },
   {
@@ -2514,6 +3421,11 @@ export const allPokemonRoster = [
       "ja": "レディアン"
     },
     "speed": 85,
+    "types": [
+      "bug",
+      "flying"
+    ],
+    "generation": 2,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/166.png"
   },
   {
@@ -2526,6 +3438,11 @@ export const allPokemonRoster = [
       "ja": "イトマル"
     },
     "speed": 30,
+    "types": [
+      "bug",
+      "poison"
+    ],
+    "generation": 2,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/167.png"
   },
   {
@@ -2538,6 +3455,11 @@ export const allPokemonRoster = [
       "ja": "アリアドス"
     },
     "speed": 40,
+    "types": [
+      "bug",
+      "poison"
+    ],
+    "generation": 2,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/168.png",
     "isChampion": true,
     "championId": "0168"
@@ -2552,6 +3474,11 @@ export const allPokemonRoster = [
       "ja": "クロバット"
     },
     "speed": 130,
+    "types": [
+      "poison",
+      "flying"
+    ],
+    "generation": 2,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/169.png"
   },
   {
@@ -2564,6 +3491,11 @@ export const allPokemonRoster = [
       "ja": "チョンチー"
     },
     "speed": 67,
+    "types": [
+      "water",
+      "electric"
+    ],
+    "generation": 2,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/170.png"
   },
   {
@@ -2576,6 +3508,11 @@ export const allPokemonRoster = [
       "ja": "ランターン"
     },
     "speed": 67,
+    "types": [
+      "water",
+      "electric"
+    ],
+    "generation": 2,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/171.png"
   },
   {
@@ -2588,6 +3525,10 @@ export const allPokemonRoster = [
       "ja": "ピチュー"
     },
     "speed": 60,
+    "types": [
+      "electric"
+    ],
+    "generation": 2,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/172.png"
   },
   {
@@ -2600,6 +3541,10 @@ export const allPokemonRoster = [
       "ja": "ピィ"
     },
     "speed": 15,
+    "types": [
+      "fairy"
+    ],
+    "generation": 2,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/173.png"
   },
   {
@@ -2612,6 +3557,11 @@ export const allPokemonRoster = [
       "ja": "ププリン"
     },
     "speed": 15,
+    "types": [
+      "normal",
+      "fairy"
+    ],
+    "generation": 2,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/174.png"
   },
   {
@@ -2624,6 +3574,10 @@ export const allPokemonRoster = [
       "ja": "トゲピー"
     },
     "speed": 20,
+    "types": [
+      "fairy"
+    ],
+    "generation": 2,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/175.png"
   },
   {
@@ -2636,6 +3590,11 @@ export const allPokemonRoster = [
       "ja": "トゲチック"
     },
     "speed": 40,
+    "types": [
+      "fairy",
+      "flying"
+    ],
+    "generation": 2,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/176.png"
   },
   {
@@ -2648,6 +3607,11 @@ export const allPokemonRoster = [
       "ja": "ネイティ"
     },
     "speed": 70,
+    "types": [
+      "psychic",
+      "flying"
+    ],
+    "generation": 2,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/177.png"
   },
   {
@@ -2660,6 +3624,11 @@ export const allPokemonRoster = [
       "ja": "ネイティオ"
     },
     "speed": 95,
+    "types": [
+      "psychic",
+      "flying"
+    ],
+    "generation": 2,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/178.png"
   },
   {
@@ -2672,6 +3641,10 @@ export const allPokemonRoster = [
       "ja": "メリープ"
     },
     "speed": 35,
+    "types": [
+      "electric"
+    ],
+    "generation": 2,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/179.png"
   },
   {
@@ -2684,6 +3657,10 @@ export const allPokemonRoster = [
       "ja": "モココ"
     },
     "speed": 45,
+    "types": [
+      "electric"
+    ],
+    "generation": 2,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/180.png"
   },
   {
@@ -2696,6 +3673,10 @@ export const allPokemonRoster = [
       "ja": "デンリュウ"
     },
     "speed": 55,
+    "types": [
+      "electric"
+    ],
+    "generation": 2,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/181.png",
     "isChampion": true,
     "championId": "0181"
@@ -2710,6 +3691,10 @@ export const allPokemonRoster = [
       "ja": "キレイハナ"
     },
     "speed": 50,
+    "types": [
+      "grass"
+    ],
+    "generation": 2,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/182.png"
   },
   {
@@ -2722,6 +3707,11 @@ export const allPokemonRoster = [
       "ja": "マリル"
     },
     "speed": 40,
+    "types": [
+      "water",
+      "fairy"
+    ],
+    "generation": 2,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/183.png"
   },
   {
@@ -2734,6 +3724,11 @@ export const allPokemonRoster = [
       "ja": "マリルリ"
     },
     "speed": 50,
+    "types": [
+      "water",
+      "fairy"
+    ],
+    "generation": 2,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/184.png",
     "isChampion": true,
     "championId": "0184"
@@ -2748,6 +3743,10 @@ export const allPokemonRoster = [
       "ja": "ウソッキー"
     },
     "speed": 30,
+    "types": [
+      "rock"
+    ],
+    "generation": 2,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/185.png"
   },
   {
@@ -2760,6 +3759,10 @@ export const allPokemonRoster = [
       "ja": "ニョロトノ"
     },
     "speed": 70,
+    "types": [
+      "water"
+    ],
+    "generation": 2,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/186.png",
     "isChampion": true,
     "championId": "0186"
@@ -2774,6 +3777,11 @@ export const allPokemonRoster = [
       "ja": "ハネッコ"
     },
     "speed": 50,
+    "types": [
+      "grass",
+      "flying"
+    ],
+    "generation": 2,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/187.png"
   },
   {
@@ -2786,6 +3794,11 @@ export const allPokemonRoster = [
       "ja": "ポポッコ"
     },
     "speed": 80,
+    "types": [
+      "grass",
+      "flying"
+    ],
+    "generation": 2,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/188.png"
   },
   {
@@ -2798,6 +3811,11 @@ export const allPokemonRoster = [
       "ja": "ワタッコ"
     },
     "speed": 110,
+    "types": [
+      "grass",
+      "flying"
+    ],
+    "generation": 2,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/189.png"
   },
   {
@@ -2810,6 +3828,10 @@ export const allPokemonRoster = [
       "ja": "エイパム"
     },
     "speed": 85,
+    "types": [
+      "normal"
+    ],
+    "generation": 2,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/190.png"
   },
   {
@@ -2822,6 +3844,10 @@ export const allPokemonRoster = [
       "ja": "ヒマナッツ"
     },
     "speed": 30,
+    "types": [
+      "grass"
+    ],
+    "generation": 2,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/191.png"
   },
   {
@@ -2834,6 +3860,10 @@ export const allPokemonRoster = [
       "ja": "キマワリ"
     },
     "speed": 30,
+    "types": [
+      "grass"
+    ],
+    "generation": 2,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/192.png"
   },
   {
@@ -2846,6 +3876,11 @@ export const allPokemonRoster = [
       "ja": "ヤンヤンマ"
     },
     "speed": 95,
+    "types": [
+      "bug",
+      "flying"
+    ],
+    "generation": 2,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/193.png"
   },
   {
@@ -2858,6 +3893,11 @@ export const allPokemonRoster = [
       "ja": "ウパー"
     },
     "speed": 15,
+    "types": [
+      "water",
+      "ground"
+    ],
+    "generation": 2,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/194.png"
   },
   {
@@ -2870,6 +3910,11 @@ export const allPokemonRoster = [
       "ja": "パルデア ウパー"
     },
     "speed": 15,
+    "types": [
+      "poison",
+      "ground"
+    ],
+    "generation": 2,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10253.png"
   },
   {
@@ -2882,6 +3927,11 @@ export const allPokemonRoster = [
       "ja": "ヌオー"
     },
     "speed": 35,
+    "types": [
+      "water",
+      "ground"
+    ],
+    "generation": 2,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/195.png"
   },
   {
@@ -2894,6 +3944,10 @@ export const allPokemonRoster = [
       "ja": "エーフィ"
     },
     "speed": 110,
+    "types": [
+      "psychic"
+    ],
+    "generation": 2,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/196.png",
     "isChampion": true,
     "championId": "0196"
@@ -2908,6 +3962,10 @@ export const allPokemonRoster = [
       "ja": "ブラッキー"
     },
     "speed": 65,
+    "types": [
+      "dark"
+    ],
+    "generation": 2,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/197.png",
     "isChampion": true,
     "championId": "0197"
@@ -2922,6 +3980,11 @@ export const allPokemonRoster = [
       "ja": "ヤミカラス"
     },
     "speed": 91,
+    "types": [
+      "dark",
+      "flying"
+    ],
+    "generation": 2,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/198.png"
   },
   {
@@ -2934,6 +3997,11 @@ export const allPokemonRoster = [
       "ja": "ヤドキング"
     },
     "speed": 30,
+    "types": [
+      "water",
+      "psychic"
+    ],
+    "generation": 2,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/199.png",
     "isChampion": true,
     "championId": "0199"
@@ -2950,7 +4018,12 @@ export const allPokemonRoster = [
     "icon": "/pokemon-icons/slowking-galarian.png",
     "id": "nat-0199-galar",
     "isChampion": true,
-    "championId": "0199-galar"
+    "championId": "0199-galar",
+    "types": [
+      "poison",
+      "psychic"
+    ],
+    "generation": 2
   },
   {
     "id": "nat-0200",
@@ -2962,6 +4035,10 @@ export const allPokemonRoster = [
       "ja": "ムウマ"
     },
     "speed": 85,
+    "types": [
+      "ghost"
+    ],
+    "generation": 2,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/200.png"
   },
   {
@@ -2974,6 +4051,10 @@ export const allPokemonRoster = [
       "ja": "アンノーン"
     },
     "speed": 48,
+    "types": [
+      "psychic"
+    ],
+    "generation": 2,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/201.png"
   },
   {
@@ -2986,6 +4067,10 @@ export const allPokemonRoster = [
       "ja": "ソーナンス"
     },
     "speed": 33,
+    "types": [
+      "psychic"
+    ],
+    "generation": 2,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/202.png"
   },
   {
@@ -2998,6 +4083,11 @@ export const allPokemonRoster = [
       "ja": "キリンリキ"
     },
     "speed": 85,
+    "types": [
+      "normal",
+      "psychic"
+    ],
+    "generation": 2,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/203.png"
   },
   {
@@ -3010,6 +4100,10 @@ export const allPokemonRoster = [
       "ja": "クヌギダマ"
     },
     "speed": 15,
+    "types": [
+      "bug"
+    ],
+    "generation": 2,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/204.png"
   },
   {
@@ -3022,6 +4116,11 @@ export const allPokemonRoster = [
       "ja": "フォレトス"
     },
     "speed": 40,
+    "types": [
+      "bug",
+      "steel"
+    ],
+    "generation": 2,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/205.png"
   },
   {
@@ -3034,6 +4133,10 @@ export const allPokemonRoster = [
       "ja": "ノコッチ"
     },
     "speed": 45,
+    "types": [
+      "normal"
+    ],
+    "generation": 2,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/206.png"
   },
   {
@@ -3046,6 +4149,11 @@ export const allPokemonRoster = [
       "ja": "グライガー"
     },
     "speed": 85,
+    "types": [
+      "ground",
+      "flying"
+    ],
+    "generation": 2,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/207.png"
   },
   {
@@ -3058,6 +4166,11 @@ export const allPokemonRoster = [
       "ja": "ハガネール"
     },
     "speed": 30,
+    "types": [
+      "steel",
+      "ground"
+    ],
+    "generation": 2,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/208.png",
     "isChampion": true,
     "championId": "0208"
@@ -3072,6 +4185,10 @@ export const allPokemonRoster = [
       "ja": "ブルー"
     },
     "speed": 30,
+    "types": [
+      "fairy"
+    ],
+    "generation": 2,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/209.png"
   },
   {
@@ -3084,6 +4201,10 @@ export const allPokemonRoster = [
       "ja": "グランブル"
     },
     "speed": 45,
+    "types": [
+      "fairy"
+    ],
+    "generation": 2,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/210.png"
   },
   {
@@ -3096,6 +4217,11 @@ export const allPokemonRoster = [
       "ja": "ハリーセン"
     },
     "speed": 85,
+    "types": [
+      "water",
+      "poison"
+    ],
+    "generation": 2,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/211.png"
   },
   {
@@ -3108,6 +4234,11 @@ export const allPokemonRoster = [
       "ja": "ヒスイ ハリーセン"
     },
     "speed": 85,
+    "types": [
+      "dark",
+      "poison"
+    ],
+    "generation": 2,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10234.png"
   },
   {
@@ -3120,6 +4251,11 @@ export const allPokemonRoster = [
       "ja": "ハッサム"
     },
     "speed": 65,
+    "types": [
+      "bug",
+      "steel"
+    ],
+    "generation": 2,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/212.png",
     "isChampion": true,
     "championId": "0212"
@@ -3134,6 +4270,11 @@ export const allPokemonRoster = [
       "ja": "ツボツボ"
     },
     "speed": 5,
+    "types": [
+      "bug",
+      "rock"
+    ],
+    "generation": 2,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/213.png",
     "isChampion": true,
     "championId": "0213",
@@ -3149,6 +4290,11 @@ export const allPokemonRoster = [
       "ja": "ヘラクロス"
     },
     "speed": 85,
+    "types": [
+      "bug",
+      "fighting"
+    ],
+    "generation": 2,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/214.png",
     "isChampion": true,
     "championId": "0214"
@@ -3163,6 +4309,11 @@ export const allPokemonRoster = [
       "ja": "ニューラ"
     },
     "speed": 115,
+    "types": [
+      "dark",
+      "ice"
+    ],
+    "generation": 2,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/215.png"
   },
   {
@@ -3175,6 +4326,11 @@ export const allPokemonRoster = [
       "ja": "ヒスイ ニューラ"
     },
     "speed": 115,
+    "types": [
+      "fighting",
+      "poison"
+    ],
+    "generation": 2,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10235.png"
   },
   {
@@ -3187,6 +4343,10 @@ export const allPokemonRoster = [
       "ja": "ヒメグマ"
     },
     "speed": 40,
+    "types": [
+      "normal"
+    ],
+    "generation": 2,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/216.png"
   },
   {
@@ -3199,6 +4359,10 @@ export const allPokemonRoster = [
       "ja": "リングマ"
     },
     "speed": 55,
+    "types": [
+      "normal"
+    ],
+    "generation": 2,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/217.png"
   },
   {
@@ -3211,6 +4375,10 @@ export const allPokemonRoster = [
       "ja": "マグマッグ"
     },
     "speed": 20,
+    "types": [
+      "fire"
+    ],
+    "generation": 2,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/218.png"
   },
   {
@@ -3223,6 +4391,11 @@ export const allPokemonRoster = [
       "ja": "マグカルゴ"
     },
     "speed": 30,
+    "types": [
+      "fire",
+      "rock"
+    ],
+    "generation": 2,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/219.png"
   },
   {
@@ -3235,6 +4408,11 @@ export const allPokemonRoster = [
       "ja": "ウリムー"
     },
     "speed": 50,
+    "types": [
+      "ice",
+      "ground"
+    ],
+    "generation": 2,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/220.png"
   },
   {
@@ -3247,6 +4425,11 @@ export const allPokemonRoster = [
       "ja": "イノムー"
     },
     "speed": 50,
+    "types": [
+      "ice",
+      "ground"
+    ],
+    "generation": 2,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/221.png"
   },
   {
@@ -3259,6 +4442,11 @@ export const allPokemonRoster = [
       "ja": "サニーゴ"
     },
     "speed": 35,
+    "types": [
+      "water",
+      "rock"
+    ],
+    "generation": 2,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/222.png"
   },
   {
@@ -3271,6 +4459,10 @@ export const allPokemonRoster = [
       "ja": "ガラル サニーゴ"
     },
     "speed": 30,
+    "types": [
+      "ghost"
+    ],
+    "generation": 2,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10173.png"
   },
   {
@@ -3283,6 +4475,10 @@ export const allPokemonRoster = [
       "ja": "テッポウオ"
     },
     "speed": 65,
+    "types": [
+      "water"
+    ],
+    "generation": 2,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/223.png"
   },
   {
@@ -3295,6 +4491,10 @@ export const allPokemonRoster = [
       "ja": "オクタン"
     },
     "speed": 45,
+    "types": [
+      "water"
+    ],
+    "generation": 2,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/224.png"
   },
   {
@@ -3307,6 +4507,11 @@ export const allPokemonRoster = [
       "ja": "デリバード"
     },
     "speed": 75,
+    "types": [
+      "ice",
+      "flying"
+    ],
+    "generation": 2,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/225.png"
   },
   {
@@ -3319,6 +4524,11 @@ export const allPokemonRoster = [
       "ja": "マンタイン"
     },
     "speed": 70,
+    "types": [
+      "water",
+      "flying"
+    ],
+    "generation": 2,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/226.png"
   },
   {
@@ -3331,6 +4541,11 @@ export const allPokemonRoster = [
       "ja": "エアームド"
     },
     "speed": 70,
+    "types": [
+      "steel",
+      "flying"
+    ],
+    "generation": 2,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/227.png",
     "isChampion": true,
     "championId": "0227"
@@ -3345,6 +4560,11 @@ export const allPokemonRoster = [
       "ja": "デルビル"
     },
     "speed": 65,
+    "types": [
+      "dark",
+      "fire"
+    ],
+    "generation": 2,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/228.png"
   },
   {
@@ -3357,6 +4577,11 @@ export const allPokemonRoster = [
       "ja": "ヘルガー"
     },
     "speed": 95,
+    "types": [
+      "dark",
+      "fire"
+    ],
+    "generation": 2,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/229.png",
     "isChampion": true,
     "championId": "0229"
@@ -3371,6 +4596,11 @@ export const allPokemonRoster = [
       "ja": "キングドラ"
     },
     "speed": 85,
+    "types": [
+      "water",
+      "dragon"
+    ],
+    "generation": 2,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/230.png"
   },
   {
@@ -3383,6 +4613,10 @@ export const allPokemonRoster = [
       "ja": "ゴマゾウ"
     },
     "speed": 40,
+    "types": [
+      "ground"
+    ],
+    "generation": 2,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/231.png"
   },
   {
@@ -3395,6 +4629,10 @@ export const allPokemonRoster = [
       "ja": "ドンファン"
     },
     "speed": 50,
+    "types": [
+      "ground"
+    ],
+    "generation": 2,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/232.png"
   },
   {
@@ -3407,6 +4645,10 @@ export const allPokemonRoster = [
       "ja": "ポリゴン２"
     },
     "speed": 60,
+    "types": [
+      "normal"
+    ],
+    "generation": 2,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/233.png"
   },
   {
@@ -3419,6 +4661,10 @@ export const allPokemonRoster = [
       "ja": "オドシシ"
     },
     "speed": 85,
+    "types": [
+      "normal"
+    ],
+    "generation": 2,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/234.png"
   },
   {
@@ -3431,6 +4677,10 @@ export const allPokemonRoster = [
       "ja": "ドーブル"
     },
     "speed": 75,
+    "types": [
+      "normal"
+    ],
+    "generation": 2,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/235.png"
   },
   {
@@ -3443,6 +4693,10 @@ export const allPokemonRoster = [
       "ja": "バルキー"
     },
     "speed": 35,
+    "types": [
+      "fighting"
+    ],
+    "generation": 2,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/236.png"
   },
   {
@@ -3455,6 +4709,10 @@ export const allPokemonRoster = [
       "ja": "カポエラー"
     },
     "speed": 70,
+    "types": [
+      "fighting"
+    ],
+    "generation": 2,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/237.png"
   },
   {
@@ -3467,6 +4725,11 @@ export const allPokemonRoster = [
       "ja": "ムチュール"
     },
     "speed": 65,
+    "types": [
+      "ice",
+      "psychic"
+    ],
+    "generation": 2,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/238.png"
   },
   {
@@ -3479,6 +4742,10 @@ export const allPokemonRoster = [
       "ja": "エレキッド"
     },
     "speed": 95,
+    "types": [
+      "electric"
+    ],
+    "generation": 2,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/239.png"
   },
   {
@@ -3491,6 +4758,10 @@ export const allPokemonRoster = [
       "ja": "ブビィ"
     },
     "speed": 83,
+    "types": [
+      "fire"
+    ],
+    "generation": 2,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/240.png"
   },
   {
@@ -3503,6 +4774,10 @@ export const allPokemonRoster = [
       "ja": "ミルタンク"
     },
     "speed": 100,
+    "types": [
+      "normal"
+    ],
+    "generation": 2,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/241.png"
   },
   {
@@ -3515,6 +4790,10 @@ export const allPokemonRoster = [
       "ja": "ハピナス"
     },
     "speed": 55,
+    "types": [
+      "normal"
+    ],
+    "generation": 2,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/242.png"
   },
   {
@@ -3527,6 +4806,10 @@ export const allPokemonRoster = [
       "ja": "ライコウ"
     },
     "speed": 115,
+    "types": [
+      "electric"
+    ],
+    "generation": 2,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/243.png"
   },
   {
@@ -3539,6 +4822,10 @@ export const allPokemonRoster = [
       "ja": "エンテイ"
     },
     "speed": 100,
+    "types": [
+      "fire"
+    ],
+    "generation": 2,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/244.png"
   },
   {
@@ -3551,6 +4838,10 @@ export const allPokemonRoster = [
       "ja": "スイクン"
     },
     "speed": 85,
+    "types": [
+      "water"
+    ],
+    "generation": 2,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/245.png"
   },
   {
@@ -3563,6 +4854,11 @@ export const allPokemonRoster = [
       "ja": "ヨーギラス"
     },
     "speed": 41,
+    "types": [
+      "rock",
+      "ground"
+    ],
+    "generation": 2,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/246.png"
   },
   {
@@ -3575,6 +4871,11 @@ export const allPokemonRoster = [
       "ja": "サナギラス"
     },
     "speed": 51,
+    "types": [
+      "rock",
+      "ground"
+    ],
+    "generation": 2,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/247.png"
   },
   {
@@ -3587,6 +4888,11 @@ export const allPokemonRoster = [
       "ja": "バンギラス"
     },
     "speed": 61,
+    "types": [
+      "rock",
+      "dark"
+    ],
+    "generation": 2,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/248.png",
     "isChampion": true,
     "championId": "0248"
@@ -3601,6 +4907,11 @@ export const allPokemonRoster = [
       "ja": "ルギア"
     },
     "speed": 110,
+    "types": [
+      "psychic",
+      "flying"
+    ],
+    "generation": 2,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/249.png"
   },
   {
@@ -3613,6 +4924,11 @@ export const allPokemonRoster = [
       "ja": "ホウオウ"
     },
     "speed": 90,
+    "types": [
+      "fire",
+      "flying"
+    ],
+    "generation": 2,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/250.png"
   },
   {
@@ -3625,6 +4941,11 @@ export const allPokemonRoster = [
       "ja": "セレビィ"
     },
     "speed": 100,
+    "types": [
+      "psychic",
+      "grass"
+    ],
+    "generation": 2,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/251.png"
   },
   {
@@ -3637,6 +4958,10 @@ export const allPokemonRoster = [
       "ja": "キモリ"
     },
     "speed": 70,
+    "types": [
+      "grass"
+    ],
+    "generation": 3,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/252.png"
   },
   {
@@ -3649,6 +4974,10 @@ export const allPokemonRoster = [
       "ja": "ジュプトル"
     },
     "speed": 95,
+    "types": [
+      "grass"
+    ],
+    "generation": 3,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/253.png"
   },
   {
@@ -3661,6 +4990,10 @@ export const allPokemonRoster = [
       "ja": "ジュカイン"
     },
     "speed": 120,
+    "types": [
+      "grass"
+    ],
+    "generation": 3,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/254.png"
   },
   {
@@ -3673,6 +5006,10 @@ export const allPokemonRoster = [
       "ja": "アチャモ"
     },
     "speed": 45,
+    "types": [
+      "fire"
+    ],
+    "generation": 3,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/255.png"
   },
   {
@@ -3685,6 +5022,11 @@ export const allPokemonRoster = [
       "ja": "ワカシャモ"
     },
     "speed": 55,
+    "types": [
+      "fire",
+      "fighting"
+    ],
+    "generation": 3,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/256.png"
   },
   {
@@ -3697,6 +5039,11 @@ export const allPokemonRoster = [
       "ja": "バシャーモ"
     },
     "speed": 80,
+    "types": [
+      "fire",
+      "fighting"
+    ],
+    "generation": 3,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/257.png"
   },
   {
@@ -3709,6 +5056,10 @@ export const allPokemonRoster = [
       "ja": "ミズゴロウ"
     },
     "speed": 40,
+    "types": [
+      "water"
+    ],
+    "generation": 3,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/258.png"
   },
   {
@@ -3721,6 +5072,11 @@ export const allPokemonRoster = [
       "ja": "ヌマクロー"
     },
     "speed": 50,
+    "types": [
+      "water",
+      "ground"
+    ],
+    "generation": 3,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/259.png"
   },
   {
@@ -3733,6 +5089,11 @@ export const allPokemonRoster = [
       "ja": "ラグラージ"
     },
     "speed": 60,
+    "types": [
+      "water",
+      "ground"
+    ],
+    "generation": 3,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/260.png"
   },
   {
@@ -3745,6 +5106,10 @@ export const allPokemonRoster = [
       "ja": "ポチエナ"
     },
     "speed": 35,
+    "types": [
+      "dark"
+    ],
+    "generation": 3,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/261.png"
   },
   {
@@ -3757,6 +5122,10 @@ export const allPokemonRoster = [
       "ja": "グラエナ"
     },
     "speed": 70,
+    "types": [
+      "dark"
+    ],
+    "generation": 3,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/262.png"
   },
   {
@@ -3769,6 +5138,10 @@ export const allPokemonRoster = [
       "ja": "ジグザグマ"
     },
     "speed": 60,
+    "types": [
+      "normal"
+    ],
+    "generation": 3,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/263.png"
   },
   {
@@ -3781,6 +5154,11 @@ export const allPokemonRoster = [
       "ja": "ガラル ジグザグマ"
     },
     "speed": 60,
+    "types": [
+      "dark",
+      "normal"
+    ],
+    "generation": 3,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10174.png"
   },
   {
@@ -3793,6 +5171,10 @@ export const allPokemonRoster = [
       "ja": "マッスグマ"
     },
     "speed": 100,
+    "types": [
+      "normal"
+    ],
+    "generation": 3,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/264.png"
   },
   {
@@ -3805,6 +5187,11 @@ export const allPokemonRoster = [
       "ja": "ガラル マッスグマ"
     },
     "speed": 100,
+    "types": [
+      "dark",
+      "normal"
+    ],
+    "generation": 3,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10175.png"
   },
   {
@@ -3817,6 +5204,10 @@ export const allPokemonRoster = [
       "ja": "ケムッソ"
     },
     "speed": 20,
+    "types": [
+      "bug"
+    ],
+    "generation": 3,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/265.png"
   },
   {
@@ -3829,6 +5220,10 @@ export const allPokemonRoster = [
       "ja": "カラサリス"
     },
     "speed": 15,
+    "types": [
+      "bug"
+    ],
+    "generation": 3,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/266.png"
   },
   {
@@ -3841,6 +5236,11 @@ export const allPokemonRoster = [
       "ja": "アゲハント"
     },
     "speed": 65,
+    "types": [
+      "bug",
+      "flying"
+    ],
+    "generation": 3,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/267.png"
   },
   {
@@ -3853,6 +5253,10 @@ export const allPokemonRoster = [
       "ja": "マユルド"
     },
     "speed": 15,
+    "types": [
+      "bug"
+    ],
+    "generation": 3,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/268.png"
   },
   {
@@ -3865,6 +5269,11 @@ export const allPokemonRoster = [
       "ja": "ドクケイル"
     },
     "speed": 65,
+    "types": [
+      "bug",
+      "poison"
+    ],
+    "generation": 3,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/269.png"
   },
   {
@@ -3877,6 +5286,11 @@ export const allPokemonRoster = [
       "ja": "ハスボー"
     },
     "speed": 30,
+    "types": [
+      "water",
+      "grass"
+    ],
+    "generation": 3,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/270.png"
   },
   {
@@ -3889,6 +5303,11 @@ export const allPokemonRoster = [
       "ja": "ハスブレロ"
     },
     "speed": 50,
+    "types": [
+      "water",
+      "grass"
+    ],
+    "generation": 3,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/271.png"
   },
   {
@@ -3901,6 +5320,11 @@ export const allPokemonRoster = [
       "ja": "ルンパッパ"
     },
     "speed": 70,
+    "types": [
+      "water",
+      "grass"
+    ],
+    "generation": 3,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/272.png"
   },
   {
@@ -3913,6 +5337,10 @@ export const allPokemonRoster = [
       "ja": "タネボー"
     },
     "speed": 30,
+    "types": [
+      "grass"
+    ],
+    "generation": 3,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/273.png"
   },
   {
@@ -3925,6 +5353,11 @@ export const allPokemonRoster = [
       "ja": "コノハナ"
     },
     "speed": 60,
+    "types": [
+      "grass",
+      "dark"
+    ],
+    "generation": 3,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/274.png"
   },
   {
@@ -3937,6 +5370,11 @@ export const allPokemonRoster = [
       "ja": "ダーテング"
     },
     "speed": 80,
+    "types": [
+      "grass",
+      "dark"
+    ],
+    "generation": 3,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/275.png"
   },
   {
@@ -3949,6 +5387,11 @@ export const allPokemonRoster = [
       "ja": "スバメ"
     },
     "speed": 85,
+    "types": [
+      "normal",
+      "flying"
+    ],
+    "generation": 3,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/276.png"
   },
   {
@@ -3961,6 +5404,11 @@ export const allPokemonRoster = [
       "ja": "オオスバメ"
     },
     "speed": 125,
+    "types": [
+      "normal",
+      "flying"
+    ],
+    "generation": 3,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/277.png"
   },
   {
@@ -3973,6 +5421,11 @@ export const allPokemonRoster = [
       "ja": "キャモメ"
     },
     "speed": 85,
+    "types": [
+      "water",
+      "flying"
+    ],
+    "generation": 3,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/278.png"
   },
   {
@@ -3985,6 +5438,11 @@ export const allPokemonRoster = [
       "ja": "ペリッパー"
     },
     "speed": 65,
+    "types": [
+      "water",
+      "flying"
+    ],
+    "generation": 3,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/279.png",
     "isChampion": true,
     "championId": "0279"
@@ -3999,6 +5457,11 @@ export const allPokemonRoster = [
       "ja": "ラルトス"
     },
     "speed": 40,
+    "types": [
+      "psychic",
+      "fairy"
+    ],
+    "generation": 3,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/280.png"
   },
   {
@@ -4011,6 +5474,11 @@ export const allPokemonRoster = [
       "ja": "キルリア"
     },
     "speed": 50,
+    "types": [
+      "psychic",
+      "fairy"
+    ],
+    "generation": 3,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/281.png"
   },
   {
@@ -4023,6 +5491,11 @@ export const allPokemonRoster = [
       "ja": "サーナイト"
     },
     "speed": 80,
+    "types": [
+      "psychic",
+      "fairy"
+    ],
+    "generation": 3,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/282.png",
     "isChampion": true,
     "championId": "0282"
@@ -4037,6 +5510,11 @@ export const allPokemonRoster = [
       "ja": "アメタマ"
     },
     "speed": 65,
+    "types": [
+      "bug",
+      "water"
+    ],
+    "generation": 3,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/283.png"
   },
   {
@@ -4049,6 +5527,11 @@ export const allPokemonRoster = [
       "ja": "アメモース"
     },
     "speed": 80,
+    "types": [
+      "bug",
+      "flying"
+    ],
+    "generation": 3,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/284.png"
   },
   {
@@ -4061,6 +5544,10 @@ export const allPokemonRoster = [
       "ja": "キノココ"
     },
     "speed": 35,
+    "types": [
+      "grass"
+    ],
+    "generation": 3,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/285.png"
   },
   {
@@ -4073,6 +5560,11 @@ export const allPokemonRoster = [
       "ja": "キノガッサ"
     },
     "speed": 70,
+    "types": [
+      "grass",
+      "fighting"
+    ],
+    "generation": 3,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/286.png"
   },
   {
@@ -4085,6 +5577,10 @@ export const allPokemonRoster = [
       "ja": "ナマケロ"
     },
     "speed": 30,
+    "types": [
+      "normal"
+    ],
+    "generation": 3,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/287.png"
   },
   {
@@ -4097,6 +5593,10 @@ export const allPokemonRoster = [
       "ja": "ヤルキモノ"
     },
     "speed": 90,
+    "types": [
+      "normal"
+    ],
+    "generation": 3,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/288.png"
   },
   {
@@ -4109,6 +5609,10 @@ export const allPokemonRoster = [
       "ja": "ケッキング"
     },
     "speed": 100,
+    "types": [
+      "normal"
+    ],
+    "generation": 3,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/289.png"
   },
   {
@@ -4121,6 +5625,11 @@ export const allPokemonRoster = [
       "ja": "ツチニン"
     },
     "speed": 40,
+    "types": [
+      "bug",
+      "ground"
+    ],
+    "generation": 3,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/290.png"
   },
   {
@@ -4133,6 +5642,11 @@ export const allPokemonRoster = [
       "ja": "テッカニン"
     },
     "speed": 160,
+    "types": [
+      "bug",
+      "flying"
+    ],
+    "generation": 3,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/291.png"
   },
   {
@@ -4145,6 +5659,11 @@ export const allPokemonRoster = [
       "ja": "ヌケニン"
     },
     "speed": 40,
+    "types": [
+      "bug",
+      "ghost"
+    ],
+    "generation": 3,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/292.png"
   },
   {
@@ -4157,6 +5676,10 @@ export const allPokemonRoster = [
       "ja": "ゴニョニョ"
     },
     "speed": 28,
+    "types": [
+      "normal"
+    ],
+    "generation": 3,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/293.png"
   },
   {
@@ -4169,6 +5692,10 @@ export const allPokemonRoster = [
       "ja": "ドゴーム"
     },
     "speed": 48,
+    "types": [
+      "normal"
+    ],
+    "generation": 3,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/294.png"
   },
   {
@@ -4181,6 +5708,10 @@ export const allPokemonRoster = [
       "ja": "バクオング"
     },
     "speed": 68,
+    "types": [
+      "normal"
+    ],
+    "generation": 3,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/295.png"
   },
   {
@@ -4193,6 +5724,10 @@ export const allPokemonRoster = [
       "ja": "マクノシタ"
     },
     "speed": 25,
+    "types": [
+      "fighting"
+    ],
+    "generation": 3,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/296.png"
   },
   {
@@ -4205,6 +5740,10 @@ export const allPokemonRoster = [
       "ja": "ハリテヤマ"
     },
     "speed": 50,
+    "types": [
+      "fighting"
+    ],
+    "generation": 3,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/297.png"
   },
   {
@@ -4217,6 +5756,11 @@ export const allPokemonRoster = [
       "ja": "ルリリ"
     },
     "speed": 20,
+    "types": [
+      "normal",
+      "fairy"
+    ],
+    "generation": 3,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/298.png"
   },
   {
@@ -4229,6 +5773,10 @@ export const allPokemonRoster = [
       "ja": "ノズパス"
     },
     "speed": 30,
+    "types": [
+      "rock"
+    ],
+    "generation": 3,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/299.png"
   },
   {
@@ -4241,6 +5789,10 @@ export const allPokemonRoster = [
       "ja": "エネコ"
     },
     "speed": 50,
+    "types": [
+      "normal"
+    ],
+    "generation": 3,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/300.png"
   },
   {
@@ -4253,6 +5805,10 @@ export const allPokemonRoster = [
       "ja": "エネコロロ"
     },
     "speed": 90,
+    "types": [
+      "normal"
+    ],
+    "generation": 3,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/301.png"
   },
   {
@@ -4265,6 +5821,11 @@ export const allPokemonRoster = [
       "ja": "ヤミラミ"
     },
     "speed": 50,
+    "types": [
+      "dark",
+      "ghost"
+    ],
+    "generation": 3,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/302.png",
     "isChampion": true,
     "championId": "0302"
@@ -4279,6 +5840,11 @@ export const allPokemonRoster = [
       "ja": "クチート"
     },
     "speed": 50,
+    "types": [
+      "steel",
+      "fairy"
+    ],
+    "generation": 3,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/303.png"
   },
   {
@@ -4291,6 +5857,11 @@ export const allPokemonRoster = [
       "ja": "ココドラ"
     },
     "speed": 30,
+    "types": [
+      "steel",
+      "rock"
+    ],
+    "generation": 3,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/304.png"
   },
   {
@@ -4303,6 +5874,11 @@ export const allPokemonRoster = [
       "ja": "コドラ"
     },
     "speed": 40,
+    "types": [
+      "steel",
+      "rock"
+    ],
+    "generation": 3,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/305.png"
   },
   {
@@ -4315,6 +5891,11 @@ export const allPokemonRoster = [
       "ja": "ボスゴドラ"
     },
     "speed": 50,
+    "types": [
+      "steel",
+      "rock"
+    ],
+    "generation": 3,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/306.png",
     "isChampion": true,
     "championId": "0306"
@@ -4329,6 +5910,11 @@ export const allPokemonRoster = [
       "ja": "アサナン"
     },
     "speed": 60,
+    "types": [
+      "fighting",
+      "psychic"
+    ],
+    "generation": 3,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/307.png"
   },
   {
@@ -4341,6 +5927,11 @@ export const allPokemonRoster = [
       "ja": "チャーレム"
     },
     "speed": 80,
+    "types": [
+      "fighting",
+      "psychic"
+    ],
+    "generation": 3,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/308.png",
     "isChampion": true,
     "championId": "0308"
@@ -4355,6 +5946,10 @@ export const allPokemonRoster = [
       "ja": "ラクライ"
     },
     "speed": 65,
+    "types": [
+      "electric"
+    ],
+    "generation": 3,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/309.png"
   },
   {
@@ -4367,6 +5962,10 @@ export const allPokemonRoster = [
       "ja": "ライボルト"
     },
     "speed": 105,
+    "types": [
+      "electric"
+    ],
+    "generation": 3,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/310.png",
     "isChampion": true,
     "championId": "0310"
@@ -4381,6 +5980,10 @@ export const allPokemonRoster = [
       "ja": "プラスル"
     },
     "speed": 95,
+    "types": [
+      "electric"
+    ],
+    "generation": 3,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/311.png"
   },
   {
@@ -4393,6 +5996,10 @@ export const allPokemonRoster = [
       "ja": "マイナン"
     },
     "speed": 95,
+    "types": [
+      "electric"
+    ],
+    "generation": 3,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/312.png"
   },
   {
@@ -4405,6 +6012,10 @@ export const allPokemonRoster = [
       "ja": "バルビート"
     },
     "speed": 85,
+    "types": [
+      "bug"
+    ],
+    "generation": 3,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/313.png"
   },
   {
@@ -4417,6 +6028,10 @@ export const allPokemonRoster = [
       "ja": "イルミーゼ"
     },
     "speed": 85,
+    "types": [
+      "bug"
+    ],
+    "generation": 3,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/314.png"
   },
   {
@@ -4429,6 +6044,11 @@ export const allPokemonRoster = [
       "ja": "ロゼリア"
     },
     "speed": 65,
+    "types": [
+      "grass",
+      "poison"
+    ],
+    "generation": 3,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/315.png"
   },
   {
@@ -4441,6 +6061,10 @@ export const allPokemonRoster = [
       "ja": "ゴクリン"
     },
     "speed": 40,
+    "types": [
+      "poison"
+    ],
+    "generation": 3,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/316.png"
   },
   {
@@ -4453,6 +6077,10 @@ export const allPokemonRoster = [
       "ja": "マルノーム"
     },
     "speed": 55,
+    "types": [
+      "poison"
+    ],
+    "generation": 3,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/317.png"
   },
   {
@@ -4465,6 +6093,11 @@ export const allPokemonRoster = [
       "ja": "キバニア"
     },
     "speed": 65,
+    "types": [
+      "water",
+      "dark"
+    ],
+    "generation": 3,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/318.png"
   },
   {
@@ -4477,6 +6110,11 @@ export const allPokemonRoster = [
       "ja": "サメハダー"
     },
     "speed": 95,
+    "types": [
+      "water",
+      "dark"
+    ],
+    "generation": 3,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/319.png",
     "isChampion": true,
     "championId": "0319"
@@ -4491,6 +6129,10 @@ export const allPokemonRoster = [
       "ja": "ホエルコ"
     },
     "speed": 60,
+    "types": [
+      "water"
+    ],
+    "generation": 3,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/320.png"
   },
   {
@@ -4503,6 +6145,10 @@ export const allPokemonRoster = [
       "ja": "ホエルオー"
     },
     "speed": 60,
+    "types": [
+      "water"
+    ],
+    "generation": 3,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/321.png"
   },
   {
@@ -4515,6 +6161,11 @@ export const allPokemonRoster = [
       "ja": "ドンメル"
     },
     "speed": 35,
+    "types": [
+      "fire",
+      "ground"
+    ],
+    "generation": 3,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/322.png"
   },
   {
@@ -4527,6 +6178,11 @@ export const allPokemonRoster = [
       "ja": "バクーダ"
     },
     "speed": 40,
+    "types": [
+      "fire",
+      "ground"
+    ],
+    "generation": 3,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/323.png",
     "isChampion": true,
     "championId": "0323"
@@ -4541,6 +6197,10 @@ export const allPokemonRoster = [
       "ja": "コータス"
     },
     "speed": 20,
+    "types": [
+      "fire"
+    ],
+    "generation": 3,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/324.png",
     "isChampion": true,
     "championId": "0324"
@@ -4555,6 +6215,10 @@ export const allPokemonRoster = [
       "ja": "バネブー"
     },
     "speed": 60,
+    "types": [
+      "psychic"
+    ],
+    "generation": 3,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/325.png"
   },
   {
@@ -4567,6 +6231,10 @@ export const allPokemonRoster = [
       "ja": "ブーピッグ"
     },
     "speed": 80,
+    "types": [
+      "psychic"
+    ],
+    "generation": 3,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/326.png"
   },
   {
@@ -4579,6 +6247,10 @@ export const allPokemonRoster = [
       "ja": "パッチール"
     },
     "speed": 60,
+    "types": [
+      "normal"
+    ],
+    "generation": 3,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/327.png"
   },
   {
@@ -4591,6 +6263,10 @@ export const allPokemonRoster = [
       "ja": "ナックラー"
     },
     "speed": 10,
+    "types": [
+      "ground"
+    ],
+    "generation": 3,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/328.png"
   },
   {
@@ -4603,6 +6279,11 @@ export const allPokemonRoster = [
       "ja": "ビブラーバ"
     },
     "speed": 70,
+    "types": [
+      "ground",
+      "dragon"
+    ],
+    "generation": 3,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/329.png"
   },
   {
@@ -4615,6 +6296,11 @@ export const allPokemonRoster = [
       "ja": "フライゴン"
     },
     "speed": 100,
+    "types": [
+      "ground",
+      "dragon"
+    ],
+    "generation": 3,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/330.png"
   },
   {
@@ -4627,6 +6313,10 @@ export const allPokemonRoster = [
       "ja": "サボネア"
     },
     "speed": 35,
+    "types": [
+      "grass"
+    ],
+    "generation": 3,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/331.png"
   },
   {
@@ -4639,6 +6329,11 @@ export const allPokemonRoster = [
       "ja": "ノクタス"
     },
     "speed": 55,
+    "types": [
+      "grass",
+      "dark"
+    ],
+    "generation": 3,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/332.png"
   },
   {
@@ -4651,6 +6346,11 @@ export const allPokemonRoster = [
       "ja": "チルット"
     },
     "speed": 50,
+    "types": [
+      "normal",
+      "flying"
+    ],
+    "generation": 3,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/333.png"
   },
   {
@@ -4663,6 +6363,11 @@ export const allPokemonRoster = [
       "ja": "チルタリス"
     },
     "speed": 80,
+    "types": [
+      "dragon",
+      "flying"
+    ],
+    "generation": 3,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/334.png",
     "isChampion": true,
     "championId": "0334"
@@ -4677,6 +6382,10 @@ export const allPokemonRoster = [
       "ja": "ザングース"
     },
     "speed": 90,
+    "types": [
+      "normal"
+    ],
+    "generation": 3,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/335.png"
   },
   {
@@ -4689,6 +6398,10 @@ export const allPokemonRoster = [
       "ja": "ハブネーク"
     },
     "speed": 65,
+    "types": [
+      "poison"
+    ],
+    "generation": 3,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/336.png"
   },
   {
@@ -4701,6 +6414,11 @@ export const allPokemonRoster = [
       "ja": "ルナトーン"
     },
     "speed": 70,
+    "types": [
+      "rock",
+      "psychic"
+    ],
+    "generation": 3,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/337.png"
   },
   {
@@ -4713,6 +6431,11 @@ export const allPokemonRoster = [
       "ja": "ソルロック"
     },
     "speed": 70,
+    "types": [
+      "rock",
+      "psychic"
+    ],
+    "generation": 3,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/338.png"
   },
   {
@@ -4725,6 +6448,11 @@ export const allPokemonRoster = [
       "ja": "ドジョッチ"
     },
     "speed": 60,
+    "types": [
+      "water",
+      "ground"
+    ],
+    "generation": 3,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/339.png"
   },
   {
@@ -4737,6 +6465,11 @@ export const allPokemonRoster = [
       "ja": "ナマズン"
     },
     "speed": 60,
+    "types": [
+      "water",
+      "ground"
+    ],
+    "generation": 3,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/340.png"
   },
   {
@@ -4749,6 +6482,10 @@ export const allPokemonRoster = [
       "ja": "ヘイガニ"
     },
     "speed": 35,
+    "types": [
+      "water"
+    ],
+    "generation": 3,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/341.png"
   },
   {
@@ -4761,6 +6498,11 @@ export const allPokemonRoster = [
       "ja": "シザリガー"
     },
     "speed": 55,
+    "types": [
+      "water",
+      "dark"
+    ],
+    "generation": 3,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/342.png"
   },
   {
@@ -4773,6 +6515,11 @@ export const allPokemonRoster = [
       "ja": "ヤジロン"
     },
     "speed": 55,
+    "types": [
+      "ground",
+      "psychic"
+    ],
+    "generation": 3,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/343.png"
   },
   {
@@ -4785,6 +6532,11 @@ export const allPokemonRoster = [
       "ja": "ネンドール"
     },
     "speed": 75,
+    "types": [
+      "ground",
+      "psychic"
+    ],
+    "generation": 3,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/344.png"
   },
   {
@@ -4797,6 +6549,11 @@ export const allPokemonRoster = [
       "ja": "リリーラ"
     },
     "speed": 23,
+    "types": [
+      "rock",
+      "grass"
+    ],
+    "generation": 3,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/345.png"
   },
   {
@@ -4809,6 +6566,11 @@ export const allPokemonRoster = [
       "ja": "ユレイドル"
     },
     "speed": 43,
+    "types": [
+      "rock",
+      "grass"
+    ],
+    "generation": 3,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/346.png"
   },
   {
@@ -4821,6 +6583,11 @@ export const allPokemonRoster = [
       "ja": "アノプス"
     },
     "speed": 75,
+    "types": [
+      "rock",
+      "bug"
+    ],
+    "generation": 3,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/347.png"
   },
   {
@@ -4833,6 +6600,11 @@ export const allPokemonRoster = [
       "ja": "アーマルド"
     },
     "speed": 45,
+    "types": [
+      "rock",
+      "bug"
+    ],
+    "generation": 3,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/348.png"
   },
   {
@@ -4845,6 +6617,10 @@ export const allPokemonRoster = [
       "ja": "ヒンバス"
     },
     "speed": 80,
+    "types": [
+      "water"
+    ],
+    "generation": 3,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/349.png"
   },
   {
@@ -4857,6 +6633,10 @@ export const allPokemonRoster = [
       "ja": "ミロカロス"
     },
     "speed": 81,
+    "types": [
+      "water"
+    ],
+    "generation": 3,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/350.png",
     "isChampion": true,
     "championId": "0350"
@@ -4871,6 +6651,10 @@ export const allPokemonRoster = [
       "ja": "ポワルン"
     },
     "speed": 70,
+    "types": [
+      "normal"
+    ],
+    "generation": 3,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/351.png",
     "isChampion": true,
     "championId": "0351"
@@ -4885,6 +6669,10 @@ export const allPokemonRoster = [
       "ja": "カクレオン"
     },
     "speed": 40,
+    "types": [
+      "normal"
+    ],
+    "generation": 3,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/352.png"
   },
   {
@@ -4897,6 +6685,10 @@ export const allPokemonRoster = [
       "ja": "カゲボウズ"
     },
     "speed": 45,
+    "types": [
+      "ghost"
+    ],
+    "generation": 3,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/353.png"
   },
   {
@@ -4909,6 +6701,10 @@ export const allPokemonRoster = [
       "ja": "ジュペッタ"
     },
     "speed": 65,
+    "types": [
+      "ghost"
+    ],
+    "generation": 3,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/354.png",
     "isChampion": true,
     "championId": "0354"
@@ -4923,6 +6719,10 @@ export const allPokemonRoster = [
       "ja": "ヨマワル"
     },
     "speed": 25,
+    "types": [
+      "ghost"
+    ],
+    "generation": 3,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/355.png"
   },
   {
@@ -4935,6 +6735,10 @@ export const allPokemonRoster = [
       "ja": "サマヨール"
     },
     "speed": 25,
+    "types": [
+      "ghost"
+    ],
+    "generation": 3,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/356.png"
   },
   {
@@ -4947,6 +6751,11 @@ export const allPokemonRoster = [
       "ja": "トロピウス"
     },
     "speed": 51,
+    "types": [
+      "grass",
+      "flying"
+    ],
+    "generation": 3,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/357.png"
   },
   {
@@ -4959,6 +6768,10 @@ export const allPokemonRoster = [
       "ja": "チリーン"
     },
     "speed": 65,
+    "types": [
+      "psychic"
+    ],
+    "generation": 3,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/358.png",
     "isChampion": true,
     "championId": "0358"
@@ -4973,6 +6786,10 @@ export const allPokemonRoster = [
       "ja": "アブソル"
     },
     "speed": 75,
+    "types": [
+      "dark"
+    ],
+    "generation": 3,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/359.png",
     "isChampion": true,
     "championId": "0359"
@@ -4987,6 +6804,10 @@ export const allPokemonRoster = [
       "ja": "ソーナノ"
     },
     "speed": 23,
+    "types": [
+      "psychic"
+    ],
+    "generation": 3,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/360.png"
   },
   {
@@ -4999,6 +6820,10 @@ export const allPokemonRoster = [
       "ja": "ユキワラシ"
     },
     "speed": 50,
+    "types": [
+      "ice"
+    ],
+    "generation": 3,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/361.png"
   },
   {
@@ -5011,6 +6836,10 @@ export const allPokemonRoster = [
       "ja": "オニゴーリ"
     },
     "speed": 80,
+    "types": [
+      "ice"
+    ],
+    "generation": 3,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/362.png",
     "isChampion": true,
     "championId": "0362"
@@ -5025,6 +6854,11 @@ export const allPokemonRoster = [
       "ja": "タマザラシ"
     },
     "speed": 25,
+    "types": [
+      "ice",
+      "water"
+    ],
+    "generation": 3,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/363.png"
   },
   {
@@ -5037,6 +6871,11 @@ export const allPokemonRoster = [
       "ja": "トドグラー"
     },
     "speed": 45,
+    "types": [
+      "ice",
+      "water"
+    ],
+    "generation": 3,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/364.png"
   },
   {
@@ -5049,6 +6888,11 @@ export const allPokemonRoster = [
       "ja": "トドゼルガ"
     },
     "speed": 65,
+    "types": [
+      "ice",
+      "water"
+    ],
+    "generation": 3,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/365.png"
   },
   {
@@ -5061,6 +6905,10 @@ export const allPokemonRoster = [
       "ja": "パールル"
     },
     "speed": 32,
+    "types": [
+      "water"
+    ],
+    "generation": 3,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/366.png"
   },
   {
@@ -5073,6 +6921,10 @@ export const allPokemonRoster = [
       "ja": "ハンテール"
     },
     "speed": 52,
+    "types": [
+      "water"
+    ],
+    "generation": 3,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/367.png"
   },
   {
@@ -5085,6 +6937,10 @@ export const allPokemonRoster = [
       "ja": "サクラビス"
     },
     "speed": 52,
+    "types": [
+      "water"
+    ],
+    "generation": 3,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/368.png"
   },
   {
@@ -5097,6 +6953,11 @@ export const allPokemonRoster = [
       "ja": "ジーランス"
     },
     "speed": 55,
+    "types": [
+      "water",
+      "rock"
+    ],
+    "generation": 3,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/369.png"
   },
   {
@@ -5109,6 +6970,10 @@ export const allPokemonRoster = [
       "ja": "ラブカス"
     },
     "speed": 97,
+    "types": [
+      "water"
+    ],
+    "generation": 3,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/370.png"
   },
   {
@@ -5121,6 +6986,10 @@ export const allPokemonRoster = [
       "ja": "タツベイ"
     },
     "speed": 50,
+    "types": [
+      "dragon"
+    ],
+    "generation": 3,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/371.png"
   },
   {
@@ -5133,6 +7002,10 @@ export const allPokemonRoster = [
       "ja": "コモルー"
     },
     "speed": 50,
+    "types": [
+      "dragon"
+    ],
+    "generation": 3,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/372.png"
   },
   {
@@ -5145,6 +7018,11 @@ export const allPokemonRoster = [
       "ja": "ボーマンダ"
     },
     "speed": 100,
+    "types": [
+      "dragon",
+      "flying"
+    ],
+    "generation": 3,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/373.png"
   },
   {
@@ -5157,6 +7035,11 @@ export const allPokemonRoster = [
       "ja": "ダンバル"
     },
     "speed": 30,
+    "types": [
+      "steel",
+      "psychic"
+    ],
+    "generation": 3,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/374.png"
   },
   {
@@ -5169,6 +7052,11 @@ export const allPokemonRoster = [
       "ja": "メタング"
     },
     "speed": 50,
+    "types": [
+      "steel",
+      "psychic"
+    ],
+    "generation": 3,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/375.png"
   },
   {
@@ -5181,6 +7069,11 @@ export const allPokemonRoster = [
       "ja": "メタグロス"
     },
     "speed": 70,
+    "types": [
+      "steel",
+      "psychic"
+    ],
+    "generation": 3,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/376.png"
   },
   {
@@ -5193,6 +7086,10 @@ export const allPokemonRoster = [
       "ja": "レジロック"
     },
     "speed": 50,
+    "types": [
+      "rock"
+    ],
+    "generation": 3,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/377.png"
   },
   {
@@ -5205,6 +7102,10 @@ export const allPokemonRoster = [
       "ja": "レジアイス"
     },
     "speed": 50,
+    "types": [
+      "ice"
+    ],
+    "generation": 3,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/378.png"
   },
   {
@@ -5217,6 +7118,10 @@ export const allPokemonRoster = [
       "ja": "レジスチル"
     },
     "speed": 50,
+    "types": [
+      "steel"
+    ],
+    "generation": 3,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/379.png"
   },
   {
@@ -5229,6 +7134,11 @@ export const allPokemonRoster = [
       "ja": "ラティアス"
     },
     "speed": 110,
+    "types": [
+      "dragon",
+      "psychic"
+    ],
+    "generation": 3,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/380.png"
   },
   {
@@ -5241,6 +7151,11 @@ export const allPokemonRoster = [
       "ja": "ラティオス"
     },
     "speed": 110,
+    "types": [
+      "dragon",
+      "psychic"
+    ],
+    "generation": 3,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/381.png"
   },
   {
@@ -5253,6 +7168,10 @@ export const allPokemonRoster = [
       "ja": "カイオーガ"
     },
     "speed": 90,
+    "types": [
+      "water"
+    ],
+    "generation": 3,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/382.png"
   },
   {
@@ -5265,6 +7184,10 @@ export const allPokemonRoster = [
       "ja": "グラードン"
     },
     "speed": 90,
+    "types": [
+      "ground"
+    ],
+    "generation": 3,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/383.png"
   },
   {
@@ -5277,6 +7200,11 @@ export const allPokemonRoster = [
       "ja": "レックウザ"
     },
     "speed": 95,
+    "types": [
+      "dragon",
+      "flying"
+    ],
+    "generation": 3,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/384.png"
   },
   {
@@ -5289,6 +7217,11 @@ export const allPokemonRoster = [
       "ja": "ジラーチ"
     },
     "speed": 100,
+    "types": [
+      "steel",
+      "psychic"
+    ],
+    "generation": 3,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/385.png"
   },
   {
@@ -5301,6 +7234,10 @@ export const allPokemonRoster = [
       "ja": "デオキシス"
     },
     "speed": 150,
+    "types": [
+      "psychic"
+    ],
+    "generation": 3,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/386.png"
   },
   {
@@ -5313,6 +7250,10 @@ export const allPokemonRoster = [
       "ja": "ナエトル"
     },
     "speed": 31,
+    "types": [
+      "grass"
+    ],
+    "generation": 4,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/387.png"
   },
   {
@@ -5325,6 +7266,10 @@ export const allPokemonRoster = [
       "ja": "ハヤシガメ"
     },
     "speed": 36,
+    "types": [
+      "grass"
+    ],
+    "generation": 4,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/388.png"
   },
   {
@@ -5337,6 +7282,11 @@ export const allPokemonRoster = [
       "ja": "ドダイトス"
     },
     "speed": 56,
+    "types": [
+      "grass",
+      "ground"
+    ],
+    "generation": 4,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/389.png",
     "isChampion": true,
     "championId": "0389"
@@ -5351,6 +7301,10 @@ export const allPokemonRoster = [
       "ja": "ヒコザル"
     },
     "speed": 61,
+    "types": [
+      "fire"
+    ],
+    "generation": 4,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/390.png"
   },
   {
@@ -5363,6 +7317,11 @@ export const allPokemonRoster = [
       "ja": "モウカザル"
     },
     "speed": 81,
+    "types": [
+      "fire",
+      "fighting"
+    ],
+    "generation": 4,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/391.png"
   },
   {
@@ -5375,6 +7334,11 @@ export const allPokemonRoster = [
       "ja": "ゴウカザル"
     },
     "speed": 108,
+    "types": [
+      "fire",
+      "fighting"
+    ],
+    "generation": 4,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/392.png"
   },
   {
@@ -5387,6 +7351,10 @@ export const allPokemonRoster = [
       "ja": "ポッチャマ"
     },
     "speed": 40,
+    "types": [
+      "water"
+    ],
+    "generation": 4,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/393.png"
   },
   {
@@ -5399,6 +7367,10 @@ export const allPokemonRoster = [
       "ja": "ポッタイシ"
     },
     "speed": 50,
+    "types": [
+      "water"
+    ],
+    "generation": 4,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/394.png"
   },
   {
@@ -5411,6 +7383,11 @@ export const allPokemonRoster = [
       "ja": "エンペルト"
     },
     "speed": 60,
+    "types": [
+      "water",
+      "steel"
+    ],
+    "generation": 4,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/395.png",
     "isChampion": true,
     "championId": "0395"
@@ -5425,6 +7402,11 @@ export const allPokemonRoster = [
       "ja": "ムックル"
     },
     "speed": 60,
+    "types": [
+      "normal",
+      "flying"
+    ],
+    "generation": 4,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/396.png"
   },
   {
@@ -5437,6 +7419,11 @@ export const allPokemonRoster = [
       "ja": "ムクバード"
     },
     "speed": 80,
+    "types": [
+      "normal",
+      "flying"
+    ],
+    "generation": 4,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/397.png"
   },
   {
@@ -5449,6 +7436,11 @@ export const allPokemonRoster = [
       "ja": "ムクホーク"
     },
     "speed": 100,
+    "types": [
+      "normal",
+      "flying"
+    ],
+    "generation": 4,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/398.png"
   },
   {
@@ -5461,6 +7453,10 @@ export const allPokemonRoster = [
       "ja": "ビッパ"
     },
     "speed": 31,
+    "types": [
+      "normal"
+    ],
+    "generation": 4,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/399.png"
   },
   {
@@ -5473,6 +7469,11 @@ export const allPokemonRoster = [
       "ja": "ビーダル"
     },
     "speed": 71,
+    "types": [
+      "normal",
+      "water"
+    ],
+    "generation": 4,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/400.png"
   },
   {
@@ -5485,6 +7486,10 @@ export const allPokemonRoster = [
       "ja": "コロボーシ"
     },
     "speed": 25,
+    "types": [
+      "bug"
+    ],
+    "generation": 4,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/401.png"
   },
   {
@@ -5497,6 +7502,10 @@ export const allPokemonRoster = [
       "ja": "コロトック"
     },
     "speed": 65,
+    "types": [
+      "bug"
+    ],
+    "generation": 4,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/402.png"
   },
   {
@@ -5509,6 +7518,10 @@ export const allPokemonRoster = [
       "ja": "コリンク"
     },
     "speed": 45,
+    "types": [
+      "electric"
+    ],
+    "generation": 4,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/403.png"
   },
   {
@@ -5521,6 +7534,10 @@ export const allPokemonRoster = [
       "ja": "ルクシオ"
     },
     "speed": 60,
+    "types": [
+      "electric"
+    ],
+    "generation": 4,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/404.png"
   },
   {
@@ -5533,6 +7550,10 @@ export const allPokemonRoster = [
       "ja": "レントラー"
     },
     "speed": 70,
+    "types": [
+      "electric"
+    ],
+    "generation": 4,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/405.png",
     "isChampion": true,
     "championId": "0405"
@@ -5547,6 +7568,11 @@ export const allPokemonRoster = [
       "ja": "スボミー"
     },
     "speed": 55,
+    "types": [
+      "grass",
+      "poison"
+    ],
+    "generation": 4,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/406.png"
   },
   {
@@ -5559,6 +7585,11 @@ export const allPokemonRoster = [
       "ja": "ロズレイド"
     },
     "speed": 90,
+    "types": [
+      "grass",
+      "poison"
+    ],
+    "generation": 4,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/407.png",
     "isChampion": true,
     "championId": "0407"
@@ -5573,6 +7604,10 @@ export const allPokemonRoster = [
       "ja": "ズガイドス"
     },
     "speed": 58,
+    "types": [
+      "rock"
+    ],
+    "generation": 4,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/408.png"
   },
   {
@@ -5585,6 +7620,10 @@ export const allPokemonRoster = [
       "ja": "ラムパルド"
     },
     "speed": 58,
+    "types": [
+      "rock"
+    ],
+    "generation": 4,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/409.png",
     "isChampion": true,
     "championId": "0409"
@@ -5599,6 +7638,11 @@ export const allPokemonRoster = [
       "ja": "タテトプス"
     },
     "speed": 30,
+    "types": [
+      "rock",
+      "steel"
+    ],
+    "generation": 4,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/410.png"
   },
   {
@@ -5611,6 +7655,11 @@ export const allPokemonRoster = [
       "ja": "トリデプス"
     },
     "speed": 30,
+    "types": [
+      "rock",
+      "steel"
+    ],
+    "generation": 4,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/411.png",
     "isChampion": true,
     "championId": "0411"
@@ -5625,6 +7674,10 @@ export const allPokemonRoster = [
       "ja": "ミノムッチ"
     },
     "speed": 36,
+    "types": [
+      "bug"
+    ],
+    "generation": 4,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/412.png"
   },
   {
@@ -5637,6 +7690,11 @@ export const allPokemonRoster = [
       "ja": "ミノマダム"
     },
     "speed": 36,
+    "types": [
+      "bug",
+      "grass"
+    ],
+    "generation": 4,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/413.png"
   },
   {
@@ -5649,6 +7707,11 @@ export const allPokemonRoster = [
       "ja": "ガーメイル"
     },
     "speed": 66,
+    "types": [
+      "bug",
+      "flying"
+    ],
+    "generation": 4,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/414.png"
   },
   {
@@ -5661,6 +7724,11 @@ export const allPokemonRoster = [
       "ja": "ミツハニー"
     },
     "speed": 70,
+    "types": [
+      "bug",
+      "flying"
+    ],
+    "generation": 4,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/415.png"
   },
   {
@@ -5673,6 +7741,11 @@ export const allPokemonRoster = [
       "ja": "ビークイン"
     },
     "speed": 40,
+    "types": [
+      "bug",
+      "flying"
+    ],
+    "generation": 4,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/416.png"
   },
   {
@@ -5685,6 +7758,10 @@ export const allPokemonRoster = [
       "ja": "パチリス"
     },
     "speed": 95,
+    "types": [
+      "electric"
+    ],
+    "generation": 4,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/417.png"
   },
   {
@@ -5697,6 +7774,10 @@ export const allPokemonRoster = [
       "ja": "ブイゼル"
     },
     "speed": 85,
+    "types": [
+      "water"
+    ],
+    "generation": 4,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/418.png"
   },
   {
@@ -5709,6 +7790,10 @@ export const allPokemonRoster = [
       "ja": "フローゼル"
     },
     "speed": 115,
+    "types": [
+      "water"
+    ],
+    "generation": 4,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/419.png"
   },
   {
@@ -5721,6 +7806,10 @@ export const allPokemonRoster = [
       "ja": "チェリンボ"
     },
     "speed": 35,
+    "types": [
+      "grass"
+    ],
+    "generation": 4,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/420.png"
   },
   {
@@ -5733,6 +7822,10 @@ export const allPokemonRoster = [
       "ja": "チェリム"
     },
     "speed": 85,
+    "types": [
+      "grass"
+    ],
+    "generation": 4,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/421.png"
   },
   {
@@ -5745,6 +7838,10 @@ export const allPokemonRoster = [
       "ja": "カラナクシ"
     },
     "speed": 34,
+    "types": [
+      "water"
+    ],
+    "generation": 4,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/422.png"
   },
   {
@@ -5757,6 +7854,11 @@ export const allPokemonRoster = [
       "ja": "トリトドン"
     },
     "speed": 39,
+    "types": [
+      "water",
+      "ground"
+    ],
+    "generation": 4,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/423.png"
   },
   {
@@ -5769,6 +7871,10 @@ export const allPokemonRoster = [
       "ja": "エテボース"
     },
     "speed": 115,
+    "types": [
+      "normal"
+    ],
+    "generation": 4,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/424.png"
   },
   {
@@ -5781,6 +7887,11 @@ export const allPokemonRoster = [
       "ja": "フワンテ"
     },
     "speed": 70,
+    "types": [
+      "ghost",
+      "flying"
+    ],
+    "generation": 4,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/425.png"
   },
   {
@@ -5793,6 +7904,11 @@ export const allPokemonRoster = [
       "ja": "フワライド"
     },
     "speed": 80,
+    "types": [
+      "ghost",
+      "flying"
+    ],
+    "generation": 4,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/426.png"
   },
   {
@@ -5805,6 +7921,10 @@ export const allPokemonRoster = [
       "ja": "ミミロル"
     },
     "speed": 85,
+    "types": [
+      "normal"
+    ],
+    "generation": 4,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/427.png"
   },
   {
@@ -5817,6 +7937,10 @@ export const allPokemonRoster = [
       "ja": "ミミロップ"
     },
     "speed": 105,
+    "types": [
+      "normal"
+    ],
+    "generation": 4,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/428.png",
     "isChampion": true,
     "championId": "0428"
@@ -5831,6 +7955,10 @@ export const allPokemonRoster = [
       "ja": "ムウマージ"
     },
     "speed": 105,
+    "types": [
+      "ghost"
+    ],
+    "generation": 4,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/429.png"
   },
   {
@@ -5843,6 +7971,11 @@ export const allPokemonRoster = [
       "ja": "ドンカラス"
     },
     "speed": 71,
+    "types": [
+      "dark",
+      "flying"
+    ],
+    "generation": 4,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/430.png"
   },
   {
@@ -5855,6 +7988,10 @@ export const allPokemonRoster = [
       "ja": "ニャルマー"
     },
     "speed": 85,
+    "types": [
+      "normal"
+    ],
+    "generation": 4,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/431.png"
   },
   {
@@ -5867,6 +8004,10 @@ export const allPokemonRoster = [
       "ja": "ブニャット"
     },
     "speed": 112,
+    "types": [
+      "normal"
+    ],
+    "generation": 4,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/432.png"
   },
   {
@@ -5879,6 +8020,10 @@ export const allPokemonRoster = [
       "ja": "リーシャン"
     },
     "speed": 45,
+    "types": [
+      "psychic"
+    ],
+    "generation": 4,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/433.png"
   },
   {
@@ -5891,6 +8036,11 @@ export const allPokemonRoster = [
       "ja": "スカンプー"
     },
     "speed": 74,
+    "types": [
+      "poison",
+      "dark"
+    ],
+    "generation": 4,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/434.png"
   },
   {
@@ -5903,6 +8053,11 @@ export const allPokemonRoster = [
       "ja": "スカタンク"
     },
     "speed": 84,
+    "types": [
+      "poison",
+      "dark"
+    ],
+    "generation": 4,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/435.png"
   },
   {
@@ -5915,6 +8070,11 @@ export const allPokemonRoster = [
       "ja": "ドーミラー"
     },
     "speed": 23,
+    "types": [
+      "steel",
+      "psychic"
+    ],
+    "generation": 4,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/436.png"
   },
   {
@@ -5927,6 +8087,11 @@ export const allPokemonRoster = [
       "ja": "ドータクン"
     },
     "speed": 33,
+    "types": [
+      "steel",
+      "psychic"
+    ],
+    "generation": 4,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/437.png"
   },
   {
@@ -5939,6 +8104,10 @@ export const allPokemonRoster = [
       "ja": "ウソハチ"
     },
     "speed": 10,
+    "types": [
+      "rock"
+    ],
+    "generation": 4,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/438.png"
   },
   {
@@ -5951,6 +8120,11 @@ export const allPokemonRoster = [
       "ja": "マネネ"
     },
     "speed": 60,
+    "types": [
+      "psychic",
+      "fairy"
+    ],
+    "generation": 4,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/439.png"
   },
   {
@@ -5963,6 +8137,10 @@ export const allPokemonRoster = [
       "ja": "ピンプク"
     },
     "speed": 30,
+    "types": [
+      "normal"
+    ],
+    "generation": 4,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/440.png"
   },
   {
@@ -5975,6 +8153,11 @@ export const allPokemonRoster = [
       "ja": "ペラップ"
     },
     "speed": 91,
+    "types": [
+      "normal",
+      "flying"
+    ],
+    "generation": 4,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/441.png"
   },
   {
@@ -5987,6 +8170,11 @@ export const allPokemonRoster = [
       "ja": "ミカルゲ"
     },
     "speed": 35,
+    "types": [
+      "ghost",
+      "dark"
+    ],
+    "generation": 4,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/442.png",
     "isChampion": true,
     "championId": "0442"
@@ -6001,6 +8189,11 @@ export const allPokemonRoster = [
       "ja": "フカマル"
     },
     "speed": 42,
+    "types": [
+      "dragon",
+      "ground"
+    ],
+    "generation": 4,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/443.png"
   },
   {
@@ -6013,6 +8206,11 @@ export const allPokemonRoster = [
       "ja": "ガバイト"
     },
     "speed": 82,
+    "types": [
+      "dragon",
+      "ground"
+    ],
+    "generation": 4,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/444.png"
   },
   {
@@ -6025,6 +8223,11 @@ export const allPokemonRoster = [
       "ja": "ガブリアス"
     },
     "speed": 102,
+    "types": [
+      "dragon",
+      "ground"
+    ],
+    "generation": 4,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/445.png",
     "isChampion": true,
     "championId": "0445"
@@ -6039,6 +8242,10 @@ export const allPokemonRoster = [
       "ja": "ゴンベ"
     },
     "speed": 5,
+    "types": [
+      "normal"
+    ],
+    "generation": 4,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/446.png"
   },
   {
@@ -6051,6 +8258,10 @@ export const allPokemonRoster = [
       "ja": "リオル"
     },
     "speed": 60,
+    "types": [
+      "fighting"
+    ],
+    "generation": 4,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/447.png"
   },
   {
@@ -6063,6 +8274,11 @@ export const allPokemonRoster = [
       "ja": "ルカリオ"
     },
     "speed": 90,
+    "types": [
+      "fighting",
+      "steel"
+    ],
+    "generation": 4,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/448.png",
     "isChampion": true,
     "championId": "0448"
@@ -6077,6 +8293,10 @@ export const allPokemonRoster = [
       "ja": "ヒポポタス"
     },
     "speed": 32,
+    "types": [
+      "ground"
+    ],
+    "generation": 4,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/449.png"
   },
   {
@@ -6089,6 +8309,10 @@ export const allPokemonRoster = [
       "ja": "カバルドン"
     },
     "speed": 47,
+    "types": [
+      "ground"
+    ],
+    "generation": 4,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/450.png",
     "isChampion": true,
     "championId": "0450"
@@ -6103,6 +8327,11 @@ export const allPokemonRoster = [
       "ja": "スコルピ"
     },
     "speed": 65,
+    "types": [
+      "poison",
+      "bug"
+    ],
+    "generation": 4,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/451.png"
   },
   {
@@ -6115,6 +8344,11 @@ export const allPokemonRoster = [
       "ja": "ドラピオン"
     },
     "speed": 95,
+    "types": [
+      "poison",
+      "dark"
+    ],
+    "generation": 4,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/452.png"
   },
   {
@@ -6127,6 +8361,11 @@ export const allPokemonRoster = [
       "ja": "グレッグル"
     },
     "speed": 50,
+    "types": [
+      "poison",
+      "fighting"
+    ],
+    "generation": 4,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/453.png"
   },
   {
@@ -6139,6 +8378,11 @@ export const allPokemonRoster = [
       "ja": "ドクロッグ"
     },
     "speed": 85,
+    "types": [
+      "poison",
+      "fighting"
+    ],
+    "generation": 4,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/454.png",
     "isChampion": true,
     "championId": "0454"
@@ -6153,6 +8397,10 @@ export const allPokemonRoster = [
       "ja": "マスキッパ"
     },
     "speed": 46,
+    "types": [
+      "grass"
+    ],
+    "generation": 4,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/455.png"
   },
   {
@@ -6165,6 +8413,10 @@ export const allPokemonRoster = [
       "ja": "ケイコウオ"
     },
     "speed": 66,
+    "types": [
+      "water"
+    ],
+    "generation": 4,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/456.png"
   },
   {
@@ -6177,6 +8429,10 @@ export const allPokemonRoster = [
       "ja": "ネオラント"
     },
     "speed": 91,
+    "types": [
+      "water"
+    ],
+    "generation": 4,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/457.png"
   },
   {
@@ -6189,6 +8445,11 @@ export const allPokemonRoster = [
       "ja": "タマンタ"
     },
     "speed": 50,
+    "types": [
+      "water",
+      "flying"
+    ],
+    "generation": 4,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/458.png"
   },
   {
@@ -6201,6 +8462,11 @@ export const allPokemonRoster = [
       "ja": "ユキカブリ"
     },
     "speed": 40,
+    "types": [
+      "grass",
+      "ice"
+    ],
+    "generation": 4,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/459.png"
   },
   {
@@ -6213,6 +8479,11 @@ export const allPokemonRoster = [
       "ja": "ユキノオー"
     },
     "speed": 60,
+    "types": [
+      "grass",
+      "ice"
+    ],
+    "generation": 4,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/460.png",
     "isChampion": true,
     "championId": "0460"
@@ -6227,6 +8498,11 @@ export const allPokemonRoster = [
       "ja": "マニューラ"
     },
     "speed": 125,
+    "types": [
+      "dark",
+      "ice"
+    ],
+    "generation": 4,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/461.png",
     "isChampion": true,
     "championId": "0461"
@@ -6241,6 +8517,11 @@ export const allPokemonRoster = [
       "ja": "ジバコイル"
     },
     "speed": 60,
+    "types": [
+      "electric",
+      "steel"
+    ],
+    "generation": 4,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/462.png"
   },
   {
@@ -6253,6 +8534,10 @@ export const allPokemonRoster = [
       "ja": "ベロベルト"
     },
     "speed": 50,
+    "types": [
+      "normal"
+    ],
+    "generation": 4,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/463.png"
   },
   {
@@ -6265,6 +8550,11 @@ export const allPokemonRoster = [
       "ja": "ドサイドン"
     },
     "speed": 40,
+    "types": [
+      "ground",
+      "rock"
+    ],
+    "generation": 4,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/464.png",
     "isChampion": true,
     "championId": "0464"
@@ -6279,6 +8569,10 @@ export const allPokemonRoster = [
       "ja": "モジャンボ"
     },
     "speed": 50,
+    "types": [
+      "grass"
+    ],
+    "generation": 4,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/465.png"
   },
   {
@@ -6291,6 +8585,10 @@ export const allPokemonRoster = [
       "ja": "エレキブル"
     },
     "speed": 95,
+    "types": [
+      "electric"
+    ],
+    "generation": 4,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/466.png"
   },
   {
@@ -6303,6 +8601,10 @@ export const allPokemonRoster = [
       "ja": "ブーバーン"
     },
     "speed": 83,
+    "types": [
+      "fire"
+    ],
+    "generation": 4,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/467.png"
   },
   {
@@ -6315,6 +8617,11 @@ export const allPokemonRoster = [
       "ja": "トゲキッス"
     },
     "speed": 80,
+    "types": [
+      "fairy",
+      "flying"
+    ],
+    "generation": 4,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/468.png"
   },
   {
@@ -6327,6 +8634,11 @@ export const allPokemonRoster = [
       "ja": "メガヤンマ"
     },
     "speed": 95,
+    "types": [
+      "bug",
+      "flying"
+    ],
+    "generation": 4,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/469.png"
   },
   {
@@ -6339,6 +8651,10 @@ export const allPokemonRoster = [
       "ja": "リーフィア"
     },
     "speed": 95,
+    "types": [
+      "grass"
+    ],
+    "generation": 4,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/470.png",
     "isChampion": true,
     "championId": "0470"
@@ -6353,6 +8669,10 @@ export const allPokemonRoster = [
       "ja": "グレイシア"
     },
     "speed": 65,
+    "types": [
+      "ice"
+    ],
+    "generation": 4,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/471.png",
     "isChampion": true,
     "championId": "0471"
@@ -6367,6 +8687,11 @@ export const allPokemonRoster = [
       "ja": "グライオン"
     },
     "speed": 95,
+    "types": [
+      "ground",
+      "flying"
+    ],
+    "generation": 4,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/472.png",
     "isChampion": true,
     "championId": "0472"
@@ -6381,6 +8706,11 @@ export const allPokemonRoster = [
       "ja": "マンムー"
     },
     "speed": 80,
+    "types": [
+      "ice",
+      "ground"
+    ],
+    "generation": 4,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/473.png",
     "isChampion": true,
     "championId": "0473"
@@ -6395,6 +8725,10 @@ export const allPokemonRoster = [
       "ja": "ポリゴンＺ"
     },
     "speed": 90,
+    "types": [
+      "normal"
+    ],
+    "generation": 4,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/474.png"
   },
   {
@@ -6407,6 +8741,11 @@ export const allPokemonRoster = [
       "ja": "エルレイド"
     },
     "speed": 80,
+    "types": [
+      "psychic",
+      "fighting"
+    ],
+    "generation": 4,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/475.png",
     "isChampion": true,
     "championId": "0475"
@@ -6421,6 +8760,11 @@ export const allPokemonRoster = [
       "ja": "ダイノーズ"
     },
     "speed": 40,
+    "types": [
+      "rock",
+      "steel"
+    ],
+    "generation": 4,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/476.png"
   },
   {
@@ -6433,6 +8777,10 @@ export const allPokemonRoster = [
       "ja": "ヨノワール"
     },
     "speed": 45,
+    "types": [
+      "ghost"
+    ],
+    "generation": 4,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/477.png"
   },
   {
@@ -6445,6 +8793,11 @@ export const allPokemonRoster = [
       "ja": "ユキメノコ"
     },
     "speed": 110,
+    "types": [
+      "ice",
+      "ghost"
+    ],
+    "generation": 4,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/478.png",
     "isChampion": true,
     "championId": "0478"
@@ -6459,6 +8812,11 @@ export const allPokemonRoster = [
       "ja": "ロトム"
     },
     "speed": 91,
+    "types": [
+      "electric",
+      "ghost"
+    ],
+    "generation": 4,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/479.png",
     "isChampion": true,
     "championId": "0479"
@@ -6475,7 +8833,12 @@ export const allPokemonRoster = [
     "icon": "/pokemon-icons/rotom-fan.png",
     "id": "nat-0479-fan",
     "isChampion": true,
-    "championId": "0479-fan"
+    "championId": "0479-fan",
+    "types": [
+      "electric",
+      "flying"
+    ],
+    "generation": 4
   },
   {
     "dexNo": 479,
@@ -6489,7 +8852,12 @@ export const allPokemonRoster = [
     "icon": "/pokemon-icons/rotom-frost.png",
     "id": "nat-0479-frost",
     "isChampion": true,
-    "championId": "0479-frost"
+    "championId": "0479-frost",
+    "types": [
+      "electric",
+      "ice"
+    ],
+    "generation": 4
   },
   {
     "dexNo": 479,
@@ -6503,7 +8871,12 @@ export const allPokemonRoster = [
     "icon": "/pokemon-icons/rotom-heat.png",
     "id": "nat-0479-heat",
     "isChampion": true,
-    "championId": "0479-heat"
+    "championId": "0479-heat",
+    "types": [
+      "electric",
+      "fire"
+    ],
+    "generation": 4
   },
   {
     "dexNo": 479,
@@ -6517,7 +8890,12 @@ export const allPokemonRoster = [
     "icon": "/pokemon-icons/rotom-mow.png",
     "id": "nat-0479-mow",
     "isChampion": true,
-    "championId": "0479-mow"
+    "championId": "0479-mow",
+    "types": [
+      "electric",
+      "grass"
+    ],
+    "generation": 4
   },
   {
     "dexNo": 479,
@@ -6531,7 +8909,12 @@ export const allPokemonRoster = [
     "icon": "/pokemon-icons/rotom-wash.png",
     "id": "nat-0479-wash",
     "isChampion": true,
-    "championId": "0479-wash"
+    "championId": "0479-wash",
+    "types": [
+      "electric",
+      "water"
+    ],
+    "generation": 4
   },
   {
     "id": "nat-0480",
@@ -6543,6 +8926,10 @@ export const allPokemonRoster = [
       "ja": "ユクシー"
     },
     "speed": 95,
+    "types": [
+      "psychic"
+    ],
+    "generation": 4,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/480.png"
   },
   {
@@ -6555,6 +8942,10 @@ export const allPokemonRoster = [
       "ja": "エムリット"
     },
     "speed": 80,
+    "types": [
+      "psychic"
+    ],
+    "generation": 4,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/481.png"
   },
   {
@@ -6567,6 +8958,10 @@ export const allPokemonRoster = [
       "ja": "アグノム"
     },
     "speed": 115,
+    "types": [
+      "psychic"
+    ],
+    "generation": 4,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/482.png"
   },
   {
@@ -6579,6 +8974,11 @@ export const allPokemonRoster = [
       "ja": "ディアルガ"
     },
     "speed": 90,
+    "types": [
+      "steel",
+      "dragon"
+    ],
+    "generation": 4,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/483.png"
   },
   {
@@ -6591,6 +8991,11 @@ export const allPokemonRoster = [
       "ja": "パルキア"
     },
     "speed": 100,
+    "types": [
+      "water",
+      "dragon"
+    ],
+    "generation": 4,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/484.png"
   },
   {
@@ -6603,6 +9008,11 @@ export const allPokemonRoster = [
       "ja": "ヒードラン"
     },
     "speed": 77,
+    "types": [
+      "fire",
+      "steel"
+    ],
+    "generation": 4,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/485.png"
   },
   {
@@ -6615,6 +9025,10 @@ export const allPokemonRoster = [
       "ja": "レジギガス"
     },
     "speed": 100,
+    "types": [
+      "normal"
+    ],
+    "generation": 4,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/486.png"
   },
   {
@@ -6627,6 +9041,11 @@ export const allPokemonRoster = [
       "ja": "ギラティナ"
     },
     "speed": 90,
+    "types": [
+      "ghost",
+      "dragon"
+    ],
+    "generation": 4,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/487.png"
   },
   {
@@ -6639,6 +9058,10 @@ export const allPokemonRoster = [
       "ja": "クレセリア"
     },
     "speed": 85,
+    "types": [
+      "psychic"
+    ],
+    "generation": 4,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/488.png"
   },
   {
@@ -6651,6 +9074,10 @@ export const allPokemonRoster = [
       "ja": "フィオネ"
     },
     "speed": 80,
+    "types": [
+      "water"
+    ],
+    "generation": 4,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/489.png"
   },
   {
@@ -6663,6 +9090,10 @@ export const allPokemonRoster = [
       "ja": "マナフィ"
     },
     "speed": 100,
+    "types": [
+      "water"
+    ],
+    "generation": 4,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/490.png"
   },
   {
@@ -6675,6 +9106,10 @@ export const allPokemonRoster = [
       "ja": "ダークライ"
     },
     "speed": 125,
+    "types": [
+      "dark"
+    ],
+    "generation": 4,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/491.png"
   },
   {
@@ -6687,6 +9122,10 @@ export const allPokemonRoster = [
       "ja": "シェイミ"
     },
     "speed": 100,
+    "types": [
+      "grass"
+    ],
+    "generation": 4,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/492.png"
   },
   {
@@ -6699,6 +9138,10 @@ export const allPokemonRoster = [
       "ja": "アルセウス"
     },
     "speed": 120,
+    "types": [
+      "normal"
+    ],
+    "generation": 4,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/493.png"
   },
   {
@@ -6711,6 +9154,11 @@ export const allPokemonRoster = [
       "ja": "ビクティニ"
     },
     "speed": 100,
+    "types": [
+      "psychic",
+      "fire"
+    ],
+    "generation": 5,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/494.png"
   },
   {
@@ -6723,6 +9171,10 @@ export const allPokemonRoster = [
       "ja": "ツタージャ"
     },
     "speed": 63,
+    "types": [
+      "grass"
+    ],
+    "generation": 5,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/495.png"
   },
   {
@@ -6735,6 +9187,10 @@ export const allPokemonRoster = [
       "ja": "ジャノビー"
     },
     "speed": 83,
+    "types": [
+      "grass"
+    ],
+    "generation": 5,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/496.png"
   },
   {
@@ -6747,6 +9203,10 @@ export const allPokemonRoster = [
       "ja": "ジャローダ"
     },
     "speed": 113,
+    "types": [
+      "grass"
+    ],
+    "generation": 5,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/497.png",
     "isChampion": true,
     "championId": "0497"
@@ -6761,6 +9221,10 @@ export const allPokemonRoster = [
       "ja": "ポカブ"
     },
     "speed": 45,
+    "types": [
+      "fire"
+    ],
+    "generation": 5,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/498.png"
   },
   {
@@ -6773,6 +9237,11 @@ export const allPokemonRoster = [
       "ja": "チャオブー"
     },
     "speed": 55,
+    "types": [
+      "fire",
+      "fighting"
+    ],
+    "generation": 5,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/499.png"
   },
   {
@@ -6785,6 +9254,11 @@ export const allPokemonRoster = [
       "ja": "エンブオー"
     },
     "speed": 65,
+    "types": [
+      "fire",
+      "fighting"
+    ],
+    "generation": 5,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/500.png",
     "isChampion": true,
     "championId": "0500"
@@ -6799,6 +9273,10 @@ export const allPokemonRoster = [
       "ja": "ミジュマル"
     },
     "speed": 45,
+    "types": [
+      "water"
+    ],
+    "generation": 5,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/501.png"
   },
   {
@@ -6811,6 +9289,10 @@ export const allPokemonRoster = [
       "ja": "フタチマル"
     },
     "speed": 60,
+    "types": [
+      "water"
+    ],
+    "generation": 5,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/502.png"
   },
   {
@@ -6823,6 +9305,10 @@ export const allPokemonRoster = [
       "ja": "ダイケンキ"
     },
     "speed": 70,
+    "types": [
+      "water"
+    ],
+    "generation": 5,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/503.png",
     "isChampion": true,
     "championId": "0503"
@@ -6839,7 +9325,12 @@ export const allPokemonRoster = [
     "icon": "/pokemon-icons/samurott-hisuian.png",
     "id": "nat-0503-hisui",
     "isChampion": true,
-    "championId": "0503-hisui"
+    "championId": "0503-hisui",
+    "types": [
+      "water",
+      "dark"
+    ],
+    "generation": 5
   },
   {
     "id": "nat-0504",
@@ -6851,6 +9342,10 @@ export const allPokemonRoster = [
       "ja": "ミネズミ"
     },
     "speed": 42,
+    "types": [
+      "normal"
+    ],
+    "generation": 5,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/504.png"
   },
   {
@@ -6863,6 +9358,10 @@ export const allPokemonRoster = [
       "ja": "ミルホッグ"
     },
     "speed": 77,
+    "types": [
+      "normal"
+    ],
+    "generation": 5,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/505.png",
     "isChampion": true,
     "championId": "0505"
@@ -6877,6 +9376,10 @@ export const allPokemonRoster = [
       "ja": "ヨーテリー"
     },
     "speed": 55,
+    "types": [
+      "normal"
+    ],
+    "generation": 5,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/506.png"
   },
   {
@@ -6889,6 +9392,10 @@ export const allPokemonRoster = [
       "ja": "ハーデリア"
     },
     "speed": 60,
+    "types": [
+      "normal"
+    ],
+    "generation": 5,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/507.png"
   },
   {
@@ -6901,6 +9408,10 @@ export const allPokemonRoster = [
       "ja": "ムーランド"
     },
     "speed": 80,
+    "types": [
+      "normal"
+    ],
+    "generation": 5,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/508.png"
   },
   {
@@ -6913,6 +9424,10 @@ export const allPokemonRoster = [
       "ja": "チョロネコ"
     },
     "speed": 66,
+    "types": [
+      "dark"
+    ],
+    "generation": 5,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/509.png"
   },
   {
@@ -6925,6 +9440,10 @@ export const allPokemonRoster = [
       "ja": "レパルダス"
     },
     "speed": 106,
+    "types": [
+      "dark"
+    ],
+    "generation": 5,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/510.png",
     "isChampion": true,
     "championId": "0510"
@@ -6939,6 +9458,10 @@ export const allPokemonRoster = [
       "ja": "ヤナップ"
     },
     "speed": 64,
+    "types": [
+      "grass"
+    ],
+    "generation": 5,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/511.png"
   },
   {
@@ -6951,6 +9474,10 @@ export const allPokemonRoster = [
       "ja": "ヤナッキー"
     },
     "speed": 101,
+    "types": [
+      "grass"
+    ],
+    "generation": 5,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/512.png",
     "isChampion": true,
     "championId": "0512"
@@ -6965,6 +9492,10 @@ export const allPokemonRoster = [
       "ja": "バオップ"
     },
     "speed": 64,
+    "types": [
+      "fire"
+    ],
+    "generation": 5,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/513.png"
   },
   {
@@ -6977,6 +9508,10 @@ export const allPokemonRoster = [
       "ja": "バオッキー"
     },
     "speed": 101,
+    "types": [
+      "fire"
+    ],
+    "generation": 5,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/514.png",
     "isChampion": true,
     "championId": "0514"
@@ -6991,6 +9526,10 @@ export const allPokemonRoster = [
       "ja": "ヒヤップ"
     },
     "speed": 64,
+    "types": [
+      "water"
+    ],
+    "generation": 5,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/515.png"
   },
   {
@@ -7003,6 +9542,10 @@ export const allPokemonRoster = [
       "ja": "ヒヤッキー"
     },
     "speed": 101,
+    "types": [
+      "water"
+    ],
+    "generation": 5,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/516.png",
     "isChampion": true,
     "championId": "0516"
@@ -7017,6 +9560,10 @@ export const allPokemonRoster = [
       "ja": "ムンナ"
     },
     "speed": 24,
+    "types": [
+      "psychic"
+    ],
+    "generation": 5,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/517.png"
   },
   {
@@ -7029,6 +9576,10 @@ export const allPokemonRoster = [
       "ja": "ムシャーナ"
     },
     "speed": 29,
+    "types": [
+      "psychic"
+    ],
+    "generation": 5,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/518.png"
   },
   {
@@ -7041,6 +9592,11 @@ export const allPokemonRoster = [
       "ja": "マメパト"
     },
     "speed": 43,
+    "types": [
+      "normal",
+      "flying"
+    ],
+    "generation": 5,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/519.png"
   },
   {
@@ -7053,6 +9609,11 @@ export const allPokemonRoster = [
       "ja": "ハトーボー"
     },
     "speed": 65,
+    "types": [
+      "normal",
+      "flying"
+    ],
+    "generation": 5,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/520.png"
   },
   {
@@ -7065,6 +9626,11 @@ export const allPokemonRoster = [
       "ja": "ケンホロウ"
     },
     "speed": 93,
+    "types": [
+      "normal",
+      "flying"
+    ],
+    "generation": 5,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/521.png"
   },
   {
@@ -7077,6 +9643,10 @@ export const allPokemonRoster = [
       "ja": "シママ"
     },
     "speed": 76,
+    "types": [
+      "electric"
+    ],
+    "generation": 5,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/522.png"
   },
   {
@@ -7089,6 +9659,10 @@ export const allPokemonRoster = [
       "ja": "ゼブライカ"
     },
     "speed": 116,
+    "types": [
+      "electric"
+    ],
+    "generation": 5,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/523.png"
   },
   {
@@ -7101,6 +9675,10 @@ export const allPokemonRoster = [
       "ja": "ダンゴロ"
     },
     "speed": 15,
+    "types": [
+      "rock"
+    ],
+    "generation": 5,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/524.png"
   },
   {
@@ -7113,6 +9691,10 @@ export const allPokemonRoster = [
       "ja": "ガントル"
     },
     "speed": 20,
+    "types": [
+      "rock"
+    ],
+    "generation": 5,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/525.png"
   },
   {
@@ -7125,6 +9707,10 @@ export const allPokemonRoster = [
       "ja": "ギガイアス"
     },
     "speed": 25,
+    "types": [
+      "rock"
+    ],
+    "generation": 5,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/526.png"
   },
   {
@@ -7137,6 +9723,11 @@ export const allPokemonRoster = [
       "ja": "コロモリ"
     },
     "speed": 72,
+    "types": [
+      "psychic",
+      "flying"
+    ],
+    "generation": 5,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/527.png"
   },
   {
@@ -7149,6 +9740,11 @@ export const allPokemonRoster = [
       "ja": "ココロモリ"
     },
     "speed": 114,
+    "types": [
+      "psychic",
+      "flying"
+    ],
+    "generation": 5,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/528.png"
   },
   {
@@ -7161,6 +9757,10 @@ export const allPokemonRoster = [
       "ja": "モグリュー"
     },
     "speed": 68,
+    "types": [
+      "ground"
+    ],
+    "generation": 5,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/529.png"
   },
   {
@@ -7173,6 +9773,11 @@ export const allPokemonRoster = [
       "ja": "ドリュウズ"
     },
     "speed": 88,
+    "types": [
+      "ground",
+      "steel"
+    ],
+    "generation": 5,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/530.png",
     "isChampion": true,
     "championId": "0530"
@@ -7187,6 +9792,10 @@ export const allPokemonRoster = [
       "ja": "タブンネ"
     },
     "speed": 50,
+    "types": [
+      "normal"
+    ],
+    "generation": 5,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/531.png",
     "isChampion": true,
     "championId": "0531"
@@ -7201,6 +9810,10 @@ export const allPokemonRoster = [
       "ja": "ドッコラー"
     },
     "speed": 35,
+    "types": [
+      "fighting"
+    ],
+    "generation": 5,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/532.png"
   },
   {
@@ -7213,6 +9826,10 @@ export const allPokemonRoster = [
       "ja": "ドテッコツ"
     },
     "speed": 40,
+    "types": [
+      "fighting"
+    ],
+    "generation": 5,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/533.png"
   },
   {
@@ -7225,6 +9842,10 @@ export const allPokemonRoster = [
       "ja": "ローブシン"
     },
     "speed": 45,
+    "types": [
+      "fighting"
+    ],
+    "generation": 5,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/534.png",
     "isChampion": true,
     "championId": "0534"
@@ -7239,6 +9860,10 @@ export const allPokemonRoster = [
       "ja": "オタマロ"
     },
     "speed": 64,
+    "types": [
+      "water"
+    ],
+    "generation": 5,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/535.png"
   },
   {
@@ -7251,6 +9876,11 @@ export const allPokemonRoster = [
       "ja": "ガマガル"
     },
     "speed": 69,
+    "types": [
+      "water",
+      "ground"
+    ],
+    "generation": 5,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/536.png"
   },
   {
@@ -7263,6 +9893,11 @@ export const allPokemonRoster = [
       "ja": "ガマゲロゲ"
     },
     "speed": 74,
+    "types": [
+      "water",
+      "ground"
+    ],
+    "generation": 5,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/537.png"
   },
   {
@@ -7275,6 +9910,10 @@ export const allPokemonRoster = [
       "ja": "ナゲキ"
     },
     "speed": 45,
+    "types": [
+      "fighting"
+    ],
+    "generation": 5,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/538.png"
   },
   {
@@ -7287,6 +9926,10 @@ export const allPokemonRoster = [
       "ja": "ダゲキ"
     },
     "speed": 85,
+    "types": [
+      "fighting"
+    ],
+    "generation": 5,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/539.png"
   },
   {
@@ -7299,6 +9942,11 @@ export const allPokemonRoster = [
       "ja": "クルミル"
     },
     "speed": 42,
+    "types": [
+      "bug",
+      "grass"
+    ],
+    "generation": 5,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/540.png"
   },
   {
@@ -7311,6 +9959,11 @@ export const allPokemonRoster = [
       "ja": "クルマユ"
     },
     "speed": 42,
+    "types": [
+      "bug",
+      "grass"
+    ],
+    "generation": 5,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/541.png"
   },
   {
@@ -7323,6 +9976,11 @@ export const allPokemonRoster = [
       "ja": "ハハコモリ"
     },
     "speed": 92,
+    "types": [
+      "bug",
+      "grass"
+    ],
+    "generation": 5,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/542.png"
   },
   {
@@ -7335,6 +9993,11 @@ export const allPokemonRoster = [
       "ja": "フシデ"
     },
     "speed": 57,
+    "types": [
+      "bug",
+      "poison"
+    ],
+    "generation": 5,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/543.png"
   },
   {
@@ -7347,6 +10010,11 @@ export const allPokemonRoster = [
       "ja": "ホイーガ"
     },
     "speed": 47,
+    "types": [
+      "bug",
+      "poison"
+    ],
+    "generation": 5,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/544.png"
   },
   {
@@ -7359,6 +10027,11 @@ export const allPokemonRoster = [
       "ja": "ペンドラー"
     },
     "speed": 112,
+    "types": [
+      "bug",
+      "poison"
+    ],
+    "generation": 5,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/545.png"
   },
   {
@@ -7371,6 +10044,11 @@ export const allPokemonRoster = [
       "ja": "モンメン"
     },
     "speed": 66,
+    "types": [
+      "grass",
+      "fairy"
+    ],
+    "generation": 5,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/546.png"
   },
   {
@@ -7383,6 +10061,11 @@ export const allPokemonRoster = [
       "ja": "エルフーン"
     },
     "speed": 116,
+    "types": [
+      "grass",
+      "fairy"
+    ],
+    "generation": 5,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/547.png",
     "isChampion": true,
     "championId": "0547"
@@ -7397,6 +10080,10 @@ export const allPokemonRoster = [
       "ja": "チュリネ"
     },
     "speed": 30,
+    "types": [
+      "grass"
+    ],
+    "generation": 5,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/548.png"
   },
   {
@@ -7409,6 +10096,10 @@ export const allPokemonRoster = [
       "ja": "ドレディア"
     },
     "speed": 90,
+    "types": [
+      "grass"
+    ],
+    "generation": 5,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/549.png"
   },
   {
@@ -7421,6 +10112,11 @@ export const allPokemonRoster = [
       "ja": "ヒスイ ドレディア"
     },
     "speed": 105,
+    "types": [
+      "grass",
+      "fighting"
+    ],
+    "generation": 5,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10237.png"
   },
   {
@@ -7433,6 +10129,10 @@ export const allPokemonRoster = [
       "ja": "バスラオ"
     },
     "speed": 98,
+    "types": [
+      "water"
+    ],
+    "generation": 5,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/550.png"
   },
   {
@@ -7445,6 +10145,10 @@ export const allPokemonRoster = [
       "ja": "ヒスイ バスラオ"
     },
     "speed": 98,
+    "types": [
+      "water"
+    ],
+    "generation": 5,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10247.png"
   },
   {
@@ -7457,6 +10161,11 @@ export const allPokemonRoster = [
       "ja": "メグロコ"
     },
     "speed": 65,
+    "types": [
+      "ground",
+      "dark"
+    ],
+    "generation": 5,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/551.png"
   },
   {
@@ -7469,6 +10178,11 @@ export const allPokemonRoster = [
       "ja": "ワルビル"
     },
     "speed": 74,
+    "types": [
+      "ground",
+      "dark"
+    ],
+    "generation": 5,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/552.png"
   },
   {
@@ -7481,6 +10195,11 @@ export const allPokemonRoster = [
       "ja": "ワルビアル"
     },
     "speed": 92,
+    "types": [
+      "ground",
+      "dark"
+    ],
+    "generation": 5,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/553.png",
     "isChampion": true,
     "championId": "0553"
@@ -7495,6 +10214,10 @@ export const allPokemonRoster = [
       "ja": "ダルマッカ"
     },
     "speed": 50,
+    "types": [
+      "fire"
+    ],
+    "generation": 5,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/554.png"
   },
   {
@@ -7507,6 +10230,10 @@ export const allPokemonRoster = [
       "ja": "ガラル ダルマッカ"
     },
     "speed": 50,
+    "types": [
+      "ice"
+    ],
+    "generation": 5,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10176.png"
   },
   {
@@ -7519,6 +10246,10 @@ export const allPokemonRoster = [
       "ja": "ヒヒダルマ"
     },
     "speed": 95,
+    "types": [
+      "fire"
+    ],
+    "generation": 5,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/555.png"
   },
   {
@@ -7531,6 +10262,10 @@ export const allPokemonRoster = [
       "ja": "ガラル ヒヒダルマ"
     },
     "speed": 95,
+    "types": [
+      "ice"
+    ],
+    "generation": 5,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10177.png"
   },
   {
@@ -7543,6 +10278,10 @@ export const allPokemonRoster = [
       "ja": "マラカッチ"
     },
     "speed": 60,
+    "types": [
+      "grass"
+    ],
+    "generation": 5,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/556.png"
   },
   {
@@ -7555,6 +10294,11 @@ export const allPokemonRoster = [
       "ja": "イシズマイ"
     },
     "speed": 55,
+    "types": [
+      "bug",
+      "rock"
+    ],
+    "generation": 5,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/557.png"
   },
   {
@@ -7567,6 +10311,11 @@ export const allPokemonRoster = [
       "ja": "イワパレス"
     },
     "speed": 45,
+    "types": [
+      "bug",
+      "rock"
+    ],
+    "generation": 5,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/558.png"
   },
   {
@@ -7579,6 +10328,11 @@ export const allPokemonRoster = [
       "ja": "ズルッグ"
     },
     "speed": 48,
+    "types": [
+      "dark",
+      "fighting"
+    ],
+    "generation": 5,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/559.png"
   },
   {
@@ -7591,6 +10345,11 @@ export const allPokemonRoster = [
       "ja": "ズルズキン"
     },
     "speed": 58,
+    "types": [
+      "dark",
+      "fighting"
+    ],
+    "generation": 5,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/560.png"
   },
   {
@@ -7603,6 +10362,11 @@ export const allPokemonRoster = [
       "ja": "シンボラー"
     },
     "speed": 97,
+    "types": [
+      "psychic",
+      "flying"
+    ],
+    "generation": 5,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/561.png"
   },
   {
@@ -7615,6 +10379,10 @@ export const allPokemonRoster = [
       "ja": "デスマス"
     },
     "speed": 30,
+    "types": [
+      "ghost"
+    ],
+    "generation": 5,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/562.png"
   },
   {
@@ -7627,6 +10395,11 @@ export const allPokemonRoster = [
       "ja": "ガラル デスマス"
     },
     "speed": 30,
+    "types": [
+      "ground",
+      "ghost"
+    ],
+    "generation": 5,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10179.png"
   },
   {
@@ -7639,6 +10412,10 @@ export const allPokemonRoster = [
       "ja": "デスカーン"
     },
     "speed": 30,
+    "types": [
+      "ghost"
+    ],
+    "generation": 5,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/563.png",
     "isChampion": true,
     "championId": "0563"
@@ -7655,7 +10432,12 @@ export const allPokemonRoster = [
     "icon": "/pokemon-icons/runerigus.png",
     "id": "nat-0563-alt",
     "isChampion": true,
-    "championId": "0563-alt"
+    "championId": "0563-alt",
+    "types": [
+      "ground",
+      "ghost"
+    ],
+    "generation": 8
   },
   {
     "id": "nat-0564",
@@ -7667,6 +10449,11 @@ export const allPokemonRoster = [
       "ja": "プロトーガ"
     },
     "speed": 22,
+    "types": [
+      "water",
+      "rock"
+    ],
+    "generation": 5,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/564.png"
   },
   {
@@ -7679,6 +10466,11 @@ export const allPokemonRoster = [
       "ja": "アバゴーラ"
     },
     "speed": 32,
+    "types": [
+      "water",
+      "rock"
+    ],
+    "generation": 5,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/565.png"
   },
   {
@@ -7691,6 +10483,11 @@ export const allPokemonRoster = [
       "ja": "アーケン"
     },
     "speed": 70,
+    "types": [
+      "rock",
+      "flying"
+    ],
+    "generation": 5,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/566.png"
   },
   {
@@ -7703,6 +10500,11 @@ export const allPokemonRoster = [
       "ja": "アーケオス"
     },
     "speed": 110,
+    "types": [
+      "rock",
+      "flying"
+    ],
+    "generation": 5,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/567.png"
   },
   {
@@ -7715,6 +10517,10 @@ export const allPokemonRoster = [
       "ja": "ヤブクロン"
     },
     "speed": 65,
+    "types": [
+      "poison"
+    ],
+    "generation": 5,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/568.png"
   },
   {
@@ -7727,6 +10533,10 @@ export const allPokemonRoster = [
       "ja": "ダストダス"
     },
     "speed": 75,
+    "types": [
+      "poison"
+    ],
+    "generation": 5,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/569.png"
   },
   {
@@ -7739,6 +10549,10 @@ export const allPokemonRoster = [
       "ja": "ゾロア"
     },
     "speed": 65,
+    "types": [
+      "dark"
+    ],
+    "generation": 5,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/570.png"
   },
   {
@@ -7751,6 +10565,11 @@ export const allPokemonRoster = [
       "ja": "ヒスイ ゾロア"
     },
     "speed": 70,
+    "types": [
+      "normal",
+      "ghost"
+    ],
+    "generation": 5,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10238.png"
   },
   {
@@ -7763,6 +10582,10 @@ export const allPokemonRoster = [
       "ja": "ゾロアーク"
     },
     "speed": 105,
+    "types": [
+      "dark"
+    ],
+    "generation": 5,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/571.png",
     "isChampion": true,
     "championId": "0571"
@@ -7779,7 +10602,12 @@ export const allPokemonRoster = [
     "icon": "/pokemon-icons/zoroark-hisuian.png",
     "id": "nat-0571-hisui",
     "isChampion": true,
-    "championId": "0571-hisui"
+    "championId": "0571-hisui",
+    "types": [
+      "normal",
+      "ghost"
+    ],
+    "generation": 5
   },
   {
     "id": "nat-0572",
@@ -7791,6 +10619,10 @@ export const allPokemonRoster = [
       "ja": "チラーミィ"
     },
     "speed": 75,
+    "types": [
+      "normal"
+    ],
+    "generation": 5,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/572.png"
   },
   {
@@ -7803,6 +10635,10 @@ export const allPokemonRoster = [
       "ja": "チラチーノ"
     },
     "speed": 115,
+    "types": [
+      "normal"
+    ],
+    "generation": 5,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/573.png"
   },
   {
@@ -7815,6 +10651,10 @@ export const allPokemonRoster = [
       "ja": "ゴチム"
     },
     "speed": 45,
+    "types": [
+      "psychic"
+    ],
+    "generation": 5,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/574.png"
   },
   {
@@ -7827,6 +10667,10 @@ export const allPokemonRoster = [
       "ja": "ゴチミル"
     },
     "speed": 55,
+    "types": [
+      "psychic"
+    ],
+    "generation": 5,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/575.png"
   },
   {
@@ -7839,6 +10683,10 @@ export const allPokemonRoster = [
       "ja": "ゴチルゼル"
     },
     "speed": 65,
+    "types": [
+      "psychic"
+    ],
+    "generation": 5,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/576.png"
   },
   {
@@ -7851,6 +10699,10 @@ export const allPokemonRoster = [
       "ja": "ユニラン"
     },
     "speed": 20,
+    "types": [
+      "psychic"
+    ],
+    "generation": 5,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/577.png"
   },
   {
@@ -7863,6 +10715,10 @@ export const allPokemonRoster = [
       "ja": "ダブラン"
     },
     "speed": 30,
+    "types": [
+      "psychic"
+    ],
+    "generation": 5,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/578.png"
   },
   {
@@ -7875,6 +10731,10 @@ export const allPokemonRoster = [
       "ja": "ランクルス"
     },
     "speed": 30,
+    "types": [
+      "psychic"
+    ],
+    "generation": 5,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/579.png",
     "isChampion": true,
     "championId": "0579"
@@ -7889,6 +10749,11 @@ export const allPokemonRoster = [
       "ja": "コアルヒー"
     },
     "speed": 55,
+    "types": [
+      "water",
+      "flying"
+    ],
+    "generation": 5,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/580.png"
   },
   {
@@ -7901,6 +10766,11 @@ export const allPokemonRoster = [
       "ja": "スワンナ"
     },
     "speed": 98,
+    "types": [
+      "water",
+      "flying"
+    ],
+    "generation": 5,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/581.png"
   },
   {
@@ -7913,6 +10783,10 @@ export const allPokemonRoster = [
       "ja": "バニプッチ"
     },
     "speed": 44,
+    "types": [
+      "ice"
+    ],
+    "generation": 5,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/582.png"
   },
   {
@@ -7925,6 +10799,10 @@ export const allPokemonRoster = [
       "ja": "バニリッチ"
     },
     "speed": 59,
+    "types": [
+      "ice"
+    ],
+    "generation": 5,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/583.png"
   },
   {
@@ -7937,6 +10815,10 @@ export const allPokemonRoster = [
       "ja": "バイバニラ"
     },
     "speed": 79,
+    "types": [
+      "ice"
+    ],
+    "generation": 5,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/584.png",
     "isChampion": true,
     "championId": "0584"
@@ -7951,6 +10833,11 @@ export const allPokemonRoster = [
       "ja": "シキジカ"
     },
     "speed": 75,
+    "types": [
+      "normal",
+      "grass"
+    ],
+    "generation": 5,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/585.png"
   },
   {
@@ -7963,6 +10850,11 @@ export const allPokemonRoster = [
       "ja": "メブキジカ"
     },
     "speed": 95,
+    "types": [
+      "normal",
+      "grass"
+    ],
+    "generation": 5,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/586.png"
   },
   {
@@ -7975,6 +10867,11 @@ export const allPokemonRoster = [
       "ja": "エモンガ"
     },
     "speed": 103,
+    "types": [
+      "electric",
+      "flying"
+    ],
+    "generation": 5,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/587.png",
     "isChampion": true,
     "championId": "0587"
@@ -7989,6 +10886,10 @@ export const allPokemonRoster = [
       "ja": "カブルモ"
     },
     "speed": 60,
+    "types": [
+      "bug"
+    ],
+    "generation": 5,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/588.png"
   },
   {
@@ -8001,6 +10902,11 @@ export const allPokemonRoster = [
       "ja": "シュバルゴ"
     },
     "speed": 20,
+    "types": [
+      "bug",
+      "steel"
+    ],
+    "generation": 5,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/589.png"
   },
   {
@@ -8013,6 +10919,11 @@ export const allPokemonRoster = [
       "ja": "タマゲタケ"
     },
     "speed": 15,
+    "types": [
+      "grass",
+      "poison"
+    ],
+    "generation": 5,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/590.png"
   },
   {
@@ -8025,6 +10936,11 @@ export const allPokemonRoster = [
       "ja": "モロバレル"
     },
     "speed": 30,
+    "types": [
+      "grass",
+      "poison"
+    ],
+    "generation": 5,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/591.png"
   },
   {
@@ -8037,6 +10953,11 @@ export const allPokemonRoster = [
       "ja": "プルリル"
     },
     "speed": 40,
+    "types": [
+      "water",
+      "ghost"
+    ],
+    "generation": 5,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/592.png"
   },
   {
@@ -8049,6 +10970,11 @@ export const allPokemonRoster = [
       "ja": "ブルンゲル"
     },
     "speed": 60,
+    "types": [
+      "water",
+      "ghost"
+    ],
+    "generation": 5,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/593.png"
   },
   {
@@ -8061,6 +10987,10 @@ export const allPokemonRoster = [
       "ja": "ママンボウ"
     },
     "speed": 65,
+    "types": [
+      "water"
+    ],
+    "generation": 5,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/594.png"
   },
   {
@@ -8073,6 +11003,11 @@ export const allPokemonRoster = [
       "ja": "バチュル"
     },
     "speed": 65,
+    "types": [
+      "bug",
+      "electric"
+    ],
+    "generation": 5,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/595.png"
   },
   {
@@ -8085,6 +11020,11 @@ export const allPokemonRoster = [
       "ja": "デンチュラ"
     },
     "speed": 108,
+    "types": [
+      "bug",
+      "electric"
+    ],
+    "generation": 5,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/596.png"
   },
   {
@@ -8097,6 +11037,11 @@ export const allPokemonRoster = [
       "ja": "テッシード"
     },
     "speed": 10,
+    "types": [
+      "grass",
+      "steel"
+    ],
+    "generation": 5,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/597.png"
   },
   {
@@ -8109,6 +11054,11 @@ export const allPokemonRoster = [
       "ja": "ナットレイ"
     },
     "speed": 20,
+    "types": [
+      "grass",
+      "steel"
+    ],
+    "generation": 5,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/598.png"
   },
   {
@@ -8121,6 +11071,10 @@ export const allPokemonRoster = [
       "ja": "ギアル"
     },
     "speed": 30,
+    "types": [
+      "steel"
+    ],
+    "generation": 5,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/599.png"
   },
   {
@@ -8133,6 +11087,10 @@ export const allPokemonRoster = [
       "ja": "ギギアル"
     },
     "speed": 50,
+    "types": [
+      "steel"
+    ],
+    "generation": 5,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/600.png"
   },
   {
@@ -8145,6 +11103,10 @@ export const allPokemonRoster = [
       "ja": "ギギギアル"
     },
     "speed": 90,
+    "types": [
+      "steel"
+    ],
+    "generation": 5,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/601.png"
   },
   {
@@ -8157,6 +11119,10 @@ export const allPokemonRoster = [
       "ja": "シビシラス"
     },
     "speed": 60,
+    "types": [
+      "electric"
+    ],
+    "generation": 5,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/602.png"
   },
   {
@@ -8169,6 +11135,10 @@ export const allPokemonRoster = [
       "ja": "シビビール"
     },
     "speed": 40,
+    "types": [
+      "electric"
+    ],
+    "generation": 5,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/603.png"
   },
   {
@@ -8181,6 +11151,10 @@ export const allPokemonRoster = [
       "ja": "シビルドン"
     },
     "speed": 50,
+    "types": [
+      "electric"
+    ],
+    "generation": 5,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/604.png"
   },
   {
@@ -8193,6 +11167,10 @@ export const allPokemonRoster = [
       "ja": "リグレー"
     },
     "speed": 30,
+    "types": [
+      "psychic"
+    ],
+    "generation": 5,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/605.png"
   },
   {
@@ -8205,6 +11183,10 @@ export const allPokemonRoster = [
       "ja": "オーベム"
     },
     "speed": 40,
+    "types": [
+      "psychic"
+    ],
+    "generation": 5,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/606.png"
   },
   {
@@ -8217,6 +11199,11 @@ export const allPokemonRoster = [
       "ja": "ヒトモシ"
     },
     "speed": 20,
+    "types": [
+      "ghost",
+      "fire"
+    ],
+    "generation": 5,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/607.png"
   },
   {
@@ -8229,6 +11216,11 @@ export const allPokemonRoster = [
       "ja": "ランプラー"
     },
     "speed": 55,
+    "types": [
+      "ghost",
+      "fire"
+    ],
+    "generation": 5,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/608.png"
   },
   {
@@ -8241,6 +11233,11 @@ export const allPokemonRoster = [
       "ja": "シャンデラ"
     },
     "speed": 80,
+    "types": [
+      "ghost",
+      "fire"
+    ],
+    "generation": 5,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/609.png",
     "isChampion": true,
     "championId": "0609"
@@ -8255,6 +11252,10 @@ export const allPokemonRoster = [
       "ja": "キバゴ"
     },
     "speed": 57,
+    "types": [
+      "dragon"
+    ],
+    "generation": 5,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/610.png"
   },
   {
@@ -8267,6 +11268,10 @@ export const allPokemonRoster = [
       "ja": "オノンド"
     },
     "speed": 67,
+    "types": [
+      "dragon"
+    ],
+    "generation": 5,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/611.png"
   },
   {
@@ -8279,6 +11284,10 @@ export const allPokemonRoster = [
       "ja": "オノノクス"
     },
     "speed": 97,
+    "types": [
+      "dragon"
+    ],
+    "generation": 5,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/612.png"
   },
   {
@@ -8291,6 +11300,10 @@ export const allPokemonRoster = [
       "ja": "クマシュン"
     },
     "speed": 40,
+    "types": [
+      "ice"
+    ],
+    "generation": 5,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/613.png"
   },
   {
@@ -8303,6 +11316,10 @@ export const allPokemonRoster = [
       "ja": "ツンベアー"
     },
     "speed": 50,
+    "types": [
+      "ice"
+    ],
+    "generation": 5,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/614.png",
     "isChampion": true,
     "championId": "0614"
@@ -8317,6 +11334,10 @@ export const allPokemonRoster = [
       "ja": "フリージオ"
     },
     "speed": 105,
+    "types": [
+      "ice"
+    ],
+    "generation": 5,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/615.png"
   },
   {
@@ -8329,6 +11350,10 @@ export const allPokemonRoster = [
       "ja": "チョボマキ"
     },
     "speed": 25,
+    "types": [
+      "bug"
+    ],
+    "generation": 5,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/616.png"
   },
   {
@@ -8341,6 +11366,10 @@ export const allPokemonRoster = [
       "ja": "アギルダー"
     },
     "speed": 145,
+    "types": [
+      "bug"
+    ],
+    "generation": 5,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/617.png"
   },
   {
@@ -8353,6 +11382,11 @@ export const allPokemonRoster = [
       "ja": "マッギョ"
     },
     "speed": 32,
+    "types": [
+      "ground",
+      "electric"
+    ],
+    "generation": 5,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/618.png",
     "isChampion": true,
     "championId": "0618"
@@ -8369,7 +11403,12 @@ export const allPokemonRoster = [
     "icon": "/pokemon-icons/stunfisk-galarian.png",
     "id": "nat-0618-galar",
     "isChampion": true,
-    "championId": "0618-galar"
+    "championId": "0618-galar",
+    "types": [
+      "ground",
+      "steel"
+    ],
+    "generation": 5
   },
   {
     "id": "nat-0619",
@@ -8381,6 +11420,10 @@ export const allPokemonRoster = [
       "ja": "コジョフー"
     },
     "speed": 65,
+    "types": [
+      "fighting"
+    ],
+    "generation": 5,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/619.png"
   },
   {
@@ -8393,6 +11436,10 @@ export const allPokemonRoster = [
       "ja": "コジョンド"
     },
     "speed": 105,
+    "types": [
+      "fighting"
+    ],
+    "generation": 5,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/620.png"
   },
   {
@@ -8405,6 +11452,10 @@ export const allPokemonRoster = [
       "ja": "クリムガン"
     },
     "speed": 48,
+    "types": [
+      "dragon"
+    ],
+    "generation": 5,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/621.png"
   },
   {
@@ -8417,6 +11468,11 @@ export const allPokemonRoster = [
       "ja": "ゴビット"
     },
     "speed": 35,
+    "types": [
+      "ground",
+      "ghost"
+    ],
+    "generation": 5,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/622.png"
   },
   {
@@ -8429,6 +11485,11 @@ export const allPokemonRoster = [
       "ja": "ゴルーグ"
     },
     "speed": 55,
+    "types": [
+      "ground",
+      "ghost"
+    ],
+    "generation": 5,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/623.png",
     "isChampion": true,
     "championId": "0623"
@@ -8443,6 +11504,11 @@ export const allPokemonRoster = [
       "ja": "コマタナ"
     },
     "speed": 60,
+    "types": [
+      "dark",
+      "steel"
+    ],
+    "generation": 5,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/624.png"
   },
   {
@@ -8455,6 +11521,11 @@ export const allPokemonRoster = [
       "ja": "キリキザン"
     },
     "speed": 70,
+    "types": [
+      "dark",
+      "steel"
+    ],
+    "generation": 5,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/625.png"
   },
   {
@@ -8467,6 +11538,10 @@ export const allPokemonRoster = [
       "ja": "バッフロン"
     },
     "speed": 55,
+    "types": [
+      "normal"
+    ],
+    "generation": 5,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/626.png"
   },
   {
@@ -8479,6 +11554,11 @@ export const allPokemonRoster = [
       "ja": "ワシボン"
     },
     "speed": 60,
+    "types": [
+      "normal",
+      "flying"
+    ],
+    "generation": 5,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/627.png"
   },
   {
@@ -8491,6 +11571,11 @@ export const allPokemonRoster = [
       "ja": "ウォーグル"
     },
     "speed": 80,
+    "types": [
+      "normal",
+      "flying"
+    ],
+    "generation": 5,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/628.png"
   },
   {
@@ -8503,6 +11588,11 @@ export const allPokemonRoster = [
       "ja": "ヒスイ ウォーグル"
     },
     "speed": 65,
+    "types": [
+      "psychic",
+      "flying"
+    ],
+    "generation": 5,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10240.png"
   },
   {
@@ -8515,6 +11605,11 @@ export const allPokemonRoster = [
       "ja": "バルチャイ"
     },
     "speed": 60,
+    "types": [
+      "dark",
+      "flying"
+    ],
+    "generation": 5,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/629.png"
   },
   {
@@ -8527,6 +11622,11 @@ export const allPokemonRoster = [
       "ja": "バルジーナ"
     },
     "speed": 80,
+    "types": [
+      "dark",
+      "flying"
+    ],
+    "generation": 5,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/630.png"
   },
   {
@@ -8539,6 +11639,10 @@ export const allPokemonRoster = [
       "ja": "クイタラン"
     },
     "speed": 65,
+    "types": [
+      "fire"
+    ],
+    "generation": 5,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/631.png"
   },
   {
@@ -8551,6 +11655,11 @@ export const allPokemonRoster = [
       "ja": "アイアント"
     },
     "speed": 109,
+    "types": [
+      "bug",
+      "steel"
+    ],
+    "generation": 5,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/632.png"
   },
   {
@@ -8563,6 +11672,11 @@ export const allPokemonRoster = [
       "ja": "モノズ"
     },
     "speed": 38,
+    "types": [
+      "dark",
+      "dragon"
+    ],
+    "generation": 5,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/633.png"
   },
   {
@@ -8575,6 +11689,11 @@ export const allPokemonRoster = [
       "ja": "ジヘッド"
     },
     "speed": 58,
+    "types": [
+      "dark",
+      "dragon"
+    ],
+    "generation": 5,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/634.png"
   },
   {
@@ -8587,6 +11706,11 @@ export const allPokemonRoster = [
       "ja": "サザンドラ"
     },
     "speed": 98,
+    "types": [
+      "dark",
+      "dragon"
+    ],
+    "generation": 5,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/635.png",
     "isChampion": true,
     "championId": "0635"
@@ -8601,6 +11725,11 @@ export const allPokemonRoster = [
       "ja": "メラルバ"
     },
     "speed": 60,
+    "types": [
+      "bug",
+      "fire"
+    ],
+    "generation": 5,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/636.png"
   },
   {
@@ -8613,6 +11742,11 @@ export const allPokemonRoster = [
       "ja": "ウルガモス"
     },
     "speed": 100,
+    "types": [
+      "bug",
+      "fire"
+    ],
+    "generation": 5,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/637.png",
     "isChampion": true,
     "championId": "0637"
@@ -8627,6 +11761,11 @@ export const allPokemonRoster = [
       "ja": "コバルオン"
     },
     "speed": 108,
+    "types": [
+      "steel",
+      "fighting"
+    ],
+    "generation": 5,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/638.png"
   },
   {
@@ -8639,6 +11778,11 @@ export const allPokemonRoster = [
       "ja": "テラキオン"
     },
     "speed": 108,
+    "types": [
+      "rock",
+      "fighting"
+    ],
+    "generation": 5,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/639.png"
   },
   {
@@ -8651,6 +11795,11 @@ export const allPokemonRoster = [
       "ja": "ビリジオン"
     },
     "speed": 108,
+    "types": [
+      "grass",
+      "fighting"
+    ],
+    "generation": 5,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/640.png"
   },
   {
@@ -8663,6 +11812,10 @@ export const allPokemonRoster = [
       "ja": "トルネロス"
     },
     "speed": 111,
+    "types": [
+      "flying"
+    ],
+    "generation": 5,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/641.png"
   },
   {
@@ -8675,6 +11828,11 @@ export const allPokemonRoster = [
       "ja": "ボルトロス"
     },
     "speed": 111,
+    "types": [
+      "electric",
+      "flying"
+    ],
+    "generation": 5,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/642.png"
   },
   {
@@ -8687,6 +11845,11 @@ export const allPokemonRoster = [
       "ja": "レシラム"
     },
     "speed": 90,
+    "types": [
+      "dragon",
+      "fire"
+    ],
+    "generation": 5,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/643.png"
   },
   {
@@ -8699,6 +11862,11 @@ export const allPokemonRoster = [
       "ja": "ゼクロム"
     },
     "speed": 90,
+    "types": [
+      "dragon",
+      "electric"
+    ],
+    "generation": 5,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/644.png"
   },
   {
@@ -8711,6 +11879,11 @@ export const allPokemonRoster = [
       "ja": "ランドロス"
     },
     "speed": 101,
+    "types": [
+      "ground",
+      "flying"
+    ],
+    "generation": 5,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/645.png"
   },
   {
@@ -8723,6 +11896,11 @@ export const allPokemonRoster = [
       "ja": "キュレム"
     },
     "speed": 95,
+    "types": [
+      "dragon",
+      "ice"
+    ],
+    "generation": 5,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/646.png"
   },
   {
@@ -8735,6 +11913,11 @@ export const allPokemonRoster = [
       "ja": "ケルディオ"
     },
     "speed": 108,
+    "types": [
+      "water",
+      "fighting"
+    ],
+    "generation": 5,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/647.png"
   },
   {
@@ -8747,6 +11930,11 @@ export const allPokemonRoster = [
       "ja": "メロエッタ"
     },
     "speed": 90,
+    "types": [
+      "normal",
+      "psychic"
+    ],
+    "generation": 5,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/648.png"
   },
   {
@@ -8759,6 +11947,11 @@ export const allPokemonRoster = [
       "ja": "ゲノセクト"
     },
     "speed": 99,
+    "types": [
+      "bug",
+      "steel"
+    ],
+    "generation": 5,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/649.png"
   },
   {
@@ -8771,6 +11964,10 @@ export const allPokemonRoster = [
       "ja": "ハリマロン"
     },
     "speed": 38,
+    "types": [
+      "grass"
+    ],
+    "generation": 6,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/650.png"
   },
   {
@@ -8783,6 +11980,10 @@ export const allPokemonRoster = [
       "ja": "ハリボーグ"
     },
     "speed": 57,
+    "types": [
+      "grass"
+    ],
+    "generation": 6,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/651.png"
   },
   {
@@ -8795,6 +11996,11 @@ export const allPokemonRoster = [
       "ja": "ブリガロン"
     },
     "speed": 64,
+    "types": [
+      "grass",
+      "fighting"
+    ],
+    "generation": 6,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/652.png",
     "isChampion": true,
     "championId": "0652"
@@ -8809,6 +12015,10 @@ export const allPokemonRoster = [
       "ja": "フォッコ"
     },
     "speed": 60,
+    "types": [
+      "fire"
+    ],
+    "generation": 6,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/653.png"
   },
   {
@@ -8821,6 +12031,10 @@ export const allPokemonRoster = [
       "ja": "テールナー"
     },
     "speed": 73,
+    "types": [
+      "fire"
+    ],
+    "generation": 6,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/654.png"
   },
   {
@@ -8833,6 +12047,11 @@ export const allPokemonRoster = [
       "ja": "マフォクシー"
     },
     "speed": 104,
+    "types": [
+      "fire",
+      "psychic"
+    ],
+    "generation": 6,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/655.png",
     "isChampion": true,
     "championId": "0655"
@@ -8847,6 +12066,10 @@ export const allPokemonRoster = [
       "ja": "ケロマツ"
     },
     "speed": 71,
+    "types": [
+      "water"
+    ],
+    "generation": 6,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/656.png"
   },
   {
@@ -8859,6 +12082,10 @@ export const allPokemonRoster = [
       "ja": "ゲコガシラ"
     },
     "speed": 97,
+    "types": [
+      "water"
+    ],
+    "generation": 6,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/657.png"
   },
   {
@@ -8871,6 +12098,11 @@ export const allPokemonRoster = [
       "ja": "ゲッコウガ"
     },
     "speed": 122,
+    "types": [
+      "water",
+      "dark"
+    ],
+    "generation": 6,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/658.png",
     "isChampion": true,
     "championId": "0658"
@@ -8885,6 +12117,10 @@ export const allPokemonRoster = [
       "ja": "ホルビー"
     },
     "speed": 57,
+    "types": [
+      "normal"
+    ],
+    "generation": 6,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/659.png"
   },
   {
@@ -8897,6 +12133,11 @@ export const allPokemonRoster = [
       "ja": "ホルード"
     },
     "speed": 78,
+    "types": [
+      "normal",
+      "ground"
+    ],
+    "generation": 6,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/660.png",
     "isChampion": true,
     "championId": "0660"
@@ -8911,6 +12152,11 @@ export const allPokemonRoster = [
       "ja": "ヤヤコマ"
     },
     "speed": 62,
+    "types": [
+      "normal",
+      "flying"
+    ],
+    "generation": 6,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/661.png"
   },
   {
@@ -8923,6 +12169,11 @@ export const allPokemonRoster = [
       "ja": "ヒノヤコマ"
     },
     "speed": 84,
+    "types": [
+      "fire",
+      "flying"
+    ],
+    "generation": 6,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/662.png"
   },
   {
@@ -8935,6 +12186,11 @@ export const allPokemonRoster = [
       "ja": "ファイアロー"
     },
     "speed": 126,
+    "types": [
+      "fire",
+      "flying"
+    ],
+    "generation": 6,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/663.png",
     "isChampion": true,
     "championId": "0663"
@@ -8949,6 +12205,10 @@ export const allPokemonRoster = [
       "ja": "コフキムシ"
     },
     "speed": 35,
+    "types": [
+      "bug"
+    ],
+    "generation": 6,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/664.png"
   },
   {
@@ -8961,6 +12221,10 @@ export const allPokemonRoster = [
       "ja": "コフーライ"
     },
     "speed": 29,
+    "types": [
+      "bug"
+    ],
+    "generation": 6,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/665.png"
   },
   {
@@ -8973,6 +12237,11 @@ export const allPokemonRoster = [
       "ja": "ビビヨン"
     },
     "speed": 89,
+    "types": [
+      "bug",
+      "flying"
+    ],
+    "generation": 6,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/666.png",
     "isChampion": true,
     "championId": "0666"
@@ -8987,6 +12256,11 @@ export const allPokemonRoster = [
       "ja": "シシコ"
     },
     "speed": 72,
+    "types": [
+      "fire",
+      "normal"
+    ],
+    "generation": 6,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/667.png"
   },
   {
@@ -8999,6 +12273,11 @@ export const allPokemonRoster = [
       "ja": "カエンジシ"
     },
     "speed": 106,
+    "types": [
+      "fire",
+      "normal"
+    ],
+    "generation": 6,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/668.png"
   },
   {
@@ -9011,6 +12290,10 @@ export const allPokemonRoster = [
       "ja": "フラベベ"
     },
     "speed": 42,
+    "types": [
+      "fairy"
+    ],
+    "generation": 6,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/669.png"
   },
   {
@@ -9023,6 +12306,10 @@ export const allPokemonRoster = [
       "ja": "フラエッテ"
     },
     "speed": 52,
+    "types": [
+      "fairy"
+    ],
+    "generation": 6,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/670.png",
     "isChampion": true,
     "championId": "0670",
@@ -9038,6 +12325,10 @@ export const allPokemonRoster = [
       "ja": "フラージェス"
     },
     "speed": 75,
+    "types": [
+      "fairy"
+    ],
+    "generation": 6,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/671.png",
     "isChampion": true,
     "championId": "0671"
@@ -9052,6 +12343,10 @@ export const allPokemonRoster = [
       "ja": "メェークル"
     },
     "speed": 52,
+    "types": [
+      "grass"
+    ],
+    "generation": 6,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/672.png"
   },
   {
@@ -9064,6 +12359,10 @@ export const allPokemonRoster = [
       "ja": "ゴーゴート"
     },
     "speed": 68,
+    "types": [
+      "grass"
+    ],
+    "generation": 6,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/673.png"
   },
   {
@@ -9076,6 +12375,10 @@ export const allPokemonRoster = [
       "ja": "ヤンチャム"
     },
     "speed": 43,
+    "types": [
+      "fighting"
+    ],
+    "generation": 6,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/674.png"
   },
   {
@@ -9088,6 +12391,11 @@ export const allPokemonRoster = [
       "ja": "ゴロンダ"
     },
     "speed": 58,
+    "types": [
+      "fighting",
+      "dark"
+    ],
+    "generation": 6,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/675.png",
     "isChampion": true,
     "championId": "0675"
@@ -9102,6 +12410,10 @@ export const allPokemonRoster = [
       "ja": "トリミアン"
     },
     "speed": 102,
+    "types": [
+      "normal"
+    ],
+    "generation": 6,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/676.png",
     "isChampion": true,
     "championId": "0676"
@@ -9116,6 +12428,10 @@ export const allPokemonRoster = [
       "ja": "ニャスパー"
     },
     "speed": 68,
+    "types": [
+      "psychic"
+    ],
+    "generation": 6,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/677.png"
   },
   {
@@ -9128,6 +12444,10 @@ export const allPokemonRoster = [
       "ja": "ニャオニクス"
     },
     "speed": 104,
+    "types": [
+      "psychic"
+    ],
+    "generation": 6,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/678.png",
     "isChampion": true,
     "championId": "0678"
@@ -9142,6 +12462,11 @@ export const allPokemonRoster = [
       "ja": "ヒトツキ"
     },
     "speed": 28,
+    "types": [
+      "steel",
+      "ghost"
+    ],
+    "generation": 6,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/679.png"
   },
   {
@@ -9154,6 +12479,11 @@ export const allPokemonRoster = [
       "ja": "ニダンギル"
     },
     "speed": 35,
+    "types": [
+      "steel",
+      "ghost"
+    ],
+    "generation": 6,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/680.png"
   },
   {
@@ -9166,6 +12496,11 @@ export const allPokemonRoster = [
       "ja": "ギルガルド"
     },
     "speed": 60,
+    "types": [
+      "steel",
+      "ghost"
+    ],
+    "generation": 6,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/681.png",
     "isChampion": true,
     "championId": "0681"
@@ -9180,6 +12515,10 @@ export const allPokemonRoster = [
       "ja": "シュシュプ"
     },
     "speed": 23,
+    "types": [
+      "fairy"
+    ],
+    "generation": 6,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/682.png"
   },
   {
@@ -9192,6 +12531,10 @@ export const allPokemonRoster = [
       "ja": "フレフワン"
     },
     "speed": 29,
+    "types": [
+      "fairy"
+    ],
+    "generation": 6,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/683.png",
     "isChampion": true,
     "championId": "0683"
@@ -9206,6 +12549,10 @@ export const allPokemonRoster = [
       "ja": "ペロッパフ"
     },
     "speed": 49,
+    "types": [
+      "fairy"
+    ],
+    "generation": 6,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/684.png"
   },
   {
@@ -9218,6 +12565,10 @@ export const allPokemonRoster = [
       "ja": "ペロリーム"
     },
     "speed": 72,
+    "types": [
+      "fairy"
+    ],
+    "generation": 6,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/685.png",
     "isChampion": true,
     "championId": "0685"
@@ -9232,6 +12583,11 @@ export const allPokemonRoster = [
       "ja": "マーイーカ"
     },
     "speed": 45,
+    "types": [
+      "dark",
+      "psychic"
+    ],
+    "generation": 6,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/686.png"
   },
   {
@@ -9244,6 +12600,11 @@ export const allPokemonRoster = [
       "ja": "カラマネロ"
     },
     "speed": 73,
+    "types": [
+      "dark",
+      "psychic"
+    ],
+    "generation": 6,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/687.png"
   },
   {
@@ -9256,6 +12617,11 @@ export const allPokemonRoster = [
       "ja": "カメテテ"
     },
     "speed": 50,
+    "types": [
+      "rock",
+      "water"
+    ],
+    "generation": 6,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/688.png"
   },
   {
@@ -9268,6 +12634,11 @@ export const allPokemonRoster = [
       "ja": "ガメノデス"
     },
     "speed": 68,
+    "types": [
+      "rock",
+      "water"
+    ],
+    "generation": 6,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/689.png",
     "isChampion": true,
     "championId": "0689",
@@ -9283,6 +12654,11 @@ export const allPokemonRoster = [
       "ja": "クズモー"
     },
     "speed": 30,
+    "types": [
+      "poison",
+      "water"
+    ],
+    "generation": 6,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/690.png"
   },
   {
@@ -9295,6 +12671,11 @@ export const allPokemonRoster = [
       "ja": "ドラミドロ"
     },
     "speed": 44,
+    "types": [
+      "poison",
+      "dragon"
+    ],
+    "generation": 6,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/691.png"
   },
   {
@@ -9307,6 +12688,10 @@ export const allPokemonRoster = [
       "ja": "ウデッポウ"
     },
     "speed": 44,
+    "types": [
+      "water"
+    ],
+    "generation": 6,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/692.png"
   },
   {
@@ -9319,6 +12704,10 @@ export const allPokemonRoster = [
       "ja": "ブロスター"
     },
     "speed": 59,
+    "types": [
+      "water"
+    ],
+    "generation": 6,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/693.png"
   },
   {
@@ -9331,6 +12720,11 @@ export const allPokemonRoster = [
       "ja": "エリキテル"
     },
     "speed": 70,
+    "types": [
+      "electric",
+      "normal"
+    ],
+    "generation": 6,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/694.png"
   },
   {
@@ -9343,6 +12737,11 @@ export const allPokemonRoster = [
       "ja": "エレザード"
     },
     "speed": 109,
+    "types": [
+      "electric",
+      "normal"
+    ],
+    "generation": 6,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/695.png",
     "isChampion": true,
     "championId": "0695"
@@ -9357,6 +12756,11 @@ export const allPokemonRoster = [
       "ja": "チゴラス"
     },
     "speed": 48,
+    "types": [
+      "rock",
+      "dragon"
+    ],
+    "generation": 6,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/696.png"
   },
   {
@@ -9369,6 +12773,11 @@ export const allPokemonRoster = [
       "ja": "ガチゴラス"
     },
     "speed": 71,
+    "types": [
+      "rock",
+      "dragon"
+    ],
+    "generation": 6,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/697.png",
     "isChampion": true,
     "championId": "0697"
@@ -9383,6 +12792,11 @@ export const allPokemonRoster = [
       "ja": "アマルス"
     },
     "speed": 46,
+    "types": [
+      "rock",
+      "ice"
+    ],
+    "generation": 6,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/698.png"
   },
   {
@@ -9395,6 +12809,11 @@ export const allPokemonRoster = [
       "ja": "アマルルガ"
     },
     "speed": 58,
+    "types": [
+      "rock",
+      "ice"
+    ],
+    "generation": 6,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/699.png",
     "isChampion": true,
     "championId": "0699"
@@ -9409,6 +12828,10 @@ export const allPokemonRoster = [
       "ja": "ニンフィア"
     },
     "speed": 60,
+    "types": [
+      "fairy"
+    ],
+    "generation": 6,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/700.png",
     "isChampion": true,
     "championId": "0700"
@@ -9423,6 +12846,11 @@ export const allPokemonRoster = [
       "ja": "ルチャブル"
     },
     "speed": 118,
+    "types": [
+      "fighting",
+      "flying"
+    ],
+    "generation": 6,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/701.png",
     "isChampion": true,
     "championId": "0701"
@@ -9437,6 +12865,11 @@ export const allPokemonRoster = [
       "ja": "デデンネ"
     },
     "speed": 101,
+    "types": [
+      "electric",
+      "fairy"
+    ],
+    "generation": 6,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/702.png",
     "isChampion": true,
     "championId": "0702"
@@ -9451,6 +12884,11 @@ export const allPokemonRoster = [
       "ja": "メレシー"
     },
     "speed": 50,
+    "types": [
+      "rock",
+      "fairy"
+    ],
+    "generation": 6,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/703.png"
   },
   {
@@ -9463,6 +12901,10 @@ export const allPokemonRoster = [
       "ja": "ヌメラ"
     },
     "speed": 40,
+    "types": [
+      "dragon"
+    ],
+    "generation": 6,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/704.png"
   },
   {
@@ -9475,6 +12917,10 @@ export const allPokemonRoster = [
       "ja": "ヌメイル"
     },
     "speed": 60,
+    "types": [
+      "dragon"
+    ],
+    "generation": 6,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/705.png"
   },
   {
@@ -9487,6 +12933,11 @@ export const allPokemonRoster = [
       "ja": "ヒスイ ヌメイル"
     },
     "speed": 40,
+    "types": [
+      "steel",
+      "dragon"
+    ],
+    "generation": 6,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10241.png"
   },
   {
@@ -9499,6 +12950,10 @@ export const allPokemonRoster = [
       "ja": "ヌメルゴン"
     },
     "speed": 80,
+    "types": [
+      "dragon"
+    ],
+    "generation": 6,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/706.png",
     "isChampion": true,
     "championId": "0706"
@@ -9515,7 +12970,12 @@ export const allPokemonRoster = [
     "icon": "/pokemon-icons/sliggoo-hisuian.png",
     "id": "nat-0706-alt",
     "isChampion": true,
-    "championId": "0706-alt"
+    "championId": "0706-alt",
+    "types": [
+      "steel",
+      "dragon"
+    ],
+    "generation": 6
   },
   {
     "dexNo": 706,
@@ -9529,7 +12989,12 @@ export const allPokemonRoster = [
     "icon": "/pokemon-icons/goodra-hisuian.png",
     "id": "nat-0706-hisui",
     "isChampion": true,
-    "championId": "0706-hisui"
+    "championId": "0706-hisui",
+    "types": [
+      "steel",
+      "dragon"
+    ],
+    "generation": 6
   },
   {
     "id": "nat-0707",
@@ -9541,6 +13006,11 @@ export const allPokemonRoster = [
       "ja": "クレッフィ"
     },
     "speed": 75,
+    "types": [
+      "steel",
+      "fairy"
+    ],
+    "generation": 6,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/707.png",
     "isChampion": true,
     "championId": "0707"
@@ -9555,6 +13025,11 @@ export const allPokemonRoster = [
       "ja": "ボクレー"
     },
     "speed": 38,
+    "types": [
+      "ghost",
+      "grass"
+    ],
+    "generation": 6,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/708.png"
   },
   {
@@ -9567,6 +13042,11 @@ export const allPokemonRoster = [
       "ja": "オーロット"
     },
     "speed": 56,
+    "types": [
+      "ghost",
+      "grass"
+    ],
+    "generation": 6,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/709.png",
     "isChampion": true,
     "championId": "0709"
@@ -9581,6 +13061,11 @@ export const allPokemonRoster = [
       "ja": "バケッチャ"
     },
     "speed": 51,
+    "types": [
+      "ghost",
+      "grass"
+    ],
+    "generation": 6,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/710.png"
   },
   {
@@ -9593,6 +13078,11 @@ export const allPokemonRoster = [
       "ja": "パンプジン"
     },
     "speed": 84,
+    "types": [
+      "ghost",
+      "grass"
+    ],
+    "generation": 6,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/711.png",
     "isChampion": true,
     "championId": "0711"
@@ -9607,6 +13097,10 @@ export const allPokemonRoster = [
       "ja": "カチコール"
     },
     "speed": 28,
+    "types": [
+      "ice"
+    ],
+    "generation": 6,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/712.png"
   },
   {
@@ -9619,6 +13113,10 @@ export const allPokemonRoster = [
       "ja": "クレベース"
     },
     "speed": 28,
+    "types": [
+      "ice"
+    ],
+    "generation": 6,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/713.png",
     "isChampion": true,
     "championId": "0713"
@@ -9635,7 +13133,12 @@ export const allPokemonRoster = [
     "icon": "/pokemon-icons/avalugg-hisuian.png",
     "id": "nat-0713-hisui",
     "isChampion": true,
-    "championId": "0713-hisui"
+    "championId": "0713-hisui",
+    "types": [
+      "ice",
+      "rock"
+    ],
+    "generation": 6
   },
   {
     "id": "nat-0714",
@@ -9647,6 +13150,11 @@ export const allPokemonRoster = [
       "ja": "オンバット"
     },
     "speed": 55,
+    "types": [
+      "flying",
+      "dragon"
+    ],
+    "generation": 6,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/714.png"
   },
   {
@@ -9659,6 +13167,11 @@ export const allPokemonRoster = [
       "ja": "オンバーン"
     },
     "speed": 123,
+    "types": [
+      "flying",
+      "dragon"
+    ],
+    "generation": 6,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/715.png",
     "isChampion": true,
     "championId": "0715"
@@ -9673,6 +13186,10 @@ export const allPokemonRoster = [
       "ja": "ゼルネアス"
     },
     "speed": 99,
+    "types": [
+      "fairy"
+    ],
+    "generation": 6,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/716.png"
   },
   {
@@ -9685,6 +13202,11 @@ export const allPokemonRoster = [
       "ja": "イベルタル"
     },
     "speed": 99,
+    "types": [
+      "dark",
+      "flying"
+    ],
+    "generation": 6,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/717.png"
   },
   {
@@ -9697,6 +13219,11 @@ export const allPokemonRoster = [
       "ja": "ジガルデ"
     },
     "speed": 95,
+    "types": [
+      "dragon",
+      "ground"
+    ],
+    "generation": 6,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/718.png"
   },
   {
@@ -9709,6 +13236,11 @@ export const allPokemonRoster = [
       "ja": "ディアンシー"
     },
     "speed": 50,
+    "types": [
+      "rock",
+      "fairy"
+    ],
+    "generation": 6,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/719.png"
   },
   {
@@ -9721,6 +13253,11 @@ export const allPokemonRoster = [
       "ja": "フーパ"
     },
     "speed": 70,
+    "types": [
+      "psychic",
+      "ghost"
+    ],
+    "generation": 6,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/720.png"
   },
   {
@@ -9733,6 +13270,11 @@ export const allPokemonRoster = [
       "ja": "ボルケニオン"
     },
     "speed": 70,
+    "types": [
+      "fire",
+      "water"
+    ],
+    "generation": 6,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/721.png"
   },
   {
@@ -9745,6 +13287,11 @@ export const allPokemonRoster = [
       "ja": "モクロー"
     },
     "speed": 42,
+    "types": [
+      "grass",
+      "flying"
+    ],
+    "generation": 7,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/722.png"
   },
   {
@@ -9757,6 +13304,11 @@ export const allPokemonRoster = [
       "ja": "フクスロー"
     },
     "speed": 52,
+    "types": [
+      "grass",
+      "flying"
+    ],
+    "generation": 7,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/723.png"
   },
   {
@@ -9769,6 +13321,11 @@ export const allPokemonRoster = [
       "ja": "ジュナイパー"
     },
     "speed": 70,
+    "types": [
+      "grass",
+      "ghost"
+    ],
+    "generation": 7,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/724.png",
     "isChampion": true,
     "championId": "0724"
@@ -9785,7 +13342,12 @@ export const allPokemonRoster = [
     "icon": "/pokemon-icons/decidueye-hisuian.png",
     "id": "nat-0724-hisui",
     "isChampion": true,
-    "championId": "0724-hisui"
+    "championId": "0724-hisui",
+    "types": [
+      "grass",
+      "fighting"
+    ],
+    "generation": 7
   },
   {
     "id": "nat-0725",
@@ -9797,6 +13359,10 @@ export const allPokemonRoster = [
       "ja": "ニャビー"
     },
     "speed": 70,
+    "types": [
+      "fire"
+    ],
+    "generation": 7,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/725.png"
   },
   {
@@ -9809,6 +13375,10 @@ export const allPokemonRoster = [
       "ja": "ニャヒート"
     },
     "speed": 90,
+    "types": [
+      "fire"
+    ],
+    "generation": 7,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/726.png"
   },
   {
@@ -9821,6 +13391,11 @@ export const allPokemonRoster = [
       "ja": "ガオガエン"
     },
     "speed": 60,
+    "types": [
+      "fire",
+      "dark"
+    ],
+    "generation": 7,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/727.png",
     "isChampion": true,
     "championId": "0727"
@@ -9835,6 +13410,10 @@ export const allPokemonRoster = [
       "ja": "アシマリ"
     },
     "speed": 40,
+    "types": [
+      "water"
+    ],
+    "generation": 7,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/728.png"
   },
   {
@@ -9847,6 +13426,10 @@ export const allPokemonRoster = [
       "ja": "オシャマリ"
     },
     "speed": 50,
+    "types": [
+      "water"
+    ],
+    "generation": 7,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/729.png"
   },
   {
@@ -9859,6 +13442,11 @@ export const allPokemonRoster = [
       "ja": "アシレーヌ"
     },
     "speed": 60,
+    "types": [
+      "water",
+      "fairy"
+    ],
+    "generation": 7,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/730.png",
     "isChampion": true,
     "championId": "0730"
@@ -9873,6 +13461,11 @@ export const allPokemonRoster = [
       "ja": "ツツケラ"
     },
     "speed": 65,
+    "types": [
+      "normal",
+      "flying"
+    ],
+    "generation": 7,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/731.png"
   },
   {
@@ -9885,6 +13478,11 @@ export const allPokemonRoster = [
       "ja": "ケララッパ"
     },
     "speed": 75,
+    "types": [
+      "normal",
+      "flying"
+    ],
+    "generation": 7,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/732.png"
   },
   {
@@ -9897,6 +13495,11 @@ export const allPokemonRoster = [
       "ja": "ドデカバシ"
     },
     "speed": 60,
+    "types": [
+      "normal",
+      "flying"
+    ],
+    "generation": 7,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/733.png",
     "isChampion": true,
     "championId": "0733"
@@ -9911,6 +13514,10 @@ export const allPokemonRoster = [
       "ja": "ヤングース"
     },
     "speed": 45,
+    "types": [
+      "normal"
+    ],
+    "generation": 7,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/734.png"
   },
   {
@@ -9923,6 +13530,10 @@ export const allPokemonRoster = [
       "ja": "デカグース"
     },
     "speed": 45,
+    "types": [
+      "normal"
+    ],
+    "generation": 7,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/735.png"
   },
   {
@@ -9935,6 +13546,10 @@ export const allPokemonRoster = [
       "ja": "アゴジムシ"
     },
     "speed": 46,
+    "types": [
+      "bug"
+    ],
+    "generation": 7,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/736.png"
   },
   {
@@ -9947,6 +13562,11 @@ export const allPokemonRoster = [
       "ja": "デンヂムシ"
     },
     "speed": 36,
+    "types": [
+      "bug",
+      "electric"
+    ],
+    "generation": 7,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/737.png"
   },
   {
@@ -9959,6 +13579,11 @@ export const allPokemonRoster = [
       "ja": "クワガノン"
     },
     "speed": 43,
+    "types": [
+      "bug",
+      "electric"
+    ],
+    "generation": 7,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/738.png"
   },
   {
@@ -9971,6 +13596,10 @@ export const allPokemonRoster = [
       "ja": "マケンカニ"
     },
     "speed": 63,
+    "types": [
+      "fighting"
+    ],
+    "generation": 7,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/739.png"
   },
   {
@@ -9983,6 +13612,11 @@ export const allPokemonRoster = [
       "ja": "ケケンカニ"
     },
     "speed": 43,
+    "types": [
+      "fighting",
+      "ice"
+    ],
+    "generation": 7,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/740.png",
     "isChampion": true,
     "championId": "0740"
@@ -9997,6 +13631,11 @@ export const allPokemonRoster = [
       "ja": "オドリドリ"
     },
     "speed": 93,
+    "types": [
+      "fire",
+      "flying"
+    ],
+    "generation": 7,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/741.png"
   },
   {
@@ -10009,6 +13648,11 @@ export const allPokemonRoster = [
       "ja": "アブリー"
     },
     "speed": 84,
+    "types": [
+      "bug",
+      "fairy"
+    ],
+    "generation": 7,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/742.png"
   },
   {
@@ -10021,6 +13665,11 @@ export const allPokemonRoster = [
       "ja": "アブリボン"
     },
     "speed": 124,
+    "types": [
+      "bug",
+      "fairy"
+    ],
+    "generation": 7,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/743.png"
   },
   {
@@ -10033,6 +13682,10 @@ export const allPokemonRoster = [
       "ja": "イワンコ"
     },
     "speed": 60,
+    "types": [
+      "rock"
+    ],
+    "generation": 7,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/744.png"
   },
   {
@@ -10045,6 +13698,10 @@ export const allPokemonRoster = [
       "ja": "ルガルガン"
     },
     "speed": 112,
+    "types": [
+      "rock"
+    ],
+    "generation": 7,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/745.png"
   },
   {
@@ -10059,7 +13716,11 @@ export const allPokemonRoster = [
     "icon": "/pokemon-icons/lycanroc-dusk.png",
     "id": "nat-0745-dusk",
     "isChampion": true,
-    "championId": "0745-dusk"
+    "championId": "0745-dusk",
+    "types": [
+      "rock"
+    ],
+    "generation": 7
   },
   {
     "dexNo": 745,
@@ -10073,7 +13734,11 @@ export const allPokemonRoster = [
     "icon": "/pokemon-icons/lycanroc-midday.png",
     "id": "nat-0745-midday",
     "isChampion": true,
-    "championId": "0745-midday"
+    "championId": "0745-midday",
+    "types": [
+      "rock"
+    ],
+    "generation": 7
   },
   {
     "dexNo": 745,
@@ -10087,7 +13752,11 @@ export const allPokemonRoster = [
     "icon": "/pokemon-icons/lycanroc-midnight.png",
     "id": "nat-0745-midnight",
     "isChampion": true,
-    "championId": "0745-midnight"
+    "championId": "0745-midnight",
+    "types": [
+      "rock"
+    ],
+    "generation": 7
   },
   {
     "id": "nat-0746",
@@ -10099,6 +13768,10 @@ export const allPokemonRoster = [
       "ja": "ヨワシ"
     },
     "speed": 40,
+    "types": [
+      "water"
+    ],
+    "generation": 7,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/746.png"
   },
   {
@@ -10111,6 +13784,11 @@ export const allPokemonRoster = [
       "ja": "ヒドイデ"
     },
     "speed": 45,
+    "types": [
+      "poison",
+      "water"
+    ],
+    "generation": 7,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/747.png"
   },
   {
@@ -10123,6 +13801,11 @@ export const allPokemonRoster = [
       "ja": "ドヒドイデ"
     },
     "speed": 35,
+    "types": [
+      "poison",
+      "water"
+    ],
+    "generation": 7,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/748.png",
     "isChampion": true,
     "championId": "0748"
@@ -10137,6 +13820,10 @@ export const allPokemonRoster = [
       "ja": "ドロバンコ"
     },
     "speed": 45,
+    "types": [
+      "ground"
+    ],
+    "generation": 7,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/749.png"
   },
   {
@@ -10149,6 +13836,10 @@ export const allPokemonRoster = [
       "ja": "バンバドロ"
     },
     "speed": 35,
+    "types": [
+      "ground"
+    ],
+    "generation": 7,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/750.png",
     "isChampion": true,
     "championId": "0750"
@@ -10163,6 +13854,11 @@ export const allPokemonRoster = [
       "ja": "シズクモ"
     },
     "speed": 27,
+    "types": [
+      "water",
+      "bug"
+    ],
+    "generation": 7,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/751.png",
     "isChampion": true,
     "championId": "0751",
@@ -10178,6 +13874,11 @@ export const allPokemonRoster = [
       "ja": "オニシズクモ"
     },
     "speed": 42,
+    "types": [
+      "water",
+      "bug"
+    ],
+    "generation": 7,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/752.png"
   },
   {
@@ -10190,6 +13891,10 @@ export const allPokemonRoster = [
       "ja": "カリキリ"
     },
     "speed": 35,
+    "types": [
+      "grass"
+    ],
+    "generation": 7,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/753.png"
   },
   {
@@ -10202,6 +13907,10 @@ export const allPokemonRoster = [
       "ja": "ラランテス"
     },
     "speed": 45,
+    "types": [
+      "grass"
+    ],
+    "generation": 7,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/754.png"
   },
   {
@@ -10214,6 +13923,11 @@ export const allPokemonRoster = [
       "ja": "ネマシュ"
     },
     "speed": 15,
+    "types": [
+      "grass",
+      "fairy"
+    ],
+    "generation": 7,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/755.png"
   },
   {
@@ -10226,6 +13940,11 @@ export const allPokemonRoster = [
       "ja": "マシェード"
     },
     "speed": 30,
+    "types": [
+      "grass",
+      "fairy"
+    ],
+    "generation": 7,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/756.png"
   },
   {
@@ -10238,6 +13957,11 @@ export const allPokemonRoster = [
       "ja": "ヤトウモリ"
     },
     "speed": 77,
+    "types": [
+      "poison",
+      "fire"
+    ],
+    "generation": 7,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/757.png"
   },
   {
@@ -10250,6 +13974,11 @@ export const allPokemonRoster = [
       "ja": "エンニュート"
     },
     "speed": 117,
+    "types": [
+      "poison",
+      "fire"
+    ],
+    "generation": 7,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/758.png",
     "isChampion": true,
     "championId": "0758"
@@ -10264,6 +13993,11 @@ export const allPokemonRoster = [
       "ja": "ヌイコグマ"
     },
     "speed": 50,
+    "types": [
+      "normal",
+      "fighting"
+    ],
+    "generation": 7,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/759.png"
   },
   {
@@ -10276,6 +14010,11 @@ export const allPokemonRoster = [
       "ja": "キテルグマ"
     },
     "speed": 60,
+    "types": [
+      "normal",
+      "fighting"
+    ],
+    "generation": 7,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/760.png"
   },
   {
@@ -10288,6 +14027,10 @@ export const allPokemonRoster = [
       "ja": "アマカジ"
     },
     "speed": 32,
+    "types": [
+      "grass"
+    ],
+    "generation": 7,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/761.png"
   },
   {
@@ -10300,6 +14043,10 @@ export const allPokemonRoster = [
       "ja": "アママイコ"
     },
     "speed": 62,
+    "types": [
+      "grass"
+    ],
+    "generation": 7,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/762.png"
   },
   {
@@ -10312,6 +14059,10 @@ export const allPokemonRoster = [
       "ja": "アマージョ"
     },
     "speed": 72,
+    "types": [
+      "grass"
+    ],
+    "generation": 7,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/763.png",
     "isChampion": true,
     "championId": "0763"
@@ -10326,6 +14077,10 @@ export const allPokemonRoster = [
       "ja": "キュワワー"
     },
     "speed": 100,
+    "types": [
+      "fairy"
+    ],
+    "generation": 7,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/764.png"
   },
   {
@@ -10338,6 +14093,11 @@ export const allPokemonRoster = [
       "ja": "ヤレユータン"
     },
     "speed": 60,
+    "types": [
+      "normal",
+      "psychic"
+    ],
+    "generation": 7,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/765.png",
     "isChampion": true,
     "championId": "0765"
@@ -10352,6 +14112,10 @@ export const allPokemonRoster = [
       "ja": "ナゲツケサル"
     },
     "speed": 80,
+    "types": [
+      "fighting"
+    ],
+    "generation": 7,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/766.png",
     "isChampion": true,
     "championId": "0766"
@@ -10366,6 +14130,11 @@ export const allPokemonRoster = [
       "ja": "コソクムシ"
     },
     "speed": 80,
+    "types": [
+      "bug",
+      "water"
+    ],
+    "generation": 7,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/767.png"
   },
   {
@@ -10378,6 +14147,11 @@ export const allPokemonRoster = [
       "ja": "グソクムシャ"
     },
     "speed": 40,
+    "types": [
+      "bug",
+      "water"
+    ],
+    "generation": 7,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/768.png"
   },
   {
@@ -10390,6 +14164,11 @@ export const allPokemonRoster = [
       "ja": "スナバァ"
     },
     "speed": 15,
+    "types": [
+      "ghost",
+      "ground"
+    ],
+    "generation": 7,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/769.png"
   },
   {
@@ -10402,6 +14181,11 @@ export const allPokemonRoster = [
       "ja": "シロデスナ"
     },
     "speed": 35,
+    "types": [
+      "ghost",
+      "ground"
+    ],
+    "generation": 7,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/770.png"
   },
   {
@@ -10414,6 +14198,10 @@ export const allPokemonRoster = [
       "ja": "ナマコブシ"
     },
     "speed": 5,
+    "types": [
+      "water"
+    ],
+    "generation": 7,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/771.png"
   },
   {
@@ -10426,6 +14214,10 @@ export const allPokemonRoster = [
       "ja": "タイプ：ヌル"
     },
     "speed": 59,
+    "types": [
+      "normal"
+    ],
+    "generation": 7,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/772.png"
   },
   {
@@ -10438,6 +14230,10 @@ export const allPokemonRoster = [
       "ja": "シルヴァディ"
     },
     "speed": 95,
+    "types": [
+      "normal"
+    ],
+    "generation": 7,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/773.png"
   },
   {
@@ -10450,6 +14246,11 @@ export const allPokemonRoster = [
       "ja": "メテノ"
     },
     "speed": 60,
+    "types": [
+      "rock",
+      "flying"
+    ],
+    "generation": 7,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/774.png"
   },
   {
@@ -10462,6 +14263,10 @@ export const allPokemonRoster = [
       "ja": "ネッコアラ"
     },
     "speed": 65,
+    "types": [
+      "normal"
+    ],
+    "generation": 7,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/775.png"
   },
   {
@@ -10474,6 +14279,11 @@ export const allPokemonRoster = [
       "ja": "バクガメス"
     },
     "speed": 36,
+    "types": [
+      "fire",
+      "dragon"
+    ],
+    "generation": 7,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/776.png"
   },
   {
@@ -10486,6 +14296,11 @@ export const allPokemonRoster = [
       "ja": "トゲデマル"
     },
     "speed": 96,
+    "types": [
+      "electric",
+      "steel"
+    ],
+    "generation": 7,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/777.png"
   },
   {
@@ -10498,6 +14313,11 @@ export const allPokemonRoster = [
       "ja": "ミミッキュ"
     },
     "speed": 96,
+    "types": [
+      "ghost",
+      "fairy"
+    ],
+    "generation": 7,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/778.png",
     "isChampion": true,
     "championId": "0778"
@@ -10512,6 +14332,11 @@ export const allPokemonRoster = [
       "ja": "ハギギシリ"
     },
     "speed": 92,
+    "types": [
+      "water",
+      "psychic"
+    ],
+    "generation": 7,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/779.png",
     "isChampion": true,
     "championId": "0779",
@@ -10527,6 +14352,11 @@ export const allPokemonRoster = [
       "ja": "ジジーロン"
     },
     "speed": 36,
+    "types": [
+      "normal",
+      "dragon"
+    ],
+    "generation": 7,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/780.png"
   },
   {
@@ -10539,6 +14369,11 @@ export const allPokemonRoster = [
       "ja": "ダダリン"
     },
     "speed": 40,
+    "types": [
+      "ghost",
+      "grass"
+    ],
+    "generation": 7,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/781.png"
   },
   {
@@ -10551,6 +14386,10 @@ export const allPokemonRoster = [
       "ja": "ジャラコ"
     },
     "speed": 45,
+    "types": [
+      "dragon"
+    ],
+    "generation": 7,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/782.png"
   },
   {
@@ -10563,6 +14402,11 @@ export const allPokemonRoster = [
       "ja": "ジャランゴ"
     },
     "speed": 65,
+    "types": [
+      "dragon",
+      "fighting"
+    ],
+    "generation": 7,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/783.png"
   },
   {
@@ -10575,6 +14419,11 @@ export const allPokemonRoster = [
       "ja": "ジャラランガ"
     },
     "speed": 85,
+    "types": [
+      "dragon",
+      "fighting"
+    ],
+    "generation": 7,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/784.png",
     "isChampion": true,
     "championId": "0784"
@@ -10589,6 +14438,11 @@ export const allPokemonRoster = [
       "ja": "カプ・コケコ"
     },
     "speed": 130,
+    "types": [
+      "electric",
+      "fairy"
+    ],
+    "generation": 7,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/785.png"
   },
   {
@@ -10601,6 +14455,11 @@ export const allPokemonRoster = [
       "ja": "カプ・テテフ"
     },
     "speed": 95,
+    "types": [
+      "psychic",
+      "fairy"
+    ],
+    "generation": 7,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/786.png"
   },
   {
@@ -10613,6 +14472,11 @@ export const allPokemonRoster = [
       "ja": "カプ・ブルル"
     },
     "speed": 75,
+    "types": [
+      "grass",
+      "fairy"
+    ],
+    "generation": 7,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/787.png"
   },
   {
@@ -10625,6 +14489,11 @@ export const allPokemonRoster = [
       "ja": "カプ・レヒレ"
     },
     "speed": 85,
+    "types": [
+      "water",
+      "fairy"
+    ],
+    "generation": 7,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/788.png"
   },
   {
@@ -10637,6 +14506,10 @@ export const allPokemonRoster = [
       "ja": "コスモッグ"
     },
     "speed": 37,
+    "types": [
+      "psychic"
+    ],
+    "generation": 7,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/789.png"
   },
   {
@@ -10649,6 +14522,10 @@ export const allPokemonRoster = [
       "ja": "コスモウム"
     },
     "speed": 37,
+    "types": [
+      "psychic"
+    ],
+    "generation": 7,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/790.png"
   },
   {
@@ -10661,6 +14538,11 @@ export const allPokemonRoster = [
       "ja": "ソルガレオ"
     },
     "speed": 97,
+    "types": [
+      "psychic",
+      "steel"
+    ],
+    "generation": 7,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/791.png"
   },
   {
@@ -10673,6 +14555,11 @@ export const allPokemonRoster = [
       "ja": "ルナアーラ"
     },
     "speed": 97,
+    "types": [
+      "psychic",
+      "ghost"
+    ],
+    "generation": 7,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/792.png"
   },
   {
@@ -10685,6 +14572,11 @@ export const allPokemonRoster = [
       "ja": "ウツロイド"
     },
     "speed": 103,
+    "types": [
+      "rock",
+      "poison"
+    ],
+    "generation": 7,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/793.png"
   },
   {
@@ -10697,6 +14589,11 @@ export const allPokemonRoster = [
       "ja": "マッシブーン"
     },
     "speed": 79,
+    "types": [
+      "bug",
+      "fighting"
+    ],
+    "generation": 7,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/794.png"
   },
   {
@@ -10709,6 +14606,11 @@ export const allPokemonRoster = [
       "ja": "フェローチェ"
     },
     "speed": 151,
+    "types": [
+      "bug",
+      "fighting"
+    ],
+    "generation": 7,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/795.png"
   },
   {
@@ -10721,6 +14623,10 @@ export const allPokemonRoster = [
       "ja": "デンジュモク"
     },
     "speed": 83,
+    "types": [
+      "electric"
+    ],
+    "generation": 7,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/796.png"
   },
   {
@@ -10733,6 +14639,11 @@ export const allPokemonRoster = [
       "ja": "テッカグヤ"
     },
     "speed": 61,
+    "types": [
+      "steel",
+      "flying"
+    ],
+    "generation": 7,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/797.png"
   },
   {
@@ -10745,6 +14656,11 @@ export const allPokemonRoster = [
       "ja": "カミツルギ"
     },
     "speed": 109,
+    "types": [
+      "grass",
+      "steel"
+    ],
+    "generation": 7,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/798.png"
   },
   {
@@ -10757,6 +14673,11 @@ export const allPokemonRoster = [
       "ja": "アクジキング"
     },
     "speed": 43,
+    "types": [
+      "dark",
+      "dragon"
+    ],
+    "generation": 7,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/799.png"
   },
   {
@@ -10769,6 +14690,10 @@ export const allPokemonRoster = [
       "ja": "ネクロズマ"
     },
     "speed": 79,
+    "types": [
+      "psychic"
+    ],
+    "generation": 7,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/800.png"
   },
   {
@@ -10781,6 +14706,11 @@ export const allPokemonRoster = [
       "ja": "マギアナ"
     },
     "speed": 65,
+    "types": [
+      "steel",
+      "fairy"
+    ],
+    "generation": 7,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/801.png"
   },
   {
@@ -10793,6 +14723,11 @@ export const allPokemonRoster = [
       "ja": "マーシャドー"
     },
     "speed": 125,
+    "types": [
+      "fighting",
+      "ghost"
+    ],
+    "generation": 7,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/802.png"
   },
   {
@@ -10805,6 +14740,10 @@ export const allPokemonRoster = [
       "ja": "ベベノム"
     },
     "speed": 73,
+    "types": [
+      "poison"
+    ],
+    "generation": 7,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/803.png"
   },
   {
@@ -10817,6 +14756,11 @@ export const allPokemonRoster = [
       "ja": "アーゴヨン"
     },
     "speed": 121,
+    "types": [
+      "poison",
+      "dragon"
+    ],
+    "generation": 7,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/804.png"
   },
   {
@@ -10829,6 +14773,11 @@ export const allPokemonRoster = [
       "ja": "ツンデツンデ"
     },
     "speed": 13,
+    "types": [
+      "rock",
+      "steel"
+    ],
+    "generation": 7,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/805.png"
   },
   {
@@ -10841,6 +14790,11 @@ export const allPokemonRoster = [
       "ja": "ズガドーン"
     },
     "speed": 107,
+    "types": [
+      "fire",
+      "ghost"
+    ],
+    "generation": 7,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/806.png"
   },
   {
@@ -10853,6 +14807,10 @@ export const allPokemonRoster = [
       "ja": "ゼラオラ"
     },
     "speed": 143,
+    "types": [
+      "electric"
+    ],
+    "generation": 7,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/807.png"
   },
   {
@@ -10865,6 +14823,10 @@ export const allPokemonRoster = [
       "ja": "メルタン"
     },
     "speed": 34,
+    "types": [
+      "steel"
+    ],
+    "generation": 7,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/808.png"
   },
   {
@@ -10877,6 +14839,10 @@ export const allPokemonRoster = [
       "ja": "メルメタル"
     },
     "speed": 34,
+    "types": [
+      "steel"
+    ],
+    "generation": 7,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/809.png"
   },
   {
@@ -10889,6 +14855,10 @@ export const allPokemonRoster = [
       "ja": "サルノリ"
     },
     "speed": 65,
+    "types": [
+      "grass"
+    ],
+    "generation": 8,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/810.png"
   },
   {
@@ -10901,6 +14871,10 @@ export const allPokemonRoster = [
       "ja": "バチンキー"
     },
     "speed": 80,
+    "types": [
+      "grass"
+    ],
+    "generation": 8,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/811.png"
   },
   {
@@ -10913,6 +14887,10 @@ export const allPokemonRoster = [
       "ja": "ゴリランダー"
     },
     "speed": 85,
+    "types": [
+      "grass"
+    ],
+    "generation": 8,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/812.png"
   },
   {
@@ -10925,6 +14903,10 @@ export const allPokemonRoster = [
       "ja": "ヒバニー"
     },
     "speed": 69,
+    "types": [
+      "fire"
+    ],
+    "generation": 8,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/813.png"
   },
   {
@@ -10937,6 +14919,10 @@ export const allPokemonRoster = [
       "ja": "ラビフット"
     },
     "speed": 94,
+    "types": [
+      "fire"
+    ],
+    "generation": 8,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/814.png"
   },
   {
@@ -10949,6 +14935,10 @@ export const allPokemonRoster = [
       "ja": "エースバーン"
     },
     "speed": 119,
+    "types": [
+      "fire"
+    ],
+    "generation": 8,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/815.png"
   },
   {
@@ -10961,6 +14951,10 @@ export const allPokemonRoster = [
       "ja": "メッソン"
     },
     "speed": 70,
+    "types": [
+      "water"
+    ],
+    "generation": 8,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/816.png"
   },
   {
@@ -10973,6 +14967,10 @@ export const allPokemonRoster = [
       "ja": "ジメレオン"
     },
     "speed": 90,
+    "types": [
+      "water"
+    ],
+    "generation": 8,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/817.png"
   },
   {
@@ -10985,6 +14983,10 @@ export const allPokemonRoster = [
       "ja": "インテレオン"
     },
     "speed": 120,
+    "types": [
+      "water"
+    ],
+    "generation": 8,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/818.png"
   },
   {
@@ -10997,6 +14999,10 @@ export const allPokemonRoster = [
       "ja": "ホシガリス"
     },
     "speed": 25,
+    "types": [
+      "normal"
+    ],
+    "generation": 8,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/819.png"
   },
   {
@@ -11009,6 +15015,10 @@ export const allPokemonRoster = [
       "ja": "ヨクバリス"
     },
     "speed": 20,
+    "types": [
+      "normal"
+    ],
+    "generation": 8,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/820.png"
   },
   {
@@ -11021,6 +15031,10 @@ export const allPokemonRoster = [
       "ja": "ココガラ"
     },
     "speed": 57,
+    "types": [
+      "flying"
+    ],
+    "generation": 8,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/821.png"
   },
   {
@@ -11033,6 +15047,10 @@ export const allPokemonRoster = [
       "ja": "アオガラス"
     },
     "speed": 77,
+    "types": [
+      "flying"
+    ],
+    "generation": 8,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/822.png"
   },
   {
@@ -11045,6 +15063,11 @@ export const allPokemonRoster = [
       "ja": "アーマーガア"
     },
     "speed": 67,
+    "types": [
+      "flying",
+      "steel"
+    ],
+    "generation": 8,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/823.png",
     "isChampion": true,
     "championId": "0823"
@@ -11059,6 +15082,10 @@ export const allPokemonRoster = [
       "ja": "サッチムシ"
     },
     "speed": 45,
+    "types": [
+      "bug"
+    ],
+    "generation": 8,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/824.png"
   },
   {
@@ -11071,6 +15098,11 @@ export const allPokemonRoster = [
       "ja": "レドームシ"
     },
     "speed": 30,
+    "types": [
+      "bug",
+      "psychic"
+    ],
+    "generation": 8,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/825.png"
   },
   {
@@ -11083,6 +15115,11 @@ export const allPokemonRoster = [
       "ja": "イオルブ"
     },
     "speed": 90,
+    "types": [
+      "bug",
+      "psychic"
+    ],
+    "generation": 8,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/826.png"
   },
   {
@@ -11095,6 +15132,10 @@ export const allPokemonRoster = [
       "ja": "クスネ"
     },
     "speed": 50,
+    "types": [
+      "dark"
+    ],
+    "generation": 8,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/827.png"
   },
   {
@@ -11107,6 +15148,10 @@ export const allPokemonRoster = [
       "ja": "フォクスライ"
     },
     "speed": 90,
+    "types": [
+      "dark"
+    ],
+    "generation": 8,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/828.png"
   },
   {
@@ -11119,6 +15164,10 @@ export const allPokemonRoster = [
       "ja": "ヒメンカ"
     },
     "speed": 10,
+    "types": [
+      "grass"
+    ],
+    "generation": 8,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/829.png"
   },
   {
@@ -11131,6 +15180,10 @@ export const allPokemonRoster = [
       "ja": "ワタシラガ"
     },
     "speed": 60,
+    "types": [
+      "grass"
+    ],
+    "generation": 8,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/830.png"
   },
   {
@@ -11143,6 +15196,10 @@ export const allPokemonRoster = [
       "ja": "ウールー"
     },
     "speed": 48,
+    "types": [
+      "normal"
+    ],
+    "generation": 8,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/831.png"
   },
   {
@@ -11155,6 +15212,10 @@ export const allPokemonRoster = [
       "ja": "バイウールー"
     },
     "speed": 88,
+    "types": [
+      "normal"
+    ],
+    "generation": 8,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/832.png"
   },
   {
@@ -11167,6 +15228,10 @@ export const allPokemonRoster = [
       "ja": "カムカメ"
     },
     "speed": 44,
+    "types": [
+      "water"
+    ],
+    "generation": 8,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/833.png"
   },
   {
@@ -11179,6 +15244,11 @@ export const allPokemonRoster = [
       "ja": "カジリガメ"
     },
     "speed": 74,
+    "types": [
+      "water",
+      "rock"
+    ],
+    "generation": 8,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/834.png"
   },
   {
@@ -11191,6 +15261,10 @@ export const allPokemonRoster = [
       "ja": "ワンパチ"
     },
     "speed": 26,
+    "types": [
+      "electric"
+    ],
+    "generation": 8,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/835.png"
   },
   {
@@ -11203,6 +15277,10 @@ export const allPokemonRoster = [
       "ja": "パルスワン"
     },
     "speed": 121,
+    "types": [
+      "electric"
+    ],
+    "generation": 8,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/836.png"
   },
   {
@@ -11215,6 +15293,10 @@ export const allPokemonRoster = [
       "ja": "タンドン"
     },
     "speed": 30,
+    "types": [
+      "rock"
+    ],
+    "generation": 8,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/837.png"
   },
   {
@@ -11227,6 +15309,11 @@ export const allPokemonRoster = [
       "ja": "トロッゴン"
     },
     "speed": 50,
+    "types": [
+      "rock",
+      "fire"
+    ],
+    "generation": 8,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/838.png"
   },
   {
@@ -11239,6 +15326,11 @@ export const allPokemonRoster = [
       "ja": "セキタンザン"
     },
     "speed": 30,
+    "types": [
+      "rock",
+      "fire"
+    ],
+    "generation": 8,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/839.png"
   },
   {
@@ -11251,6 +15343,11 @@ export const allPokemonRoster = [
       "ja": "カジッチュ"
     },
     "speed": 20,
+    "types": [
+      "grass",
+      "dragon"
+    ],
+    "generation": 8,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/840.png"
   },
   {
@@ -11263,6 +15360,11 @@ export const allPokemonRoster = [
       "ja": "アップリュー"
     },
     "speed": 70,
+    "types": [
+      "grass",
+      "dragon"
+    ],
+    "generation": 8,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/841.png",
     "isChampion": true,
     "championId": "0841"
@@ -11277,6 +15379,11 @@ export const allPokemonRoster = [
       "ja": "タルップル"
     },
     "speed": 30,
+    "types": [
+      "grass",
+      "dragon"
+    ],
+    "generation": 8,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/842.png",
     "isChampion": true,
     "championId": "0842"
@@ -11291,6 +15398,10 @@ export const allPokemonRoster = [
       "ja": "スナヘビ"
     },
     "speed": 46,
+    "types": [
+      "ground"
+    ],
+    "generation": 8,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/843.png"
   },
   {
@@ -11303,6 +15414,10 @@ export const allPokemonRoster = [
       "ja": "サダイジャ"
     },
     "speed": 71,
+    "types": [
+      "ground"
+    ],
+    "generation": 8,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/844.png",
     "isChampion": true,
     "championId": "0844"
@@ -11317,6 +15432,11 @@ export const allPokemonRoster = [
       "ja": "ウッウ"
     },
     "speed": 85,
+    "types": [
+      "flying",
+      "water"
+    ],
+    "generation": 8,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/845.png"
   },
   {
@@ -11329,6 +15449,10 @@ export const allPokemonRoster = [
       "ja": "サシカマス"
     },
     "speed": 66,
+    "types": [
+      "water"
+    ],
+    "generation": 8,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/846.png"
   },
   {
@@ -11341,6 +15465,10 @@ export const allPokemonRoster = [
       "ja": "カマスジョー"
     },
     "speed": 136,
+    "types": [
+      "water"
+    ],
+    "generation": 8,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/847.png"
   },
   {
@@ -11353,6 +15481,11 @@ export const allPokemonRoster = [
       "ja": "エレズン"
     },
     "speed": 40,
+    "types": [
+      "electric",
+      "poison"
+    ],
+    "generation": 8,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/848.png"
   },
   {
@@ -11365,6 +15498,11 @@ export const allPokemonRoster = [
       "ja": "ストリンダー"
     },
     "speed": 75,
+    "types": [
+      "electric",
+      "poison"
+    ],
+    "generation": 8,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/849.png"
   },
   {
@@ -11377,6 +15515,11 @@ export const allPokemonRoster = [
       "ja": "ヤクデ"
     },
     "speed": 45,
+    "types": [
+      "fire",
+      "bug"
+    ],
+    "generation": 8,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/850.png"
   },
   {
@@ -11389,6 +15532,11 @@ export const allPokemonRoster = [
       "ja": "マルヤクデ"
     },
     "speed": 65,
+    "types": [
+      "fire",
+      "bug"
+    ],
+    "generation": 8,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/851.png"
   },
   {
@@ -11401,6 +15549,10 @@ export const allPokemonRoster = [
       "ja": "タタッコ"
     },
     "speed": 32,
+    "types": [
+      "fighting"
+    ],
+    "generation": 8,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/852.png"
   },
   {
@@ -11413,6 +15565,10 @@ export const allPokemonRoster = [
       "ja": "オトスパス"
     },
     "speed": 42,
+    "types": [
+      "fighting"
+    ],
+    "generation": 8,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/853.png"
   },
   {
@@ -11425,6 +15581,10 @@ export const allPokemonRoster = [
       "ja": "ヤバチャ"
     },
     "speed": 50,
+    "types": [
+      "ghost"
+    ],
+    "generation": 8,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/854.png"
   },
   {
@@ -11437,6 +15597,10 @@ export const allPokemonRoster = [
       "ja": "ポットデス"
     },
     "speed": 70,
+    "types": [
+      "ghost"
+    ],
+    "generation": 8,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/855.png",
     "isChampion": true,
     "championId": "0855"
@@ -11451,6 +15615,10 @@ export const allPokemonRoster = [
       "ja": "ミブリム"
     },
     "speed": 39,
+    "types": [
+      "psychic"
+    ],
+    "generation": 8,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/856.png"
   },
   {
@@ -11463,6 +15631,10 @@ export const allPokemonRoster = [
       "ja": "テブリム"
     },
     "speed": 49,
+    "types": [
+      "psychic"
+    ],
+    "generation": 8,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/857.png"
   },
   {
@@ -11475,6 +15647,11 @@ export const allPokemonRoster = [
       "ja": "ブリムオン"
     },
     "speed": 29,
+    "types": [
+      "psychic",
+      "fairy"
+    ],
+    "generation": 8,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/858.png",
     "isChampion": true,
     "championId": "0858"
@@ -11489,6 +15666,11 @@ export const allPokemonRoster = [
       "ja": "ベロバー"
     },
     "speed": 50,
+    "types": [
+      "dark",
+      "fairy"
+    ],
+    "generation": 8,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/859.png"
   },
   {
@@ -11501,6 +15683,11 @@ export const allPokemonRoster = [
       "ja": "ギモー"
     },
     "speed": 70,
+    "types": [
+      "dark",
+      "fairy"
+    ],
+    "generation": 8,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/860.png"
   },
   {
@@ -11513,6 +15700,11 @@ export const allPokemonRoster = [
       "ja": "オーロンゲ"
     },
     "speed": 60,
+    "types": [
+      "dark",
+      "fairy"
+    ],
+    "generation": 8,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/861.png"
   },
   {
@@ -11525,6 +15717,11 @@ export const allPokemonRoster = [
       "ja": "タチフサグマ"
     },
     "speed": 95,
+    "types": [
+      "dark",
+      "normal"
+    ],
+    "generation": 8,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/862.png"
   },
   {
@@ -11537,6 +15734,10 @@ export const allPokemonRoster = [
       "ja": "ニャイキング"
     },
     "speed": 50,
+    "types": [
+      "steel"
+    ],
+    "generation": 8,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/863.png"
   },
   {
@@ -11549,6 +15750,10 @@ export const allPokemonRoster = [
       "ja": "サニゴーン"
     },
     "speed": 30,
+    "types": [
+      "ghost"
+    ],
+    "generation": 8,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/864.png"
   },
   {
@@ -11561,6 +15766,10 @@ export const allPokemonRoster = [
       "ja": "ネギガナイト"
     },
     "speed": 65,
+    "types": [
+      "fighting"
+    ],
+    "generation": 8,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/865.png"
   },
   {
@@ -11573,6 +15782,11 @@ export const allPokemonRoster = [
       "ja": "バリコオル"
     },
     "speed": 70,
+    "types": [
+      "ice",
+      "psychic"
+    ],
+    "generation": 8,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/866.png",
     "isChampion": true,
     "championId": "0866"
@@ -11587,6 +15801,11 @@ export const allPokemonRoster = [
       "ja": "デスバーン"
     },
     "speed": 30,
+    "types": [
+      "ground",
+      "ghost"
+    ],
+    "generation": 8,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/867.png",
     "isChampion": true,
     "championId": "0867"
@@ -11601,6 +15820,10 @@ export const allPokemonRoster = [
       "ja": "マホミル"
     },
     "speed": 34,
+    "types": [
+      "fairy"
+    ],
+    "generation": 8,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/868.png"
   },
   {
@@ -11613,6 +15836,10 @@ export const allPokemonRoster = [
       "ja": "マホイップ"
     },
     "speed": 64,
+    "types": [
+      "fairy"
+    ],
+    "generation": 8,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/869.png",
     "isChampion": true,
     "championId": "0869"
@@ -11627,6 +15854,10 @@ export const allPokemonRoster = [
       "ja": "タイレーツ"
     },
     "speed": 75,
+    "types": [
+      "fighting"
+    ],
+    "generation": 8,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/870.png"
   },
   {
@@ -11639,6 +15870,10 @@ export const allPokemonRoster = [
       "ja": "バチンウニ"
     },
     "speed": 15,
+    "types": [
+      "electric"
+    ],
+    "generation": 8,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/871.png"
   },
   {
@@ -11651,6 +15886,11 @@ export const allPokemonRoster = [
       "ja": "ユキハミ"
     },
     "speed": 20,
+    "types": [
+      "ice",
+      "bug"
+    ],
+    "generation": 8,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/872.png"
   },
   {
@@ -11663,6 +15903,11 @@ export const allPokemonRoster = [
       "ja": "モスノウ"
     },
     "speed": 65,
+    "types": [
+      "ice",
+      "bug"
+    ],
+    "generation": 8,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/873.png"
   },
   {
@@ -11675,6 +15920,10 @@ export const allPokemonRoster = [
       "ja": "イシヘンジン"
     },
     "speed": 70,
+    "types": [
+      "rock"
+    ],
+    "generation": 8,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/874.png"
   },
   {
@@ -11687,6 +15936,10 @@ export const allPokemonRoster = [
       "ja": "コオリッポ"
     },
     "speed": 50,
+    "types": [
+      "ice"
+    ],
+    "generation": 8,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/875.png"
   },
   {
@@ -11699,6 +15952,11 @@ export const allPokemonRoster = [
       "ja": "イエッサン"
     },
     "speed": 95,
+    "types": [
+      "psychic",
+      "normal"
+    ],
+    "generation": 8,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/876.png"
   },
   {
@@ -11711,6 +15969,11 @@ export const allPokemonRoster = [
       "ja": "モルペコ"
     },
     "speed": 97,
+    "types": [
+      "electric",
+      "dark"
+    ],
+    "generation": 8,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/877.png",
     "isChampion": true,
     "championId": "0877"
@@ -11725,6 +15988,10 @@ export const allPokemonRoster = [
       "ja": "ゾウドウ"
     },
     "speed": 40,
+    "types": [
+      "steel"
+    ],
+    "generation": 8,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/878.png"
   },
   {
@@ -11737,6 +16004,10 @@ export const allPokemonRoster = [
       "ja": "ダイオウドウ"
     },
     "speed": 30,
+    "types": [
+      "steel"
+    ],
+    "generation": 8,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/879.png"
   },
   {
@@ -11749,6 +16020,11 @@ export const allPokemonRoster = [
       "ja": "パッチラゴン"
     },
     "speed": 75,
+    "types": [
+      "electric",
+      "dragon"
+    ],
+    "generation": 8,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/880.png"
   },
   {
@@ -11761,6 +16037,11 @@ export const allPokemonRoster = [
       "ja": "パッチルドン"
     },
     "speed": 55,
+    "types": [
+      "electric",
+      "ice"
+    ],
+    "generation": 8,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/881.png"
   },
   {
@@ -11773,6 +16054,11 @@ export const allPokemonRoster = [
       "ja": "ウオノラゴン"
     },
     "speed": 75,
+    "types": [
+      "water",
+      "dragon"
+    ],
+    "generation": 8,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/882.png"
   },
   {
@@ -11785,6 +16071,11 @@ export const allPokemonRoster = [
       "ja": "ウオチルドン"
     },
     "speed": 55,
+    "types": [
+      "water",
+      "ice"
+    ],
+    "generation": 8,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/883.png"
   },
   {
@@ -11797,6 +16088,11 @@ export const allPokemonRoster = [
       "ja": "ジュラルドン"
     },
     "speed": 85,
+    "types": [
+      "steel",
+      "dragon"
+    ],
+    "generation": 8,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/884.png"
   },
   {
@@ -11809,6 +16105,11 @@ export const allPokemonRoster = [
       "ja": "ドラメシヤ"
     },
     "speed": 82,
+    "types": [
+      "dragon",
+      "ghost"
+    ],
+    "generation": 8,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/885.png"
   },
   {
@@ -11821,6 +16122,11 @@ export const allPokemonRoster = [
       "ja": "ドロンチ"
     },
     "speed": 102,
+    "types": [
+      "dragon",
+      "ghost"
+    ],
+    "generation": 8,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/886.png"
   },
   {
@@ -11833,6 +16139,11 @@ export const allPokemonRoster = [
       "ja": "ドラパルト"
     },
     "speed": 142,
+    "types": [
+      "dragon",
+      "ghost"
+    ],
+    "generation": 8,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/887.png",
     "isChampion": true,
     "championId": "0887"
@@ -11847,6 +16158,10 @@ export const allPokemonRoster = [
       "ja": "ザシアン"
     },
     "speed": 138,
+    "types": [
+      "fairy"
+    ],
+    "generation": 8,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/888.png"
   },
   {
@@ -11859,6 +16174,10 @@ export const allPokemonRoster = [
       "ja": "ザマゼンタ"
     },
     "speed": 138,
+    "types": [
+      "fighting"
+    ],
+    "generation": 8,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/889.png"
   },
   {
@@ -11871,6 +16190,11 @@ export const allPokemonRoster = [
       "ja": "ムゲンダイナ"
     },
     "speed": 130,
+    "types": [
+      "poison",
+      "dragon"
+    ],
+    "generation": 8,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/890.png"
   },
   {
@@ -11883,6 +16207,10 @@ export const allPokemonRoster = [
       "ja": "ダクマ"
     },
     "speed": 72,
+    "types": [
+      "fighting"
+    ],
+    "generation": 8,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/891.png"
   },
   {
@@ -11895,6 +16223,11 @@ export const allPokemonRoster = [
       "ja": "ウーラオス"
     },
     "speed": 97,
+    "types": [
+      "fighting",
+      "dark"
+    ],
+    "generation": 8,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/892.png"
   },
   {
@@ -11907,6 +16240,11 @@ export const allPokemonRoster = [
       "ja": "ザルード"
     },
     "speed": 105,
+    "types": [
+      "dark",
+      "grass"
+    ],
+    "generation": 8,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/893.png"
   },
   {
@@ -11919,6 +16257,10 @@ export const allPokemonRoster = [
       "ja": "レジエレキ"
     },
     "speed": 200,
+    "types": [
+      "electric"
+    ],
+    "generation": 8,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/894.png"
   },
   {
@@ -11931,6 +16273,10 @@ export const allPokemonRoster = [
       "ja": "レジドラゴ"
     },
     "speed": 80,
+    "types": [
+      "dragon"
+    ],
+    "generation": 8,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/895.png"
   },
   {
@@ -11943,6 +16289,10 @@ export const allPokemonRoster = [
       "ja": "ブリザポス"
     },
     "speed": 30,
+    "types": [
+      "ice"
+    ],
+    "generation": 8,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/896.png"
   },
   {
@@ -11955,6 +16305,10 @@ export const allPokemonRoster = [
       "ja": "レイスポス"
     },
     "speed": 130,
+    "types": [
+      "ghost"
+    ],
+    "generation": 8,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/897.png"
   },
   {
@@ -11967,6 +16321,11 @@ export const allPokemonRoster = [
       "ja": "バドレックス"
     },
     "speed": 80,
+    "types": [
+      "psychic",
+      "grass"
+    ],
+    "generation": 8,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/898.png"
   },
   {
@@ -11979,6 +16338,11 @@ export const allPokemonRoster = [
       "ja": "アヤシシ"
     },
     "speed": 65,
+    "types": [
+      "normal",
+      "psychic"
+    ],
+    "generation": 8,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/899.png",
     "isChampion": true,
     "championId": "0899"
@@ -11993,6 +16357,11 @@ export const allPokemonRoster = [
       "ja": "バサギリ"
     },
     "speed": 85,
+    "types": [
+      "bug",
+      "rock"
+    ],
+    "generation": 8,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/900.png",
     "isChampion": true,
     "championId": "0900"
@@ -12007,6 +16376,11 @@ export const allPokemonRoster = [
       "ja": "ガチグマ"
     },
     "speed": 50,
+    "types": [
+      "ground",
+      "normal"
+    ],
+    "generation": 8,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/901.png"
   },
   {
@@ -12019,6 +16393,11 @@ export const allPokemonRoster = [
       "ja": "イダイトウ"
     },
     "speed": 78,
+    "types": [
+      "water",
+      "ghost"
+    ],
+    "generation": 8,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/902.png",
     "isChampion": true,
     "championId": "0902"
@@ -12033,6 +16412,11 @@ export const allPokemonRoster = [
       "ja": "オオニューラ"
     },
     "speed": 120,
+    "types": [
+      "fighting",
+      "poison"
+    ],
+    "generation": 8,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/903.png",
     "isChampion": true,
     "championId": "0903"
@@ -12047,6 +16431,11 @@ export const allPokemonRoster = [
       "ja": "ハリーマン"
     },
     "speed": 85,
+    "types": [
+      "dark",
+      "poison"
+    ],
+    "generation": 8,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/904.png"
   },
   {
@@ -12059,6 +16448,11 @@ export const allPokemonRoster = [
       "ja": "ラブトロス"
     },
     "speed": 106,
+    "types": [
+      "fairy",
+      "flying"
+    ],
+    "generation": 8,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/905.png"
   },
   {
@@ -12071,6 +16465,10 @@ export const allPokemonRoster = [
       "ja": "ニャオハ"
     },
     "speed": 65,
+    "types": [
+      "grass"
+    ],
+    "generation": 9,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/906.png"
   },
   {
@@ -12083,6 +16481,10 @@ export const allPokemonRoster = [
       "ja": "ニャローテ"
     },
     "speed": 83,
+    "types": [
+      "grass"
+    ],
+    "generation": 9,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/907.png"
   },
   {
@@ -12095,6 +16497,11 @@ export const allPokemonRoster = [
       "ja": "マスカーニャ"
     },
     "speed": 123,
+    "types": [
+      "grass",
+      "dark"
+    ],
+    "generation": 9,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/908.png",
     "isChampion": true,
     "championId": "0908"
@@ -12109,6 +16516,10 @@ export const allPokemonRoster = [
       "ja": "ホゲータ"
     },
     "speed": 36,
+    "types": [
+      "fire"
+    ],
+    "generation": 9,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/909.png"
   },
   {
@@ -12121,6 +16532,10 @@ export const allPokemonRoster = [
       "ja": "アチゲータ"
     },
     "speed": 49,
+    "types": [
+      "fire"
+    ],
+    "generation": 9,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/910.png"
   },
   {
@@ -12133,6 +16548,11 @@ export const allPokemonRoster = [
       "ja": "ラウドボーン"
     },
     "speed": 66,
+    "types": [
+      "fire",
+      "ghost"
+    ],
+    "generation": 9,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/911.png",
     "isChampion": true,
     "championId": "0911"
@@ -12147,6 +16567,10 @@ export const allPokemonRoster = [
       "ja": "クワッス"
     },
     "speed": 50,
+    "types": [
+      "water"
+    ],
+    "generation": 9,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/912.png"
   },
   {
@@ -12159,6 +16583,10 @@ export const allPokemonRoster = [
       "ja": "ウェルカモ"
     },
     "speed": 65,
+    "types": [
+      "water"
+    ],
+    "generation": 9,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/913.png"
   },
   {
@@ -12171,6 +16599,11 @@ export const allPokemonRoster = [
       "ja": "ウェーニバル"
     },
     "speed": 85,
+    "types": [
+      "water",
+      "fighting"
+    ],
+    "generation": 9,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/914.png",
     "isChampion": true,
     "championId": "0914"
@@ -12185,6 +16618,10 @@ export const allPokemonRoster = [
       "ja": "グルトン"
     },
     "speed": 35,
+    "types": [
+      "normal"
+    ],
+    "generation": 9,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/915.png"
   },
   {
@@ -12197,6 +16634,10 @@ export const allPokemonRoster = [
       "ja": "パフュートン"
     },
     "speed": 65,
+    "types": [
+      "normal"
+    ],
+    "generation": 9,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/916.png"
   },
   {
@@ -12209,6 +16650,10 @@ export const allPokemonRoster = [
       "ja": "タマンチュラ"
     },
     "speed": 20,
+    "types": [
+      "bug"
+    ],
+    "generation": 9,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/917.png"
   },
   {
@@ -12221,6 +16666,10 @@ export const allPokemonRoster = [
       "ja": "ワナイダー"
     },
     "speed": 35,
+    "types": [
+      "bug"
+    ],
+    "generation": 9,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/918.png"
   },
   {
@@ -12233,6 +16682,10 @@ export const allPokemonRoster = [
       "ja": "マメバッタ"
     },
     "speed": 45,
+    "types": [
+      "bug"
+    ],
+    "generation": 9,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/919.png"
   },
   {
@@ -12245,6 +16698,11 @@ export const allPokemonRoster = [
       "ja": "エクスレッグ"
     },
     "speed": 92,
+    "types": [
+      "bug",
+      "dark"
+    ],
+    "generation": 9,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/920.png"
   },
   {
@@ -12257,6 +16715,10 @@ export const allPokemonRoster = [
       "ja": "パモ"
     },
     "speed": 60,
+    "types": [
+      "electric"
+    ],
+    "generation": 9,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/921.png"
   },
   {
@@ -12269,6 +16731,11 @@ export const allPokemonRoster = [
       "ja": "パモット"
     },
     "speed": 85,
+    "types": [
+      "electric",
+      "fighting"
+    ],
+    "generation": 9,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/922.png"
   },
   {
@@ -12281,6 +16748,11 @@ export const allPokemonRoster = [
       "ja": "パーモット"
     },
     "speed": 105,
+    "types": [
+      "electric",
+      "fighting"
+    ],
+    "generation": 9,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/923.png"
   },
   {
@@ -12293,6 +16765,10 @@ export const allPokemonRoster = [
       "ja": "ワッカネズミ"
     },
     "speed": 75,
+    "types": [
+      "normal"
+    ],
+    "generation": 9,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/924.png"
   },
   {
@@ -12305,6 +16781,10 @@ export const allPokemonRoster = [
       "ja": "イッカネズミ"
     },
     "speed": 111,
+    "types": [
+      "normal"
+    ],
+    "generation": 9,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/925.png",
     "isChampion": true,
     "championId": "0925"
@@ -12319,6 +16799,10 @@ export const allPokemonRoster = [
       "ja": "パピモッチ"
     },
     "speed": 65,
+    "types": [
+      "fairy"
+    ],
+    "generation": 9,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/926.png"
   },
   {
@@ -12331,6 +16815,10 @@ export const allPokemonRoster = [
       "ja": "バウッツェル"
     },
     "speed": 95,
+    "types": [
+      "fairy"
+    ],
+    "generation": 9,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/927.png"
   },
   {
@@ -12343,6 +16831,11 @@ export const allPokemonRoster = [
       "ja": "ミニーブ"
     },
     "speed": 30,
+    "types": [
+      "grass",
+      "normal"
+    ],
+    "generation": 9,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/928.png"
   },
   {
@@ -12355,6 +16848,11 @@ export const allPokemonRoster = [
       "ja": "オリーニョ"
     },
     "speed": 33,
+    "types": [
+      "grass",
+      "normal"
+    ],
+    "generation": 9,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/929.png"
   },
   {
@@ -12367,6 +16865,11 @@ export const allPokemonRoster = [
       "ja": "オリーヴァ"
     },
     "speed": 39,
+    "types": [
+      "grass",
+      "normal"
+    ],
+    "generation": 9,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/930.png"
   },
   {
@@ -12379,6 +16882,11 @@ export const allPokemonRoster = [
       "ja": "イキリンコ"
     },
     "speed": 92,
+    "types": [
+      "normal",
+      "flying"
+    ],
+    "generation": 9,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/931.png"
   },
   {
@@ -12391,6 +16899,10 @@ export const allPokemonRoster = [
       "ja": "コジオ"
     },
     "speed": 25,
+    "types": [
+      "rock"
+    ],
+    "generation": 9,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/932.png"
   },
   {
@@ -12403,6 +16915,10 @@ export const allPokemonRoster = [
       "ja": "ジオヅム"
     },
     "speed": 35,
+    "types": [
+      "rock"
+    ],
+    "generation": 9,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/933.png"
   },
   {
@@ -12415,6 +16931,10 @@ export const allPokemonRoster = [
       "ja": "キョジオーン"
     },
     "speed": 35,
+    "types": [
+      "rock"
+    ],
+    "generation": 9,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/934.png",
     "isChampion": true,
     "championId": "0934"
@@ -12429,6 +16949,10 @@ export const allPokemonRoster = [
       "ja": "カルボウ"
     },
     "speed": 35,
+    "types": [
+      "fire"
+    ],
+    "generation": 9,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/935.png"
   },
   {
@@ -12441,6 +16965,11 @@ export const allPokemonRoster = [
       "ja": "グレンアルマ"
     },
     "speed": 75,
+    "types": [
+      "fire",
+      "psychic"
+    ],
+    "generation": 9,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/936.png",
     "isChampion": true,
     "championId": "0936"
@@ -12455,6 +16984,11 @@ export const allPokemonRoster = [
       "ja": "ソウブレイズ"
     },
     "speed": 85,
+    "types": [
+      "fire",
+      "ghost"
+    ],
+    "generation": 9,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/937.png",
     "isChampion": true,
     "championId": "0937"
@@ -12469,6 +17003,10 @@ export const allPokemonRoster = [
       "ja": "ズピカ"
     },
     "speed": 45,
+    "types": [
+      "electric"
+    ],
+    "generation": 9,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/938.png"
   },
   {
@@ -12481,6 +17019,10 @@ export const allPokemonRoster = [
       "ja": "ハラバリー"
     },
     "speed": 45,
+    "types": [
+      "electric"
+    ],
+    "generation": 9,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/939.png",
     "isChampion": true,
     "championId": "0939"
@@ -12495,6 +17037,11 @@ export const allPokemonRoster = [
       "ja": "カイデン"
     },
     "speed": 70,
+    "types": [
+      "electric",
+      "flying"
+    ],
+    "generation": 9,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/940.png"
   },
   {
@@ -12507,6 +17054,11 @@ export const allPokemonRoster = [
       "ja": "タイカイデン"
     },
     "speed": 125,
+    "types": [
+      "electric",
+      "flying"
+    ],
+    "generation": 9,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/941.png"
   },
   {
@@ -12519,6 +17071,10 @@ export const allPokemonRoster = [
       "ja": "オラチフ"
     },
     "speed": 51,
+    "types": [
+      "dark"
+    ],
+    "generation": 9,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/942.png"
   },
   {
@@ -12531,6 +17087,10 @@ export const allPokemonRoster = [
       "ja": "マフィティフ"
     },
     "speed": 85,
+    "types": [
+      "dark"
+    ],
+    "generation": 9,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/943.png"
   },
   {
@@ -12543,6 +17103,11 @@ export const allPokemonRoster = [
       "ja": "シルシュルー"
     },
     "speed": 75,
+    "types": [
+      "poison",
+      "normal"
+    ],
+    "generation": 9,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/944.png"
   },
   {
@@ -12555,6 +17120,11 @@ export const allPokemonRoster = [
       "ja": "タギングル"
     },
     "speed": 110,
+    "types": [
+      "poison",
+      "normal"
+    ],
+    "generation": 9,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/945.png"
   },
   {
@@ -12567,6 +17137,11 @@ export const allPokemonRoster = [
       "ja": "アノクサ"
     },
     "speed": 60,
+    "types": [
+      "grass",
+      "ghost"
+    ],
+    "generation": 9,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/946.png"
   },
   {
@@ -12579,6 +17154,11 @@ export const allPokemonRoster = [
       "ja": "アノホラグサ"
     },
     "speed": 90,
+    "types": [
+      "grass",
+      "ghost"
+    ],
+    "generation": 9,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/947.png"
   },
   {
@@ -12591,6 +17171,11 @@ export const allPokemonRoster = [
       "ja": "ノノクラゲ"
     },
     "speed": 70,
+    "types": [
+      "ground",
+      "grass"
+    ],
+    "generation": 9,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/948.png"
   },
   {
@@ -12603,6 +17188,11 @@ export const allPokemonRoster = [
       "ja": "リククラゲ"
     },
     "speed": 100,
+    "types": [
+      "ground",
+      "grass"
+    ],
+    "generation": 9,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/949.png"
   },
   {
@@ -12615,6 +17205,10 @@ export const allPokemonRoster = [
       "ja": "ガケガニ"
     },
     "speed": 75,
+    "types": [
+      "rock"
+    ],
+    "generation": 9,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/950.png"
   },
   {
@@ -12627,6 +17221,10 @@ export const allPokemonRoster = [
       "ja": "カプサイジ"
     },
     "speed": 50,
+    "types": [
+      "grass"
+    ],
+    "generation": 9,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/951.png"
   },
   {
@@ -12639,6 +17237,11 @@ export const allPokemonRoster = [
       "ja": "スコヴィラン"
     },
     "speed": 75,
+    "types": [
+      "grass",
+      "fire"
+    ],
+    "generation": 9,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/952.png",
     "isChampion": true,
     "championId": "0952"
@@ -12653,6 +17256,10 @@ export const allPokemonRoster = [
       "ja": "シガロコ"
     },
     "speed": 30,
+    "types": [
+      "bug"
+    ],
+    "generation": 9,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/953.png"
   },
   {
@@ -12665,6 +17272,11 @@ export const allPokemonRoster = [
       "ja": "ベラカス"
     },
     "speed": 45,
+    "types": [
+      "bug",
+      "psychic"
+    ],
+    "generation": 9,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/954.png"
   },
   {
@@ -12677,6 +17289,10 @@ export const allPokemonRoster = [
       "ja": "ヒラヒナ"
     },
     "speed": 75,
+    "types": [
+      "psychic"
+    ],
+    "generation": 9,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/955.png"
   },
   {
@@ -12689,6 +17305,10 @@ export const allPokemonRoster = [
       "ja": "クエスパトラ"
     },
     "speed": 105,
+    "types": [
+      "psychic"
+    ],
+    "generation": 9,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/956.png",
     "isChampion": true,
     "championId": "0956"
@@ -12703,6 +17323,11 @@ export const allPokemonRoster = [
       "ja": "カヌチャン"
     },
     "speed": 58,
+    "types": [
+      "fairy",
+      "steel"
+    ],
+    "generation": 9,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/957.png"
   },
   {
@@ -12715,6 +17340,11 @@ export const allPokemonRoster = [
       "ja": "ナカヌチャン"
     },
     "speed": 78,
+    "types": [
+      "fairy",
+      "steel"
+    ],
+    "generation": 9,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/958.png"
   },
   {
@@ -12727,6 +17357,11 @@ export const allPokemonRoster = [
       "ja": "デカヌチャン"
     },
     "speed": 94,
+    "types": [
+      "fairy",
+      "steel"
+    ],
+    "generation": 9,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/959.png",
     "isChampion": true,
     "championId": "0959",
@@ -12742,6 +17377,10 @@ export const allPokemonRoster = [
       "ja": "ウミディグダ"
     },
     "speed": 95,
+    "types": [
+      "water"
+    ],
+    "generation": 9,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/960.png"
   },
   {
@@ -12754,6 +17393,10 @@ export const allPokemonRoster = [
       "ja": "ウミトリオ"
     },
     "speed": 120,
+    "types": [
+      "water"
+    ],
+    "generation": 9,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/961.png"
   },
   {
@@ -12766,6 +17409,11 @@ export const allPokemonRoster = [
       "ja": "オトシドリ"
     },
     "speed": 82,
+    "types": [
+      "flying",
+      "dark"
+    ],
+    "generation": 9,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/962.png"
   },
   {
@@ -12778,6 +17426,10 @@ export const allPokemonRoster = [
       "ja": "ナミイルカ"
     },
     "speed": 75,
+    "types": [
+      "water"
+    ],
+    "generation": 9,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/963.png"
   },
   {
@@ -12790,6 +17442,10 @@ export const allPokemonRoster = [
       "ja": "イルカマン"
     },
     "speed": 100,
+    "types": [
+      "water"
+    ],
+    "generation": 9,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/964.png",
     "isChampion": true,
     "championId": "0964"
@@ -12804,6 +17460,11 @@ export const allPokemonRoster = [
       "ja": "ブロロン"
     },
     "speed": 47,
+    "types": [
+      "steel",
+      "poison"
+    ],
+    "generation": 9,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/965.png"
   },
   {
@@ -12816,6 +17477,11 @@ export const allPokemonRoster = [
       "ja": "ブロロローム"
     },
     "speed": 90,
+    "types": [
+      "steel",
+      "poison"
+    ],
+    "generation": 9,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/966.png"
   },
   {
@@ -12828,6 +17494,11 @@ export const allPokemonRoster = [
       "ja": "モトトカゲ"
     },
     "speed": 121,
+    "types": [
+      "dragon",
+      "normal"
+    ],
+    "generation": 9,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/967.png"
   },
   {
@@ -12840,6 +17511,10 @@ export const allPokemonRoster = [
       "ja": "ミミズズ"
     },
     "speed": 65,
+    "types": [
+      "steel"
+    ],
+    "generation": 9,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/968.png",
     "isChampion": true,
     "championId": "0968",
@@ -12855,6 +17530,11 @@ export const allPokemonRoster = [
       "ja": "キラーメ"
     },
     "speed": 60,
+    "types": [
+      "rock",
+      "poison"
+    ],
+    "generation": 9,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/969.png"
   },
   {
@@ -12867,6 +17547,11 @@ export const allPokemonRoster = [
       "ja": "キラフロル"
     },
     "speed": 86,
+    "types": [
+      "rock",
+      "poison"
+    ],
+    "generation": 9,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/970.png",
     "isChampion": true,
     "championId": "0970"
@@ -12881,6 +17566,10 @@ export const allPokemonRoster = [
       "ja": "ボチ"
     },
     "speed": 34,
+    "types": [
+      "ghost"
+    ],
+    "generation": 9,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/971.png"
   },
   {
@@ -12893,6 +17582,10 @@ export const allPokemonRoster = [
       "ja": "ハカドッグ"
     },
     "speed": 68,
+    "types": [
+      "ghost"
+    ],
+    "generation": 9,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/972.png"
   },
   {
@@ -12905,6 +17598,11 @@ export const allPokemonRoster = [
       "ja": "カラミンゴ"
     },
     "speed": 90,
+    "types": [
+      "flying",
+      "fighting"
+    ],
+    "generation": 9,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/973.png"
   },
   {
@@ -12917,6 +17615,10 @@ export const allPokemonRoster = [
       "ja": "アルクジラ"
     },
     "speed": 43,
+    "types": [
+      "ice"
+    ],
+    "generation": 9,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/974.png"
   },
   {
@@ -12929,6 +17631,10 @@ export const allPokemonRoster = [
       "ja": "ハルクジラ"
     },
     "speed": 73,
+    "types": [
+      "ice"
+    ],
+    "generation": 9,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/975.png"
   },
   {
@@ -12941,6 +17647,11 @@ export const allPokemonRoster = [
       "ja": "ミガルーサ"
     },
     "speed": 70,
+    "types": [
+      "water",
+      "psychic"
+    ],
+    "generation": 9,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/976.png"
   },
   {
@@ -12953,6 +17664,10 @@ export const allPokemonRoster = [
       "ja": "ヘイラッシャ"
     },
     "speed": 35,
+    "types": [
+      "water"
+    ],
+    "generation": 9,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/977.png"
   },
   {
@@ -12965,6 +17680,11 @@ export const allPokemonRoster = [
       "ja": "シャリタツ"
     },
     "speed": 82,
+    "types": [
+      "dragon",
+      "water"
+    ],
+    "generation": 9,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/978.png"
   },
   {
@@ -12977,6 +17697,11 @@ export const allPokemonRoster = [
       "ja": "コノヨザル"
     },
     "speed": 90,
+    "types": [
+      "fighting",
+      "ghost"
+    ],
+    "generation": 9,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/979.png",
     "isChampion": true,
     "championId": "0979"
@@ -12991,6 +17716,11 @@ export const allPokemonRoster = [
       "ja": "ドオー"
     },
     "speed": 20,
+    "types": [
+      "poison",
+      "ground"
+    ],
+    "generation": 9,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/980.png"
   },
   {
@@ -13003,6 +17733,11 @@ export const allPokemonRoster = [
       "ja": "リキキリン"
     },
     "speed": 60,
+    "types": [
+      "normal",
+      "psychic"
+    ],
+    "generation": 9,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/981.png",
     "isChampion": true,
     "championId": "0981"
@@ -13017,6 +17752,10 @@ export const allPokemonRoster = [
       "ja": "ノココッチ"
     },
     "speed": 55,
+    "types": [
+      "normal"
+    ],
+    "generation": 9,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/982.png"
   },
   {
@@ -13029,6 +17768,11 @@ export const allPokemonRoster = [
       "ja": "ドドゲザン"
     },
     "speed": 50,
+    "types": [
+      "dark",
+      "steel"
+    ],
+    "generation": 9,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/983.png",
     "isChampion": true,
     "championId": "0983"
@@ -13043,6 +17787,11 @@ export const allPokemonRoster = [
       "ja": "イダイナキバ"
     },
     "speed": 87,
+    "types": [
+      "ground",
+      "fighting"
+    ],
+    "generation": 9,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/984.png"
   },
   {
@@ -13055,6 +17804,11 @@ export const allPokemonRoster = [
       "ja": "サケブシッポ"
     },
     "speed": 111,
+    "types": [
+      "fairy",
+      "psychic"
+    ],
+    "generation": 9,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/985.png"
   },
   {
@@ -13067,6 +17821,11 @@ export const allPokemonRoster = [
       "ja": "アラブルタケ"
     },
     "speed": 55,
+    "types": [
+      "grass",
+      "dark"
+    ],
+    "generation": 9,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/986.png"
   },
   {
@@ -13079,6 +17838,11 @@ export const allPokemonRoster = [
       "ja": "ハバタクカミ"
     },
     "speed": 135,
+    "types": [
+      "ghost",
+      "fairy"
+    ],
+    "generation": 9,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/987.png"
   },
   {
@@ -13091,6 +17855,11 @@ export const allPokemonRoster = [
       "ja": "チヲハウハネ"
     },
     "speed": 81,
+    "types": [
+      "bug",
+      "fighting"
+    ],
+    "generation": 9,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/988.png"
   },
   {
@@ -13103,6 +17872,11 @@ export const allPokemonRoster = [
       "ja": "スナノケガワ"
     },
     "speed": 101,
+    "types": [
+      "electric",
+      "ground"
+    ],
+    "generation": 9,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/989.png"
   },
   {
@@ -13115,6 +17889,11 @@ export const allPokemonRoster = [
       "ja": "テツノワダチ"
     },
     "speed": 106,
+    "types": [
+      "ground",
+      "steel"
+    ],
+    "generation": 9,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/990.png"
   },
   {
@@ -13127,6 +17906,11 @@ export const allPokemonRoster = [
       "ja": "テツノツツミ"
     },
     "speed": 136,
+    "types": [
+      "ice",
+      "water"
+    ],
+    "generation": 9,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/991.png"
   },
   {
@@ -13139,6 +17923,11 @@ export const allPokemonRoster = [
       "ja": "テツノカイナ"
     },
     "speed": 50,
+    "types": [
+      "fighting",
+      "electric"
+    ],
+    "generation": 9,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/992.png"
   },
   {
@@ -13151,6 +17940,11 @@ export const allPokemonRoster = [
       "ja": "テツノコウベ"
     },
     "speed": 108,
+    "types": [
+      "dark",
+      "flying"
+    ],
+    "generation": 9,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/993.png"
   },
   {
@@ -13163,6 +17957,11 @@ export const allPokemonRoster = [
       "ja": "テツノドクガ"
     },
     "speed": 110,
+    "types": [
+      "fire",
+      "poison"
+    ],
+    "generation": 9,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/994.png"
   },
   {
@@ -13175,6 +17974,11 @@ export const allPokemonRoster = [
       "ja": "テツノイバラ"
     },
     "speed": 72,
+    "types": [
+      "rock",
+      "electric"
+    ],
+    "generation": 9,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/995.png"
   },
   {
@@ -13187,6 +17991,11 @@ export const allPokemonRoster = [
       "ja": "セビエ"
     },
     "speed": 55,
+    "types": [
+      "dragon",
+      "ice"
+    ],
+    "generation": 9,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/996.png"
   },
   {
@@ -13199,6 +18008,11 @@ export const allPokemonRoster = [
       "ja": "セゴール"
     },
     "speed": 62,
+    "types": [
+      "dragon",
+      "ice"
+    ],
+    "generation": 9,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/997.png"
   },
   {
@@ -13211,6 +18025,11 @@ export const allPokemonRoster = [
       "ja": "セグレイブ"
     },
     "speed": 87,
+    "types": [
+      "dragon",
+      "ice"
+    ],
+    "generation": 9,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/998.png"
   },
   {
@@ -13223,6 +18042,10 @@ export const allPokemonRoster = [
       "ja": "コレクレー"
     },
     "speed": 10,
+    "types": [
+      "ghost"
+    ],
+    "generation": 9,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/999.png"
   },
   {
@@ -13235,6 +18058,11 @@ export const allPokemonRoster = [
       "ja": "サーフゴー"
     },
     "speed": 84,
+    "types": [
+      "steel",
+      "ghost"
+    ],
+    "generation": 9,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1000.png"
   },
   {
@@ -13247,6 +18075,11 @@ export const allPokemonRoster = [
       "ja": "チオンジェン"
     },
     "speed": 70,
+    "types": [
+      "dark",
+      "grass"
+    ],
+    "generation": 9,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1001.png"
   },
   {
@@ -13259,6 +18092,11 @@ export const allPokemonRoster = [
       "ja": "パオジアン"
     },
     "speed": 135,
+    "types": [
+      "dark",
+      "ice"
+    ],
+    "generation": 9,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1002.png"
   },
   {
@@ -13271,6 +18109,11 @@ export const allPokemonRoster = [
       "ja": "ディンルー"
     },
     "speed": 45,
+    "types": [
+      "dark",
+      "ground"
+    ],
+    "generation": 9,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1003.png"
   },
   {
@@ -13283,6 +18126,11 @@ export const allPokemonRoster = [
       "ja": "イーユイ"
     },
     "speed": 100,
+    "types": [
+      "dark",
+      "fire"
+    ],
+    "generation": 9,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1004.png"
   },
   {
@@ -13295,6 +18143,11 @@ export const allPokemonRoster = [
       "ja": "トドロクツキ"
     },
     "speed": 119,
+    "types": [
+      "dragon",
+      "dark"
+    ],
+    "generation": 9,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1005.png"
   },
   {
@@ -13307,6 +18160,11 @@ export const allPokemonRoster = [
       "ja": "テツノブジン"
     },
     "speed": 116,
+    "types": [
+      "fairy",
+      "fighting"
+    ],
+    "generation": 9,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1006.png"
   },
   {
@@ -13319,6 +18177,11 @@ export const allPokemonRoster = [
       "ja": "コライドン"
     },
     "speed": 135,
+    "types": [
+      "fighting",
+      "dragon"
+    ],
+    "generation": 9,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1007.png"
   },
   {
@@ -13331,6 +18194,11 @@ export const allPokemonRoster = [
       "ja": "ミライドン"
     },
     "speed": 135,
+    "types": [
+      "electric",
+      "dragon"
+    ],
+    "generation": 9,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1008.png"
   },
   {
@@ -13343,6 +18211,11 @@ export const allPokemonRoster = [
       "ja": "ウネルミナモ"
     },
     "speed": 109,
+    "types": [
+      "water",
+      "dragon"
+    ],
+    "generation": 9,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1009.png"
   },
   {
@@ -13355,6 +18228,11 @@ export const allPokemonRoster = [
       "ja": "テツノイサハ"
     },
     "speed": 104,
+    "types": [
+      "grass",
+      "psychic"
+    ],
+    "generation": 9,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1010.png"
   },
   {
@@ -13367,6 +18245,11 @@ export const allPokemonRoster = [
       "ja": "カミッチュ"
     },
     "speed": 40,
+    "types": [
+      "grass",
+      "dragon"
+    ],
+    "generation": 9,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1011.png"
   },
   {
@@ -13379,6 +18262,11 @@ export const allPokemonRoster = [
       "ja": "チャデス"
     },
     "speed": 50,
+    "types": [
+      "grass",
+      "ghost"
+    ],
+    "generation": 9,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1012.png"
   },
   {
@@ -13391,6 +18279,11 @@ export const allPokemonRoster = [
       "ja": "ヤバソチャ"
     },
     "speed": 70,
+    "types": [
+      "grass",
+      "ghost"
+    ],
+    "generation": 9,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1013.png",
     "isChampion": true,
     "championId": "1013"
@@ -13405,6 +18298,11 @@ export const allPokemonRoster = [
       "ja": "イイネイヌ"
     },
     "speed": 80,
+    "types": [
+      "poison",
+      "fighting"
+    ],
+    "generation": 9,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1014.png"
   },
   {
@@ -13417,6 +18315,11 @@ export const allPokemonRoster = [
       "ja": "マシマシラ"
     },
     "speed": 106,
+    "types": [
+      "poison",
+      "psychic"
+    ],
+    "generation": 9,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1015.png"
   },
   {
@@ -13429,6 +18332,11 @@ export const allPokemonRoster = [
       "ja": "キチキギス"
     },
     "speed": 99,
+    "types": [
+      "poison",
+      "fairy"
+    ],
+    "generation": 9,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1016.png"
   },
   {
@@ -13441,6 +18349,10 @@ export const allPokemonRoster = [
       "ja": "オーガポン"
     },
     "speed": 110,
+    "types": [
+      "grass"
+    ],
+    "generation": 9,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1017.png"
   },
   {
@@ -13453,6 +18365,11 @@ export const allPokemonRoster = [
       "ja": "ブリジュラス"
     },
     "speed": 85,
+    "types": [
+      "steel",
+      "dragon"
+    ],
+    "generation": 9,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1018.png",
     "isChampion": true,
     "championId": "1018"
@@ -13467,6 +18384,11 @@ export const allPokemonRoster = [
       "ja": "カミツオロチ"
     },
     "speed": 44,
+    "types": [
+      "grass",
+      "dragon"
+    ],
+    "generation": 9,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1019.png"
   },
   {
@@ -13479,6 +18401,11 @@ export const allPokemonRoster = [
       "ja": "ウガツホムラ"
     },
     "speed": 91,
+    "types": [
+      "fire",
+      "dragon"
+    ],
+    "generation": 9,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1020.png"
   },
   {
@@ -13491,6 +18418,11 @@ export const allPokemonRoster = [
       "ja": "タケルライコ"
     },
     "speed": 75,
+    "types": [
+      "electric",
+      "dragon"
+    ],
+    "generation": 9,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1021.png"
   },
   {
@@ -13503,6 +18435,11 @@ export const allPokemonRoster = [
       "ja": "テツノイワオ"
     },
     "speed": 124,
+    "types": [
+      "rock",
+      "psychic"
+    ],
+    "generation": 9,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1022.png"
   },
   {
@@ -13515,6 +18452,11 @@ export const allPokemonRoster = [
       "ja": "テツノカシラ"
     },
     "speed": 98,
+    "types": [
+      "steel",
+      "psychic"
+    ],
+    "generation": 9,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1023.png"
   },
   {
@@ -13527,6 +18469,10 @@ export const allPokemonRoster = [
       "ja": "テラパゴス"
     },
     "speed": 60,
+    "types": [
+      "normal"
+    ],
+    "generation": 9,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1024.png"
   },
   {
@@ -13539,6 +18485,11 @@ export const allPokemonRoster = [
       "ja": "モモワロウ"
     },
     "speed": 88,
+    "types": [
+      "poison",
+      "ghost"
+    ],
+    "generation": 9,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1025.png"
   }
 ];
@@ -14400,14 +19351,6 @@ export const allMegaOptionsById = {
       "labelJa": "メガマギアナ",
       "speed": 95,
       "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10317.png"
-    },
-    {
-      "key": "mega",
-      "label": "메가마기아나",
-      "labelEn": "Mega Magearna",
-      "labelJa": "メガマギアナ",
-      "speed": 95,
-      "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10318.png"
     }
   ],
   "nat-0807": [
@@ -14458,22 +19401,6 @@ export const allMegaOptionsById = {
       "labelJa": "メガシャリタツ",
       "speed": 92,
       "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10322.png"
-    },
-    {
-      "key": "mega",
-      "label": "메가싸리용",
-      "labelEn": "Mega Tatsugiri",
-      "labelJa": "メガシャリタツ",
-      "speed": 92,
-      "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10323.png"
-    },
-    {
-      "key": "mega",
-      "label": "메가싸리용",
-      "labelEn": "Mega Tatsugiri",
-      "labelJa": "メガシャリタツ",
-      "speed": 92,
-      "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10324.png"
     }
   ],
   "nat-0998": [

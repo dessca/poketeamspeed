@@ -79,6 +79,12 @@ export function battleStateReducer(state, action) {
       return action.slotsBySide ? sanitizeBattleStateForSlots(next, action.slotsBySide) : next;
     }
 
+    case "set_trick_room":
+      return {
+        ...state,
+        trickRoom: action.value,
+      };
+
     case "sanitize":
       return sanitizeBattleStateForSlots(state, action.slotsBySide);
 
