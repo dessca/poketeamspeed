@@ -14,6 +14,7 @@ import {
   ROSTER_SORTS,
   ROSTER_SOURCES,
 } from "./data/rosterSources";
+import { allPokemonRoster } from "./data/allPokemonRoster";
 import { Analytics } from '@vercel/analytics/react';
 import {
   ABILITY_OPTIONS_BY_NAME,
@@ -55,10 +56,14 @@ import PresetManagerModal from "./components/modals/PresetManagerModal";
 import ShowdownImportModal from "./components/modals/ShowdownImportModal";
 import TeamCard from "./components/team/TeamCard";
 
-const ROSTER_BY_ID = new Map(championsRoster.map((entry) => [entry.id, entry]));
-const ROSTER_BY_NAME = new Map(
-  championsRoster.flatMap((entry) => getRosterSearchNames(entry).map((name) => [name, entry]))
-);
+const CANONICAL_ROSTER = [...championsRoster, ...allPokemonRoster];
+const ROSTER_BY_ID = new Map(CANONICAL_ROSTER.map((entry) => [entry.id, entry]));
+const ROSTER_BY_NAME = new Map();
+CANONICAL_ROSTER.forEach((entry) => {
+  getRosterSearchNames(entry).forEach((name) => {
+    if (!ROSTER_BY_NAME.has(name)) ROSTER_BY_NAME.set(name, entry);
+  });
+});
 const BASE_ROSTER_BY_DEX = new Map(
   championsRoster
     .filter((entry) => entry.formKey === "base")
@@ -74,6 +79,7 @@ const STORAGE = {
   ally: "poke-team-speed:ally",
   enemy: "poke-team-speed:enemy",
   presets: "poke-team-speed:presets",
+  teamChampionsOnly: "poke-team-speed:team-champions-only",
 };
 
 const ROSTER_RENDER_BATCH = 180;
@@ -1197,6 +1203,7 @@ function App() {
   const [theme, setTheme] = useState(() => readStorage(STORAGE.theme, "dark"));
   const [view, setView] = useState(() => readStorage(STORAGE.view, "team"));
   const [battleMode, setBattleMode] = useState(() => readStorage(STORAGE.battleMode, "single"));
+  const [teamChampionsOnly, setTeamChampionsOnly] = useState(() => readStorage(STORAGE.teamChampionsOnly, true) !== false);
   const [allySlots, setAllySlots] = useState(() => normalizeTeam(readStorage(STORAGE.ally, null)));
   const [enemySlots, setEnemySlots] = useState(() => normalizeTeam(readStorage(STORAGE.enemy, null)));
   const [presets, setPresets] = useState(() => normalizePresets(readStorage(STORAGE.presets, [])));
@@ -1271,11 +1278,12 @@ function App() {
   useEffect(() => writeStorage(STORAGE.language, language), [language]);
   useEffect(() => writeStorage(STORAGE.view, view), [view]);
   useEffect(() => writeStorage(STORAGE.battleMode, battleMode), [battleMode]);
+  useEffect(() => writeStorage(STORAGE.teamChampionsOnly, teamChampionsOnly), [teamChampionsOnly]);
   useEffect(() => writeStorage(STORAGE.ally, allySlots), [allySlots]);
   useEffect(() => writeStorage(STORAGE.enemy, enemySlots), [enemySlots]);
   useEffect(() => writeStorage(STORAGE.presets, presets), [presets]);
   useEffect(() => {
-    if (view !== "roster" || nationalRosterBundle) return;
+    if ((view !== "roster" && teamChampionsOnly) || nationalRosterBundle) return;
 
     let active = true;
     loadNationalRosterBundle().then((module) => {
@@ -1285,7 +1293,7 @@ function App() {
     return () => {
       active = false;
     };
-  }, [nationalRosterBundle, view]);
+  }, [nationalRosterBundle, teamChampionsOnly, view]);
   useEffect(() => {
     const handleScroll = () => dispatchUiState({ type: "set_show_scroll_top", value: window.scrollY > 280 });
     handleScroll();
@@ -1306,6 +1314,8 @@ function App() {
     [nationalRosterBundle]
   );
   const { roster: sourceRoster, megaOptions: sourceMegaOptions } = rosterSourceData;
+  const teamRoster = teamChampionsOnly ? championsRoster : sourceRoster;
+  const teamMegaOptions = teamChampionsOnly ? MEGA_OPTIONS : sourceMegaOptions;
   const rosterMegaOptions = rosterChampionFilter ? MEGA_OPTIONS : sourceMegaOptions;
   const filteredRoster = useMemo(
     () =>
@@ -1508,12 +1518,12 @@ function App() {
   const searchResults = useMemo(() => {
     const keyword = normalizeSearchKey(search);
     if (!keyword) return [];
-    return championsRoster
+    return teamRoster
       .filter((entry) =>
         normalizeSearchKey(getRosterSearchNames(entry).join(" ")).includes(keyword)
       )
       .slice(0, 10);
-  }, [search]);
+  }, [search, teamRoster]);
 
   const battleSearchResults = useMemo(
     () =>
@@ -1522,7 +1532,7 @@ function App() {
           acc[side] = [0, 1].map((battleSlotIndex) => {
             const keyword = normalizeSearchKey(battleSearch[side][battleSlotIndex]);
             return keyword
-              ? championsRoster
+              ? teamRoster
                   .filter((entry) =>
                     normalizeSearchKey(getRosterSearchNames(entry).join(" ")).includes(keyword)
                   )
@@ -1533,7 +1543,7 @@ function App() {
         },
         { ally: [[], []], enemy: [[], []] }
       ),
-    [battleSearch]
+    [battleSearch, teamRoster]
   );
 
   const findNextInsertIndex = (side, preferredIndex = null) => {
@@ -1559,7 +1569,7 @@ function App() {
       window.alert(t.duplicatePokemon);
       return;
     }
-    const hasMega = getMegaOptionsForEntry(MEGA_OPTIONS, entry).length > 0;
+    const hasMega = getMegaOptionsForEntry(teamMegaOptions, entry).length > 0;
     const abilityOptions = ABILITY_OPTIONS_BY_NAME[getPrimaryRosterName(entry)] || DEFAULT_ABILITY_OPTIONS;
     const targetIndex = findNextInsertIndex(side, preferredIndex);
     updateSlot(side, targetIndex, {
@@ -2146,6 +2156,14 @@ function App() {
                   <div className="heading-with-help team-heading-row">
                     <h2>{t.teamSettings}</h2>
                     <Tooltip label="?" text={t.addHint} className="inline-help" />
+                    <button
+                      type="button"
+                      className={`champion-scope-toggle ${teamChampionsOnly ? "on" : ""}`}
+                      aria-pressed={teamChampionsOnly}
+                      onClick={() => setTeamChampionsOnly((current) => !current)}
+                    >
+                      {t.rosterFilterChampion}
+                    </button>
                     <div className="segmented compact panel-mode-switch">
                       <button type="button" className={battleMode === "single" ? "active" : ""} onClick={() => setBattleMode("single")}>
                         {t.single}

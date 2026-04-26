@@ -1,4 +1,5 @@
 import { championsRoster, MEGA_OPTIONS_BY_ID } from "../data/championsRoster";
+import { allMegaOptionsById } from "../data/allPokemonRoster";
 import {
   getEntityNames,
   getLocalizedMegaLabel,
@@ -653,7 +654,7 @@ function getPotentialAbilityFactors(slot, battleState = null) {
 
 export function getMegaChoices(slot) {
   const rosterId = slot.rosterId || CHAMPION_ENTRY_BY_NAME.get(slot.name)?.id;
-  return MEGA_OPTIONS_BY_ID[rosterId] || [];
+  return MEGA_OPTIONS_BY_ID[rosterId] || allMegaOptionsById[rosterId] || [];
 }
 
 export function getCompareMegaChoices(slot) {

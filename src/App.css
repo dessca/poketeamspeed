@@ -121,6 +121,43 @@
   min-width: 118px;
 }
 
+.champion-scope-toggle {
+  min-height: 40px;
+  padding: 0 14px;
+  border: 1px solid color-mix(in srgb, #f59e0b 30%, var(--panel-border));
+  border-radius: 12px;
+  background: color-mix(in srgb, #f59e0b 10%, var(--panel));
+  color: color-mix(in srgb, #f59e0b 68%, var(--text));
+  box-shadow: var(--shadow);
+  font-size: var(--panel-chip-size);
+  font-weight: 800;
+  white-space: nowrap;
+  cursor: pointer;
+  transition:
+    background-color 170ms ease,
+    color 170ms ease,
+    border-color 170ms ease,
+    box-shadow 170ms ease;
+}
+
+.champion-scope-toggle.on {
+  border-color: color-mix(in srgb, #f59e0b 82%, white);
+  background: #f59e0b;
+  color: #111827;
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.22) inset,
+    0 8px 20px color-mix(in srgb, #f59e0b 24%, transparent);
+}
+
+.champion-scope-toggle:hover {
+  border-color: color-mix(in srgb, #f59e0b 52%, transparent);
+  background: color-mix(in srgb, #f59e0b 18%, var(--panel));
+}
+
+.champion-scope-toggle.on:hover {
+  background: #f59e0b;
+}
+
 .panel-mode-switch,
 .target-toggle {
   position: relative;
@@ -839,7 +876,7 @@
 
 @media (max-width: 1500px) {
   .team-toolbar {
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     align-items: start;
   }
 
@@ -3758,6 +3795,7 @@
   .toolbar-group.side-group,
   .toolbar-group.import-group {
     grid-column: auto;
+    grid-row: auto;
   }
 
   .toolbar-group {
@@ -4138,7 +4176,7 @@
   }
 
   .team-toolbar {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: minmax(0, 1fr);
     gap: 10px;
   }
 
@@ -4229,6 +4267,20 @@
     text-overflow: ellipsis;
     white-space: nowrap;
     font-size: 0.78rem;
+  }
+
+  .team-toolbar > .toolbar-group,
+  .team-toolbar > .toolbar-search-shell {
+    grid-column: 1 / -1;
+    grid-row: auto;
+    min-width: 0;
+  }
+
+  .team-toolbar .target-toggle {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    width: 100%;
+    min-width: 0;
   }
 
   .detail-summary,
