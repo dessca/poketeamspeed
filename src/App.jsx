@@ -77,6 +77,7 @@ const STORAGE = {
 };
 
 const ROSTER_RENDER_BATCH = 180;
+const ITEM_ENTRIES = Object.entries(ITEMS);
 
 function normalizeLookupKey(value) {
   return String(value || "")
@@ -88,6 +89,18 @@ function normalizeSearchKey(value) {
   return String(value || "")
     .toLowerCase()
     .replace(/[^a-z0-9가-힣ぁ-ゔァ-ヴー々〆〤一-龠]+/g, "");
+}
+
+function getSwitchTrackStyle(selectedIndex, optionCount, preferredColumns = optionCount) {
+  const count = Math.max(1, optionCount);
+  const columns = Math.max(1, Math.min(preferredColumns, count));
+  const index = Math.max(0, Math.min(selectedIndex, count - 1));
+  return {
+    "--switch-columns": columns,
+    "--switch-rows": Math.ceil(count / columns),
+    "--switch-col": index % columns,
+    "--switch-row": Math.floor(index / columns),
+  };
 }
 
 function getShowdownAliasesForEntry(entry) {
@@ -173,6 +186,8 @@ const TEXT = {
     rosterHelp: "능력 포인트/성격/도구/특성에 따른 스피드 가능 범위를 단계형 막대로 보여줍니다.",
     teamView: "팀 비교",
     rosterView: "전체 포켓몬",
+    themeToLight: "라이트 모드로 전환",
+    themeToDark: "다크 모드로 전환",
     myTeam: "내 팀",
     opponentTeam: "상대 팀",
     search: "포켓몬 검색",
@@ -285,6 +300,8 @@ const TEXT = {
     rosterHelp: "Shows each Pokémon's possible Speed range as layered bars for points, nature, item, and ability.",
     teamView: "Team Compare",
     rosterView: "All Pokémon",
+    themeToLight: "Switch to light mode",
+    themeToDark: "Switch to dark mode",
     myTeam: "My Team",
     opponentTeam: "Opposing Team",
     search: "Search Pokémon",
@@ -397,6 +414,8 @@ const TEXT = {
     rosterHelp: "能力ポイント・性格・持ち物・特性による素早さ候補範囲を段階バーで表示します。",
     teamView: "チーム比較",
     rosterView: "全ポケモン",
+    themeToLight: "ライトモードに切り替え",
+    themeToDark: "ダークモードに切り替え",
     myTeam: "自分のチーム",
     opponentTeam: "相手チーム",
     search: "ポケモン検索",
@@ -1677,6 +1696,14 @@ function App() {
   const isDetailSlotVisible = slotHasPokemon(selectedSlot) && !isDetailPanelCleared;
   const selectedGraph = isDetailSlotVisible ? buildGraph(selectedSlot, selectedSlot.baseSpeed, null, language) : null;
 
+  const getAbilitySwitchStyle = (slot, battleState = null) => {
+    if (!hasSpeedAbilityOptions(slot, battleState)) return getSwitchTrackStyle(0, 1, 1);
+    const options = getAbilityOptions(slot, battleState);
+    const selectedKey = options.some((option) => option.key === slot.abilitySetting) ? slot.abilitySetting : options[0].key;
+    const selectedIndex = Math.max(0, options.findIndex((option) => option.key === selectedKey));
+    return getSwitchTrackStyle(selectedIndex, options.length, 3);
+  };
+
   const renderAbilityButtons = (slot, onChange, battleState = null) => {
     if (!hasSpeedAbilityOptions(slot, battleState)) {
       const label = getLocalizedOptionLabel(DEFAULT_ABILITY_OPTIONS[0], language);
@@ -1807,7 +1834,7 @@ function App() {
               {graph && (
                 <div className="detail-range battle-summary-range">
                   <small>{getLocalizedCurrentSpeedLabel(language)}</small>
-                  <strong>{formatRange(graph.min, graph.max)}</strong>
+                  <strong>{formatRange(graph.min, graph.max, language)}</strong>
                 </div>
               )}
             </div>
@@ -1851,7 +1878,14 @@ function App() {
 
               <div className="field span-2 battle-field battle-field-nature">
                 <span>{t.nature}</span>
-                <div className="segmented compact">
+                <div
+                  className="segmented compact option-switch switch-track"
+                  style={getSwitchTrackStyle(
+                    Math.max(0, NATURE_OPTIONS.findIndex((option) => option.key === slot.nature)),
+                    NATURE_OPTIONS.length,
+                    4
+                  )}
+                >
                   {NATURE_OPTIONS.map((option) => (
                     <button key={option.key} type="button" className={slot.nature === option.key ? "active" : ""} onClick={() => updateBattleSlot(side, battleSlotIndex, { nature: option.key })}>
                       {getLocalizedOptionLabel(option, language)}
@@ -1862,8 +1896,15 @@ function App() {
 
               <div className="field span-2 battle-field battle-field-item">
                 <span>{t.item}</span>
-                <div className="segmented wrap">
-                  {Object.entries(ITEMS).map(([key, item]) => (
+                <div
+                  className="segmented wrap option-switch switch-track"
+                  style={getSwitchTrackStyle(
+                    Math.max(0, ITEM_ENTRIES.findIndex(([key]) => key === slot.itemSetting)),
+                    ITEM_ENTRIES.length,
+                    3
+                  )}
+                >
+                  {ITEM_ENTRIES.map(([key, item]) => (
                     <button
                       key={key}
                       type="button"
@@ -1879,7 +1920,7 @@ function App() {
 
               <div className="field span-2 battle-field battle-field-ability">
                 <span>{t.ability} <Tooltip label="?" text={t.abilityHelp} className="inline-help" /></span>
-                <div className="segmented wrap">
+                <div className="segmented wrap option-switch switch-track" style={getAbilitySwitchStyle(slot, state)}>
                   {renderAbilityButtons(slot, (value) => updateBattleSlot(side, battleSlotIndex, { abilitySetting: value }), state)}
                 </div>
               </div>
@@ -1943,7 +1984,10 @@ function App() {
               <Tooltip label={t.graphHelpLabel} text={t.graphHelp} className="graph-help" />
             </div>
 
-            <div className="segmented compact header-view-switch">
+            <div
+              className="segmented compact header-view-switch switch-track"
+              style={getSwitchTrackStyle(view === "team" ? 0 : 1, 2, 2)}
+            >
               <button type="button" className={view === "team" ? "active" : ""} onClick={() => setView("team")}>
                 {t.teamView}
               </button>
@@ -1953,8 +1997,23 @@ function App() {
             </div>
 
             <div className="header-meta-tools">
-              <button type="button" className="icon-toggle" onClick={() => setTheme((current) => (current === "dark" ? "light" : "dark"))}>
-                {theme === "dark" ? "☀" : "●"}
+              <button
+                type="button"
+                className={`icon-toggle theme-toggle ${theme === "dark" ? "is-dark" : "is-light"}`}
+                aria-label={theme === "dark" ? t.themeToLight : t.themeToDark}
+                title={theme === "dark" ? t.themeToLight : t.themeToDark}
+                onClick={() => setTheme((current) => (current === "dark" ? "light" : "dark"))}
+              >
+                <span className="theme-icon" aria-hidden="true">
+                  <span className="theme-ray theme-ray-1" />
+                  <span className="theme-ray theme-ray-2" />
+                  <span className="theme-ray theme-ray-3" />
+                  <span className="theme-ray theme-ray-4" />
+                  <span className="theme-ray theme-ray-5" />
+                  <span className="theme-ray theme-ray-6" />
+                  <span className="theme-ray theme-ray-7" />
+                  <span className="theme-ray theme-ray-8" />
+                </span>
               </button>
 
               <select className="lang-select styled-select" value={language} onChange={(event) => setLanguage(event.target.value)}>
@@ -2134,7 +2193,7 @@ function App() {
                           {selectedGraph && (
                             <div className="detail-range battle-summary-range">
                               <small>{getLocalizedCurrentSpeedLabel(language)}</small>
-                              <strong>{formatRange(selectedGraph.min, selectedGraph.max)}</strong>
+                              <strong>{formatRange(selectedGraph.min, selectedGraph.max, language)}</strong>
                             </div>
                           )}
                         </div>
@@ -2178,7 +2237,14 @@ function App() {
 
                           <div className="field span-2">
                             <span>{t.nature}</span>
-                            <div className="segmented">
+                            <div
+                              className="segmented option-switch switch-track"
+                              style={getSwitchTrackStyle(
+                                Math.max(0, NATURE_OPTIONS.findIndex((option) => option.key === selectedSlot.nature)),
+                                NATURE_OPTIONS.length,
+                                4
+                              )}
+                            >
                               {NATURE_OPTIONS.map((option) => (
                                 <button key={option.key} type="button" className={selectedSlot.nature === option.key ? "active" : ""} onClick={() => updateSlot(selectedSide, selectedIndex, { nature: option.key })}>
                                   {getLocalizedOptionLabel(option, language)}
@@ -2189,8 +2255,15 @@ function App() {
 
                           <div className="field span-2">
                             <span>{t.item}</span>
-                            <div className="segmented wrap">
-                              {Object.entries(ITEMS).map(([key, item]) => (
+                            <div
+                              className="segmented wrap option-switch switch-track"
+                              style={getSwitchTrackStyle(
+                                Math.max(0, ITEM_ENTRIES.findIndex(([key]) => key === selectedSlot.itemSetting)),
+                                ITEM_ENTRIES.length,
+                                3
+                              )}
+                            >
+                              {ITEM_ENTRIES.map(([key, item]) => (
                                 <button
                                   key={key}
                                   type="button"
@@ -2206,7 +2279,7 @@ function App() {
 
                           <div className="field span-2">
                             <span>{t.ability} <Tooltip label="?" text={t.abilityHelp} className="inline-help" /></span>
-                            <div className="segmented wrap">
+                            <div className="segmented wrap option-switch switch-track" style={getAbilitySwitchStyle(selectedSlot)}>
                               {renderAbilityButtons(selectedSlot, (value) => updateSlot(selectedSide, selectedIndex, { abilitySetting: value }))}
                             </div>
                           </div>
@@ -2264,7 +2337,7 @@ function App() {
                               <div className="battle-order-graph">
                                 <SpeedGraph graph={entry.graph} maxValue={doubleBattleMax} tone={entry.side} compact />
                               </div>
-                              <div className="battle-order-range">{formatRange(entry.graph.min, entry.graph.max)}</div>
+                              <div className="battle-order-range">{formatRange(entry.graph.min, entry.graph.max, language)}</div>
                             </article>
                           ))}
                         </div>
@@ -2351,7 +2424,7 @@ function App() {
                       </div>
                       <div className="compare-graph-block">
                         <SpeedGraph graph={row.graph} maxValue={compareMax} tone={row.side} />
-                        <div className="compare-range">{formatRange(row.graph.min, row.graph.max)}</div>
+                        <div className="compare-range">{formatRange(row.graph.min, row.graph.max, language)}</div>
                       </div>
                     </article>
                   ))
@@ -2370,7 +2443,11 @@ function App() {
                   <Tooltip label="?" text={t.rosterHelp} className="inline-help" />
                 </div>
                 <div className="roster-controls">
-                  <div className="segmented compact roster-source-switch" aria-label="Roster source">
+                  <div
+                    className="segmented compact roster-source-switch switch-track"
+                    style={getSwitchTrackStyle(rosterSource === ROSTER_SOURCES.champions ? 0 : 1, 2, 2)}
+                    aria-label="Roster source"
+                  >
                     <button
                       type="button"
                       className={rosterSource === ROSTER_SOURCES.champions ? "active" : ""}
@@ -2470,7 +2547,7 @@ function App() {
                     </div>
                     <div className="compare-graph-block">
                       <SpeedGraph graph={row.graph} maxValue={rosterMax} tone={row.isMega ? "mega" : "ally"} />
-                      <div className="compare-range">{formatRange(row.graph.min, row.graph.max)}</div>
+                      <div className="compare-range">{formatRange(row.graph.min, row.graph.max, language)}</div>
                     </div>
                   </article>
                 ))}

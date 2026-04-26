@@ -559,14 +559,20 @@ function buildRangeBranches(baseSpeed, evValues, natureValues, itemFactor, abili
   };
 }
 
-export function formatRange(min, max) {
-  return min === max ? `${min}` : `${min}~${max}`;
+export function formatRange(min, max, language = "ko") {
+  if (min === max) return `${min}`;
+  const separator = pickLocalizedText(language, {
+    ko: "~",
+    en: "–",
+    ja: "〜",
+  });
+  return `${min}${separator}${max}`;
 }
 
 function formatLayerSummary(title, slot, itemFactor, abilityFactor, branches, battleState, language = "ko") {
   const natureLine = branches
     .toSorted((a, b) => a.natureFactor - b.natureFactor)
-    .map((branch) => `${getNatureLabelFromFactor(branch.natureFactor, language)} ${formatRange(branch.min, branch.max)}`)
+    .map((branch) => `${getNatureLabelFromFactor(branch.natureFactor, language)} ${formatRange(branch.min, branch.max, language)}`)
     .join(
       pickLocalizedText(language, {
         ko: " · ",
@@ -921,10 +927,16 @@ export function buildRosterGraph(entry, speed = entry.speed, language = "ko", ab
 export function getVerdict(allyGraph, enemyGraph, t) {
   const allyExact = allyGraph.min === allyGraph.max;
   const enemyExact = enemyGraph.min === enemyGraph.max;
+  const pointGap = Math.abs(allyGraph.point - enemyGraph.point);
+  const overlapMin = Math.max(allyGraph.min, enemyGraph.min);
+  const overlapMax = Math.min(allyGraph.max, enemyGraph.max);
+  const hasOverlap = overlapMax >= overlapMin;
+
   if (allyExact && enemyExact && allyGraph.min === enemyGraph.min) return { title: t.tieExact, sub: t.tieExactSub, tone: "tie" };
   if (allyGraph.min > enemyGraph.max) return { title: t.sureFirstMy, sub: t.sureSubMy, tone: "ally" };
   if (enemyGraph.min > allyGraph.max) return { title: t.sureFirstOpp, sub: t.sureSubOpp, tone: "enemy" };
   if (allyGraph.point === enemyGraph.point) return { title: t.tiePossible, sub: t.tiePossibleSub, tone: "tie" };
+  if (hasOverlap && pointGap <= 5) return { title: t.mixed, sub: t.mixedSub, tone: "neutral" };
   if (allyGraph.point > enemyGraph.point) return { title: t.likelyFirstMy, sub: t.likelySubMy, tone: "ally" };
   if (enemyGraph.point > allyGraph.point) return { title: t.likelyFirstOpp, sub: t.likelySubOpp, tone: "enemy" };
   return { title: t.mixed, sub: t.mixedSub, tone: "neutral" };
