@@ -1212,8 +1212,10 @@ function App() {
   const [openBattlePicker, setOpenBattlePicker] = useState("");
   const compareRowRefs = useRef(new Map());
   const rosterRowRefs = useRef(new Map());
+  const battleResultRef = useRef(null);
   const rosterSearchTimerRef = useRef(null);
   const previousComparePositions = useRef(new Map());
+  const [isBattleResultVisible, setIsBattleResultVisible] = useState(false);
   const [battleState, dispatchBattleState] = useReducer(battleStateReducer, undefined, () => normalizeBattleState());
 
   const {
@@ -1802,6 +1804,35 @@ function App() {
     [battleUnits, battleState.trickRoom, language, t.myTeam, t.opponentTeam]
   );
   const doubleBattleMax = Math.max(200, ...doubleBattleEntries.map((entry) => entry.graph.max), 200);
+  const hasSingleBattleResult = Boolean(allyBattleGraph && enemyBattleGraph);
+
+  useEffect(() => {
+    const node = battleResultRef.current;
+    const hasResult = battleMode === "double" ? isDoubleBattleReady : hasSingleBattleResult;
+
+    if (view !== "team" || !node || !hasResult) {
+      setIsBattleResultVisible(false);
+      return undefined;
+    }
+
+    const updateResultVisibility = () => {
+      const rect = node.getBoundingClientRect();
+      const visibleTop = Math.max(rect.top, 0);
+      const visibleBottom = Math.min(rect.bottom, window.innerHeight - 86);
+      const visibleHeight = Math.max(0, visibleBottom - visibleTop);
+      const visibilityRatio = visibleHeight / Math.min(rect.height || 1, window.innerHeight);
+      setIsBattleResultVisible(visibilityRatio >= 0.45);
+    };
+
+    updateResultVisibility();
+    window.addEventListener("scroll", updateResultVisibility, { passive: true });
+    window.addEventListener("resize", updateResultVisibility);
+
+    return () => {
+      window.removeEventListener("scroll", updateResultVisibility);
+      window.removeEventListener("resize", updateResultVisibility);
+    };
+  }, [battleMode, hasSingleBattleResult, isDoubleBattleReady, view]);
 
   const isDetailSlotVisible = slotHasPokemon(selectedSlot) && !isDetailPanelCleared;
   const selectedGraph = isDetailSlotVisible ? buildGraph(selectedSlot, selectedSlot.baseSpeed, null, language) : null;
@@ -2126,6 +2157,49 @@ function App() {
       </button>
     </div>
   );
+
+  const scrollToBattleResult = () => {
+    setIsBattleResultVisible(true);
+    battleResultRef.current?.scrollIntoView({ behavior: "smooth", block: "center" });
+  };
+
+  const renderMobileBattleSummary = () => {
+    if (view !== "team") return null;
+    if (isBattleResultVisible) return null;
+
+    if (battleMode === "double") {
+      if (!isDoubleBattleReady || doubleBattleEntries.length === 0) return null;
+
+      return (
+        <button type="button" className={`mobile-battle-summary ${doubleBattleEntries[0]?.side || "neutral"}`} onClick={scrollToBattleResult}>
+          <span className="mobile-battle-summary-title">{t.doubleOrderTitle}</span>
+          <span className="mobile-battle-order" aria-hidden="true">
+            {doubleBattleEntries.map((entry, orderIndex) => (
+              <span key={`${entry.side}-${entry.battleSlotIndex}`} className={`mobile-order-chip ${entry.side}`}>
+                <strong>#{orderIndex + 1}</strong>
+                <img src={entry.icon} alt="" />
+              </span>
+            ))}
+          </span>
+        </button>
+      );
+    }
+
+    if (!allyBattleGraph || !enemyBattleGraph || !verdict) return null;
+
+    return (
+      <button type="button" className={`mobile-battle-summary ${verdict.tone || "neutral"}`} onClick={scrollToBattleResult}>
+        <img src={getDisplayIcon(allyBattleSlot, battleState.ally[0].mega)} alt="" className="mobile-summary-icon ally" />
+        <span className="mobile-summary-copy">
+          <strong>{verdict.title}</strong>
+          <span>
+            {formatRange(allyBattleGraph.min, allyBattleGraph.max, language)} vs {formatRange(enemyBattleGraph.min, enemyBattleGraph.max, language)}
+          </span>
+        </span>
+        <img src={getDisplayIcon(enemyBattleSlot, battleState.enemy[0].mega)} alt="" className="mobile-summary-icon enemy" />
+      </button>
+    );
+  };
 
   const toneClass = theme === "dark" ? "dark" : "light";
 
@@ -2485,7 +2559,7 @@ function App() {
                 </div>
 
                 {battleMode === "double" ? (
-                  <div className={`battle-result ${doubleBattleEntries[0]?.side || "neutral"} ${isDoubleBattleReady ? "" : "battle-result-empty"}`}>
+                  <div ref={battleResultRef} className={`battle-result ${doubleBattleEntries[0]?.side || "neutral"} ${isDoubleBattleReady ? "" : "battle-result-empty"}`}>
                     {renderTrickRoomToggle()}
                     {isDoubleBattleReady ? (
                       <>
@@ -2519,7 +2593,7 @@ function App() {
                     )}
                   </div>
                 ) : (
-                  <div className={`battle-result ${verdict?.tone || "neutral"} ${allyBattleGraph && enemyBattleGraph ? "" : "battle-result-empty"}`}>
+                  <div ref={battleResultRef} className={`battle-result ${verdict?.tone || "neutral"} ${allyBattleGraph && enemyBattleGraph ? "" : "battle-result-empty"}`}>
                     {renderTrickRoomToggle()}
                     {allyBattleGraph && enemyBattleGraph ? (
                       <>
@@ -2812,6 +2886,8 @@ function App() {
             <span>{t.scrollTop}</span>
           </button>
         )}
+
+        {renderMobileBattleSummary()}
 
         <PresetManagerModal
           isOpen={isPresetManagerOpen}
