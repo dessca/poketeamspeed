@@ -876,14 +876,14 @@
 
 .result-icon,
 .slot-icon {
-  width: 48px;
-  height: 48px;
+  width: 60px;
+  height: 60px;
   object-fit: contain;
 }
 
 .slot-icon.large {
-  width: 64px;
-  height: 64px;
+  width: 88px;
+  height: 88px;
 }
 
 .search-result em {
@@ -1246,8 +1246,8 @@
   align-items: center;
   justify-content: flex-start;
   flex: 0 0 auto;
-  min-height: 56px;
-  padding-left: 12px;
+  min-height: 68px;
+  padding-left: 16px;
   overflow: visible;
 }
 
@@ -1255,9 +1255,9 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 54px;
-  height: 54px;
-  margin-left: -12px;
+  width: 68px;
+  height: 68px;
+  margin-left: -16px;
 }
 
 .saved-team-icon-shell:first-child {
@@ -1265,8 +1265,8 @@
 }
 
 .saved-team-icon {
-  width: 54px;
-  height: 54px;
+  width: 68px;
+  height: 68px;
   object-fit: contain;
 }
 
@@ -1451,8 +1451,8 @@
 }
 
 .slot-card-top.compact .slot-icon {
-  width: 44px;
-  height: 44px;
+  width: 56px;
+  height: 56px;
 }
 
 .slot-copy {
@@ -2548,8 +2548,8 @@
 }
 
 .battle-result-icon {
-  width: 84px;
-  height: 84px;
+  width: 108px;
+  height: 108px;
   object-fit: contain;
   transform-origin: center bottom;
   will-change: transform;
@@ -2752,13 +2752,13 @@
 }
 
 .compare-panel .slot-icon {
-  width: 34px;
-  height: 34px;
+  width: 52px;
+  height: 52px;
 }
 
 .compare-panel .icon-shell {
-  width: 42px;
-  height: 42px;
+  width: 56px;
+  height: 56px;
   border-radius: 14px;
 }
 
@@ -3119,7 +3119,7 @@
 .quiz-art-shell {
   display: grid;
   place-items: center;
-  width: min(280px, 72%);
+  width: min(340px, 86%);
   aspect-ratio: 1;
 }
 
@@ -3696,15 +3696,10 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 64px;
-  height: 64px;
+  width: 76px;
+  height: 76px;
   border-radius: 0;
   background: transparent;
-}
-
-.icon-shell.mega-on,
-.icon-shell.can-mega {
-  box-shadow: inset 0 0 0 2px color-mix(in srgb, var(--mega) 30%, transparent);
 }
 
 .empty-box {
@@ -4120,8 +4115,8 @@
   }
 
   .battle-poke .slot-icon.large {
-    width: 46px;
-    height: 46px;
+    width: 70px;
+    height: 70px;
   }
 
   .battle-detail-grid {
@@ -4193,13 +4188,13 @@
   }
 
   .battle-result-stage {
-    grid-template-columns: 52px minmax(0, 1fr) 52px;
+    grid-template-columns: 74px minmax(0, 1fr) 74px;
     gap: 6px 8px;
   }
 
   .battle-result-icon {
-    width: 48px;
-    height: 48px;
+    width: 78px;
+    height: 78px;
   }
 }
 
@@ -4440,7 +4435,7 @@
   }
 
   .quiz-art-shell {
-    width: 96px;
+    width: 128px;
   }
 
   .quiz-card strong {
@@ -4693,13 +4688,13 @@
   }
 
   .battle-result-stage {
-    grid-template-columns: 44px minmax(0, 1fr) 44px;
+    grid-template-columns: 68px minmax(0, 1fr) 68px;
     gap: 8px;
   }
 
   .battle-result-icon {
-    width: 44px;
-    height: 44px;
+    width: 74px;
+    height: 74px;
   }
 
   .compare-list {
@@ -4820,12 +4815,12 @@
   }
 
   .battle-result-stage {
-    grid-template-columns: 52px minmax(0, 1fr) 52px;
+    grid-template-columns: 74px minmax(0, 1fr) 74px;
   }
 
   .battle-result-icon {
-    width: 48px;
-    height: 48px;
+    width: 78px;
+    height: 78px;
   }
 }
 
