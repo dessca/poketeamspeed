@@ -3029,7 +3029,6 @@
 
 .quiz-card:hover:not(:disabled),
 .quiz-card:focus-visible:not(:disabled) {
-  transform: translateY(-2px);
   border-color: color-mix(in srgb, var(--accent) 45%, var(--panel-border));
   box-shadow:
     var(--shadow),
@@ -3502,7 +3501,11 @@
   pointer-events: auto;
   transform-origin: center;
   z-index: 4;
-  transition: left 220ms ease, color 180ms ease, opacity 180ms ease;
+  transition: left 220ms ease, color 180ms ease;
+}
+
+.speed-graph-value.marker-exit {
+  pointer-events: none;
 }
 
 .speed-graph-value.top {
@@ -3553,8 +3556,7 @@
 }
 
 .rolling-digit-track.is-animating {
-  transform: translateY(calc(var(--digit-offset) * -1em));
-  transition: transform 260ms cubic-bezier(0.2, 0.8, 0.2, 1);
+  animation: rolling-digit-slot 720ms cubic-bezier(0.16, 0.9, 0.2, 1) both;
 }
 
 .rolling-digit-cell,
@@ -3564,6 +3566,16 @@
   line-height: 1;
   min-width: 0.62ch;
   text-align: center;
+}
+
+@keyframes rolling-digit-slot {
+  0% {
+    transform: translateY(0);
+  }
+
+  100% {
+    transform: translateY(calc(var(--digit-offset) * -1em));
+  }
 }
 
 .speed-graph-point {

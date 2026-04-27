@@ -1058,12 +1058,12 @@ function buildRollingDigitSequence(fromChar, toChar) {
 
   if (!fromIsDigit && toIsDigit) {
     const to = Number(toChar);
-    return [String((to + 8) % 10), String((to + 9) % 10), toChar];
+    return [String((to + 6) % 10), String((to + 7) % 10), String((to + 8) % 10), String((to + 9) % 10), toChar];
   }
 
   if (fromIsDigit && !toIsDigit) {
     const from = Number(fromChar);
-    return [fromChar, String((from + 1) % 10), toChar];
+    return [fromChar, String((from + 1) % 10), String((from + 2) % 10), String((from + 3) % 10), toChar];
   }
 
   if (!fromIsDigit || !toIsDigit) return [toChar];
@@ -1072,14 +1072,14 @@ function buildRollingDigitSequence(fromChar, toChar) {
   const to = Number(toChar);
   if (from === to) return [toChar];
 
-  const direction = to >= from ? 1 : -1;
   const sequence = [String(from)];
   let current = from;
+  const forwardSteps = (to - from + 10) % 10;
+  const steps = forwardSteps === 0 ? 10 : forwardSteps + 10;
 
-  while (current !== to) {
-    current = (current + direction + 10) % 10;
+  for (let step = 0; step < steps; step += 1) {
+    current = (current + 1) % 10;
     sequence.push(String(current));
-    if (sequence.length > 11) break;
   }
 
   return sequence;
@@ -1109,11 +1109,12 @@ function RollingDigit({ fromChar, toChar, animationKey }) {
   );
 }
 
-function RollingNumber({ value, animationIdentity, phase = "stable" }) {
+function RollingNumber({ value, previousValue = null, animationIdentity, phase = "stable" }) {
   const nextText = String(value);
+  const previousText = previousValue == null ? "" : String(previousValue);
   const blankText = " ".repeat(nextText.length);
   const targetText = phase === "exit" ? blankText : nextText;
-  const fromText = phase === "exit" ? nextText : blankText;
+  const fromText = phase === "exit" ? nextText : previousText || blankText;
 
   const width = Math.max(fromText.length, targetText.length);
   const fromChars = fromText.padStart(width, " ").split("");
@@ -1136,6 +1137,7 @@ function RollingNumber({ value, animationIdentity, phase = "stable" }) {
 function SpeedGraph({ graph, maxValue, tone = "ally", compact = false, markerValuePlacement = "none" }) {
   const graphRef = useRef(null);
   const [graphWidth, setGraphWidth] = useState(0);
+  const [animatedMarkerLabels, setAnimatedMarkerLabels] = useState([]);
   const pointIsRange = graph.pointMax > graph.pointMin;
   const pointTooltip = graph.pointTooltip?.join("\n") || "";
   const pointTop = compact ? 30 : 27;
@@ -1240,6 +1242,43 @@ function SpeedGraph({ graph, maxValue, tone = "ally", compact = false, markerVal
           })
           .reverse();
       })();
+  const markerSnapshot = JSON.stringify(
+    markerLabels.map(({ id, value, labelPercent, tooltipText }) => ({
+      id,
+      value,
+      labelPercent,
+      tooltipText,
+    }))
+  );
+  useEffect(() => {
+    const timer = window.setTimeout(() => {
+      const nextMarkers = JSON.parse(markerSnapshot);
+      setAnimatedMarkerLabels((current) => {
+        const previousById = new Map(
+          current
+            .filter((marker) => marker.phase !== "exit")
+            .map((marker) => [marker.id, marker])
+        );
+        const nextIds = new Set(nextMarkers.map((marker) => marker.id));
+        return [
+          ...nextMarkers.map((marker) => ({
+            ...marker,
+            phase: previousById.has(marker.id) ? "stable" : "enter",
+            previousValue: previousById.get(marker.id)?.value ?? null,
+          })),
+          ...[...previousById.values()]
+            .filter((marker) => markerValuePlacement !== "none" && !nextIds.has(marker.id))
+            .map((marker) => ({
+              ...marker,
+              phase: "exit",
+              previousValue: marker.value,
+            })),
+        ];
+      });
+    }, 0);
+
+    return () => window.clearTimeout(timer);
+  }, [markerSnapshot, markerValuePlacement]);
   useEffect(() => {
     if (markerValuePlacement === "none") return undefined;
 
@@ -1283,17 +1322,22 @@ function SpeedGraph({ graph, maxValue, tone = "ally", compact = false, markerVal
             />
           );
         })}
-      {markerLabels.map((marker) => (
+      {animatedMarkerLabels.map((marker) => (
         <span
           key={`label-${marker.id}`}
-          className={`speed-graph-value marker-tooltip ${markerValuePlacement}`}
+          className={`speed-graph-value marker-tooltip ${markerValuePlacement} ${marker.phase !== "stable" ? `marker-${marker.phase}` : ""}`}
           style={{ left: `${marker.labelPercent}%` }}
           data-tooltip={marker.tooltipText}
           tabIndex={0}
         >
           <span className="marker-hitbox" />
           <span className="speed-graph-value-text">
-            <RollingNumber value={marker.value} animationIdentity={marker.id} />
+            <RollingNumber
+              value={marker.value}
+              previousValue={marker.previousValue}
+              animationIdentity={marker.id}
+              phase={marker.phase}
+            />
           </span>
         </span>
       ))}
