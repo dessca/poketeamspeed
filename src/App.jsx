@@ -290,6 +290,7 @@ const TEXT = {
     quizCorrectMessage: "정답입니다. 생존 포켓몬이 남고 다음 도전자가 등장했습니다.",
     quizTieMessage: "동속 정답입니다. 생존 포켓몬이 그대로 남습니다.",
     quizWrongMessage: "아쉽습니다. 공개된 스피드 종족값을 확인하고 다시 도전하세요.",
+    quizStart: "게임 시작",
     quizRestart: "다시 시작",
     quizLoading: "퀴즈 데이터를 준비하는 중입니다.",
     quizPickFaster: "더 빠른 쪽을 고르세요",
@@ -438,6 +439,7 @@ const TEXT = {
     quizCorrectMessage: "Correct. The survivor stays and a new challenger appears.",
     quizTieMessage: "Correct Speed tie. The survivor stays.",
     quizWrongMessage: "So close. Check the revealed base Speeds and try again.",
+    quizStart: "Start Game",
     quizRestart: "Restart",
     quizLoading: "Preparing quiz data.",
     quizPickFaster: "Pick the faster one",
@@ -586,6 +588,7 @@ const TEXT = {
     quizCorrectMessage: "正解です。生き残りが残り、次の挑戦者が登場しました。",
     quizTieMessage: "同速正解です。生き残りがそのまま残ります。",
     quizWrongMessage: "惜しいです。公開された素早さ種族値を確認して再挑戦しましょう。",
+    quizStart: "ゲーム開始",
     quizRestart: "もう一度",
     quizLoading: "クイズデータを準備しています。",
     quizPickFaster: "速い方を選んでください",
@@ -1383,6 +1386,7 @@ function App() {
     score: 0,
     result: null,
     gameOver: false,
+    started: false,
   });
   const [quizGlobalStats, setQuizGlobalStats] = useState({
     status: "idle",
@@ -1496,7 +1500,7 @@ function App() {
   useEffect(() => writeStorage(STORAGE.presets, presets), [presets]);
   useEffect(() => writeStorage(STORAGE.quizBest, quizBest), [quizBest]);
   useEffect(() => {
-    if ((view !== "roster" && view !== "quiz" && teamChampionsOnly) || nationalRosterBundle) return;
+    if ((view !== "roster" && (view !== "quiz" || teamChampionsOnly)) || nationalRosterBundle) return;
 
     let active = true;
     loadNationalRosterBundle().then((module) => {
@@ -1556,29 +1560,30 @@ function App() {
   );
   const quizPool = useMemo(
     () =>
-      sourceRoster.filter(
+      (teamChampionsOnly ? championsRoster : sourceRoster).filter(
         (entry) =>
           entry?.id &&
           entry?.icon &&
           Number.isFinite(Number(entry.speed))
       ),
-    [sourceRoster]
+    [sourceRoster, teamChampionsOnly]
   );
 
   useEffect(() => {
-    if (view !== "quiz" || quizPool.length < 2) return;
     const timer = window.setTimeout(() => {
       setQuizState((current) => {
+        if (!current.started) return current;
         const currentStillExists = current.current && quizPool.some((entry) => entry.id === current.current.id);
         const challengerStillExists = current.challenger && quizPool.some((entry) => entry.id === current.challenger.id);
-        if (currentStillExists && challengerStillExists) return current;
-        const nextRound = createQuizRound(quizPool);
+        if (quizPool.length >= 2 && currentStillExists && challengerStillExists) return current;
+        setQuizGlobalStats({ status: "idle", data: null });
         return {
-          current: nextRound.current,
-          challenger: nextRound.challenger,
+          current: null,
+          challenger: null,
           score: 0,
           result: null,
           gameOver: false,
+          started: false,
         };
       });
     }, 0);
@@ -1601,7 +1606,8 @@ function App() {
     dispatchUiState(action);
   };
 
-  const restartQuiz = () => {
+  const startQuiz = () => {
+    if (quizPool.length < 2) return;
     const nextRound = createQuizRound(quizPool);
     setQuizGlobalStats({ status: "idle", data: null });
     setQuizState({
@@ -1610,8 +1616,11 @@ function App() {
       score: 0,
       result: null,
       gameOver: false,
+      started: true,
     });
   };
+
+  const restartQuiz = startQuiz;
 
   const submitQuizScore = async (score) => {
     setQuizGlobalStats({ status: "loading", data: null });
@@ -1638,7 +1647,7 @@ function App() {
   };
 
   const handleQuizGuess = (guess) => {
-    if (!quizState.current || !quizState.challenger || quizState.gameOver) return;
+    if (!quizState.started || !quizState.current || !quizState.challenger || quizState.gameOver) return;
 
     const currentSpeed = Number(quizState.current.speed);
     const challengerSpeed = Number(quizState.challenger.speed);
@@ -1683,6 +1692,7 @@ function App() {
         survivor,
       },
       gameOver: false,
+      started: true,
     });
   };
 
@@ -2593,7 +2603,9 @@ function App() {
   };
 
   const renderQuizView = () => {
-    if (rosterSourceData.loading || quizPool.length < 2 || !quizState.current || !quizState.challenger) {
+    const quizIsLoading = !teamChampionsOnly && rosterSourceData.loading;
+
+    if (quizIsLoading || quizPool.length < 2 || (quizState.started && (!quizState.current || !quizState.challenger))) {
       return (
         <main className="workspace quiz-workspace">
           <section className="panel quiz-panel">
@@ -2626,55 +2638,77 @@ function App() {
               <h2>{t.quizTitle}</h2>
               <Tooltip label="?" text={t.quizHelp} className="inline-help" />
             </div>
-            <div className="quiz-scoreboard">
-              <div>
-                <span>{t.quizScore}</span>
-                <strong>{quizState.score}</strong>
-              </div>
-              <div>
-                <span>{t.quizBest}</span>
-                <strong>{quizBest}</strong>
-              </div>
-            </div>
-          </div>
-
-          <div className="quiz-stage" aria-label={t.quizPickFaster}>
-            {renderQuizCard(quizState.current, "current", "current")}
-            <div className="quiz-versus">
-              <span>VS</span>
+            <div className="quiz-head-tools">
               <button
                 type="button"
-                className="primary-button quiz-tie-button"
-                onClick={() => handleQuizGuess("tie")}
-                disabled={quizState.gameOver}
+                className={`champion-scope-toggle ${teamChampionsOnly ? "on" : ""}`}
+                aria-pressed={teamChampionsOnly}
+                onClick={() => setTeamChampionsOnly((current) => !current)}
               >
-                {t.quizTie}
+                {t.rosterFilterChampion}
+              </button>
+              <div className="quiz-scoreboard">
+                <div>
+                  <span>{t.quizScore}</span>
+                  <strong>{quizState.score}</strong>
+                </div>
+                <div>
+                  <span>{t.quizBest}</span>
+                  <strong>{quizBest}</strong>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {quizState.started ? (
+            <>
+              <div className="quiz-stage" aria-label={t.quizPickFaster}>
+                {renderQuizCard(quizState.current, "current", "current")}
+                <div className="quiz-versus">
+                  <span>VS</span>
+                  <button
+                    type="button"
+                    className="primary-button quiz-tie-button"
+                    onClick={() => handleQuizGuess("tie")}
+                    disabled={quizState.gameOver}
+                  >
+                    {t.quizTie}
+                  </button>
+                </div>
+                {renderQuizCard(quizState.challenger, "challenger", "challenger")}
+              </div>
+
+              <div className="quiz-actions">
+                <button type="button" className="ghost-button" onClick={restartQuiz}>
+                  {t.quizRestart}
+                </button>
+              </div>
+            </>
+          ) : (
+            <div className="quiz-start">
+              <button type="button" className="primary-button quiz-start-button" onClick={startQuiz}>
+                {t.quizStart}
               </button>
             </div>
-            {renderQuizCard(quizState.challenger, "challenger", "challenger")}
-          </div>
+          )}
 
-          <div className="quiz-actions">
-            <button type="button" className="ghost-button" onClick={restartQuiz}>
-              {t.quizRestart}
-            </button>
-          </div>
-
-          <div className={`quiz-result ${quizState.result?.type || "ready"}`}>
-            <strong>
-              {quizState.result?.type === "wrong"
-                ? t.quizWrong
-                : quizState.result
-                  ? t.quizCorrect
-                  : t.quizPickFaster}
-            </strong>
-            {(resultMessage || resultDetail) && (
-              <span>
-                {resultMessage}
-                {resultDetail && <em className="quiz-result-detail">{resultDetail}</em>}
-              </span>
-            )}
-          </div>
+          {quizState.started && (
+            <div className={`quiz-result ${quizState.result?.type || "ready"}`}>
+              <strong>
+                {quizState.result?.type === "wrong"
+                  ? t.quizWrong
+                  : quizState.result
+                    ? t.quizCorrect
+                    : t.quizPickFaster}
+              </strong>
+              {(resultMessage || resultDetail) && (
+                <span>
+                  {resultMessage}
+                  {resultDetail && <em className="quiz-result-detail">{resultDetail}</em>}
+                </span>
+              )}
+            </div>
+          )}
 
         </section>
         {renderQuizGlobalStats()}
