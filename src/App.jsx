@@ -84,6 +84,11 @@ const STORAGE = {
 };
 
 const VIEW_OPTIONS = ["team", "roster", "quiz"];
+const VIEW_ROUTES = {
+  team: "/team",
+  roster: "/roster",
+  quiz: "/quiz",
+};
 
 const ROSTER_RENDER_BATCH = 180;
 const ITEM_ENTRIES = Object.entries(ITEMS);
@@ -763,6 +768,23 @@ function normalizeView(value) {
   return VIEW_OPTIONS.includes(value) ? value : "team";
 }
 
+function getViewFromPathname(pathname) {
+  const normalizedPath = String(pathname || "/").replace(/\/+$/, "") || "/";
+  if (normalizedPath === "/") return "team";
+
+  const routeEntry = Object.entries(VIEW_ROUTES).find(([, route]) => route === normalizedPath);
+  return routeEntry ? routeEntry[0] : null;
+}
+
+function getRouteForView(value) {
+  return VIEW_ROUTES[normalizeView(value)];
+}
+
+function getInitialView() {
+  const routeView = getViewFromPathname(window.location.pathname);
+  return routeView || "team";
+}
+
 function pickRandomEntry(entries, excludedIds = []) {
   const excluded = new Set(excludedIds.filter(Boolean));
   const candidates = entries.filter((entry) => !excluded.has(entry.id));
@@ -1348,7 +1370,7 @@ function SpeedGraph({ graph, maxValue, tone = "ally", compact = false, markerVal
 function App() {
   const [language, setLanguage] = useState(() => detectInitialLanguage());
   const [theme, setTheme] = useState(() => readStorage(STORAGE.theme, "dark"));
-  const [view, setView] = useState(() => normalizeView(readStorage(STORAGE.view, "team")));
+  const [view, setView] = useState(() => getInitialView());
   const [battleMode, setBattleMode] = useState(() => readStorage(STORAGE.battleMode, "single"));
   const [teamChampionsOnly, setTeamChampionsOnly] = useState(() => readStorage(STORAGE.teamChampionsOnly, true) !== false);
   const [allySlots, setAllySlots] = useState(() => normalizeTeam(readStorage(STORAGE.ally, null)));
@@ -1435,6 +1457,34 @@ function App() {
       ),
     [language]
   );
+
+  const navigateToView = (nextView) => {
+    const normalizedView = normalizeView(nextView);
+    const nextPath = getRouteForView(normalizedView);
+    const currentPath = `${window.location.pathname}${window.location.search}${window.location.hash}`;
+
+    setView(normalizedView);
+
+    if (currentPath !== nextPath) {
+      window.history.pushState({ view: normalizedView }, "", nextPath);
+    }
+  };
+
+  useEffect(() => {
+    const routeView = getViewFromPathname(window.location.pathname);
+    const normalizedView = routeView || "team";
+
+    if (!routeView || window.location.pathname === "/") {
+      window.history.replaceState({ view: normalizedView }, "", getRouteForView(normalizedView));
+    }
+
+    const handlePopState = () => {
+      setView(getViewFromPathname(window.location.pathname) || "team");
+    };
+
+    window.addEventListener("popstate", handlePopState);
+    return () => window.removeEventListener("popstate", handlePopState);
+  }, []);
 
   useEffect(() => writeStorage(STORAGE.theme, theme), [theme]);
   useEffect(() => writeStorage(STORAGE.language, language), [language]);
@@ -2559,7 +2609,7 @@ function App() {
         : quizState.result.type === "tie"
           ? t.quizTieMessage
           : t.quizCorrectMessage
-      : t.quizPickFaster;
+      : "";
     const resultCurrent = quizState.result?.current;
     const resultChallenger = quizState.result?.challenger;
     const resultDetail = resultCurrent && resultChallenger
@@ -2618,10 +2668,12 @@ function App() {
                   ? t.quizCorrect
                   : t.quizPickFaster}
             </strong>
-            <span>
-              {resultMessage}
-              {resultDetail && <em className="quiz-result-detail">{resultDetail}</em>}
-            </span>
+            {(resultMessage || resultDetail) && (
+              <span>
+                {resultMessage}
+                {resultDetail && <em className="quiz-result-detail">{resultDetail}</em>}
+              </span>
+            )}
           </div>
 
         </section>
@@ -2700,7 +2752,7 @@ function App() {
                   type="button"
                   className={view === option ? "active" : ""}
                   aria-current={view === option ? "page" : undefined}
-                  onClick={() => setView(option)}
+                  onClick={() => navigateToView(option)}
                 >
                   {option === "team" ? t.teamView : option === "roster" ? t.rosterView : t.quizView}
                 </button>
