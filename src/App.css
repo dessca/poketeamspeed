@@ -201,17 +201,45 @@
   gap: 10px;
 }
 
-.header-view-switch {
-  flex: 0 0 auto;
+.header-view-menu {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  min-height: 46px;
+  padding: 4px;
+  border: 1px solid var(--panel-border);
+  border-radius: 16px;
+  background: color-mix(in srgb, var(--panel) 86%, transparent);
+  box-shadow: var(--shadow);
 }
 
-.header-view-switch.segmented {
-  padding-inline: 5px;
+.header-view-menu button {
+  position: relative;
+  min-height: 38px;
+  padding: 0 14px;
+  border: 0;
+  border-radius: 12px;
+  background: transparent;
+  color: var(--muted);
+  font-size: var(--panel-chip-size);
+  font-weight: 800;
+  white-space: nowrap;
+  cursor: pointer;
+  transition:
+    background-color 170ms ease,
+    color 170ms ease,
+    box-shadow 170ms ease;
 }
 
-.header-view-switch button {
-  min-width: 68px;
-  padding-inline: 12px;
+.header-view-menu button:hover {
+  background: rgba(37, 99, 235, 0.08);
+  color: var(--text);
+}
+
+.header-view-menu button.active {
+  background: rgba(37, 99, 235, 0.15);
+  color: var(--text);
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--accent) 18%, transparent) inset;
 }
 
 .segmented,
@@ -3924,13 +3952,13 @@
     gap: 8px;
   }
 
-  .header-view-switch {
+  .header-view-menu {
     grid-column: 2;
     justify-self: end;
     width: auto;
   }
 
-  .header-view-switch button {
+  .header-view-menu button {
     min-width: 58px;
     padding: 0 10px;
   }
@@ -4340,16 +4368,15 @@
     gap: 8px;
   }
 
-  .header-view-switch {
+  .header-view-menu {
     width: 100%;
-  }
-
-  .header-view-switch.segmented {
     display: flex;
+    overflow-x: auto;
+    scrollbar-width: none;
   }
 
-  .header-view-switch button {
-    flex: 1 1 0;
+  .header-view-menu button {
+    flex: 1 0 max-content;
     min-width: 0;
   }
 
@@ -4670,7 +4697,7 @@
 
 @media (max-width: 960px) and (orientation: portrait) {
   .header-meta-tools,
-  .header-view-switch {
+  .header-view-menu {
     width: 100%;
   }
 
@@ -4695,7 +4722,7 @@
   .header-controls,
   .header-help,
   .header-meta-tools,
-  .header-view-switch {
+  .header-view-menu {
     width: auto;
   }
 
@@ -4771,7 +4798,7 @@
   }
 
   .header-help,
-  .header-view-switch,
+  .header-view-menu,
   .header-meta-tools {
     grid-column: 1 / -1;
     width: 100%;
@@ -4784,7 +4811,7 @@
     order: 1;
   }
 
-  .header-view-switch {
+  .header-view-menu {
     order: 2;
   }
 
@@ -4818,7 +4845,6 @@
     gap: 8px;
   }
 
-  .header-view-switch.segmented,
   .panel-mode-switch.segmented,
   .toolbar-group.side-group .segmented {
     display: grid;
@@ -4830,11 +4856,7 @@
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .header-view-switch.segmented {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-
-  .header-view-switch button,
+  .header-view-menu button,
   .panel-mode-switch button,
   .toolbar-group.side-group .segmented button {
     min-width: 0;

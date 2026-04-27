@@ -2693,20 +2693,19 @@ function App() {
               <Tooltip label={t.graphHelpLabel} text={t.graphHelp} className="graph-help" />
             </div>
 
-            <div
-              className="segmented compact header-view-switch switch-track"
-              style={getSwitchTrackStyle(VIEW_OPTIONS.indexOf(view), VIEW_OPTIONS.length, VIEW_OPTIONS.length)}
-            >
-              <button type="button" className={view === "team" ? "active" : ""} onClick={() => setView("team")}>
-                {t.teamView}
-              </button>
-              <button type="button" className={view === "roster" ? "active" : ""} onClick={() => setView("roster")}>
-                {t.rosterView}
-              </button>
-              <button type="button" className={view === "quiz" ? "active" : ""} onClick={() => setView("quiz")}>
-                {t.quizView}
-              </button>
-            </div>
+            <nav className="header-view-menu" aria-label="Primary">
+              {VIEW_OPTIONS.map((option) => (
+                <button
+                  key={option}
+                  type="button"
+                  className={view === option ? "active" : ""}
+                  aria-current={view === option ? "page" : undefined}
+                  onClick={() => setView(option)}
+                >
+                  {option === "team" ? t.teamView : option === "roster" ? t.rosterView : t.quizView}
+                </button>
+              ))}
+            </nav>
 
             <div className="header-meta-tools">
               <button
