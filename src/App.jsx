@@ -80,7 +80,10 @@ const STORAGE = {
   enemy: "poke-team-speed:enemy",
   presets: "poke-team-speed:presets",
   teamChampionsOnly: "poke-team-speed:team-champions-only",
+  quizBest: "poke-team-speed:quiz-best",
 };
+
+const VIEW_OPTIONS = ["team", "roster", "quiz"];
 
 const ROSTER_RENDER_BATCH = 180;
 const ITEM_ENTRIES = Object.entries(ITEMS);
@@ -237,6 +240,7 @@ const TEXT = {
     rosterHelp: "능력 포인트/성격/도구/특성에 따른 스피드 가능 범위를 단계형 막대로 보여줍니다.\n챔피언스, 메가진화, 타입, 세대 필터를 조합해 원하는 포켓몬만 좁혀 볼 수 있습니다.",
     teamView: "팀 비교",
     rosterView: "전체 포켓몬",
+    quizView: "스피드 퀴즈",
     themeToLight: "라이트 모드로 전환",
     themeToDark: "다크 모드로 전환",
     myTeam: "내 팀",
@@ -269,6 +273,30 @@ const TEXT = {
     rosterSearchPlaceholder: "포켓몬 이름으로 바로 이동",
     rosterSearchAction: "바로 이동",
     rosterSearchMiss: "일치하는 포켓몬을 찾지 못했습니다.",
+    quizTitle: "스피드 퀴즈",
+    quizHelp: "두 포켓몬 중 스피드 종족값이 더 높은 쪽을 고르세요.\n같은 스피드라면 같음 버튼을 눌러야 정답입니다.",
+    quizCurrent: "생존 포켓몬",
+    quizChallenger: "도전자",
+    quizScore: "연속 정답",
+    quizBest: "최고 기록",
+    quizTie: "같음",
+    quizCorrect: "정답",
+    quizWrong: "오답",
+    quizCorrectMessage: "정답입니다. 생존 포켓몬이 남고 다음 도전자가 등장했습니다.",
+    quizTieMessage: "동속 정답입니다. 생존 포켓몬이 그대로 남습니다.",
+    quizWrongMessage: "아쉽습니다. 공개된 스피드 종족값을 확인하고 다시 도전하세요.",
+    quizRestart: "다시 시작",
+    quizLoading: "퀴즈 데이터를 준비하는 중입니다.",
+    quizPickFaster: "더 빠른 쪽을 고르세요",
+    quizGlobalStats: "글로벌 기록",
+    quizGlobalLoading: "글로벌 기록을 불러오는 중입니다.",
+    quizGlobalUnavailable: "글로벌 기록 서버가 아직 설정되지 않았습니다.",
+    quizGlobalAverage: "전체 평균",
+    quizGlobalRank: "내 순위",
+    quizGlobalPlayers: "참여 기록",
+    quizGlobalBest: "전체 최고",
+    quizGlobalTop: "상위 기록",
+    quizRankUnit: "위",
     scrollTop: "맨 위로",
     battleMode: "배틀 모드",
     single: "싱글 배틀",
@@ -360,6 +388,7 @@ const TEXT = {
     rosterHelp: "Shows each Pokémon's possible Speed range as layered bars for points, nature, item, and ability.\nUse the Champions, Mega, type, and generation filters together to narrow the list.",
     teamView: "Team Compare",
     rosterView: "All Pokémon",
+    quizView: "Speed Quiz",
     themeToLight: "Switch to light mode",
     themeToDark: "Switch to dark mode",
     myTeam: "My Team",
@@ -392,6 +421,30 @@ const TEXT = {
     rosterSearchPlaceholder: "Jump to a Pokémon by name",
     rosterSearchAction: "Go",
     rosterSearchMiss: "No matching Pokemon was found.",
+    quizTitle: "Speed Quiz",
+    quizHelp: "Pick the Pokemon with the higher base Speed.\nIf both Speed values match, the Tie button is the only correct answer.",
+    quizCurrent: "Survivor",
+    quizChallenger: "Challenger",
+    quizScore: "Streak",
+    quizBest: "Best",
+    quizTie: "Tie",
+    quizCorrect: "Correct",
+    quizWrong: "Wrong",
+    quizCorrectMessage: "Correct. The survivor stays and a new challenger appears.",
+    quizTieMessage: "Correct Speed tie. The survivor stays.",
+    quizWrongMessage: "So close. Check the revealed base Speeds and try again.",
+    quizRestart: "Restart",
+    quizLoading: "Preparing quiz data.",
+    quizPickFaster: "Pick the faster one",
+    quizGlobalStats: "Global Stats",
+    quizGlobalLoading: "Loading global stats.",
+    quizGlobalUnavailable: "Global stats storage is not configured yet.",
+    quizGlobalAverage: "Average",
+    quizGlobalRank: "Your rank",
+    quizGlobalPlayers: "Entries",
+    quizGlobalBest: "Global best",
+    quizGlobalTop: "Top scores",
+    quizRankUnit: "",
     scrollTop: "Back to top",
     battleMode: "Battle\nMode",
     single: "Single Battle",
@@ -483,6 +536,7 @@ const TEXT = {
     rosterHelp: "能力ポイント・性格・持ち物・特性による素早さ候補範囲を段階バーで表示します。\nチャンピオンズ、メガ、タイプ、世代フィルターを組み合わせて表示対象を絞り込めます。",
     teamView: "チーム比較",
     rosterView: "全ポケモン",
+    quizView: "素早さクイズ",
     themeToLight: "ライトモードに切り替え",
     themeToDark: "ダークモードに切り替え",
     myTeam: "自分のチーム",
@@ -515,6 +569,30 @@ const TEXT = {
     rosterSearchPlaceholder: "名前でポケモンへ移動",
     rosterSearchAction: "移動",
     rosterSearchMiss: "一致するポケモンが見つかりませんでした。",
+    quizTitle: "素早さクイズ",
+    quizHelp: "2体のうち、素早さ種族値が高いポケモンを選んでください。\n同じ素早さなら、同速ボタンだけが正解です。",
+    quizCurrent: "生き残り",
+    quizChallenger: "挑戦者",
+    quizScore: "連続正解",
+    quizBest: "最高記録",
+    quizTie: "同速",
+    quizCorrect: "正解",
+    quizWrong: "不正解",
+    quizCorrectMessage: "正解です。生き残りが残り、次の挑戦者が登場しました。",
+    quizTieMessage: "同速正解です。生き残りがそのまま残ります。",
+    quizWrongMessage: "惜しいです。公開された素早さ種族値を確認して再挑戦しましょう。",
+    quizRestart: "もう一度",
+    quizLoading: "クイズデータを準備しています。",
+    quizPickFaster: "速い方を選んでください",
+    quizGlobalStats: "グローバル記録",
+    quizGlobalLoading: "グローバル記録を読み込み中です。",
+    quizGlobalUnavailable: "グローバル記録サーバーはまだ設定されていません。",
+    quizGlobalAverage: "全体平均",
+    quizGlobalRank: "自分の順位",
+    quizGlobalPlayers: "参加記録",
+    quizGlobalBest: "全体最高",
+    quizGlobalTop: "上位記録",
+    quizRankUnit: "位",
     scrollTop: "上へ戻る",
     battleMode: "バトルモード",
     single: "シングルバトル",
@@ -679,6 +757,31 @@ function clampInt(value, min, max) {
   const num = Number(value);
   if (!Number.isFinite(num)) return min;
   return Math.max(min, Math.min(max, Math.round(num)));
+}
+
+function normalizeView(value) {
+  return VIEW_OPTIONS.includes(value) ? value : "team";
+}
+
+function pickRandomEntry(entries, excludedIds = []) {
+  const excluded = new Set(excludedIds.filter(Boolean));
+  const candidates = entries.filter((entry) => !excluded.has(entry.id));
+  const pool = candidates.length > 0 ? candidates : entries;
+  return pool[Math.floor(Math.random() * pool.length)] || null;
+}
+
+function createQuizRound(entries) {
+  const current = pickRandomEntry(entries);
+  const challenger = pickRandomEntry(entries, [current?.id]);
+  return { current, challenger };
+}
+
+function getReadablePokemonName(entry, language) {
+  const label = getLocalizedName(entry, language);
+  if ((language === "ko" || language === "ja") && /[?�]/.test(label)) {
+    return getRosterEntryNames(entry).en || label;
+  }
+  return label;
 }
 
 function getCanonicalRosterEntry(raw) {
@@ -1201,12 +1304,24 @@ function SpeedGraph({ graph, maxValue, tone = "ally", compact = false, markerVal
 function App() {
   const [language, setLanguage] = useState(() => detectInitialLanguage());
   const [theme, setTheme] = useState(() => readStorage(STORAGE.theme, "dark"));
-  const [view, setView] = useState(() => readStorage(STORAGE.view, "team"));
+  const [view, setView] = useState(() => normalizeView(readStorage(STORAGE.view, "team")));
   const [battleMode, setBattleMode] = useState(() => readStorage(STORAGE.battleMode, "single"));
   const [teamChampionsOnly, setTeamChampionsOnly] = useState(() => readStorage(STORAGE.teamChampionsOnly, true) !== false);
   const [allySlots, setAllySlots] = useState(() => normalizeTeam(readStorage(STORAGE.ally, null)));
   const [enemySlots, setEnemySlots] = useState(() => normalizeTeam(readStorage(STORAGE.enemy, null)));
   const [presets, setPresets] = useState(() => normalizePresets(readStorage(STORAGE.presets, [])));
+  const [quizBest, setQuizBest] = useState(() => clampInt(readStorage(STORAGE.quizBest, 0), 0, 999999));
+  const [quizState, setQuizState] = useState({
+    current: null,
+    challenger: null,
+    score: 0,
+    result: null,
+    gameOver: false,
+  });
+  const [quizGlobalStats, setQuizGlobalStats] = useState({
+    status: "idle",
+    data: null,
+  });
   const [nationalRosterBundle, setNationalRosterBundle] = useState(null);
   const [uiState, dispatchUiState] = useReducer(uiStateReducer, undefined, createInitialUiState);
   const [openBattlePicker, setOpenBattlePicker] = useState("");
@@ -1285,8 +1400,9 @@ function App() {
   useEffect(() => writeStorage(STORAGE.ally, allySlots), [allySlots]);
   useEffect(() => writeStorage(STORAGE.enemy, enemySlots), [enemySlots]);
   useEffect(() => writeStorage(STORAGE.presets, presets), [presets]);
+  useEffect(() => writeStorage(STORAGE.quizBest, quizBest), [quizBest]);
   useEffect(() => {
-    if ((view !== "roster" && teamChampionsOnly) || nationalRosterBundle) return;
+    if ((view !== "roster" && view !== "quiz" && teamChampionsOnly) || nationalRosterBundle) return;
 
     let active = true;
     loadNationalRosterBundle().then((module) => {
@@ -1344,6 +1460,36 @@ function App() {
     () => (rosterMegaFilter ? unfilteredMegaRosterRows.filter((row) => row.isMega) : unfilteredMegaRosterRows),
     [rosterMegaFilter, unfilteredMegaRosterRows]
   );
+  const quizPool = useMemo(
+    () =>
+      sourceRoster.filter(
+        (entry) =>
+          entry?.id &&
+          entry?.icon &&
+          Number.isFinite(Number(entry.speed))
+      ),
+    [sourceRoster]
+  );
+
+  useEffect(() => {
+    if (view !== "quiz" || quizPool.length < 2) return;
+    const timer = window.setTimeout(() => {
+      setQuizState((current) => {
+        const currentStillExists = current.current && quizPool.some((entry) => entry.id === current.current.id);
+        const challengerStillExists = current.challenger && quizPool.some((entry) => entry.id === current.challenger.id);
+        if (currentStillExists && challengerStillExists) return current;
+        const nextRound = createQuizRound(quizPool);
+        return {
+          current: nextRound.current,
+          challenger: nextRound.challenger,
+          score: 0,
+          result: null,
+          gameOver: false,
+        };
+      });
+    }, 0);
+    return () => window.clearTimeout(timer);
+  }, [quizPool, view]);
 
   const getSlotsBySide = (overrides = {}) => ({
     ally: overrides.ally ?? allySlots,
@@ -1359,6 +1505,91 @@ function App() {
 
   const dispatchUi = (action) => {
     dispatchUiState(action);
+  };
+
+  const restartQuiz = () => {
+    const nextRound = createQuizRound(quizPool);
+    setQuizGlobalStats({ status: "idle", data: null });
+    setQuizState({
+      current: nextRound.current,
+      challenger: nextRound.challenger,
+      score: 0,
+      result: null,
+      gameOver: false,
+    });
+  };
+
+  const submitQuizScore = async (score) => {
+    setQuizGlobalStats({ status: "loading", data: null });
+
+    try {
+      const response = await fetch("/api/quiz-scores", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ score }),
+      });
+      const payload = await response.json().catch(() => null);
+
+      if (!response.ok || payload?.configured === false) {
+        setQuizGlobalStats({ status: "unavailable", data: payload });
+        return;
+      }
+
+      setQuizGlobalStats({ status: "ready", data: payload });
+    } catch {
+      setQuizGlobalStats({ status: "unavailable", data: null });
+    }
+  };
+
+  const handleQuizGuess = (guess) => {
+    if (!quizState.current || !quizState.challenger || quizState.gameOver) return;
+
+    const currentSpeed = Number(quizState.current.speed);
+    const challengerSpeed = Number(quizState.challenger.speed);
+    const correctGuess =
+      currentSpeed === challengerSpeed
+        ? "tie"
+        : currentSpeed > challengerSpeed
+          ? "current"
+          : "challenger";
+    const isCorrect = guess === correctGuess;
+
+    if (!isCorrect) {
+      setQuizState((current) => ({
+        ...current,
+        result: {
+          type: "wrong",
+          guess,
+          correctGuess,
+          current: current.current,
+          challenger: current.challenger,
+        },
+        gameOver: true,
+      }));
+      submitQuizScore(quizState.score);
+      return;
+    }
+
+    const survivor = guess === "challenger" ? quizState.challenger : quizState.current;
+    const challenger = pickRandomEntry(quizPool, [survivor.id]);
+    const nextScore = quizState.score + 1;
+    setQuizBest((current) => Math.max(current, nextScore));
+    setQuizState({
+      current: survivor,
+      challenger,
+      score: nextScore,
+      result: {
+        type: correctGuess === "tie" ? "tie" : "correct",
+        guess,
+        correctGuess,
+        current: quizState.current,
+        challenger: quizState.challenger,
+        survivor,
+      },
+      gameOver: false,
+    });
   };
 
   const selectSlot = (side, index) => {
@@ -2158,6 +2389,203 @@ function App() {
     </div>
   );
 
+  const renderQuizCard = (entry, role, guess) => {
+    const label = entry ? getReadablePokemonName(entry, language) : "";
+    const isRevealed = quizState.gameOver;
+    const survived = entry && quizState.result?.survivor?.id === entry.id && !quizState.gameOver;
+    return (
+      <button
+        type="button"
+        className={`quiz-card ${role} ${survived ? "survived" : ""}`}
+        onClick={() => handleQuizGuess(guess)}
+        disabled={!entry || quizState.gameOver}
+      >
+        <span className="quiz-card-role">{role === "current" ? t.quizCurrent : t.quizChallenger}</span>
+        <span className="quiz-art-shell">
+          {entry && <img src={entry.icon} alt="" className="quiz-art" />}
+        </span>
+        <strong title={label}>{label}</strong>
+        <span className={`quiz-speed ${isRevealed ? "revealed" : ""}`}>
+          {t.baseSpeed} {isRevealed ? entry?.speed : "???"}
+        </span>
+      </button>
+    );
+  };
+
+  const renderQuizGlobalStats = () => {
+    if (!quizState.gameOver) return null;
+
+    if (quizGlobalStats.status === "loading") {
+      return (
+        <div className="quiz-global-overlay" role="dialog" aria-modal="true" aria-labelledby="quiz-global-title">
+          <section className="quiz-global-panel">
+            <h3 id="quiz-global-title">{t.quizGlobalStats}</h3>
+            <div className="empty-box in-panel">{t.quizGlobalLoading}</div>
+            <button type="button" className="ghost-button" onClick={restartQuiz}>
+              {t.quizRestart}
+            </button>
+          </section>
+        </div>
+      );
+    }
+
+    if (quizGlobalStats.status === "unavailable") {
+      return (
+        <div className="quiz-global-overlay" role="dialog" aria-modal="true" aria-labelledby="quiz-global-title">
+          <section className="quiz-global-panel">
+            <h3 id="quiz-global-title">{t.quizGlobalStats}</h3>
+            <div className="empty-box in-panel">{t.quizGlobalUnavailable}</div>
+            <button type="button" className="ghost-button" onClick={restartQuiz}>
+              {t.quizRestart}
+            </button>
+          </section>
+        </div>
+      );
+    }
+
+    if (quizGlobalStats.status !== "ready" || !quizGlobalStats.data) return null;
+
+    const stats = quizGlobalStats.data;
+    const numberFormatter = new Intl.NumberFormat(
+      pickLocalizedText(language, {
+        ko: "ko-KR",
+        en: "en-US",
+        ja: "ja-JP",
+      }),
+      { maximumFractionDigits: 2 }
+    );
+    const rankLabel = stats.rank ? `#${numberFormatter.format(stats.rank)}${t.quizRankUnit}` : "-";
+
+    return (
+      <div className="quiz-global-overlay" role="dialog" aria-modal="true" aria-labelledby="quiz-global-title">
+        <section className="quiz-global-panel">
+          <div className="quiz-global-head">
+            <h3 id="quiz-global-title">{t.quizGlobalStats}</h3>
+          </div>
+          <div className="quiz-global-grid">
+            <div>
+              <span>{t.quizGlobalRank}</span>
+              <strong>{rankLabel}</strong>
+            </div>
+            <div>
+              <span>{t.quizGlobalAverage}</span>
+              <strong>{numberFormatter.format(stats.averageScore)}</strong>
+            </div>
+            <div>
+              <span>{t.quizGlobalBest}</span>
+              <strong>{numberFormatter.format(stats.bestScore)}</strong>
+            </div>
+            <div>
+              <span>{t.quizGlobalPlayers}</span>
+              <strong>{numberFormatter.format(stats.totalPlayers)}</strong>
+            </div>
+          </div>
+          {stats.topScores?.length > 0 && (
+            <div className="quiz-top-scores" aria-label={t.quizGlobalTop}>
+              <span>{t.quizGlobalTop}</span>
+              {stats.topScores.map((score, index) => (
+                <em key={`${score}-${index}`}>#{index + 1} {numberFormatter.format(score)}</em>
+              ))}
+            </div>
+          )}
+          <div className="quiz-global-actions">
+            <button type="button" className="primary-button" onClick={restartQuiz}>
+              {t.quizRestart}
+            </button>
+          </div>
+        </section>
+      </div>
+    );
+  };
+
+  const renderQuizView = () => {
+    if (rosterSourceData.loading || quizPool.length < 2 || !quizState.current || !quizState.challenger) {
+      return (
+        <main className="workspace quiz-workspace">
+          <section className="panel quiz-panel">
+            <div className="empty-box">{t.quizLoading}</div>
+          </section>
+        </main>
+      );
+    }
+
+    const resultMessage = quizState.result
+      ? quizState.result.type === "wrong"
+        ? t.quizWrongMessage
+        : quizState.result.type === "tie"
+          ? t.quizTieMessage
+          : t.quizCorrectMessage
+      : t.quizPickFaster;
+    const resultCurrent = quizState.result?.current;
+    const resultChallenger = quizState.result?.challenger;
+    const resultDetail = resultCurrent && resultChallenger
+      ? `${getReadablePokemonName(resultCurrent, language)} ${resultCurrent.speed} ${
+          resultCurrent.speed === resultChallenger.speed ? "=" : resultCurrent.speed > resultChallenger.speed ? ">" : "<"
+        } ${resultChallenger.speed} ${getReadablePokemonName(resultChallenger, language)}`
+      : "";
+
+    return (
+      <main className="workspace quiz-workspace">
+        <section className={`panel quiz-panel quiz-panel-${quizState.result?.type || "ready"}`}>
+          <div className="panel-head quiz-head">
+            <div className="heading-with-help">
+              <h2>{t.quizTitle}</h2>
+              <Tooltip label="?" text={t.quizHelp} className="inline-help" />
+            </div>
+            <div className="quiz-scoreboard">
+              <div>
+                <span>{t.quizScore}</span>
+                <strong>{quizState.score}</strong>
+              </div>
+              <div>
+                <span>{t.quizBest}</span>
+                <strong>{quizBest}</strong>
+              </div>
+            </div>
+          </div>
+
+          <div className="quiz-stage" aria-label={t.quizPickFaster}>
+            {renderQuizCard(quizState.current, "current", "current")}
+            <div className="quiz-versus">
+              <span>VS</span>
+              <button
+                type="button"
+                className="primary-button quiz-tie-button"
+                onClick={() => handleQuizGuess("tie")}
+                disabled={quizState.gameOver}
+              >
+                {t.quizTie}
+              </button>
+            </div>
+            {renderQuizCard(quizState.challenger, "challenger", "challenger")}
+          </div>
+
+          <div className="quiz-actions">
+            <button type="button" className="ghost-button" onClick={restartQuiz}>
+              {t.quizRestart}
+            </button>
+          </div>
+
+          <div className={`quiz-result ${quizState.result?.type || "ready"}`}>
+            <strong>
+              {quizState.result?.type === "wrong"
+                ? t.quizWrong
+                : quizState.result
+                  ? t.quizCorrect
+                  : t.quizPickFaster}
+            </strong>
+            <span>
+              {resultMessage}
+              {resultDetail && <em className="quiz-result-detail">{resultDetail}</em>}
+            </span>
+          </div>
+
+        </section>
+        {renderQuizGlobalStats()}
+      </main>
+    );
+  };
+
   const scrollToBattleResult = () => {
     setIsBattleResultVisible(true);
     battleResultRef.current?.scrollIntoView({ behavior: "smooth", block: "center" });
@@ -2223,13 +2651,16 @@ function App() {
 
             <div
               className="segmented compact header-view-switch switch-track"
-              style={getSwitchTrackStyle(view === "team" ? 0 : 1, 2, 2)}
+              style={getSwitchTrackStyle(VIEW_OPTIONS.indexOf(view), VIEW_OPTIONS.length, VIEW_OPTIONS.length)}
             >
               <button type="button" className={view === "team" ? "active" : ""} onClick={() => setView("team")}>
                 {t.teamView}
               </button>
               <button type="button" className={view === "roster" ? "active" : ""} onClick={() => setView("roster")}>
                 {t.rosterView}
+              </button>
+              <button type="button" className={view === "quiz" ? "active" : ""} onClick={() => setView("quiz")}>
+                {t.quizView}
               </button>
             </div>
 
@@ -2681,7 +3112,7 @@ function App() {
               </div>
             </section>
           </main>
-        ) : (
+        ) : view === "roster" ? (
           <main className="workspace roster-workspace">
             <section className="panel roster-panel">
               <div className="panel-head">
@@ -2873,6 +3304,8 @@ function App() {
               )}
             </section>
           </main>
+        ) : (
+          renderQuizView()
         )}
 
         {showScrollTop && (
