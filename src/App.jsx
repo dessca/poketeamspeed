@@ -90,6 +90,31 @@ const VIEW_ROUTES = {
   quiz: "/quiz",
 };
 
+const SITE_URL = "https://scarf.team";
+const SEO_CONFIG = {
+  team: {
+    title: "SCARF | Pokemon Speed Calculator",
+    description:
+      "Compare Pokemon Champions Speed ranges with stat points, nature, Choice Scarf, Tailwind, abilities, Mega Evolution, and stages.",
+    keywords:
+      "Pokemon speed calculator, Pokemon speed matchup, Pokemon Champions speed, Choice Scarf calculator, Tailwind speed calculator, Mega Evolution speed",
+  },
+  roster: {
+    title: "Pokemon Champions Speed Roster | SCARF",
+    description:
+      "Browse Pokemon Champions and National Dex speed ranges, Mega Evolution speeds, type filters, generation filters, and speed tier sorting.",
+    keywords:
+      "Pokemon Champions speed roster, Pokemon speed tiers, National Dex speed, Mega Evolution speed tiers, Pokemon base speed",
+  },
+  quiz: {
+    title: "Pokemon Speed Quiz | SCARF",
+    description:
+      "Practice Pokemon Champions speed matchups with a quick quiz that tests which Pokemon moves first.",
+    keywords:
+      "Pokemon speed quiz, Pokemon Champions quiz, Pokemon speed matchup practice, Pokemon speed test",
+  },
+};
+
 const ROSTER_RENDER_BATCH = 180;
 const ITEM_ENTRIES = Object.entries(ITEMS);
 const POKEMON_TYPES = [
@@ -786,6 +811,75 @@ function getRouteForView(value) {
 function getInitialView() {
   const routeView = getViewFromPathname(window.location.pathname);
   return routeView || "team";
+}
+
+function setMetaTag(selector, attributes) {
+  let node = document.head.querySelector(selector);
+  if (!node) {
+    node = document.createElement("meta");
+    document.head.appendChild(node);
+  }
+
+  Object.entries(attributes).forEach(([key, value]) => {
+    node.setAttribute(key, value);
+  });
+}
+
+function setLinkTag(selector, attributes) {
+  let node = document.head.querySelector(selector);
+  if (!node) {
+    node = document.createElement("link");
+    document.head.appendChild(node);
+  }
+
+  Object.entries(attributes).forEach(([key, value]) => {
+    node.setAttribute(key, value);
+  });
+}
+
+function updateSeoForView(value) {
+  const normalizedView = normalizeView(value);
+  const config = SEO_CONFIG[normalizedView] || SEO_CONFIG.team;
+  const canonicalUrl = normalizedView === "team" ? `${SITE_URL}/` : `${SITE_URL}${getRouteForView(normalizedView)}`;
+  const imageUrl = `${SITE_URL}/logo.png`;
+
+  document.title = config.title;
+  setMetaTag('meta[name="description"]', { name: "description", content: config.description });
+  setMetaTag('meta[name="keywords"]', { name: "keywords", content: config.keywords });
+  setLinkTag('link[rel="canonical"]', { rel: "canonical", href: canonicalUrl });
+  setMetaTag('meta[property="og:title"]', { property: "og:title", content: config.title });
+  setMetaTag('meta[property="og:description"]', { property: "og:description", content: config.description });
+  setMetaTag('meta[property="og:url"]', { property: "og:url", content: canonicalUrl });
+  setMetaTag('meta[property="og:image"]', { property: "og:image", content: imageUrl });
+  setMetaTag('meta[name="twitter:title"]', { name: "twitter:title", content: config.title });
+  setMetaTag('meta[name="twitter:description"]', { name: "twitter:description", content: config.description });
+  setMetaTag('meta[name="twitter:image"]', { name: "twitter:image", content: imageUrl });
+
+  const schemaNode = document.querySelector('script[type="application/ld+json"]');
+  if (schemaNode) {
+    schemaNode.textContent = JSON.stringify({
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebSite",
+          name: "SCARF",
+          url: `${SITE_URL}/`,
+          inLanguage: ["en", "ko", "ja"],
+          description: SEO_CONFIG.team.description,
+        },
+        {
+          "@type": "WebApplication",
+          name: "SCARF",
+          url: canonicalUrl,
+          applicationCategory: "UtilitiesApplication",
+          operatingSystem: "Web",
+          inLanguage: ["en", "ko", "ja"],
+          description: config.description,
+          keywords: config.keywords,
+        },
+      ],
+    });
+  }
 }
 
 function pickRandomEntry(entries, excludedIds = []) {
@@ -1490,6 +1584,7 @@ function App() {
     return () => window.removeEventListener("popstate", handlePopState);
   }, []);
 
+  useEffect(() => updateSeoForView(view), [view]);
   useEffect(() => writeStorage(STORAGE.theme, theme), [theme]);
   useEffect(() => writeStorage(STORAGE.language, language), [language]);
   useEffect(() => writeStorage(STORAGE.view, view), [view]);
