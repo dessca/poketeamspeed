@@ -332,6 +332,8 @@ const TEXT = {
     themeToDark: "다크 모드로 전환",
     myTeam: "내 팀",
     opponentTeam: "상대 팀",
+    myTeamTag: "내 팀",
+    opponentTeamTag: "상대 팀",
     search: "포켓몬 검색",
     searchTarget: "현재 추가 대상",
     teamSettings: "팀 설정",
@@ -341,7 +343,7 @@ const TEXT = {
     liveBattleEmptyHint: "실시간 대면에서 포켓몬을 선택해\n전투 상황을 설정하세요.",
     battleResultEmptyHint: "내 팀과 상대 팀 포켓몬을 설정하고\n누가 먼저 행동할지 확인해보세요.",
     speedCompare: "팀 스피드 비교",
-    speedCompareHelp: "내 팀과 상대 팀 전체 엔트리 포켓몬들의 스피드를 비교해보세요.\n출전 포켓몬이 모두 확정되면 나머지 포켓몬은 제외됩니다.",
+    speedCompareHelp: "내 팀과 상대 팀 전체 엔트리 포켓몬들의 스피드를 비교해보세요.\n선택 포켓몬이 모두 확정되면 후보 포켓몬은 제외됩니다.",
     allPokemon: "전체 포켓몬",
     rosterSourceChampions: "챔피언스",
     rosterSourceNational: "전국도감",
@@ -435,8 +437,8 @@ const TEXT = {
     item: "도구",
     ability: "특성",
     abilityHelp: "스피드에 영향을 주는 특성은 버튼 안에 배율 배지가 표시되며, 버튼에 마우스를 올리거나 포커스하면 발동 조건을 확인할 수 있습니다.",
-    active: "출전",
-    standby: "대기",
+    active: "선택",
+    standby: "후보",
     resetSlot: "선택 슬롯 초기화",
     clearDetailPanel: "상세 설정 닫기",
     currentPokemon: "현재 포켓몬",
@@ -446,7 +448,7 @@ const TEXT = {
     trickRoomHelp: "트릭룸 상태에서는 스피드가 낮은 포켓몬부터 행동합니다.",
     rank: "랭크",
     battleHelp: "실시간 대면 정보를 설정해보세요.\n위 상세 설정과 연동되어 선공 여부를 예측할 수 있습니다.\n누가 먼저 행동할까요?",
-    addHint: "팀을 선택하고 포켓몬을 검색해 슬롯에 추가하세요.\n상세 설정에서 스피드 관련 설정을 할 수 있습니다.\n각 슬롯의 출전/대기 버튼을 눌러 출전 포켓몬을 표시해보세요.\n슬롯을 드래그하여 순서를 변경할 수 있습니다.",
+    addHint: "팀을 선택하고 포켓몬을 검색해 슬롯에 추가하세요.\n상세 설정에서 스피드 관련 설정을 할 수 있습니다.\n각 슬롯의 선택/후보 버튼을 눌러 비교에 포함할 포켓몬을 표시해보세요.\n슬롯을 드래그하여 순서를 변경할 수 있습니다.",
     duplicatePokemon: "같은 팀에는 같은 포켓몬을 중복해서 추가할 수 없습니다.",
     savePrompt: "저장할 팀 이름을 입력하세요.",
     saveEmpty: "저장할 내 팀이 없습니다.",
@@ -488,7 +490,9 @@ const TEXT = {
     themeToLight: "Switch to light mode",
     themeToDark: "Switch to dark mode",
     myTeam: "My Team",
-    opponentTeam: "Opposing Team",
+    opponentTeam: "Opponent",
+    myTeamTag: "My",
+    opponentTeamTag: "Opp",
     search: "Search Pokémon",
     searchTarget: "Current target",
     teamSettings: "Team Setup",
@@ -498,7 +502,7 @@ const TEXT = {
     liveBattleEmptyHint: "Select a Pokémon in Live Matchup\nto configure the battle state.",
     battleResultEmptyHint: "Set both your Pokémon and the opponent's Pokémon\nto check who moves first.",
     speedCompare: "Team Speed Compare",
-    speedCompareHelp: "Compare the Speed ranges of all entry Pokémon on both teams.\nOnce all active Pokémon are locked in, the remaining ones are excluded.",
+    speedCompareHelp: "Compare the Speed ranges of all entry Pokémon on both teams.\nOnce all selected Pokémon are locked in, the remaining pool is excluded.",
     allPokemon: "All Pokémon",
     rosterSourceChampions: "Champions",
     rosterSourceNational: "National Dex",
@@ -583,7 +587,7 @@ const TEXT = {
     clearOpponent: "Clear All",
     slotEmpty: "Empty Slot",
     statRange: "Current Speed range",
-    baseSpeed: "Base Speed",
+    baseSpeed: "Base",
     mega: "Mega Evolution",
     noMega: "None",
     statPoints: "Stat Points",
@@ -592,8 +596,8 @@ const TEXT = {
     item: "Item",
     ability: "Ability",
     abilityHelp: "Speed-affecting abilities show a multiplier badge inside the button; hover or focus the button to see when it activates.",
-    active: "Active",
-    standby: "Bench",
+    active: "Select",
+    standby: "Pool",
     resetSlot: "Reset Slot",
     clearDetailPanel: "Close Details",
     currentPokemon: "Current Pokémon",
@@ -603,24 +607,24 @@ const TEXT = {
     trickRoomHelp: "Under Trick Room, the slower Pokémon moves first.",
     rank: "Stage",
     battleHelp: "Configure the current live matchup here.\nThese settings stay synced with the detail panel,\nso you can quickly check who moves first.",
-    addHint: "Choose a team and search for a Pokémon to add to a slot.\nUse the detail panel to adjust Speed-related settings.\nYou can also mark active Pokémon and drag slots to reorder them.",
+    addHint: "Choose a team and search for a Pokémon to add to a slot.\nUse the detail panel to adjust Speed-related settings.\nUse the Select/Pool buttons to choose which Pokémon are included in comparisons.\nYou can also drag slots to reorder them.",
     duplicatePokemon: "You can't add the same Pokémon twice to one team.",
     savePrompt: "Enter a team name.",
     saveEmpty: "There is no My Team setup to save.",
     noData: "No Pokémon yet.",
     sureFirstMy: "My Team Always Moves First",
-    sureFirstOpp: "Opposing Team Always Moves First",
+    sureFirstOpp: "Opponent Always Moves First",
     likelyFirstMy: "My Team Favored",
-    likelyFirstOpp: "Opposing Team Favored",
+    likelyFirstOpp: "Opponent Favored",
     tieExact: "Speed Tie",
     tiePossible: "Possible Speed Tie",
     mixed: "Too Close to Call",
     tieExactSub: "If both exact Speed values match, move order is random each turn.",
     tiePossibleSub: "The remaining variables can still produce a Speed tie.",
-    likelySubMy: "Based on the known settings, my team is more likely to move first.",
-    likelySubOpp: "Based on the known settings, the opposing team is more likely to move first.",
-    sureSubMy: "The opposing team cannot outspeed within the current range.",
-    sureSubOpp: "My team cannot outspeed within the current range.",
+    likelySubMy: "Based on the known settings, My Team is more likely to move first.",
+    likelySubOpp: "Based on the known settings, Opponent is more likely to move first.",
+    sureSubMy: "Opponent cannot outspeed within the current range.",
+    sureSubOpp: "My Team cannot outspeed within the current range.",
     mixedSub: "There are still too many overlapping variables to call it cleanly.",
     doubleOrderTitle: "Predicted Turn Order",
     doubleOrderSub: "Compare the current Speed ranking of all four Pokemon in the live double matchup.",
@@ -644,8 +648,10 @@ const TEXT = {
     quizView: "素早さクイズ",
     themeToLight: "ライトモードに切り替え",
     themeToDark: "ダークモードに切り替え",
-    myTeam: "自分のチーム",
-    opponentTeam: "相手チーム",
+    myTeam: "自分",
+    opponentTeam: "相手",
+    myTeamTag: "自分",
+    opponentTeamTag: "相手",
     search: "ポケモン検索",
     searchTarget: "追加先",
     teamSettings: "チーム設定",
@@ -655,7 +661,7 @@ const TEXT = {
     liveBattleEmptyHint: "対面確認でポケモンを選んで\n対戦状況を設定してください。",
     battleResultEmptyHint: "自分と相手のポケモンを設定して\nどちらが先に動くか確認しましょう。",
     speedCompare: "チーム素早さ比較",
-    speedCompareHelp: "両チームのエントリーポケモン全体の素早さ範囲を比較します。\n出場ポケモンがすべて確定すると残りは除外されます。",
+    speedCompareHelp: "両チームのエントリーポケモン全体の素早さ範囲を比較します。\n選択ポケモンがすべて確定すると候補ポケモンは除外されます。",
     allPokemon: "全ポケモン",
     rosterSourceChampions: "チャンピオンズ",
     rosterSourceNational: "全国図鑑",
@@ -749,8 +755,8 @@ const TEXT = {
     item: "持ち物",
     ability: "特性",
     abilityHelp: "素早さに影響する特性はボタン内に倍率バッジが表示され、ボタンにホバーまたはフォーカスすると発動条件を確認できます。",
-    active: "出場",
-    standby: "控え",
+    active: "選択",
+    standby: "候補",
     resetSlot: "スロット初期化",
     clearDetailPanel: "詳細設定を閉じる",
     currentPokemon: "現在のポケモン",
@@ -760,24 +766,24 @@ const TEXT = {
     trickRoomHelp: "トリックルーム中は、素早さが低いポケモンから行動します。",
     rank: "ランク",
     battleHelp: "現在の対面情報をここで設定します。\n詳細設定と連動しているので、\nどちらが先に動くかをすばやく確認できます。",
-    addHint: "チームを選び、ポケモンを検索してスロットに追加してください。\n詳細設定で素早さ関連の設定を調整できます。\n出場ポケモンの指定やスロットのドラッグ並び替えもできます。",
+    addHint: "チームを選び、ポケモンを検索してスロットに追加してください。\n詳細設定で素早さ関連の設定を調整できます。\n選択/候補の切り替えやスロットのドラッグ並び替えもできます。",
     duplicatePokemon: "同じチームに同じポケモンは追加できません。",
     savePrompt: "チーム名を入力してください。",
     saveEmpty: "保存できる自分のチームがありません。",
     noData: "まだ追加されたポケモンはありません。",
-    sureFirstMy: "自分のチームが確定先手",
-    sureFirstOpp: "相手チームが確定先手",
-    likelyFirstMy: "自分のチーム有利",
-    likelyFirstOpp: "相手チーム有利",
+    sureFirstMy: "自分側が確定先手",
+    sureFirstOpp: "相手側が確定先手",
+    likelyFirstMy: "自分側有利",
+    likelyFirstOpp: "相手側有利",
     tieExact: "同速",
     tiePossible: "同速の可能性",
     mixed: "接戦",
     tieExactSub: "実数値が完全に同じ場合、毎ターンの行動順はランダムです。",
     tiePossibleSub: "残っている変数によって同速になる可能性があります。",
-    likelySubMy: "現在わかっている情報では、自分のチームが先に動く可能性が高いです。",
-    likelySubOpp: "現在わかっている情報では、相手チームが先に動く可能性が高いです。",
-    sureSubMy: "現在の範囲では、相手チームが上を取ることはできません。",
-    sureSubOpp: "現在の範囲では、自分のチームが上を取ることはできません。",
+    likelySubMy: "現在わかっている情報では、自分側が先に動く可能性が高いです。",
+    likelySubOpp: "現在わかっている情報では、相手側が先に動く可能性が高いです。",
+    sureSubMy: "現在の範囲では、相手側が上を取ることはできません。",
+    sureSubOpp: "現在の範囲では、自分側が上を取ることはできません。",
     mixedSub: "残っている変数が重なっており、まだはっきり断定できません。",
     doubleOrderTitle: "4体の行動順予想",
     doubleOrderSub: "現在の設定を基準に、ダブル対面の4体の素早さ順位を比較します。",
@@ -3375,7 +3381,7 @@ function App() {
                             {renderActiveToggle(selectedSide, selectedIndex, selectedSlot)}
                           </div>
                           <div className={`icon-shell summary-icon-shell ${getSelectedMega(selectedSlot) ? "can-mega" : ""}`}>
-                            <img src={getDisplayIcon(selectedSlot, false)} alt="" className="detail-icon" />
+                            <img src={getDisplayIcon(selectedSlot, false)} alt="" className="slot-icon large" />
                           </div>
                           <div className="detail-copy">
                             <strong title={getLocalizedName(selectedSlot, language)}>{getLocalizedName(selectedSlot, language)}</strong>
@@ -3604,13 +3610,18 @@ function App() {
                       className={`compare-row ${row.side} ${row.selected ? "selected" : ""} ${row.deemphasized ? "inactive" : ""}`}
                     >
                       <div className="compare-meta">
+                        <div className="compare-tag-stack">
+                          <span className={`mini-chip compare-side-chip ${row.side}`}>
+                            {row.side === "ally" ? t.myTeamTag || t.myTeam : t.opponentTeamTag || t.opponentTeam}
+                          </span>
+                          <span className={`mini-chip compare-active-chip ${row.active ? "on" : "off"}`}>{row.active ? t.active : t.standby}</span>
+                        </div>
                         <div className={`icon-shell ${row.side}`}>
                           <img src={row.icon} alt="" className="slot-icon" />
                         </div>
                         <div className="compare-copy">
                           <div className="compare-name-line">
                             <strong title={row.label}>{row.label}</strong>
-                            <span className={`mini-chip compare-active-chip ${row.active ? "on" : "is-hidden"}`}>{t.active}</span>
                           </div>
                           <span>{t.baseSpeed} {row.baseSpeed}</span>
                         </div>

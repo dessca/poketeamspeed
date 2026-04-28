@@ -8,10 +8,10 @@
   --text: #112236;
   --muted: rgba(17, 34, 54, 0.62);
   --track: rgba(148, 163, 184, 0.28);
-  --ally: #14b8a6;
-  --ally-strong: #0f766e;
-  --enemy: #d75f7a;
-  --enemy-strong: #b83256;
+  --ally: #2563eb;
+  --ally-strong: #1d4ed8;
+  --enemy: #e11d48;
+  --enemy-strong: #be123c;
   --mega: #a855f7;
   --accent: #2563eb;
   --shadow: 0 18px 40px rgba(15, 23, 42, 0.08);
@@ -32,10 +32,10 @@
   --text: #edf5ff;
   --muted: rgba(237, 245, 255, 0.66);
   --track: rgba(148, 163, 184, 0.18);
-  --ally: #5eead4;
-  --ally-strong: #2dd4bf;
-  --enemy: #f0a3b2;
-  --enemy-strong: #fb7185;
+  --ally: #93c5fd;
+  --ally-strong: #60a5fa;
+  --enemy: #fb7185;
+  --enemy-strong: #f43f5e;
   --mega: #c084fc;
   --accent: #77a8ff;
   --shadow: 0 26px 48px rgba(2, 6, 23, 0.34);
@@ -181,9 +181,23 @@
   transition: transform 180ms ease, background-color 180ms ease, box-shadow 180ms ease;
 }
 
+.target-toggle::before {
+  background: color-mix(in srgb, var(--ally) 17%, transparent);
+  box-shadow:
+    0 0 0 1px color-mix(in srgb, var(--ally) 24%, transparent) inset,
+    0 8px 18px color-mix(in srgb, var(--ally) 12%, transparent);
+}
+
 .panel-mode-switch:has(button:nth-child(2).active)::before,
 .target-toggle:has(button:nth-child(2).active)::before {
   transform: translateX(calc(100% + 4px));
+}
+
+.target-toggle:has(button:nth-child(2).active)::before {
+  background: color-mix(in srgb, var(--enemy) 17%, transparent);
+  box-shadow:
+    0 0 0 1px color-mix(in srgb, var(--enemy) 24%, transparent) inset,
+    0 8px 18px color-mix(in srgb, var(--enemy) 12%, transparent);
 }
 
 .header-controls {
@@ -907,6 +921,22 @@
   text-align: center;
 }
 
+.target-toggle button:nth-child(1) {
+  color: color-mix(in srgb, var(--ally-strong) 72%, var(--text));
+}
+
+.target-toggle button:nth-child(2) {
+  color: color-mix(in srgb, var(--enemy-strong) 70%, var(--text));
+}
+
+.target-toggle button:nth-child(1).active {
+  color: var(--ally-strong);
+}
+
+.target-toggle button:nth-child(2).active {
+  color: var(--enemy-strong);
+}
+
 @media (max-width: 1500px) {
   .team-toolbar {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1016,6 +1046,14 @@
   align-items: center;
   gap: 8px;
   margin-left: auto;
+}
+
+.team-card-head .ghost-button {
+  border: 1px solid color-mix(in srgb, var(--panel-border) 86%, var(--text) 10%);
+}
+
+.team-card-head .danger-pill {
+  border: 1px solid color-mix(in srgb, var(--enemy) 34%, var(--panel-border));
 }
 
 .saved-team-panel {
@@ -1424,16 +1462,16 @@
 }
 
 .slot-card.active {
-  border-color: rgba(132, 204, 22, 0.34);
-  background: linear-gradient(180deg, rgba(132, 204, 22, 0.12), rgba(132, 204, 22, 0.06));
+  border-color: color-mix(in srgb, #10b981 34%, var(--panel-border));
+  background: linear-gradient(180deg, color-mix(in srgb, #10b981 13%, var(--panel)), color-mix(in srgb, #10b981 7%, var(--panel-inner)));
 }
 
 .slot-card.active:hover {
-  border-color: rgba(132, 204, 22, 0.5);
-  background: linear-gradient(180deg, rgba(132, 204, 22, 0.18), rgba(132, 204, 22, 0.09));
+  border-color: color-mix(in srgb, #10b981 48%, var(--panel-border));
+  background: linear-gradient(180deg, color-mix(in srgb, #10b981 17%, var(--panel)), color-mix(in srgb, #10b981 9%, var(--panel-inner)));
   box-shadow:
-    inset 0 0 0 1px rgba(132, 204, 22, 0.18),
-    0 8px 18px rgba(132, 204, 22, 0.12);
+    inset 0 0 0 1px color-mix(in srgb, #10b981 18%, transparent),
+    0 8px 18px color-mix(in srgb, #10b981 12%, transparent);
 }
 
 .slot-card-top {
@@ -1464,6 +1502,14 @@
   padding-right: 0;
 }
 
+.slot-card.compact.filled .slot-copy {
+  width: calc(100% + 34px);
+  margin-left: -4px;
+  margin-right: -30px;
+  position: relative;
+  z-index: 1;
+}
+
 .slot-status-line {
   display: none;
   margin-top: 2px;
@@ -1474,13 +1520,20 @@
 .slot-copy strong,
 .compare-name-line strong {
   display: block;
-  font-size: 1rem;
   line-height: 1.06;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
   text-align: left;
   max-width: 100%;
+}
+
+.slot-copy strong {
+  font-size: 0.94rem;
+}
+
+.compare-name-line strong {
+  font-size: 0.95rem;
 }
 
 .slot-copy span,
@@ -1575,6 +1628,7 @@
   align-items: flex-end;
   gap: 6px;
   width: 46px;
+  z-index: 2;
 }
 
 .mini-chip {
@@ -1609,15 +1663,45 @@
   min-width: 0;
 }
 
-.compare-active-chip {
-  position: static;
-  min-width: 44px;
-  margin-left: 2px;
-  flex: 0 0 auto;
+.compare-tag-stack {
+  display: grid;
+  gap: 3px;
+  width: 58px;
+  min-width: 58px;
+  max-width: 58px;
+  justify-items: stretch;
+  align-self: center;
 }
 
-.compare-active-chip.is-hidden {
-  visibility: hidden;
+.compare-side-chip,
+.compare-active-chip {
+  position: static;
+  width: 58px;
+  min-width: 58px;
+  max-width: 58px;
+  min-height: 18px;
+  padding: 0 5px;
+  font-size: 0.66rem;
+  line-height: 1;
+  white-space: nowrap;
+  flex: 0 0 auto;
+  align-self: center;
+  justify-self: center;
+}
+
+.compare-side-chip.ally {
+  background: color-mix(in srgb, var(--ally) 16%, transparent);
+  color: var(--ally-strong);
+}
+
+.compare-side-chip.enemy {
+  background: color-mix(in srgb, var(--enemy) 16%, transparent);
+  color: var(--enemy-strong);
+}
+
+.compare-active-chip.off {
+  background: rgba(148, 163, 184, 0.12);
+  color: var(--muted);
 }
 
 .detail-card {
@@ -1761,12 +1845,6 @@
 .detail-range small {
   color: var(--muted);
   font-size: var(--panel-meta-size);
-}
-
-.detail-icon {
-  width: 42px;
-  height: 42px;
-  object-fit: contain;
 }
 
 .detail-grid {
@@ -2679,7 +2757,7 @@
 
 .compare-list {
   display: grid;
-  gap: 6px;
+  gap: 2px;
   min-width: 0;
 }
 
@@ -2724,10 +2802,10 @@
 
 .compare-row {
   display: grid;
-  grid-template-columns: minmax(0, 160px) minmax(0, 1fr);
-  gap: 14px;
+  grid-template-columns: minmax(0, 210px) minmax(0, 1fr) max-content;
+  gap: 8px;
   align-items: center;
-  padding: 6px 0;
+  padding: 3px 0;
   border-radius: 0;
   border: 0;
   background: transparent;
@@ -2737,16 +2815,18 @@
 
 .compare-meta {
   display: grid;
-  grid-template-columns: auto minmax(0, 1fr);
-  gap: 8px;
+  grid-template-columns: max-content auto minmax(0, 1fr);
+  gap: 6px;
   align-items: center;
+  align-self: center;
   min-width: 0;
 }
 
 .compare-graph-block {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
-  gap: 8px;
+  grid-template-columns: subgrid;
+  grid-column: 2 / 4;
+  gap: 5px;
   align-items: center;
   min-width: 0;
 }
@@ -2759,15 +2839,8 @@
 .compare-panel .icon-shell {
   width: 56px;
   height: 56px;
-  border-radius: 14px;
-}
-
-.compare-panel .icon-shell.ally {
-  box-shadow: inset 0 0 0 2px color-mix(in srgb, var(--ally) 34%, transparent);
-}
-
-.compare-panel .icon-shell.enemy {
-  box-shadow: inset 0 0 0 2px color-mix(in srgb, var(--enemy) 34%, transparent);
+  border-radius: 0;
+  box-shadow: none;
 }
 
 .compare-panel .compare-meta span {
@@ -2775,7 +2848,7 @@
 }
 
 .compare-panel .compare-name-line {
-  gap: 6px;
+  gap: 0;
   position: relative;
   overflow: visible;
   flex-wrap: nowrap;
@@ -2789,14 +2862,14 @@
 }
 
 .compare-panel .compare-range {
-  min-width: 0;
-  font-size: 0.92rem;
+  min-width: max-content;
+  font-size: 0.82rem;
   white-space: nowrap;
   justify-self: end;
 }
 
 .compare-panel .compare-row {
-  gap: 10px;
+  gap: 8px;
 }
 
 .roster-panel .panel-head {
@@ -3527,15 +3600,14 @@
   opacity: 0.72;
 }
 
-.compare-panel .compare-row.inactive .compare-meta strong,
-.compare-panel .compare-row.inactive .compare-meta span,
+.compare-panel .compare-row.inactive .compare-copy,
 .compare-panel .compare-row.inactive .compare-range,
 .compare-panel .compare-row.inactive .mini-chip {
   opacity: 0.74;
 }
 
 .compare-panel .compare-meta {
-  align-items: flex-start;
+  align-items: center;
   min-width: 0;
 }
 
@@ -3549,9 +3621,9 @@
   min-width: 0;
 }
 
-.compare-panel .compare-meta,
+.compare-panel .compare-copy,
 .compare-panel .compare-name-line,
-.compare-panel .compare-meta span {
+.compare-panel .compare-copy span {
   justify-content: flex-start;
   text-align: left;
 }
@@ -4227,11 +4299,6 @@
 
   .detail-range.action-slot {
     justify-items: end;
-  }
-
-  .detail-icon {
-    width: 40px;
-    height: 40px;
   }
 
   .detail-grid {
@@ -5242,8 +5309,7 @@
     gap: 8px;
   }
 
-  .detail-copy strong,
-  .compare-panel .compare-name-line strong {
+  .detail-copy strong {
     font-size: clamp(0.94rem, 4vw, 1rem);
   }
 
@@ -5307,9 +5373,9 @@
 
   .compare-panel .compare-row {
     grid-template-columns: minmax(0, 1fr);
-    gap: 8px;
-    padding-top: 8px;
-    padding-bottom: 8px;
+    gap: 4px;
+    padding-top: 5px;
+    padding-bottom: 5px;
   }
 
   .compare-panel .compare-copy {
