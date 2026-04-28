@@ -320,13 +320,13 @@ championsRoster.forEach((entry) => {
 const TEXT = {
   ko: {
     titleMain: "SCARF",
-    titleSub: "Pokémon Speed Matchups",
-    titleHelp: "포켓몬 챔피언스 기준으로 양 팀 포켓몬들의 스피드와 현재 대면 선공을 빠르게 파악하는 도구입니다.",
+    titleSub: "포켓몬 스피드 매치업",
+    titleHelp: "포켓몬 챔피언스 기준으로 엔트리 전체의 스피드 범위와 현재 대면 선공을 빠르게 파악하는 도구입니다.",
     graphHelpLabel: "그래프 보는 법 ?",
     graphHelp:
       "가장 두껍게 보이는 막대가 현재 기준으로 가장 확실한 스피드 범위입니다.\n능력 포인트를 모르면 기본 범위가 더 넓게 표시됩니다.\n구애스카프, 스피드 특성처럼 추가 조건이 붙는 가능성은 더 얇은 막대로 함께 표시됩니다.\n더 확실한 범위일수록 두껍고, 가정이 많이 필요한 가능성일수록 더 얇게 보입니다.",
     rosterHelp: "능력 포인트/성격/도구/특성에 따른 스피드 가능 범위를 단계형 막대로 보여줍니다.\n챔피언스, 메가진화, 타입, 세대 필터를 조합해 원하는 포켓몬만 좁혀 볼 수 있습니다.",
-    teamView: "팀 비교",
+    teamView: "엔트리",
     rosterView: "전체 포켓몬",
     quizView: "스피드 퀴즈",
     themeToLight: "라이트 모드로 전환",
@@ -334,17 +334,17 @@ const TEXT = {
     myTeam: "내 팀",
     opponentTeam: "상대 팀",
     myTeamTag: "내 팀",
-    opponentTeamTag: "상대 팀",
+    opponentTeamTag: "상대",
     search: "포켓몬 검색",
     searchTarget: "현재 추가 대상",
-    teamSettings: "팀 설정",
+    teamSettings: "엔트리 설정",
     detailSettings: "상세 설정",
     detailEmptyHint: "엔트리에서 포켓몬을 선택해\n상세 설정을 확인하세요.",
     liveBattle: "실시간 대면",
     liveBattleEmptyHint: "실시간 대면에서 포켓몬을 선택해\n전투 상황을 설정하세요.",
     battleResultEmptyHint: "내 팀과 상대 팀 포켓몬을 설정하고\n누가 먼저 행동할지 확인해보세요.",
-    speedCompare: "팀 스피드 비교",
-    speedCompareHelp: "내 팀과 상대 팀 전체 엔트리 포켓몬들의 스피드를 비교해보세요.\n선택 포켓몬이 모두 확정되면 후보 포켓몬은 제외됩니다.",
+    speedCompare: "엔트리 스피드 비교",
+    speedCompareHelp: "내 엔트리와 상대 엔트리의 스피드 범위를 한눈에 비교합니다.\n선택 포켓몬이 모두 확정되면 후보 포켓몬은 비교에서 제외됩니다.",
     allPokemon: "전체 포켓몬",
     rosterSourceChampions: "챔피언스",
     rosterSourceNational: "전국도감",
@@ -449,7 +449,7 @@ const TEXT = {
     trickRoomHelp: "트릭룸 상태에서는 스피드가 낮은 포켓몬부터 행동합니다.",
     rank: "랭크",
     battleHelp: "실시간 대면 정보를 설정해보세요.\n위 상세 설정과 연동되어 선공 여부를 예측할 수 있습니다.\n누가 먼저 행동할까요?",
-    addHint: "팀을 선택하고 포켓몬을 검색해 슬롯에 추가하세요.\n상세 설정에서 스피드 관련 설정을 할 수 있습니다.\n각 슬롯의 선택/후보 버튼을 눌러 비교에 포함할 포켓몬을 표시해보세요.\n슬롯을 드래그하여 순서를 변경할 수 있습니다.",
+    addHint: "내 엔트리 또는 상대 엔트리를 선택하고 포켓몬을 검색해 슬롯에 추가하세요.\n상세 설정에서 스피드 관련 설정을 조정할 수 있습니다.\n각 슬롯의 선택/후보 버튼으로 비교에 포함할 포켓몬을 표시하세요.\n슬롯을 드래그하여 엔트리 순서를 변경할 수 있습니다.",
     duplicatePokemon: "같은 팀에는 같은 포켓몬을 중복해서 추가할 수 없습니다.",
     savePrompt: "저장할 팀 이름을 입력하세요.",
     saveEmpty: "저장할 내 팀이 없습니다.",
@@ -472,6 +472,7 @@ const TEXT = {
     doubleOrderSub: "현재 설정 기준으로 더블 대면 4마리의 스피드 순위를 비교합니다.",
     footerLines: [
       "SCARF | Pokemon Speed Matchups · 문의: teamscarf@proton.me",
+      "© 2026 SCARF. All rights reserved.",
       "비공식 팬 도구입니다. Pokemon 및 관련 명칭은 각 권리자의 상표입니다.",
     ],
     footerSource: "데이터/아트워크 참고: PokeAPI, PokemonDB, RotomLabs.",
@@ -480,12 +481,12 @@ const TEXT = {
   en: {
     titleMain: "SCARF",
     titleSub: "Pokémon Speed Matchups",
-    titleHelp: "A quick tool for Pokémon Champions that lets you compare team-wide Speed ranges and live turn order at a glance.",
+    titleHelp: "A quick tool for Pokémon Champions that lets you compare full entry Speed ranges and live turn order at a glance.",
     graphHelpLabel: "How to read the graph?",
     graphHelp:
       "The thickest bar shows the most certain Speed range based on the current information.\nIf stat points are unknown, the base range becomes wider.\nExtra possibilities such as Choice Scarf or Speed abilities appear as thinner bars alongside it.\nMore certain ranges are drawn thicker, while more conditional possibilities are drawn thinner.",
     rosterHelp: "Shows each Pokémon's possible Speed range as layered bars for points, nature, item, and ability.\nUse the Champions, Mega, type, and generation filters together to narrow the list.",
-    teamView: "Team Compare",
+    teamView: "Entry",
     rosterView: "All Pokémon",
     quizView: "Speed Quiz",
     themeToLight: "Switch to light mode",
@@ -496,14 +497,14 @@ const TEXT = {
     opponentTeamTag: "Opp",
     search: "Search Pokémon",
     searchTarget: "Current target",
-    teamSettings: "Team Setup",
+    teamSettings: "Entry Setup",
     detailSettings: "Details",
     detailEmptyHint: "Select a Pokémon from the entries\nto open its detail settings.",
     liveBattle: "Live Matchup",
     liveBattleEmptyHint: "Select a Pokémon in Live Matchup\nto configure the battle state.",
     battleResultEmptyHint: "Set both your Pokémon and the opponent's Pokémon\nto check who moves first.",
-    speedCompare: "Team Speed Compare",
-    speedCompareHelp: "Compare the Speed ranges of all entry Pokémon on both teams.\nOnce all selected Pokémon are locked in, the remaining pool is excluded.",
+    speedCompare: "Entry Speed Compare",
+    speedCompareHelp: "Compare the Speed ranges across your entry and the opponent's entry.\nOnce all selected Pokémon are locked in, the remaining pool is excluded.",
     allPokemon: "All Pokémon",
     rosterSourceChampions: "Champions",
     rosterSourceNational: "National Dex",
@@ -608,7 +609,7 @@ const TEXT = {
     trickRoomHelp: "Under Trick Room, the slower Pokémon moves first.",
     rank: "Stage",
     battleHelp: "Configure the current live matchup here.\nThese settings stay synced with the detail panel,\nso you can quickly check who moves first.",
-    addHint: "Choose a team and search for a Pokémon to add to a slot.\nUse the detail panel to adjust Speed-related settings.\nUse the Select/Pool buttons to choose which Pokémon are included in comparisons.\nYou can also drag slots to reorder them.",
+    addHint: "Choose your entry or the opponent's entry, then search for a Pokémon to add to a slot.\nUse the detail panel to adjust Speed-related settings.\nUse the Select/Pool buttons to choose which Pokémon are included in comparisons.\nYou can also drag slots to reorder the entry.",
     duplicatePokemon: "You can't add the same Pokémon twice to one team.",
     savePrompt: "Enter a team name.",
     saveEmpty: "There is no My Team setup to save.",
@@ -631,6 +632,7 @@ const TEXT = {
     doubleOrderSub: "Compare the current Speed ranking of all four Pokemon in the live double matchup.",
     footerLines: [
       "SCARF | Pokemon Speed Matchups · Contact: teamscarf@proton.me",
+      "© 2026 SCARF. All rights reserved.",
       "Unofficial fan tool. Pokemon and related names are trademarks of their respective owners.",
     ],
     footerSource: "Data/artwork references: PokeAPI, PokemonDB, RotomLabs.",
@@ -639,12 +641,12 @@ const TEXT = {
   ja: {
     titleMain: "SCARF",
     titleSub: "ポケモン素早さマッチアップ",
-    titleHelp: "ポケモンチャンピオンズ基準で、両チームの素早さ範囲と現在の対面での行動順をすばやく確認できるツールです。",
+    titleHelp: "ポケモンチャンピオンズ基準で、エントリー全体の素早さ範囲と現在の対面での行動順をすばやく確認できるツールです。",
     graphHelpLabel: "グラフの見方",
     graphHelp:
       "最も太いバーが、現在の情報で最も確度の高い素早さ範囲です。\n能力ポイントが不明な場合は基本範囲が広く表示されます。\nこだわりスカーフや素早さ特性などの追加条件は、より細いバーで表示されます。\n確度が高い範囲ほど太く、仮定が多い可能性ほど細く表示されます。",
     rosterHelp: "能力ポイント・性格・持ち物・特性による素早さ候補範囲を段階バーで表示します。\nチャンピオンズ、メガ、タイプ、世代フィルターを組み合わせて表示対象を絞り込めます。",
-    teamView: "チーム比較",
+    teamView: "エントリー",
     rosterView: "全ポケモン",
     quizView: "素早さクイズ",
     themeToLight: "ライトモードに切り替え",
@@ -655,14 +657,14 @@ const TEXT = {
     opponentTeamTag: "相手",
     search: "ポケモン検索",
     searchTarget: "追加先",
-    teamSettings: "チーム設定",
+    teamSettings: "エントリー設定",
     detailSettings: "詳細設定",
     detailEmptyHint: "エントリーからポケモンを選んで\n詳細設定を開いてください。",
     liveBattle: "対面確認",
     liveBattleEmptyHint: "対面確認でポケモンを選んで\n対戦状況を設定してください。",
     battleResultEmptyHint: "自分と相手のポケモンを設定して\nどちらが先に動くか確認しましょう。",
-    speedCompare: "チーム素早さ比較",
-    speedCompareHelp: "両チームのエントリーポケモン全体の素早さ範囲を比較します。\n選択ポケモンがすべて確定すると候補ポケモンは除外されます。",
+    speedCompare: "エントリー素早さ比較",
+    speedCompareHelp: "自分と相手のエントリー全体の素早さ範囲を比較します。\n選択ポケモンがすべて確定すると候補ポケモンは比較から除外されます。",
     allPokemon: "全ポケモン",
     rosterSourceChampions: "チャンピオンズ",
     rosterSourceNational: "全国図鑑",
@@ -767,7 +769,7 @@ const TEXT = {
     trickRoomHelp: "トリックルーム中は、素早さが低いポケモンから行動します。",
     rank: "ランク",
     battleHelp: "現在の対面情報をここで設定します。\n詳細設定と連動しているので、\nどちらが先に動くかをすばやく確認できます。",
-    addHint: "チームを選び、ポケモンを検索してスロットに追加してください。\n詳細設定で素早さ関連の設定を調整できます。\n選択/候補の切り替えやスロットのドラッグ並び替えもできます。",
+    addHint: "自分または相手のエントリーを選び、ポケモンを検索してスロットに追加してください。\n詳細設定で素早さ関連の設定を調整できます。\n選択/候補の切り替えやエントリー順のドラッグ並び替えもできます。",
     duplicatePokemon: "同じチームに同じポケモンは追加できません。",
     savePrompt: "チーム名を入力してください。",
     saveEmpty: "保存できる自分のチームがありません。",
@@ -790,6 +792,7 @@ const TEXT = {
     doubleOrderSub: "現在の設定を基準に、ダブル対面の4体の素早さ順位を比較します。",
     footerLines: [
       "SCARF | Pokemon Speed Matchups · お問い合わせ: teamscarf@proton.me",
+      "© 2026 SCARF. All rights reserved.",
       "非公式のファンツールです。Pokemonおよび関連名称は各権利者の商標です。",
     ],
     footerSource: "データ/アートワーク参照: PokeAPI、PokemonDB、RotomLabs。",
@@ -3867,8 +3870,12 @@ function App() {
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
             aria-label={t.scrollTop}
           >
-            <span aria-hidden="true">↑</span>
-            <span>{t.scrollTop}</span>
+            <svg className="scroll-top-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path d="M6 5h12" />
+              <path d="M12 19V9" />
+              <path d="m8 13 4-4 4 4" />
+            </svg>
+            <span className="scroll-top-label">{t.scrollTop}</span>
           </button>
         )}
 
