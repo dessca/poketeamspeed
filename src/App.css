@@ -1660,6 +1660,9 @@
 }
 
 .compare-copy {
+  display: grid;
+  align-content: center;
+  gap: 1px;
   min-width: 0;
 }
 
@@ -2845,6 +2848,10 @@
 
 .compare-panel .compare-meta span {
   font-size: 0.82rem;
+}
+
+.compare-panel .compare-copy > span {
+  line-height: 1;
 }
 
 .compare-panel .compare-name-line {
@@ -5380,7 +5387,8 @@
 
   .compare-panel .compare-copy {
     display: grid;
-    gap: 4px;
+    gap: 1px;
+    align-content: center;
     min-width: 0;
   }
 
