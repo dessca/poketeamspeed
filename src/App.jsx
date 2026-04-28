@@ -91,6 +91,8 @@ const VIEW_ROUTES = {
 };
 
 const SITE_URL = "https://scarf.team";
+const QUIZ_CLOSE_SPEED_DELTA = 12;
+const QUIZ_FALLBACK_SPEED_DELTAS = [18, 24, 32];
 const SEO_CONFIG = {
   team: {
     title: "SCARF | Pokemon Speed Calculator",
@@ -304,21 +306,29 @@ const TEXT = {
     rosterSearchAction: "바로 이동",
     rosterSearchMiss: "일치하는 포켓몬을 찾지 못했습니다.",
     quizTitle: "스피드 퀴즈",
-    quizHelp: "두 포켓몬 중 스피드 종족값이 더 높은 쪽을 고르세요.\n같은 스피드라면 같음 버튼을 눌러야 정답입니다.",
+    quizHelp: "기준 포켓몬과 스피드가 비슷한 도전자가 등장합니다.\n도전자의 스피드 종족값이 더 낮은지, 같은지, 더 높은지 고르세요.",
     quizCurrent: "생존 포켓몬",
     quizChallenger: "도전자",
     quizScore: "연속 정답",
     quizBest: "최고 기록",
     quizTie: "같음",
+    quizLower: "도전자가 더 낮음",
+    quizHigher: "도전자가 더 높음",
+    quizYourAnswer: "선택",
+    quizAnswerWas: "정답",
+    quizRelationLeftHigher: "{leftSubject} {right}보다 빠릅니다.",
+    quizRelationRightHigher: "{rightSubject} {left}보다 빠릅니다.",
+    quizRelationSame: "{leftPair} {right}는 동속입니다.",
     quizCorrect: "정답",
     quizWrong: "오답",
-    quizCorrectMessage: "정답입니다. 생존 포켓몬이 남고 다음 도전자가 등장했습니다.",
-    quizTieMessage: "동속 정답입니다. 생존 포켓몬이 그대로 남습니다.",
+    quizCorrectMessage: "정답입니다. 도전자가 다음 기준 포켓몬이 되고 비슷한 스피드의 새 도전자가 등장했습니다.",
+    quizTieMessage: "동속 정답입니다. 도전자가 다음 기준 포켓몬이 됩니다.",
     quizWrongMessage: "아쉽습니다. 공개된 스피드 종족값을 확인하고 다시 도전하세요.",
     quizStart: "게임 시작",
     quizRestart: "다시 시작",
+    quizExit: "나가기",
     quizLoading: "퀴즈 데이터를 준비하는 중입니다.",
-    quizPickFaster: "더 빠른 쪽을 고르세요",
+    quizPickFaster: "도전자의 스피드는?",
     quizGlobalStats: "글로벌 기록",
     quizGlobalLoading: "글로벌 기록을 불러오는 중입니다.",
     quizGlobalUnavailable: "글로벌 기록 서버가 아직 설정되지 않았습니다.",
@@ -453,21 +463,29 @@ const TEXT = {
     rosterSearchAction: "Go",
     rosterSearchMiss: "No matching Pokemon was found.",
     quizTitle: "Speed Quiz",
-    quizHelp: "Pick the Pokemon with the higher base Speed.\nIf both Speed values match, the Tie button is the only correct answer.",
+    quizHelp: "A challenger with a nearby base Speed appears.\nChoose whether the challenger's base Speed is lower, tied, or higher.",
     quizCurrent: "Survivor",
     quizChallenger: "Challenger",
     quizScore: "Streak",
     quizBest: "Best",
     quizTie: "Tie",
+    quizLower: "Challenger lower",
+    quizHigher: "Challenger higher",
+    quizYourAnswer: "Your pick",
+    quizAnswerWas: "Answer",
+    quizRelationLeftHigher: "{left} is faster than {right}.",
+    quizRelationRightHigher: "{right} is faster than {left}.",
+    quizRelationSame: "{left} and {right} have the same Speed.",
     quizCorrect: "Correct",
     quizWrong: "Wrong",
-    quizCorrectMessage: "Correct. The survivor stays and a new challenger appears.",
-    quizTieMessage: "Correct Speed tie. The survivor stays.",
+    quizCorrectMessage: "Correct. The challenger becomes the next reference Pokemon and a nearby-Speed challenger appears.",
+    quizTieMessage: "Correct Speed tie. The challenger becomes the next reference Pokemon.",
     quizWrongMessage: "So close. Check the revealed base Speeds and try again.",
     quizStart: "Start Game",
     quizRestart: "Restart",
+    quizExit: "Exit",
     quizLoading: "Preparing quiz data.",
-    quizPickFaster: "Pick the faster one",
+    quizPickFaster: "Challenger's Speed?",
     quizGlobalStats: "Global Stats",
     quizGlobalLoading: "Loading global stats.",
     quizGlobalUnavailable: "Global stats storage is not configured yet.",
@@ -602,21 +620,29 @@ const TEXT = {
     rosterSearchAction: "移動",
     rosterSearchMiss: "一致するポケモンが見つかりませんでした。",
     quizTitle: "素早さクイズ",
-    quizHelp: "2体のうち、素早さ種族値が高いポケモンを選んでください。\n同じ素早さなら、同速ボタンだけが正解です。",
+    quizHelp: "基準ポケモンに近い素早さの挑戦者が登場します。\n挑戦者の素早さ種族値が低いか、同じか、高いかを選んでください。",
     quizCurrent: "生き残り",
     quizChallenger: "挑戦者",
     quizScore: "連続正解",
     quizBest: "最高記録",
     quizTie: "同速",
+    quizLower: "挑戦者が低い",
+    quizHigher: "挑戦者が高い",
+    quizYourAnswer: "選択",
+    quizAnswerWas: "正解",
+    quizRelationLeftHigher: "{left}は{right}より速いです。",
+    quizRelationRightHigher: "{right}は{left}より速いです。",
+    quizRelationSame: "{left}と{right}は同速です。",
     quizCorrect: "正解",
     quizWrong: "不正解",
-    quizCorrectMessage: "正解です。生き残りが残り、次の挑戦者が登場しました。",
-    quizTieMessage: "同速正解です。生き残りがそのまま残ります。",
+    quizCorrectMessage: "正解です。挑戦者が次の基準ポケモンになり、近い素早さの新しい挑戦者が登場します。",
+    quizTieMessage: "同速正解です。挑戦者が次の基準ポケモンになります。",
     quizWrongMessage: "惜しいです。公開された素早さ種族値を確認して再挑戦しましょう。",
     quizStart: "ゲーム開始",
     quizRestart: "もう一度",
+    quizExit: "終了",
     quizLoading: "クイズデータを準備しています。",
-    quizPickFaster: "速い方を選んでください",
+    quizPickFaster: "挑戦者の素早さは？",
     quizGlobalStats: "グローバル記録",
     quizGlobalLoading: "グローバル記録を読み込み中です。",
     quizGlobalUnavailable: "グローバル記録サーバーはまだ設定されていません。",
@@ -889,9 +915,29 @@ function pickRandomEntry(entries, excludedIds = []) {
   return pool[Math.floor(Math.random() * pool.length)] || null;
 }
 
+function pickNearbyQuizChallenger(entries, current) {
+  if (!current) return pickRandomEntry(entries);
+
+  const currentSpeed = Number(current.speed);
+  const candidates = entries.filter((entry) => entry?.id !== current.id && Number.isFinite(Number(entry.speed)));
+  if (candidates.length === 0) return pickRandomEntry(entries, [current.id]);
+
+  const withDistance = candidates.map((entry) => ({
+    entry,
+    distance: Math.abs(Number(entry.speed) - currentSpeed),
+  }));
+  const closePool = withDistance.filter(({ distance }) => distance <= QUIZ_CLOSE_SPEED_DELTA);
+  const fallbackPool = QUIZ_FALLBACK_SPEED_DELTAS
+    .map((delta) => withDistance.filter(({ distance }) => distance <= delta))
+    .find((pool) => pool.length >= 3);
+  const pool = closePool.length > 0 ? closePool : fallbackPool || withDistance.sort((a, b) => a.distance - b.distance).slice(0, 8);
+
+  return pool[Math.floor(Math.random() * pool.length)]?.entry || null;
+}
+
 function createQuizRound(entries) {
   const current = pickRandomEntry(entries);
-  const challenger = pickRandomEntry(entries, [current?.id]);
+  const challenger = pickNearbyQuizChallenger(entries, current);
   return { current, challenger };
 }
 
@@ -901,6 +947,22 @@ function getReadablePokemonName(entry, language) {
     return getRosterEntryNames(entry).en || label;
   }
   return label;
+}
+
+function hasKoreanFinalConsonant(value) {
+  const lastChar = String(value || "").trim().slice(-1);
+  if (!lastChar) return false;
+  const code = lastChar.charCodeAt(0);
+  if (code < 0xac00 || code > 0xd7a3) return false;
+  return (code - 0xac00) % 28 !== 0;
+}
+
+function formatKoreanSubject(value) {
+  return `${value}${hasKoreanFinalConsonant(value) ? "이" : "가"}`;
+}
+
+function formatKoreanPair(value) {
+  return `${value}${hasKoreanFinalConsonant(value) ? "과" : "와"}`;
 }
 
 function getCanonicalRosterEntry(raw) {
@@ -1717,6 +1779,18 @@ function App() {
 
   const restartQuiz = startQuiz;
 
+  const exitQuiz = () => {
+    setQuizGlobalStats({ status: "idle", data: null });
+    setQuizState({
+      current: null,
+      challenger: null,
+      score: 0,
+      result: null,
+      gameOver: false,
+      started: false,
+    });
+  };
+
   const submitQuizScore = async (score) => {
     setQuizGlobalStats({ status: "loading", data: null });
 
@@ -1748,10 +1822,10 @@ function App() {
     const challengerSpeed = Number(quizState.challenger.speed);
     const correctGuess =
       currentSpeed === challengerSpeed
-        ? "tie"
-        : currentSpeed > challengerSpeed
-          ? "current"
-          : "challenger";
+        ? "same"
+        : challengerSpeed > currentSpeed
+          ? "higher"
+          : "lower";
     const isCorrect = guess === correctGuess;
 
     if (!isCorrect) {
@@ -1770,8 +1844,8 @@ function App() {
       return;
     }
 
-    const survivor = guess === "challenger" ? quizState.challenger : quizState.current;
-    const challenger = pickRandomEntry(quizPool, [survivor.id]);
+    const survivor = quizState.challenger;
+    const challenger = pickNearbyQuizChallenger(quizPool, survivor);
     const nextScore = quizState.score + 1;
     setQuizBest((current) => Math.max(current, nextScore));
     setQuizState({
@@ -1779,7 +1853,7 @@ function App() {
       challenger,
       score: nextScore,
       result: {
-        type: correctGuess === "tie" ? "tie" : "correct",
+        type: correctGuess === "same" ? "tie" : "correct",
         guess,
         correctGuess,
         current: quizState.current,
@@ -2588,17 +2662,12 @@ function App() {
     </div>
   );
 
-  const renderQuizCard = (entry, role, guess) => {
+  const renderQuizCard = (entry, role) => {
     const label = entry ? getReadablePokemonName(entry, language) : "";
     const isRevealed = quizState.gameOver;
     const survived = entry && quizState.result?.survivor?.id === entry.id && !quizState.gameOver;
     return (
-      <button
-        type="button"
-        className={`quiz-card ${role} ${survived ? "survived" : ""}`}
-        onClick={() => handleQuizGuess(guess)}
-        disabled={!entry || quizState.gameOver}
-      >
+      <div className={`quiz-card is-static ${role} ${survived ? "survived" : ""}`}>
         <span className="quiz-card-role">{role === "current" ? t.quizCurrent : t.quizChallenger}</span>
         <span className="quiz-art-shell">
           {entry && <img src={entry.icon} alt="" className="quiz-art" />}
@@ -2607,22 +2676,95 @@ function App() {
         <span className={`quiz-speed ${isRevealed ? "revealed" : ""}`}>
           {t.baseSpeed} {isRevealed ? entry?.speed : "???"}
         </span>
-      </button>
+      </div>
+    );
+  };
+
+  const getQuizRelationSymbol = (relation) => {
+    if (relation === "lower") return ">";
+    if (relation === "higher") return "<";
+    if (relation === "same") return "=";
+    return "?";
+  };
+
+  const formatQuizRelationText = (relation, leftName, rightName) => {
+    const template =
+      relation === "lower"
+        ? t.quizRelationLeftHigher
+        : relation === "higher"
+          ? t.quizRelationRightHigher
+          : relation === "same"
+            ? t.quizRelationSame
+            : "";
+    if (!template) return "";
+    return template
+      .replace("{leftSubject}", formatKoreanSubject(leftName))
+      .replace("{rightSubject}", formatKoreanSubject(rightName))
+      .replace("{leftPair}", formatKoreanPair(leftName))
+      .replace("{left}", leftName)
+      .replace("{right}", rightName);
+  };
+
+  const getQuizRelationText = (relation, leftName, rightName) => {
+    if (relation === "lower" || relation === "higher" || relation === "same") {
+      return formatQuizRelationText(relation, leftName, rightName);
+    }
+    return "";
+  };
+
+  const getQuizResultDetails = () => {
+    const resultCurrent = quizState.result?.current;
+    const resultChallenger = quizState.result?.challenger;
+    const leftName = resultCurrent ? getReadablePokemonName(resultCurrent, language) : "";
+    const rightName = resultChallenger ? getReadablePokemonName(resultChallenger, language) : "";
+    const equation = resultCurrent && resultChallenger
+      ? `${leftName} ${resultCurrent.speed} ${
+          resultCurrent.speed === resultChallenger.speed ? "=" : resultCurrent.speed > resultChallenger.speed ? ">" : "<"
+        } ${resultChallenger.speed} ${rightName}`
+      : "";
+    const answerLines = quizState.result?.type === "wrong"
+      ? [
+          `${t.quizYourAnswer}: ${getQuizRelationSymbol(quizState.result.guess)}`,
+          `${t.quizAnswerWas}: ${getQuizRelationSymbol(quizState.result.correctGuess)} - ${getQuizRelationText(quizState.result.correctGuess, leftName, rightName)}`,
+        ].filter(Boolean)
+      : [];
+
+    return { equation, answerLines };
+  };
+
+  const renderQuizResultReview = () => {
+    const { equation, answerLines } = getQuizResultDetails();
+    if (answerLines.length === 0 && !equation) return null;
+
+    return (
+      <div className="quiz-answer-review">
+        {answerLines.map((line) => (
+          <em key={line}>{line}</em>
+        ))}
+        {equation && <strong>{equation}</strong>}
+      </div>
     );
   };
 
   const renderQuizGlobalStats = () => {
     if (!quizState.gameOver) return null;
+    const resultReview = renderQuizResultReview();
 
     if (quizGlobalStats.status === "loading") {
       return (
         <div className="quiz-global-overlay" role="dialog" aria-modal="true" aria-labelledby="quiz-global-title">
           <section className="quiz-global-panel">
             <h3 id="quiz-global-title">{t.quizGlobalStats}</h3>
+            {resultReview}
             <div className="empty-box in-panel">{t.quizGlobalLoading}</div>
-            <button type="button" className="ghost-button" onClick={restartQuiz}>
-              {t.quizRestart}
-            </button>
+            <div className="quiz-global-actions">
+              <button type="button" className="primary-button" onClick={restartQuiz}>
+                {t.quizRestart}
+              </button>
+              <button type="button" className="ghost-button" onClick={exitQuiz}>
+                {t.quizExit}
+              </button>
+            </div>
           </section>
         </div>
       );
@@ -2633,10 +2775,16 @@ function App() {
         <div className="quiz-global-overlay" role="dialog" aria-modal="true" aria-labelledby="quiz-global-title">
           <section className="quiz-global-panel">
             <h3 id="quiz-global-title">{t.quizGlobalStats}</h3>
+            {resultReview}
             <div className="empty-box in-panel">{t.quizGlobalUnavailable}</div>
-            <button type="button" className="ghost-button" onClick={restartQuiz}>
-              {t.quizRestart}
-            </button>
+            <div className="quiz-global-actions">
+              <button type="button" className="primary-button" onClick={restartQuiz}>
+                {t.quizRestart}
+              </button>
+              <button type="button" className="ghost-button" onClick={exitQuiz}>
+                {t.quizExit}
+              </button>
+            </div>
           </section>
         </div>
       );
@@ -2661,6 +2809,7 @@ function App() {
           <div className="quiz-global-head">
             <h3 id="quiz-global-title">{t.quizGlobalStats}</h3>
           </div>
+          {resultReview}
           <div className="quiz-global-grid">
             <div>
               <span>{t.quizGlobalRank}</span>
@@ -2691,6 +2840,9 @@ function App() {
             <button type="button" className="primary-button" onClick={restartQuiz}>
               {t.quizRestart}
             </button>
+            <button type="button" className="ghost-button" onClick={exitQuiz}>
+              {t.quizExit}
+            </button>
           </div>
         </section>
       </div>
@@ -2717,13 +2869,7 @@ function App() {
           ? t.quizTieMessage
           : t.quizCorrectMessage
       : "";
-    const resultCurrent = quizState.result?.current;
-    const resultChallenger = quizState.result?.challenger;
-    const resultDetail = resultCurrent && resultChallenger
-      ? `${getReadablePokemonName(resultCurrent, language)} ${resultCurrent.speed} ${
-          resultCurrent.speed === resultChallenger.speed ? "=" : resultCurrent.speed > resultChallenger.speed ? ">" : "<"
-        } ${resultChallenger.speed} ${getReadablePokemonName(resultChallenger, language)}`
-      : "";
+    const { equation: resultEquation, answerLines: resultAnswerDetail } = getQuizResultDetails();
 
     return (
       <main className="workspace quiz-workspace">
@@ -2758,19 +2904,43 @@ function App() {
           {quizState.started ? (
             <>
               <div className="quiz-stage" aria-label={t.quizPickFaster}>
-                {renderQuizCard(quizState.current, "current", "current")}
+                {renderQuizCard(quizState.current, "current")}
                 <div className="quiz-versus">
                   <span>VS</span>
-                  <button
-                    type="button"
-                    className="primary-button quiz-tie-button"
-                    onClick={() => handleQuizGuess("tie")}
-                    disabled={quizState.gameOver}
-                  >
-                    {t.quizTie}
-                  </button>
+                  <div className="quiz-relation-actions" aria-label={t.quizPickFaster}>
+                    <button
+                      type="button"
+                      className="ghost-button quiz-answer-button left-higher"
+                      aria-label={`${t.quizCurrent} > ${t.quizChallenger}`}
+                      title={`${t.quizCurrent} > ${t.quizChallenger}`}
+                      onClick={() => handleQuizGuess("lower")}
+                      disabled={quizState.gameOver}
+                    >
+                      {">"}
+                    </button>
+                    <button
+                      type="button"
+                      className="ghost-button quiz-answer-button quiz-tie-button same"
+                      aria-label={t.quizTie}
+                      title={t.quizTie}
+                      onClick={() => handleQuizGuess("same")}
+                      disabled={quizState.gameOver}
+                    >
+                      =
+                    </button>
+                    <button
+                      type="button"
+                      className="ghost-button quiz-answer-button right-higher"
+                      aria-label={`${t.quizCurrent} < ${t.quizChallenger}`}
+                      title={`${t.quizCurrent} < ${t.quizChallenger}`}
+                      onClick={() => handleQuizGuess("higher")}
+                      disabled={quizState.gameOver}
+                    >
+                      {"<"}
+                    </button>
+                  </div>
                 </div>
-                {renderQuizCard(quizState.challenger, "challenger", "challenger")}
+                {renderQuizCard(quizState.challenger, "challenger")}
               </div>
 
               <div className="quiz-actions">
@@ -2796,10 +2966,13 @@ function App() {
                     ? t.quizCorrect
                     : t.quizPickFaster}
               </strong>
-              {(resultMessage || resultDetail) && (
+              {(resultMessage || resultEquation || resultAnswerDetail.length > 0) && (
                 <span>
                   {resultMessage}
-                  {resultDetail && <em className="quiz-result-detail">{resultDetail}</em>}
+                  {resultAnswerDetail.map((line) => (
+                    <em key={line} className="quiz-result-detail">{line}</em>
+                  ))}
+                  {resultEquation && <em className="quiz-result-detail">{resultEquation}</em>}
                 </span>
               )}
             </div>
