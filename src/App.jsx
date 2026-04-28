@@ -86,6 +86,7 @@ const STORAGE = {
 const LANGUAGE_OPTIONS = ["en", "ko", "ja"];
 const DEFAULT_LANGUAGE = "en";
 const VIEW_OPTIONS = ["team", "roster", "quiz"];
+const RANK_VALUES = Array.from({ length: 13 }, (_, index) => 6 - index);
 const VIEW_ROUTES = {
   team: "/team",
   roster: "/roster",
@@ -2743,7 +2744,7 @@ function App() {
                 <span className="option-label">{t.tailwind}</span>
                 <MultiplierBadge value={2} />
               </button>
-              <button type="button" className={`toggle-chip ${state.paralysis ? "on" : ""}`} onClick={() => setBattleUnitState(side, battleSlotIndex, { paralysis: !state.paralysis })}>
+              <button type="button" className={`toggle-chip paralysis-action ${state.paralysis ? "on" : ""}`} onClick={() => setBattleUnitState(side, battleSlotIndex, { paralysis: !state.paralysis })}>
                 <span className="option-label">{t.paralysis}</span>
                 <MultiplierBadge value={0.5} />
               </button>
@@ -2759,7 +2760,14 @@ function App() {
               <span>{t.rank}</span>
               <div className="rank-controls">
                 <button type="button" onClick={() => setBattleUnitState(side, battleSlotIndex, { rank: Math.max(-6, state.rank - 1) })}>-</button>
-                <strong>{state.rank > 0 ? `+${state.rank}` : state.rank}</strong>
+                <strong className="rank-value" aria-live="polite">
+                  <span className="sr-only">{state.rank > 0 ? `+${state.rank}` : state.rank}</span>
+                  <span className="rank-reel" aria-hidden="true" style={{ "--rank-index": 6 - state.rank }}>
+                    {RANK_VALUES.map((rankValue) => (
+                      <span key={rankValue} className="rank-reel-item">{rankValue > 0 ? `+${rankValue}` : rankValue}</span>
+                    ))}
+                  </span>
+                </strong>
                 <button type="button" onClick={() => setBattleUnitState(side, battleSlotIndex, { rank: Math.min(6, state.rank + 1) })}>+</button>
               </div>
             </div>

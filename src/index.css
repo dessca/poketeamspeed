@@ -2,8 +2,14 @@
   font-family:
     "Pretendard Variable",
     Pretendard,
+    Inter,
     "Noto Sans KR",
+    "Noto Sans JP",
+    "Hiragino Sans",
+    "Yu Gothic",
+    Meiryo,
     "Segoe UI",
+    system-ui,
     sans-serif;
   line-height: 1.5;
   font-weight: 400;
