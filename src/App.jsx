@@ -83,6 +83,8 @@ const STORAGE = {
   quizBest: "poke-team-speed:quiz-best",
 };
 
+const LANGUAGE_OPTIONS = ["en", "ko", "ja"];
+const DEFAULT_LANGUAGE = "en";
 const VIEW_OPTIONS = ["team", "roster", "quiz"];
 const VIEW_ROUTES = {
   team: "/team",
@@ -94,27 +96,80 @@ const SITE_URL = "https://scarf.team";
 const QUIZ_CLOSE_SPEED_DELTA = 12;
 const QUIZ_FALLBACK_SPEED_DELTAS = [18, 24, 32];
 const SEO_CONFIG = {
-  team: {
-    title: "SCARF | Pokemon Speed Calculator",
-    description:
-      "Compare Pokemon Champions Speed ranges with stat points, nature, Choice Scarf, Tailwind, abilities, Mega Evolution, and stages.",
-    keywords:
-      "Pokemon speed calculator, Pokemon speed matchup, Pokemon Champions speed, Choice Scarf calculator, Tailwind speed calculator, Mega Evolution speed",
+  en: {
+    team: {
+      title: "SCARF | Pokemon Speed Calculator",
+      description:
+        "Compare Pokemon Champions Speed ranges with stat points, nature, Choice Scarf, Tailwind, abilities, Mega Evolution, and stages.",
+      keywords:
+        "Pokemon speed calculator, Pokemon speed matchup, Pokemon Champions speed, Choice Scarf calculator, Tailwind speed calculator, Mega Evolution speed",
+    },
+    roster: {
+      title: "Pokemon Champions Speed Roster | SCARF",
+      description:
+        "Browse Pokemon Champions and National Dex speed ranges, Mega Evolution speeds, type filters, generation filters, and speed tier sorting.",
+      keywords:
+        "Pokemon Champions speed roster, Pokemon speed tiers, National Dex speed, Mega Evolution speed tiers, Pokemon base speed",
+    },
+    quiz: {
+      title: "Pokemon Speed Quiz | SCARF",
+      description:
+        "Practice Pokemon Champions speed matchups with a quick quiz that tests which Pokemon moves first.",
+      keywords:
+        "Pokemon speed quiz, Pokemon Champions quiz, Pokemon speed matchup practice, Pokemon speed test",
+    },
   },
-  roster: {
-    title: "Pokemon Champions Speed Roster | SCARF",
-    description:
-      "Browse Pokemon Champions and National Dex speed ranges, Mega Evolution speeds, type filters, generation filters, and speed tier sorting.",
-    keywords:
-      "Pokemon Champions speed roster, Pokemon speed tiers, National Dex speed, Mega Evolution speed tiers, Pokemon base speed",
+  ko: {
+    team: {
+      title: "SCARF | 포켓몬 스피드 계산기",
+      description:
+        "포켓몬 챔피언스 배틀에서 실수치, 성격, 구애스카프, 순풍, 특성, 메가진화, 랭크를 반영해 팀 스피드 범위를 비교하세요.",
+      keywords:
+        "포켓몬 스피드 계산기, 포켓몬 챔피언스 스피드, 구애스카프 계산기, 순풍 스피드, 메가진화 스피드",
+    },
+    roster: {
+      title: "포켓몬 챔피언스 스피드 목록 | SCARF",
+      description:
+        "포켓몬 챔피언스와 전국도감 포켓몬의 스피드 범위, 메가진화 스피드, 타입/세대 필터, 스피드 티어 정렬을 확인하세요.",
+      keywords:
+        "포켓몬 챔피언스 스피드 목록, 포켓몬 스피드 티어, 전국도감 스피드, 메가진화 스피드 티어",
+    },
+    quiz: {
+      title: "포켓몬 스피드 퀴즈 | SCARF",
+      description:
+        "포켓몬 챔피언스 스피드 매치업을 빠르게 연습하고, 어떤 포켓몬이 먼저 움직이는지 맞혀보세요.",
+      keywords:
+        "포켓몬 스피드 퀴즈, 포켓몬 챔피언스 퀴즈, 포켓몬 스피드 매치업 연습",
+    },
   },
-  quiz: {
-    title: "Pokemon Speed Quiz | SCARF",
-    description:
-      "Practice Pokemon Champions speed matchups with a quick quiz that tests which Pokemon moves first.",
-    keywords:
-      "Pokemon speed quiz, Pokemon Champions quiz, Pokemon speed matchup practice, Pokemon speed test",
+  ja: {
+    team: {
+      title: "SCARF | ポケモン素早さ計算ツール",
+      description:
+        "Pokémon Championsの対戦で、実数値、性格、こだわりスカーフ、おいかぜ、特性、メガシンカ、ランクを含めて素早さ範囲を比較できます。",
+      keywords:
+        "ポケモン素早さ計算, Pokemon Champions 素早さ, こだわりスカーフ計算, おいかぜ 素早さ, メガシンカ 素早さ",
+    },
+    roster: {
+      title: "Pokémon Champions 素早さリスト | SCARF",
+      description:
+        "Pokémon Championsと全国図鑑の素早さ範囲、メガシンカ時の素早さ、タイプ/世代フィルター、素早さティアを確認できます。",
+      keywords:
+        "Pokemon Champions 素早さリスト, ポケモン素早さティア, 全国図鑑 素早さ, メガシンカ 素早さティア",
+    },
+    quiz: {
+      title: "ポケモン素早さクイズ | SCARF",
+      description:
+        "Pokémon Championsの素早さ対面を練習し、どちらのポケモンが先に動くかを素早く判定しましょう。",
+      keywords:
+        "ポケモン素早さクイズ, Pokemon Champions クイズ, ポケモン素早さ対面練習",
+    },
   },
+};
+const OG_LOCALE_BY_LANGUAGE = {
+  en: "en_US",
+  ko: "ko_KR",
+  ja: "ja_JP",
 };
 
 const ROSTER_RENDER_BATCH = 180;
@@ -772,9 +827,34 @@ function readStorage(key, fallback) {
   }
 }
 
+function normalizeLanguage(value) {
+  return LANGUAGE_OPTIONS.includes(value) ? value : DEFAULT_LANGUAGE;
+}
+
+function getLanguageFromPathname(pathname) {
+  const firstSegment = String(pathname || "/").split("/").filter(Boolean)[0];
+  return LANGUAGE_OPTIONS.includes(firstSegment) ? firstSegment : "";
+}
+
+function stripLanguageFromPathname(pathname) {
+  const segments = String(pathname || "/").split("/").filter(Boolean);
+  if (LANGUAGE_OPTIONS.includes(segments[0])) {
+    return `/${segments.slice(1).join("/")}`.replace(/\/+$/, "") || "/";
+  }
+  return String(pathname || "/");
+}
+
+function getLanguagePrefix(language) {
+  const normalizedLanguage = normalizeLanguage(language);
+  return normalizedLanguage === DEFAULT_LANGUAGE ? "" : `/${normalizedLanguage}`;
+}
+
 function detectInitialLanguage() {
+  const pathLanguage = getLanguageFromPathname(window.location.pathname);
+  if (pathLanguage) return pathLanguage;
+
   const savedLanguage = readStorage(STORAGE.language, null);
-  if (savedLanguage === "ko" || savedLanguage === "en" || savedLanguage === "ja") return savedLanguage;
+  if (LANGUAGE_OPTIONS.includes(savedLanguage)) return savedLanguage;
 
   try {
     const browserLanguages = Array.isArray(navigator.languages) && navigator.languages.length > 0
@@ -823,15 +903,18 @@ function normalizeView(value) {
 }
 
 function getViewFromPathname(pathname) {
-  const normalizedPath = String(pathname || "/").replace(/\/+$/, "") || "/";
+  const normalizedPath = stripLanguageFromPathname(pathname).replace(/\/+$/, "") || "/";
   if (normalizedPath === "/") return "team";
 
   const routeEntry = Object.entries(VIEW_ROUTES).find(([, route]) => route === normalizedPath);
   return routeEntry ? routeEntry[0] : null;
 }
 
-function getRouteForView(value) {
-  return VIEW_ROUTES[normalizeView(value)];
+function getRouteForView(value, language = DEFAULT_LANGUAGE) {
+  const normalizedView = normalizeView(value);
+  const prefix = getLanguagePrefix(language);
+  if (normalizedView === "team") return prefix ? `${prefix}/` : "/";
+  return `${prefix}${VIEW_ROUTES[normalizedView]}`;
 }
 
 function getInitialView() {
@@ -863,16 +946,41 @@ function setLinkTag(selector, attributes) {
   });
 }
 
-function updateSeoForView(value) {
+function getSeoConfig(value, language) {
   const normalizedView = normalizeView(value);
-  const config = SEO_CONFIG[normalizedView] || SEO_CONFIG.team;
-  const canonicalUrl = normalizedView === "team" ? `${SITE_URL}/` : `${SITE_URL}${getRouteForView(normalizedView)}`;
-  const imageUrl = `${SITE_URL}/logo.png`;
+  const normalizedLanguage = normalizeLanguage(language);
+  return SEO_CONFIG[normalizedLanguage]?.[normalizedView] || SEO_CONFIG.en.team;
+}
 
+function updateSeoForView(value, language = DEFAULT_LANGUAGE) {
+  const normalizedView = normalizeView(value);
+  const normalizedLanguage = normalizeLanguage(language);
+  const config = getSeoConfig(normalizedView, normalizedLanguage);
+  const route = getRouteForView(normalizedView, normalizedLanguage);
+  const canonicalUrl = `${SITE_URL}${route === "/" ? "/" : route}`;
+  const imageUrl = `${SITE_URL}/logo.png`;
+  const alternateRoutes = {
+    en: `${SITE_URL}${getRouteForView(normalizedView, "en")}`,
+    ko: `${SITE_URL}${getRouteForView(normalizedView, "ko")}`,
+    ja: `${SITE_URL}${getRouteForView(normalizedView, "ja")}`,
+  };
+
+  document.documentElement.setAttribute("lang", normalizedLanguage);
   document.title = config.title;
   setMetaTag('meta[name="description"]', { name: "description", content: config.description });
   setMetaTag('meta[name="keywords"]', { name: "keywords", content: config.keywords });
   setLinkTag('link[rel="canonical"]', { rel: "canonical", href: canonicalUrl });
+  setLinkTag('link[rel="alternate"][hreflang="en"]', { rel: "alternate", hreflang: "en", href: alternateRoutes.en });
+  setLinkTag('link[rel="alternate"][hreflang="ko"]', { rel: "alternate", hreflang: "ko", href: alternateRoutes.ko });
+  setLinkTag('link[rel="alternate"][hreflang="ja"]', { rel: "alternate", hreflang: "ja", href: alternateRoutes.ja });
+  setLinkTag('link[rel="alternate"][hreflang="x-default"]', { rel: "alternate", hreflang: "x-default", href: alternateRoutes.en });
+  setMetaTag('meta[property="og:locale"]', {
+    property: "og:locale",
+    content: OG_LOCALE_BY_LANGUAGE[normalizedLanguage] || OG_LOCALE_BY_LANGUAGE.en,
+  });
+  setMetaTag('meta[property="og:locale:alternate"][content="en_US"]', { property: "og:locale:alternate", content: "en_US" });
+  setMetaTag('meta[property="og:locale:alternate"][content="ko_KR"]', { property: "og:locale:alternate", content: "ko_KR" });
+  setMetaTag('meta[property="og:locale:alternate"][content="ja_JP"]', { property: "og:locale:alternate", content: "ja_JP" });
   setMetaTag('meta[property="og:title"]', { property: "og:title", content: config.title });
   setMetaTag('meta[property="og:description"]', { property: "og:description", content: config.description });
   setMetaTag('meta[property="og:url"]', { property: "og:url", content: canonicalUrl });
@@ -891,7 +999,7 @@ function updateSeoForView(value) {
           name: "SCARF",
           url: `${SITE_URL}/`,
           inLanguage: ["en", "ko", "ja"],
-          description: SEO_CONFIG.team.description,
+          description: SEO_CONFIG.en.team.description,
         },
         {
           "@type": "WebApplication",
@@ -1620,7 +1728,7 @@ function App() {
 
   const navigateToView = (nextView) => {
     const normalizedView = normalizeView(nextView);
-    const nextPath = getRouteForView(normalizedView);
+    const nextPath = getRouteForView(normalizedView, language);
     const currentPath = `${window.location.pathname}${window.location.search}${window.location.hash}`;
 
     setView(normalizedView);
@@ -1634,19 +1742,29 @@ function App() {
     const routeView = getViewFromPathname(window.location.pathname);
     const normalizedView = routeView || "team";
 
-    if (!routeView || window.location.pathname === "/") {
-      window.history.replaceState({ view: normalizedView }, "", getRouteForView(normalizedView));
+    if (!routeView) {
+      window.history.replaceState({ view: normalizedView }, "", getRouteForView(normalizedView, language));
     }
 
     const handlePopState = () => {
       setView(getViewFromPathname(window.location.pathname) || "team");
+      const pathLanguage = getLanguageFromPathname(window.location.pathname);
+      if (pathLanguage) setLanguage(pathLanguage);
     };
 
     window.addEventListener("popstate", handlePopState);
     return () => window.removeEventListener("popstate", handlePopState);
-  }, []);
+  }, [language]);
 
-  useEffect(() => updateSeoForView(view), [view]);
+  useEffect(() => {
+    const nextPath = getRouteForView(view, language);
+    const currentPath = `${window.location.pathname}${window.location.search}${window.location.hash}`;
+    if (currentPath !== nextPath) {
+      window.history.replaceState({ view }, "", nextPath);
+    }
+  }, [language, view]);
+
+  useEffect(() => updateSeoForView(view, language), [language, view]);
   useEffect(() => writeStorage(STORAGE.theme, theme), [theme]);
   useEffect(() => writeStorage(STORAGE.language, language), [language]);
   useEffect(() => writeStorage(STORAGE.view, view), [view]);

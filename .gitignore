@@ -12,6 +12,7 @@ dist
 dist-ssr
 *.local
 backup/
+/*.png
 review-*.png
 tmp-chrome-profile*/
 tmp-chrome*/

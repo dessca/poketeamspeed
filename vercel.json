@@ -1,6 +1,14 @@
 {
   "rewrites": [
     {
+      "source": "/ko/((?!api/|.*\\..*).*)",
+      "destination": "/ko/index.html"
+    },
+    {
+      "source": "/ja/((?!api/|.*\\..*).*)",
+      "destination": "/ja/index.html"
+    },
+    {
       "source": "/((?!api/|.*\\..*).*)",
       "destination": "/index.html"
     }
