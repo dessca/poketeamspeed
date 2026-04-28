@@ -145,11 +145,6 @@
   border-radius: 8px;
 }
 
-.brand-home-link:hover .brand-mark,
-.brand-title-link:hover .brand-main {
-  opacity: 0.82;
-}
-
 .brand-mark {
   width: clamp(42px, 3.2vw, 54px);
   height: clamp(42px, 3.2vw, 54px);
