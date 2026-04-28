@@ -15,6 +15,13 @@ export default defineConfig({
         ko: resolve(projectRoot, 'ko/index.html'),
         ja: resolve(projectRoot, 'ja/index.html'),
       },
+      output: {
+        manualChunks(id) {
+          const normalizedId = id.replaceAll('\\', '/')
+          if (id.includes('node_modules')) return 'vendor'
+          if (normalizedId.includes('/src/data/allPokemonRoster')) return 'roster-data'
+        },
+      },
     },
   },
 })

@@ -1484,7 +1484,7 @@
 .battle-side-head select option,
 .mega-select option {
   color: var(--text);
-  background: #ffffff;
+  background: var(--panel-strong);
 }
 
 .app-shell.dark .lang-select option,
@@ -1492,7 +1492,7 @@
 .app-shell.dark .battle-side-head select option,
 .app-shell.dark .mega-select option {
   color: var(--text);
-  background: #111b2d;
+  background: var(--panel-strong);
 }
 
 .ghost-icon {
