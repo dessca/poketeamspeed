@@ -3188,9 +3188,13 @@ function App() {
       <div className="app-chrome">
         <header className="app-header">
           <div className="brand">
-            <img src="/logo.png" alt="" className="brand-mark" />
+            <button type="button" className="brand-home-link" aria-label={`${t.titleMain} ${t.teamView}`} onClick={() => navigateToView("team")}>
+              <img src="/logo.png" alt="" className="brand-mark" />
+            </button>
             <h1>
-              <span className="brand-main">{t.titleMain} </span>
+              <button type="button" className="brand-title-link" aria-label={`${t.titleMain} ${t.teamView}`} onClick={() => navigateToView("team")}>
+                <span className="brand-main">{t.titleMain}</span>
+              </button>
               <span className="brand-sub">{t.titleSub}</span>
             </h1>
             <Tooltip label="?" text={t.titleHelp} className="inline-help" />

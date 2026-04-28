@@ -114,6 +114,42 @@
   min-width: 0;
 }
 
+.brand-home-link,
+.brand-title-link {
+  appearance: none;
+  border: 0;
+  padding: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  line-height: inherit;
+  cursor: pointer;
+}
+
+.brand-home-link {
+  display: inline-flex;
+  align-items: center;
+  flex: 0 0 auto;
+}
+
+.brand-title-link {
+  display: inline-flex;
+  align-items: baseline;
+  min-width: 0;
+}
+
+.brand-home-link:focus-visible,
+.brand-title-link:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+  border-radius: 8px;
+}
+
+.brand-home-link:hover .brand-mark,
+.brand-title-link:hover .brand-main {
+  opacity: 0.82;
+}
+
 .brand-mark {
   width: clamp(42px, 3.2vw, 54px);
   height: clamp(42px, 3.2vw, 54px);
