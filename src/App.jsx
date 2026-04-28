@@ -3802,10 +3802,9 @@ function App() {
                       <div className="icon-shell">
                         <img src={row.icon} alt="" className="slot-icon" />
                       </div>
-                      <div>
+                      <div className="compare-copy">
                         <div className="compare-name-line">
                           <strong title={row.label}>{row.label}</strong>
-                          {row.isMega && <span className="mini-chip mega">{t.rosterFilterMega}</span>}
                         </div>
                         <span>{t.baseSpeed} {row.baseSpeed}</span>
                       </div>
