@@ -1672,6 +1672,7 @@ function App() {
   const rosterSearchTimerRef = useRef(null);
   const previousComparePositions = useRef(new Map());
   const [isBattleResultVisible, setIsBattleResultVisible] = useState(false);
+  const [isMobileBattleSummaryCollapsed, setIsMobileBattleSummaryCollapsed] = useState(false);
   const [battleState, dispatchBattleState] = useReducer(battleStateReducer, undefined, () => normalizeBattleState());
 
   const {
@@ -3121,6 +3122,18 @@ function App() {
     battleResultRef.current?.scrollIntoView({ behavior: "smooth", block: "center" });
   };
 
+  const renderMobileBattleSummaryToggle = () => (
+    <button
+      type="button"
+      className="mobile-summary-toggle"
+      aria-label={isMobileBattleSummaryCollapsed ? "Expand battle summary" : "Collapse battle summary"}
+      aria-expanded={!isMobileBattleSummaryCollapsed}
+      onClick={() => setIsMobileBattleSummaryCollapsed((current) => !current)}
+    >
+      <span aria-hidden="true">{isMobileBattleSummaryCollapsed ? "⌃" : "⌄"}</span>
+    </button>
+  );
+
   const renderMobileBattleSummary = () => {
     if (view !== "team") return null;
     if (isBattleResultVisible) return null;
@@ -3129,33 +3142,39 @@ function App() {
       if (!isDoubleBattleReady || doubleBattleEntries.length === 0) return null;
 
       return (
-        <button type="button" className={`mobile-battle-summary ${doubleBattleEntries[0]?.side || "neutral"}`} onClick={scrollToBattleResult}>
-          <span className="mobile-battle-summary-title">{t.doubleOrderTitle}</span>
-          <span className="mobile-battle-order" aria-hidden="true">
-            {doubleBattleEntries.map((entry, orderIndex) => (
-              <span key={`${entry.side}-${entry.battleSlotIndex}`} className={`mobile-order-chip ${entry.side}`}>
-                <strong>#{orderIndex + 1}</strong>
-                <img src={entry.icon} alt="" />
-              </span>
-            ))}
-          </span>
-        </button>
+        <div className={`mobile-battle-summary ${doubleBattleEntries[0]?.side || "neutral"} ${isMobileBattleSummaryCollapsed ? "is-collapsed" : ""}`}>
+          <button type="button" className="mobile-summary-main double" onClick={scrollToBattleResult}>
+            <span className="mobile-battle-summary-title">{t.doubleOrderTitle}</span>
+            <span className="mobile-battle-order" aria-hidden="true">
+              {doubleBattleEntries.map((entry, orderIndex) => (
+                <span key={`${entry.side}-${entry.battleSlotIndex}`} className={`mobile-order-chip ${entry.side}`}>
+                  <strong>#{orderIndex + 1}</strong>
+                  <img src={entry.icon} alt="" />
+                </span>
+              ))}
+            </span>
+          </button>
+          {renderMobileBattleSummaryToggle()}
+        </div>
       );
     }
 
     if (!allyBattleGraph || !enemyBattleGraph || !verdict) return null;
 
     return (
-      <button type="button" className={`mobile-battle-summary ${verdict.tone || "neutral"}`} onClick={scrollToBattleResult}>
-        <img src={getDisplayIcon(allyBattleSlot, battleState.ally[0].mega)} alt="" className="mobile-summary-icon ally" />
-        <span className="mobile-summary-copy">
-          <strong>{verdict.title}</strong>
-          <span>
-            {formatRange(allyBattleGraph.min, allyBattleGraph.max, language)} vs {formatRange(enemyBattleGraph.min, enemyBattleGraph.max, language)}
+      <div className={`mobile-battle-summary ${verdict.tone || "neutral"} ${isMobileBattleSummaryCollapsed ? "is-collapsed" : ""}`}>
+        <button type="button" className="mobile-summary-main single" onClick={scrollToBattleResult}>
+          <img src={getDisplayIcon(allyBattleSlot, battleState.ally[0].mega)} alt="" className="mobile-summary-icon ally" />
+          <span className="mobile-summary-copy">
+            <strong>{verdict.title}</strong>
+            <span>
+              {formatRange(allyBattleGraph.min, allyBattleGraph.max, language)} vs {formatRange(enemyBattleGraph.min, enemyBattleGraph.max, language)}
+            </span>
           </span>
-        </span>
-        <img src={getDisplayIcon(enemyBattleSlot, battleState.enemy[0].mega)} alt="" className="mobile-summary-icon enemy" />
-      </button>
+          <img src={getDisplayIcon(enemyBattleSlot, battleState.enemy[0].mega)} alt="" className="mobile-summary-icon enemy" />
+        </button>
+        {renderMobileBattleSummaryToggle()}
+      </div>
     );
   };
 
