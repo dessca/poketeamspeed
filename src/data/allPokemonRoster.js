@@ -13859,10 +13859,7 @@ export const allPokemonRoster = [
       "bug"
     ],
     "generation": 7,
-    "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/751.png",
-    "isChampion": true,
-    "championId": "0751",
-    "championSpeed": 42
+    "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/751.png"
   },
   {
     "id": "nat-0752",
@@ -13879,7 +13876,9 @@ export const allPokemonRoster = [
       "bug"
     ],
     "generation": 7,
-    "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/752.png"
+    "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/752.png",
+    "isChampion": true,
+    "championId": "0752"
   },
   {
     "id": "nat-0753",
