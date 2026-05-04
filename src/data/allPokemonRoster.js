@@ -4277,8 +4277,7 @@ export const allPokemonRoster = [
     "generation": 2,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/213.png",
     "isChampion": true,
-    "championId": "0213",
-    "championSpeed": 40
+    "championId": "0213"
   },
   {
     "id": "nat-0214",
@@ -12312,8 +12311,7 @@ export const allPokemonRoster = [
     "generation": 6,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/670.png",
     "isChampion": true,
-    "championId": "0670",
-    "championSpeed": 42
+    "championId": "0670"
   },
   {
     "id": "nat-0671",
@@ -12641,8 +12639,7 @@ export const allPokemonRoster = [
     "generation": 6,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/689.png",
     "isChampion": true,
-    "championId": "0689",
-    "championSpeed": 59
+    "championId": "0689"
   },
   {
     "id": "nat-0690",
@@ -17364,8 +17361,7 @@ export const allPokemonRoster = [
     "generation": 9,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/959.png",
     "isChampion": true,
-    "championId": "0959",
-    "championSpeed": 84
+    "championId": "0959"
   },
   {
     "id": "nat-0960",
@@ -17517,8 +17513,7 @@ export const allPokemonRoster = [
     "generation": 9,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/968.png",
     "isChampion": true,
-    "championId": "0968",
-    "championSpeed": 35
+    "championId": "0968"
   },
   {
     "id": "nat-0969",
