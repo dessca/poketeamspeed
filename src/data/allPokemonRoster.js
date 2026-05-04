@@ -14333,9 +14333,7 @@ export const allPokemonRoster = [
       "psychic"
     ],
     "generation": 7,
-    "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/779.png",
-    "isChampion": true,
-    "championId": "0779"
+    "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/779.png"
   },
   {
     "id": "nat-0780",
@@ -19911,15 +19909,6 @@ export const championMegaOptionsById = {
       "speed": 33,
       "labelEn": "Mega Crabominable",
       "labelJa": "メガケケンカニ"
-    }
-  ],
-  "0779": [
-    {
-      "key": "mega",
-      "label": "메가치갈기",
-      "speed": 92,
-      "labelEn": "Mega Bruxish",
-      "labelJa": "メガハギギシリ"
     }
   ],
   "0780": [
