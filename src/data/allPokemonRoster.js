@@ -14338,8 +14338,7 @@ export const allPokemonRoster = [
     "generation": 7,
     "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/779.png",
     "isChampion": true,
-    "championId": "0779",
-    "championSpeed": 36
+    "championId": "0779"
   },
   {
     "id": "nat-0780",
@@ -14356,7 +14355,9 @@ export const allPokemonRoster = [
       "dragon"
     ],
     "generation": 7,
-    "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/780.png"
+    "icon": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/780.png",
+    "isChampion": true,
+    "championId": "0780"
   },
   {
     "id": "nat-0781",
@@ -19920,10 +19921,19 @@ export const championMegaOptionsById = {
   "0779": [
     {
       "key": "mega",
-      "label": "메가할비롱",
-      "speed": 36,
+      "label": "메가치갈기",
+      "speed": 92,
       "labelEn": "Mega Bruxish",
       "labelJa": "メガハギギシリ"
+    }
+  ],
+  "0780": [
+    {
+      "key": "mega",
+      "label": "메가할비롱",
+      "speed": 36,
+      "labelEn": "Mega Drampa",
+      "labelJa": "メガジジーロン"
     }
   ],
   "0952": [
