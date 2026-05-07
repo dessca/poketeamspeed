@@ -23,6 +23,7 @@ import {
   DEFAULT_ABILITY_OPTIONS,
   getAbilityOptions,
   getDisplayIcon,
+  getMegaArt,
   getMegaChoices,
   getGraphBarHeight,
   getGraphSegmentRenderPriority,
@@ -1059,6 +1060,27 @@ function createQuizRound(entries) {
   return { current, challenger };
 }
 
+function buildQuizPoolEntries(roster, megaOptions) {
+  return roster.flatMap((entry) => {
+    const baseEntry = [entry];
+    const megaEntries = getMegaOptionsForEntry(megaOptions, entry).map((mega) => ({
+      ...entry,
+      id: `${entry.id}-${mega.key}`,
+      speed: mega.speed,
+      icon: getMegaArt(mega) || entry.icon,
+      names: {
+        ko: mega.label || mega.labelEn || getPrimaryRosterName(entry),
+        en: mega.labelEn || mega.label || getRosterEntryNames(entry).en,
+        ja: mega.labelJa || mega.labelEn || mega.label || getRosterEntryNames(entry).ja,
+      },
+      isMega: true,
+      baseSpeciesId: entry.id,
+    }));
+
+    return [...baseEntry, ...megaEntries];
+  });
+}
+
 function getReadablePokemonName(entry, language) {
   const label = getLocalizedName(entry, language);
   if ((language === "ko" || language === "ja") && /[?�]/.test(label)) {
@@ -1846,13 +1868,13 @@ function App() {
   );
   const quizPool = useMemo(
     () =>
-      (teamChampionsOnly ? championsRoster : sourceRoster).filter(
-        (entry) =>
-          entry?.id &&
-          entry?.icon &&
-          Number.isFinite(Number(entry.speed))
+      buildQuizPoolEntries(
+        teamChampionsOnly ? championsRoster : sourceRoster,
+        teamChampionsOnly ? MEGA_OPTIONS : sourceMegaOptions
+      ).filter(
+        (entry) => entry?.id && entry?.icon && Number.isFinite(Number(entry.speed))
       ),
-    [sourceRoster, teamChampionsOnly]
+    [sourceMegaOptions, sourceRoster, teamChampionsOnly]
   );
 
   useEffect(() => {
