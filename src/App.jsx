@@ -1666,6 +1666,12 @@ function SpeedGraph({ graph, maxValue, tone = "ally", compact = false, markerVal
   );
 }
 
+function formatGraphMainRange(graph, language) {
+  const min = graph.pointMin ?? graph.point ?? 0;
+  const max = graph.pointMax ?? graph.point ?? min;
+  return formatRange(min, max, language);
+}
+
 function App() {
   const [language, setLanguage] = useState(() => detectInitialLanguage());
   const [theme, setTheme] = useState(() => readStorage(STORAGE.theme, "dark"));
@@ -2669,7 +2675,7 @@ function App() {
               {graph && (
                 <div className="detail-range battle-summary-range">
                   <small>{getLocalizedCurrentSpeedLabel(language)}</small>
-                  <strong>{formatRange(graph.min, graph.max, language)}</strong>
+                  <strong>{formatGraphMainRange(graph, language)}</strong>
                 </div>
               )}
             </div>
@@ -3591,7 +3597,7 @@ function App() {
                               <div className="battle-order-graph">
                                 <SpeedGraph graph={entry.graph} maxValue={doubleBattleMax} tone={entry.side} compact />
                               </div>
-                              <div className="battle-order-range">{formatRange(entry.graph.min, entry.graph.max, language)}</div>
+                              <div className="battle-order-range">{formatGraphMainRange(entry.graph, language)}</div>
                             </article>
                           ))}
                         </div>
