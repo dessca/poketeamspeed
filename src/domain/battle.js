@@ -709,7 +709,7 @@ function getPointAbilityFactor(slot, battleState = null) {
   const selected = getSelectedAbility(slot, battleState);
 
   if (!battleState) {
-    return slot.abilitySetting === "unknown" ? 1 : selected.multiplier;
+    return 1;
   }
 
   if (slot.abilitySetting === "unknown") return 1;
@@ -721,7 +721,9 @@ function getMarkerAbilityValues(slot, battleState = null) {
   const selected = getSelectedAbility(slot, battleState);
 
   if (!battleState) {
-    return slot.abilitySetting === "unknown" ? getAbilityValues(slot, battleState) : [selected.multiplier];
+    if (slot.abilitySetting === "unknown") return getAbilityValues(slot, battleState);
+    if (selected.multiplier === 1) return [1];
+    return [1, selected.multiplier];
   }
 
   if (!canActivateBattleAbility(slot, battleState)) return [1];

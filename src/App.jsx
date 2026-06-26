@@ -3452,7 +3452,7 @@ function App() {
                           {selectedGraph && (
                             <div className="detail-range battle-summary-range">
                               <small>{getLocalizedCurrentSpeedLabel(language)}</small>
-                              <strong>{formatRange(selectedGraph.min, selectedGraph.max, language)}</strong>
+                              <strong>{formatGraphMainRange(selectedGraph, language)}</strong>
                             </div>
                           )}
                         </div>
@@ -3690,7 +3690,7 @@ function App() {
                       </div>
                       <div className="compare-graph-block">
                         <SpeedGraph graph={row.graph} maxValue={compareMax} tone={row.side} />
-                        <div className="compare-range">{formatRange(row.graph.min, row.graph.max, language)}</div>
+                        <div className="compare-range">{formatGraphMainRange(row.graph, language)}</div>
                       </div>
                     </article>
                   ))
